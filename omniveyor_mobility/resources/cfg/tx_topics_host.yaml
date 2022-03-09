@@ -1,0 +1,4 @@
+udp_topics:
+ - name: "/cmd_vel"
+   compress: false
+   rate: 40.0

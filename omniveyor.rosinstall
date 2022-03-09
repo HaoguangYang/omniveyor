@@ -1,0 +1,19 @@
+- git:
+    local-name: omniveyor_common
+    uri: https://github.com/HaoguangYang/omniveyor_common.git
+    version: master 
+    
+- git:
+    local-name: omniveyor
+    uri: https://github.com/HaoguangYang/omniveyor.git
+    version: master
+
+- git:
+    local-name: omniveyor/spatio_temporal_voxel_layer
+    uri: https://github.com/HaoguangYang/spatio_temporal_voxel_layer.git
+    version: noetic-devel
+    
+- git:
+    local-name: omniveyor/nimbro_network
+    uri: https://github.com/AIS-Bonn/nimbro_network.git
+    version: bugfix/prune_segfault

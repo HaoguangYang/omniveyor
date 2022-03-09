@@ -1,0 +1,28 @@
+<launch>
+    <!--
+      This launch file runs a sender node, which sends topics from the local
+      roscore over the network on port 17001.
+
+      By default, this launch file sends topics to your local machine for
+      testing purposes. If you want to send to another machine, use
+        roslaunch nimbro_topic_transport sender.launch target:=other_host
+      where other_host can be a host name or IP address.
+
+      See udp_receiver.launch for the receiving part.
+    -->
+    
+    <arg name="target"    default="192.168.254.109" />
+    <arg name="tx_port"   default="17002" />
+    
+    <!-- The sender node -->
+    <node name="$(anon sender)" pkg="nimbro_topic_transport" type="sender" output="screen">
+
+        <!-- The destination host name or IP address -->
+        <param name="destination_addr" value="$(arg target)" />
+        <param name="port" value="$(arg tx_port)" />
+
+        <!-- Load the list of topics from a YAML file -->
+        <rosparam command="load" file="$(find omniveyor_mobility)/resources/cfg/tx_topics_host.yaml" />
+    </node>
+    
+</launch>

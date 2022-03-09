@@ -1,0 +1,29 @@
+<launch>
+    <!--
+      This launch file runs a sender node and a receiver node, that communicates with the target machine.
+      
+      To achieve P2P communication, the target machine should have the same set of nodes,
+        with tx_port and rx_port swapped.
+        
+      The remote topics and tf received will be prefixed with the remote_namespace.
+      
+      Notice that the ports are swapped compared to the launch in pcv_base package,
+        since we are running this on the host side (tx-->rx, and vice versa).
+    -->
+    
+    <arg name="target"    default="192.168.254.109" />
+    <arg name="tx_port"   default="17002" />
+    <arg name="rx_port"   default="17001" />
+    <arg name="remote_namespace"   default="multi_robot"/>
+    
+    <include file="$(find omniveyor_mobility)/launch/includes/multi_robot_tx.launch">
+        <arg name="target" value="$(arg target)"/>
+        <arg name="tx_port" value="$(arg tx_port)"/>
+    </include>
+    
+    <include file="$(find omniveyor_mobility)/launch/includes/multi_robot_rx.launch">
+        <arg name="rx_port" value="$(arg rx_port)"/>
+        <arg name="remote_namespace" value="$(arg remote_namespace)"/>
+    </include>
+    
+</launch>

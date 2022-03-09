@@ -1,0 +1,29 @@
+<launch>
+    <!--
+      This launch file runs a receiver node, which receives topics
+      over the network on port 17001 and publishes them on the local roscore.
+
+      See udp_sender.launch for the sender part.
+    -->
+    
+    <arg name="rx_port"            default="17001" />
+    <arg name="remote_namespace"   default="multi_robot"/>
+    
+    <!-- The receiver node -->
+    <node name="$(anon receiver)" pkg="nimbro_topic_transport" type="receiver" output="screen">
+        <!-- The port to receive packets on -->
+        <param name="port" value="$(arg rx_port)" />
+
+        <!-- Remap topics so that sender & receiver do not clash if run on the
+          same machine. This can also be used to distinguish remote topics
+          from local ones.
+        -->
+        <param name="topic_prefix" value="$(arg remote_namespace)/" />
+
+        <!-- Rewrite messages so that tf frame_ids are prefixed with the
+          specified string.
+        -->
+        <param name="tf_prefix" value="$(arg remote_namespace)/" />
+    </node>
+    
+</launch>
