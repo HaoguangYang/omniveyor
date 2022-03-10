@@ -149,21 +149,46 @@ class ModuleComponent:
         self.args = args
         self.kwargs = kwargs
 
-class ReFrESH_Module:
-    def __init__(self, name):
-        self.name = name
-        self.EX = ModuleComponent(Ftype.THREAD, (), {})
-        self.EV = ModuleComponent(Ftype.THREAD, (), {})
-        self.ES = ModuleComponent(Ftype.THREAD, (), {})
+class ReconfigureMetric:
+    def __init__(self):
+        # normalized performance utilization: a continuous value between 0 and 1.
+        # 1: performance degraded to the tolerable bounds.
+        # 0: performance is the same as the ideal condition.
+        self.performanceUtil = 0.
+        # normalized resource utilization: a continuous value between 0 and 1.
+        # 1: the module utilizes all quota of available resources.
+        # 0: the module utilizes no resource.
+        self.resourceUtil = 0.
     
-    def setComponentProperties(self, which, ftype, ns=None, exec=None, args=None, mType=None, kwargs=None):
+    def update(self, performanceDims, resourceDims):
+        self.performanceUtil = max(performanceDims)
+        self.resourceUtil = max(resourceDims)
+
+class ReFrESH_Module:
+    def __init__(self, name, priority=0, preemptive=False, EX_thread=1, EV_thread=1, ES_thread=1):
+        self.name = name
+        # the higher priority, the more important.
+        self.priority = priority
+        # preemptive: This module suspends all other modules in the enabled list
+        # that has lower priority, until finished
+        self.preemptive = preemptive
+        self.done = False
+        self.EX_thread = EX_thread
+        self.EV_thread = EV_thread
+        self.ES_thread = ES_thread
+        self.reconfigMetric = ReconfigureMetric()
+        self.EX = [ModuleComponent(Ftype.THREAD, (), {}) for i in range(self.EX_thread)]
+        self.EV = [ModuleComponent(Ftype.THREAD, (), {}) for i in range(self.EV_thread)]
+        self.ES = [ModuleComponent(Ftype.THREAD, (), {}) for i in range(self.ES_thread)]
+    
+    def setComponentProperties(self, which, ind, ftype, ns=None, exec=None, args=None, mType=None, kwargs=None):
         this = None
         if (which in ['EX', 'ex', 'Execute', 'execute', 'Executor', 'executer', self.EX]):
-            this = self.EX
+            this = self.EX[ind]
         elif (which in ['EV', 'ev', 'Evaluate', 'evaluate', 'Evaluator', 'evaluator', self.EV]):
-            this = self.EV
+            this = self.EV[ind]
         elif (which in ['ES', 'es', 'Estimate', 'estimate', 'Estimator', 'estimator', self.ES]):
-            this = self.ES
+            this = self.ES[ind]
         else:
             error("ERROR: Invalid set-property request!")
         this.ftype = ftype
@@ -187,89 +212,162 @@ class ReFrESH_Module:
             this.kwargs = {**this.kwargs, **kwargs}
         else:
             print("ERROR: type not implemented.")
-
+    
+    def on_completion(self):
+        self.done = True
+        
 class Manager:
-    def __init__(self, launcher, managedModules=[]):
+    def __init__(self, launcher, managedModules=[], freq=5.0):
         self.launcher = None
         if isinstance(launcher, Launcher):
             self.launcher = launcher
         else:
             error("ERROR: not initializing the manager with the correct ROS launcher.")
         # No memory copy
-        self.moduleSet = set(item.name for item in managedModules) # make it a name set
-        self.onSet = set()
-        self.offSet = set()
-        self.Decider = ModuleComponent(Ftype.THREAD, (), {})
+        self.moduleSet = set(item for item in managedModules)   # make it a set of class pointers
+        self.onSet = set()      # set of triplets: (name, [ex], [ev])
+        self.readySet = set()   # set of ready (preempted) modules: name
+        self.offSet = set()     # set of duets: (name, [es])
+        self.Decider = ModuleComponent(Ftype.TIMER, (freq, self.basicDecider), {})
         self.Decider_proc = None
         for m in managedModules:
             if isinstance(m, ReFrESH_Module):
                 # turn on ES
-                es = self.launcher.launch(m.ES.ftype, *tuple(m.ES.args), **dict(m.ES.kwargs))
+                es = [self.launcher.launch(th.ftype, *tuple(th.args), **dict(th.kwargs)) for th in m.ES]
                 self.offSet.add((m.name, es))
             else:
                 error("ERROR: not initializing the manager with the supported module class: ReFrESH_Module.")
-        
+    
+    def moduleIsOn(self, module):
+        res = [m for m in self.onSet if m[0]==module.name]
+        return len(res), res
+    
+    def moduleIsOff(self, module):
+        res = [m for m in self.offSet if m[0]==module.name]
+        return len(res), res
+    
     def turnOn(self, module):
-        if module.name in self.moduleSet:
-            res = [m for m in self.onSet if m[0]==module.name]
-            if len(res):
+        if module in self.moduleSet:
+            isOn, res = self.moduleIsOn(module)
+            if isOn:
                 # module is already on
                 print("ERROR: ON request for module "+res[0]+", which is already ON.")
             else:
                 # turn off ES
-                res_off = [m_off for m_off in self.offSet if m_off[0]==module.name]
-                if len(res_off):
+                isOff, res_off = self.moduleIsOff(module)
+                if isOff:
                     for item in res_off:
+                        for th in item[1]:
+                            self.launcher.stop(th)
                         self.offSet.remove(item)
-                        self.launcher.stop(item[1])
                 else:
                     error("ERROR: The managed module is neither on nor off. Something bad happened.")
                 # turn on EX
-                ex = self.launcher.launch(module.EX.ftype, *tuple(module.EX.args), **dict(module.EX.kwargs))
+                ex = [self.launcher.launch(th.ftype, *tuple(th.args), **dict(th.kwargs)) for th in module.EX]
                 # turn on EV
-                ev = self.launcher.launch(module.EV.ftype, *tuple(module.EV.args), **dict(module.EV.kwargs))
+                ev = [self.launcher.launch(th.ftype, *tuple(th.args), **dict(th.kwargs)) for th in module.EV]
                 # add (module, proc) to self.onSet
                 self.onSet.add((module.name, ex, ev))
+            # this module preempts all other modules with lower priority
+            if module.preemptive:
+                for m in self.moduleSet:
+                    if m != module and m.priority < module.priority:
+                        self.turnOff(m)
+                        self.readySet.add(m.name)
+                        print("INFO: Module ", module.name, " preempted ", m.name)
+            # this module is recovered from preemption
+            if module.name in self.readySet:
+                self.readySet.remove(module.name)
+                print("INFO: Module ", module.name, " restarted from preemption.")
         else:
-            print("ERROR: Module "+str(res[0])+" is not managed by this instance.")
+            print("ERROR: Module ", module, " (name: ", module.name, ") is not managed by this instance.")
     
     def turnOff(self, module):
-        if module.name in self.moduleSet:
-            res = [m for m in self.onSet if m[0]==module.name]
-            if len(res):
+        if module in self.moduleSet:
+            isOn, res = self.moduleIsOn(module)
+            if isOn:
                 for item in res:
+                    # turn off EX
+                    for th in item[1]:
+                        self.launcher.stop(th)
+                    # turn off EV
+                    for th in item[2]:
+                        self.launcher.stop(th)
                     # remove res from self.onSet
                     self.onSet.remove(item)
-                    # turn off EX
-                    self.launcher.stop(item[1])
-                    # turn off EV
-                    self.launcher.stop(item[2])
-                res_off = [m_off for m_off in self.offSet if m_off[0]==module.name]
-                if len(res_off):
+                    # reset request flag
+                    module.done = False
+                isOff, res_off = self.moduleIsOff(module)
+                if isOff:
                     error("ERROR: The managed module is both on and off. Something bad happened.")
                 else:
                     # turn on ES
-                    es = self.launcher.launch(module.ES.ftype, *tuple(module.ES.args), **dict(module.ES.kwargs))
+                    es = [self.launcher.launch(th.ftype, *tuple(th.args), **dict(th.kwargs)) for th in module.ES]
                     self.offSet.add((module.name, es))
             else:
-                print("ERROR: OFF request for module "+str(res[0])+", which is already OFF.")
+                if module.name in self.readySet:
+                    self.readySet.remove(module.name)
+                    print("INFO: Module ", module.name, " never restarted after preemption.")
+                else:
+                    print("ERROR: OFF request for module "+str(res[0])+", which is already OFF.")
         else:
-            print("ERROR: Module "+str(res[0])+" is not managed by this instance.")
+            print("ERROR: Module ", module, " (name: ", module.name, ") is not managed by this instance.")
+    
+    def basicDecider(self, event):
+        for module in self.moduleSet:
+            isOn, _ = self.moduleIsOn(self, module)
+            if isOn:
+                if (module.reconfigMetric.performanceUtil > 1. or module.reconfigMetric.resourceUtil > 1.):
+                    # performance crisis. do reconfig
+                    print("INFO: Module ", module.name, " falls below desired performance bounds.")
+                    candidate = module
+                    bestPerf = 1.
+                    for m in self.moduleSet:
+                        mIsOn, _ = self.moduleIsOn(self, m)
+                        if m != module and not mIsOn:
+                            tmp = max(m.reconfigMetric.performanceUtil, m.reconfigMetric.resourceUtil)
+                            if tmp < bestPerf:
+                                candidate = m
+                                bestPerf = tmp
+                    if candidate != module:
+                        print("INFO: Found alternative module ", candidate.name, " with estimated performance (", \
+                            m.reconfigMetric.performanceUtil, m.reconfigMetric.resourceUtil, ").")
+                        self.turnOn(candidate)
+                        self.turnOff(module)
+                        break
+                    else:
+                        print("WARN: No alternative module satisfies resource and performance bounds. Current value: (", \
+                            m.reconfigMetric.performanceUtil, m.reconfigMetric.resourceUtil, ").")
+                if module.done:
+                    self.turnOff(module)
+    
+    def requestOn(self, nameList):
+        for module in self.moduleSet:
+            isOn, _ = self.moduleIsOn(module)
+            if not isOn and module.name in nameList:
+                self.turnOn(module)
     
     def run(self):
         self.Decider_proc = self.launcher.launch(self.Decider.ftype, *tuple(self.Decider.args), **dict(self.Decider.kwargs))
         print("INFO: Launched decider thread.")
         rospy.spin()
+        
+    def run_nonblock(self):
+        self.Decider_proc = self.launcher.launch(self.Decider.ftype, *tuple(self.Decider.args), **dict(self.Decider.kwargs))
+        print("INFO: Launched decider thread.")
     
     def __del__(self):
         for m in self.onSet:
             # turn off EX
-            self.launcher.stop(m[1])
+            for th in m[1]:
+                self.launcher.stop(th)
             # turn off EV
-            self.launcher.stop(m[2])
+            for th in m[2]:
+                self.launcher.stop(th)
         for m in self.moduleSet:
             # turn off ES
-            self.launcher.stop(m[1])
+            for th in m[1]:
+                self.launcher.stop(th)
 
 if __name__ == "__main__":
     taskLauncher = Launcher("RobotTaskRunner")
