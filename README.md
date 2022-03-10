@@ -1,5 +1,5 @@
-# Mobile_Manipulation_Dev
-Development repo for the mobile manipulation platforms
+# OmniVeyors
+Root Repository for the OmniVeyor Robots.
 
 ## Robot configuration
 

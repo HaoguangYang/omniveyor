@@ -1,0 +1,8 @@
+[submodule "nimbro_network"]
+    path = nimbro_network
+    url = https://github.com/AIS-Bonn/nimbro_network.git
+    branch = bugfix/prune_segfault
+[submodule "spatio_temporal_voxel_layer"]
+    path = spatio_temporal_voxel_layer
+    url = https://github.com/HaoguangYang/spatio_temporal_voxel_layer.git
+    branch = noetic-devel
