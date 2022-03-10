@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash
 
 machineIs=$(whiptail --checklist --separate-output --title "Device Type" "Choose the main purpose of the device" 10 78 5 \
             "1" "On-board computer of the robot." off \
@@ -77,7 +77,7 @@ fi
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
 sudo apt update
-sudo apt install ros-noetic-desktop-full
+sudo apt install -y ros-noetic-desktop-full
 echo "# setup ROS environment
 export ROS_HOSTNAME=$(hostname).local
 source /opt/ros/noetic/setup.bash" >> ~/.bashrc
@@ -91,12 +91,12 @@ sudo apt install -y ros-noetic-amcl ros-noetic-move-base ros-noetic-gmapping \
             ros-noetic-teb-local-planner ros-noetic-urg-node ros-noetic-map-server \
             ros-noetic-global-planner ros-noetic-rtabmap ros-noetic-realsense2-camera\
             ros-noetic-cv-bridge ros-noetic-geographic-msgs ros-noetic-ros-numpy \
-            ros-noetic-rosserial-python ros-noetic-imu-filter-madgwick ros-noetic-smacha \
+            ros-noetic-rosserial-python ros-noetic-imu-filter-madgwick ros-noetic-smach\
             ros-noetic-joy
 
 # search and apply remaining upgrades
 sudo apt update
-sudo apt upgrade
+sudo apt upgrade -y
 
 if [[ "${machineIs}" == *"1"* ]]; then
     # optional: setup Arduino IO
@@ -123,10 +123,14 @@ if [[ "${machineIs}" == *"1"* ]] || [[ "${machineIs}" == *"3"* ]]; then
 fi
 
 if [[ "${machineIs}" == *"3"* ]]; then
+    sudo apt install -y libgazebo11-dev
     wstool merge -t src https://raw.githubusercontent.com/HaoguangYang/omniveyor_gazebo_world/master/omniveyor_gazebo_world.rosinstall
 fi
+wstool update -t src
+ln -s ./src/omniveyor/updateRebuild.sh ./updateRebuild.sh
 
 # now it's safe to build.
+source /opt/ros/noetic/setup.bash
 catkin_make -DCMAKE_BUILD_TYPE=Release
 
 if [[ "${machineIs}" == *"1"* ]] || [[ "${machineIs}" == *"3"* ]]; then
