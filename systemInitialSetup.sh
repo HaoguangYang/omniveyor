@@ -1,6 +1,6 @@
 #!/bin/bash
 
-machineIs=$(whiptail --checklist --separate-output --title "Device Type" "Choose the main purpose of the device" 10 78 5 \
+machineIs=$(whiptail --checklist --separate-output --title "Device Type" "Choose the main purpose of the device" 20 78 4 \
             "1" "On-board computer of the robot." off \
             "2" "Base station for task dispatching and management." off \
             "3" "Workstation for simulating robot tasks." off 3>&1 1>&2 2>&3)
