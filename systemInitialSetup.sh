@@ -12,58 +12,18 @@ sudo apt update
 sudo apt install -y ssh
 sudo systemctl enable ssh
 
-if [[ "${machineIs}" == *"1"* ]]; then
-    # setup canbus
-    sudo apt install -y can-utils
-    sudo cp ./src/omniveyor_hardware/pcv_base/resources/setup/can.conf /etc/modules-load.d/
-    sudo chmod +x /etc/modules-load.d/can.conf
-    sudo cp ./src/omniveyor_hardware/pcv_base/resources/setup/canbus.service /etc/systemd/system/
-    sudo chmod +x /etc/systemd/system/canbus.service
-    sudo systemctl enable canbus
-
-    # setup x11vnc
-    sudo apt install -y x11vnc
-    sudo cp ./src/omniveyor_hardware/pcv_base/resources/setup/x11vnc.service /etc/systemd/system/
-    PASSWORD=$(whiptail --passwordbox "please enter your VNC login password" 8 78 --title "VNC Password" 3>&1 1>&2 2>&3)
-    sudo sed -i "s/-password.*-shared/-password $PASSWORD -shared/g" \
-        /etc/systemd/system/x11vnc.service
-    sudo chmod +x /etc/systemd/system/x11vnc.service
-    sudo systemctl enable x11vnc
-
-    # setup Robot ID
-    nodeNumber=$(hostname | tr -dc '0-9' | sed 's/^0*//')
-    echo "export NODE_NO=$nodeNumber" | sudo tee /etc/profile.d/robot_name.sh
-
-    # setup limits
-    echo "# increase message queue size
-    fs.mqueue.msg_max = 100" | sudo tee -a /etc/sysctl.conf
-    USERNAME=$(whoami)
-    sudo sed "$i$USERNAME         hard    memlock         524288" /etc/security/limits.conf
-    sudo sed "$i$USERNAME         soft    memlock         524288" /etc/security/limits.conf
-    sudo sed "$i$USERNAME         hard    priority        85" /etc/security/limits.conf
-    sudo sed "$i$USERNAME         hard    rtprio          85" /etc/security/limits.conf
-    sudo sed "$i$USERNAME         soft    rtprio          85" /etc/security/limits.conf
-
-    # setup network boradcasting for multi-master ROS1 system
-    #echo "# enable ipv4 broadcast response for ROS1 multimaster
-    #net.ipv4.icmp_echo_ignore_broadcasts=0" | sudo tee -a /etc/sysctl.conf
-
-    # restart sysctl to take effect
-    sudo sysctl -p
-fi
-
 # install dependent system packages
 # system utilities
 sudo apt install -y net-tools curl
 # system build & run dependencies
-sudo apt install -y build-essential libopenvdb-dev python3-pip python-is-python3
+sudo apt install -y build-essential libopenvdb-dev libgeographic-dev python3-pip python-is-python3
 sudo -H pip3 install numpy pymysql opencv-contrib-python pyrealsense2
 if [[ "${machineIs}" == *"1"* ]]; then
     # hardware drivers: Realsense cameras
     # refer to: https://github.com/IntelRealSense/librealsense/blob/master/doc/distribution_linux.md
     key=$(curl -s https://raw.githubusercontent.com/IntelRealSense/librealsense/master/doc/distribution_linux.md |\
         grep "keyserver.ubuntu.com" |\
-        sed 's/.*--recv-key \([^ ]*\).`/\1/')
+        sed 's/.*--recv-key \([^ ]*\)`/\1/')
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key $key ||\
         sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key $key
     sudo add-apt-repository "deb https://librealsense.intel.com/Debian/apt-repo $(lsb_release -cs) main" -u
@@ -92,7 +52,7 @@ sudo apt install -y ros-noetic-amcl ros-noetic-move-base ros-noetic-gmapping \
             ros-noetic-global-planner ros-noetic-rtabmap ros-noetic-realsense2-camera\
             ros-noetic-cv-bridge ros-noetic-geographic-msgs ros-noetic-ros-numpy \
             ros-noetic-rosserial-python ros-noetic-imu-filter-madgwick ros-noetic-smach\
-            ros-noetic-joy
+            ros-noetic-joy ros-noetic-catch-ros
 
 # search and apply remaining upgrades
 sudo apt update
@@ -104,7 +64,7 @@ if [[ "${machineIs}" == *"1"* ]]; then
     VER=$(curl -L -s https://api.github.com/repos/arduino/Arduino/releases/latest | \
         grep --regexp='Arduino/releases/tag/[0-9][0-9]*\.[0-9][0-9]*\.[0-9][0-9]*.*' | tail -1 | \
         cut -d '/' -f 8 | cut -d '"' -f 1)
-    wget -c "https://downloads.arduino.cc/arduino-${VER}-linux64.tar.xz" -O - | tar -xJvf -C ./Arduino --strip-components=1
+    wget -c "https://downloads.arduino.cc/arduino-${VER}-linux64.tar.xz" -O - | tar -xJ -C ./Arduino --strip-components=1
     cd ./Arduino
     chmod +x ./install.sh
     sudo ./install.sh
@@ -127,7 +87,48 @@ if [[ "${machineIs}" == *"3"* ]]; then
     wstool merge -t src https://raw.githubusercontent.com/HaoguangYang/omniveyor_gazebo_world/master/omniveyor_gazebo_world.rosinstall
 fi
 wstool update -t src
+chmod +x ./src/omniveyor/updateRebuild.sh
 ln -s ./src/omniveyor/updateRebuild.sh ./updateRebuild.sh
+
+# setup system services
+if [[ "${machineIs}" == *"1"* ]]; then
+    # setup canbus
+    sudo apt install -y can-utils
+    sudo cp ./src/omniveyor_hardware/pcv_base/resources/setup/can.conf /etc/modules-load.d/
+    sudo chmod +x /etc/modules-load.d/can.conf
+    sudo cp ./src/omniveyor_hardware/pcv_base/resources/setup/canbus.service /etc/systemd/system/
+    sudo chmod +x /etc/systemd/system/canbus.service
+    sudo systemctl enable canbus
+
+    # setup x11vnc
+    sudo apt install -y x11vnc
+    sudo cp ./src/omniveyor_hardware/pcv_base/resources/setup/x11vnc.service /etc/systemd/system/
+    PASSWORD=$(whiptail --passwordbox "please enter your VNC login password" 8 78 --title "VNC Password" 3>&1 1>&2 2>&3)
+    sudo sed -i "s/-password.*-shared/-password $PASSWORD -shared/g" \
+        /etc/systemd/system/x11vnc.service
+    sudo chmod +x /etc/systemd/system/x11vnc.service
+    sudo systemctl enable x11vnc
+
+    # setup Robot ID
+    nodeNumber=$(hostname | tr -dc '0-9' | sed 's/^0*//')
+    echo "export NODE_NO=$nodeNumber" | sudo tee /etc/profile.d/robot_name.sh
+
+    # setup limits
+    echo "# increase message queue size
+    fs.mqueue.msg_max = 100" | sudo tee -a /etc/sysctl.conf
+    sudo sed -i "55 i $(whoami)          hard    memlock         524288" /etc/security/limits.conf
+    sudo sed -i "56 i $(whoami)          soft    memlock         524288" /etc/security/limits.conf
+    sudo sed -i "57 i $(whoami)          hard    priority        85" /etc/security/limits.conf
+    sudo sed -i "58 i $(whoami)          hard    rtprio          85" /etc/security/limits.conf
+    sudo sed -i "59 i $(whoami)          soft    rtprio          85" /etc/security/limits.conf
+
+    # setup network boradcasting for multi-master ROS1 system
+    #echo "# enable ipv4 broadcast response for ROS1 multimaster
+    #net.ipv4.icmp_echo_ignore_broadcasts=0" | sudo tee -a /etc/sysctl.conf
+
+    # restart sysctl to take effect
+    sudo sysctl -p
+fi
 
 # now it's safe to build.
 source /opt/ros/noetic/setup.bash
