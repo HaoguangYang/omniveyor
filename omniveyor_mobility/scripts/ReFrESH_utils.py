@@ -109,6 +109,8 @@ class ROSnodeMonitor:
     def attach(self, handles):
         for launchThread in handles:
             if isinstance(launchThread, roslaunch.parent.ROSLaunchParent):
+                while not len(launchThread.pm.procs):
+                    time.sleep(0.1)
                 self.monitors.append([psutil.Process(subProc.get_info()['pid']) for subProc in launchThread.pm.procs])
             elif isinstance(launchThread, roslaunch.Process):
                 self.monitors.append([psutil.Process(launchThread.get_info()['pid'])])
@@ -116,15 +118,22 @@ class ROSnodeMonitor:
                 print("ERROR: Handle", launchThread, \
                         "is not of type Ftype.LAUNCH_FILE or Ftype.NODE. This thread is not supported.")
                 self.monitors.append([])
+        for th in self.monitors:
+            for this in th:
+                # initialize CPU counter
+                _ = this.cpu_percent()
 
     def getCpuMemUtil(self):
         cpuUtil = 0.
         memUtil = 0.
-        for th in self.monitors:
-            for this in th:
-                cpuUtil += this.cpu_percent()*0.01
-                memUtil += this.memory_percent()*0.01
-        cpuUtil /= psutil.cpu_count()
+        try:
+            for th in self.monitors:
+                for this in th:
+                    cpuUtil += this.cpu_percent()*0.01
+                    memUtil += this.memory_percent()*0.01
+            cpuUtil /= psutil.cpu_count()
+        except psutil.NoSuchProcess:
+            self.detach()
         return cpuUtil, memUtil
     
     def detach(self):
@@ -145,7 +154,7 @@ class WirelessNetworkMonitor:
         if not self.wlan_name:
             raise RuntimeError("No WiFi interface is found under the given hint", hint, ".")
         self.dt = interval
-        self.lastUpdate = time.time()
+        self.lastUpdate = 0
         self.maxBandwidth = 0.1
     
     def getInterfaceSpeed(self):
@@ -229,9 +238,6 @@ class Launcher:
     def threadLaunch(self, funcPtr=None, args=None):
         t = Thread(target=funcPtr, args=args)
         t.start()
-        # wait till it spins up.
-        while not t.is_alive:
-            pass
         return t
 
     def timerLaunch(self, freq, cb):

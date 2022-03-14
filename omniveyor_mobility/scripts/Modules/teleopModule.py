@@ -21,17 +21,17 @@ class joystickTeleopModule(ReFrESH_Module):
         # always ideal
         self.performanceMetrics = [0.0]
         # Resource metric: availability, CPU time, memory
-        self.resourceMetrics = [0.0, 0.0, 0.0]
+        self.resourceMetrics = [0.5, 0.5, 0.5]
         self.cpuQuota = 0.2
         self.memQuota = 0.1
         self.exMon = ROSnodeMonitor()
-        self.setComponentProperties('EX', Ftype.NODE, 'pcv_base', 'teleop_twist_joystick.py')
+        self.setComponentProperties('EX', Ftype.LAUNCH_FILE, 'pcv_base', 'joystick_teleop.launch')
         self.setComponentProperties('EV', Ftype.TIMER, exec=self.evaluator, kwargs={'freq': 1.0})
         self.setComponentProperties('ES', Ftype.TIMER, exec=self.estimator, kwargs={'freq': 1.0})
 
     def hasJoystick(self):
         inputList = glob.glob('/dev/input/js*')
-        if len(inputList):
+        if inputList:
             return inputList[0]
         else:
             return None
@@ -48,6 +48,7 @@ class joystickTeleopModule(ReFrESH_Module):
             self.resourceMetrics[1] = max(uCPU, self.resourceMetrics[1]*0.975)
             self.resourceMetrics[2] = max(uMem, self.resourceMetrics[2]*0.975)
             self.reconfigMetric.update(self.performanceMetrics, self.resourceMetrics)
+            #print("JS-EV ", self.resourceMetrics)
         else:
             # attach performance monitor for the roslaunch process (EX)
             self.exMon.attach(self.getEXhandle())
@@ -61,10 +62,10 @@ class joystickTeleopModule(ReFrESH_Module):
 
 """Take teleoperation input from a received topic"""
 class remoteTeleopModule(ReFrESH_Module):
-    def __init__(self, name="remoteTeleop", priority=98, preemptive=True, rxPort=17102, namespace='remote_teleop'):
+    def __init__(self, name="remoteTeleop", priority=98, preemptive=True, rxPort=17102, cmdTopic='cmd_vel'):
         super().__init__(name, priority=priority, preemptive=preemptive)
         self.rxPort = rxPort
-        self.namespace = namespace
+        self.cmdTopic = cmdTopic
 
         # Performance metric: communication dropout tolerance (s)
         self.performanceMetrics = [0.0]
@@ -72,7 +73,7 @@ class remoteTeleopModule(ReFrESH_Module):
         self.lastCommRecvd = time.time()
         
         # Resource metric: bandwidth, CPU time, memory
-        self.resourceMetrics = [0.0, 0.0, 0.0]
+        self.resourceMetrics = [0.5, 0.5, 0.5]
         self.bandwidthQuota = 0.2
         self.cpuQuota = 0.2
         self.memQuota = 0.1
@@ -80,20 +81,29 @@ class remoteTeleopModule(ReFrESH_Module):
         self.netMon = WirelessNetworkMonitor()
 
         self.setComponentProperties('EX', Ftype.LAUNCH_FILE, 'pcv_base', 'remote_teleop.launch')
-        self.setComponentProperties('EV', Ftype.SUBSCRIBER, 'cmd_vel', self.evaluator, mType=Twist)
+        self.setComponentProperties('EV', Ftype.TIMER, exec=self.evaluator, kwargs={'freq': 1.0})
         self.setComponentProperties('ES', Ftype.THREAD, exec=self.estimator)
 
-    def evaluator(self, msg):
+    def evaluator(self, event):
         # check if performance monitor is attached
         if self.exMon.isAttached():
             # log time difference since last message
-            timeNow = time.time()
-            dt = timeNow-self.lastCommRecvd
-            self.lastCommRecvd = timeNow
-            self.performanceMetrics[0] = dt/self.commOutTol
-            # log network speed and utilization
-            dataSize = sys.getsizeof(msg)
-            self.resourceMetrics[0] = self.netMon.bwUtil(dataSize, dt)/self.bandwidthQuota
+            try:
+                msg = rospy.wait_for_message(self.cmdTopic, Twist, rospy.Duration(self.commOutTol))
+            except rospy.exceptions.ROSException:
+                self.performanceMetrics[0] = 1.0
+            else:
+                time0 = time.time()
+                try:
+                    msg = rospy.wait_for_message(self.cmdTopic, Twist, rospy.Duration(self.commOutTol))
+                except rospy.exceptions.ROSException:
+                    self.performanceMetrics[0] = 1.0
+                else:
+                    dt = time.time()-time0
+                    self.performanceMetrics[0] = dt/self.commOutTol
+                    # log network speed and utilization
+                    dataSize = sys.getsizeof(msg)
+                    self.resourceMetrics[0] = self.netMon.bwUtil(dataSize, dt)/self.bandwidthQuota
             # log worst case CPU usage of the launched exec.
             uCPU, uMem = self.exMon.getCpuMemUtil()
             uCPU /= self.cpuQuota
@@ -102,6 +112,7 @@ class remoteTeleopModule(ReFrESH_Module):
             self.resourceMetrics[1] = max(uCPU, self.resourceMetrics[1]*0.975)
             self.resourceMetrics[2] = max(uMem, self.resourceMetrics[2]*0.975)
             self.reconfigMetric.update(self.performanceMetrics, self.resourceMetrics)
+            #print("RM-EV ", self.resourceMetrics)
         else:
             # attach performance monitor for the roslaunch process (EX)
             self.exMon.attach(self.getEXhandle())
@@ -148,7 +159,7 @@ class keyboardTeleopModule(ReFrESH_Module):
         # always ideal
         self.performanceMetrics = [0.0]
         # Resource metric: availability, CPU time, memory
-        self.resourceMetrics = [0.0, 0.0, 0.0]
+        self.resourceMetrics = [0.5, 0.5, 0.5]
         self.cpuQuota = 0.2
         self.memQuota = 0.1
         self.exMon = ROSnodeMonitor()
@@ -177,6 +188,7 @@ class keyboardTeleopModule(ReFrESH_Module):
             self.resourceMetrics[1] = max(uCPU, self.resourceMetrics[1]*0.975)
             self.resourceMetrics[2] = max(uMem, self.resourceMetrics[2]*0.975)
             self.reconfigMetric.update(self.performanceMetrics, self.resourceMetrics)
+            #print("KB-EV ", self.resourceMetrics)
         else:
             # attach performance monitor for the roslaunch process (EX)
             self.exMon.attach(self.getEXhandle())
@@ -200,16 +212,12 @@ if __name__ == "__main__":
     # non-blocking run
     taskManager.run_nonblock()
     # turn on by requesting the manager
-    taskManager.requestOn(["remoteTeleop", "joystickTeleop"])
-    rospy.sleep(rospy.Duration(1.0))
-    # turn on/off by requesting the module
-    jsMod.turnOff()
-    rospy.sleep(rospy.Duration(1.0))
-    kbMod.turnOn()
-    rospy.sleep(rospy.Duration(1.0))
-    rmMod.turnOff()
-    rospy.sleep(rospy.Duration(1.0))
+    taskManager.requestOn(["keyboardTeleop"])
+    rospy.sleep(rospy.Duration(10.0))
+    taskManager.requestOn(["remoteTeleop"])
+    rospy.sleep(rospy.Duration(10.0))
+    taskManager.requestOn(["joystickTeleop"])
     rospy.spin()
     # shutdown
-    taskManager.shutdown()
+    #taskManager.shutdown()
     taskLauncher.shutdown()
