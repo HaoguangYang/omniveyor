@@ -11,8 +11,9 @@ import socket
 import select
 import time
 from ReFrESH import ReFrESH_Module
-from ReFrESH_utils import Ftype, ROSnodeMonitor, WirelessNetworkMonitor
+from ReFrESH_utils import Thread, Ftype, ROSnodeMonitor, WirelessNetworkMonitor
 from geometry_msgs.msg import Twist
+from nav_msgs.msg import Path
 
 """Take teleoperation input from joystick"""
 class joystickTeleopModule(ReFrESH_Module):
@@ -21,7 +22,7 @@ class joystickTeleopModule(ReFrESH_Module):
         # always ideal
         self.performanceMetrics = [0.0]
         # Resource metric: availability, CPU time, memory
-        self.resourceMetrics = [0.5, 0.5, 0.5]
+        self.resourceMetrics = [0.5, 0.0, 0.0]
         self.cpuQuota = 0.2
         self.memQuota = 0.1
         self.exMon = ROSnodeMonitor()
@@ -62,7 +63,7 @@ class joystickTeleopModule(ReFrESH_Module):
 
 """Take teleoperation input from a received topic"""
 class remoteTeleopModule(ReFrESH_Module):
-    def __init__(self, name="remoteTeleop", priority=98, preemptive=True, rxPort=17102, cmdTopic='cmd_vel'):
+    def __init__(self, name="remoteTeleop", priority=98, preemptive=True, cmdTopic="cmd_vel", rxPort=17102):
         super().__init__(name, priority=priority, preemptive=preemptive)
         self.rxPort = rxPort
         self.cmdTopic = cmdTopic
@@ -73,7 +74,7 @@ class remoteTeleopModule(ReFrESH_Module):
         self.lastCommRecvd = time.time()
         
         # Resource metric: bandwidth, CPU time, memory
-        self.resourceMetrics = [0.5, 0.5, 0.5]
+        self.resourceMetrics = [0.5, 0.0, 0.0]
         self.bandwidthQuota = 0.2
         self.cpuQuota = 0.2
         self.memQuota = 0.1
@@ -159,11 +160,11 @@ class keyboardTeleopModule(ReFrESH_Module):
         # always ideal
         self.performanceMetrics = [0.0]
         # Resource metric: availability, CPU time, memory
-        self.resourceMetrics = [0.5, 0.5, 0.5]
+        self.resourceMetrics = [0.5, 0.0, 0.0]
         self.cpuQuota = 0.2
         self.memQuota = 0.1
         self.exMon = ROSnodeMonitor()
-        self.setComponentProperties('EX', Ftype.NODE, 'pcv_base', 'teleop_twist_keyboard.py')
+        self.setComponentProperties('EX', Ftype.LAUNCH_FILE, 'pcv_base', 'keyboard_teleop.launch')
         self.setComponentProperties('EV', Ftype.TIMER, exec=self.evaluator, kwargs={'freq': 1.0})
         self.setComponentProperties('ES', Ftype.TIMER, exec=self.estimator, kwargs={'freq': 1.0})
 
@@ -200,6 +201,62 @@ class keyboardTeleopModule(ReFrESH_Module):
         self.resourceMetrics[0] = 0.0 if len(self.hasKeyboard()) or self.hasSSH() else 1.0
         self.reconfigMetric.update(self.performanceMetrics, self.resourceMetrics)
 
+"""TODO: Submits a path to MoveBase planner as an action"""
+class moveBasePlannerModule(ReFrESH_Module):
+    def __init__(self, name="moveBaseMotion", priority=96, preemptive=True, pathTopic="raw_path"):
+        super().__init__(name, priority=priority, preemptive=preemptive)
+        # Tortuosity of path, time used, final error
+        self.performanceMetrics = [0.0, 0.0, 0.0]
+        # Resource metric: availability
+        self.resourceMetrics = [0.5]
+        # use two EX threads instead?
+        self.setComponentProperties('EX', Ftype.SUBSCRIBER, pathTopic, self.submitPath, mType=Path)
+        self.setComponentProperties('EV', Ftype.TIMER, exec=self.evaluator, kwargs={'freq': 3.0})
+        self.setComponentProperties('ES', Ftype.TIMER, exec=self.estimator, kwargs={'freq': 3.0})
+    
+    def submitPath(self, msg):
+        pass
+    
+    def evaluator(self, event):
+        pass
+    
+    def estimator(self, event):
+        pass
+
+"""TODO: Follows a path as-is with PID controller"""
+class viaPointFollowerModule(ReFrESH_Module):
+    def __init__(self, name="moveBaseMotion", priority=96, preemptive=True, pathTopic="raw_path"):
+        super().__init__(name, priority=priority, preemptive=preemptive)
+        # Tortuosity of path, time used, final error
+        self.performanceMetrics = [0.0, 0.0, 0.0]
+        # Resource metric: nearest obstacle threshold, CPU utilization, mem Utilization
+        self.resourceMetrics = [0.5, 0.0, 0.0]
+        # use two EX threads instead?
+        self.setComponentProperties('EX', Ftype.SUBSCRIBER, pathTopic, self.getPath, mType=Path)
+        self.setComponentProperties('EV', Ftype.TIMER, exec=self.evaluator, kwargs={'freq': 3.0})
+        self.setComponentProperties('ES', Ftype.TIMER, exec=self.estimator, kwargs={'freq': 3.0})
+    
+    def getPath(self, msg):
+        pass
+    
+    def evaluator(self, event):
+        pass
+    
+    def estimator(self, event):
+        pass
+
+# a simple test case with three teleop modules.
+def test(taskManager):
+    try:
+        # turn on by requesting the manager
+        taskManager.requestOn(["keyboardTeleop"])
+        rospy.sleep(rospy.Duration(10.0))
+        taskManager.requestOn(["remoteTeleop"])
+        rospy.sleep(rospy.Duration(10.0))
+        taskManager.requestOn(["joystickTeleop"])
+    except SystemExit:
+        return
+
 if __name__ == "__main__":
     from ReFrESH_utils import Launcher
     from ReFrESH import Manager
@@ -209,15 +266,11 @@ if __name__ == "__main__":
     rmMod = remoteTeleopModule()
     kbMod = keyboardTeleopModule()
     taskManager = Manager(taskLauncher, [jsMod, rmMod, kbMod])
-    # non-blocking run
-    taskManager.run_nonblock()
-    # turn on by requesting the manager
-    taskManager.requestOn(["keyboardTeleop"])
-    rospy.sleep(rospy.Duration(10.0))
-    taskManager.requestOn(["remoteTeleop"])
-    rospy.sleep(rospy.Duration(10.0))
-    taskManager.requestOn(["joystickTeleop"])
-    rospy.spin()
+    t = Thread(target=test, args=(taskManager,))
+    t.start()
+    # blocking run
+    taskManager.run(blocking = True)
     # shutdown
-    #taskManager.shutdown()
+    t.stop()
+    taskManager.shutdown()
     taskLauncher.shutdown()

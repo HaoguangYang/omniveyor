@@ -442,23 +442,18 @@ class Manager:
         for module in toOff:
             self.turnOff(module)
 
-    """This function blocks after starting the Decider, until ROS shutsdown"""
-    def run(self):
+    """ Starts decider object """
+    def run(self, blocking = False):
         self.Decider_proc = self.launcher.launch(self.Decider.ftype, \
                                                 *tuple(self.Decider.args), \
                                                 **dict(self.Decider.kwargs))
         print("INFO: Launched decider thread.")
-        rospy.spin()
-
-    """This function returns immediately after starting the Decider."""
-    def run_nonblock(self):
-        self.Decider_proc = self.launcher.launch(self.Decider.ftype, \
-                                                *tuple(self.Decider.args), \
-                                                **dict(self.Decider.kwargs))
-        print("INFO: Launched decider thread.")
+        if blocking:
+            self.launcher.spin()
 
     def shutdown(self):
         self.launcher.stop(self.Decider_proc)
+        self.lock.acquire()
         for m in self.onSet:
             # turn off EV
             for th in m[2]:
@@ -467,11 +462,16 @@ class Manager:
             for th in m[1]:
                 self.launcher.stop(th)
             print("INFO: Module", m[0].name, "SHUTDOWN.")
+        self.onSet.clear()
         for m in self.offSet:
             # turn off ES
             for th in m[1]:
                 self.launcher.stop(th)
             print("INFO: Module", m[0].name, "SHUTDOWN.")
+        self.offSet.clear()
+        self.readySet.clear()
+        self.moduleSet.clear()
+        self.lock.release()
 
 if __name__ == "__main__":
     # a simple test case with two empty modules.
@@ -480,7 +480,7 @@ if __name__ == "__main__":
     testModule2 = ReFrESH_Module("test2")
     taskManager = Manager(taskLauncher, [testModule1, testModule2])
     # non-blocking run
-    taskManager.run_nonblock()
+    taskManager.run()
     # turn on by requesting the manager
     taskManager.requestOn(["test1", "test2"])
     rospy.sleep(rospy.Duration(1.0))
@@ -494,7 +494,7 @@ if __name__ == "__main__":
     rospy.sleep(rospy.Duration(1.0))
     # simulate a situation with degrading module
     testModule1.reconfigMetric.update([1.1], [1.1])
-    rospy.spin()
+    taskLauncher.spin()
     # shutdown
     #taskManager.shutdown()
     taskLauncher.shutdown()

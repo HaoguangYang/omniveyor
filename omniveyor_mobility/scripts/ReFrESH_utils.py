@@ -85,6 +85,10 @@ class RingBuffer:
         def get(self):
             """ return list of elements in correct order """
             return self.data[self.cur:]+self.data[:self.cur]
+        def clear(self):
+            """ Clear and reset the buffer to not full """
+            self.data.clear()
+            self.__class__ = RingBuffer
 
     def append(self,x):
         """append an element at the end of the buffer"""
@@ -97,6 +101,10 @@ class RingBuffer:
     def get(self):
         """ Return a list of elements from the oldest to the newest. """
         return self.data
+    
+    def clear(self):
+        """ Clear and reset the buffer """
+        self.data.clear()
 
 """
 Class that monitors CPU and memory utilization of ROS nodes that runs separately with the manager.
@@ -107,21 +115,26 @@ class ROSnodeMonitor:
         self.monitors = []
 
     def attach(self, handles):
-        for launchThread in handles:
-            if isinstance(launchThread, roslaunch.parent.ROSLaunchParent):
-                while not len(launchThread.pm.procs):
-                    time.sleep(0.1)
-                self.monitors.append([psutil.Process(subProc.get_info()['pid']) for subProc in launchThread.pm.procs])
-            elif isinstance(launchThread, roslaunch.Process):
-                self.monitors.append([psutil.Process(launchThread.get_info()['pid'])])
-            else:
-                print("ERROR: Handle", launchThread, \
-                        "is not of type Ftype.LAUNCH_FILE or Ftype.NODE. This thread is not supported.")
-                self.monitors.append([])
-        for th in self.monitors:
-            for this in th:
-                # initialize CPU counter
-                _ = this.cpu_percent()
+        try:
+            for proc in handles:
+                if hasattr(proc, '__iter__'):
+                    for p in proc:
+                        if isinstance(p, roslaunch.Process):
+                            self.monitors.append([psutil.Process(p.get_info()['pid'])])
+                        else:
+                            print("ERROR: Handle", p, "within", proc, "is not supported.")
+                elif isinstance(proc, roslaunch.Process):
+                    self.monitors.append([psutil.Process(proc.get_info()['pid'])])
+                else:
+                    print("ERROR: Handle", proc, \
+                            "is not of type Ftype.LAUNCH_FILE or Ftype.NODE. This thread is not supported.")
+                    self.monitors.append([])
+            for th in self.monitors:
+                for this in th:
+                    # initialize CPU counter
+                    _ = this.cpu_percent()
+        except psutil.NoSuchProcess:
+            self.detach()
 
     def getCpuMemUtil(self):
         cpuUtil = 0.
@@ -134,10 +147,11 @@ class ROSnodeMonitor:
             cpuUtil /= psutil.cpu_count()
         except psutil.NoSuchProcess:
             self.detach()
+        #print(cpuUtil, memUtil)
         return cpuUtil, memUtil
     
     def detach(self):
-        self.monitors = []
+        self.monitors.clear()
     
     def isAttached(self):
         return len(self.monitors)
@@ -193,12 +207,16 @@ class Launcher:
     def __init__(self, managerNodeName):
         self.uuid = roslaunch.rlutil.get_or_generate_uuid(None, False)
         roslaunch.configure_logging(self.uuid)
+        #self.spinSet = set()
         self.roscoreProc = roslaunch.parent.ROSLaunchParent(self.uuid, roslaunch_files=[], \
                                                             is_core=True)
         self.roscoreProc.start()
+        #self.spinSet.add(self.roscoreProc)
         rospy.init_node(managerNodeName)
-        self.nodeLauncher = roslaunch.scriptapi.ROSLaunch()
-        self.nodeLauncher.start()
+        self.nodeLauncher = roslaunch.parent.ROSLaunchParent(self.uuid, roslaunch_files=[], \
+                                                            is_core=False)
+        self.nodeLauncher.start(auto_terminate=False)
+        #self.spinSet.add(self.nodeLauncher)
 
     def launch(self, ftype, *args, **kwargs):
         if ftype == Ftype.NODE:
@@ -220,37 +238,50 @@ class Launcher:
 
     def nodeLaunch(self, pkgName, execName, name=None, namespace='/', args='', respawn=False, \
                  respawn_delay=0.0, remap_args=None, env_args=None, output=None, launch_prefix=None):
-        try:
-            nodeProc = self.nodeLauncher.launch(roslaunch.core.Node(pkgName, execName, name=name, \
-                namespace=namespace, args=args, respawn=respawn, respawn_delay=respawn_delay, \
-                remap_args=remap_args, env_args=env_args, output=output, launch_prefix=launch_prefix))
-        except:
-            nodeProc = None
-        return nodeProc
+        nodeProc, success = self.nodeLauncher.runner.launch_node(roslaunch.core.Node(\
+                pkgName, execName, name=name, namespace=namespace, args=args, respawn=respawn, \
+                respawn_delay=respawn_delay, remap_args=remap_args, env_args=env_args, \
+                output=output, launch_prefix=launch_prefix))
+        if success:
+            return nodeProc
+        else:
+            return None
 
     def fileLaunch(self, pkgName='', fileName='', fullPathList=[]):
         if not len(fullPathList):
-            fullPathList = roslaunch.rlutil.resolve_launch_arguments([pkgName, fileName])
-        launchProc = roslaunch.parent.ROSLaunchParent(self.uuid, fullPathList)
-        launchProc.start()
-        return launchProc
+            fp = roslaunch.rlutil.resolve_launch_arguments([pkgName, fileName])
+        else:
+            fp = fullPathList
+        uuid = roslaunch.rlutil.get_or_generate_uuid(None, True)
+        cfg = roslaunch.config.load_config_default(fp, None, verbose=False)
+        nodeProcs = []
+        # only launches local nodes.
+        local_nodes = [n for n in cfg.nodes if roslaunch.core.is_machine_local(n.machine)]
+        for node in local_nodes: 
+            proc, success = self.nodeLauncher.runner.launch_node(node)
+            if success:
+                nodeProcs.append(proc)
+        return tuple(nodeProcs)
 
-    def threadLaunch(self, funcPtr=None, args=None):
+    def threadLaunch(self, funcPtr=None, args=()):
         t = Thread(target=funcPtr, args=args)
         t.start()
         return t
 
     def timerLaunch(self, freq, cb):
         if freq>0.:
-            return rospy.Timer(rospy.Duration(1./freq), cb)
+            timer = rospy.Timer(rospy.Duration(1./freq), cb)
+            return timer
         else:
             print("ERROR: Initializing a timer callback with non-positive frequency.")
 
     def subscriberLaunch(self, topic, msgType, cb, args=None):
-        return rospy.Subscriber(topic, msgType, cb, args)
+        subs = rospy.Subscriber(topic, msgType, cb, args)
+        return subs
 
     def serviceLaunch(self, topic, srvType, cb):
-        return rospy.Service(topic, srvType, cb)
+        srv = rospy.Service(topic, srvType, cb)
+        return srv
 
     def actionLaunch(self, topic, actType, cb, cancel_cb=nop_cb):
         actServer = actionlib.ActionServer(topic, actType, cb, cancel_cb, auto_start = False)
@@ -258,15 +289,39 @@ class Launcher:
         return actServer
 
     def stop(self, proc):
-        if callable(getattr(proc, "stop", None)):
-            proc.stop()
-        elif callable(getattr(proc, "shutdown", None)):
-            proc.shutdown()
-        elif callable(getattr(proc, "unregister", None)):
-            proc.unregister()
+        if hasattr(proc, '__iter__'):
+            for p in proc:
+                if callable(getattr(p, "stop", None)):
+                    p.stop()
+                elif callable(getattr(p, "shutdown", None)):
+                    p.shutdown()
+                elif callable(getattr(p, "unregister", None)):
+                    p.unregister()
+                else:
+                    raise RuntimeError("Stopping method not implemented!")
+        else:
+            if callable(getattr(proc, "stop", None)):
+                proc.stop()
+            elif callable(getattr(proc, "shutdown", None)):
+                proc.shutdown()
+            elif callable(getattr(proc, "unregister", None)):
+                proc.unregister()
+            else:
+                raise RuntimeError("Stopping method not implemented!")
 
+    def spin(self):
+        while self.roscoreProc.pm.procs:
+            self.roscoreProc.spin_once()
+            self.nodeLauncher.spin_once()
+            time.sleep(0.1)
+        print ("INFO: ROS Launcher Exiting...")
+    
+    def spin_once(self):
+        self.nodeLauncher.spin_once()
+        self.roscoreProc.spin_once()
+        
     def shutdown(self):
-        self.nodeLauncher.stop()
+        self.nodeLauncher.shutdown()
         self.roscoreProc.shutdown()
 
 if __name__ == "__main__":
