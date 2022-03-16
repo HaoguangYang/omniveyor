@@ -189,22 +189,36 @@ class WirelessNetworkMonitor:
         return bytesRecvd/dt/self.maxBandwidth
 
 """
-Thread Function Type enumerator
+Thread Function Type enumeratorself.roscoreProc.pm.is_shutdown
 """
 class Ftype(Enum):
-    NODE = 0
+    NODE        = 0
     LAUNCH_FILE = 1
-    THREAD = 2
-    TIMER = 3
-    SUBSCRIBER = 4
-    SERVICE = 5
-    ACTION = 6
+    THREAD      = 2
+    TIMER       = 3
+    SUBSCRIBER  = 4
+    SERVICE     = 5
+    ACTION_SRV  = 6
+    ACTION_CLI  = 7
+
+"""
+Thread Function Status enumerator
+"""
+class Fstat(Enum):
+    RUNNING = 0     # On and actively running
+    READY   = 1     # On and standing by
+    BLOCKED = 2     # Preempted
+    OFF     = 3     # Turned Off
+    NULL    = 4     # Not registered
+    ERROR   = 5     # Aborted
 
 """
 Wrapper for launching threads and ROS components within Python
 """
 class Launcher:
     def __init__(self, managerNodeName):
+        self.roscoreProc = None
+        self.nodeLauncher = None
         self.uuid = roslaunch.rlutil.get_or_generate_uuid(None, False)
         roslaunch.configure_logging(self.uuid)
         #self.spinSet = set()
@@ -231,8 +245,10 @@ class Launcher:
             return self.subscriberLaunch(*args, **kwargs)
         elif ftype == Ftype.SERVICE:
             return self.serviceLaunch(*args, **kwargs)
-        elif ftype == Ftype.ACTION:
-            return self.actionLaunch(*args, **kwargs)
+        elif ftype == Ftype.ACTION_SRV:
+            return self.actionSrvLaunch(*args, **kwargs)
+        elif ftype == Ftype.ACTION_CLI:
+            return self.actionCliLaunch(*args, **kwargs)
         else:
             print("ERROR: type not implemented.")
 
@@ -283,10 +299,32 @@ class Launcher:
         srv = rospy.Service(topic, srvType, cb)
         return srv
 
-    def actionLaunch(self, topic, actType, cb, cancel_cb=nop_cb):
-        actServer = actionlib.ActionServer(topic, actType, cb, cancel_cb, auto_start = False)
+    def actionSrvLaunch(self, topic, actType, cb, preempt_cb=None):
+        actServer = actionlib.SimpleActionServer(topic, actType, cb, auto_start = False)
+        if not (preempt_cb is None):
+            actServer.register_preempt_callback(preempt_cb)
+        # modify the action server structure to suit our wrapper
+        def stop(self):
+            self.set_preempted()
+            self.action_server.stop()
+        setattr(actServer, 'stop', stop)
         actServer.start()
         return actServer
+
+    def actionCliLaunch(self, topic, actType, feedback_cb, active_cb=nop_cb, done_cb=nop_cb, goal=None, timeout=0):
+        actClient = actionlib.SimpleActionClient(topic, actType)
+        # modify the action client structure to suit our wrapper
+        setattr(actClient, 'connected', actClient.wait_for_server(timeout))
+        def stop(self):
+            self.action_client.stop()
+            self.cancel_all_goals()
+            self.stop_tracking_goal()
+        setattr(actClient, 'stop', stop)
+        if goal is None:
+            goal = actType()
+        if actClient.connected:
+            actClient.send_goal(goal, done_cb, active_cb, feedback_cb)
+        return actClient
 
     def stop(self, proc):
         if hasattr(proc, '__iter__'):
@@ -309,8 +347,26 @@ class Launcher:
             else:
                 raise RuntimeError("Stopping method not implemented!")
 
+    def status(self):
+        # returns status of the launcher
+        coreStat = Fstat.NULL
+        nodeStat = Fstat.NULL
+        if hasattr(self.roscoreProc, 'runner'):
+            if not (self.roscoreProc.runner is None):
+                if not self.roscoreProc.pm.is_shutdown:
+                    coreStat = Fstat.RUNNING
+                else:
+                    coreStat = Fstat.OFF
+        if hasattr(self.nodeLauncher, 'runner'):
+            if not (self.nodeLauncher.runner is None):
+                if not self.nodeLauncher.pm.is_shutdown:
+                    nodeStat = Fstat.RUNNING
+                else:
+                    nodeStat = Fstat.OFF
+        return {'rosCore': coreStat, 'nodeLauncher': nodeStat}
+
     def spin(self):
-        while self.roscoreProc.pm.procs:
+        while (not self.roscoreProc.pm.is_shutdown) or (not self.nodeLauncher.pm.is_shutdown):
             self.roscoreProc.spin_once()
             self.nodeLauncher.spin_once()
             time.sleep(0.1)

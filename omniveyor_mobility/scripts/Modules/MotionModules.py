@@ -10,8 +10,8 @@ import glob
 import socket
 import select
 import time
-from ReFrESH import ReFrESH_Module
-from ReFrESH_utils import Thread, Ftype, ROSnodeMonitor, WirelessNetworkMonitor
+from ReFrESH_ROS import ReFrESH_Module
+from ReFrESH_ROS_utils import Thread, Ftype, ROSnodeMonitor, WirelessNetworkMonitor
 from geometry_msgs.msg import Twist
 from nav_msgs.msg import Path
 
