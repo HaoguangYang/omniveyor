@@ -5,18 +5,17 @@
         <rosparam file="$(find omniveyor_mobility)/resources/cfg/costmap_common_params.yaml" command="load" ns="local_costmap" />
         <rosparam file="$(find omniveyor_mobility)/resources/cfg/local_costmap_params.yaml"  command="load" />
         <rosparam file="$(find omniveyor_mobility)/resources/cfg/global_costmap_params.yaml" command="load" />
+        <rosparam file="$(find omniveyor_mobility)/resources/cfg/move_base_params.yaml" command="load" />
 
         <rosparam file="$(find omniveyor_mobility)/resources/cfg/teb_local_planner_params.yaml" command="load" />
+        <rosparam file="$(find omniveyor_mobility)/resources/cfg/dwa_local_planner_params.yaml" command="load" />
+        <rosparam file="$(find omniveyor_mobility)/resources/cfg/carrot_planner_params.yaml" command="load" />
+        <!--rosparam file="$(find omniveyor_mobility)/resources/cfg/global_planner_params.yaml" command="load" /-->
 
         <param name="base_global_planner" value="navfn/NavfnROS" />
-        <param name="planner_frequency" value="0.5" />
-        <param name="planner_patience" value="5.0" />
-
         <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
-        <param name="controller_frequency" value="5.0" />
-        <param name="controller_patience" value="5.0" />
 
-        <!-- Our omniveyor is able to rotate in place -->
+        <!-- Rotate in place is not allowed. Handled through self adaptation. -->
         <param name="clearing_rotation_allowed" value="false" />
     </node>
 </launch>

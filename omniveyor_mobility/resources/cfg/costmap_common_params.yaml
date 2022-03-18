@@ -11,14 +11,24 @@ obstacle_layer:
   observation_sources: laser_scan_sensor
   laser_scan_sensor: {sensor_frame: laser, data_type: LaserScan, topic: scan, marking: true, clearing: true}
 
+inflation_layer_g:
+  enabled:              true
+  cost_scaling_factor:  10.0  # exponential rate at which the obstacle cost drops off (default: 10)
+  inflation_radius:     1.0   # max. distance from an obstacle at which costs are incurred for planning paths.
+
 inflation_layer:
   enabled:              true
   cost_scaling_factor:  10.0  # exponential rate at which the obstacle cost drops off (default: 10)
-  inflation_radius:     0.5  # max. distance from an obstacle at which costs are incurred for planning paths.
+  inflation_radius:     0.5   # max. distance from an obstacle at which costs are incurred for planning paths.
 
 static_layer:
   enabled:              true
   map_topic:            "/map"
+
+static_layer_reuse:
+  enabled:              true
+  subscribe_to_updates: true
+  map_topic:            "/move_base/global_costmap/costmap"
 
 rgbd_obstacle_layer:
   enabled:               true
@@ -27,12 +37,12 @@ rgbd_obstacle_layer:
   voxel_size:            0.01   #meters
   track_unknown_space:   true   #default space is unknown
   unknown_threshold:     15     #voxel height
-  mark_threshold:        2      #voxel height
+  mark_threshold:        1      #voxel height
   update_footprint_enabled: true
   combination_method:    1      #1=max, 0=override
   obstacle_range:        6.0    #meters
   min_tracked_height:    0.02
-  max_tracked_height:    0.60
+  max_tracked_height:    1.0
   publish_voxel_map:     true  # default off
   transform_tolerance:   0.2    # seconds
   mapping_mode:          false  # default off, saves map not for navigation

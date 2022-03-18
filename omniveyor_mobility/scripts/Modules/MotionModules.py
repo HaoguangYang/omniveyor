@@ -245,6 +245,7 @@ class viaPointFollowerModule(ReFrESH_Module):
     def estimator(self, event):
         pass
 
+
 # a simple test case with three teleop modules.
 def test(taskManager):
     try:
@@ -258,8 +259,8 @@ def test(taskManager):
         return
 
 if __name__ == "__main__":
-    from ReFrESH_utils import Launcher
-    from ReFrESH import Manager
+    from ReFrESH_ROS_utils import Launcher
+    from ReFrESH_ROS import Manager
     # a simple test case with three teleop modules.
     taskLauncher = Launcher("teleopManager")
     jsMod = joystickTeleopModule()

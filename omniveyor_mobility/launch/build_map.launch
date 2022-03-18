@@ -2,16 +2,19 @@
 <launch>
     <arg name="gui" default="0"/>
     <arg name="explore" default="0"/>
-    <arg name="remote_teleop"   default="1"/>
+    <arg name="remote_teleop" default="1"/>
+    <arg name="use_sim_time" default="0"/>
     
-    <!-- base node -->
-	<include file="$(find pcv_base)/launch/run_barebones.launch">
-        <arg name="remote_teleop"   value="$(arg remote_teleop)"/>
-        <arg name="arduino_payload" value="0"/>
-    </include>
+    <group unless="$(arg use_sim_time)">
+        <!-- base node -->
+        <include file="$(find pcv_base)/launch/run_barebones.launch">
+            <arg name="remote_teleop"   value="$(arg remote_teleop)"/>
+            <arg name="arduino_payload" value="0"/>
+        </include>
+    </group>
 
     <!-- SLAM -->
-    <include file="$(find pcv_base)/launch/includes/map_and_localization.launch">
+    <include file="$(find omniveyor_mobility)/launch/includes/map_and_localization.launch">
         <arg name="static_map" value="0"/>
         <arg name="map_save_period" default="-1"/>    <!--not yet implemented-->
     </include>

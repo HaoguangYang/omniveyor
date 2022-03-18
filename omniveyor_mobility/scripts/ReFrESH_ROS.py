@@ -97,6 +97,7 @@ class ReFrESH_Module:
         that has lower priority, until finished"""
         self.preemptive = preemptive
         self.managerHandle = None
+        self.lock = threading.Lock()
         self.EX_thread = EX_thread
         self.EV_thread = EV_thread
         self.ES_thread = ES_thread
@@ -170,32 +171,23 @@ class ReFrESH_Module:
     """Helper function to return EX thread handle"""
     def getEXhandle(self):
         if isinstance(self.managerHandle, Manager):
-            l, res = self.managerHandle.moduleIsOn(self)
-            if l==1:
-                return res[0][1]
-            elif l>1:
-                print("ERROR: Duplicate module with name", self.name, ".")
-        return None
+            return self.managerHandle.getEXhandle(self)
+        else:
+            return None
 
     """Helper function to return EV thread handle"""
     def getEVhandle(self):
         if isinstance(self.managerHandle, Manager):
-            l, res = self.managerHandle.moduleIsOn(self)
-            if l==1:
-                return res[0][2]
-            elif l>1:
-                print("ERROR: Duplicate module with name", self.name, ".")
-        return None
+            return self.managerHandle.getEVhandle(self)
+        else:
+            return None
 
     """Helper function to return ES thread handle"""
     def getEShandle(self):
         if isinstance(self.managerHandle, Manager):
-            l, res = self.managerHandle.moduleIsOff(self)
-            if l==1:
-                return res[0][1]
-            elif l>1:
-                print("ERROR: Duplicate module with name", self.name, ".")
-        return None
+            return self.managerHandle.getEShandle(self)
+        else:
+            return None
 
 """
 Base class of a module manager and decider.
@@ -243,6 +235,36 @@ class Manager:
     """ Determine if a given module is OFF. Has O(1) complexity """
     def moduleIsOff(self, module):
         return module in self.offDict
+
+    """ Get thread handles / instances of EX components """
+    def getEXhandle(self, module):
+        return None if module not in self.onDict else self.onDict[module][0]
+
+    """ Get thread handles / instances of EV components """
+    def getEVhandle(self, module):
+        return None if module not in self.onDict else self.onDict[module][1]
+
+    """ Get thread handles / instances of ES components """
+    def getEShandle(self, module):
+        return None if module not in self.offDict else self.offDict[module]
+
+    """ Setting attribute of another module by name. Return True if succeeded. """
+    def moduleSet(self, moduleName, attr, value):
+        for module in self.moduleDict:
+            if module.name == moduleName:
+                module.lock.acquire()
+                setattr(module, attr, value)
+                module.lock.release()
+                return True
+        return False
+
+    """ Getting attribute of another module by name. Return None if not found. """
+    def moduleGet(self, moduleName, attr):
+        for module in self.moduleDict:
+            if module.name == moduleName:
+                if hasattr(module, attr):
+                    return getattr(module, attr)
+        return None
 
     """
     If this is a preemptive module, when it turns on, it will preempt all other modules with
