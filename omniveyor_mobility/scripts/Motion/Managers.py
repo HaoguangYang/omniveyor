@@ -264,4 +264,3 @@ class MotionManager(Manager):
         self.goalDone.wait()
         self.goalDone.clear()
         return self.currentActionResult
-    
