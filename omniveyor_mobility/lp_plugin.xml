@@ -1,0 +1,7 @@
+<library path="lib/libpid_controller">
+        <class name ="pid_controller/PIDController" type ="pid_controller::PIDController" base_class_type= "nav_core::BaseLocalPlanner">
+                <description>
+                        PID controller as a local planner for as-is execution of global plans.
+                </description>
+        </class>
+</library> 

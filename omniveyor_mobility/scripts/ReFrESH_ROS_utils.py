@@ -101,7 +101,7 @@ class RingBuffer:
     def get(self):
         """ Return a list of elements from the oldest to the newest. """
         return self.data
-    
+
     def clear(self):
         """ Clear and reset the buffer """
         self.data.clear()
@@ -113,6 +113,8 @@ Supports nodes launched with launch file or with rosrun, within the Launcher cla
 class ROSnodeMonitor:
     def __init__(self):
         self.monitors = []
+        self.alive = False
+        self.attached = False
 
     def attach(self, handles):
         try:
@@ -126,15 +128,17 @@ class ROSnodeMonitor:
                 elif isinstance(proc, roslaunch.Process):
                     self.monitors.append([psutil.Process(proc.get_info()['pid'])])
                 else:
-                    print("ERROR: Handle", proc, \
+                    print("WARNING: Handle", proc, \
                             "is not of type Ftype.LAUNCH_FILE or Ftype.NODE. This thread is not supported.")
                     self.monitors.append([])
+            self.attached = True
             for th in self.monitors:
                 for this in th:
                     # initialize CPU counter
                     _ = this.cpu_percent()
+            self.alive = True
         except psutil.NoSuchProcess:
-            self.detach()
+            self.monitors.clear()
 
     def getCpuMemUtil(self):
         cpuUtil = 0.
@@ -146,15 +150,21 @@ class ROSnodeMonitor:
                     memUtil += this.memory_percent()*0.01
             cpuUtil /= psutil.cpu_count()
         except psutil.NoSuchProcess:
-            self.detach()
+            self.monitors.clear()
+            self.alive = False
         #print(cpuUtil, memUtil)
         return cpuUtil, memUtil
-    
+
     def detach(self):
         self.monitors.clear()
-    
+        self.alive = False
+        self.attached = False
+
     def isAttached(self):
-        return len(self.monitors)
+        return self.attached
+    
+    def isAlive(self):
+        return self.alive
 
 """Monitors network traffic flow of a wireless interface. Implementation based on iwconfig shell command"""
 class WirelessNetworkMonitor:
@@ -170,7 +180,7 @@ class WirelessNetworkMonitor:
         self.dt = interval
         self.lastUpdate = 0
         self.maxBandwidth = 0.1
-    
+
     def getInterfaceSpeed(self):
         currentTime = time.time()
         if currentTime - self.lastUpdate > self.dt:
@@ -200,6 +210,7 @@ class Ftype(Enum):
     SERVICE     = 5
     ACTION_SRV  = 6
     ACTION_CLI  = 7
+    CALLABLE    = 8
 
 """
 Thread Function Status enumerator
@@ -249,6 +260,8 @@ class Launcher:
             return self.actionSrvLaunch(*args, **kwargs)
         elif ftype == Ftype.ACTION_CLI:
             return self.actionCliLaunch(*args, **kwargs)
+        elif ftype == Ftype.CALLABLE:
+            return args[0]
         else:
             print("ERROR: type not implemented.")
 
@@ -268,7 +281,8 @@ class Launcher:
             fp = roslaunch.rlutil.resolve_launch_arguments([pkgName, fileName])
         else:
             fp = fullPathList
-        uuid = roslaunch.rlutil.get_or_generate_uuid(None, True)
+        # wait until roscore is available to handle the state transition.
+        roslaunch.rlutil.get_or_generate_uuid(None, True)
         cfg = roslaunch.config.load_config_default(fp, None, verbose=False)
         nodeProcs = []
         # only launches local nodes.
@@ -311,17 +325,21 @@ class Launcher:
         actServer.start()
         return actServer
 
-    def actionCliLaunch(self, topic, actType, feedback_cb, active_cb=nop_cb, done_cb=nop_cb, goal=None, timeout=0):
+    def actionCliLaunch(self, topic, actType, feedback_cb, active_cb=nop_cb, done_cb=nop_cb, 
+                        prelaunch_cb=nop_cb, goal=None, availTimeout=0):
         actClient = actionlib.SimpleActionClient(topic, actType)
+        # anything to set before submitting the action?
+        prelaunch_cb()
         # modify the action client structure to suit our wrapper
-        setattr(actClient, 'connected', actClient.wait_for_server(timeout))
+        setattr(actClient, 'connected', actClient.wait_for_server(rospy.Duration(availTimeout)))
         def stop(self):
-            self.action_client.stop()
             self.cancel_all_goals()
+            self.action_client.stop()
             self.stop_tracking_goal()
         setattr(actClient, 'stop', stop)
         if goal is None:
             goal = actType()
+            print("WARN: A default instance of specified action type is submitted!")
         if actClient.connected:
             actClient.send_goal(goal, done_cb, active_cb, feedback_cb)
         return actClient
@@ -338,7 +356,9 @@ class Launcher:
                 else:
                     raise RuntimeError("Stopping method not implemented!")
         else:
-            if callable(getattr(proc, "stop", None)):
+            if callable(proc):
+                return      # this is a function not a thread, does nothing
+            elif callable(getattr(proc, "stop", None)):
                 proc.stop()
             elif callable(getattr(proc, "shutdown", None)):
                 proc.shutdown()

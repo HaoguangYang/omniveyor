@@ -22,7 +22,7 @@
         <param name="port" value="$(arg tx_port)" />
 
         <!-- Load the list of topics from a YAML file -->
-        <rosparam command="load" file="$(find omniveyor_mobility)/resources/cfg/tx_topics_host.yaml" />
+        <rosparam command="load" file="$(find omniveyor_mobility)/resources/param/tx_topics_host.yaml" />
     </node>
     
 </launch>

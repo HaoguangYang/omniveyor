@@ -1,0 +1,267 @@
+#!/usr/bin/python
+
+import rospy
+import os
+import sys
+import copy
+import numpy as np
+import threading
+import time
+currentdir = os.path.dirname(os.path.realpath(__file__))
+parentdir = os.path.dirname(currentdir)
+sys.path.append(parentdir)
+from ReFrESH_ROS import ReFrESH_Module
+from ReFrESH_ROS_utils import Ftype, ROSnodeMonitor
+import tf2_ros
+import tf2_geometry_msgs
+from geometry_msgs.msg import TransformStamped, PoseStamped, PoseWithCovarianceStamped
+from nav_msgs.msg import Odometry
+from nav_msgs.msg import Path
+from move_base_msgs.msg import MoveBaseGoal
+import utils
+
+"""multilevel inherited class to manage movebase global and local planners"""
+class MoveBaseManager(ReFrESH_Module, Manager):
+    def __init__(self, launcher, name="moveBaseManager", priority=97, managedModules=[], freq=5.0, 
+                 minReconfigInterval = 1.0):
+        super().__init__(name=name, priority=priority, EX_thread=3, launcher=launcher,
+                         managedModules=managedModules, freq=freq, minReconfigInterval=minReconfigInterval)
+        self.EX[0] = self.Decider
+        self.setComponentProperties('EX', Ftype.LAUNCH_FILE, 'omniveyor_mobility', 'navigation.launch', ind=1)
+        self.setComponentProperties('EX', Ftype.THREAD, exec=self.goalRunner)
+        self.setComponentProperties('EV', Ftype.TIMER, exec=self.evaluator, kwargs={'freq': 5.0})
+        self.setComponentProperties('ES', Ftype.TIMER, exec=self.estimator, kwargs={'freq': 3.0})
+        # Resource metric: CPU time, memory
+        self.resourceMetrics = [0.5, 0.0]
+        # Performance metric: metric bottleneck of submodules. This metric is cleared once the goal pose change.
+        # The performance metric is a member of the manager class.
+        self.cpuQuota = 0.5
+        self.memQuota = 0.5
+        self.exMon = ROSnodeMonitor()
+
+    """Use move base planners to reach the goal."""    
+    def goalRunner(self):
+        try:
+            while not rospy.is_shutdown():
+                # stuck here to wait for new goal to arrive
+                self.managerHandle.newGoal.wait()
+                self.managerHandle.newGoal.clear()
+                # assemble goal movebase action
+                goal = self.getGoal()
+                # sync the goal to all modules
+                for m in self.moduleDict:
+                    m.goal = goal
+                # cancel ongoing goal and submit new goal
+                if len(self.onDict):
+                    # already has an active module. Reusing it.
+                    for _, (ex, _) in self.onDict:
+                        ex[0].cancel_all_goals()
+                        ex[0].send_goal(goal, ex[0].done_cb, ex[0].active_cb, ex[0].feedback_cb)
+                else:
+                    # nothing is on.
+                    while not rospy.is_shutdown():
+                        # sequentially query the estimators for initial capability assessment
+                        # this process is identical to what the decider do when a module falls below the bar.
+                        candidate = None
+                        bestPerf = 1.
+                        for m in self.moduleDict:
+                            m.estimator()
+                            tmp = m.reconfigMetric.bottleNeck()
+                            if tmp < bestPerf:
+                                candidate = m
+                                bestPerf = tmp
+                        # turn on the most capable planner module. This also submits the goal.
+                        if not(candidate is None):
+                            self.turnOn(candidate)
+                            break
+                        time.sleep(0.1)
+                        # in case intermittent blockage that stops the robot, the loop constantly checks if
+                        # a global plan is available. The time consumed counts towards the timeout, of course.
+                # don't care about a goal once submitted, since the EV handles rest of the checking job.
+        except SystemExit:
+            self.cancelAll()
+            self.turnOffAll()
+
+    def evaluator(self, event):
+        # check if performance monitor is attached
+        if self.exMon.isAttached():
+            # log worst case CPU usage of the launched exec.
+            uCPU, uMem = self.exMon.getCpuMemUtil()
+            uCPU /= self.cpuQuota
+            uMem /= self.memQuota
+            # exponential filter for worst case execution time / memory utilization
+            self.resourceMetrics[0] = max(uCPU, self.resourceMetrics[1]*0.975)
+            self.resourceMetrics[1] = max(uMem, self.resourceMetrics[2]*0.975)
+            # report self.bottleNeck to the performance aspect of the module
+            self.reconfigMetric.update([self.bottleNeck], self.resourceMetrics)
+            #print("MB-EV ", self.resourceMetrics)
+        else:
+            # attach resource monitor to the move base instance
+            self.exMon.attach(self.getMyEXhandle()[1])
+
+    def estimator(self, event):
+        # movebase is now off. obtain a-priori esitmates
+        if self.bottleNeck >= 1.0:
+            # we had a failed record before
+            distance = np.array(self.abortedGoal.target_pose.pose.position) - np.array(self.currentGoal.target_pose.pose.position)
+            goalPosTol = 0.5*(self.abortedGoal.target_pose.pose.covariance[0]+self.abortedGoal.target_pose.pose.covariance[7])
+            # the base can rotate in place, so goal pose is less important in determining success.
+            if np.dot(distance, distance) > 9.*goalPosTol*goalPosTol:
+                # we are receiving a goal at a new location. Reset the estimators
+                self.bottleNeck = 0.0
+                self.reconfigMetric.update([self.bottleNeck], self.resourceMetrics)
+        else:
+            # this module succeeded last time. Keep using it.
+            self.bottleNeck = 0.0
+            self.reconfigMetric.update([self.bottleNeck], self.resourceMetrics)
+    
+    def getGoal(self):
+        # make a local copy 
+        self.currentGoal = copy.deepcopy(self.managerHandle.currentActionGoal)
+        # assemble move base goal
+        newGoal = MoveBaseGoal()
+        newGoal.target_pose.header = self.currentGoal.header
+        newGoal.target_pose.pose = self.currentGoal.target_pose.pose
+        return newGoal
+    
+    def setFeedback(self, feedback):
+        self.managerHandle.currentActionFeedback = feedback
+    
+    def setResult(self, result, final=False):
+        # synchronize whatever comes in.
+        self.managerHandle.currentActionResult = result
+        if final:
+            # this module can not get the robot to the goal pose. ring the bell
+            if (result.status == 4 or result.status == 5) and self.bottleNeck >= 1.0:
+                # 4: aborted, 5: rejected. bn>1: has triggered performance crisis among all available planners
+                self.abortedGoal = self.currentGoal
+            # the goal runner of the manager will now check the result message.
+            self.managerHandle.goalDone.set()
+
+class MotionManager(Manager):
+    def __init__(self, launcher, managedModules=[], name="", freq=5.0, minReconfigInterval = 1.0,
+                 worldFrame='map', odomFrame='odom', robotFrame='base_link', worldPoseTopic='world_pose'):
+        super().__init(launcher, managedModules=managedModules, name=name, freq=freq, 
+                       minReconfigInterval=minReconfigInterval)
+        # handle was previously installed to super(). Need to migrate to self for the additional functions.
+        for m in managedModules:
+            m.managerHandle = self
+        # utilities that interpolates robot's pose in the world (map frame, with fallback to odom frame)
+        # tf - transform odom to map frame for amcl_pose, filtered odom,
+        # fallback for other map poses published through tf.
+        self.tfBuffer = tf2_ros.Buffer()
+        self.tfListener = tf2_ros.TransformListener(self.tfBuffer)
+        # Heartbeat - raw odometry is the ultimate fallback as long as the base is running.
+        self.odomSub = rospy.Subscriber('/odom', Odometry, self.wheelOdomCb)
+        # One level up, if the filter is running.
+        self.filteredOdomTimeout = 0.1
+        self.mapPoseTimeout = 3.0
+        self.filteredOdomSub = rospy.Subscriber('/odom/filtered', Odometry, self.filteredOdomCb)
+        # Two levels up, if map localization is running (at low freq).
+        self.mapPoseSub = rospy.Subscriber('/amcl_pose', PoseWithCovarianceStamped, self.mapPoseCb)
+        #self.worldPoseLinCov = 0.
+        #self.worldPoseAngCov = 0.
+        self.worldPose = Odometry()
+        self.worldPose.child_frame_id = robotFrame
+        self.worldPose.header.frame_id = worldFrame
+        self.worldPosePub = rospy.Publisher(worldPoseTopic, Odometry, queue_size =1)
+        self.transform = TransformStamped()
+        self.filteredOdomMsg = Odometry()
+        self.filteredOdomMsg.header.frame_id = odomFrame
+        self.filteredOdomMsg.child_frame_id = robotFrame
+        self.wheelOdomMsg = Odometry()
+        self.wheelOdomMsg.header.frame_id = odomFrame
+        self.wheelOdomMsg.child_frame_id = robotFrame
+        self.mapPoseMsg = PoseWithCovarianceStamped()
+        self.mapPoseMsg.header.frame_id = worldFrame
+        
+        self.newGoal = threading.Event()
+        self.currentActionGoal = None
+        self.currentActionFeedback = None
+        self.goalDone = threading.Event()
+        self.currentActionResult = None
+
+    def filteredOdomCb(self, msg):
+        self.filteredOdomMsg = msg
+
+    def mapPoseCb(self, msg):
+        self.mapPoseMsg = msg
+        #self.mapPoseLinCov = max(msg.pose.covariance[0], msg.pose.covariance[7])
+        #self.mapPoseAngCov = msg.pose.covariance[35]
+
+    def wheelOdomCb(self, msg):
+        self.wheelOdomMsg = msg
+
+    def updateWorldPose(self, publish=True):
+        timeNow = rospy.Time.now()
+        if self.tfBuffer.can_transform(self.worldPose.header.frame_id, 
+                                       self.filteredOdomMsg.header.frame_id,
+                                       rospy.Time(0), rospy.Duration(self.mapPoseTimeout)):
+            # assembling world pose from filtered odom msg and map pose
+            self.transform = self.tfBuffer.lookup_transform(self.worldPose.header.frame_id, 
+                                                            self.filteredOdomMsg.header.frame_id,
+                                                            rospy.Time(0))
+        else:
+            print("ERROR: Transform", self.filteredOdomMsg.header.frame_id, "->",
+                    self.worldPose.header.frame_id, " is outdated. Drifting is not corrected.")    
+        odomMsg = None
+        filteredOdomDt = (timeNow - self.filteredOdomMsg.header.stamp).to_sec()
+        if filteredOdomDt <= self.filteredOdomTimeout:
+            odomMsg = self.filteredOdomMsg
+        else:
+            # fallback to unfiltered odom
+            odomMsg = self.wheelOdomMsg
+            print("WARNING: Staleness of filtered odometry", filteredOdomDt, "s older than desired",
+                        self.filteredOdomTimeout, "s. Using wheel odometry with higher covariance instead.")
+        self.worldPose.header.stamp = odomMsg.header.stamp
+        pose = PoseStamped()
+        pose.header = odomMsg.header
+        pose.pose = odomMsg.pose.pose
+        # transform odom pose to world pose.
+        pose_transformed = tf2_geometry_msgs.do_transform_pose(pose, self.transform)
+        self.worldPose.pose.pose = pose_transformed.pose
+        self.worldPose.pose.covariance = utils.composeHTMCov(odomMsg.pose.covariance,
+                                                            self.transform,
+                                                            self.mapPoseMsg.pose.covariance).tolist()
+        # assemble velocity
+        if self.worldPose.child_frame_id != odomMsg.child_frame_id:
+            if self.tfBuffer.can_transform(self.worldPose.child_frame_id,
+                                            odomMsg.child_frame_id, rospy.Time(0)):
+                tfVel = self.tfBuffer.lookup_transform(self.worldPose.child_frame_id,
+                                            odomMsg.child_frame_id, rospy.Time(0))
+                self.worldPose.twist.twist = tf2_geometry_msgs.do_transform_vector3(odomMsg.twist.twist, tfVel)
+                self.worldPose.twist.covariance = utils.composeRotCov(odomMsg.twist.covariance, tfVel).tolist()
+            else:
+                print("ERROR: Timed out interpolating Twist from", odomMsg.child_frame_id, "to",
+                        self.worldPose.child_frame_id, ".")
+        else:
+            self.worldPose.twist = odomMsg.twist
+        if publish:
+            self.worldPosePub.publish(self.worldPose)
+
+    def getWorldPose(self, timeTol=0.1, publish=True):
+        timeNow = rospy.Time.now()
+        if (timeNow - self.worldPose.header.stamp).to_sec() > timeTol:
+            # Do update
+            self.updateWorldPose(publish)
+        return self.worldPose
+
+    """A low-level goal runner. Tries to reach a goal with specified uncertainty tolerance"""
+    def runGoal(self, actionGoal):
+        # push goal
+        self.currentActionGoal = actionGoal
+        # clear previous records
+        self.currectActionFeedback = None
+        self.currentActionResult = None
+        # set event
+        self.newGoal.set()
+        # determine which module to turn on (and its dependency)
+        # turn on/off the module
+        # when the planner module is turned on, it submits an action goal to the movebase planner.
+        # The planner guides the robot to reach the goal and return success.
+        # if the goal fails, the decider switches to another module.
+        # block until completes/fails
+        self.goalDone.wait()
+        self.goalDone.clear()
+        return self.currentActionResult
+    

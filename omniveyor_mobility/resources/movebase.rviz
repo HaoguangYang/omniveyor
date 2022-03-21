@@ -3,7 +3,8 @@ Panels:
     Help Height: 78
     Name: Displays
     Property Tree Widget:
-      Expanded: ~
+      Expanded:
+        - /LaserScan1
       Splitter Ratio: 0.5
     Tree Height: 1628
   - Class: rviz/Selection
@@ -80,7 +81,7 @@ Visualization Manager:
       Queue Size: 10
       Selectable: true
       Size (Pixels): 3
-      Size (m): 0.009999999776482582
+      Size (m): 0.05000000074505806
       Style: Flat Squares
       Topic: /scan
       Unreliable: false
@@ -292,7 +293,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 35.36774444580078
+      Distance: 43.69617462158203
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -300,9 +301,9 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: -0.3258981704711914
-        Y: -1.7377851009368896
-        Z: -1.103388786315918
+        X: -4.851602077484131
+        Y: 3.050814151763916
+        Z: -1.6741729974746704
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false

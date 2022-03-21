@@ -1,0 +1,15 @@
+global_costmap:
+  global_frame: map
+  robot_base_frame: base_link
+  update_frequency: 1.0
+  publish_frequency: 1.0
+  #static_map: true
+  #resolution: 0.1
+  
+  transform_tolerance: 0.5
+  plugins:
+    - {name: static_layer,              type: "costmap_2d::StaticLayer"}
+    - {name: obstacle_layer,            type: "costmap_2d::ObstacleLayer"}
+    - {name: rgbd_obstacle_layer_d1,    type: "spatio_temporal_voxel_layer/SpatioTemporalVoxelLayer"}
+    - {name: inflation_layer_g,         type: "costmap_2d::InflationLayer"}
+

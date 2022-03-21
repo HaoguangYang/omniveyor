@@ -25,6 +25,7 @@ through ReFrESH. Autonomous Robots, 39(4), 487-502.
 
 import rospy
 import sys
+import time
 import numpy as np
 from ReFrESH_ROS_utils import *
 
@@ -151,39 +152,41 @@ class ReFrESH_Module:
         elif ftype == Ftype.ACTION_CLI:
             this.kwargs = {'topic': ns, 'actType': mType, 'feedback_cb': exec}
             this.kwargs = {**this.kwargs, **kwargs}
+        elif ftype == Ftype.CALLABLE:
+            this.args = (exec,)
         else:
             print("ERROR: type not implemented.")
 
     """Helper function to turn on the module from within"""
-    def turnOn(self):
+    def turnMeOn(self):
         if isinstance(self.managerHandle, Manager):
             self.managerHandle.turnOn(self)
         else:
             print("ERROR: this module is not registered to a manager.")
 
     """Helper function to turn off the module from within"""
-    def turnOff(self):
+    def turnMeOff(self):
         if isinstance(self.managerHandle, Manager):
             self.managerHandle.turnOff(self)
         else:
             print("ERROR: this module is not registered to a manager.")
 
     """Helper function to return EX thread handle"""
-    def getEXhandle(self):
+    def getMyEXhandle(self):
         if isinstance(self.managerHandle, Manager):
             return self.managerHandle.getEXhandle(self)
         else:
             return None
 
     """Helper function to return EV thread handle"""
-    def getEVhandle(self):
+    def getMyEVhandle(self):
         if isinstance(self.managerHandle, Manager):
             return self.managerHandle.getEVhandle(self)
         else:
             return None
 
     """Helper function to return ES thread handle"""
-    def getEShandle(self):
+    def getMyEShandle(self):
         if isinstance(self.managerHandle, Manager):
             return self.managerHandle.getEShandle(self)
         else:
@@ -214,6 +217,7 @@ class Manager:
         self.offDict = dict()     # Dictionary of modules turned OFF.   key = module, values = (es)
         self.Decider = ModuleComponent(Ftype.TIMER, (freq, self.basicDecider), {})
         self.Decider_proc = None
+        self.bottleNeck = 0.0
         self.DeciderCooldownDuration = minReconfigInterval
         for m in managedModules:
             if isinstance(m, ReFrESH_Module):
@@ -436,9 +440,10 @@ class Manager:
         toOn = None
         toOff = None
         self.lock.acquire()
+        bottleNeck = 0.0
         #O(n^2) complexity, in the worst case.
         for module in self.onDict:
-            bottleNeck = module.reconfigMetric.bottleNeck()
+            bottleNeck = max(module.reconfigMetric.bottleNeck(), bottleNeck)
             if bottleNeck >= 1.:
                 # performance crisis. do reconfig
                 print("INFO: Module", module.name, "falls below (", bottleNeck, "x) desired performance bounds.")
@@ -446,6 +451,10 @@ class Manager:
                 bestPerf = 1.
                 for m in self.offDict:
                     if m != module:
+                        # in case the ES is wrapped in a callable function instead of a thread
+                        EShandle = self.offDict[m]
+                        if callable(EShandle):
+                            EShandle()
                         tmp = m.reconfigMetric.bottleNeck()
                         if tmp < bestPerf:
                             candidate = m
@@ -455,15 +464,17 @@ class Manager:
                                         ", is both ON and OFF. Something bad happened.")
                 if candidate != module:
                     print("INFO: Found alternative module", candidate.name, \
-                            "with estimated performance", \
-                            candidate.reconfigMetric.bottleNeck(), ".")
+                            "with estimated performance", bestPerf, ".")
                     toOff = module
                     toOn = candidate
+                    # if an alternative is found, we do not report the performance crisis.
+                    bottleNeck = bestPerf
                     # we have found a solution.
                     break
                 else:
                     print("WARN: No alternative module satisfies resource and performance bounds. Current value:", \
                         module.reconfigMetric.bottleNeck(), ".")
+        self.bottleNeck = bottleNeck
         self.lock.release()
         if toOn and toOff:
             self.turnOff(toOff)
@@ -491,16 +502,27 @@ class Manager:
     def requestOff(self, offList):
         offDictL = dict.fromkeys(offList)
         toOff = set()
-        for module in self.onDict:
-            if module.name in offDictL:
-                toOff.add(module)
-            elif module in offDictL:
-                toOff.add(module)
         for module in self.readyDict:
             if module.name in offDictL:
                 toOff.add(module)
             elif module in offDictL:
                 toOff.add(module)
+        for module in toOff:
+            self.turnOff(module)
+        toOff.clear()
+        for module in self.onDict:
+            if module.name in offDictL:
+                toOff.add(module)
+            elif module in offDictL:
+                toOff.add(module)
+        for module in toOff:
+            self.turnOff(module)
+    
+    def turnOffAll(self):
+        toOff = set(self.readyDict.keys())
+        for module in toOff:
+            self.turnOff(module)
+        toOff = set(self.onDict.keys())
         for module in toOff:
             self.turnOff(module)
 
@@ -548,12 +570,12 @@ if __name__ == "__main__":
     taskManager.requestOn(["test1", "test2"])
     rospy.sleep(rospy.Duration(1.0))
     # turn on/off by requesting the module
-    testModule1.turnOff()
+    testModule1.turnMeOff()
     rospy.sleep(rospy.Duration(1.0))
-    testModule2.turnOff()
+    testModule2.turnMeOff()
     rospy.sleep(rospy.Duration(1.0))
     # respawnable
-    testModule1.turnOn()
+    testModule1.turnMeOn()
     rospy.sleep(rospy.Duration(1.0))
     # simulate a situation with degrading module
     testModule1.reconfigMetric.update([1.1], [1.1])

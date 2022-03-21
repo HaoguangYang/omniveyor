@@ -3,17 +3,16 @@
 import rospy
 import os
 import sys
-currentdir = os.path.dirname(os.path.realpath(__file__))
-parentdir = os.path.dirname(currentdir)
-sys.path.append(parentdir)
 import glob
 import socket
 import select
 import time
+currentdir = os.path.dirname(os.path.realpath(__file__))
+parentdir = os.path.dirname(currentdir)
+sys.path.append(parentdir)
 from ReFrESH_ROS import ReFrESH_Module
 from ReFrESH_ROS_utils import Thread, Ftype, ROSnodeMonitor, WirelessNetworkMonitor
 from geometry_msgs.msg import Twist
-from nav_msgs.msg import Path
 
 """Take teleoperation input from joystick"""
 class joystickTeleopModule(ReFrESH_Module):
@@ -52,7 +51,7 @@ class joystickTeleopModule(ReFrESH_Module):
             #print("JS-EV ", self.resourceMetrics)
         else:
             # attach performance monitor for the roslaunch process (EX)
-            self.exMon.attach(self.getEXhandle())
+            self.exMon.attach(self.getMyEXhandle())
 
     def estimator(self, event):
         # need to clean up EX monitor since it is inactive
@@ -72,7 +71,7 @@ class remoteTeleopModule(ReFrESH_Module):
         self.performanceMetrics = [0.0]
         self.commOutTol = 1.0
         self.lastCommRecvd = time.time()
-        
+
         # Resource metric: bandwidth, CPU time, memory
         self.resourceMetrics = [0.5, 0.0, 0.0]
         self.bandwidthQuota = 0.2
@@ -116,7 +115,7 @@ class remoteTeleopModule(ReFrESH_Module):
             #print("RM-EV ", self.resourceMetrics)
         else:
             # attach performance monitor for the roslaunch process (EX)
-            self.exMon.attach(self.getEXhandle())
+            self.exMon.attach(self.getMyEXhandle())
 
     def estimator(self):
         # need to clean up EX monitor since it is inactive
@@ -155,12 +154,12 @@ class remoteTeleopModule(ReFrESH_Module):
 this is only a plan-B for teleoperation, since the keyboard detection is not robust,
 and the console can be used for other purposes."""
 class keyboardTeleopModule(ReFrESH_Module):
-    def __init__(self, name="keyboardTeleop", priority=97, preemptive=True):
+    def __init__(self, name="keyboardTeleop", priority=95, preemptive=True):
         super().__init__(name, priority=priority, preemptive=preemptive)
         # always ideal
         self.performanceMetrics = [0.0]
         # Resource metric: availability, CPU time, memory
-        self.resourceMetrics = [0.5, 0.0, 0.0]
+        self.resourceMetrics = [0.9, 0.0, 0.0]
         self.cpuQuota = 0.2
         self.memQuota = 0.1
         self.exMon = ROSnodeMonitor()
@@ -180,7 +179,8 @@ class keyboardTeleopModule(ReFrESH_Module):
     def evaluator(self, event):
         # check if performance monitor is attached
         if self.exMon.isAttached():
-            self.resourceMetrics[0] = 0.0 if len(self.hasKeyboard()) or self.hasSSH() else 1.0
+            self.resourceMetrics[0] = 0.0 if (len(self.hasKeyboard()) or self.hasSSH()) and self.exMon.isAlive() \
+                                            else 1.0
             # log worst case CPU usage of the launched exec.
             uCPU, uMem = self.exMon.getCpuMemUtil()
             uCPU /= self.cpuQuota
@@ -192,59 +192,14 @@ class keyboardTeleopModule(ReFrESH_Module):
             #print("KB-EV ", self.resourceMetrics)
         else:
             # attach performance monitor for the roslaunch process (EX)
-            self.exMon.attach(self.getEXhandle())
+            self.exMon.attach(self.getMyEXhandle())
 
     def estimator(self, event):
         # need to clean up EX monitor since it is inactive
         if self.exMon.isAttached():
             self.exMon.detach()
-        self.resourceMetrics[0] = 0.0 if len(self.hasKeyboard()) or self.hasSSH() else 1.0
+        self.resourceMetrics[0] = 0.9 if len(self.hasKeyboard()) or self.hasSSH() else 1.0
         self.reconfigMetric.update(self.performanceMetrics, self.resourceMetrics)
-
-"""TODO: Submits a path to MoveBase planner as an action"""
-class moveBasePlannerModule(ReFrESH_Module):
-    def __init__(self, name="moveBaseMotion", priority=96, preemptive=True, pathTopic="raw_path"):
-        super().__init__(name, priority=priority, preemptive=preemptive)
-        # Tortuosity of path, time used, final error
-        self.performanceMetrics = [0.0, 0.0, 0.0]
-        # Resource metric: availability
-        self.resourceMetrics = [0.5]
-        # use two EX threads instead?
-        self.setComponentProperties('EX', Ftype.SUBSCRIBER, pathTopic, self.submitPath, mType=Path)
-        self.setComponentProperties('EV', Ftype.TIMER, exec=self.evaluator, kwargs={'freq': 3.0})
-        self.setComponentProperties('ES', Ftype.TIMER, exec=self.estimator, kwargs={'freq': 3.0})
-    
-    def submitPath(self, msg):
-        pass
-    
-    def evaluator(self, event):
-        pass
-    
-    def estimator(self, event):
-        pass
-
-"""TODO: Follows a path as-is with PID controller"""
-class viaPointFollowerModule(ReFrESH_Module):
-    def __init__(self, name="moveBaseMotion", priority=96, preemptive=True, pathTopic="raw_path"):
-        super().__init__(name, priority=priority, preemptive=preemptive)
-        # Tortuosity of path, time used, final error
-        self.performanceMetrics = [0.0, 0.0, 0.0]
-        # Resource metric: nearest obstacle threshold, CPU utilization, mem Utilization
-        self.resourceMetrics = [0.5, 0.0, 0.0]
-        # use two EX threads instead?
-        self.setComponentProperties('EX', Ftype.SUBSCRIBER, pathTopic, self.getPath, mType=Path)
-        self.setComponentProperties('EV', Ftype.TIMER, exec=self.evaluator, kwargs={'freq': 3.0})
-        self.setComponentProperties('ES', Ftype.TIMER, exec=self.estimator, kwargs={'freq': 3.0})
-    
-    def getPath(self, msg):
-        pass
-    
-    def evaluator(self, event):
-        pass
-    
-    def estimator(self, event):
-        pass
-
 
 # a simple test case with three teleop modules.
 def test(taskManager):

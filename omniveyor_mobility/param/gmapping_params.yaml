@@ -1,0 +1,8 @@
+particles: 200
+linearUpdate: 0.1
+angularUpdate: 0.1
+delta: 0.1
+xmin: -20
+ymin: -20
+xmax: 20
+ymax: 20

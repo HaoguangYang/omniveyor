@@ -1,0 +1,26 @@
+PIDController:
+
+    odom_topic: odom/filtered
+    base_frame: base_link
+    overwrite_global_plan_orientation: True
+    publish_look_ahead_point: True
+    
+    linear_lookahead: 0.7
+    angular_lookahead: 1.54
+    linear_precision: 0.02
+    angular_precision: 0.02
+    
+    max_vel_lin: 0.3
+    max_acc_lin: 3.0
+    max_int_lin: 10.0
+    max_vel_ang: 0.3
+    max_acc_ang: 3.0
+    max_int_ang: 10.0
+    
+    kp_lin: 5.0
+    ki_lin: 0.01
+    kd_lin: 1.0
+    
+    kp_ang: 5.0
+    ki_ang: 0.01
+    kd_ang: 1.0
