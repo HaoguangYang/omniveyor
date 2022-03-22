@@ -20,7 +20,7 @@ import numpy as np
 
 """ Manipulate Move Base planners """
 class moveBaseModule(ReFrESH_Module):
-    def __init__(self, name="moveBaseMotion", priority=97, preemptive=True, bgp="", blp=""):
+    def __init__(self, name="moveBaseMotion", priority=90, preemptive=True, bgp="", blp=""):
         super().__init__(name, priority=priority, preemptive=preemptive)
         # Tortuosity of path, time used, final error
         self.performanceMetrics = [0.0, 0.0]
@@ -29,6 +29,8 @@ class moveBaseModule(ReFrESH_Module):
         self.resourceMetrics = [0.5]
         self.moveBaseGoal = None
         self.abortedGoal = None         # aborted goal, set when the module is turned off without reaching the last goal.
+        self.feedback = None
+        self.poseAborted = None
         self.setComponentProperties('EX', Ftype.ACTION_CLI, 'move_base', self.feedbackCb, mType=MoveBaseGoal, 
                                     kwargs={'active_cb': self.activeCb, 'done_cb': self.doneCb, 'goal': self.moveBaseGoal,
                                             'prelaunch_cb': self.prelaunch, 'availTimeout': 1.0},
@@ -76,6 +78,7 @@ class moveBaseModule(ReFrESH_Module):
         self.historyPoses.append([pose.header.stamp.to_secs(), pose.pose.position.x, pose.pose.position.y, 
                             pose.pose.orientation.z, pose.pose.orientation.w])
         self.managerHandle.setFeedback(feedback)
+        self.feedback = feedback
         pass
     
     def activeCb(self):
@@ -97,6 +100,7 @@ class moveBaseModule(ReFrESH_Module):
                 # TODO: does the result contain a pose where it failed?
                 # If not, need another way to remember the aborted pose (maybe last feedback?)
                 self.abortedGoal = self.managerHandle.currentGoal
+                self.poseAborted = self.feedback.base_position
             self.managerHandle.setResult(status, final=False)
         pass
 
@@ -164,28 +168,21 @@ class moveBaseModule(ReFrESH_Module):
             except rospy.ServiceException as e:
                 print("ERROR: Service call failed: %s"%e)
                 self.resourceMetrics[0] = 1.0
-    
-"""TODO: Follows a path as-is with PID controller"""
-class viaPointFollowerModule(ReFrESH_Module):
-    def __init__(self, name="moveBaseMotion", priority=96, preemptive=True, pathTopic="raw_path"):
-        super().__init__(name, priority=priority, preemptive=preemptive)
-        # Tortuosity of path, time used, final error
-        self.performanceMetrics = [0.0, 0.0, 0.0]
-        # Resource metric: nearest obstacle threshold, CPU utilization, mem Utilization
-        self.resourceMetrics = [0.5, 0.0, 0.0]
-        # use two EX threads instead?
-        self.setComponentProperties('EX', Ftype.SUBSCRIBER, pathTopic, self.getPath, mType=Path)
-        self.setComponentProperties('EV', Ftype.TIMER, exec=self.evaluator, kwargs={'freq': 3.0})
-        self.setComponentProperties('ES', Ftype.TIMER, exec=self.estimator, kwargs={'freq': 3.0})
 
-    def getPath(self, msg):
-        # pid controller to next point in the path
-        pass
+""" Using TEB local planner to avoid local obstacles, potentially dynamic """
+class pidControllerModule(moveBaseModule):
+    def __init__(self, name="pidControllerMotion", priority=96, preemptive=True):
+        super().__init__(self, name=name, priority=priority, preemptive=preemptive,
+                            bgp="navfn/NavfnROS", blp="teb_local_planner/TebLocalPlannerROS")
 
-    def evaluator(self, event):
-        # footprint intrusion
-        pass
+""" Using DWA local planner to refine the global trajectory for obstacle avoidance """
+class pidControllerModule(moveBaseModule):
+    def __init__(self, name="pidControllerMotion", priority=96, preemptive=True):
+        super().__init__(self, name=name, priority=priority, preemptive=preemptive,
+                            bgp="navfn/NavfnROS", blp="dwa_local_planner/DWAPlannerROS")
 
-    def estimator(self, event):
-        # is path clear, or, /move_base/make_plan service available and generates a non-empty plan?
-        pass
+""" Follows a global plan as-is with PID controller"""
+class pidControllerModule(moveBaseModule):
+    def __init__(self, name="pidControllerMotion", priority=94, preemptive=True):
+        super().__init__(self, name=name, priority=priority, preemptive=preemptive,
+                            bgp="navfn/NavfnROS", blp="pid_controller/PIDController")

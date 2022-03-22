@@ -61,7 +61,7 @@ class MoveBaseManager(ReFrESH_Module, Manager):
                     m.syncGoal()
                 if not len(self.onDict):
                     # nothing is on.
-                    while not rospy.is_shutdown() and not self.managerHandle.newGoalEvent._flag:
+                    while not rospy.is_shutdown() and not self.managerHandle.newGoalEvent.isSet():
                         # sequentially query the estimators for initial capability assessment
                         # this process is identical to what the decider do when a module falls below the bar.
                         candidate = None

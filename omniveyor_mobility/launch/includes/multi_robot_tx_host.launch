@@ -11,8 +11,10 @@
       See udp_receiver.launch for the receiving part.
     -->
     
-    <arg name="target"    default="192.168.254.109" />
-    <arg name="tx_port"   default="17002" />
+    <arg name="node_id"   default="9"/>
+    <arg name="tx_port_base" default="17050"/>
+    <arg name="target"    default="192.168.254.$(eval 100 + node_id)" />
+    <arg name="tx_port"   default="$(eval tx_port_base + node_id)" />
     
     <!-- The sender node -->
     <node name="$(anon sender)" pkg="nimbro_topic_transport" type="sender" output="screen">
