@@ -24,3 +24,27 @@ def composeRotCov(covA, aRb, covR=None):
     if covR:
         covB += np.array(covR).reshape([6,6])
     return covB
+
+def tortuosity(rowVectors, granularity=None):
+    rowVectors = np.array(rowVectors)
+    d = np.diff(rowVectors, axis=0)
+    totalLength = np.sqrt(np.sum(d*d))
+    nStep = d.shape[0]
+    if not granularity:
+        nLargerStep = 1
+        displacement = rowVectors[-1,:]-rowVectors[0,:]
+    else:
+        nLargerStep = 0
+        displacement = 0.
+        granSq = granularity * granularity
+        start = rowVectors[0]
+        for i in rowVectors:
+            diff = i - start
+            norm = diff @ diff
+            if norm >= granSq:
+                start = i
+                nLargerStep += 1
+                displacement += np.sqrt(norm)
+        if nLargerStep == 0:
+            nLargerStep = 1                 # to avoid singularity
+    return np.log(totalLength/displacement)/np.log(nStep/nLargerStep)
