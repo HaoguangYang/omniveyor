@@ -1,9 +1,9 @@
 <launch>
   <arg name="static_map" default="1"/>
-  <arg name="map_file" default=""/>
+  <arg name="map_file" default="map"/>
   <arg name="map_save_period" default="-1"/>
   <group if="$(arg static_map)">
-    <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find omniveyor_mobility)/resources/map/$(arg map_file).yaml" />
     <node pkg="amcl" type="amcl" name="amcl" respawn="false" output="screen">
         <rosparam file="$(find omniveyor_mobility)/param/amcl_params.yaml" command="load" />
     </node>
@@ -13,7 +13,7 @@
         <rosparam file="$(find omniveyor_mobility)/param/gmapping_params.yaml" command="load" />
     </node>
     <group if="$(eval arg('map_save_period') > 0)">
-        <!-- save map periodically -->
+        <node name="map_saver" pkg="map_server" type="map_saver" args="-f $(find omniveyor_mobility)/resources/map/$(arg map_file)" respawn="true" respawn_delay="$(arg map_save_period)"/>
     </group>
   </group>
 </launch>

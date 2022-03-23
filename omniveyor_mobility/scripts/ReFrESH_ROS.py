@@ -135,7 +135,7 @@ class ReFrESH_Module:
             this.kwargs = {'pkgName': ns, 'execName': exec, 'args': args}
             this.kwargs = {**this.kwargs, **kwargs}
         elif ftype == Ftype.LAUNCH_FILE:
-            this.kwargs = {'pkgName': ns, 'fileName': exec}
+            this.kwargs = {'pkgName': ns, 'fileName': exec, 'args': args}
             this.kwargs = {**this.kwargs, **kwargs}
         elif ftype == Ftype.THREAD:
             this.kwargs = {'funcPtr': exec, 'args': args}

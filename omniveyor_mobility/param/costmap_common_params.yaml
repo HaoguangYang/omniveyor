@@ -21,12 +21,12 @@ inflation_layer:
 
 static_layer:
   enabled:              true
-  map_topic:            "/map"
+  map_topic:            "map"
 
 static_layer_reuse:
   enabled:              true
   subscribe_to_updates: true
-  map_topic:            "/move_base/global_costmap/costmap"
+  map_topic:            "move_base/global_costmap/costmap"
 
 rgbd_obstacle_layer_d1:
   enabled:               true

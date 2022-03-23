@@ -2,7 +2,7 @@
 <launch>
 	<arg name="gui" default="0"/>
     <arg name="remote_teleop"   default="1"/>
-	<arg name="map_file" default="$(find omniveyor_mobility)/resources/map/imi.yaml"/>
+	<arg name="map_file" default="imi"/>
     
     <!-- base node -->
 	<include file="$(find pcv_base)/launch/run_barebones.launch">

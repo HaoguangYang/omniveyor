@@ -4,6 +4,7 @@
     <arg name="explore" default="0"/>
     <arg name="remote_teleop" default="1"/>
     <arg name="use_sim_time" default="0"/>
+    <arg name="map_save_period" value="-1"/>
     
     <group unless="$(arg use_sim_time)">
         <!-- base node -->
@@ -16,12 +17,14 @@
     <!-- SLAM -->
     <include file="$(find omniveyor_mobility)/launch/includes/map_and_localization.launch">
         <arg name="static_map" value="0"/>
-        <arg name="map_save_period" default="-1"/>    <!--not yet implemented-->
+        <arg name="map_save_period" value="$(arg map_save_period)"/>
     </include>
     
     <!-- automatic exploration -->
     <group if="$(arg explore)">
-        <include file="$(find omniveyor_mobility)/launch/includes/explore.launch" />
+        <include file="$(find omniveyor_mobility)/launch/includes/explore.launch">
+            <arg name="reconfig_motion_manager" value="0"/>
+        </include>
     </group>
     <include file="$(find omniveyor_mobility)/launch/includes/navigation.launch" />
 

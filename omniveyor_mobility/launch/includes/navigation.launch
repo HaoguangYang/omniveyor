@@ -15,7 +15,7 @@
         <rosparam file="$(find omniveyor_mobility)/param/carrot_planner_params.yaml" command="load" />
         <rosparam file="$(find omniveyor_mobility)/param/global_planner_params.yaml" command="load" />
 
-        <param name="base_global_planner" value="global_planner/GlobalPlanner" />
+        <param name="base_global_planner" value="navfn/NavfnROS" />
         <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
 
         <!-- Rotate in place is not allowed. Handled through self adaptation. -->

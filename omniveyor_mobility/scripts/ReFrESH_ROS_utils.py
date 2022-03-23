@@ -276,11 +276,18 @@ class Launcher:
         else:
             return None
 
-    def fileLaunch(self, pkgName='', fileName='', fullPathList=[]):
+    def fileLaunch(self, pkgName='', fileName='', args=(), fullPathList=[]):
         if not len(fullPathList):
-            fp = roslaunch.rlutil.resolve_launch_arguments([pkgName, fileName])
+            fp = roslaunch.rlutil.resolve_launch_arguments([pkgName, fileName, *args])
+            if args:
+                fp = [(fp, list(args))]
         else:
-            fp = fullPathList
+            fp = []
+            for line in fullPathList:
+                if len(line)>1:
+                    fp.append((roslaunch.rlutil.resolve_launch_arguments(line)[0], line[1:]))
+                else:
+                    fp.append(roslaunch.rlutil.resolve_launch_arguments(line)[0])
         # wait until roscore is available to handle the state transition.
         roslaunch.rlutil.get_or_generate_uuid(None, True)
         cfg = roslaunch.config.load_config_default(fp, None, verbose=False)
