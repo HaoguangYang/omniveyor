@@ -21,7 +21,7 @@ import numpy as np
 """ Manipulate Move Base planners """
 class moveBaseModule(ReFrESH_Module):
     def __init__(self, name="moveBaseMotion", priority=90, preemptive=True, bgp="", blp=""):
-        super().__init__(name, priority=priority, preemptive=preemptive)
+        super().__init__(name, priority, preemptive, EX_thread=1, EV_thread=1, ES_thread=1)
         # Tortuosity of path, time used, final error
         self.performanceMetrics = [0.0, 0.0]
         self.tortuosityTol = 1.5
@@ -170,19 +170,56 @@ class moveBaseModule(ReFrESH_Module):
                 self.resourceMetrics[0] = 1.0
 
 """ Using TEB local planner to avoid local obstacles, potentially dynamic """
-class pidControllerModule(moveBaseModule):
-    def __init__(self, name="pidControllerMotion", priority=96, preemptive=True):
-        super().__init__(self, name=name, priority=priority, preemptive=preemptive,
-                            bgp="navfn/NavfnROS", blp="teb_local_planner/TebLocalPlannerROS")
+class tebLocalPlannerROSModule(moveBaseModule):
+    def __init__(self, name="tebLocalPlannerROSMotion", priority=96, preemptive=True):
+        super().__init__(name, priority, preemptive,
+                        bgp="navfn/NavfnROS", blp="teb_local_planner/TebLocalPlannerROS")
 
 """ Using DWA local planner to refine the global trajectory for obstacle avoidance """
-class pidControllerModule(moveBaseModule):
-    def __init__(self, name="pidControllerMotion", priority=96, preemptive=True):
-        super().__init__(self, name=name, priority=priority, preemptive=preemptive,
-                            bgp="navfn/NavfnROS", blp="dwa_local_planner/DWAPlannerROS")
+class dwaPlannerROSModule(moveBaseModule):
+    def __init__(self, name="dwaPlannerROSMotion", priority=95, preemptive=True):
+        super().__init__(name, priority, preemptive,
+                        bgp="navfn/NavfnROS", blp="dwa_local_planner/DWAPlannerROS")
 
 """ Follows a global plan as-is with PID controller"""
 class pidControllerModule(moveBaseModule):
     def __init__(self, name="pidControllerMotion", priority=94, preemptive=True):
-        super().__init__(self, name=name, priority=priority, preemptive=preemptive,
-                            bgp="navfn/NavfnROS", blp="pid_controller/PIDController")
+        super().__init__(name, priority, preemptive,
+                        bgp="navfn/NavfnROS", blp="pid_controller/PIDController")
+
+def test(taskManager):
+    try:
+        # turn on by requesting the manager
+        taskManager.requestOn(["keyboardTeleop"])
+        rospy.sleep(rospy.Duration(10.0))
+        taskManager.requestOn(["remoteTeleop"])
+        rospy.sleep(rospy.Duration(10.0))
+        taskManager.requestOn(["joystickTeleop"])
+    except SystemExit:
+        return
+
+if __name__ == "__main__":
+    from ReFrESH_ROS_utils import Launcher, Thread
+    from ReFrESH_ROS import Manager
+    from Managers import MotionManager, MoveBaseManager
+    from TeleopModules import joystickTeleopModule, remoteTeleopModule, keyboardTeleopModule
+    # a simple test case with three teleop modules.
+    taskLauncher = Launcher("motionManager")
+    simThread = taskLauncher.launch(Ftype.LAUNCH_FILE, pkgName='omniveyor_gazebo_world', fileName='IMI.launch')
+    jsMod = joystickTeleopModule()
+    rmMod = remoteTeleopModule()
+    kbMod = keyboardTeleopModule()
+    teb = tebLocalPlannerROSModule()
+    dwa = dwaPlannerROSModule()
+    pid = pidControllerModule()
+    mbMan = MoveBaseManager(taskLauncher, managedModules=[teb, dwa, pid])
+    taskManager = MotionManager(taskLauncher, managedModules=[mbMan, jsMod, rmMod, kbMod])
+    t = Thread(target=test, args=(taskManager,))
+    t.start()
+    # blocking run
+    taskManager.run(blocking = True)
+    # shutdown
+    t.stop()
+    taskLauncher.stop(simThread)
+    taskManager.shutdown()
+    taskLauncher.shutdown()

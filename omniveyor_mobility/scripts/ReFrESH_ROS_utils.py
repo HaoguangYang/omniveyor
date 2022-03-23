@@ -284,13 +284,20 @@ class Launcher:
         # wait until roscore is available to handle the state transition.
         roslaunch.rlutil.get_or_generate_uuid(None, True)
         cfg = roslaunch.config.load_config_default(fp, None, verbose=False)
+        self.nodeLauncher.runner.config.params.update(cfg.params)
+        # hack to update parameter server...
+        self.nodeLauncher.runner._load_parameters()
         nodeProcs = []
         # only launches local nodes.
         local_nodes = [n for n in cfg.nodes if roslaunch.core.is_machine_local(n.machine)]
-        for node in local_nodes: 
+        for node in local_nodes:
+            self.nodeLauncher.spin_once()
+            self.roscoreProc.spin_once()
             proc, success = self.nodeLauncher.runner.launch_node(node)
             if success:
                 nodeProcs.append(proc)
+            self.nodeLauncher.spin_once()
+            self.roscoreProc.spin_once()
         return tuple(nodeProcs)
 
     def threadLaunch(self, funcPtr=None, args=()):
@@ -390,7 +397,7 @@ class Launcher:
             self.roscoreProc.spin_once()
             self.nodeLauncher.spin_once()
             time.sleep(0.1)
-        print ("INFO: ROS Launcher Exiting...")
+        rospy.signal_shutdown("ROS Launcher Exiting...")
     
     def spin_once(self):
         self.nodeLauncher.spin_once()

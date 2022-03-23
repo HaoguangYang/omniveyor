@@ -16,7 +16,7 @@ sudo systemctl enable ssh
 # system utilities
 sudo apt install -y net-tools curl
 # system build & run dependencies
-sudo apt install -y build-essential libopenvdb-dev libgeographic-dev python3-pip python-is-python3
+sudo apt install -y build-essential libopenvdb-dev libjemalloc2 libgeographic-dev python3-pip python-is-python3
 sudo -H pip3 install numpy pymysql opencv-contrib-python pyrealsense2
 if [[ "${machineIs}" == *"1"* ]]; then
     # hardware drivers: Realsense cameras

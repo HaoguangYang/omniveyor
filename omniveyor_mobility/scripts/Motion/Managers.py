@@ -10,7 +10,7 @@ import time
 currentdir = os.path.dirname(os.path.realpath(__file__))
 parentdir = os.path.dirname(currentdir)
 sys.path.append(parentdir)
-from ReFrESH_ROS import ReFrESH_Module
+from ReFrESH_ROS import ReFrESH_Module, Manager
 from ReFrESH_ROS_utils import Ftype, ROSnodeMonitor
 import tf2_ros
 import tf2_geometry_msgs
@@ -24,13 +24,13 @@ import utils
 
 """multilevel inherited class to manage movebase global and local planners"""
 class MoveBaseManager(ReFrESH_Module, Manager):
-    def __init__(self, launcher, name="moveBaseManager", priority=97, managedModules=[], freq=5.0, 
-                 minReconfigInterval = 1.0):
-        super().__init__(name=name, priority=priority, EX_thread=3, launcher=launcher,
-                         managedModules=managedModules, freq=freq, minReconfigInterval=minReconfigInterval)
+    def __init__(self, launcher, managedModules=[], name="moveBaseManager", priority=97, preemptive=True,
+                freq=5.0, minReconfigInterval = 1.0):
+        ReFrESH_Module.__init__(self, name, priority, preemptive, EX_thread=3, EV_thread=1, ES_thread=1)
+        Manager.__init__(self, launcher, managedModules, name, freq, minReconfigInterval)
         self.EX[0] = self.Decider
         self.setComponentProperties('EX', Ftype.LAUNCH_FILE, 'omniveyor_mobility', 'navigation.launch', ind=1)
-        self.setComponentProperties('EX', Ftype.THREAD, exec=self.goalRunner)
+        self.setComponentProperties('EX', Ftype.THREAD, exec=self.goalRunner, ind=2)
         self.setComponentProperties('EV', Ftype.TIMER, exec=self.evaluator, kwargs={'freq': 5.0})
         self.setComponentProperties('ES', Ftype.CALLABLE, exec=self.estimator)
         # Resource metric: CPU time, memory
@@ -97,8 +97,8 @@ class MoveBaseManager(ReFrESH_Module, Manager):
             uCPU /= self.cpuQuota
             uMem /= self.memQuota
             # exponential filter for worst case execution time / memory utilization
-            self.resourceMetrics[0] = max(uCPU, self.resourceMetrics[1]*0.975)
-            self.resourceMetrics[1] = max(uMem, self.resourceMetrics[2]*0.975)
+            self.resourceMetrics[0] = max(uCPU, self.resourceMetrics[0]*0.975)
+            self.resourceMetrics[1] = max(uMem, self.resourceMetrics[1]*0.975)
             # report self.bottleNeck to the performance aspect of the module
             # bottleneck is already updated in the decider.
             self.reconfigMetric.update([self.bottleNeck], self.resourceMetrics)
@@ -149,8 +149,7 @@ class MoveBaseManager(ReFrESH_Module, Manager):
 class MotionManager(Manager):
     def __init__(self, launcher, managedModules=[], name="", freq=5.0, minReconfigInterval = 1.0,
                  worldFrame='map', odomFrame='odom', robotFrame='base_link', worldPoseTopic='world_pose'):
-        super().__init(launcher, managedModules=managedModules, name=name, freq=freq, 
-                       minReconfigInterval=minReconfigInterval)
+        super().__init__(launcher, managedModules, name, freq, minReconfigInterval)
         # handle was previously installed to super(). Need to migrate to self for the additional functions.
         for m in managedModules:
             m.managerHandle = self

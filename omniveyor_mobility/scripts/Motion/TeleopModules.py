@@ -89,14 +89,14 @@ class remoteTeleopModule(ReFrESH_Module):
         if self.exMon.isAttached():
             # log time difference since last message
             try:
-                msg = rospy.wait_for_message(self.cmdTopic, Twist, rospy.Duration(self.commOutTol))
-            except rospy.exceptions.ROSException:
+                msg = rospy.wait_for_message(self.cmdTopic, Twist, self.commOutTol)
+            except rospy.exceptions.ROSException or rospy.exceptions.ROSInterruptException:
                 self.performanceMetrics[0] = 1.0
             else:
                 time0 = time.time()
                 try:
-                    msg = rospy.wait_for_message(self.cmdTopic, Twist, rospy.Duration(self.commOutTol))
-                except rospy.exceptions.ROSException:
+                    msg = rospy.wait_for_message(self.cmdTopic, Twist, self.commOutTol)
+                except rospy.exceptions.ROSException or rospy.exceptions.ROSInterruptException:
                     self.performanceMetrics[0] = 1.0
                 else:
                     dt = time.time()-time0

@@ -26,8 +26,8 @@ class multiRobotCoordinator():
         self.robotVelocities = []
         self.cmdPub = []
         for i in range(0, self.numRobots):
-            self.vel_cmd_msg.append(Twist)
-            self.localization_sub.append(rospy.Subscriber('robot_'+str(nodeList[i])+'/world_pose', 
+            self.vel_cmd_msg.append(Twist())
+            self.localization_sub.append(rospy.Subscriber('robot_'+str(nodeList[i])+'/odom/filtered', 
                                         Odometry, self.globalLocCb, (nodeList[i],)))
             self.robotLocationsInMap.append([0.,0.,0.])     # Px, Py, Theta
             self.robotVelocities.append([0.,0.,0.])         # Vx, Vy, Omega
@@ -38,9 +38,9 @@ class multiRobotCoordinator():
     def setTargetVels(self, vList):
         assert len(vList) == self.numRobots
         for i in range(0, self.numRobots):
-            self.vel_cmd_msg[i].twist.linear.x = vList[i][0]
-            self.vel_cmd_msg[i].twist.linear.y = vList[i][1]
-            self.vel_cmd_msg[i].twist.angular.z = vList[i][2]
+            self.vel_cmd_msg[i].linear.x = vList[i][0]
+            self.vel_cmd_msg[i].linear.y = vList[i][1]
+            self.vel_cmd_msg[i].angular.z = vList[i][2]
             self.cmdPub[i].publish(self.vel_cmd_msg[i])
 
     def globalLocCb(self, msg, args):
@@ -58,7 +58,7 @@ class multiRobotCoordinator():
 class demoTrajs():
     def __init__(self, nodeList):
         self.robotIO = multiRobotCoordinator(nodeList)
-        self.v_lim = [0.1, 0.1, 0.025]      # linear, angular, along rod
+        self.v_lim = [0.3, 0.3, 0.1]      # linear, angular, along rod
         self.vel_center =       np.array([0., 0., 0., 0., 0.])
         self.vel_center_des =   np.array([0., 0., 0., 0., 0.])
         self.pos_center =       np.array([0., 0., 0., 0., 0.])  # [x, y, d1, d2, d3]
@@ -71,9 +71,9 @@ class demoTrajs():
         self.v_robots =         np.array([[0., 0., 0.], [0., 0., 0.], [0., 0., 0.]])
         
         self.kpl = 1.5
-        self.kdl = 1.
-        self.kpa = 0.5
-        self.kda = 0.2
+        self.kdl = 1.0
+        self.kpa = 1.5
+        self.kda = 1.0
         
         self.jacobian = np.array([[1., 0., 0., 0., 0.],
                                   [0., 1., -1., 0., 0.],
@@ -132,7 +132,7 @@ class demoTrajs():
         pose_array = np.array(self.robotIO.robotLocationsInMap)
         self.robot_orientation = pose_array[:,2]
         orientation_unwrapped = np.unwrap(pose_array[:,2], np.pi*2.)
-        self.orientation_center = np.mod(np.average(orientation_unwrapped) - np.pi*2./3. + 3.*np.pi, np.pi*2.) -np.pi
+        self.orientation_center = np.mod(np.average(orientation_unwrapped) + 3.*np.pi, np.pi*2.) - np.pi
         #print(orientation_unwrapped)
         self.jacobian[0,2] = np.sin(self.orientation_center)
         self.jacobian[1,2] = -np.cos(self.orientation_center)
@@ -173,7 +173,7 @@ class demoTrajs():
             self.pos_center_des = self.pos_center
             self.orientation_center_des = self.orientation_center
             if (self.pos_center_des[0] != 0. and self.pos_center_des[1] != 0. and 
-                self.pos_center_des[2] > 0.2 and self.pos_center_des[3] > 0.2 and self.pos_center_des[4] > 0.2):
+                abs(self.pos_center_des[2]) > 0.2 and abs(self.pos_center_des[3]) > 0.2 and abs(self.pos_center_des[4]) > 0.2):
                 break
         while not rospy.is_shutdown():
             self.updateGeometry()
@@ -204,7 +204,7 @@ class demoOne():
 
 if __name__ == '__main__':
     rospy.init_node('multi_robot_cmd_loc_host')
-    demo = demoTrajs([9, 8, 6])     # Robot 1, 2, 3.
+    demo = demoTrajs([9, 6, 8])     # Robot 1, 2, 3. counter-clockwise direction
     demo.run()
-    #demo1 = demoOne(6)
+    #demo1 = demoOne(9)
     #demo1.run()

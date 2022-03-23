@@ -537,8 +537,15 @@ class Manager:
 
     """ Cleanup """
     def shutdown(self):
-        self.launcher.stop(self.Decider_proc)
-        self.lock.acquire()
+        if self.Decider_proc:
+            self.launcher.stop(self.Decider_proc)
+        while len(self.offDict):
+            m, esHandle = self.offDict.popitem()
+            # turn off ES
+            for th in esHandle:
+                self.launcher.stop(th)
+            print("INFO: Module", m.name, "SHUTDOWN.")
+        self.readyDict.clear()
         while len(self.onDict):
             m, (exHandle, evHandle) = self.onDict.popitem()
             # turn off EV
@@ -548,15 +555,7 @@ class Manager:
             for th in exHandle:
                 self.launcher.stop(th)
             print("INFO: Module", m.name, "SHUTDOWN.")
-        while len(self.offDict):
-            m, esHandle = self.offDict.popitem()
-            # turn off ES
-            for th in esHandle:
-                self.launcher.stop(th)
-            print("INFO: Module", m.name, "SHUTDOWN.")
-        self.readyDict.clear()
         self.moduleDict.clear()
-        self.lock.release()
 
 if __name__ == "__main__":
     # a simple test case with two empty modules.
