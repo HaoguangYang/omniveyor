@@ -14,6 +14,7 @@ from ReFrESH_ROS import ReFrESH_Module, Manager
 from ReFrESH_ROS_utils import Ftype, ROSnodeMonitor
 import tf2_ros
 import tf2_geometry_msgs
+from std_msgs.msg import Header
 from geometry_msgs.msg import TransformStamped, PoseStamped, PoseWithCovarianceStamped
 from nav_msgs.msg import Odometry
 from nav_msgs.msg import Path
@@ -21,6 +22,20 @@ from move_base_msgs.msg import MoveBaseGoal
 from omniveyor_common.msg import LowLevelNavigationGoal, LowLevelNavigationFeedback, LowLevelNavigationResult
 from actionlib_msgs.msg import GoalStatus
 import utils
+from enum import Enum
+
+class GoalStatus(Enum):
+    NONE = 0
+    NEW = 1
+    FEASIBLE = 2
+    ACTIVE = 3
+    INVALIDATED = 4
+
+class abortionRecord:
+    goal = None
+    tolerance = None
+    abortedPose = None
+    recordTime = None
 
 """multilevel inherited class to manage movebase global and local planners"""
 class MoveBaseManager(ReFrESH_Module, Manager):
@@ -41,41 +56,29 @@ class MoveBaseManager(ReFrESH_Module, Manager):
         self.memQuota = 0.5
         self.exMon = ROSnodeMonitor()
         # The class instance is mutable (call by reference)
-        self.currentGoal = LowLevelNavigationGoal()     # goal to be submitted / currently running
         self.moveBaseGoal = MoveBaseGoal()              # goal translated to movebase format
+        self.goalStatus = GoalStatus.NONE
         self.goalTolerance = [0., 0.]                   # extracted goal positioning tolerance (linear, angular)
+        self.goalExpiration = None
         self.abortedGoal = None                         # last goal that returned abortion status by all managed modules
-        self.abortedPose = None                         # last world pose where all managed modules returned abortion status
 
     """Use move base planners to reach the goal."""    
     def goalRunner(self):
         try:
             while not rospy.is_shutdown():
-                # stuck here to wait for new goal to arrive
-                self.managerHandle.newGoalEvent.wait()
-                self.managerHandle.newGoalEvent.clear()
                 # assemble goal movebase action
                 self.updateGoal()
-                # sync the goal to all modules
-                for m in self.moduleDict:
-                    m.syncGoal()
+                if self.goalStatus == GoalStatus.NEW:
+                    # sync the goal to all modules
+                    for m in self.moduleDict:
+                        m.syncGoal()
                 if not len(self.onDict):
                     # nothing is on.
                     while not rospy.is_shutdown() and not self.managerHandle.newGoalEvent.isSet():
                         # sequentially query the estimators for initial capability assessment
                         # this process is identical to what the decider do when a module falls below the bar.
-                        candidate = None
-                        bestPerf = 1.
-                        for m, EShandle in self.offDict:
-                            if callable(EShandle):
-                                EShandle()
-                            tmp = m.reconfigMetric.bottleNeck()
-                            if tmp < bestPerf:
-                                candidate = m
-                                bestPerf = tmp
-                        # turn on the most capable planner module. This also submits the goal.
-                        if not(candidate is None):
-                            self.turnOn(candidate)
+                        cand, _ = self.turnOnBestESPerf()
+                        if cand:
                             break
                         elif self.currentGoal.expiration <= rospy.Time.now():
                             # in case intermittent blockage that stops the robot, the loop constantly checks if
@@ -84,6 +87,7 @@ class MoveBaseManager(ReFrESH_Module, Manager):
                             self.setResult(GoalStatus.ABORTED, final=True)
                             break
                         time.sleep(0.1)
+                time.sleep(0.1)
                 # don't care about a goal once submitted, since the EV handles rest of the checking job.
         except SystemExit:
             #self.cancelAll()
@@ -125,13 +129,23 @@ class MoveBaseManager(ReFrESH_Module, Manager):
             self.reconfigMetric.update([self.bottleNeck], self.resourceMetrics)
     
     def updateGoal(self):
-        # make a local copy 
-        self.currentGoal = copy.deepcopy(self.managerHandle.currentActionGoal)
-        self.moveBaseGoal.target_pose.header = self.currentGoal.header
-        self.moveBaseGoal.target_pose.pose = self.currentGoal.target_pose.pose
-        self.goalTolerance = [0.5*(self.abortedGoal.target_pose.pose.covariance[0]+self.abortedGoal.target_pose.pose.covariance[7]),
-                                self.abortedGoal.target_pose.pose.covariance[35]]
-    
+        # the locally-stored goal need to be updated every time before a valid estimation / execution is initiated.
+        # The locally stored goal shall have a status indicator: None, New, Feasible, Active, and Invalidated.
+        # The update goal function will only wait for signal in cases of None or Invalidated when invoked.
+        # make a local copy
+        if self.goalStatus == GoalStatus.NONE or self.goalStatus == GoalStatus.INVALIDATED:
+            # stuck here to wait for new goal to arrive
+            self.managerHandle.newGoalEvent.wait()
+            self.managerHandle.newGoalEvent.clear()
+            currentGoal = copy.deepcopy(self.managerHandle.currentActionGoal)
+            self.lock.acquire()
+            self.moveBaseGoal.target_pose.header = currentGoal.header
+            self.moveBaseGoal.target_pose.pose = currentGoal.target_pose.pose
+            self.goalTolerance = utils.covToTolerance(currentGoal.target_pose.covariance)
+            self.goalExpiration = currentGoal.expiration
+            self.goalStatus = GoalStatus.NEW
+            self.lock.release()
+
     def setFeedback(self, feedback):
         self.managerHandle.currentActionFeedback = feedback
     
@@ -151,21 +165,21 @@ class MotionManager(Manager):
                  worldFrame='map', odomFrame='odom', robotFrame='base_link', worldPoseTopic='world_pose'):
         super().__init__(launcher, managedModules, name, freq, minReconfigInterval)
         # handle was previously installed to super(). Need to migrate to self for the additional functions.
-        for m in managedModules:
-            m.managerHandle = self
+        #for m in managedModules:
+        #    m.managerHandle = self
         # utilities that interpolates robot's pose in the world (map frame, with fallback to odom frame)
         # tf - transform odom to map frame for amcl_pose, filtered odom,
         # fallback for other map poses published through tf.
         self.tfBuffer = tf2_ros.Buffer()
         self.tfListener = tf2_ros.TransformListener(self.tfBuffer)
         # Heartbeat - raw odometry is the ultimate fallback as long as the base is running.
-        self.odomSub = rospy.Subscriber('/odom', Odometry, self.wheelOdomCb)
+        self.odomSub = rospy.Subscriber('odom', Odometry, self.wheelOdomCb)
         # One level up, if the filter is running.
         self.filteredOdomTimeout = 0.1
         self.mapPoseTimeout = 3.0
-        self.filteredOdomSub = rospy.Subscriber('/odom/filtered', Odometry, self.filteredOdomCb)
+        self.filteredOdomSub = rospy.Subscriber('odom/filtered', Odometry, self.filteredOdomCb)
         # Two levels up, if map localization is running (at low freq).
-        self.mapPoseSub = rospy.Subscriber('/amcl_pose', PoseWithCovarianceStamped, self.mapPoseCb)
+        self.mapPoseSub = rospy.Subscriber('amcl_pose', PoseWithCovarianceStamped, self.mapPoseCb)
         #self.worldPoseLinCov = 0.
         #self.worldPoseAngCov = 0.
         self.worldPose = Odometry()
@@ -253,20 +267,37 @@ class MotionManager(Manager):
         return self.worldPose
 
     """A low-level goal runner. Tries to reach a goal with specified uncertainty tolerance"""
-    def runGoal(self, actionGoal):
-        # push goal
-        self.currentActionGoal = actionGoal
+    def runGoal(self, pose=PoseStamped(header=Header(frame_id="goal")), 
+                    tolerance=[0.1, 0.1], timeout=30.0, actionGoal=None):
+        if actionGoal is not None:
+            # push goal
+            self.currentActionGoal = actionGoal
+        else:
+            self.currentActionGoal = LowLevelNavigationGoal()
+            self.currentActionGoal.header = pose.header
+            self.currentActionGoal.target_pose.pose = pose.pose
+            cov = np.diag([tolerance[0]**2, tolerance[0]**2, tolerance[0]**2,
+                            tolerance[1]**2, tolerance[1]**2, tolerance[1]**2]).reshape([36]).tolist()
+            self.currentActionGoal.target_pose.covariance = cov
+            self.currentActionGoal.expiration = rospy.Time.now()+rospy.Duration(timeout)
         # clear previous records
         self.currectActionFeedback = None
         self.currentActionResult = None
         # set event
         self.newGoalEvent.set()
+        # TODO: lack a signal: how does the managed modules know it's time to look for a candidate and run?
+        if not len(self.onDict):
+            self.turnOnBestESPerf()
         # determine which module to turn on (and its dependency)
         # turn on/off the module
         # when the planner module is turned on, it submits an action goal to the movebase planner.
         # The planner guides the robot to reach the goal and return success.
         # if the goal fails, the decider switches to another module.
         # block until completes/fails
-        self.goalDoneEvent.wait()
+        self.goalDoneEvent.wait(timeout+1.0)
         self.goalDoneEvent.clear()
         return self.currentActionResult
+    
+    def shutdown(self):
+        super().shutdown()
+        self.goalDoneEvent.set()

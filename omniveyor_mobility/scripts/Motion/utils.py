@@ -48,3 +48,21 @@ def tortuosity(rowVectors, granularity=None):
         if nLargerStep == 0:
             nLargerStep = 1                 # to avoid singularity
     return np.log(totalLength/displacement)/np.log(nStep/nLargerStep)
+
+def covToTolerance(cov, decoupling=True, averaging=True):
+    sigma = np.reshape(cov, [6,6])
+    if decoupling:
+        eigvalL, eigvecL = np.linalg.eig(sigma[0:3, 0:3])
+        eigvalA, eigvecA = np.linalg.eig(sigma[3:6, 3:6])
+        if averaging:
+            tolTmp = [np.average(eigvalL[eigvalL>0]), np.average(eigvalA[eigvalA>0])]
+            tol = [tolTmp[0], tolTmp[0], tolTmp[0], tolTmp[1], tolTmp[1], tolTmp[1]]
+            dir = np.eye(6)
+            return np.sqrt(tol), dir
+        else:
+            tol = [eigvalL[0], eigvalL[1], eigvalL[2], eigvalA[0], eigvalA[1], eigvalA[2]]
+            dir = np.block([[eigvecL,np.zeros([3,3])], [np.zeros(3,3), eigvecA]])
+            return np.sqrt(tol), dir
+    else:
+        eigval, eigvec = np.linalg.eig(sigma)
+        return np.sqrt(eigval), eigvec

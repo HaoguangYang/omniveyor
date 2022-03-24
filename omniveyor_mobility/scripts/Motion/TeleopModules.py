@@ -11,7 +11,7 @@ currentdir = os.path.dirname(os.path.realpath(__file__))
 parentdir = os.path.dirname(currentdir)
 sys.path.append(parentdir)
 from ReFrESH_ROS import ReFrESH_Module
-from ReFrESH_ROS_utils import Thread, Ftype, ROSnodeMonitor, WirelessNetworkMonitor
+from ReFrESH_ROS_utils import Thread, Ftype, ROSnodeMonitor, WirelessNetworkMonitor, RingBuffer
 from geometry_msgs.msg import Twist
 
 """Take teleoperation input from joystick"""
@@ -63,7 +63,7 @@ class joystickTeleopModule(ReFrESH_Module):
 """Take teleoperation input from a received topic"""
 class remoteTeleopModule(ReFrESH_Module):
     def __init__(self, name="remoteTeleop", priority=98, preemptive=True, cmdTopic="cmd_vel", rxPort=17102):
-        super().__init__(name, priority=priority, preemptive=preemptive)
+        super().__init__(name, priority=priority, preemptive=preemptive, EV_thread=2)
         self.rxPort = rxPort
         self.cmdTopic = cmdTopic
 
@@ -79,31 +79,24 @@ class remoteTeleopModule(ReFrESH_Module):
         self.memQuota = 0.1
         self.exMon = ROSnodeMonitor()
         self.netMon = WirelessNetworkMonitor()
+        self.timeMsgReached = RingBuffer(2)
 
         self.setComponentProperties('EX', Ftype.LAUNCH_FILE, 'pcv_base', 'remote_teleop.launch')
-        self.setComponentProperties('EV', Ftype.TIMER, exec=self.evaluator, kwargs={'freq': 1.0})
+        self.setComponentProperties('EV', Ftype.TIMER, exec=self.evaluator, kwargs={'freq': 1.0}, ind=0)
+        self.setComponentProperties('EV', Ftype.SUBSCRIBER, self.cmdTopic, self.msgTiming, mType=Twist, kwargs={'freq': 1.0}, ind=1)
         self.setComponentProperties('ES', Ftype.THREAD, exec=self.estimator)
 
     def evaluator(self, event):
         # check if performance monitor is attached
         if self.exMon.isAttached():
             # log time difference since last message
-            try:
-                msg = rospy.wait_for_message(self.cmdTopic, Twist, self.commOutTol)
-            except rospy.exceptions.ROSException or rospy.exceptions.ROSInterruptException:
-                self.performanceMetrics[0] = 1.0
-            else:
-                time0 = time.time()
-                try:
-                    msg = rospy.wait_for_message(self.cmdTopic, Twist, self.commOutTol)
-                except rospy.exceptions.ROSException or rospy.exceptions.ROSInterruptException:
-                    self.performanceMetrics[0] = 1.0
-                else:
-                    dt = time.time()-time0
-                    self.performanceMetrics[0] = dt/self.commOutTol
-                    # log network speed and utilization
-                    dataSize = sys.getsizeof(msg)
-                    self.resourceMetrics[0] = self.netMon.bwUtil(dataSize, dt)/self.bandwidthQuota
+            timing = self.timeMsgReached.get()
+            if len(timing)==2:
+                dt = (timing[1][0]-timing[0][0]).to_sec()
+                self.performanceMetrics[0] = dt/self.commOutTol
+                # log network speed and utilization
+                dataSize = timing[1][1]
+                self.resourceMetrics[0] = self.netMon.bwUtil(dataSize, dt)/self.bandwidthQuota
             # log worst case CPU usage of the launched exec.
             uCPU, uMem = self.exMon.getCpuMemUtil()
             uCPU /= self.cpuQuota
@@ -116,6 +109,9 @@ class remoteTeleopModule(ReFrESH_Module):
         else:
             # attach performance monitor for the roslaunch process (EX)
             self.exMon.attach(self.getMyEXhandle())
+    
+    def msgTiming(self, msg):
+        self.timeMsgReached.append((rospy.Time.now(),sys.getsizeof(msg)))
 
     def estimator(self):
         # need to clean up EX monitor since it is inactive

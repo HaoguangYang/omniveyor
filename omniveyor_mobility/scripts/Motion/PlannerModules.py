@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import os
-import sys
+import sys, time
 import rospy
 currentdir = os.path.dirname(os.path.realpath(__file__))
 parentdir = os.path.dirname(currentdir)
@@ -11,7 +11,7 @@ from ReFrESH_ROS_utils import Ftype, RingBuffer
 from utils import tortuosity
 import dynamic_reconfigure.client
 from nav_msgs.msg import Path
-from move_base_msgs.msg import MoveBaseGoal
+from move_base_msgs.msg import MoveBaseGoal, MoveBaseAction
 from omniveyor_common.msg import LowLevelNavigationGoal
 from nav_msgs.srv import GetPlan
 from geometry_msgs.msg import PoseStamped
@@ -31,7 +31,7 @@ class moveBaseModule(ReFrESH_Module):
         self.abortedGoal = None         # aborted goal, set when the module is turned off without reaching the last goal.
         self.feedback = None
         self.poseAborted = None
-        self.setComponentProperties('EX', Ftype.ACTION_CLI, 'move_base', self.feedbackCb, mType=MoveBaseGoal, 
+        self.setComponentProperties('EX', Ftype.ACTION_CLI, 'move_base', self.feedbackCb, mType=MoveBaseAction, 
                                     kwargs={'active_cb': self.activeCb, 'done_cb': self.doneCb, 'goal': self.moveBaseGoal,
                                             'prelaunch_cb': self.prelaunch, 'availTimeout': 1.0},
                                     ind=0)
@@ -52,7 +52,7 @@ class moveBaseModule(ReFrESH_Module):
             exHandle.cancel_all_goals()
             exHandle.send_goal(self.moveBaseGoal, self.doneCb, self.activeCb, self.feedbackCb)
         else:
-            self.setComponentProperties('EX', Ftype.ACTION_CLI, 'move_base', self.feedbackCb, mType=MoveBaseGoal, 
+            self.setComponentProperties('EX', Ftype.ACTION_CLI, 'move_base', self.feedbackCb, mType=MoveBaseAction, 
                                 kwargs={'active_cb': self.activeCb, 'done_cb': self.doneCb, 'goal': self.moveBaseGoal,
                                         'prelaunch_cb': self.prelaunch, 'availTimeout': 1.0},
                                 ind=0)
@@ -189,12 +189,14 @@ class pidControllerModule(moveBaseModule):
 
 def test(taskManager):
     try:
+        time.sleep(20)
         # turn on by requesting the manager
-        taskManager.requestOn(["keyboardTeleop"])
-        rospy.sleep(rospy.Duration(10.0))
-        taskManager.requestOn(["remoteTeleop"])
-        rospy.sleep(rospy.Duration(10.0))
-        taskManager.requestOn(["joystickTeleop"])
+        tgt = PoseStamped()
+        tgt.pose.position.x = -1.0
+        taskManager.runGoal(tgt)
+        tgt.pose.position.x = -7.0
+        tgt.pose.position.x = -15.0
+        taskManager.runGoal(tgt)
     except SystemExit:
         return
 
@@ -213,7 +215,7 @@ if __name__ == "__main__":
     dwa = dwaPlannerROSModule()
     pid = pidControllerModule()
     mbMan = MoveBaseManager(taskLauncher, managedModules=[teb, dwa, pid])
-    taskManager = MotionManager(taskLauncher, managedModules=[mbMan, jsMod, rmMod, kbMod])
+    taskManager = MotionManager(taskLauncher, managedModules=[mbMan])#, jsMod, rmMod, kbMod])
     t = Thread(target=test, args=(taskManager,))
     t.start()
     # blocking run

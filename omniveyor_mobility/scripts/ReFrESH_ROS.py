@@ -220,17 +220,16 @@ class Manager:
         self.bottleNeck = 0.0
         self.DeciderCooldownDuration = minReconfigInterval
         for m in managedModules:
-            if isinstance(m, ReFrESH_Module):
-                # register handler
-                m.managerHandle = self
-                # turn on ES
-                es = tuple(self.launcher.launch(th.ftype, *tuple(th.args), **dict(th.kwargs)) \
-                            for th in m.ES)
-                self.offDict.update({m: es})
-                print("INFO: Module", m.name, "SPAWNED with Manager", self.name, ".")
-            else:
+            if not isinstance(m, ReFrESH_Module):
                 raise TypeError("Not initializing Manager", self.name, \
                                 "with the supported module class: ReFrESH_Module.")
+            # register handler
+            m.managerHandle = self
+            # turn on ES
+            es = tuple(self.launcher.launch(th.ftype, *tuple(th.args), **dict(th.kwargs)) \
+                        for th in m.ES)
+            self.offDict.update({m: es})
+            print("INFO: Module", m.name, "SPAWNED with Manager", self.name, ".")
 
     """ Determine if a given module is ON. This function is of O(1) complexity """
     def moduleIsOn(self, module):
@@ -255,19 +254,21 @@ class Manager:
     """ Setting attribute of another module by name. Return True if succeeded. """
     def moduleSet(self, moduleName, attr, value):
         for module in self.moduleDict:
-            if module.name == moduleName:
-                module.lock.acquire()
-                setattr(module, attr, value)
-                module.lock.release()
-                return True
+            if module.name != moduleName:
+                continue
+            module.lock.acquire()
+            setattr(module, attr, value)
+            module.lock.release()
+            return True
         return False
 
     """ Getting attribute of another module by name. Return None if not found. """
     def moduleGet(self, moduleName, attr):
         for module in self.moduleDict:
-            if module.name == moduleName:
-                if hasattr(module, attr):
-                    return getattr(module, attr)
+            if module.name != moduleName:
+                continue
+            if hasattr(module, attr):
+                return getattr(module, attr)
         return None
 
     """
@@ -288,201 +289,149 @@ class Manager:
     
     """ Determine if a module can preempt other modules. Complexity O(n) """
     def moduleCanPreempt(self, module):
-        if module.preemptive:
-            if self.moduleIsOff(module):
-                res = tuple(m for m in self.onDict if m.priority <= module.priority)
-            else:
-                res = tuple(m for m in self.onDict if m.priority < module.priority)
+        if not module.preemptive:
+            return 0, ()
+        if self.moduleIsOff(module):
+            res = tuple(m for m in self.onDict if m.priority <= module.priority)
         else:
-            res = ()
+            res = tuple(m for m in self.onDict if m.priority < module.priority)
         return len(res), res
 
     """ Turn ON a module that was in OFF state. Preemption of other modules is considered. """
     def turnOn(self, module):
-        if module in self.moduleDict:
-            self.lock.acquire()
-            isOn = self.moduleIsOn(module)
-            if isOn:
-                # module is already on
-                self.lock.release()
-                print("ERROR: ON request for module", module.name, ", which is already ON.")
-            else:
-                isPe, res_pe = self.moduleIsPreemptible(module)
-                if isPe:
-                    # a preemptive task with higher priority is running. add to ready set instead.
-                    self.readyDict.update({module: None})
-                    self.lock.release()
-                    print("INFO: Module", res_pe[0].name, "preempted", module.name, ".")
-                    return
-                # we are safe to start this module.
-                # turn off ES
-                isOff = self.moduleIsOff(module)
-                if isOff:
-                    esHandles = self.offDict.pop(module)
-                    for th in esHandles:
-                        self.launcher.stop(th)
-                else:
-                    self.lock.release()
-                    raise RuntimeError("The managed module,", module.name, \
-                                        ", is neither ON nor OFF. Something bad happened.")
-                # turn on EX
-                ex = tuple(self.launcher.launch(th.ftype, *tuple(th.args), **dict(th.kwargs)) \
-                            for th in module.EX)
-                # turn on EV
-                ev = tuple(self.launcher.launch(th.ftype, *tuple(th.args), **dict(th.kwargs)) \
-                            for th in module.EV)
-                # add (module, proc) to self.onDict
-                self.onDict.update({module : (ex, ev)})
-                print("INFO: Module", module.name, "ON.")
-                # if preemptive, this module preempts all other modules with lower priority
-                isPe, peTup = self.moduleCanPreempt(module)
-                if isPe:
-                    for m in peTup:
-                        # remove m from self.onDict
-                        exHandle, evHandle = self.onDict.pop(m)
-                        #self.turnOff(m)
-                        # turn off EV
-                        for th in evHandle:
-                            self.launcher.stop(th)
-                        # turn off EX
-                        for th in exHandle:
-                            self.launcher.stop(th)
-                        # turn on ES
-                        es = tuple(self.launcher.launch(th.ftype, *tuple(th.args), **dict(th.kwargs)) \
-                                    for th in m.ES)
-                        self.offDict.update({m: es})
-                        self.readyDict.update({m: None})
-                        print("INFO: Module", module.name, "preempted", m.name, ".")
-                self.lock.release()
-        else:
+        if module not in self.moduleDict:
             print("ERROR: Module", module, "(name:", module.name, \
                     ") is not managed by this instance.")
+            return
+        self.lock.acquire()
+        isOn = self.moduleIsOn(module)
+        if isOn:
+            # module is already on
+            self.lock.release()
+            print("ERROR: ON request for module", module.name, ", which is already ON.")
+            return
+        isPe, res_pe = self.moduleIsPreemptible(module)
+        if isPe:
+            # a preemptive task with higher priority is running. add to ready set instead.
+            self.readyDict.update({module: None})
+            self.lock.release()
+            print("INFO: Module", res_pe[0].name, "preempted", module.name, ".")
+            return
+        # we are safe to start this module.
+        # turn off ES
+        isOff = self.moduleIsOff(module)
+        if not isOff:
+            self.lock.release()
+            raise RuntimeError("The managed module,", module.name, \
+                                ", is neither ON nor OFF. Something bad happened.")
+        esHandles = self.offDict.pop(module)
+        for th in esHandles:
+            self.launcher.stop(th)
+        # turn on EX
+        ex = tuple(self.launcher.launch(th.ftype, *tuple(th.args), **dict(th.kwargs)) \
+                    for th in module.EX)
+        # turn on EV
+        ev = tuple(self.launcher.launch(th.ftype, *tuple(th.args), **dict(th.kwargs)) \
+                    for th in module.EV)
+        # add (module, proc) to self.onDict
+        self.onDict.update({module : (ex, ev)})
+        print("INFO: Module", module.name, "ON.")
+        # if preemptive, this module preempts all other modules with lower priority
+        isPe, peTup = self.moduleCanPreempt(module)
+        if not isPe:
+            self.lock.release()
+            return
+        for m in peTup:
+            # remove m from self.onDict
+            exHandle, evHandle = self.onDict.pop(m)
+            #self.turnOff(m)
+            # turn off EV
+            for th in evHandle:
+                self.launcher.stop(th)
+            # turn off EX
+            for th in exHandle:
+                self.launcher.stop(th)
+            # turn on ES
+            es = tuple(self.launcher.launch(th.ftype, *tuple(th.args), **dict(th.kwargs)) \
+                        for th in m.ES)
+            self.offDict.update({m: es})
+            self.readyDict.update({m: None})
+            print("INFO: Module", module.name, "preempted", m.name, ".")
+        self.lock.release()
 
     """ Turn OFF a module from ON state. Recovery of other modules from preemption is considered. """
     def turnOff(self, module):
-        if module in self.moduleDict:
-            self.lock.acquire()
-            isOn = self.moduleIsOn(module)
-            if isOn:
-                # remove module from self.onSet
-                exHandle, evHandle = self.onDict.pop(module)
-                # turn off EV
-                for th in evHandle:
-                    self.launcher.stop(th)
-                # turn off EX
-                for th in exHandle:
-                    self.launcher.stop(th)
-                isOff = self.moduleIsOff(module)
-                if not isOff:
-                    # turn on ES
-                    es = tuple(self.launcher.launch(th.ftype, *tuple(th.args), **dict(th.kwargs)) \
-                                for th in module.ES)
-                    self.offDict.update({module: es})
-                else:
-                    self.lock.release()
-                    raise RuntimeError("The managed module,", module.name, \
-                                        ", is both ON and OFF. Something bad happened.")
-                print("INFO: Module", module.name, "OFF.")
-                # we just turned off a preemptive module... Is there anything previously preempted?
-                if module.preemptive:
-                    # O(n^2) complexity in the worst case.
-                    while len(self.readyDict):
-                        prio = - sys.maxsize - 1
-                        nextOn = None
-                        for m in self.readyDict:
-                            if m.priority > prio:
-                                prio = m.priority
-                                nextOn = m
-                        if nextOn:
-                            # turn on m
-                            #self.turnOn(nextOn)
-                            # turn off ES
-                            isOff = self.moduleIsOff(nextOn)
-                            if isOff:
-                                esHandles = self.offDict.pop(nextOn)
-                                for th in esHandles:
-                                    self.launcher.stop(th)
-                                # turn on EX
-                                ex = tuple(self.launcher.launch(th.ftype, *tuple(th.args), **dict(th.kwargs)) \
-                                            for th in nextOn.EX)
-                                # turn on EV
-                                ev = tuple(self.launcher.launch(th.ftype, *tuple(th.args), **dict(th.kwargs)) \
-                                            for th in nextOn.EV)
-                                # add (module, proc) to self.onSet
-                                self.onDict.update({nextOn: (ex, ev)})
-                            self.readyDict.pop(nextOn)
-                            print("INFO: Module", nextOn.name, "ON from preemption.")
-                            # we hit another preemptive task with lower priority, but still the highest priority
-                            # among previously suspended tasks. So we stop here.
-                            if nextOn.preemptive:
-                                break
-                self.lock.release()
-            else:
-                if module in self.readyDict:
-                    self.readyDict.pop(module)
-                    self.lock.release()
-                    print("INFO: Module", module.name, "OFF after preemption.")
-                else:
-                    self.lock.release()
-                    print("ERROR: OFF request for module", module.name, ", which is already OFF.")
-        else:
+        if module not in self.moduleDict:
             print("ERROR: Module", module, "(name:", module.name, \
                     ") is not managed by this instance.")
-
-    """
-    Implements the Basic functionality of a decider: 
-    Go over all turned ON modules and look for performannce bottlenecks that falls bellow bounds (>1.0)
-    If any found, search in the list of OFF modules for alternatives.
-    If alternative is found, turn off the active module and enable the alternative. and sleep for the minimum interval.
-    Assume the EV and ES use a shared object of reconfig metric.
-    """
-    def basicDecider(self, event):
-        toOn = None
-        toOff = None
+            return
         self.lock.acquire()
-        bottleNeck = 0.0
-        #O(n^2) complexity, in the worst case.
-        for module in self.onDict:
-            bottleNeck = max(module.reconfigMetric.bottleNeck(), bottleNeck)
-            if bottleNeck >= 1.:
-                # performance crisis. do reconfig
-                print("INFO: Module", module.name, "falls below (", bottleNeck, "x) desired performance bounds.")
-                candidate = module
-                bestPerf = 1.
-                for m in self.offDict:
-                    if m != module:
-                        # in case the ES is wrapped in a callable function instead of a thread
-                        EShandle = self.offDict[m]
-                        if callable(EShandle):
-                            EShandle()
-                        tmp = m.reconfigMetric.bottleNeck()
-                        if tmp < bestPerf:
-                            candidate = m
-                            bestPerf = tmp
-                    else:
-                        raise RuntimeError("The managed module,", module.name, \
-                                        ", is both ON and OFF. Something bad happened.")
-                if candidate != module:
-                    print("INFO: Found alternative module", candidate.name, \
-                            "with estimated performance", bestPerf, ".")
-                    toOff = module
-                    toOn = candidate
-                    # if an alternative is found, we do not report the performance crisis.
-                    bottleNeck = bestPerf
-                    # we have found a solution.
+        isOn = self.moduleIsOn(module)
+        if not isOn:
+            if module in self.readyDict:
+                self.readyDict.pop(module)
+                self.lock.release()
+                print("INFO: Module", module.name, "OFF after preemption.")
+            else:
+                self.lock.release()
+                print("ERROR: OFF request for module", module.name, ", which is already OFF.")
+            return
+        # remove module from self.onSet
+        exHandle, evHandle = self.onDict.pop(module)
+        # turn off EV
+        for th in evHandle:
+            self.launcher.stop(th)
+        # turn off EX
+        for th in exHandle:
+            self.launcher.stop(th)
+        isOff = self.moduleIsOff(module)
+        if isOff:
+            self.lock.release()
+            raise RuntimeError("The managed module,", module.name, \
+                                ", is both ON and OFF. Something bad happened.")
+        # turn on ES
+        es = tuple(self.launcher.launch(th.ftype, *tuple(th.args), **dict(th.kwargs)) \
+                    for th in module.ES)
+        self.offDict.update({module: es})
+        print("INFO: Module", module.name, "OFF.")
+        # we just turned off a preemptive module... Is there anything previously preempted?
+        if not module.preemptive:
+            self.lock.release()
+            return
+        # O(n^2) complexity in the worst case.
+        while len(self.readyDict):
+            prio = - sys.maxsize - 1
+            nextOn = None
+            for m in self.readyDict:
+                if m.priority > prio:
+                    prio = m.priority
+                    nextOn = m
+            if nextOn:
+                # turn on m
+                #self.turnOn(nextOn)
+                # turn off ES
+                isOff = self.moduleIsOff(nextOn)
+                if not isOff:
+                    self.readyDict.pop(nextOn)
+                    continue
+                esHandles = self.offDict.pop(nextOn)
+                for th in esHandles:
+                    self.launcher.stop(th)
+                # turn on EX
+                ex = tuple(self.launcher.launch(th.ftype, *tuple(th.args), **dict(th.kwargs)) \
+                            for th in nextOn.EX)
+                # turn on EV
+                ev = tuple(self.launcher.launch(th.ftype, *tuple(th.args), **dict(th.kwargs)) \
+                            for th in nextOn.EV)
+                # add (module, proc) to self.onSet
+                self.onDict.update({nextOn: (ex, ev)})
+                self.readyDict.pop(nextOn)
+                print("INFO: Module", nextOn.name, "ON from preemption.")
+                # we hit another preemptive task with lower priority, but still the highest priority
+                # among previously suspended tasks. So we stop here.
+                if nextOn.preemptive:
                     break
-                else:
-                    print("WARN: No alternative module satisfies resource and performance bounds. Current value:", \
-                        module.reconfigMetric.bottleNeck(), ".")
-        self.bottleNeck = bottleNeck
         self.lock.release()
-        if toOn and toOff:
-            self.turnOff(toOff)
-            # you may have a bunch of things resumed after a preemptive module is off, so double check here.
-            isOn = self.moduleIsOn(toOn)
-            if not isOn:
-                self.turnOn(toOn)
-            time.sleep(self.DeciderCooldownDuration)
 
     """ Turn on a list of modules from external request """
     def requestOn(self, onList):
@@ -525,6 +474,71 @@ class Manager:
         toOff = set(self.onDict.keys())
         for module in toOff:
             self.turnOff(module)
+
+    def findBestESPerf(self, exclude=()):
+        candidate = None
+        bestPerf = 1.
+        for m in set(self.offDict.keys()).difference(set(exclude)):
+            # in case the ES is wrapped in a callable function instead of a thread
+            EShandle = self.offDict[m]
+            if callable(EShandle):
+                EShandle()
+            tmp = m.reconfigMetric.bottleNeck()
+            if tmp < bestPerf:
+                candidate = m
+                bestPerf = tmp
+        return candidate, bestPerf
+
+    def turnOnBestESPerf(self, exclude=()):
+        candidate, bestPerf = self.findBestESPerf(exclude)
+        if candidate:
+            self.turnOn(candidate)
+            return candidate, bestPerf
+        else:
+            print("ERROR: All non-excluded modules returned infeasible.")
+            return None, 1.0
+
+    """
+    Implements the Basic functionality of a decider: 
+    Go over all turned ON modules and look for performannce bottlenecks that falls bellow bounds (>1.0)
+    If any found, search in the list of OFF modules for alternatives.
+    If alternative is found, turn off the active module and enable the alternative. and sleep for the minimum interval.
+    Assume the EV and ES use a shared object of reconfig metric.
+    """
+    def basicDecider(self, event):
+        toOn = None
+        toOff = None
+        bottleNeck = 0.0
+        #O(n^2) complexity, in the worst case.
+        self.lock.acquire()
+        for module in self.onDict:
+            bottleNeck = max(module.reconfigMetric.bottleNeck(), bottleNeck)
+            if bottleNeck < 1.:
+                continue
+            # performance crisis. do reconfig
+            print("INFO: Module", module.name, "falls below (", bottleNeck, "x) desired performance bounds.")
+            candidate, bestPerf = self.findBestESPerf(exclude=(module,))
+            if not candidate:
+                print("WARN: No alternative module satisfies resource and performance bounds. Current value:", \
+                    module.reconfigMetric.bottleNeck(), ".")
+                continue
+            print("INFO: Found alternative module", candidate.name, \
+                    "with estimated performance", bestPerf, ".")
+            toOff = module
+            toOn = candidate
+            # if an alternative is found, we do not report the performance crisis.
+            bottleNeck = bestPerf
+            # we have found a solution.
+            break
+        self.lock.release()
+        self.bottleNeck = bottleNeck
+        if toOn and toOff:
+            self.turnOff(toOff)
+            # you may have a bunch of things resumed after a preemptive module is off, so double check here.
+            isOn = self.moduleIsOn(toOn)
+            if not isOn:
+                self.turnOn(toOn)
+            time.sleep(self.DeciderCooldownDuration)
 
     """ Starts decider object """
     def run(self, blocking = False):

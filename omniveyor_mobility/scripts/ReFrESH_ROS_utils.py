@@ -121,10 +121,10 @@ class ROSnodeMonitor:
             for proc in handles:
                 if hasattr(proc, '__iter__'):
                     for p in proc:
-                        if isinstance(p, roslaunch.Process):
-                            self.monitors.append([psutil.Process(p.get_info()['pid'])])
-                        else:
+                        if not isinstance(p, roslaunch.Process):
                             print("ERROR: Handle", p, "within", proc, "is not supported.")
+                            continue
+                        self.monitors.append([psutil.Process(p.get_info()['pid'])])
                 elif isinstance(proc, roslaunch.Process):
                     self.monitors.append([psutil.Process(proc.get_info()['pid'])])
                 else:
