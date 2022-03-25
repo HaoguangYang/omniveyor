@@ -24,12 +24,14 @@ from actionlib_msgs.msg import GoalStatus
 import utils
 from enum import Enum
 
+"""
 class GoalStatus(Enum):
     NONE = 0
     NEW = 1
     FEASIBLE = 2
     ACTIVE = 3
     INVALIDATED = 4
+"""
 
 class abortionRecord:
     goal = None
@@ -57,7 +59,7 @@ class MoveBaseManager(ReFrESH_Module, Manager):
         self.exMon = ROSnodeMonitor()
         # The class instance is mutable (call by reference)
         self.moveBaseGoal = MoveBaseGoal()              # goal translated to movebase format
-        self.goalStatus = GoalStatus.NONE
+        self.goalStatus = GoalStatus.RECALLED
         self.goalTolerance = [0., 0.]                   # extracted goal positioning tolerance (linear, angular)
         self.goalExpiration = None
         self.abortedGoal = None                         # last goal that returned abortion status by all managed modules
@@ -68,26 +70,28 @@ class MoveBaseManager(ReFrESH_Module, Manager):
             while not rospy.is_shutdown():
                 # assemble goal movebase action
                 self.updateGoal()
-                if self.goalStatus == GoalStatus.NEW:
+                if self.goalStatus == GoalStatus.PENDING:
                     # sync the goal to all modules
                     for m in self.moduleDict:
                         m.syncGoal()
-                if not len(self.onDict):
-                    # nothing is on.
-                    while not rospy.is_shutdown() and not self.managerHandle.newGoalEvent.isSet():
-                        # sequentially query the estimators for initial capability assessment
-                        # this process is identical to what the decider do when a module falls below the bar.
-                        cand, _ = self.turnOnBestESPerf()
-                        if cand:
-                            break
-                        elif self.currentGoal.expiration <= rospy.Time.now():
-                            # in case intermittent blockage that stops the robot, the loop constantly checks if
-                            # a global plan is available. The time consumed counts towards the timeout, of course.
-                            # timeout
-                            self.setResult(GoalStatus.ABORTED, final=True)
-                            break
-                        time.sleep(0.1)
-                time.sleep(0.1)
+                if len(self.onDict):
+                    # a module is already on to handle the updated goal.
+                    time.sleep(0.1)
+                    continue
+                # nothing is on.
+                while not rospy.is_shutdown() and not self.managerHandle.newGoalEvent.isSet():
+                    # sequentially query the estimators for initial capability assessment
+                    # this process is identical to what the decider do when a module falls below the bar.
+                    cand, _ = self.turnOnBestESPerf()
+                    if cand:
+                        break
+                    elif self.currentGoal.expiration <= rospy.Time.now():
+                        # in case intermittent blockage that stops the robot, the loop constantly checks if
+                        # a global plan is available. The time consumed counts towards the timeout, of course.
+                        # timeout
+                        self.setResult(GoalStatus.ABORTED, final=True)
+                        break
+                    time.sleep(0.1)
                 # don't care about a goal once submitted, since the EV handles rest of the checking job.
         except SystemExit:
             #self.cancelAll()
@@ -133,7 +137,7 @@ class MoveBaseManager(ReFrESH_Module, Manager):
         # The locally stored goal shall have a status indicator: None, New, Feasible, Active, and Invalidated.
         # The update goal function will only wait for signal in cases of None or Invalidated when invoked.
         # make a local copy
-        if self.goalStatus == GoalStatus.NONE or self.goalStatus == GoalStatus.INVALIDATED:
+        if self.goalStatus == GoalStatus.RECALLED or self.goalStatus == GoalStatus.ABORTED:
             # stuck here to wait for new goal to arrive
             self.managerHandle.newGoalEvent.wait()
             self.managerHandle.newGoalEvent.clear()
@@ -143,7 +147,7 @@ class MoveBaseManager(ReFrESH_Module, Manager):
             self.moveBaseGoal.target_pose.pose = currentGoal.target_pose.pose
             self.goalTolerance = utils.covToTolerance(currentGoal.target_pose.covariance)
             self.goalExpiration = currentGoal.expiration
-            self.goalStatus = GoalStatus.NEW
+            self.goalStatus = GoalStatus.PENDING
             self.lock.release()
 
     def setFeedback(self, feedback):
@@ -186,7 +190,7 @@ class MotionManager(Manager):
         self.worldPose.child_frame_id = robotFrame
         self.worldPose.header.frame_id = worldFrame
         self.worldPosePub = rospy.Publisher(worldPoseTopic, Odometry, queue_size =1)
-        self.transform = TransformStamped()
+        self.transform = TransformStamped(header=Header(frame_id=odomFrame), child_frame_id=worldFrame)
         self.filteredOdomMsg = Odometry()
         self.filteredOdomMsg.header.frame_id = odomFrame
         self.filteredOdomMsg.child_frame_id = robotFrame
@@ -224,21 +228,13 @@ class MotionManager(Manager):
             print("WARNING: Staleness of filtered odometry", filteredOdomDt, "s older than desired",
                         self.filteredOdomTimeout, "s. Using wheel odometry with higher covariance instead.")
         self.worldPose.header.stamp = odomMsg.header.stamp
-        if self.tfBuffer.can_transform(self.worldPose.header.frame_id, 
-                                       odomMsg.header.frame_id,
-                                       rospy.Time(0), rospy.Duration(self.mapPoseTimeout)):
-            # assembling world pose from filtered odom msg and map pose
-            self.transform = self.tfBuffer.lookup_transform(self.worldPose.header.frame_id, 
-                                                            odomMsg.header.frame_id,
-                                                            rospy.Time(0))
-        else:
+        self.transform, updated = utils.updateTransform(self.transform,self.tfBuffer, self.mapPoseTimeout)
+        if not updated:
             print("ERROR: Transform", odomMsg.header.frame_id, "->",
                     self.worldPose.header.frame_id, " is outdated. Drifting is not corrected.")
-        pose = PoseStamped()
-        pose.header = odomMsg.header
-        pose.pose = odomMsg.pose.pose
+        poseTmp = PoseStamped(header=odomMsg.header, pose=odomMsg.pose.pose)
         # transform odom pose to world pose.
-        pose_transformed = tf2_geometry_msgs.do_transform_pose(pose, self.transform)
+        pose_transformed = tf2_geometry_msgs.do_transform_pose(poseTmp, self.transform)
         self.worldPose.pose.pose = pose_transformed.pose
         self.worldPose.pose.covariance = utils.composeHTMCov(odomMsg.pose.covariance,
                                                             self.transform,
@@ -265,6 +261,16 @@ class MotionManager(Manager):
             # Do update
             self.updateWorldPose(publish)
         return self.worldPose
+    
+    def getRemainingDistance(self):
+        pose = self.getWorldPose()
+        linDist = np.linalg.norm(self.currentActionGoal.target_pose.pose.position - pose.pose.pose.position)
+        angDist = abs(utils.angleDiff(utils.rpyFromQuaternion(pose.pose.pose.orientation)[2], 
+                                    utils.rpyFromQuaternion(self.currentActionGoal.target_pose.pose.orientation)[2]))
+        return linDist, angDist
+
+    def getRemainingTime(self):
+        return (self.currentActionGoal.expiration - rospy.Time.now()).to_secs()
 
     """A low-level goal runner. Tries to reach a goal with specified uncertainty tolerance"""
     def runGoal(self, pose=PoseStamped(header=Header(frame_id="goal")), 
@@ -276,9 +282,9 @@ class MotionManager(Manager):
             self.currentActionGoal = LowLevelNavigationGoal()
             self.currentActionGoal.header = pose.header
             self.currentActionGoal.target_pose.pose = pose.pose
-            cov = np.diag([tolerance[0]**2, tolerance[0]**2, tolerance[0]**2,
-                            tolerance[1]**2, tolerance[1]**2, tolerance[1]**2]).reshape([36]).tolist()
-            self.currentActionGoal.target_pose.covariance = cov
+            cov = utils.toleranceToCov([tolerance[0], tolerance[0], tolerance[0],
+                                tolerance[1], tolerance[1], tolerance[1]])
+            self.currentActionGoal.target_pose.covariance = cov.tolist()
             self.currentActionGoal.expiration = rospy.Time.now()+rospy.Duration(timeout)
         # clear previous records
         self.currectActionFeedback = None

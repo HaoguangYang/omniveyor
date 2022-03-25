@@ -1,8 +1,17 @@
 #!/usr/bin/python
 
 import numpy as np
-from geometry_msgs.msg import TransformStamped
+import copy
+from geometry_msgs.msg import TransformStamped, PoseStamped
 from scipy.spatial.transform import Rotation
+import rospy
+import tf2_geometry_msgs
+
+def angleDiff(ang1, ang2):
+    return np.mod((ang1 - ang2 + np.pi), np.pi+np.pi) - np.pi
+
+def rpyFromQuaternion(quat):
+    return Rotation.from_quat([quat.x, quat.y, quat.z, quat.w]).as_euler('xyz')
 
 def composeHTMCov(covA, aTb, covT):
     Sigma1 = np.array(covA).reshape([6,6])
@@ -26,6 +35,8 @@ def composeRotCov(covA, aRb, covR=None):
     return covB
 
 def tortuosity(rowVectors, granularity=None):
+    if np.ndim(rowVectors)<=1:
+        return 0
     rowVectors = np.array(rowVectors)
     d = np.diff(rowVectors, axis=0)
     totalLength = np.sqrt(np.sum(d*d))
@@ -41,16 +52,18 @@ def tortuosity(rowVectors, granularity=None):
         for i in rowVectors:
             diff = i - start
             norm = diff @ diff
-            if norm >= granSq:
-                start = i
-                nLargerStep += 1
-                displacement += np.sqrt(norm)
+            if norm < granSq:
+                continue
+            start = i
+            nLargerStep += 1
+            displacement += np.sqrt(norm)
         if nLargerStep == 0:
             nLargerStep = 1                 # to avoid singularity
     return np.log(totalLength/displacement)/np.log(nStep/nLargerStep)
 
 def covToTolerance(cov, decoupling=True, averaging=True):
     sigma = np.reshape(cov, [6,6])
+    # numpy.linalg.eig returns normalized eigen vectors by default.
     if decoupling:
         eigvalL, eigvecL = np.linalg.eig(sigma[0:3, 0:3])
         eigvalA, eigvecA = np.linalg.eig(sigma[3:6, 3:6])
@@ -66,3 +79,30 @@ def covToTolerance(cov, decoupling=True, averaging=True):
     else:
         eigval, eigvec = np.linalg.eig(sigma)
         return np.sqrt(eigval), eigvec
+
+def toleranceToCov(tol, axes=np.eye(6), normalizedAxes=True, reshape=True):
+    lam = np.diag(np.array(tol)**2)
+    if not normalizedAxes:
+        # hopefully we are only throwing away a diagonal matrix here...
+        basis, _ = np.linalg.qr(np.reshape(axes, [6,6]))
+    else:
+        basis = np.array(axes).reshape([6,6])
+    cov = basis @ lam @ basis.transpose()
+    if reshape:
+        return cov.flatten()
+    else:
+        return cov
+
+def updateTransform(transform, tfBuffer, timeout=0):
+    if not tfBuffer.can_transform(transform.child_frame_id, 
+                                transform.header.frame_id,
+                                rospy.Time(0), rospy.Duration(timeout)):
+        return transform, False
+    # assembling world pose from filtered odom msg and map pose
+    newTransform = tfBuffer.lookup_transform(transform.child_frame_id, 
+                                            transform.header.frame_id,
+                                            rospy.Time(0))
+    if newTransform.header.stamp < transform.header.stamp:
+        # time stamp is not updated. assume the newer one is valid
+        return transform, False
+    return newTransform, True

@@ -6,11 +6,20 @@
     <node name="map_server" pkg="map_server" type="map_server" args="$(find omniveyor_mobility)/resources/map/$(arg map_file).yaml" />
     <node pkg="amcl" type="amcl" name="amcl" respawn="false" output="screen">
         <rosparam file="$(find omniveyor_mobility)/param/amcl_params.yaml" command="load" />
+        <remap from="amcl_pose" to="map_pose"/>
+    </node>
+    <node pkg="robot_localization" type="ekf_localization_node" name="ekf_world" clear_params="true">
+      <rosparam command="load" file="$(find pcv_base)/resources/cfg/ekf_odom.yaml" />
+      <remap from="odometry/filtered" to="odom/filtered"/>
+      <!--  Placeholder for output topic remapping
+      <remap from="accel/filtered" to=""/>
+      -->
     </node>
   </group>
   <group unless="$(arg static_map)">
-    <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping">
-        <rosparam file="$(find omniveyor_mobility)/param/gmapping_params.yaml" command="load" />
+    <node pkg="slam_toolbox" type="lifelong_slam_toolbox_node" name="slam_lifelong" output="screen">
+      <rosparam command="load" file="$(find omniveyor_mobility)/param/slam_lifelong_params.yaml" />
+      <remap from="slam_lifelong/scan" to="scan"/>
     </node>
     <group if="$(eval arg('map_save_period') > 0)">
         <node name="map_saver" pkg="map_server" type="map_saver" args="-f $(find omniveyor_mobility)/resources/map/$(arg map_file)" respawn="true" respawn_delay="$(arg map_save_period)"/>

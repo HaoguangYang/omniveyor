@@ -17,6 +17,69 @@ from nav_msgs.srv import GetPlan
 from geometry_msgs.msg import PoseStamped
 from actionlib_msgs.msg import GoalStatus
 import numpy as np
+import actionlib
+import copy
+import utils
+
+class abortionRecord:
+    def __init__(self, goal, abortedPose, recordTime=rospy.Time.now()):
+        self.goal = goal
+        self.abortedPose = abortedPose
+        self.recordTime = recordTime
+
+""" Manipulate Move Base planners """
+class plannerModule(ReFrESH_Module):
+    def __init__(self, name="plannedMotion", priority=90, preemptive=True, goalHistoryLength=1):
+        super().__init__(name, priority, preemptive, EX_thread=1, EV_thread=1, ES_thread=1)
+        # time used, final error
+        self.performanceMetrics = [0.0, 0.0]
+        # Resource metric: not-availability
+        self.resourceMetrics = [0.5]
+        self.currentActionGoal = None
+        self.goalStatus = GoalStatus.RECALLED
+        # a buffer that tracks where the planner has failed.
+        self.abortedGoals = RingBuffer(goalHistoryLength)       # last goal that returned abortion status by all managed modules
+        self.setComponentProperties('EV', Ftype.TIMER, exec=self.evaluator, kwargs={'freq': 3.0})
+        self.setComponentProperties('ES', Ftype.CALLABLE, exec=self.estimator)
+    
+    def updateGoal(self):
+        # We are in terminal state. Fetch a new goal.
+        if self.goalStatus in dict.fromkeys([GoalStatus.PREEMPTED, GoalStatus.SUCCEEDED, 
+                            GoalStatus.ABORTED, GoalStatus.REJECTED, GoalStatus.RECALLED]):
+            # stuck here to wait for new goal to arrive
+            self.managerHandle.newGoalEvent.wait()
+            self.managerHandle.newGoalEvent.clear()
+            newActionGoal = self.translate(copy.deepcopy(self.managerHandle.currentActionGoal))
+            # is the goal different?
+            isDifferent = not self.compare(newActionGoal, self.currentActionGoal)
+            self.currentActionGoal = newActionGoal
+            return isDifferent
+            # if the goal is different, it is up to the inherited class to do further operations.
+        else:
+            # a goal is currently active. Do not wait. The goal has not changed.
+            return False
+    
+    def translate(self, goalIn):
+        # extract elements from raw goal to movebase goal, and append to the local class attributes
+        unpackedGoal = goalIn
+        setattr(unpackedGoal, 'move_base_goal',
+                MoveBaseGoal(target_pose=PoseStamped(header=goalIn.header, pose=goalIn.target_pose.pose)))
+        setattr(unpackedGoal, 'goal_tolerance', utils.covToTolerance(goalIn.target_pose.covariance))
+        return unpackedGoal
+
+    def compare(self, newGoal, oldGoal):
+        # prototype function that the inherited class shall modify. Return if the two goals are the same.
+        return False
+    
+    def setAborted(self):
+        record = abortionRecord(self.currentActionGoal, copy.deepcopy(self.managerHandle.getWorldPose()))
+        self.abortedGoals.append(record)
+
+    def evaluator(self, event):
+        pass
+
+    def estimator(self):
+        pass
 
 """ Manipulate Move Base planners """
 class moveBaseModule(ReFrESH_Module):
@@ -49,8 +112,14 @@ class moveBaseModule(ReFrESH_Module):
             # already an active module. Reusing it.
             exHandle = self.managerHandle.getEXhandle(self)
             # cancel ongoing goal and submit new goal
-            exHandle.cancel_all_goals()
-            exHandle.send_goal(self.moveBaseGoal, self.doneCb, self.activeCb, self.feedbackCb)
+            for item in exHandle:
+                if not hasattr(item, 'cancel_all_goals'):
+                    continue
+                if not callable(item.cancel_all_goals):
+                    continue
+                item.cancel_all_goals()
+                item.send_goal(self.moveBaseGoal, self.doneCb, self.activeCb, self.feedbackCb)
+                break
         else:
             self.setComponentProperties('EX', Ftype.ACTION_CLI, 'move_base', self.feedbackCb, mType=MoveBaseAction, 
                                 kwargs={'active_cb': self.activeCb, 'done_cb': self.doneCb, 'goal': self.moveBaseGoal,
@@ -67,7 +136,7 @@ class moveBaseModule(ReFrESH_Module):
         drc = dynamic_reconfigure.client.Client("move_base", timeout=3.0, config_callback=None)
         if drc:
             drc.get_configuration()
-            drc.update_configuration({'base_gkibal_planner': self.bgp, 'base_local_planner': self.blp})
+            drc.update_configuration({'base_global_planner': self.bgp, 'base_local_planner': self.blp})
         else:
             raise RuntimeError('Move Base parameter reconfiguration server is inactive!')
     
@@ -109,10 +178,10 @@ class moveBaseModule(ReFrESH_Module):
         rowVect = self.historyPoses.get() 
         self.performanceMetrics[0] = tortuosity(rowVect)/self.tortuosityTol
         timeNow = rospy.Time.now()
-        if timeNow < self.managerHandle.currentGoal.expiration:
+        if timeNow < self.managerHandle.goalExpiration:
             # still a valid task.
-            self.performanceMetrics[1] = np.max((self.remaining_distance - self.managerHandle.currentGoal.tolerance)
-                                                / (self.managerHandle.currentGoal.expiration - timeNow).to_secs
+            self.performanceMetrics[1] = np.max((self.remaining_distance - self.managerHandle.goalTolerance[0])
+                                                / (self.managerHandle.goalExpiration - timeNow).to_secs
                                                 / self.speedLimit, 0.)
         else:
             # the task has expired. Set final status.
@@ -129,7 +198,7 @@ class moveBaseModule(ReFrESH_Module):
         self.prelaunch()
         if self.resourceMetrics[0]>=1.0:
             # TODO: this module has failed before. Check if the goal is in a new position.
-            distance = np.array(self.abortedGoal.target_pose.pose.position) - np.array(self.managerHandle.currentGoal.target_pose.pose.position)
+            distance = np.array(self.abortedGoal.target_pose.pose.position) - np.array(self.managerHandle.moveBaseGoal.target_pose.pose.position)
             goalPosTol = 0.5*(self.abortedGoal.target_pose.pose.covariance[0]+self.abortedGoal.target_pose.pose.covariance[7])
             # the base can rotate in place, so goal pose is less important in determining success.
             new_goal_pos = np.dot(distance, distance) > 9.*goalPosTol*goalPosTol
@@ -208,6 +277,7 @@ if __name__ == "__main__":
     # a simple test case with three teleop modules.
     taskLauncher = Launcher("motionManager")
     simThread = taskLauncher.launch(Ftype.LAUNCH_FILE, pkgName='omniveyor_gazebo_world', fileName='IMI.launch')
+    mappingThread = taskLauncher.launch(Ftype.LAUNCH_FILE, pkgName='omniveyor_mobility', fileName='map_and_localization.launch', args=('static_map:=0',))
     jsMod = joystickTeleopModule()
     rmMod = remoteTeleopModule()
     kbMod = keyboardTeleopModule()
@@ -223,5 +293,6 @@ if __name__ == "__main__":
     # shutdown
     t.stop()
     taskLauncher.stop(simThread)
+    taskLauncher.stop(mappingThread)
     taskManager.shutdown()
     taskLauncher.shutdown()

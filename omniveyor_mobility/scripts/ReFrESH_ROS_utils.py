@@ -280,7 +280,7 @@ class Launcher:
         if not len(fullPathList):
             fp = roslaunch.rlutil.resolve_launch_arguments([pkgName, fileName, *args])
             if args:
-                fp = [(fp, list(args))]
+                fp = [(fp[0], list(args))]
         else:
             fp = []
             for line in fullPathList:
