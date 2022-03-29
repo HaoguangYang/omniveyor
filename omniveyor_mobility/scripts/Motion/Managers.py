@@ -3,51 +3,34 @@
 import rospy
 import os
 import sys
-import copy
 import numpy as np
 import threading
-import time
 currentdir = os.path.dirname(os.path.realpath(__file__))
 parentdir = os.path.dirname(currentdir)
 sys.path.append(parentdir)
-from ReFrESH_ROS import ReFrESH_Module, Manager
+from ReFrESH_ROS import Manager
 from ReFrESH_ROS_utils import Ftype, ROSnodeMonitor
 import tf2_ros
 import tf2_geometry_msgs
 from std_msgs.msg import Header
 from geometry_msgs.msg import TransformStamped, PoseStamped, PoseWithCovarianceStamped
 from nav_msgs.msg import Odometry
-from nav_msgs.msg import Path
 from move_base_msgs.msg import MoveBaseGoal
-from omniveyor_common.msg import LowLevelNavigationGoal, LowLevelNavigationFeedback, LowLevelNavigationResult
+from omniveyor_common.msg import LowLevelPoseActionGoal, LowLevelPoseActionFeedback, LowLevelPoseActionResult
 from actionlib_msgs.msg import GoalStatus
-import utils
-from enum import Enum
-
-"""
-class GoalStatus(Enum):
-    NONE = 0
-    NEW = 1
-    FEASIBLE = 2
-    ACTIVE = 3
-    INVALIDATED = 4
-"""
-
-class abortionRecord:
-    goal = None
-    tolerance = None
-    abortedPose = None
-    recordTime = None
+from PlannerModules import PlannerModule
+from utils import *
 
 """multilevel inherited class to manage movebase global and local planners"""
-class MoveBaseManager(ReFrESH_Module, Manager):
+class MoveBaseManager(PlannerModule, Manager):
     def __init__(self, launcher, managedModules=[], name="moveBaseManager", priority=97, preemptive=True,
                 freq=5.0, minReconfigInterval = 1.0):
-        ReFrESH_Module.__init__(self, name, priority, preemptive, EX_thread=3, EV_thread=1, ES_thread=1)
+        PlannerModule.__init__(self, name, priority, preemptive, EX_thread=4, EV_thread=1, ES_thread=1)
         Manager.__init__(self, launcher, managedModules, name, freq, minReconfigInterval)
         self.EX[0] = self.Decider
         self.setComponentProperties('EX', Ftype.LAUNCH_FILE, 'omniveyor_mobility', 'navigation.launch', ind=1)
-        self.setComponentProperties('EX', Ftype.THREAD, exec=self.goalRunner, ind=2)
+        self.setComponentProperties('EX', Ftype.THREAD, exec=self.updateGoal, ind=2)
+        self.setComponentProperties('EX', Ftype.THREAD, exec=self.setTerminalState, ind=3)
         self.setComponentProperties('EV', Ftype.TIMER, exec=self.evaluator, kwargs={'freq': 5.0})
         self.setComponentProperties('ES', Ftype.CALLABLE, exec=self.estimator)
         # Resource metric: CPU time, memory
@@ -57,45 +40,62 @@ class MoveBaseManager(ReFrESH_Module, Manager):
         self.cpuQuota = 0.5
         self.memQuota = 0.5
         self.exMon = ROSnodeMonitor()
+        self.goalDoneEvent = threading.Event()
+        self.isNewGoal = False
         # The class instance is mutable (call by reference)
-        self.moveBaseGoal = MoveBaseGoal()              # goal translated to movebase format
-        self.goalStatus = GoalStatus.RECALLED
-        self.goalTolerance = [0., 0.]                   # extracted goal positioning tolerance (linear, angular)
-        self.goalExpiration = None
-        self.abortedGoal = None                         # last goal that returned abortion status by all managed modules
 
-    """Use move base planners to reach the goal."""    
-    def goalRunner(self):
+    def translate(self, goalIn):
+        unpackedGoal = super().translate(goalIn)
+        if not hasattr(unpackedGoal, 'move_base_goal'):
+            setattr(unpackedGoal, 'move_base_goal',
+                    MoveBaseGoal(target_pose=PoseStamped(header=goalIn.header, pose=goalIn.target_pose.pose)))
+        # consistent with parent class
+        return unpackedGoal
+
+    def submit(self):
+        super().submit()
+        # check if any of the managed module is on
+        if not len(self.onDict):
+            # update goals of the modules.
+            for m in self.moduleDict:
+                m.updateGoal(compare=True, submit=False)
+                m.estimator()
+            # if not, turn on the one with best performance.
+            self.turnOnBestESPerf()
+        # submit the goal on the turned on module.
+        for m in self.onDict:
+            m.submit()
+
+    def updateGoal(self, goal=None, compare=True, submit=True):
         try:
             while not rospy.is_shutdown():
-                # assemble goal movebase action
-                self.updateGoal()
-                if self.goalStatus == GoalStatus.PENDING:
-                    # sync the goal to all modules
-                    for m in self.moduleDict:
-                        m.syncGoal()
-                if len(self.onDict):
-                    # a module is already on to handle the updated goal.
-                    time.sleep(0.1)
-                    continue
-                # nothing is on.
-                while not rospy.is_shutdown() and not self.managerHandle.newGoalEvent.isSet():
-                    # sequentially query the estimators for initial capability assessment
-                    # this process is identical to what the decider do when a module falls below the bar.
-                    cand, _ = self.turnOnBestESPerf()
-                    if cand:
-                        break
-                    elif self.currentGoal.expiration <= rospy.Time.now():
-                        # in case intermittent blockage that stops the robot, the loop constantly checks if
-                        # a global plan is available. The time consumed counts towards the timeout, of course.
-                        # timeout
-                        self.setResult(GoalStatus.ABORTED, final=True)
-                        break
-                    time.sleep(0.1)
-                # don't care about a goal once submitted, since the EV handles rest of the checking job.
+                # blocking call: wait until a new goal is available, and update local goal.
+                # call submit function after updating.
+                isNewGoal = super().updateGoal(goal, compare, submit)
+                if compare:
+                    self.isNewGoal = isNewGoal
+                if not self.managerHandle.moduleIsOn(self):
+                    break
         except SystemExit:
-            #self.cancelAll()
             self.turnOffAll()
+
+    def setTerminalState(self):
+        while not rospy.is_shutdown():
+            self.goalDoneEvent.wait()
+            self.goalDoneEvent.clear()
+            if self.goalStatus == GoalStatus.SUCCEEDED:
+                self.reportTerminalState()
+                continue
+            elif self.goalStatus == GoalStatus.PREEMPTED:
+                # in the middle of updateGoal. another (updated) goal awaits.
+                continue
+            elif self.bottleNeck > 1.:
+                # none of the registered modules can complete the task.
+                record = AbortionRecord(self.currentActionGoal, self.getPoseInGoalFrame())
+                self.abortedGoals.append(record)
+                self.reportTerminalState()
+            if not self.managerHandle.moduleIsOn(self):
+                break
 
     def evaluator(self, event):
         # check if performance monitor is attached
@@ -116,14 +116,12 @@ class MoveBaseManager(ReFrESH_Module, Manager):
             self.exMon.attach(self.getMyEXhandle()[1])
 
     def estimator(self):
-        self.updateGoal()
-        # movebase is now off. obtain a-priori esitmates
+        self.updateGoal(compare=True, submit=False)
+        # movebase is off. obtain a-priori esitmates
         if self.bottleNeck >= 1.0:
             # we had a failed record before
-            distance = np.array(self.abortedGoal.target_pose.pose.position) - np.array(self.currentGoal.target_pose.pose.position)
-            goalPosTol = self.goalTolerance[0]
             # the base can rotate in place, so goal pose is less important in determining success.
-            if np.dot(distance, distance) > 9.*goalPosTol*goalPosTol:
+            if self.isNewGoal:
                 # we are receiving a goal at a new location. Reset the estimators
                 self.bottleNeck = 0.0
                 self.reconfigMetric.update([self.bottleNeck], self.resourceMetrics)
@@ -131,42 +129,23 @@ class MoveBaseManager(ReFrESH_Module, Manager):
             # this module succeeded last time. Keep using it.
             self.bottleNeck = 0.0
             self.reconfigMetric.update([self.bottleNeck], self.resourceMetrics)
-    
-    def updateGoal(self):
-        # the locally-stored goal need to be updated every time before a valid estimation / execution is initiated.
-        # The locally stored goal shall have a status indicator: None, New, Feasible, Active, and Invalidated.
-        # The update goal function will only wait for signal in cases of None or Invalidated when invoked.
-        # make a local copy
-        if self.goalStatus == GoalStatus.RECALLED or self.goalStatus == GoalStatus.ABORTED:
-            # stuck here to wait for new goal to arrive
-            self.managerHandle.newGoalEvent.wait()
-            self.managerHandle.newGoalEvent.clear()
-            currentGoal = copy.deepcopy(self.managerHandle.currentActionGoal)
-            self.lock.acquire()
-            self.moveBaseGoal.target_pose.header = currentGoal.header
-            self.moveBaseGoal.target_pose.pose = currentGoal.target_pose.pose
-            self.goalTolerance = utils.covToTolerance(currentGoal.target_pose.covariance)
-            self.goalExpiration = currentGoal.expiration
-            self.goalStatus = GoalStatus.PENDING
-            self.lock.release()
 
-    def setFeedback(self, feedback):
-        self.managerHandle.currentActionFeedback = feedback
-    
-    def setResult(self, status, final=False):
-        # synchronize whatever comes in.
-        self.managerHandle.currentActionStatus = status
-        if final:
-            # this module can not get the robot to the goal pose. ring the bell
-            if (status == GoalStatus.ABORTED or status == GoalStatus.REJECTED) and self.bottleNeck >= 1.0:
-                # 4: aborted, 5: rejected. bn>1: has triggered performance crisis among all available planners
-                self.abortedGoal = self.currentGoal
-            # the goal runner of the manager will now check the result message.
-            self.managerHandle.goalDoneEvent.set()
+    def findBestESPerf(self, exclude=()):
+        for _, (exHandle, _) in self.onDict.items():
+            for item in exHandle:
+                # not the right handle
+                if not hasattr(item, 'cancel_all_goals'):
+                    continue
+                if not callable(item.cancel_all_goals):
+                    continue
+                # cancel all goals previously submitted, since calling module ES requires
+                # reconfiguring MoveBase parameters.
+                item.cancel_all_goals()
+        return super().findBestESPerf(exclude)
 
 class MotionManager(Manager):
-    def __init__(self, launcher, managedModules=[], name="", freq=5.0, minReconfigInterval = 1.0,
-                 worldFrame='map', odomFrame='odom', robotFrame='base_link', worldPoseTopic='world_pose'):
+    def __init__(self, launcher, managedModules=[], name="MotionManager", freq=5.0, minReconfigInterval = 1.0,
+                 mapRef = True, odomRef = True, objectRef = True, timeout=0.1, refFrame="base_link"):
         super().__init__(launcher, managedModules, name, freq, minReconfigInterval)
         # handle was previously installed to super(). Need to migrate to self for the additional functions.
         #for m in managedModules:
@@ -176,113 +155,135 @@ class MotionManager(Manager):
         # fallback for other map poses published through tf.
         self.tfBuffer = tf2_ros.Buffer()
         self.tfListener = tf2_ros.TransformListener(self.tfBuffer)
-        # Heartbeat - raw odometry is the ultimate fallback as long as the base is running.
-        self.odomSub = rospy.Subscriber('odom', Odometry, self.wheelOdomCb)
-        # One level up, if the filter is running.
-        self.filteredOdomTimeout = 0.1
-        self.mapPoseTimeout = 3.0
-        self.filteredOdomSub = rospy.Subscriber('odom/filtered', Odometry, self.filteredOdomCb)
-        # Two levels up, if map localization is running (at low freq).
-        self.mapPoseSub = rospy.Subscriber('amcl_pose', PoseWithCovarianceStamped, self.mapPoseCb)
-        #self.worldPoseLinCov = 0.
-        #self.worldPoseAngCov = 0.
-        self.worldPose = Odometry()
-        self.worldPose.child_frame_id = robotFrame
-        self.worldPose.header.frame_id = worldFrame
-        self.worldPosePub = rospy.Publisher(worldPoseTopic, Odometry, queue_size =1)
-        self.transform = TransformStamped(header=Header(frame_id=odomFrame), child_frame_id=worldFrame)
-        self.filteredOdomMsg = Odometry()
-        self.filteredOdomMsg.header.frame_id = odomFrame
-        self.filteredOdomMsg.child_frame_id = robotFrame
-        self.wheelOdomMsg = Odometry()
-        self.wheelOdomMsg.header.frame_id = odomFrame
-        self.wheelOdomMsg.child_frame_id = robotFrame
-        self.mapPoseMsg = PoseWithCovarianceStamped()
-        self.mapPoseMsg.header.frame_id = worldFrame
+        self.staleTol = timeout
+        
+        if odomRef:
+            self.odomPoseSub = rospy.Subscriber('odom', Odometry, self.odomPoseRawCb)
+            self.odomPoseFSub = rospy.Subscriber('odom/filtered', Odometry, self.odomPoseFilteredCb)
+        if mapRef:
+            self.mapPoseSub = rospy.Subscriber('map_pose', PoseWithCovarianceStamped, self.mapPoseRawCb)
+            self.mapPoseFSub = rospy.Subscriber('map_pose/filtered', Odometry, self.mapPoseFilteredCb)
+        if objectRef:
+            self.objectPoseSub = rospy.Subscriber('object_detection/pose', Odometry, self.objectPoseCb)
+        
+        self.refFrame = refFrame
+        self.rawOdomPose = Odometry()
+        self.filteredOdomPose = Odometry()
+        self.rawMapPose = PoseWithCovarianceStamped()
+        self.filteredMapPose = Odometry()
+        # maybe twist is not so important, but we need child_frame.
+        self.objectPose = Odometry()
         
         self.newGoalEvent = threading.Event()
-        self.currentActionGoal = LowLevelNavigationGoal()
-        self.currentActionFeedback = LowLevelNavigationFeedback()
+        self.currentActionGoal = LowLevelPoseActionGoal()
+        self.currentActionFeedback = LowLevelPoseActionFeedback()
         self.goalDoneEvent = threading.Event()
-        self.currentActionResult = LowLevelNavigationResult()
+        self.currentActionResult = LowLevelPoseActionResult()
 
-    def filteredOdomCb(self, msg):
-        self.filteredOdomMsg = msg
+    def odomPoseRawCb(self, msg):
+        self.rawOdomPose = msg
 
-    def mapPoseCb(self, msg):
-        self.mapPoseMsg = msg
-        #self.mapPoseLinCov = max(msg.pose.covariance[0], msg.pose.covariance[7])
-        #self.mapPoseAngCov = msg.pose.covariance[35]
+    def odomPoseFilteredCb(self, msg):
+        self.filteredOdomPose = msg
 
-    def wheelOdomCb(self, msg):
-        self.wheelOdomMsg = msg
+    def mapPoseRawCb(self, msg):
+        self.rawMapPose = msg
 
-    def updateWorldPose(self, publish=True):
-        timeNow = rospy.Time.now()
-        filteredOdomDt = (timeNow - self.filteredOdomMsg.header.stamp).to_sec()
-        if filteredOdomDt <= self.filteredOdomTimeout:
-            odomMsg = self.filteredOdomMsg
-        else:
-            # fallback to unfiltered odom
-            odomMsg = self.wheelOdomMsg
-            print("WARNING: Staleness of filtered odometry", filteredOdomDt, "s older than desired",
-                        self.filteredOdomTimeout, "s. Using wheel odometry with higher covariance instead.")
-        self.worldPose.header.stamp = odomMsg.header.stamp
-        self.transform, updated = utils.updateTransform(self.transform,self.tfBuffer, self.mapPoseTimeout)
-        if not updated:
-            print("ERROR: Transform", odomMsg.header.frame_id, "->",
-                    self.worldPose.header.frame_id, " is outdated. Drifting is not corrected.")
-        poseTmp = PoseStamped(header=odomMsg.header, pose=odomMsg.pose.pose)
-        # transform odom pose to world pose.
-        pose_transformed = tf2_geometry_msgs.do_transform_pose(poseTmp, self.transform)
-        self.worldPose.pose.pose = pose_transformed.pose
-        self.worldPose.pose.covariance = utils.composeHTMCov(odomMsg.pose.covariance,
-                                                            self.transform,
-                                                            self.mapPoseMsg.pose.covariance).tolist()
-        # assemble velocity
-        if self.worldPose.child_frame_id != odomMsg.child_frame_id:
-            if self.tfBuffer.can_transform(self.worldPose.child_frame_id,
-                                            odomMsg.child_frame_id, rospy.Time(0)):
-                tfVel = self.tfBuffer.lookup_transform(self.worldPose.child_frame_id,
-                                            odomMsg.child_frame_id, rospy.Time(0))
-                self.worldPose.twist.twist = tf2_geometry_msgs.do_transform_vector3(odomMsg.twist.twist, tfVel)
-                self.worldPose.twist.covariance = utils.composeRotCov(odomMsg.twist.covariance, tfVel).tolist()
-            else:
-                print("ERROR: Timed out interpolating Twist from", odomMsg.child_frame_id, "to",
-                        self.worldPose.child_frame_id, ".")
-        else:
-            self.worldPose.twist = odomMsg.twist
-        if publish:
-            self.worldPosePub.publish(self.worldPose)
+    def mapPoseFilteredCb(self, msg):
+        self.filteredMapPose = msg
 
-    def getWorldPose(self, timeTol=0.1, publish=True):
-        timeNow = rospy.Time.now()
-        if (timeNow - self.worldPose.header.stamp).to_sec() > timeTol:
-            # Do update
-            self.updateWorldPose(publish)
-        return self.worldPose
+    def objectPoseCb(self, msg):
+        self.objectPose = msg
     
-    def getRemainingDistance(self):
-        pose = self.getWorldPose()
-        linDist = np.linalg.norm(self.currentActionGoal.target_pose.pose.position - pose.pose.pose.position)
-        angDist = abs(utils.angleDiff(utils.rpyFromQuaternion(pose.pose.pose.orientation)[2], 
-                                    utils.rpyFromQuaternion(self.currentActionGoal.target_pose.pose.orientation)[2]))
+    def getPoseInGoalFrame(self):
+        # check the frame that the goal is expressed in
+        # check the timeout tolerance for the corresponding variables
+        # return the apropriate variable.
+        timeNow = rospy.Time.now()
+        if self.currentActionGoal.header.frame_id == self.filteredMapPose.header.frame_id:
+            if (timeNow - self.filteredMapPose.header.stamp).to_sec() < self.staleTol:
+                return self.filteredMapPose
+            elif self.currentActionGoal.header.frame_id == self.rawMapPose.header.frame_id:
+                return self.rawMapPose
+            else:
+                RuntimeWarning("Filtered map pose is too stale, but raw map pose has different frames!")
+                return self.filteredMapPose
+        elif self.currentActionGoal.header.frame_id == self.filteredOdomPose.header.frame_id:
+            if (timeNow - self.filteredOdomPose.header.stamp).to_sec() < self.staleTol:
+                return self.filteredOdomPose
+            elif self.currentActionGoal.header.frame_id == self.rawOdomPose.header.frame_id:
+                return self.rawOdomPose
+            else:
+                RuntimeWarning("Filtered odom pose is too stale, but raw odom pose has different frames!")
+                return self.filteredOdomPose
+        # it's the high level planner's duty to hand over the goal to object frame only when the object is detectable.
+        elif self.currentActionGoal.header.frame_id in \
+                [self.objectPose.header.frame_id, self.objectPose.child_frame_id]:
+            return self.objectPose
+        # fallbacks
+        elif self.currentActionGoal.header.frame_id == self.rawMapPose.header.frame_id:
+            return self.rawMapPose
+        elif self.currentActionGoal.header.frame_id == self.rawOdomPose.header.frame_id:
+            return self.rawOdomPose
+        else:
+            RuntimeError("Current Action Goal is in non of the recognized map/odom/object frames!")
+            return None
+
+    def getRelativePoseStamped(self):
+        # get measurement source
+        # get tf from source frame to base frame
+        # transform pose to base frame
+        pose_ = self.getPoseInGoalFrame()
+        if not pose_:
+            return None, None, None
+        ps_ = PoseStamped(header=pose_.header, pose=pose_.pose.pose)
+        tf_ = TransformStamped(header=pose_.header, child_frame_id=self.refFrame)
+        tf_.transform.rotation.w = 1.
+        if pose_.header.frame_id == self.refFrame:
+            return ps_, tf_, pose_
+        tf_, isUpdated = updateTransform(tf_, self.tfBuffer, self.staleTol)
+        if isUpdated:
+            return tf2_geometry_msgs.do_transform_pose(ps_, tf_), tf_, pose_
+        else:
+            return None, None, pose_
+
+    def getRelativePoseWithCovarianceStamped(self):
+        # getRelativePose
+        ps_, tf_, pose_ = self.getRelativePoseStamped()
+        # transform covariance. Assume tf doesn't involve uncertainty.
+        pcs = PoseWithCovarianceStamped(header=ps_.header)
+        pcs.pose.pose = ps_.pose
+        pcs.pose.covariance = composeHTMCov(pose_.pose.covariance, tf_)
+        return pcs
+
+    def getRemainingDistance(self, poseInGoalFrame=None):
+        if not poseInGoalFrame:
+            relPose = self.getRelativePoseStamped()[0].pose
+        else:
+            relPose = poseInGoalFrame
+        if not relPose:
+            return -1., -1.
+        linDist = np.linalg.norm(linearDiff(self.currentActionGoal.target_pose.pose.position, relPose.position))
+        angDist = abs(angleDiff(rpyFromQuaternion(relPose.orientation)[2], 
+                                rpyFromQuaternion(self.currentActionGoal.target_pose.pose.orientation)[2]))
         return linDist, angDist
 
     def getRemainingTime(self):
-        return (self.currentActionGoal.expiration - rospy.Time.now()).to_secs()
+        return (self.currentActionGoal.expiration - rospy.Time.now()).to_sec()
 
     """A low-level goal runner. Tries to reach a goal with specified uncertainty tolerance"""
-    def runGoal(self, pose=PoseStamped(header=Header(frame_id="goal")), 
+    def runGoal(self, pose:PoseStamped=PoseStamped(), 
                     tolerance=[0.1, 0.1], timeout=30.0, actionGoal=None):
         if actionGoal is not None:
             # push goal
             self.currentActionGoal = actionGoal
         else:
-            self.currentActionGoal = LowLevelNavigationGoal()
+            self.currentActionGoal = LowLevelPoseActionGoal()
             self.currentActionGoal.header = pose.header
+            if not self.currentActionGoal.header.frame_id:
+                self.currentActionGoal.header.frame_id = 'map'
             self.currentActionGoal.target_pose.pose = pose.pose
-            cov = utils.toleranceToCov([tolerance[0], tolerance[0], tolerance[0],
+            cov = toleranceToCov([tolerance[0], tolerance[0], tolerance[0],
                                 tolerance[1], tolerance[1], tolerance[1]])
             self.currentActionGoal.target_pose.covariance = cov.tolist()
             self.currentActionGoal.expiration = rospy.Time.now()+rospy.Duration(timeout)
@@ -291,7 +292,7 @@ class MotionManager(Manager):
         self.currentActionResult = None
         # set event
         self.newGoalEvent.set()
-        # TODO: lack a signal: how does the managed modules know it's time to look for a candidate and run?
+        # turn on the one with best estimated performance, if no subordinate module is running.
         if not len(self.onDict):
             self.turnOnBestESPerf()
         # determine which module to turn on (and its dependency)
@@ -303,7 +304,7 @@ class MotionManager(Manager):
         self.goalDoneEvent.wait(timeout+1.0)
         self.goalDoneEvent.clear()
         return self.currentActionResult
-    
+
     def shutdown(self):
         super().shutdown()
         self.goalDoneEvent.set()

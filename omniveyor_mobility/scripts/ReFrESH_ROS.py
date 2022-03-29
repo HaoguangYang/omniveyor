@@ -90,7 +90,8 @@ class ReconfigureMetric:
 The base class of a ReFrESH module
 """
 class ReFrESH_Module:
-    def __init__(self, name, priority=0, preemptive=False, EX_thread=1, EV_thread=1, ES_thread=1):
+    def __init__(self, name:str, priority:int=0, preemptive:bool=False,
+                EX_thread:int=1, EV_thread:int=1, ES_thread:int=1):
         self.name = name
         # the higher priority, the more important.
         self.priority = priority
@@ -119,8 +120,8 @@ class ReFrESH_Module:
     kwargs: Keyword arguments. Dict
     ind:    thread index within the list (0..*_thread-1)
     """
-    def setComponentProperties(self, which, ftype, ns='', exec=None, args=(), mType=None, \
-                                kwargs={}, ind=0):
+    def setComponentProperties(self, which, ftype:Ftype, ns:str='', exec:callable=None, args:tuple=(),
+                                mType:type=None, kwargs:dict={}, ind:int=0):
         this = None
         if (which in ['EX', 'ex', 'Execute', 'execute', 'Executor', 'executer', self.EX]):
             this = self.EX[ind]
@@ -156,6 +157,20 @@ class ReFrESH_Module:
             this.args = (exec,)
         else:
             print("ERROR: type not implemented.")
+
+    def addComponent(self, which, ftype:Ftype, ns:str='', exec:callable=None,
+                        args:tuple=(), mType=None, kwargs:dict={}):
+        this = None
+        if (which in ['EX', 'ex', 'Execute', 'execute', 'Executor', 'executer', self.EX]):
+            this = self.EX
+        elif (which in ['EV', 'ev', 'Evaluate', 'evaluate', 'Evaluator', 'evaluator', self.EV]):
+            this = self.EV
+        elif (which in ['ES', 'es', 'Estimate', 'estimate', 'Estimator', 'estimator', self.ES]):
+            this = self.ES
+        else:
+            raise TypeError("Invalid set-property request!")
+        this.append(ModuleComponent(Ftype.THREAD, (), {}))
+        self.setComponentProperties(which, ftype, ns, exec, args, mType, kwargs, ind=-1)
 
     """Helper function to turn on the module from within"""
     def turnMeOn(self):
@@ -201,7 +216,8 @@ The basicDecider then search within its managed module to start the one with min
 taking the larger one of the two aspects.
 """
 class Manager:
-    def __init__(self, launcher, managedModules=[], name="", freq=5.0, minReconfigInterval = 1.0):
+    def __init__(self, launcher:Launcher, managedModules:dict=[], name:str="Manager",
+                    freq:float=5.0, minReconfigInterval:float= 1.0):
         self.name = name
         self.launcher = None
         if isinstance(launcher, Launcher):
@@ -232,27 +248,27 @@ class Manager:
             print("INFO: Module", m.name, "SPAWNED with Manager", self.name, ".")
 
     """ Determine if a given module is ON. This function is of O(1) complexity """
-    def moduleIsOn(self, module):
+    def moduleIsOn(self, module:ReFrESH_Module):
         return module in self.onDict
 
     """ Determine if a given module is OFF. Has O(1) complexity """
-    def moduleIsOff(self, module):
+    def moduleIsOff(self, module:ReFrESH_Module):
         return module in self.offDict
 
     """ Get thread handles / instances of EX components """
-    def getEXhandle(self, module):
+    def getEXhandle(self, module:ReFrESH_Module):
         return None if module not in self.onDict else self.onDict[module][0]
 
     """ Get thread handles / instances of EV components """
-    def getEVhandle(self, module):
+    def getEVhandle(self, module:ReFrESH_Module):
         return None if module not in self.onDict else self.onDict[module][1]
 
     """ Get thread handles / instances of ES components """
-    def getEShandle(self, module):
+    def getEShandle(self, module:ReFrESH_Module):
         return None if module not in self.offDict else self.offDict[module]
 
     """ Setting attribute of another module by name. Return True if succeeded. """
-    def moduleSet(self, moduleName, attr, value):
+    def moduleSet(self, moduleName:str, attr:str, value):
         for module in self.moduleDict:
             if module.name != moduleName:
                 continue
@@ -263,7 +279,7 @@ class Manager:
         return False
 
     """ Getting attribute of another module by name. Return None if not found. """
-    def moduleGet(self, moduleName, attr):
+    def moduleGet(self, moduleName:str, attr:str):
         for module in self.moduleDict:
             if module.name != moduleName:
                 continue
@@ -280,7 +296,7 @@ class Manager:
     prio >= this.prio (return true).
     This function determines if a module should be preempted by other modules. Complexity is O(n)
     """
-    def moduleIsPreemptible(self, module):
+    def moduleIsPreemptible(self, module:ReFrESH_Module):
         if module.preemptive and self.moduleIsOff(module):
             res = tuple(m for m in self.onDict if (m.priority > module.priority and m.preemptive))
         else:
@@ -288,7 +304,7 @@ class Manager:
         return len(res), res
     
     """ Determine if a module can preempt other modules. Complexity O(n) """
-    def moduleCanPreempt(self, module):
+    def moduleCanPreempt(self, module:ReFrESH_Module):
         if not module.preemptive:
             return 0, ()
         if self.moduleIsOff(module):
@@ -298,7 +314,7 @@ class Manager:
         return len(res), res
 
     """ Turn ON a module that was in OFF state. Preemption of other modules is considered. """
-    def turnOn(self, module):
+    def turnOn(self, module:ReFrESH_Module):
         if module not in self.moduleDict:
             print("ERROR: Module", module, "(name:", module.name, \
                     ") is not managed by this instance.")
@@ -360,7 +376,7 @@ class Manager:
         self.lock.release()
 
     """ Turn OFF a module from ON state. Recovery of other modules from preemption is considered. """
-    def turnOff(self, module):
+    def turnOff(self, module:ReFrESH_Module):
         if module not in self.moduleDict:
             print("ERROR: Module", module, "(name:", module.name, \
                     ") is not managed by this instance.")
@@ -434,7 +450,7 @@ class Manager:
         self.lock.release()
 
     """ Turn on a list of modules from external request """
-    def requestOn(self, onList):
+    def requestOn(self, onList:list):
         # hash into Dictionary for O(1) complexity
         onDictL = dict.fromkeys(onList)
         toOn = set()
@@ -448,7 +464,7 @@ class Manager:
             self.turnOn(module)
 
     """ Turn off a list of modules from external request """
-    def requestOff(self, offList):
+    def requestOff(self, offList:list):
         offDictL = dict.fromkeys(offList)
         toOff = set()
         for module in self.readyDict:
@@ -541,7 +557,7 @@ class Manager:
             time.sleep(self.DeciderCooldownDuration)
 
     """ Starts decider object """
-    def run(self, blocking = False):
+    def run(self, blocking:bool = False):
         self.Decider_proc = self.launcher.launch(self.Decider.ftype, \
                                                 *tuple(self.Decider.args), \
                                                 **dict(self.Decider.kwargs))

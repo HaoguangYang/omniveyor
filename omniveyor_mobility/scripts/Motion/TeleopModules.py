@@ -83,7 +83,7 @@ class remoteTeleopModule(ReFrESH_Module):
 
         self.setComponentProperties('EX', Ftype.LAUNCH_FILE, 'pcv_base', 'remote_teleop.launch')
         self.setComponentProperties('EV', Ftype.TIMER, exec=self.evaluator, kwargs={'freq': 1.0}, ind=0)
-        self.setComponentProperties('EV', Ftype.SUBSCRIBER, self.cmdTopic, self.msgTiming, mType=Twist, kwargs={'freq': 1.0}, ind=1)
+        self.setComponentProperties('EV', Ftype.SUBSCRIBER, self.cmdTopic, self.msgTiming, mType=Twist, ind=1)
         self.setComponentProperties('ES', Ftype.THREAD, exec=self.estimator)
 
     def evaluator(self, event):

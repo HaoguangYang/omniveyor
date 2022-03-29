@@ -17,10 +17,10 @@ PIDController:
     max_acc_ang: 3.0
     max_int_ang: 10.0
     
-    kp_lin: 5.0
+    kp_lin: 10.0
     ki_lin: 0.01
-    kd_lin: 1.0
+    kd_lin: 2.0
     
-    kp_ang: 5.0
+    kp_ang: 7.5
     ki_ang: 0.01
-    kd_ang: 1.0
+    kd_ang: 1.5

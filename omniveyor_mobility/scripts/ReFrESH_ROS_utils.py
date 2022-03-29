@@ -20,7 +20,7 @@ import time
 """
 Raise exception in a thread asynchronously.
 """
-def _async_raise(tid, exctype):
+def _async_raise(tid, exctype:type):
     """raises the exception, performs cleanup if needed"""
     if not inspect.isclass(exctype):
         raise TypeError("Only types can be raised (not instances)")
@@ -55,7 +55,7 @@ class Thread(threading.Thread):
 
         raise AssertionError("could not determine the thread's id")
 
-    def raise_exc(self, exctype):
+    def raise_exc(self, exctype:type):
         """raises the given exception type in the context of this thread"""
         _async_raise(self._get_my_tid(), exctype)
 
@@ -69,11 +69,20 @@ class Thread(threading.Thread):
         finally:
             self.join()
 
+class DictObj:
+    def __init__(self, in_dict:dict):
+        assert isinstance(in_dict, dict)
+        for key, val in in_dict.items():
+            if isinstance(val, (list, tuple)):
+                setattr(self, key, [DictObj(x) if isinstance(x, dict) else x for x in val])
+            else:
+                setattr(self, key, DictObj(val) if isinstance(val, dict) else val)
+
 """Class that implements a ring buffer"""
 class RingBuffer:
     """ class that implements a not-yet-full buffer """
-    def __init__(self,size_max):
-        self.max = size_max
+    def __init__(self,size_max:int):
+        self.max = abs(size_max)
         self.data = []
 
     class __Full:
@@ -168,7 +177,7 @@ class ROSnodeMonitor:
 
 """Monitors network traffic flow of a wireless interface. Implementation based on iwconfig shell command"""
 class WirelessNetworkMonitor:
-    def __init__(self, hint='wl', interval=1.0):
+    def __init__(self, hint:str='wl', interval:float=1.0):
         ifaces = ni.interfaces()
         self.wlan_name = ''
         for item in ifaces:
@@ -194,7 +203,7 @@ class WirelessNetworkMonitor:
                 self.maxBandwidth = 0.1
             self.lastUpdate = currentTime
 
-    def bwUtil(self, bytesRecvd, dt):
+    def bwUtil(self, bytesRecvd:int, dt:float):
         self.getInterfaceSpeed()
         return bytesRecvd/dt/self.maxBandwidth
 
@@ -227,7 +236,7 @@ class Fstat(Enum):
 Wrapper for launching threads and ROS components within Python
 """
 class Launcher:
-    def __init__(self, managerNodeName):
+    def __init__(self, managerNodeName:str):
         self.roscoreProc = None
         self.nodeLauncher = None
         self.uuid = roslaunch.rlutil.get_or_generate_uuid(None, False)
@@ -243,7 +252,7 @@ class Launcher:
         self.nodeLauncher.start(auto_terminate=False)
         #self.spinSet.add(self.nodeLauncher)
 
-    def launch(self, ftype, *args, **kwargs):
+    def launch(self, ftype:Ftype, *args, **kwargs):
         if ftype == Ftype.NODE:
             return self.nodeLaunch(*args, **kwargs)
         elif ftype == Ftype.LAUNCH_FILE:
@@ -265,8 +274,9 @@ class Launcher:
         else:
             print("ERROR: type not implemented.")
 
-    def nodeLaunch(self, pkgName, execName, name=None, namespace='/', args='', respawn=False, \
-                 respawn_delay=0.0, remap_args=None, env_args=None, output=None, launch_prefix=None):
+    def nodeLaunch(self, pkgName:str, execName:callable, name:str=None, namespace:str='/', args:str='', 
+                respawn:bool=False, respawn_delay:float=0.0, remap_args=None, env_args=None, output=None,
+                launch_prefix=None):
         nodeProc, success = self.nodeLauncher.runner.launch_node(roslaunch.core.Node(\
                 pkgName, execName, name=name, namespace=namespace, args=args, respawn=respawn, \
                 respawn_delay=respawn_delay, remap_args=remap_args, env_args=env_args, \
@@ -276,7 +286,7 @@ class Launcher:
         else:
             return None
 
-    def fileLaunch(self, pkgName='', fileName='', args=(), fullPathList=[]):
+    def fileLaunch(self, pkgName:str='', fileName:str='', args:tuple=(), fullPathList:list=[]):
         if not len(fullPathList):
             fp = roslaunch.rlutil.resolve_launch_arguments([pkgName, fileName, *args])
             if args:
@@ -307,55 +317,61 @@ class Launcher:
             self.roscoreProc.spin_once()
         return tuple(nodeProcs)
 
-    def threadLaunch(self, funcPtr=None, args=()):
+    def threadLaunch(self, funcPtr:callable=None, args:tuple=()):
         t = Thread(target=funcPtr, args=args)
         t.start()
         return t
 
-    def timerLaunch(self, freq, cb):
+    def timerLaunch(self, freq:float, cb:callable):
         if freq>0.:
             timer = rospy.Timer(rospy.Duration(1./freq), cb)
             return timer
         else:
             print("ERROR: Initializing a timer callback with non-positive frequency.")
 
-    def subscriberLaunch(self, topic, msgType, cb, args=None):
+    def subscriberLaunch(self, topic:str, msgType:type, cb:callable, args=None):
         subs = rospy.Subscriber(topic, msgType, cb, args)
         return subs
 
-    def serviceLaunch(self, topic, srvType, cb):
+    def serviceLaunch(self, topic:str, srvType:type, cb:callable):
         srv = rospy.Service(topic, srvType, cb)
         return srv
 
-    def actionSrvLaunch(self, topic, actType, cb, preempt_cb=None):
+    def actionSrvLaunch(self, topic:str, actType:type, cb:callable, preempt_cb=None):
         actServer = actionlib.SimpleActionServer(topic, actType, cb, auto_start = False)
         if not (preempt_cb is None):
             actServer.register_preempt_callback(preempt_cb)
         # modify the action server structure to suit our wrapper
-        def stop(self):
-            self.set_preempted()
-            self.action_server.stop()
+        def stop():
+            actServer.set_preempted()
+            actServer.action_server.stop()
         setattr(actServer, 'stop', stop)
         actServer.start()
         return actServer
 
-    def actionCliLaunch(self, topic, actType, feedback_cb, active_cb=nop_cb, done_cb=nop_cb, 
-                        prelaunch_cb=nop_cb, goal=None, availTimeout=0):
+    def actionCliLaunch(self, topic:str, actType:type, feedback_cb:callable,
+                        active_cb:callable=nop_cb, done_cb:callable=nop_cb,
+                        prelaunch_cb:callable=nop_cb, goal=None, availTimeout:float=0):
         actClient = actionlib.SimpleActionClient(topic, actType)
         # anything to set before submitting the action?
         prelaunch_cb()
         # modify the action client structure to suit our wrapper
         setattr(actClient, 'connected', actClient.wait_for_server(rospy.Duration(availTimeout)))
-        def stop(self):
-            self.cancel_all_goals()
-            self.action_client.stop()
-            self.stop_tracking_goal()
+        # black magic...
+        def stop():
+            actClient.cancel_all_goals()
+            actClient.action_client.stop()
+            actClient.stop_tracking_goal()
         setattr(actClient, 'stop', stop)
+        # helper function to submit a goal.
+        setattr(actClient, 'submit', lambda goal : \
+                actClient.send_goal(goal, done_cb, active_cb, feedback_cb))
+        # no goal specified, return an inactive client.
         if goal is None:
-            goal = actType()
-            print("WARN: A default instance of specified action type is submitted!")
+            return actClient
+        # a goal has been specified. Start running the goal.
         if actClient.connected:
-            actClient.send_goal(goal, done_cb, active_cb, feedback_cb)
+            actClient.submit(goal)
         return actClient
 
     def stop(self, proc):

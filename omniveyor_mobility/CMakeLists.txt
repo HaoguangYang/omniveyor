@@ -22,6 +22,7 @@ find_package(catkin REQUIRED COMPONENTS
   pluginlib
   base_local_planner
 )
+find_package(Eigen3 REQUIRED NO_MODULE)
 
 ## Uncomment this if the package has a setup.py. This macro ensures
 ## modules and global scripts declared therein get installed
@@ -149,9 +150,9 @@ add_library(pid_controller
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-#add_executable(${PROJECT_NAME}_node 
-#  src/main.cc
-#)
+add_executable(mapPoseFromTFOdom_node 
+  src/map_pose_from_tf.cpp
+)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -166,6 +167,11 @@ add_library(pid_controller
 ## Specify libraries to link a library or executable target against
 target_link_libraries(pid_controller
   ${catkin_LIBRARIES}
+)
+
+target_link_libraries(mapPoseFromTFOdom_node
+  ${catkin_LIBRARIES}
+  Eigen3::Eigen
 )
 
 #############

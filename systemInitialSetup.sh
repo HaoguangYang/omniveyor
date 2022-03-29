@@ -47,7 +47,7 @@ sudo rosdep init
 rosdep update
 
 # install dependent ROS packages
-sudo apt install -y ros-noetic-amcl ros-noetic-move-base ros-noetic-gmapping \
+sudo apt install -y ros-noetic-amcl ros-noetic-move-base ros-noetic-slam-toolbox \
             ros-noetic-teb-local-planner ros-noetic-urg-node ros-noetic-map-server \
             ros-noetic-global-planner ros-noetic-rtabmap ros-noetic-realsense2-camera\
             ros-noetic-cv-bridge ros-noetic-geographic-msgs ros-noetic-ros-numpy \

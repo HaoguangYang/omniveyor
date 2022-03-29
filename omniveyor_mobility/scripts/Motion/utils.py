@@ -1,38 +1,43 @@
 #!/usr/bin/python
 
+import os
+import sys
+currentdir = os.path.dirname(os.path.realpath(__file__))
+parentdir = os.path.dirname(currentdir)
+sys.path.append(parentdir)
 import numpy as np
-import copy
-from geometry_msgs.msg import TransformStamped, PoseStamped
 from scipy.spatial.transform import Rotation
 import rospy
-import tf2_geometry_msgs
+
+def linearDiff(pt1, pt2):
+    return np.array([pt1.x, pt1.y, pt1.z]) - np.array([pt2.x, pt2.y, pt2.z])
 
 def angleDiff(ang1, ang2):
-    return np.mod((ang1 - ang2 + np.pi), np.pi+np.pi) - np.pi
+    return np.mod((np.array(ang1) - np.array(ang2) + np.pi), np.pi+np.pi) - np.pi
 
 def rpyFromQuaternion(quat):
     return Rotation.from_quat([quat.x, quat.y, quat.z, quat.w]).as_euler('xyz')
 
-def composeHTMCov(covA, aTb, covT):
-    Sigma1 = np.array(covA).reshape([6,6])
+def composeHTMCov(covB, aTb, covT=np.zeros([6,6])):
+    Sigma1 = np.array(covB).reshape([6,6])
     rquat = aTb.transform.rotation
     trans = aTb.transform.translation
     R = Rotation.from_quat([rquat.x, rquat.y, rquat.z, rquat.w])
     Sigma2 = np.array(covT).reshape([6,6])
     Dn = np.array([[0., -trans.z, trans.y], [trans.z, 0., -trans.x], [-trans.y, trans.x, 0.]])
-    J = np.array([[R, np.zeros([3,3])], [np.dot(Dn, R), R]]).transpose()
-    covB = J @ Sigma1 @ J.transpose() + Sigma2
-    return covB
+    J = np.array([[R, np.zeros([3,3])], [np.dot(Dn, R), R]])
+    covA = J @ Sigma1 @ J.transpose() + Sigma2
+    return covA
 
-def composeRotCov(covA, aRb, covR=None):
-    Sigma1 = np.array(covA).reshape([6,6])
+def composeRotCov(covB, aRb, covR=None):
+    Sigma1 = np.array(covB).reshape([6,6])
     rquat = aRb.transform.rotation
     R = Rotation.from_quat([rquat.x, rquat.y, rquat.z, rquat.w])
-    J = np.array([[R, np.zeros([3,3])], [np.zeros([3,3]), R]]).transpose()
-    covB = J @ Sigma1 @ J.transpose()
+    J = np.array([[R, np.zeros([3,3])], [np.zeros([3,3]), R]])
+    covA = J @ Sigma1 @ J.transpose()
     if covR:
-        covB += np.array(covR).reshape([6,6])
-    return covB
+        covA += np.array(covR).reshape([6,6])
+    return covA
 
 def tortuosity(rowVectors, granularity=None):
     if np.ndim(rowVectors)<=1:
@@ -43,7 +48,7 @@ def tortuosity(rowVectors, granularity=None):
     nStep = d.shape[0]
     if not granularity:
         nLargerStep = 1
-        displacement = rowVectors[-1,:]-rowVectors[0,:]
+        displacement = np.linalg.norm(rowVectors[-1,:]-rowVectors[0,:])
     else:
         nLargerStep = 0
         displacement = 0.
@@ -68,6 +73,7 @@ def covToTolerance(cov, decoupling=True, averaging=True):
         eigvalL, eigvecL = np.linalg.eig(sigma[0:3, 0:3])
         eigvalA, eigvecA = np.linalg.eig(sigma[3:6, 3:6])
         if averaging:
+            """homogenizing the linear and angular tolerances respectively"""
             tolTmp = [np.average(eigvalL[eigvalL>0]), np.average(eigvalA[eigvalA>0])]
             tol = [tolTmp[0], tolTmp[0], tolTmp[0], tolTmp[1], tolTmp[1], tolTmp[1]]
             dir = np.eye(6)
@@ -106,3 +112,10 @@ def updateTransform(transform, tfBuffer, timeout=0):
         # time stamp is not updated. assume the newer one is valid
         return transform, False
     return newTransform, True
+
+class AbortionRecord:
+    def __init__(self, goal, abortedPose, context=None, recordTime=None):
+        self.goal = goal
+        self.abortedPose = abortedPose
+        self.context = context
+        self.recordTime = recordTime

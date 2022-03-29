@@ -180,27 +180,6 @@ namespace pid_controller{
             ROS_WARN_STREAM_THROTTLE(2.0, "Transformation failed from" << pose.header.frame_id << "->" << base_frame_);
             return false;
         }
-        /*
-        geometry_msgs::PoseStamped ps;
-        try{
-            ps = tf_->transform(pose, base_frame_);
-        } catch(tf2::TransformException& ex) {
-            ROS_WARN_STREAM_THROTTLE(2.0, "Could not obtain transform from " << pose.header.frame_id <<
-                                    " to " << base_frame_ << ". Error was " << ex.what() << "\n");
-            *x = 0.;
-            *y = 0.;
-            *th = 0.;
-            return false;
-        }
-        *x = ps.pose.position.x;
-        *y = ps.pose.position.y;
-        tf2::Matrix3x3 r = tf2::Matrix3x3(tf2::Quaternion(ps.pose.orientation.x, ps.pose.orientation.y,
-                                            ps.pose.orientation.z, ps.pose.orientation.w));
-        double pitch, roll;
-        r.getRPY(roll, pitch, *th);
-        return true;
-        */
-        //std::cout << base_frame_ << " x: "<< *x << " y: "<< *y << " ,th: " << *theta << std::endl;
     }
 
     void PIDController::calculatePIDController(geometry_msgs::Twist& cmd_vel, bool yieldOutput){
