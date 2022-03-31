@@ -186,7 +186,7 @@ class demoTrajs():
         self.robotIO.setTargetVels([[0., 0., 0.], [0., 0., 0.], [0., 0., 0.]])
 
 class demoOne():
-    def __init__(self, nodeID):
+    def __init__(self, nodeID=0):
         self.robotIO = multiRobotCoordinator([nodeID])
         self.v_lim = [0.5, 0.5, 0.5]
         self.v_robot = [[0.,0.,0.]]

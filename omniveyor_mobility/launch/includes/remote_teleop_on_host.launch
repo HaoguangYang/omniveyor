@@ -1,0 +1,28 @@
+<launch>
+    <!--
+      This launch file runs a sender node, which sends topics from the local
+      roscore over the network on port 17001.
+
+      By default, this launch file sends topics to your local machine for
+      testing purposes. If you want to send to another machine, use
+        roslaunch nimbro_topic_transport sender.launch target:=other_host
+      where other_host can be a host name or IP address.
+
+      See udp_receiver.launch for the receiving part.
+    -->
+    
+    <arg name="node_id"   default="9"/>
+    <arg name="target"    default="192.168.254.100" />
+    <arg name="teleop_tx_port_base" default="17100"/>
+    <arg name="teleop_tx_port"   default="$(eval teleop_tx_port_base + node_id)" />
+    
+    <!-- The sender node -->
+    <node pkg="joy" type="joy_node" name="joy" output="screen"/>
+    <node pkg="omniveyor_mobility" type="teleop_twist_joystick_remote_onHost.py" name="teleop_joy_remote" output="screen"/>
+    <include file="$(find omniveyor_mobility)/launch/includes/multi_robot_tx_host.launch">
+        <arg name="target" value="$(arg target)"/>
+        <arg name="tx_port" value="$(arg teleop_tx_port)"/>
+    </include>
+    
+</launch>
+ 
