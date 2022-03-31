@@ -1,5 +1,15 @@
-#include "omniveyor_mobility/pid_controller.h"
+/**
+ * @file pid_controller.h
+ * @author Haoguang Yang (yang1510@purdue.edu)
+ * @brief PID controller as a MoveBase local planner plugin.
+ * @version 0.1
+ * @date 2022-03-29
+ * 
+ * @copyright Copyright (c) 2022 Haoguang Yang
+ * 
+ */
 
+#include "omniveyor_mobility/pid_controller.h"
 #include <pluginlib/class_list_macros.h>
 
 using namespace std;
@@ -18,7 +28,10 @@ namespace pid_controller{
         initialize(name, tf, costmap_ros);
     }
 
-    PIDController::~PIDController() {}
+    PIDController::~PIDController() {
+        delete odom_helper_;
+        delete dsrv_;
+    }
 
     void PIDController::reconfigureCb(PIDControllerConfig& config,uint32_t level) {
         // settings

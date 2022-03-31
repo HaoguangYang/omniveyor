@@ -10,15 +10,17 @@
     </node>
   </group>
   <group unless="$(arg static_map)">
-    <node pkg="slam_toolbox" type="lifelong_slam_toolbox_node" name="slam_lifelong" output="screen">
-      <rosparam command="load" file="$(find omniveyor_mobility)/param/slam_lifelong_params.yaml" />
-      <remap from="slam_lifelong/scan" to="scan"/>
+    <node pkg="slam_toolbox" type="lifelong_slam_toolbox_node" name="slam_toolbox" output="screen">
+      <rosparam command="load" file="$(find omniveyor_mobility)/param/slam_toolbox_params.yaml" />
+      <remap from="slam_toolbox/scan" to="scan"/>
+      <param name="map_file_name" value="$(find omniveyor_mobility)/resources/$(arg map_file)"/>
     </node>
     <node pkg="omniveyor_mobility" type="mapPoseFromTFOdom_node" name="tf_map_pose_repub" output="screen">
         <param name="odom_topic" value="odom/filtered"/>
     </node>
-    <group if="$(eval arg('map_save_period') > 0)">
+    <group if="$(eval arg('map_save_period')>0)">
         <node name="map_saver" pkg="map_server" type="map_saver" args="-f $(find omniveyor_mobility)/resources/map/$(arg map_file)" respawn="true" respawn_delay="$(arg map_save_period)"/>
+        <node pkg="rosservice" type="rosservice" name="posegraph_save" args="call --wait /slam_toolbox/serialize_map 'filename: '$(find omniveyor_mobility)/resources/map/$(arg map_file)''" respawn="true" respawn_delay="$(arg map_save_period)"/>
     </group>
   </group>
   <node pkg="robot_localization" type="ekf_localization_node" name="ekf_world" clear_params="true">

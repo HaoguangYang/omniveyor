@@ -1,3 +1,13 @@
+/**
+ * @file map_pose_from_tf.h
+ * @author Haoguang Yang (yang1510@purdue.edu)
+ * @brief Helper node that republishes the TF(map->base_link) as a PoseWithCovarianceStamped, with properly calculated covariance.
+ * @version 0.1
+ * @date 2022-03-27
+ * 
+ * @copyright Copyright (c) 2022 Haoguang Yang
+ * 
+ */
 #include "omniveyor_mobility/map_pose_from_tf.h"
 
 constantTFGaussianEstimator::constantTFGaussianEstimator(std::string& targetFrame, std::string& origin, tf2_ros::Buffer *tfBuffer, int windowLength):
@@ -189,6 +199,11 @@ mapPoseFromTFOdom_node::mapPoseFromTFOdom_node(ros::NodeHandle *node): _nh(*node
         }
     }
     _mapPosePublisher = _nh.advertise<geometry_msgs::PoseWithCovarianceStamped>(_poseTopic, 2);
+}
+
+mapPoseFromTFOdom_node::~mapPoseFromTFOdom_node(){
+    delete _tfListener;
+    delete _odomMapGaussianEst;
 }
 
 void mapPoseFromTFOdom_node::odomSubsCb(const nav_msgs::Odometry::ConstPtr& msg){

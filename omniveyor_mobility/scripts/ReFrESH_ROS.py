@@ -98,7 +98,7 @@ class ReFrESH_Module:
         """preemptive: This module suspends all other modules in the enabled list
         that has lower priority, until finished"""
         self.preemptive = preemptive
-        self.managerHandle = None
+        self.managerHandle:Manager = None
         self.lock = threading.Lock()
         self.EX_thread = EX_thread
         self.EV_thread = EV_thread
@@ -491,8 +491,8 @@ class Manager:
         for module in toOff:
             self.turnOff(module)
 
-    def findBestESPerf(self, exclude=()):
-        candidate = None
+    def findBestESPerf(self, exclude:tuple=()):
+        candidate:ReFrESH_Module = None
         bestPerf = 1.
         for m in set(self.offDict.keys()).difference(set(exclude)):
             # in case the ES is wrapped in a callable function instead of a thread
@@ -500,12 +500,13 @@ class Manager:
             if callable(EShandle):
                 EShandle()
             tmp = m.reconfigMetric.bottleNeck()
+            #print(m.reconfigMetric.performanceUtil, m.reconfigMetric.resourceUtil)
             if tmp < bestPerf:
                 candidate = m
                 bestPerf = tmp
         return candidate, bestPerf
 
-    def turnOnBestESPerf(self, exclude=()):
+    def turnOnBestESPerf(self, exclude:tuple=()):
         candidate, bestPerf = self.findBestESPerf(exclude)
         if candidate:
             self.turnOn(candidate)

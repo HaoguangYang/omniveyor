@@ -26,7 +26,7 @@ class constantTFGaussianEstimator{
     public:
 
         /**
-         * @brief Construct a new constant T F Gaussian Estimator object. The object assumes a near-constant transform to be
+         * @brief Construct a new constant TF Gaussian Estimator object. The object assumes a near-constant transform to be
          * a white noise process, and estimates its covariance.
          * 
          * @param targetFrame Target frame of the transformation, such that $_{target}T^{origin} * _{origin}X = _{target}X.$
@@ -37,7 +37,7 @@ class constantTFGaussianEstimator{
         constantTFGaussianEstimator(std::string& targetFrame, std::string& origin, tf2_ros::Buffer *tfBuffer, int windowLength);
 
         /**
-         * @brief Destroy the constant T F Gaussian Estimator object
+         * @brief Destroy the constant TF Gaussian Estimator object
          * 
          */
         virtual ~constantTFGaussianEstimator() = default;
@@ -113,7 +113,7 @@ class mapPoseFromTFOdom_node{
          * @brief Destroy the mapPoseFromTFOdom node object
          * 
          */
-        virtual ~mapPoseFromTFOdom_node() = default;
+        ~mapPoseFromTFOdom_node();
 
         /**
          * @brief Callback function of the odometry subscriber. It stores the message to internal variable of the class.

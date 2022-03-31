@@ -9,6 +9,7 @@ import copy
 import threading
 import rospy
 import dynamic_reconfigure.client
+from dynamic_reconfigure import DynamicReconfigureCallbackException
 from move_base_msgs.msg import MoveBaseGoal, MoveBaseAction
 from nav_msgs.srv import GetPlan
 from geometry_msgs.msg import PoseStamped
@@ -40,6 +41,7 @@ class PlannerModule(ReFrESH_Module):
 
     """Prototype function to retry execution of the current goal."""
     def retry(self):
+        print("WARNING: Goal failed to reach. Retrying...")
         self.submit()
 
     """This function sets the current pose of the robot. 
@@ -47,6 +49,8 @@ class PlannerModule(ReFrESH_Module):
     the getPoseInGoalFrame() funtion."""
     def setPoseFeedback(self, fb):
         self.feedbackPose = fb
+        if hasattr(self.managerHandle, 'goalFeedback'):
+            self.managerHandle.goalFeedback = self.feedbackPose
 
     """ Fetch a goal from the manager, or from a given data structure. Store locally.
     Returns if the goal is different from previous goal."""
@@ -57,7 +61,10 @@ class PlannerModule(ReFrESH_Module):
             if hasattr(self.managerHandle, 'newGoalEvent'):
                 if isinstance(self.managerHandle.newGoalEvent, threading.Event):
                     # stuck here to wait for new goal to arrive
-                    self.managerHandle.newGoalEvent.wait()
+                    while not rospy.is_shutdown():
+                        self.managerHandle.newGoalEvent.wait(1.0)
+                        if self.managerHandle.newGoalEvent.isSet():
+                            break
                     self.managerHandle.newGoalEvent.clear()
             newActionGoal = self.translate(self.managerHandle.currentActionGoal)
         else:
@@ -163,11 +170,16 @@ class PlannerModule(ReFrESH_Module):
     """When a goal fails, it keeps a local record (goal pose + current pose)."""
     def setTerminalState(self, status=GoalStatus.ABORTED, result=None):
         if status == GoalStatus.SUCCEEDED:
-            # this goal is achieved
-            self.goalStatus = GoalStatus.SUCCEEDED
-            self.retries = 0
-            self.reportTerminalState()
-            return
+            dist = self.getRemainingDistance()
+            if dist[0]>0 and dist[0]<self.currentActionGoal.goal_tolerance[0][0] and \
+                dist[1]>0 and dist[1]<self.currentActionGoal.goal_tolerance[0][3]:
+                # this goal is achieved
+                self.goalStatus = GoalStatus.SUCCEEDED
+                self.retries = 0
+                self.reportTerminalState()
+                return
+            # this is a repeated SUCCEED message from last goal. Re-submit the goal.
+            self.submit()
         if status == GoalStatus.PREEMPTED and self.goalStatus == GoalStatus.PENDING:
             # in the middle of updateGoal. another (updated) goal awaits.
             self.goalStatus = GoalStatus.PREEMPTED
@@ -222,8 +234,9 @@ class MoveBaseModule(PlannerModule):
         super().__init__(name, priority, preemptive, EX_thread=1, EV_thread=1, ES_thread=1)
         # Tortuosity of path, time used, final error
         self.performanceMetrics = [0.0, 0.0]
+        self.defaultPerformanceMetrics = [0.0, 0.0]
         self.tortuosityTol = 1.5
-        self.speedLimit = [0.5, 0.5]
+        self.speedLimit = [0.3, 0.3]
         # Resource metric: not-availability
         self.resourceMetrics = [0.5]
         self.setComponentProperties('EX', Ftype.ACTION_CLI, 'move_base', self.feedbackCb, mType=MoveBaseAction,
@@ -239,6 +252,7 @@ class MoveBaseModule(PlannerModule):
         self.isNewGoal = False
 
     def submit(self):
+        print("INFO: Submitting Local Goal in Module", self.name, ".")
         super().submit()
         if not self.managerHandle.moduleIsOn(self):
             # module is off. do nothing.
@@ -272,6 +286,7 @@ class MoveBaseModule(PlannerModule):
         return unpackedGoal
 
     def updateGoal(self, goal=None, compare=True, submit=False):
+        print("INFO: Updating Local Goal in Module", self.name, ".")
         isNewGoal = super().updateGoal(goal, compare, submit)
         if compare:
             self.isNewGoal = isNewGoal
@@ -288,8 +303,18 @@ class MoveBaseModule(PlannerModule):
             self.resourceMetrics[0] = 1.0
             self.reconfigMetric.update(self.performanceMetrics, self.resourceMetrics)
             return
-        drc.get_configuration()
-        drc.update_configuration({'base_global_planner': self.bgp, 'base_local_planner': self.blp})
+        cfg = drc.get_configuration(timeout=2.0)
+        if not cfg:
+            self.resourceMetrics[0] = 1.0
+            self.reconfigMetric.update(self.performanceMetrics, self.resourceMetrics)
+            return
+        print("INFO: Updating MoveBase Global Planner to:", self.bgp, ", Local Planner to:", self.blp, ".")
+        try:
+            drc.update_configuration({'base_global_planner': self.bgp, 'base_local_planner': self.blp})
+        except DynamicReconfigureCallbackException:
+            self.resourceMetrics[0] = 1.0
+            self.reconfigMetric.update(self.performanceMetrics, self.resourceMetrics)
+            return
         self.resourceMetrics[0] = 0.0
         self.reconfigMetric.update(self.performanceMetrics, self.resourceMetrics)
     
@@ -308,7 +333,6 @@ class MoveBaseModule(PlannerModule):
         # /move_base/make_plan service available, distance to goal, time elapsed, turtuosity of path
         rowVect = self.historyPoses.get()
         self.performanceMetrics[0] = tortuosity(rowVect)/self.tortuosityTol
-        timeNow = rospy.Time.now()
         remainingTime = self.getRemainingTime()
         if remainingTime:
             # still a valid task.
@@ -320,6 +344,7 @@ class MoveBaseModule(PlannerModule):
         else:
             # the task has expired. Set final status.
             self.performanceMetrics[1] = 1.0
+            RuntimeWarning("Module "+self.name+" is Turning OFF. Reason: TIMEOUT")
             self.turnMeOff()
             self.reconfigMetric.update(self.performanceMetrics, self.resourceMetrics)
             # cancel the task.
@@ -331,35 +356,39 @@ class MoveBaseModule(PlannerModule):
         # performance metrics: a-priori esitmates
         # isNewGoal = self.updateGoal()
         if max(self.performanceMetrics)>=1.0:
+            print("INFO: Module", self.name, "ES trying to reset Performance Metric, was:", self.performanceMetrics, ".")
             # this module has failed previously. Check if the goal is in a new position.
             # if the goal is at a new position, reset retries = 0, availability to 1 (metric=0)
             if self.isNewGoal:
                 self.isNewGoal = False
                 hasFailedBefore = self.goalHasFailedBefore()
                 if hasFailedBefore:
+                    print("INFO: Goal", self.currentActionGoal.move_base_goal, "has failed before for Module", self.name, ".")
                     # do nothing if the goal was retried multiple times without succeeding
                     return
                 #Goal at a new position. reset retry counter. Also set self.resourceMetrics[0] = 0.0
                 self.retries = 0
             elif self.retries >= self.max_retry:
+                print("INFO: Goal", self.currentActionGoal.move_base_goal, "exceeded max retries for Module", self.name, ".")
                 # goal at old position and max_retry exceeded. do nothing.
                 return
             if self.performanceMetrics[0] >= 1.0:
-                # TODO: Replace with nominal performance instead of 0?
-                self.performanceMetrics[0] = 0.0
+                self.performanceMetrics[0] = self.defaultPerformanceMetrics[0]
             if self.performanceMetrics[1] >= 1.0:
-                self.performanceMetrics[1] = 0.0
-            if self.performanceMetrics[2] >= 1.0:
-                self.performanceMetrics[2] = 0.0
+                self.performanceMetrics[1] = self.defaultPerformanceMetrics[1]
+            #if self.performanceMetrics[2] >= 1.0:
+            #    self.performanceMetrics[2] = 0.0
         # configure the planner to what this module will have. This tests & updates availability metric.
         self.prelaunch()
         # this module is available and has not previously failed. test it.
         if self.resourceMetrics[0] < 1.0:
+            print("INFO: Module", self.name, "ES determines resource available:", self.resourceMetrics, ".")
             try:
                 # move_base/make_plan service available and generates a non-empty plan
-                rospy.wait_for_service('move_base/make_plan', timeout=3.0)
-            except rospy.ROSException:
+                rospy.wait_for_service('move_base/make_plan', timeout=10.0)
+            except rospy.ROSException as e:
                 # service is unavailable. Notify.
+                print("ERROR: Service unavailable: %s"%e)
                 self.resourceMetrics[0] = 1.0
                 self.reconfigMetric.update(self.performanceMetrics, self.resourceMetrics)
                 return
@@ -378,3 +407,5 @@ class MoveBaseModule(PlannerModule):
                 print("ERROR: Service call failed: %s"%e)
                 self.resourceMetrics[0] = 1.0
                 self.reconfigMetric.update(self.performanceMetrics, self.resourceMetrics)
+        else:
+            print("INFO: Module", self.name, "ES determines resource UNAVAILABLE:", self.resourceMetrics, ".")

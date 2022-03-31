@@ -67,7 +67,7 @@ class Thread(threading.Thread):
         except (ValueError, threading.ThreadError) as e:
             print("WARNING: Thread.stop failed with", e, ". The thread may have died previously.")
         finally:
-            self.join()
+            self.join(10.0)
 
 class DictObj:
     def __init__(self, in_dict:dict):

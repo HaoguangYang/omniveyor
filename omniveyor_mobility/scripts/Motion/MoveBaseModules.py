@@ -4,21 +4,27 @@ from PlannerModules import MoveBaseModule
 
 """ Using TEB local planner to avoid local obstacles, potentially dynamic """
 class tebLocalPlannerROSModule(MoveBaseModule):
-    def __init__(self, name="tebLocalPlannerROSMotion", priority=96, preemptive=True):
+    def __init__(self, name:str="tebLocalPlannerROSMotion", priority:int=96, preemptive:bool=True):
         super().__init__(name, priority, preemptive,
                         bgp="navfn/NavfnROS", blp="teb_local_planner/TebLocalPlannerROS")
+        self.defaultPerformanceMetrics = [0.0, 0.0]
+        self.performanceMetrics = [0.0, 0.0]
 
 """ Using DWA local planner to refine the global trajectory for obstacle avoidance """
 class dwaPlannerROSModule(MoveBaseModule):
-    def __init__(self, name="dwaPlannerROSMotion", priority=95, preemptive=True):
+    def __init__(self, name:str="dwaPlannerROSMotion", priority:int=95, preemptive:bool=True):
         super().__init__(name, priority, preemptive,
                         bgp="navfn/NavfnROS", blp="dwa_local_planner/DWAPlannerROS")
+        self.defaultPerformanceMetrics = [0.3, 0.3]
+        self.performanceMetrics = [0.3, 0.3]
 
 """ Follows a global plan as-is with PID controller"""
 class pidControllerModule(MoveBaseModule):
-    def __init__(self, name="pidControllerMotion", priority=94, preemptive=True):
+    def __init__(self, name:str="pidControllerMotion", priority:int=94, preemptive:bool=True):
         super().__init__(name, priority, preemptive,
                         bgp="navfn/NavfnROS", blp="pid_controller/PIDController")
+        self.defaultPerformanceMetrics = [0.5, 0.5]
+        self.performanceMetrics = [0.5, 0.5]
 
 def test(taskManager):
     import time
@@ -30,8 +36,8 @@ def test(taskManager):
         tgt.pose.position.x = -1.0
         tgt.pose.orientation.w = 1.0
         taskManager.runGoal(tgt)
-        tgt.pose.position.x = 1.0
-        tgt.pose.position.y = -2.0
+        tgt.pose.position.x = 4.0
+        tgt.pose.position.y = -1.0
         tgt.pose.orientation.w = 1.0
         taskManager.runGoal(tgt)
     except SystemExit:
@@ -46,6 +52,11 @@ if __name__ == "__main__":
     from ReFrESH_ROS_utils import Launcher, Thread, Ftype
     from Managers import MotionManager, MoveBaseManager
     from TeleopModules import joystickTeleopModule, remoteTeleopModule, keyboardTeleopModule
+    
+    #from viztracer import VizTracer
+    #tracer = VizTracer()
+    #tracer.start()
+    
     # a simple test case with three teleop modules.
     taskLauncher = Launcher("motionManager")
     simThread = taskLauncher.launch(Ftype.LAUNCH_FILE, pkgName='omniveyor_gazebo_world', fileName='IMI.launch')
@@ -57,7 +68,7 @@ if __name__ == "__main__":
     dwa = dwaPlannerROSModule()
     pid = pidControllerModule()
     mbMan = MoveBaseManager(taskLauncher, managedModules=[teb, dwa, pid])
-    taskManager = MotionManager(taskLauncher, managedModules=[mbMan])#, jsMod, rmMod, kbMod])
+    taskManager = MotionManager(taskLauncher, managedModules=[mbMan, kbMod]) #rmMod, jsMod
     t = Thread(target=test, args=(taskManager,))
     t.start()
     # blocking run
@@ -67,4 +78,7 @@ if __name__ == "__main__":
     taskLauncher.stop(simThread)
     taskLauncher.stop(mappingThread)
     taskManager.shutdown()
-    taskLauncher.shutdown() 
+    taskLauncher.shutdown()
+    
+    #tracer.stop()
+    #tracer.save()

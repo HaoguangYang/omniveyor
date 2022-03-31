@@ -9,10 +9,9 @@ currentdir = os.path.dirname(os.path.realpath(__file__))
 parentdir = os.path.dirname(currentdir)
 sys.path.append(parentdir)
 from ReFrESH_ROS import Manager
-from ReFrESH_ROS_utils import Ftype, ROSnodeMonitor
+from ReFrESH_ROS_utils import Ftype, Launcher, ROSnodeMonitor
 import tf2_ros
 import tf2_geometry_msgs
-from std_msgs.msg import Header
 from geometry_msgs.msg import TransformStamped, PoseStamped, PoseWithCovarianceStamped
 from nav_msgs.msg import Odometry
 from move_base_msgs.msg import MoveBaseGoal
@@ -21,10 +20,26 @@ from actionlib_msgs.msg import GoalStatus
 from PlannerModules import PlannerModule
 from utils import *
 
-"""multilevel inherited class to manage movebase global and local planners"""
 class MoveBaseManager(PlannerModule, Manager):
-    def __init__(self, launcher, managedModules=[], name="moveBaseManager", priority=97, preemptive=True,
-                freq=5.0, minReconfigInterval = 1.0):
+    """Multilevel inherited class to manage movebase global and local planners
+
+    Args:
+        PlannerModule (_type_): _description_
+        Manager (_type_): _description_
+    """
+    def __init__(self, launcher:Launcher, managedModules:list=[], name:str="moveBaseManager", priority:int=97,
+                preemptive:bool=True, freq:float=5.0, minReconfigInterval:float=1.0):
+        """Manager class for MoveBase Planners as ReFrESH Modules
+
+        Args:
+            launcher (Launcher): ROS Launcher
+            managedModules (list, optional): ReFrESH modules registered to this manager. Defaults to [].
+            name (str, optional): Registered name of this manager to upper-level manager. Defaults to "moveBaseManager".
+            priority (int, optional): Priority of starting the MoveBase compared to other motion planning methods. Defaults to 97.
+            preemptive (bool, optional): Is the MoveBase and associated planners preempting other motion planners. Defaults to True.
+            freq (float, optional): Frequency that monitors the MoveBase planners' performance. Defaults to 5.0.
+            minReconfigInterval (float, optional): Minimum interval of switching between planners. Defaults to 1.0.
+        """
         PlannerModule.__init__(self, name, priority, preemptive, EX_thread=4, EV_thread=1, ES_thread=1)
         Manager.__init__(self, launcher, managedModules, name, freq, minReconfigInterval)
         self.EX[0] = self.Decider
@@ -44,7 +59,15 @@ class MoveBaseManager(PlannerModule, Manager):
         self.isNewGoal = False
         # The class instance is mutable (call by reference)
 
-    def translate(self, goalIn):
+    def translate(self, goalIn:LowLevelPoseActionGoal):
+        """Translate slot type class to dict type class, such that custom field manipulation is possible
+
+        Args:
+            goalIn (LowLevelPoseActionGoal): Input slot type class, usually passed from ROS message
+
+        Returns:
+            _type_: Dict type class of the action goal, with MoveBase Goal appended to the property
+        """
         unpackedGoal = super().translate(goalIn)
         if not hasattr(unpackedGoal, 'move_base_goal'):
             setattr(unpackedGoal, 'move_base_goal',
@@ -53,6 +76,8 @@ class MoveBaseManager(PlannerModule, Manager):
         return unpackedGoal
 
     def submit(self):
+        """Submit self.currentActionGoal to the planner that is currently on, or the one with best performance
+        """
         super().submit()
         # check if any of the managed module is on
         if not len(self.onDict):
@@ -66,7 +91,14 @@ class MoveBaseManager(PlannerModule, Manager):
         for m in self.onDict:
             m.submit()
 
-    def updateGoal(self, goal=None, compare=True, submit=True):
+    def updateGoal(self, goal:LowLevelPoseActionGoal=None, compare:bool=True, submit:bool=True):
+        """Update locally stored goal
+
+        Args:
+            goal (LowLevelPoseActionGoal, optional): input goal. Defaults to None.
+            compare (bool, optional): Whether to compare the input goal with previous goal. Defaults to True.
+            submit (bool, optional): Whether to submit the goal to managed planners. Defaults to True.
+        """
         try:
             while not rospy.is_shutdown():
                 # blocking call: wait until a new goal is available, and update local goal.
@@ -80,8 +112,14 @@ class MoveBaseManager(PlannerModule, Manager):
             self.turnOffAll()
 
     def setTerminalState(self):
+        """Called when a task completes. If it succeeded, report goal succeess to upper-level manager.
+        If all managed modules fail, append failed goal, pose at failure, and time at failure to local
+        record, and report goal abortion to upper-level manager
+        """
         while not rospy.is_shutdown():
-            self.goalDoneEvent.wait()
+            self.goalDoneEvent.wait(1.0)
+            if not self.goalDoneEvent.isSet():
+                continue
             self.goalDoneEvent.clear()
             if self.goalStatus == GoalStatus.SUCCEEDED:
                 self.reportTerminalState()
@@ -98,6 +136,11 @@ class MoveBaseManager(PlannerModule, Manager):
                 break
 
     def evaluator(self, event):
+        """Periodic evaluation of the performance and resource consumption of currently active planner + MoveBase
+
+        Args:
+            event (_type_): Timer event, triggered periodically
+        """
         # check if performance monitor is attached
         if self.exMon.isAttached():
             # log worst case CPU usage of the launched exec.
@@ -116,6 +159,8 @@ class MoveBaseManager(PlannerModule, Manager):
             self.exMon.attach(self.getMyEXhandle()[1])
 
     def estimator(self):
+        """On-demand estimation of how MoveBase can potentially perform. Called without MoveBase running.
+        """
         self.updateGoal(compare=True, submit=False)
         # movebase is off. obtain a-priori esitmates
         if self.bottleNeck >= 1.0:
@@ -130,7 +175,17 @@ class MoveBaseManager(PlannerModule, Manager):
             self.bottleNeck = 0.0
             self.reconfigMetric.update([self.bottleNeck], self.resourceMetrics)
 
-    def findBestESPerf(self, exclude=()):
+    def findBestESPerf(self, exclude:tuple=()):
+        """Modified function to find the most performant planner module. Cancels all active goals since
+        the process requires to reconfig MoveBase parameters for each planner setup. Called when MoveBase
+        is active but NO Planner Module is active 
+
+        Args:
+            exclude (tuple, optional): Modules to exclude. Defaults to ().
+
+        Returns:
+            _type_: Tuple containing the module and estimated performance
+        """
         for _, (exHandle, _) in self.onDict.items():
             for item in exHandle:
                 # not the right handle
@@ -141,11 +196,12 @@ class MoveBaseManager(PlannerModule, Manager):
                 # cancel all goals previously submitted, since calling module ES requires
                 # reconfiguring MoveBase parameters.
                 item.cancel_all_goals()
+                RuntimeWarning(str(item)+"goal cancelled to run ES of other modules.")
         return super().findBestESPerf(exclude)
 
 class MotionManager(Manager):
-    def __init__(self, launcher, managedModules=[], name="MotionManager", freq=5.0, minReconfigInterval = 1.0,
-                 mapRef = True, odomRef = True, objectRef = True, timeout=0.1, refFrame="base_link"):
+    def __init__(self, launcher:Launcher, managedModules:list=[], name:str="MotionManager", freq:float=5.0, minReconfigInterval:float=1.0,
+                 mapRef:bool=True, odomRef:bool=True, objectRef:bool=True, timeout:float=0.1, refFrame:str="base_link"):
         super().__init__(launcher, managedModules, name, freq, minReconfigInterval)
         # handle was previously installed to super(). Need to migrate to self for the additional functions.
         #for m in managedModules:
@@ -176,26 +232,32 @@ class MotionManager(Manager):
         
         self.newGoalEvent = threading.Event()
         self.currentActionGoal = LowLevelPoseActionGoal()
-        self.currentActionFeedback = LowLevelPoseActionFeedback()
+        self.goalFeedback = None
         self.goalDoneEvent = threading.Event()
-        self.currentActionResult = LowLevelPoseActionResult()
+        self.goalStatus = GoalStatus.RECALLED
 
-    def odomPoseRawCb(self, msg):
+    def odomPoseRawCb(self, msg:Odometry):
         self.rawOdomPose = msg
 
-    def odomPoseFilteredCb(self, msg):
+    def odomPoseFilteredCb(self, msg:Odometry):
         self.filteredOdomPose = msg
 
-    def mapPoseRawCb(self, msg):
+    def mapPoseRawCb(self, msg:PoseWithCovarianceStamped):
         self.rawMapPose = msg
 
-    def mapPoseFilteredCb(self, msg):
+    def mapPoseFilteredCb(self, msg:Odometry):
         self.filteredMapPose = msg
 
-    def objectPoseCb(self, msg):
+    def objectPoseCb(self, msg:Odometry):
         self.objectPose = msg
     
     def getPoseInGoalFrame(self):
+        """Gets robot pose in the the frame same as currentActionGoal.header.frame_id. 
+        Either the header.frame_id==goal.header.frame_id, or child_frame_id==goal.header.frame_id
+
+        Returns:
+            Odometry | PoseWithCovarianceStamped | None: Relevant Pose
+        """
         # check the frame that the goal is expressed in
         # check the timeout tolerance for the corresponding variables
         # return the apropriate variable.
@@ -229,25 +291,40 @@ class MotionManager(Manager):
             RuntimeError("Current Action Goal is in non of the recognized map/odom/object frames!")
             return None
 
-    def getRelativePoseStamped(self):
+    def getRelativePoseStamped(self)->tuple:
         # get measurement source
         # get tf from source frame to base frame
         # transform pose to base frame
         pose_ = self.getPoseInGoalFrame()
         if not pose_:
             return None, None, None
+        # pose_ is already relevant with goal. Check if it's the header or child frame. If the pose msg
+        # does not have child_frame_id, assume it is the refFrame, a frame with the robot.
         ps_ = PoseStamped(header=pose_.header, pose=pose_.pose.pose)
         tf_ = TransformStamped(header=pose_.header, child_frame_id=self.refFrame)
         tf_.transform.rotation.w = 1.
+        # the observed pose is already from base to object, relative to the base. return as-is.
         if pose_.header.frame_id == self.refFrame:
             return ps_, tf_, pose_
+        # the observed pose is measured in the goal.header frame. transform goal to base frame.
+        psg_ = PoseStamped(pose=self.currentActionGoal.target_pose.pose)
+        psg_.header.frame_id = self.currentActionGoal.header.frame_id
         tf_, isUpdated = updateTransform(tf_, self.tfBuffer, self.staleTol)
         if isUpdated:
-            return tf2_geometry_msgs.do_transform_pose(ps_, tf_), tf_, pose_
+            # in case the tf is stale, transform the pose over as well.
+            psg_ = tf2_geometry_msgs.do_transform_pose(psg_, tf_)
+            if ps_.header.stamp > tf_.header.stamp:
+                # a newer msg than tf. Is this really necessary?
+                ps_ = tf2_geometry_msgs.do_transform_pose(ps_, tf_)
+                psg_.pose.position.x -= ps_.pose.position.x
+                psg_.pose.position.y -= ps_.pose.position.y
+                psg_.pose.position.z -= ps_.pose.position.z
+                psg_.pose.orientation = quaternionDiff(psg_.pose.orientation, ps_.pose.orientation)
+            return psg_, tf_, pose_
         else:
             return None, None, pose_
 
-    def getRelativePoseWithCovarianceStamped(self):
+    def getRelativePoseWithCovarianceStamped(self)->PoseWithCovarianceStamped:
         # getRelativePose
         ps_, tf_, pose_ = self.getRelativePoseStamped()
         # transform covariance. Assume tf doesn't involve uncertainty.
@@ -256,9 +333,10 @@ class MotionManager(Manager):
         pcs.pose.covariance = composeHTMCov(pose_.pose.covariance, tf_)
         return pcs
 
-    def getRemainingDistance(self, poseInGoalFrame=None):
+    def getRemainingDistance(self, poseInGoalFrame:PoseWithCovarianceStamped=None):
         if not poseInGoalFrame:
             relPose = self.getRelativePoseStamped()[0].pose
+            #print(relPose)
         else:
             relPose = poseInGoalFrame
         if not relPose:
@@ -266,14 +344,15 @@ class MotionManager(Manager):
         linDist = np.linalg.norm(linearDiff(self.currentActionGoal.target_pose.pose.position, relPose.position))
         angDist = abs(angleDiff(rpyFromQuaternion(relPose.orientation)[2], 
                                 rpyFromQuaternion(self.currentActionGoal.target_pose.pose.orientation)[2]))
+        #print(linDist, angDist)
         return linDist, angDist
 
     def getRemainingTime(self):
         return (self.currentActionGoal.expiration - rospy.Time.now()).to_sec()
 
     """A low-level goal runner. Tries to reach a goal with specified uncertainty tolerance"""
-    def runGoal(self, pose:PoseStamped=PoseStamped(), 
-                    tolerance=[0.1, 0.1], timeout=30.0, actionGoal=None):
+    def runGoal(self, pose:PoseStamped=PoseStamped(), tolerance:list=[0.1, 0.1],
+                    timeout:float=30.0, actionGoal:LowLevelPoseActionGoal=None):
         if actionGoal is not None:
             # push goal
             self.currentActionGoal = actionGoal
@@ -287,9 +366,6 @@ class MotionManager(Manager):
                                 tolerance[1], tolerance[1], tolerance[1]])
             self.currentActionGoal.target_pose.covariance = cov.tolist()
             self.currentActionGoal.expiration = rospy.Time.now()+rospy.Duration(timeout)
-        # clear previous records
-        self.currectActionFeedback = None
-        self.currentActionResult = None
         # set event
         self.newGoalEvent.set()
         # turn on the one with best estimated performance, if no subordinate module is running.
@@ -301,9 +377,12 @@ class MotionManager(Manager):
         # The planner guides the robot to reach the goal and return success.
         # if the goal fails, the decider switches to another module.
         # block until completes/fails
-        self.goalDoneEvent.wait(timeout+1.0)
+        while not rospy.is_shutdown():
+            self.goalDoneEvent.wait(1.0)
+            if self.goalDoneEvent.isSet():
+                break
         self.goalDoneEvent.clear()
-        return self.currentActionResult
+        return self.goalStatus
 
     def shutdown(self):
         super().shutdown()

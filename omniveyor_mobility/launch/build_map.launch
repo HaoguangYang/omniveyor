@@ -4,7 +4,7 @@
     <arg name="explore" default="0"/>
     <arg name="remote_teleop" default="1"/>
     <arg name="use_sim_time" default="0"/>
-    <arg name="map_save_period" value="-1"/>
+    <arg name="map_save_period" default="-1"/>
     
     <group unless="$(arg use_sim_time)">
         <!-- base node -->
