@@ -138,7 +138,7 @@ if [[ "${machineIs}" == *"1"* ]] || [[ "${machineIs}" == *"3"* ]]; then
     # arduino-based payload interface
     if compgen -G "/dev/ttyACM*" > /dev/null; then
         PORT=`ls /dev/ttyACM* | head -1`
-        arduino --upload --board arduino:avr:uno --port /dev/ttyACM ${PORT} \
+        arduino --upload --board arduino:avr:uno --port /dev/ttyACM${PORT} \
             ./src/omniveyor_hardware/pcv_base/resources/payload-Generic/payload-Generic.ino
     fi
 fi

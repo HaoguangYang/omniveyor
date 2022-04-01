@@ -1,0 +1,11 @@
+<launch>
+    <arg name="map_file" default="map"/>
+    <node pkg="slam_toolbox" type="lifelong_slam_toolbox_node" name="slam_toolbox" output="screen">
+      <rosparam command="load" file="$(find omniveyor_mobility)/param/slam_toolbox_params.yaml" />
+      <remap from="slam_toolbox/scan" to="scan"/>
+      <param name="map_file_name" value="$(find omniveyor_mobility)/resources/$(arg map_file)"/>
+    </node>
+    <node pkg="omniveyor_mobility" type="mapPoseFromTFOdom_node" name="tf_map_pose_repub" output="screen">
+        <param name="odom_topic" value="odom/filtered"/>
+    </node> 
+</launch>

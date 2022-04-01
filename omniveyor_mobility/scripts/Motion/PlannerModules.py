@@ -209,23 +209,25 @@ class PlannerModule(ReFrESH_Module):
             self.managerHandle.goalStatus = self.goalStatus
 
     """function that determines if the current goal or current robot position has failed before."""
-    def goalHasFailedBefore(self):
+    def goalHasFailedBefore(self, compareGoalPose=True, compareCurrentPose=True):
         constTol = np.sqrt(np.array([0.1, 0.1])) * 3.
         # get current pose of robot
         curPose = self.getPoseInGoalFrame()
         # loop through records
         for record in self.abortedGoals.get():
-            if self.compare(self.currentActionGoal, record.goal):
-                # the goal pose is the same
-                return True
-            if hasattr(record.abortedPose.pose, 'covariance'):
-                tol = covToTolerance(record.abortedPose.pose.covariance)
-                tol = np.array([tol[0], tol[3]]) * 3.
-            else:
-                tol=constTol
-            if self.comparePosition(record.abortedPose.pose, curPose.pose, tol=tol[0]):
-                # the robot pose is the same
-                return True
+            if compareGoalPose:
+                if self.compare(self.currentActionGoal, record.goal):
+                    # the goal pose is the same
+                    return True
+            if compareCurrentPose:
+                if hasattr(record.abortedPose.pose, 'covariance'):
+                    tol = covToTolerance(record.abortedPose.pose.covariance)
+                    tol = np.array([tol[0], tol[3]]) * 3.
+                else:
+                    tol=constTol
+                if self.comparePosition(record.abortedPose.pose, curPose.pose, tol=tol[0]):
+                    # the robot pose is the same
+                    return True
         return False
 
 """ Manipulate Move Base planners """

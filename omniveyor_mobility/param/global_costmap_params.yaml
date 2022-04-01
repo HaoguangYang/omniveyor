@@ -12,5 +12,5 @@ global_costmap:
     - {name: static_layer,              type: "costmap_2d::StaticLayer"}
     - {name: obstacle_layer,            type: "costmap_2d::ObstacleLayer"}
     - {name: rgbd_obstacle_layer_d1,    type: "spatio_temporal_voxel_layer/SpatioTemporalVoxelLayer"}
+    - {name: rgbd_obstacle_layer_d2,    type: "spatio_temporal_voxel_layer/SpatioTemporalVoxelLayer"}
     - {name: inflation_layer_g,         type: "costmap_2d::InflationLayer"}
-
