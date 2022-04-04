@@ -165,18 +165,23 @@ mapPoseFromTFOdom_node::mapPoseFromTFOdom_node(ros::NodeHandle *node): _nh(*node
     _nh.param<std::string>("map_pose_topic", _poseTopic, "map_pose");
     _nh.param<std::string>("map_frame", _mapFrame, "map");
     _nh.param<std::string>("odom_topic", _odomTopic, "odom");
+    _nh.param<std::string>("odom_frame", _odomFrame, "");
+    _nh.param<std::string>("base_frame", _baseFrame, "");
     _nh.param<int>("tf_covariance_estimation_window", _windowLen, 50);
     _nh.param<double>("publish_rate", _pubRate, 40.0);
-    while (_nh.ok()){
-        // wait for the first odom message to come in, such that odom and base link frames are obtained.
-        nav_msgs::Odometry::ConstPtr odo = ros::topic::waitForMessage<nav_msgs::Odometry>
-                                                    (_odomTopic, _nh, ros::Duration(0.1));
-        if (odo == nullptr)
-            continue;
-        _lastOdom = *odo;
-        _odomFrame = _lastOdom.header.frame_id;
-        _baseFrame = _lastOdom.child_frame_id;
-        break;
+    // in case these frames are not provided as params
+    if (_odomFrame=="" or _baseFrame==""){
+        while (_nh.ok()){
+            // wait for the first odom message to come in, such that odom and base link frames are obtained.
+            nav_msgs::Odometry::ConstPtr odo = ros::topic::waitForMessage<nav_msgs::Odometry>
+                                                        (_odomTopic, _nh, ros::Duration(0.1));
+            if (odo == nullptr)
+                continue;
+            _lastOdom = *odo;
+            _odomFrame = _lastOdom.header.frame_id;
+            _baseFrame = _lastOdom.child_frame_id;
+            break;
+        }
     }
     ros::Subscriber sub = _nh.subscribe(_odomTopic, 10, &mapPoseFromTFOdom_node::odomSubsCb, this);
     _odomMapGaussianEst = new constantTFGaussianEstimator(_mapFrame, _odomFrame, &_tfBuffer, _windowLen);

@@ -72,6 +72,26 @@ def quaternionDiff(quat1:Quaternion, quat2:Quaternion)->Quaternion:
     r = Rotation.concatenate(r1, r2).as_quat()
     return Quaternion(x=r[0], y=r[1], z=r[2], w=r[3])
 
+def ptInRectangle(point:Point, verts:list):
+    verts = np.array(verts)
+    a1 = abs( (verts[1][0] * verts[0][1] - verts[0][0] * verts[1][1]) +
+                (point.x * verts[1][1] - verts[1][0] * point.y) +
+                (verts[0][0] * point.y - point.x * verts[0][1]) )
+    a2 = abs( (verts[2][0] * verts[1][1] - verts[1][0] * verts[2][1]) +
+                (point.x * verts[2][1] - verts[2][0] * point.y) +
+                (verts[1][0] * point.y - point.x * verts[1][1]) )
+    a3 = abs( (verts[3][0] * verts[2][1] - verts[2][0] * verts[3][1]) +
+                (point.x * verts[3][1] - verts[3][0] * point.y) +
+                (verts[2][0] * point.y - point.x * verts[2][1]) )
+    a4 = abs( (verts[0][0] * verts[3][1] - verts[3][0] * verts[0][1]) +
+                (point.x * verts[0][1] - verts[0][0] * point.y) +
+                (verts[3][0] * point.y - point.x * verts[3][1]) )
+    e1 = verts[1]-verts[0]
+    e2 = verts[2]-verts[1]
+    # v1.x*v2.y - v1.y*v2.x
+    rectA = abs(np.cross(e1, e2))
+    return (a1+a2+a3+a4) <= (rectA+rectA)
+
 def composeHTMCov(covB:Union[list,tuple], aTb:TransformStamped,
                     covT:Union[list,tuple]=np.zeros([6,6]))->np.array:
     """Compose transformed Pose covariance matrix, providing the covariance in
@@ -139,6 +159,8 @@ def tortuosity(rowVectors:Union[list,np.array], granularity:float=None)->float:
     d = np.diff(rowVectors, axis=0)
     totalLength = np.sqrt(np.sum(d*d))
     nStep = d.shape[0]
+    if nStep <= 1:
+        return 0.
     if not granularity:
         nLargerStep = 1
         displacement = np.linalg.norm(rowVectors[-1,:]-rowVectors[0,:])

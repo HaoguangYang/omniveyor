@@ -10,7 +10,7 @@ from ReFrESH_ROS import ReFrESH_Module
 from ReFrESH_ROS_utils import Ftype, ROSnodeMonitor, ROSTopicMonitor
 from std_msgs.msg import Float64MultiArray
 from sensor_msgs.msg import LaserScan
-from Motion.utils import covToTolerance
+from ..Motion.utils import covToTolerance
 from slam_toolbox_msgs.srv import SaveMap, SerializePoseGraph
 import rospkg
 
@@ -22,7 +22,8 @@ class Dynamic2DMapModule(ReFrESH_Module):
         self.save_map_interval = save_map_interval
         self.map_file_name = rospkg.RosPack().get_path('omniveyor_mobility')+'/resources/maps'+map_file_name
         self.exMon = ROSnodeMonitor()
-        self.topicMon = ROSTopicMonitor(subs=[['scan', LaserScan]], tf=[['laser','odom']])
+        self.topicMon = ROSTopicMonitor(subs=[['scan', LaserScan]], tf=[['laser','odom']],
+                                        tfBuff=self.managerHandle.tfBuffer)
         # CPU, memory, Topic and TF availability
         self.resourceMetrics = [0.1, 0.1, 0.0]
         # linear and angular stdev
@@ -52,8 +53,6 @@ class Dynamic2DMapModule(ReFrESH_Module):
         Args:
             event (_type_): Timer event, triggered periodically
         """
-        if not self.topicMon.isAttached():
-            self.topicMon.attach(self)
         # check if performance monitor is attached
         if self.exMon.isAttached():
             if not all(self.topicMon.subsHaveSources()):
@@ -97,8 +96,6 @@ class Dynamic2DMapModule(ReFrESH_Module):
             self.exMon.attach(self.getMyEXhandle()[1])
 
     def estimator(self):
-        if not self.topicMon.isAttached():
-            self.topicMon.attach(self)
         if self.exMon.isAttached():
             self.exMon.detach()
         # check dependent topics & TF
@@ -120,7 +117,8 @@ class Static2DMapModule(ReFrESH_Module):
                         EX_thread=EX_thread, EV_thread=EV_thread, ES_thread=ES_thread)
         self.map_file_name = rospkg.RosPack().get_path('omniveyor_mobility')+'/resources/maps'+map_file_name
         self.exMon = ROSnodeMonitor()
-        self.topicMon = ROSTopicMonitor(subs=[['scan', LaserScan]], tf=[['laser','odom']])
+        self.topicMon = ROSTopicMonitor(subs=[['scan', LaserScan]], tf=[['laser','odom']],
+                                        tfBuff=self.managerHandle.tfBuffer)
         # CPU, memory, Topic and TF availability, FileExists
         self.resourceMetrics = [0.1, 0.1, 0.0, 0.0]
         # linear and angular stdev
@@ -142,8 +140,6 @@ class Static2DMapModule(ReFrESH_Module):
         Args:
             event (_type_): Timer event, triggered periodically
         """
-        if not self.topicMon.isAttached():
-            self.topicMon.attach(self)
         # check if performance monitor is attached
         if self.exMon.isAttached():
             if not all(self.topicMon.subsHaveSources()):
@@ -172,8 +168,6 @@ class Static2DMapModule(ReFrESH_Module):
             self.exMon.attach(self.getMyEXhandle()[1])
 
     def estimator(self):
-        if not self.topicMon.isAttached():
-            self.topicMon.attach(self)
         if self.exMon.isAttached():
             self.exMon.detach()
         if not os.path.exists(self.map_file_name+'.posegraph'):

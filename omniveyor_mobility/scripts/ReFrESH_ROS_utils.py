@@ -6,6 +6,7 @@ Author: Haoguang Yang
 
 import roslaunch
 import rospy
+import tf2_ros
 import actionlib
 from actionlib.action_server import nop_cb
 from enum import Enum
@@ -175,6 +176,59 @@ class ROSnodeMonitor:
     def isAlive(self):
         return self.alive
 
+"""Monitors a list of topics for dependent publishers / TF transforms."""
+class ROSTopicMonitor:
+    def __init__(self, subs:list=[], pubs:list=[], tf:list=[]):
+        self.attached = False
+        self.subs = []
+        for item in subs:
+            if type(item)==rospy.Subscriber:
+                self.subs.append(item)
+                continue
+            try:
+                # create a dummy subscriber for dependent pub checking
+                self.subs.append(rospy.Subscriber(item[0], item[1]))
+            except Exception as e:
+                print("ERROR: When creating Topic Monitor --", e)
+        self.pubs = []
+        for item in pubs:
+            # no additional dummy publishers, since it will pollute downstream subscribers
+            if type(item)!=rospy.Publisher:
+                print("ERROR: When creating Topic Monitor -- Publisher list only allows existing rospy.Publisher instances")
+                continue
+            self.pubs.append(item)
+        self.tf = []
+        self.tfBuffer:tf2_ros.Buffer = None
+        if len(tf):
+            for item in tf:
+                if len(item)!=2:
+                    print("ERROR: When creating TF Monitor -- Frames not in pairs")
+                    continue
+                self.tf.append(lambda : self.tfBuffer.can_transform(item[0], item[1], rospy.Time(0)))
+    
+    def attach(self, module):
+        self.tfBuffer = module.managerHandle.launcher.tfBuffer
+        self.attached = True
+        #TODO: reuse subscriber and publisher handles from module?
+
+    def isAttached(self):
+        return self.attached
+
+    def subsHaveSources(self)->list:
+        nPub = [item.get_num_connections() for item in self.subs]
+        return nPub
+    
+    def pubsListened(self)->list:
+        nSub = [item.get_num_connections() for item in self.pubs]
+        return nSub
+
+    def tfFeasible(self)->list:
+        if self.tfBuffer:
+            doable = [item() for item in self.tf]
+        else:
+            doable = [False for item in self.tf]
+        return doable
+
 """Monitors network traffic flow of a wireless interface. Implementation based on iwconfig shell command"""
 class WirelessNetworkMonitor:
     def __init__(self, hint:str='wl', interval:float=1.0):
@@ -236,21 +290,31 @@ class Fstat(Enum):
 Wrapper for launching threads and ROS components within Python
 """
 class Launcher:
-    def __init__(self, managerNodeName:str):
+    def __init__(self, launcherName:str, auto_start=True):
         self.roscoreProc = None
         self.nodeLauncher = None
+        self.name = launcherName
         self.uuid = roslaunch.rlutil.get_or_generate_uuid(None, False)
         roslaunch.configure_logging(self.uuid)
-        #self.spinSet = set()
         self.roscoreProc = roslaunch.parent.ROSLaunchParent(self.uuid, roslaunch_files=[], \
                                                             is_core=True)
-        self.roscoreProc.start()
-        #self.spinSet.add(self.roscoreProc)
-        rospy.init_node(managerNodeName)
         self.nodeLauncher = roslaunch.parent.ROSLaunchParent(self.uuid, roslaunch_files=[], \
                                                             is_core=False)
+        self.tfBuffer = None
+        if auto_start:
+            self.activate()
+
+    def activate(self):
+        self.roscoreProc.start()
+        self.roscoreProc.spin_once()
         self.nodeLauncher.start(auto_terminate=False)
-        #self.spinSet.add(self.nodeLauncher)
+        self.spin_once()
+        rospy.init_node(self.name)
+        self.spin_once()
+        self.tfBuffer = tf2_ros.Buffer()
+        self.spin_once()
+        self.tfListener = tf2_ros.TransformListener(self.tfBuffer)
+        self.spin_once()
 
     def launch(self, ftype:Ftype, *args, **kwargs):
         if ftype == Ftype.NODE:
@@ -416,10 +480,11 @@ class Launcher:
         return {'rosCore': coreStat, 'nodeLauncher': nodeStat}
 
     def spin(self):
+        rate = rospy.Rate(20.0)
         while (not self.roscoreProc.pm.is_shutdown) or (not self.nodeLauncher.pm.is_shutdown):
             self.roscoreProc.spin_once()
             self.nodeLauncher.spin_once()
-            time.sleep(0.1)
+            rate.sleep()
         rospy.signal_shutdown("ROS Launcher Exiting...")
     
     def spin_once(self):

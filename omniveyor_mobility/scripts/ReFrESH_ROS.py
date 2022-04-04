@@ -11,6 +11,8 @@ v0.2.1      03/11/2022      Support multi-threaded EX, EV, ES. Support normaliza
 v0.2.2      03/13/2022      Separated utilities to a separate script. Added handle to access
                             manager and EX/EV/ES processes within the module. Added WiFi and
                             CPU/Memory utilization monitors for modules.
+v0.2.3      04/01/2022      Added support for pre- and post- functions for each components.
+                            Made TF buffer with registered listener available to managers.
 
 Reconfiguration Framework for distributed Embedded systems on Software and Hardware
 Originally designed to run on FPGA, the script brings self-adaptation to robots running Linux
@@ -33,8 +35,11 @@ from ReFrESH_ROS_utils import *
 Element of a thread in a ReFrESH module
 """
 class ModuleComponent:
-    def __init__(self, ftype, args, kwargs):
+    def __init__(self, ftype=Ftype.THREAD, args:tuple=(), kwargs:dict={},
+                    pre:callable=lambda : None, post:callable=lambda : None):
         self.ftype = ftype
+        self.pre = pre
+        self.post = post
         self.args = args
         self.kwargs = kwargs
 
@@ -105,9 +110,9 @@ class ReFrESH_Module:
         self.ES_thread = ES_thread
         """The unified reconfiguration metric is updated by the EV (module ON) or ES (module OFF)"""
         self.reconfigMetric = ReconfigureMetric()
-        self.EX = [ModuleComponent(Ftype.THREAD, (), {}) for i in range(self.EX_thread)]
-        self.EV = [ModuleComponent(Ftype.THREAD, (), {}) for i in range(self.EV_thread)]
-        self.ES = [ModuleComponent(Ftype.THREAD, (), {}) for i in range(self.ES_thread)]
+        self.EX = [ModuleComponent() for i in range(self.EX_thread)]
+        self.EV = [ModuleComponent() for i in range(self.EV_thread)]
+        self.ES = [ModuleComponent() for i in range(self.ES_thread)]
 
     """
     Helper function to set the property of a thread
@@ -120,8 +125,9 @@ class ReFrESH_Module:
     kwargs: Keyword arguments. Dict
     ind:    thread index within the list (0..*_thread-1)
     """
-    def setComponentProperties(self, which, ftype:Ftype, ns:str='', exec:callable=None, args:tuple=(),
-                                mType:type=None, kwargs:dict={}, ind:int=0):
+    def setComponentProperties(self, which, ftype, ns:str='', exec:callable=None,
+                                args:tuple=(), mType:type=None, kwargs:dict={},
+                                pre:callable=lambda:None, post:callable=lambda:None, ind:int=0):
         this = None
         if (which in ['EX', 'ex', 'Execute', 'execute', 'Executor', 'executer', self.EX]):
             this = self.EX[ind]
@@ -132,6 +138,8 @@ class ReFrESH_Module:
         else:
             raise TypeError("Invalid set-property request!")
         this.ftype = ftype
+        this.pre = pre
+        this.post = post
         if ftype == Ftype.NODE:
             this.kwargs = {'pkgName': ns, 'execName': exec, 'args': args}
             this.kwargs = {**this.kwargs, **kwargs}
@@ -159,7 +167,8 @@ class ReFrESH_Module:
             print("ERROR: type not implemented.")
 
     def addComponent(self, which, ftype:Ftype, ns:str='', exec:callable=None,
-                        args:tuple=(), mType=None, kwargs:dict={}):
+                        args:tuple=(), mType=None, kwargs:dict={},
+                        pre:callable=lambda:None, post:callable=lambda:None):
         this = None
         if (which in ['EX', 'ex', 'Execute', 'execute', 'Executor', 'executer', self.EX]):
             this = self.EX
@@ -169,8 +178,8 @@ class ReFrESH_Module:
             this = self.ES
         else:
             raise TypeError("Invalid set-property request!")
-        this.append(ModuleComponent(Ftype.THREAD, (), {}))
-        self.setComponentProperties(which, ftype, ns, exec, args, mType, kwargs, ind=-1)
+        this.append(ModuleComponent())
+        self.setComponentProperties(which, ftype, ns, exec, args, mType, kwargs, pre, post, ind=-1)
 
     """Helper function to turn on the module from within"""
     def turnMeOn(self):
@@ -225,6 +234,8 @@ class Manager:
         else:
             raise TypeError("Not initializing the manager with the correct ROS launcher.")
         rospy.on_shutdown(self.shutdown)
+        # make this standard for every manager
+        self.tfBuffer = launcher.tfBuffer
         # No memory copy
         self.moduleDict = dict.fromkeys(item for item in managedModules)   # make it a dict of class pointers
         self.lock = threading.Lock()
@@ -242,8 +253,11 @@ class Manager:
             # register handler
             m.managerHandle = self
             # turn on ES
-            es = tuple(self.launcher.launch(th.ftype, *tuple(th.args), **dict(th.kwargs)) \
-                        for th in m.ES)
+            es = []
+            for th in m.ES:
+                th.pre()
+                es.append(self.launcher.launch(th.ftype, *tuple(th.args), **dict(th.kwargs)))
+            es = tuple(es)
             self.offDict.update({m: es})
             print("INFO: Module", m.name, "SPAWNED with Manager", self.name, ".")
 
@@ -343,12 +357,20 @@ class Manager:
         esHandles = self.offDict.pop(module)
         for th in esHandles:
             self.launcher.stop(th)
+        for th in module.ES:
+            th.post()
         # turn on EX
-        ex = tuple(self.launcher.launch(th.ftype, *tuple(th.args), **dict(th.kwargs)) \
-                    for th in module.EX)
+        ex = []
+        for th in module.EX:
+            th.pre()
+            ex.append(self.launcher.launch(th.ftype, *tuple(th.args), **dict(th.kwargs)))
+        ex = tuple(ex)
         # turn on EV
-        ev = tuple(self.launcher.launch(th.ftype, *tuple(th.args), **dict(th.kwargs)) \
-                    for th in module.EV)
+        ev = []
+        for th in module.EV:
+            th.pre()
+            ev.append(self.launcher.launch(th.ftype, *tuple(th.args), **dict(th.kwargs)))
+        ev = tuple(ev)
         # add (module, proc) to self.onDict
         self.onDict.update({module : (ex, ev)})
         print("INFO: Module", module.name, "ON.")
@@ -364,12 +386,19 @@ class Manager:
             # turn off EV
             for th in evHandle:
                 self.launcher.stop(th)
+            for th in module.EV:
+                th.post()
             # turn off EX
             for th in exHandle:
                 self.launcher.stop(th)
+            for th in module.EX:
+                th.post()
             # turn on ES
-            es = tuple(self.launcher.launch(th.ftype, *tuple(th.args), **dict(th.kwargs)) \
-                        for th in m.ES)
+            es = []
+            for th in module.ES:
+                th.pre()
+                es.append(self.launcher.launch(th.ftype, *tuple(th.args), **dict(th.kwargs)))
+            es = tuple(es)
             self.offDict.update({m: es})
             self.readyDict.update({m: None})
             print("INFO: Module", module.name, "preempted", m.name, ".")
@@ -397,17 +426,24 @@ class Manager:
         # turn off EV
         for th in evHandle:
             self.launcher.stop(th)
+        for th in module.EV:
+            th.post()
         # turn off EX
         for th in exHandle:
             self.launcher.stop(th)
+        for th in module.EX:
+            th.post()
         isOff = self.moduleIsOff(module)
         if isOff:
             self.lock.release()
             raise RuntimeError("The managed module,", module.name, \
                                 ", is both ON and OFF. Something bad happened.")
         # turn on ES
-        es = tuple(self.launcher.launch(th.ftype, *tuple(th.args), **dict(th.kwargs)) \
-                    for th in module.ES)
+        es = []
+        for th in module.ES:
+            th.pre()
+            es.append(self.launcher.launch(th.ftype, *tuple(th.args), **dict(th.kwargs)))
+        es = tuple(es)
         self.offDict.update({module: es})
         print("INFO: Module", module.name, "OFF.")
         # we just turned off a preemptive module... Is there anything previously preempted?
@@ -422,7 +458,7 @@ class Manager:
                 if m.priority > prio:
                     prio = m.priority
                     nextOn = m
-            if nextOn:
+            if nextOn is not None:
                 # turn on m
                 #self.turnOn(nextOn)
                 # turn off ES
@@ -433,12 +469,20 @@ class Manager:
                 esHandles = self.offDict.pop(nextOn)
                 for th in esHandles:
                     self.launcher.stop(th)
+                for th in nextOn.ES:
+                    th.post()
                 # turn on EX
-                ex = tuple(self.launcher.launch(th.ftype, *tuple(th.args), **dict(th.kwargs)) \
-                            for th in nextOn.EX)
+                ex = []
+                for th in nextOn.EX:
+                    th.pre()
+                    ex.append(self.launcher.launch(th.ftype, *tuple(th.args), **dict(th.kwargs)))
+                ex = tuple(ex)
                 # turn on EV
-                ev = tuple(self.launcher.launch(th.ftype, *tuple(th.args), **dict(th.kwargs)) \
-                            for th in nextOn.EV)
+                ev = []
+                for th in nextOn.EV:
+                    th.pre()
+                    ev.append(self.launcher.launch(th.ftype, *tuple(th.args), **dict(th.kwargs)))
+                ev = tuple(ev)
                 # add (module, proc) to self.onSet
                 self.onDict.update({nextOn: (ex, ev)})
                 self.readyDict.pop(nextOn)

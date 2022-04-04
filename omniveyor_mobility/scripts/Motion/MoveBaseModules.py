@@ -28,14 +28,17 @@ class pidControllerModule(MoveBaseModule):
 
 def test(taskManager):
     import time
+    import rospy
     from geometry_msgs.msg import PoseStamped
     try:
         time.sleep(20)
         # turn on by requesting the manager
         tgt = PoseStamped()
-        tgt.pose.position.x = -1.0
+        tgt.header.stamp = rospy.Time.now()
+        tgt.pose.position.x = 1.0
         tgt.pose.orientation.w = 1.0
-        taskManager.runGoal(tgt)
+        taskManager.runGoal(tgt, timeout=60.0)
+        tgt.header.stamp = rospy.Time.now()
         tgt.pose.position.x = 4.0
         tgt.pose.position.y = -1.0
         tgt.pose.orientation.w = 1.0

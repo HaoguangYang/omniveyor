@@ -10,12 +10,12 @@
     </node>
   </group>
   <group unless="$(arg static_map)">
-    <include file="$(find omniveyor_mobility)/launch/include/dynamic_map.launch">
+    <include file="$(find omniveyor_mobility)/launch/includes/dynamic_map.launch">
         <arg name="map_file"   value="$(arg map_file)"/>
     </include>
     <!--group if="$(eval arg('map_save_period')>0)">
         <node name="map_saver" pkg="map_server" type="map_saver" args="-f $(find omniveyor_mobility)/resources/map/$(arg map_file)" respawn="true" respawn_delay="$(arg map_save_period)"/>
-        <node pkg="rosservice" type="rosservice" name="posegraph_save" args="call --wait /slam_toolbox/serialize_map 'filename: '$(find omniveyor_mobility)/resources/map/$(arg map_file)''" respawn="true" respawn_delay="$(arg map_save_period)"/>
+        <node pkg="rosservice" type="rosservice" name="posegraph_save" args="call /slam_toolbox/serialize_map 'filename: '$(find omniveyor_mobility)/resources/map/$(arg map_file)''" respawn="true" respawn_delay="$(arg map_save_period)"/>
     </group-->
   </group>
   <node pkg="robot_localization" type="ekf_localization_node" name="ekf_world" clear_params="true">
