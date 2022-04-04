@@ -87,7 +87,7 @@ class MoveBaseManager(PlannerModule, Manager):
         super().submit()
         # update goals of the modules.
         for m in self.moduleDict:
-            m.updateGoal(compare=True, submit=False)
+            m.updateGoal(compare=True)
         # check if any of the managed module is on
         if not len(self.onDict):
             # update estimator values
@@ -148,9 +148,11 @@ class MoveBaseManager(PlannerModule, Manager):
             while not rospy.is_shutdown():
                 # blocking call: wait until a new goal is available, and update local goal.
                 # call submit function after updating.
-                isNewGoal = super().updateGoal(goal, compare, submit)
+                isNewGoal = super().updateGoal(goal, compare)
                 if compare:
                     self.isNewGoal = isNewGoal
+                if submit:
+                    self.submit()
                 if not self.managerHandle.moduleIsOn(self):
                     break
         except SystemExit:
@@ -223,7 +225,7 @@ class MoveBaseManager(PlannerModule, Manager):
             self.reconfigMetric.update([self.bottleNeck], self.resourceMetrics)
             return
         self.resourceMetrics[2] = 0.0
-        self.updateGoal(compare=True, submit=False)
+        self.updateGoal(compare=True)
         # movebase is off. obtain a-priori esitmates
         if self.bottleNeck >= 1.0:
             # we had a failed record before

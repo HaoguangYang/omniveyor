@@ -8,7 +8,7 @@ sys.path.append(parentdir)
 import copy
 import threading
 import rospy
-import dynamic_reconfigure.client
+import dynamic_reconfigure.client as drcli
 from dynamic_reconfigure import DynamicReconfigureCallbackException
 from move_base_msgs.msg import MoveBaseGoal, MoveBaseAction
 from nav_msgs.srv import GetPlan
@@ -58,7 +58,7 @@ class PlannerModule(ReFrESH_Module):
 
     """ Fetch a goal from the manager, or from a given data structure. Store locally.
     Returns if the goal is different from previous goal."""
-    def updateGoal(self, goal=None, compare=True, submit=False):
+    def updateGoal(self, goal=None, compare=True):
         print("INFO: Updating Local Goal in Module", self.name, ".")
         if goal is not None:
             newActionGoal = self.translate(goal)
@@ -80,8 +80,6 @@ class PlannerModule(ReFrESH_Module):
         isDifferent = not self.compare(newActionGoal, self.currentActionGoal)
         self.currentActionGoal = newActionGoal
         self.goalStatus = GoalStatus.PENDING
-        if submit:
-            self.submit()
         return isDifferent
         # if the goal is different, up to the inherited class to do further operations.
 
@@ -244,7 +242,7 @@ class PlannerModule(ReFrESH_Module):
 
 """ Manipulate Move Base planners """
 class MoveBaseModule(PlannerModule):
-    def __init__(self, name="moveBaseMotion", priority=90, preemptive=True, bgp="", blp="", kwargs:dict={}):
+    def __init__(self, name="moveBaseMotion", priority=90, preemptive=True, bgp="", blp=""):
         super().__init__(name, priority, preemptive, EX_thread=1, EV_thread=1, ES_thread=1)
         # Tortuosity of path, time used, final error
         self.performanceMetrics = [0.0, 0.0]
@@ -255,7 +253,7 @@ class MoveBaseModule(PlannerModule):
         self.resourceMetrics = [0.5]
         self.setComponentProperties('EX', Ftype.ACTION_CLI, 'move_base', self.feedbackCb, mType=MoveBaseAction,
                             kwargs={'active_cb': self.activeCb, 'done_cb': self.setTerminalState,
-                                    'prelaunch_cb': self.prelaunch, 'availTimeout': 1.0}, post=self.cancel)
+                                    'availTimeout': 1.0}, post=self.cancel)
         self.setComponentProperties('EV', Ftype.TIMER, exec=self.evaluator, kwargs={'freq': 3.0})
         self.setComponentProperties('ES', Ftype.CALLABLE, exec=self.estimator)
         self.historyPoses = RingBuffer(50)
@@ -263,16 +261,17 @@ class MoveBaseModule(PlannerModule):
         self.bgp = bgp
         # base local planner
         self.blp = blp
-        self.otherCfg = kwargs
         self.isNewGoal = False
 
     def submit(self):
-        print("INFO: Submitting Local Goal in Module", self.name, ".")
+        # prototype does nothing
         super().submit()
         if not self.managerHandle.moduleIsOn(self):
             # module is off. do nothing.
             return
         # already an active module. Reusing it.
+        self.prelaunch()
+        print("INFO: Submitting Local Goal in Module", self.name, ".")
         exHandle = self.managerHandle.getEXhandle(self)
         # cancel ongoing goal and submit new goal
         for item in exHandle:
@@ -322,8 +321,8 @@ class MoveBaseModule(PlannerModule):
         # consistent with parent class
         return unpackedGoal
 
-    def updateGoal(self, goal=None, compare=True, submit=False):
-        isNewGoal = super().updateGoal(goal, compare, submit)
+    def updateGoal(self, goal=None, compare=True):
+        isNewGoal = super().updateGoal(goal, compare)
         if compare:
             self.isNewGoal = isNewGoal
         return isNewGoal
@@ -332,11 +331,15 @@ class MoveBaseModule(PlannerModule):
         which[ind] = 1.0
         self.reconfigMetric.update(self.performanceMetrics, self.resourceMetrics)
 
+    """Prototype function to convert self.currentActionGoal to motion precision configs and apply to planners"""
+    def updatePlannerPrecisionTolerance(self):
+        pass
+
     def prelaunch(self):
         # use dynamic reconfiguration to change the planner type to desired ones.
         #rospy.sleep(0.1)
         try:
-            drc = dynamic_reconfigure.client.Client("move_base", timeout=10.0, config_callback=None)
+            drc = drcli.Client("move_base", timeout=10.0, config_callback=None)
         except rospy.ROSException:
             self.setInfeasible(self.resourceMetrics, 0)
             return
@@ -347,16 +350,16 @@ class MoveBaseModule(PlannerModule):
         #    return
         print("INFO: Updating MoveBase Global Planner to:", self.bgp, ", Local Planner to:", self.blp, ".")
         cfg = {'base_global_planner': self.bgp, 'base_local_planner': self.blp}
-        cfg.update(self.otherCfg)
         try:
             drc.update_configuration(cfg)
         except DynamicReconfigureCallbackException:
             self.setInfeasible(self.resourceMetrics, 0)
             drc.close()
             return
-        self.resourceMetrics[0] = 0.0
         drc.close()
+        self.resourceMetrics[0] = 0.0
         self.reconfigMetric.update(self.performanceMetrics, self.resourceMetrics)
+        self.updatePlannerPrecisionTolerance()
 
     def feedbackCb(self, feedback):
         # synchronize feedback to this class
@@ -371,8 +374,8 @@ class MoveBaseModule(PlannerModule):
 
     def evaluator(self, event):
         # /move_base/make_plan service available, distance to goal, time elapsed, turtuosity of path
-        if self.currentActionGoal is None:
-            return
+        #if self.currentActionGoal is None:
+        #    return
         rowVect = self.historyPoses.get()
         self.performanceMetrics[0] = tortuosity(rowVect)/self.tortuosityTol
         remainingTime = self.getRemainingTime()
@@ -396,8 +399,8 @@ class MoveBaseModule(PlannerModule):
         # assume MoveBase is running, no active plans
         # performance metrics: a-priori esitmates
         # isNewGoal = self.updateGoal()
-        if self.currentActionGoal is None:
-            return
+        #if self.currentActionGoal is None:
+        #    return
         if max(self.performanceMetrics)>=1.0:
             print("INFO: Module", self.name, "ES trying to reset Performance Metric, was:", self.performanceMetrics, ".")
             # this module has failed previously. Check if the goal is in a new position.

@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 from PlannerModules import MoveBaseModule
+import dynamic_reconfigure.client as drcli
 
 """ Using TEB local planner to avoid local obstacles, potentially dynamic """
 class tebLocalPlannerROSModule(MoveBaseModule):
@@ -10,6 +11,19 @@ class tebLocalPlannerROSModule(MoveBaseModule):
         self.defaultPerformanceMetrics = [0.0, 0.0]
         self.performanceMetrics = [0.0, 0.0]
 
+    def updatePlannerPrecisionTolerance(self):
+        super().updatePlannerPrecisionTolerance()
+        linTol = self.currentActionGoal.goal_tolerance[0][0]
+        angTol = self.currentActionGoal.goal_tolerance[0][3]
+        cfg = {'xy_goal_tolerance': linTol, 'yaw_goal_tolerance': angTol}
+        try:
+            drc = drcli.Client("move_base/TebLocalPlannerROS", timeout=10.0, config_callback=None)
+            #print(drc.get_configuration())
+            drc.update_configuration(cfg)
+            drc.close()
+        except Exception as e:
+            print('ERROR: Dynamic Reconfigure Client of', self.name, 'FAILED:', e)
+
 """ Using DWA local planner to refine the global trajectory for obstacle avoidance """
 class dwaPlannerROSModule(MoveBaseModule):
     def __init__(self, name:str="dwaPlannerROSMotion", priority:int=95, preemptive:bool=True):
@@ -18,6 +32,18 @@ class dwaPlannerROSModule(MoveBaseModule):
         self.defaultPerformanceMetrics = [0.3, 0.3]
         self.performanceMetrics = [0.3, 0.3]
 
+    def updatePlannerPrecisionTolerance(self):
+        super().updatePlannerPrecisionTolerance()
+        linTol = self.currentActionGoal.goal_tolerance[0][0]
+        angTol = self.currentActionGoal.goal_tolerance[0][3]
+        cfg = {'xy_goal_tolerance': linTol, 'yaw_goal_tolerance': angTol}
+        try:
+            drc = drcli.Client("move_base/DWAPlannerROS", timeout=10.0, config_callback=None)
+            drc.update_configuration(cfg)
+            drc.close()
+        except Exception as e:
+            print('ERROR: Dynamic Reconfigure Client of', self.name, 'FAILED:', e)
+
 """ Follows a global plan as-is with PID controller"""
 class pidControllerModule(MoveBaseModule):
     def __init__(self, name:str="pidControllerMotion", priority:int=94, preemptive:bool=True):
@@ -25,6 +51,18 @@ class pidControllerModule(MoveBaseModule):
                         bgp="navfn/NavfnROS", blp="pid_controller/PIDController")
         self.defaultPerformanceMetrics = [0.5, 0.5]
         self.performanceMetrics = [0.5, 0.5]
+
+    def updatePlannerPrecisionTolerance(self):
+        super().updatePlannerPrecisionTolerance()
+        linTol = self.currentActionGoal.goal_tolerance[0][0]
+        angTol = self.currentActionGoal.goal_tolerance[0][3]
+        cfg = {'linear_precision': linTol, 'angular_precision': angTol}
+        try:
+            drc = drcli.Client("move_base/PIDController", timeout=10.0, config_callback=None)
+            drc.update_configuration(cfg)
+            drc.close()
+        except Exception as e:
+            print('ERROR: Dynamic Reconfigure Client of', self.name, 'FAILED:', e)
 
 def test(taskManager):
     import time

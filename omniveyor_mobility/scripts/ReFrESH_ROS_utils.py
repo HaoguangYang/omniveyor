@@ -311,10 +311,13 @@ class Launcher:
         self.spin_once()
         rospy.init_node(self.name)
         self.spin_once()
+        rospy.sleep(0.05)
         self.tfBuffer = tf2_ros.Buffer()
         self.spin_once()
+        rospy.sleep(0.05)
         self.tfListener = tf2_ros.TransformListener(self.tfBuffer)
         self.spin_once()
+        rospy.sleep(0.05)
 
     def launch(self, ftype:Ftype, *args, **kwargs):
         if ftype == Ftype.NODE:
@@ -415,10 +418,8 @@ class Launcher:
 
     def actionCliLaunch(self, topic:str, actType:type, feedback_cb:callable,
                         active_cb:callable=nop_cb, done_cb:callable=nop_cb,
-                        prelaunch_cb:callable=nop_cb, goal=None, availTimeout:float=0):
+                        goal=None, availTimeout:float=0):
         actClient = actionlib.SimpleActionClient(topic, actType)
-        # anything to set before submitting the action?
-        prelaunch_cb()
         # modify the action client structure to suit our wrapper
         setattr(actClient, 'connected', actClient.wait_for_server(rospy.Duration(availTimeout)))
         # black magic...
