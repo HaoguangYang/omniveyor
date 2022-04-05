@@ -27,11 +27,11 @@ class multiRobotCoordinator():
         self.cmdPub = []
         for i in range(0, self.numRobots):
             self.vel_cmd_msg.append(Twist())
-            self.localization_sub.append(rospy.Subscriber('robot_'+str(nodeList[i])+'/odom/filtered', 
+            self.localization_sub.append(rospy.Subscriber('odom/filtered', 
                                         Odometry, self.globalLocCb, (nodeList[i],)))
             self.robotLocationsInMap.append([0.,0.,0.])     # Px, Py, Theta
             self.robotVelocities.append([0.,0.,0.])         # Vx, Vy, Omega
-            self.cmdPub.append(rospy.Publisher('robot_'+str(nodeList[i])+'/cmd_vel', Twist, queue_size = 1))
+            self.cmdPub.append(rospy.Publisher('cmd_vel', Twist, queue_size = 1))
         #self.syncPub = rospy.Publisher('/multi_robot/sync', Empty, queue_size = 1)
         print("Hooked up to topics.")
 
