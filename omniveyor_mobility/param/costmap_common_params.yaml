@@ -32,7 +32,7 @@ rgbd_obstacle_layer_d1:
   enabled:               true
   voxel_decay:           1.     #seconds if linear, e^n if exponential
   decay_model:           -1     #0=linear, 1=exponential, -1=persistent
-  voxel_size:            0.01   #meters
+  voxel_size:            0.02   #meters
   track_unknown_space:   true   #default space is unknown
   unknown_threshold:     15     #voxel height
   mark_threshold:        2      #voxel height
@@ -43,7 +43,7 @@ rgbd_obstacle_layer_d1:
   max_tracked_height:    0.6
   publish_voxel_map:     true   # default off
   transform_tolerance:   0.2    # seconds
-  mapping_mode:          false  # default off, saves map not for navigation
+  mapping_mode:          true   # default off, saves map not for navigation
   map_save_duration:     60     #default 60s, how often to autosave
   observation_sources:   rgbd1
   rgbd1:
@@ -57,7 +57,7 @@ rgbd_obstacle_layer_d1:
     observation_persistence: 0.0 #default 0, use all measurements taken during now-value, 0=latest 
     inf_is_valid: false          #default false, for laser scans
     clear_after_reading: true    #default false, clear the buffer after the layer gets readings from it
-    filter: "passthrough"              #default passthrough, apply "voxel", "passthrough", or no filter to sensor data, recommended to have at one filter on
+    filter: "voxel"              #default passthrough, apply "voxel", "passthrough", or no filter to sensor data, recommended to have at one filter on
     min_z: 0.28                  #default 0, meters
     max_z: 6.0                   #default 10, meters
     vertical_fov_angle: 0.8416   #default 0.7, radians
@@ -70,7 +70,7 @@ rgbd_obstacle_layer_d2:
   enabled:               false
   voxel_decay:           1.     #seconds if linear, e^n if exponential
   decay_model:           -1     #0=linear, 1=exponential, -1=persistent
-  voxel_size:            0.01   #meters
+  voxel_size:            0.02   #meters
   track_unknown_space:   true   #default space is unknown
   unknown_threshold:     15     #voxel height
   mark_threshold:        2      #voxel height
@@ -95,7 +95,7 @@ rgbd_obstacle_layer_d2:
     observation_persistence: 0.0 #default 0, use all measurements taken during now-value, 0=latest 
     inf_is_valid: false          #default false, for laser scans
     clear_after_reading: true    #default false, clear the buffer after the layer gets readings from it
-    filter: "passthrough"              #default passthrough, apply "voxel", "passthrough", or no filter to sensor data, recommended to have at one filter on
+    filter: "voxel"              #default passthrough, apply "voxel", "passthrough", or no filter to sensor data, recommended to have at one filter on
     min_z: 0.28                  #default 0, meters
     max_z: 6.0                   #default 10, meters
     vertical_fov_angle: 0.8416   #default 0.7, radians
