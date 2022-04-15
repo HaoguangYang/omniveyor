@@ -114,18 +114,23 @@ class MoveBaseManager(PlannerModule, Manager):
         slowRotateCmd = Twist()
         slowRotateCmd.linear.x = 0.; slowRotateCmd.linear.y = 0.; slowRotateCmd.angular.z = 0.1
         while not rospy.is_shutdown():
-            map = rospy.wait_for_message(self.mapTopic, OccupancyGrid)
-            # assume map is always upright
-            mapVerts = [[map.info.origin.position.x, map.info.origin.position.y]]
-            mapVerts.append([mapVerts[0][0]+map.info.height*map.info.resolution, mapVerts[0][1]])
-            mapVerts.append([mapVerts[1][0], mapVerts[0][1]+map.info.width*map.info.resolution])
-            mapVerts.append([mapVerts[0][0], mapVerts[0][1]+map.info.width*map.info.resolution])
-            self.robotInMap = ptInRectangle(self.getPoseInGoalFrame().pose.pose.position, mapVerts)
+            try:
+                map = rospy.wait_for_message(self.mapTopic, OccupancyGrid, 0.1)
+                # assume map is always upright
+                mapVerts = [[map.info.origin.position.x, map.info.origin.position.y]]
+                mapVerts.append([mapVerts[0][0]+map.info.height*map.info.resolution, mapVerts[0][1]])
+                mapVerts.append([mapVerts[1][0], mapVerts[0][1]+map.info.width*map.info.resolution])
+                mapVerts.append([mapVerts[0][0], mapVerts[0][1]+map.info.width*map.info.resolution])
+                self.robotInMap = ptInRectangle(self.getPoseInGoalFrame().pose.pose.position, mapVerts)
+            except rospy.ROSException:
+                # map did not return in time, common if map builder is refreshing slow.
+                pass
             if self.robotInMap:
                 slowRotateCmd.angular.z = 0.0
                 rotateCmdPub.publish(slowRotateCmd)
                 break
-            if (rospy.Time.now()-initTime).to_sec() >=16:
+            # 1.57 rad = 90 deg ~ 1.6rad. Rotate no more than that.
+            if (rospy.Time.now()-initTime).to_sec() >= 16.0:
                 slowRotateCmd.angular.z = 0.0
                 rotateCmdPub.publish(slowRotateCmd)
                 self.resourceMetrics[0] = 1.0
@@ -134,6 +139,7 @@ class MoveBaseManager(PlannerModule, Manager):
                 break
             # publish [0., 0., 0.1] to cmd_vel
             rotateCmdPub.publish(slowRotateCmd)
+        rotateCmdPub.unregister()
         print('INFO: Robot is inside costmap.')
 
     def updateGoal(self, goal:LowLevelPoseGoal=None, compare:bool=True, submit:bool=True):
