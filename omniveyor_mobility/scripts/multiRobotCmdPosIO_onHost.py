@@ -131,8 +131,14 @@ class demoTrajs():
         # robotIO.robotLocationsInMap...
         pose_array = np.array(self.robotIO.robotLocationsInMap)
         self.robot_orientation = pose_array[:,2]
-        orientation_unwrapped = np.unwrap(pose_array[:,2], np.pi)
-        self.orientation_center = np.mod(np.average(orientation_unwrapped)-np.pi*3./2. + 3.*np.pi, np.pi*2.) - np.pi
+        orientation_unwrapped = pose_array[:,2]
+        # make monotonic increase
+        if orientation_unwrapped[0] > orientation_unwrapped[1]:
+            orientation_unwrapped[0] -= (np.pi+np.pi)
+        if orientation_unwrapped[2] < orientation_unwrapped[1]:
+            orientation_unwrapped[2] += (np.pi+np.pi)
+        # saturate and subtract
+        self.orientation_center = np.mod(np.average(orientation_unwrapped)-np.pi*3./2. + 5.*np.pi, np.pi*2.) - np.pi
         #print(orientation_unwrapped)
         self.jacobian[0,2] = np.sin(self.orientation_center)
         self.jacobian[1,2] = -np.cos(self.orientation_center)
@@ -204,7 +210,9 @@ class demoOne():
 
 if __name__ == '__main__':
     rospy.init_node('multi_robot_cmd_loc_host')
-    demo = demoTrajs([9, 8, 6])     # Robot 1, 2, 3. counter-clockwise direction
+    demo = demoTrajs([rospy.get_param('~/node_1',   9),
+                        rospy.get_param('~/node_2', 8),
+                        rospy.get_param('~/node_3', 6)])     # Robot 1, 2, 3. counter-clockwise direction
     demo.run()
     #demo1 = demoOne(9)
     #demo1.run()

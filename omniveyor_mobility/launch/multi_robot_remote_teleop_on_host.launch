@@ -1,0 +1,75 @@
+<launch>
+    <!--
+      This launch file runs a sender node, which sends topics from the local
+      roscore over the network on port 1710x.
+
+      By default, this launch file sends topics to your local machine for
+      testing purposes. If you want to send to another machine, use
+        roslaunch nimbro_topic_transport sender.launch target:=other_host
+      where other_host can be a host name or IP address.
+
+      See udp_receiver.launch for the receiving part.
+    -->
+    
+    <arg name="node_id_1"   default="9"/>
+    <arg name="node_id_2"   default="8"/>
+    <arg name="node_id_3"   default="6"/>
+    <arg name="target_domain"   default="192.168.254" />
+    <arg name="target_ip_base"  default="100" />
+    <arg name="teleop_tx_port_base" default="17100"/>
+    <arg name="rx_port_base"    default="17000"/>
+    <arg name="teleop_tx_topics_cfg" default="tx_topics_host.yaml"/>
+    
+    <arg name="target_1"    default="$(eval arg('target_domain')+'.'+str(arg('target_ip_base')+arg('node_id_1')))" />
+    <arg name="teleop_tx_port_1"   default="$(eval teleop_tx_port_base + node_id_1)" />
+    <arg name="target_2"    default="$(eval arg('target_domain')+'.'+str(arg('target_ip_base')+arg('node_id_2')))" />
+    <arg name="teleop_tx_port_2"   default="$(eval teleop_tx_port_base + node_id_2)" />
+    <arg name="target_3"    default="$(eval arg('target_domain')+'.'+str(arg('target_ip_base')+arg('node_id_3')))" />
+    <arg name="teleop_tx_port_3"   default="$(eval teleop_tx_port_base + node_id_3)" />
+    
+    <!-- The sender node -->
+    <node pkg="joy" type="joy_node" name="joy" output="screen"/>
+
+    <node pkg="omniveyor_mobility" type="multiRobotCmdPosIO_onHost.py" name="teleop_joy_remote" output="screen">
+        <param name="node_1" value="$(arg node_id_1)"/>
+        <param name="node_2" value="$(arg node_id_2)"/>
+        <param name="node_3" value="$(arg node_id_3)"/>
+    </node>
+
+    <include file="$(find omniveyor_mobility)/launch/includes/multi_robot_tx_host.launch">
+        <arg name="target" value="$(arg target_1)"/>
+        <arg name="tx_port" value="$(arg teleop_tx_port_1)"/>
+        <arg name="tx_topics_cfg" value="$(arg teleop_tx_topics_cfg)"/>
+        <remap from="cmd_vel" to="$(eval 'robot_'+str(arg('node_id_1'))+'/cmd_vel')"/>
+    </include>
+    <include file="$(find omniveyor_mobility)/launch/includes/multi_robot_rx_host.launch">
+        <arg name="node_id"            value="$(arg node_id_1)"/>
+        <arg name="rx_port_base"       value="$(arg rx_port_base)"/>
+        <arg name="remote_namespace"   value="$(eval 'robot_'+str(arg('node_id_1')))"/>
+    </include>
+
+    <include file="$(find omniveyor_mobility)/launch/includes/multi_robot_tx_host.launch">
+        <arg name="target" value="$(arg target_2)"/>
+        <arg name="tx_port" value="$(arg teleop_tx_port_2)"/>
+        <arg name="tx_topics_cfg" value="$(arg teleop_tx_topics_cfg)"/>
+        <remap from="cmd_vel" to="$(eval 'robot_'+str(arg('node_id_2'))+'/cmd_vel')"/>
+    </include>
+    <include file="$(find omniveyor_mobility)/launch/includes/multi_robot_rx_host.launch">
+        <arg name="node_id"            value="$(arg node_id_2)"/>
+        <arg name="rx_port_base"       value="$(arg rx_port_base)"/>
+        <arg name="remote_namespace"   value="$(eval 'robot_'+str(arg('node_id_2')))"/>
+    </include>
+
+    <include file="$(find omniveyor_mobility)/launch/includes/multi_robot_tx_host.launch">
+        <arg name="target" value="$(arg target_3)"/>
+        <arg name="tx_port" value="$(arg teleop_tx_port_3)"/>
+        <arg name="tx_topics_cfg" value="$(arg teleop_tx_topics_cfg)"/>
+        <remap from="cmd_vel" to="$(eval 'robot_'+str(arg('node_id_3'))+'/cmd_vel')"/>
+    </include>
+    <include file="$(find omniveyor_mobility)/launch/includes/multi_robot_rx_host.launch">
+        <arg name="node_id"            value="$(arg node_id_3)"/>
+        <arg name="rx_port_base"       value="$(arg rx_port_base)"/>
+        <arg name="remote_namespace"   value="$(eval 'robot_'+str(arg('node_id_3')))"/>
+    </include>
+
+</launch>

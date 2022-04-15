@@ -10,38 +10,30 @@ from ReFrESH_ROS import ReFrESH_Module
 from ReFrESH_ROS_utils import Ftype, ROSnodeMonitor, ROSTopicMonitor
 from std_msgs.msg import Float64MultiArray
 from sensor_msgs.msg import LaserScan
-from ..Motion.utils import covToTolerance
+from Motion.utils import covToTolerance
 from slam_toolbox_msgs.srv import SaveMap, SerializePoseGraph
 import rospkg
+from sensor_msgs.msg import Image, PointCloud2
 
-class Dynamic2DMapModule(ReFrESH_Module):
-    def __init__(self, name="dynamicMap", priority=89, preemptive=False,
-                EX_thread=1, EV_thread=2, ES_thread=1, save_map_interval=60.0, map_file_name="map"):
-        super().__init__(name, priority, preemptive, 
+class MarkerLocalizerModule(ReFrESH_Module):
+    def __init__(self, name="markerLocalizer", priority=80, preemptive=False,
+                EX_thread=1, EV_thread=1, ES_thread=1):
+        super().__init__(name, priority, preemptive,
                         EX_thread=EX_thread, EV_thread=EV_thread, ES_thread=ES_thread)
-        self.save_map_interval = save_map_interval
-        self.map_file_name = rospkg.RosPack().get_path('omniveyor_mobility')+'/resources/maps'+map_file_name
         self.exMon = ROSnodeMonitor()
-        self.topicMon = ROSTopicMonitor(subs=[['scan', LaserScan]], tf=[['laser','odom']],
-                                        tfBuff=self.managerHandle.tfBuffer)
+        self.topicMon = ROSTopicMonitor(subs=[['cam_d1/color/image_raw', Image]])
         # CPU, memory, Topic and TF availability
         self.resourceMetrics = [0.1, 0.1, 0.0]
-        # linear and angular stdev
-        self.performanceMetrics = [0.1, 0.1]
+        # linear and angular stdev, 1-fulfillment
+        self.performanceMetrics = [0.1, 0.1, 0.1]
         self.cpuQuota = 0.2
         self.memQuota = 0.2
         self.localizationTol = [0.05, 0.05]
-        self.setComponentProperties('EX', Ftype.LAUNCH_FILE, 'omniveyor_mobility', 'dynamic_map.launch')
+        self.setComponentProperties('EX', Ftype.NODE, 'omniveyor_mobility', 'marker_localizer')
         self.setComponentProperties('EV', Ftype.TIMER, exec=self.evaluator, kwargs={'freq': 3.0}, ind=0,
                                         pre=lambda : self.exMon.attach(self.getMyEXhandle()[1]),
                                         post=lambda : self.exMon.detach())
-        self.setComponentProperties('EV', Ftype.SUBSCRIBER, 'map_pose/tf_cov', self.slamCovCb, mType=Float64MultiArray, ind=1)
         self.setComponentProperties('ES', Ftype.CALLABLE, exec=self.estimator)
-        self.lastMapSavingTime = rospy.Time.now()
-        self.slamLocCov = Float64MultiArray()
-
-    def slamCovCb(self, msg):
-        self.slamLocCov = msg
 
     def setInfeasible(self, which, ind):
         which[ind] = 1.0
