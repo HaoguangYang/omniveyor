@@ -169,6 +169,7 @@ mapPoseFromTFOdom_node::mapPoseFromTFOdom_node(ros::NodeHandle *node): _nh(*node
     _nh.param<std::string>("base_frame", _baseFrame, "");
     _nh.param<int>("tf_covariance_estimation_window", _windowLen, 50);
     _nh.param<double>("publish_rate", _pubRate, 40.0);
+    _nh.param<bool>("publish_tf_cov", _pubTfCov, true);
     // in case these frames are not provided as params
     if (_odomFrame=="" or _baseFrame==""){
         while (_nh.ok()){
@@ -204,6 +205,16 @@ mapPoseFromTFOdom_node::mapPoseFromTFOdom_node(ros::NodeHandle *node): _nh(*node
         }
     }
     _mapPosePublisher = _nh.advertise<geometry_msgs::PoseWithCovarianceStamped>(_poseTopic, 2);
+    if (_pubTfCov){
+        _tfCovPublisher = _nh.advertise<std_msgs::Float64MultiArray>(_poseTopic+"/tf_cov", 2);
+        //Clear array
+        _tfCov.data.clear();
+        //for loop, pushing data in the size of the array
+        for (int i = 0; i < 36; i++)
+        {
+            _tfCov.data.push_back(0.0);
+        }
+    }
 }
 
 mapPoseFromTFOdom_node::~mapPoseFromTFOdom_node(){
@@ -256,13 +267,20 @@ void mapPoseFromTFOdom_node::run(){
         tf2::doTransform(odomPose, ps, _odomMapGaussianEst->latestTransform());
         Eigen::MatrixXd odomBaseCov = Eigen::Map<Eigen::MatrixXd>(_lastOdom.pose.covariance.data(), 6, 6);
         Eigen::MatrixXd covTransformed = _odomMapGaussianEst->transformCov(odomBaseCov);
+        if (_pubTfCov){
+            Eigen::MatrixXd tfCov = _odomMapGaussianEst->latestCov();
+            double *covData = tfCov.data();
+		    for (int i = 0; i < 36; i++)
+			    _tfCov.data[i] = covData[i];
+            _tfCovPublisher.publish(_tfCov);
+        }
         Eigen::Matrix<double,Eigen::Dynamic,Eigen::Dynamic,Eigen::RowMajor> covTransformedRowMaj(covTransformed);
         double *covData = covTransformedRowMaj.data();
         // assembly
         _lastMapPose.header.frame_id = _mapFrame;
         _lastMapPose.header.stamp = hdr.stamp;
         _lastMapPose.pose.pose = ps.pose;
-        for (int i=0; i<36; i++)
+        for (int i  =0; i < 36; i++)
             _lastMapPose.pose.covariance[i] = covData[i];
         _mapPosePublisher.publish(_lastMapPose);
         ros::spinOnce();

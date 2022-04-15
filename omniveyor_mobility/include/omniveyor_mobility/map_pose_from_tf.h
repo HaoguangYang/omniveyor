@@ -18,6 +18,7 @@
 #include <geometry_msgs/PoseStamped.h>
 #include <geometry_msgs/PoseWithCovarianceStamped.h>
 #include <std_msgs/Header.h>
+#include <std_msgs/Float64MultiArray.h>
 #include <nav_msgs/Odometry.h>
 #include <Eigen/Core>
 #include <Eigen/Geometry>
@@ -130,16 +131,18 @@ class mapPoseFromTFOdom_node{
 
     protected:
         ros::NodeHandle _nh;
-        ros::Publisher _mapPosePublisher;
+        ros::Publisher _mapPosePublisher, _tfCovPublisher;
         constantTFGaussianEstimator *_odomMapGaussianEst;
         std::string _poseTopic, _mapFrame, _odomTopic, _odomFrame, _baseFrame;
         double _pubRate;
         int _windowLen;
+        bool _pubTfCov;
         tf2_ros::Buffer _tfBuffer;
         tf2_ros::TransformListener *_tfListener;
         geometry_msgs::TransformStamped _tfOdomBase;
         nav_msgs::Odometry _lastOdom;
         geometry_msgs::PoseWithCovarianceStamped _lastMapPose;
+        std_msgs::Float64MultiArray _tfCov;
 };
 
 #endif
