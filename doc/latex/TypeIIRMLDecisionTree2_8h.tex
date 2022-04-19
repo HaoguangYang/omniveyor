@@ -1,0 +1,107 @@
+\hypertarget{TypeIIRMLDecisionTree2_8h}{}\doxysection{/home/jonathan/\+Omni\+Dev/src/omniveyor\+\_\+hardware/pcv\+\_\+base/external/\+Reflexxes\+Type\+I\+I/include/\+Type\+I\+I\+R\+M\+L\+Decision\+Tree2.h File Reference}
+\label{TypeIIRMLDecisionTree2_8h}\index{/home/jonathan/OmniDev/src/omniveyor\_hardware/pcv\_base/external/ReflexxesTypeII/include/TypeIIRMLDecisionTree2.h@{/home/jonathan/OmniDev/src/omniveyor\_hardware/pcv\_base/external/ReflexxesTypeII/include/TypeIIRMLDecisionTree2.h}}
+
+
+\mbox{\hyperlink{structHeader}{Header}} file for the Step 2 decision tree of the Type II On-\/\+Line Trajectory Generation algorithm (time-\/synchronized case)  
+
+
+{\ttfamily \#include $<$Type\+I\+I\+R\+M\+L\+Polynomial.\+h$>$}\newline
+Include dependency graph for Type\+I\+I\+R\+M\+L\+Decision\+Tree2.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=271pt]{TypeIIRMLDecisionTree2_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{TypeIIRMLDecisionTree2_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{TypeIIRMLDecisionTree2_8h_a40a927ee544001b89cfa2b3ba7128f8a}{Type\+I\+I\+R\+M\+L\+Math\+::\+Type\+I\+I\+R\+M\+L\+Decision\+Tree2}} (const double \&Current\+Position, const double \&Current\+Velocity, const double \&Target\+Position, const double \&Target\+Velocity, const double \&Max\+Velocity, const double \&Max\+Acceleration, const double \&Synchronization\+Time, Motion\+Polynomials $\ast$Polynomials\+Internal)
+\begin{DoxyCompactList}\small\item\em This function contains the decision tree of the Step 2 of the Type II On-\/\+Line Trajectory Generation algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{structHeader}{Header}} file for the Step 2 decision tree of the Type II On-\/\+Line Trajectory Generation algorithm (time-\/synchronized case) 
+
+\mbox{\hyperlink{structHeader}{Header}} file for the function \mbox{\hyperlink{TypeIIRMLDecisionTree2_8h_a40a927ee544001b89cfa2b3ba7128f8a}{Type\+I\+I\+R\+M\+L\+Math\+::\+Type\+I\+I\+R\+M\+L\+Decision\+Tree2()}}, which contains the decision tree of the Step 2 of the On-\/\+Line Trajectory Generation algorithm. It synchronizes all selected degrees of freedom to the synchronization time (cf. Step 1). Details on this methodology may be found in~\newline
+~\newline
+{\bfseries{T. Kroeger.}}~\newline
+{\bfseries{On-\/\+Line Trajectory Generation in Robotic Systems.}}~\newline
+{\bfseries{Springer Tracts in Advanced Robotics, Vol. 58, Springer, January 2010.}}~\newline
+{\bfseries{\href{http://www.springer.com/978-3-642-05174-6}{\texttt{ http\+://www.\+springer.\+com/978-\/3-\/642-\/05174-\/6}}}}~\newline
+~\newline
+The function is part of the namespace Type\+I\+I\+R\+M\+L\+Math.
+
+\begin{DoxyDate}{Date}
+April 2015
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+2.\+7
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Torsten Kroeger, \href{mailto:info@reflexxes.com}{\texttt{ info@reflexxes.\+com}} ~\newline
+ 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) 2015 Google, Inc. ~\newline
+~\newline
+{\bfseries{G\+NU Lesser General Public License}} ~\newline
+~\newline
+This file is part of the Type II Reflexxes Motion Library. ~\newline
+~\newline
+The Type II Reflexxes Motion Library is free software\+: you can redistribute it and/or modify it under the terms of the G\+NU Lesser General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. ~\newline
+~\newline
+The Type II Reflexxes Motion Library is distributed in the hope that it will be useful, but W\+I\+T\+H\+O\+UT A\+NY W\+A\+R\+R\+A\+N\+TY; without even the implied warranty of M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+TY or F\+I\+T\+N\+E\+SS F\+OR A P\+A\+R\+T\+I\+C\+U\+L\+AR P\+U\+R\+P\+O\+SE. See the G\+NU Lesser General Public License for more details. ~\newline
+~\newline
+You should have received a copy of the G\+NU Lesser General Public License along with the Type II Reflexxes Motion Library. If not, see \href{http://www.gnu.org/licenses/}{\texttt{ http\+://www.\+gnu.\+org/licenses/}}. 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{TypeIIRMLDecisionTree2_8h_a40a927ee544001b89cfa2b3ba7128f8a}\label{TypeIIRMLDecisionTree2_8h_a40a927ee544001b89cfa2b3ba7128f8a}} 
+\index{TypeIIRMLDecisionTree2.h@{TypeIIRMLDecisionTree2.h}!TypeIIRMLDecisionTree2@{TypeIIRMLDecisionTree2}}
+\index{TypeIIRMLDecisionTree2@{TypeIIRMLDecisionTree2}!TypeIIRMLDecisionTree2.h@{TypeIIRMLDecisionTree2.h}}
+\doxysubsubsection{\texorpdfstring{TypeIIRMLDecisionTree2()}{TypeIIRMLDecisionTree2()}}
+{\footnotesize\ttfamily void Type\+I\+I\+R\+M\+L\+Math\+::\+Type\+I\+I\+R\+M\+L\+Decision\+Tree2 (\begin{DoxyParamCaption}\item[{const double \&}]{Current\+Position,  }\item[{const double \&}]{Current\+Velocity,  }\item[{const double \&}]{Target\+Position,  }\item[{const double \&}]{Target\+Velocity,  }\item[{const double \&}]{Max\+Velocity,  }\item[{const double \&}]{Max\+Acceleration,  }\item[{const double \&}]{Synchronization\+Time,  }\item[{\mbox{\hyperlink{structTypeIIRMLMath_1_1MotionPolynomials}{Motion\+Polynomials}} $\ast$}]{Polynomials\+Internal }\end{DoxyParamCaption})}
+
+
+
+This function contains the decision tree of the Step 2 of the Type II On-\/\+Line Trajectory Generation algorithm. 
+
+This function synchronizes the trajectory for one single degree of freedom to the synchronization time $ t_{i}^{\,sync} $ and calculates all trajectory parameters.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Current\+Position} & Current position value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}P_{i} $\\
+\hline
+{\em Current\+Velocity} & Current velocity value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}V_{i} $\\
+\hline
+{\em Target\+Position} & Target position value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}P_{i}^{\,trgt} $\\
+\hline
+{\em Target\+Velocity} & Target velocity value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}V_{i}^{\,trgt} $\\
+\hline
+{\em Max\+Velocity} & Maximum allowed velocity value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}V_{i}^{\,max} $\\
+\hline
+{\em Max\+Acceleration} & Maximum allowed acceleration value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}A_{i}^{\,max} $\\
+\hline
+{\em Synchronization\+Time} & The synchronization time $ t_{i}^{\,sync} $ that was calculated in Step 1 of the On-\/\+Line Trajectory Generation algorithm (in seconds).\\
+\hline
+{\em Polynomials\+Internal} & A pointer to a {\ttfamily Motion\+Polynomials} object (cf. \mbox{\hyperlink{structTypeIIRMLMath_1_1MotionPolynomials}{Type\+I\+I\+R\+M\+L\+Math\+::\+Motion\+Polynomials}}). All trajectory parameters of the synchronized Type II trajectory will be written into this object.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{TypeIIRMLDecisionTree1A_8h_a9b534037ecaeaa27482cfd2a30a31150}{Type\+I\+I\+R\+M\+L\+Math\+::\+Type\+I\+I\+R\+M\+L\+Decision\+Tree1\+A()}} 
+
+\mbox{\hyperlink{TypeIIRMLDecisionTree1B_8h_a67e4e4389348606dd2230b69cbcea0c1}{Type\+I\+I\+R\+M\+L\+Math\+::\+Type\+I\+I\+R\+M\+L\+Decision\+Tree1\+B()}} 
+
+\mbox{\hyperlink{TypeIIRMLDecisionTree1C_8h_abc680a9557457698f84c9705d657237b}{Type\+I\+I\+R\+M\+L\+Math\+::\+Type\+I\+I\+R\+M\+L\+Decision\+Tree1\+C()}} 
+\end{DoxySeeAlso}

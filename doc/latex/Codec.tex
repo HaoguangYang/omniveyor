@@ -1,0 +1,157 @@
+\DoxyHorRuler{0}
+ Matrix Structure\+:
+
+S = Size of original data in bytes. N = ceil(S / M) = Count of blocks in the original data.
+
+(1) Matrix Construction \begin{DoxyVerb}A = Original data blocks, N blocks long.
+D = Count of dense/heavy matrix rows (see below), chosen based on N.
+E = N + D blocks = Count of recovery set blocks.
+R = Recovery blocks, E blocks long.
+C = Matrix, with E rows and E columns.
+0 = Dense/heavy rows sum to zero.
+
++---------+-------+   +---+   +---+
+|         |       |   |   |   |   |
+|    P    |   M   |   |   |   | A |
+|         |       |   |   |   |   |
++---------+-----+-+ x | R | = +---+
+|    D    |  J  |0|   |   |   | 0 |
++---------+-+---+-+   |   |   +---+
+|    0      |  H  |   |   |   | 0 |
++-----------+-----+   +---+   +---+
+
+A and B are Ex1 vectors of blocks.
+    A has N rows of the original data padded by H zeros.
+    R has E rows of encoded blocks.
+
+C is the ExE hybrid matrix above:
+    P is the NxN peeling binary submatrix.
+        - Optimized for success of the peeling solver.
+    M is the NxD mixing binary submatrix.
+        - Used to mix the D dense/heavy rows into the peeling rows.
+    D is the DxN dense binary submatrix.
+        - Used to improve on recovery properties of peeling code.
+    J is a DxD random-looking invertible submatrix.
+    H is the 6x18 heavy GF(256) submatrix.
+        - Used to improve on recovery properties of dense code.
+    0 is a Dx6 zero submatrix.
+
+C matrices for each value of N are precomputed offline and used
+based on the length of the input data, which guarantees that C
+is invertible.
+\end{DoxyVerb}
+
+
+(2) Generating Matrix P \begin{DoxyVerb}The Hamming weight of each row of P is a random variable with a
+distribution chosen to optimize the operation of the peeling
+solver (see below).
+For each row of the matrix, this weight is determined and 1 bits
+are then uniformly distributed over the N columns.
+The GeneratePeelRowWeight() function determines row weights.
+\end{DoxyVerb}
+
+
+(3) Generating Matrix M \begin{DoxyVerb}Rows of M are generated with a constant weight of 3 and 1 bits are
+uniformly distributed over the H columns.
+\end{DoxyVerb}
+
+
+(4) Generating Matrix D \begin{DoxyVerb}Matrix D is generated with a Shuffle-2 Code, a novel invention.
+Shuffle-2 codes produce random matrices that offer possibly the
+fastest matrix-matrix multiplication algorithm for this purpose.
+Each bit has a 50% chance of being set.
+\end{DoxyVerb}
+
+
+(5) Generating Matrix H \begin{DoxyVerb}The heavy matrix H is also a novel invention in this context.
+Adding these rows greatly improves invertibility of C while providing
+a constant-time algorithm to solve them.
+H is a 6x18 random byte matrix.
+Each element of H is a byte instead of a bit, representing a number
+in GF(256).
+\end{DoxyVerb}
+
+
+(6) Matrix Solver \begin{DoxyVerb}An optimized sparse technique is used to solve the recovery blocks.
+\end{DoxyVerb}
+
+
+\DoxyHorRuler{0}
+ Sparse Matrix Solver\+:
+
+There are 4 stages to this sparse solver\+:
+
+(1) Peeling
+\begin{DoxyItemize}
+\item Opportunistic fast solution for first N rows. (2) Compression
+\item Setup for Gaussian elimination (3) Gaussian Elimination
+\item Gaussian elimination on a small square matrix (4) Substitution
+\item Solves for remaining rows from initial peeling
+\end{DoxyItemize}
+
+See the code comments in Wirehair.\+cpp for documentation of each step.
+
+After all of these steps, the row values have been determined and the matrix solver is complete. Let\textquotesingle{}s analyze the complexity of each step\+:
+
+(1) Peeling
+\begin{DoxyItemize}
+\item Opportunistic fast solution for first N rows.
+\end{DoxyItemize}
+
+Weight determination \+: O(k) average Column reference update \+: Amortized O(1) for each column
+
+If peeling activates, Marking as peeled \+: O(1)
+
+Reducing weight of rows referencing this column \+: O(k) If other row weight is reduced to 2, Regenerate columns and mark potential Deferred \+: O(k) End End
+
+So peeling is O(1) for each row, and O(\+N) overall.
+
+(2) Compression
+\begin{DoxyItemize}
+\item Setup for Gaussian elimination on a wide rectangular matrix
+\end{DoxyItemize}
+
+The dense row multiplication takes O(N / 2 + ceil(N / D) $\ast$ 2 $\ast$ (D -\/ 1)) where D is approximately S\+Q\+R\+T(\+N), so dense row multiplication takes\+: O(N / 2 + ceil(\+S\+Q\+R\+T(\+N)) $\ast$ S\+Q\+R\+T(\+N)) = O(1.\+5$\ast$N).
+
+(3) Gaussian Elimination
+\begin{DoxyItemize}
+\item Gaussian elimination on a (hopefully) small square matrix
+\end{DoxyItemize}
+
+Assume the GE square matrix is SxS, and S = sqrt(\+N) on average thanks to the peeling solver above.
+
+Gaussian elimination \+: O(\+S$^\wedge$3) = O(N$^\wedge$1.5) bit operations
+
+This algorithm is not bad because the matrix is small and it really doesn\textquotesingle{}t contribute much to the run time.
+
+
+\begin{DoxyItemize}
+\item Solves for rows of small square matrix
+\end{DoxyItemize}
+
+Assume the GE square matrix is SxS, and S = sqrt(\+N) on average thanks to the peeling solver above.
+
+Solving inside the GE matrix \+: O(\+S$^\wedge$2) = O(\+N) row ops
+
+(4) Substitution
+\begin{DoxyItemize}
+\item Solves for remaining rows from initial peeling
+\end{DoxyItemize}
+
+Regenerate peeled matrix rows and substitute \+: O(\+N$\ast$k) row ops
+
+So overall, the codec scales roughly linearly in row operations, meaning that the throughput is somewhat stable over a wide number of N.
+
+\DoxyHorRuler{0}
+ Encoding\+:
+
+The first N output blocks of the encoder are the same as the original data. After that the encoder will start producing random-\/ looking M-\/byte blocks by generating new rows for P and M and multiplying them by B.
+
+\DoxyHorRuler{0}
+ Decoding\+:
+
+Decoding begins by collecting N blocks from the transmitter. Once N blocks are received, the matrix C\textquotesingle{} (differing in the first N rows from the above matrix C) is generated with the rows of P$\vert$M that were received. Matrix solving is attempted, failing at the Gaussian elimination step if a pivot cannot be found for one of the GE matrix columns (see above).
+
+New rows are received and submitted directly to the GE solver, hopefully providing the missing pivot. Once enough rows have been received, back-\/substitution reconstructs matrix B.
+
+The first N rows of the original matrix G are then used to fill in any blocks that were not received from the original N blocks, and the original data is recovered. 

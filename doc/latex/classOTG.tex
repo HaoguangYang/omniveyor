@@ -1,0 +1,249 @@
+\hypertarget{classOTG}{}\doxysection{O\+TG Class Reference}
+\label{classOTG}\index{OTG@{OTG}}
+
+
+{\ttfamily \#include $<$O\+T\+G.\+h$>$}
+
+
+
+Collaboration diagram for O\+TG\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classOTG__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classOTG_a0194d0815f4b3c7197829137ccdfbb1a}{O\+TG}} (const Eigen\+::\+Vector\+Xd \&initial\+\_\+position, const double loop\+\_\+time)
+\begin{DoxyCompactList}\small\item\em constructor \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classOTG_aea1cfc82aecce121080e1727efc5a4a3}\label{classOTG_aea1cfc82aecce121080e1727efc5a4a3}} 
+\mbox{\hyperlink{classOTG_aea1cfc82aecce121080e1727efc5a4a3}{$\sim$\+O\+TG}} ()
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classOTG_a19eec91276b9daf0e05fe324080748d8}\label{classOTG_a19eec91276b9daf0e05fe324080748d8}} 
+void {\bfseries re\+Initialize} (const Eigen\+::\+Vector\+Xd \&initial\+\_\+position)
+\item 
+void \mbox{\hyperlink{classOTG_ae98f73af54f57c3952a36f10a3918aca}{set\+Max\+Velocity}} (const Eigen\+::\+Vector\+Xd max\+\_\+velocity)
+\begin{DoxyCompactList}\small\item\em Sets the maximum velocity for the trajectory generator. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOTG_ad83ea0f62b9a7110794cf38c723adb26}{set\+Max\+Velocity}} (const double max\+\_\+velocity)
+\begin{DoxyCompactList}\small\item\em Sets the maximum velocity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOTG_aac75800c625bd1d4eba51e9ec7d95549}{set\+Max\+Acceleration}} (const Eigen\+::\+Vector\+Xd max\+\_\+acceleration)
+\begin{DoxyCompactList}\small\item\em Sets the maximum acceleration. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOTG_afe9c7177475c4e5a8327bd3bc74123a0}{set\+Max\+Acceleration}} (const double max\+\_\+acceleration)
+\begin{DoxyCompactList}\small\item\em Sets the maximum acceleration. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOTG_a0c4b31621c372a4fddf65489af033dc0}{set\+Max\+Jerk}} (const Eigen\+::\+Vector\+Xd max\+\_\+jerk)
+\begin{DoxyCompactList}\small\item\em Sets the maximum jerk. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOTG_ab055ccf4b494fe534279defa7100ea14}{set\+Max\+Jerk}} (const double max\+\_\+jerk)
+\begin{DoxyCompactList}\small\item\em Sets the maximum jerk. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOTG_afe70428ca9d4d195fd57051f66f30eb4}{set\+Goal\+Position\+And\+Velocity}} (const Eigen\+::\+Vector\+Xd goal\+\_\+position, const Eigen\+::\+Vector\+Xd goal\+\_\+velocity)
+\begin{DoxyCompactList}\small\item\em Sets the goal position and velocity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOTG_af2b29e9dcc265c6929aaa5ad97dd4c00}{compute\+Next\+State}} (Eigen\+::\+Vector\+Xd \&next\+\_\+position, Eigen\+::\+Vector\+Xd \&next\+\_\+velocity)
+\begin{DoxyCompactList}\small\item\em Calculates the next desired position and velocity for the next step. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classOTG_ab70d4fd214d921aa3a96a673e857720c}{goal\+Reached}} ()
+\begin{DoxyCompactList}\small\item\em Function to know if the goal position and velocity is reached. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classOTG_a1693d8b4707b7697f6c5f7ae57413f49}\label{classOTG_a1693d8b4707b7697f6c5f7ae57413f49}} 
+unsigned int {\bfseries \+\_\+task\+\_\+dof}
+\item 
+\mbox{\Hypertarget{classOTG_a0a4b25c9c28ee33276a4e6de3f6e267d}\label{classOTG_a0a4b25c9c28ee33276a4e6de3f6e267d}} 
+double {\bfseries \+\_\+loop\+\_\+time}
+\item 
+\mbox{\Hypertarget{classOTG_ad7bffe44b45ea977b9470d8ef1d65a8d}\label{classOTG_ad7bffe44b45ea977b9470d8ef1d65a8d}} 
+bool {\bfseries \+\_\+goal\+\_\+reached} = false
+\item 
+\mbox{\Hypertarget{classOTG_a6ab262a220dd1828863d555cd52f8e49}\label{classOTG_a6ab262a220dd1828863d555cd52f8e49}} 
+int {\bfseries \+\_\+\+Result\+Value} = 0
+\item 
+\mbox{\Hypertarget{classOTG_a7f34181832834d635da6274b39f8a177}\label{classOTG_a7f34181832834d635da6274b39f8a177}} 
+\mbox{\hyperlink{classReflexxesAPI}{Reflexxes\+A\+PI}} $\ast$ {\bfseries \+\_\+\+R\+ML} = N\+U\+LL
+\item 
+\mbox{\Hypertarget{classOTG_a0b2d0b9054f3c0d088b8fe5a6cc3ceff}\label{classOTG_a0b2d0b9054f3c0d088b8fe5a6cc3ceff}} 
+\mbox{\hyperlink{classRMLPositionInputParameters}{R\+M\+L\+Position\+Input\+Parameters}} $\ast$ {\bfseries \+\_\+\+IP} = N\+U\+LL
+\item 
+\mbox{\Hypertarget{classOTG_ab4004d090f7d8deb5a1c5dc529ad82aa}\label{classOTG_ab4004d090f7d8deb5a1c5dc529ad82aa}} 
+\mbox{\hyperlink{classRMLPositionOutputParameters}{R\+M\+L\+Position\+Output\+Parameters}} $\ast$ {\bfseries \+\_\+\+OP} = N\+U\+LL
+\item 
+\mbox{\Hypertarget{classOTG_ac4abacbc226aea94d045428103ce6496}\label{classOTG_ac4abacbc226aea94d045428103ce6496}} 
+\mbox{\hyperlink{classRMLPositionFlags}{R\+M\+L\+Position\+Flags}} {\bfseries \+\_\+\+Flags}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{OTG_8h_source}{O\+T\+G.\+h}}
+
+A wrapper to use the Reflexxes library (type II or IV) with Eigen library
+
+Author\+: Mikael Jorda Created\+: October 2018 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classOTG_a0194d0815f4b3c7197829137ccdfbb1a}\label{classOTG_a0194d0815f4b3c7197829137ccdfbb1a}} 
+\index{OTG@{OTG}!OTG@{OTG}}
+\index{OTG@{OTG}!OTG@{OTG}}
+\doxysubsubsection{\texorpdfstring{OTG()}{OTG()}}
+{\footnotesize\ttfamily O\+T\+G\+::\+O\+TG (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector\+Xd \&}]{initial\+\_\+position,  }\item[{const double}]{loop\+\_\+time }\end{DoxyParamCaption})}
+
+
+
+constructor 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em task\+\_\+dof} & dimmension of the space in which the trajectory is computed (e.\+g. 3 for a position trajectory in Cartesian space) \\
+\hline
+\mbox{\texttt{ in}}  & {\em loop\+\_\+time} & The duration of a control loop (typically, 0.\+001 if the robot is controlled at 1 k\+Hz)\\
+\hline
+\end{DoxyParams}
+O\+T\+G.\+cc
+
+A wrapper to use the Reflexxes library (type II or IV) with Eigen library
+
+Author\+: Mikael Jorda Created\+: October 2018 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classOTG_af2b29e9dcc265c6929aaa5ad97dd4c00}\label{classOTG_af2b29e9dcc265c6929aaa5ad97dd4c00}} 
+\index{OTG@{OTG}!computeNextState@{computeNextState}}
+\index{computeNextState@{computeNextState}!OTG@{OTG}}
+\doxysubsubsection{\texorpdfstring{computeNextState()}{computeNextState()}}
+{\footnotesize\ttfamily void O\+T\+G\+::compute\+Next\+State (\begin{DoxyParamCaption}\item[{Eigen\+::\+Vector\+Xd \&}]{next\+\_\+position,  }\item[{Eigen\+::\+Vector\+Xd \&}]{next\+\_\+velocity }\end{DoxyParamCaption})}
+
+
+
+Calculates the next desired position and velocity for the next step. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em next\+\_\+position} & The desired position in the next step \\
+\hline
+{\em next\+\_\+velocity} & The desired velocity in the next step \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classOTG_ab70d4fd214d921aa3a96a673e857720c}\label{classOTG_ab70d4fd214d921aa3a96a673e857720c}} 
+\index{OTG@{OTG}!goalReached@{goalReached}}
+\index{goalReached@{goalReached}!OTG@{OTG}}
+\doxysubsubsection{\texorpdfstring{goalReached()}{goalReached()}}
+{\footnotesize\ttfamily bool O\+T\+G\+::goal\+Reached (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to know if the goal position and velocity is reached. 
+
+\begin{DoxyReturn}{Returns}
+true if the goal state is reached, false otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classOTG_afe70428ca9d4d195fd57051f66f30eb4}\label{classOTG_afe70428ca9d4d195fd57051f66f30eb4}} 
+\index{OTG@{OTG}!setGoalPositionAndVelocity@{setGoalPositionAndVelocity}}
+\index{setGoalPositionAndVelocity@{setGoalPositionAndVelocity}!OTG@{OTG}}
+\doxysubsubsection{\texorpdfstring{setGoalPositionAndVelocity()}{setGoalPositionAndVelocity()}}
+{\footnotesize\ttfamily void O\+T\+G\+::set\+Goal\+Position\+And\+Velocity (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector\+Xd}]{goal\+\_\+position,  }\item[{const Eigen\+::\+Vector\+Xd}]{goal\+\_\+velocity }\end{DoxyParamCaption})}
+
+
+
+Sets the goal position and velocity. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em goal\+\_\+position} & The goal position \\
+\hline
+\mbox{\texttt{ in}}  & {\em goal\+\_\+velocity} & The goal velocity \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classOTG_afe9c7177475c4e5a8327bd3bc74123a0}\label{classOTG_afe9c7177475c4e5a8327bd3bc74123a0}} 
+\index{OTG@{OTG}!setMaxAcceleration@{setMaxAcceleration}}
+\index{setMaxAcceleration@{setMaxAcceleration}!OTG@{OTG}}
+\doxysubsubsection{\texorpdfstring{setMaxAcceleration()}{setMaxAcceleration()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void O\+T\+G\+::set\+Max\+Acceleration (\begin{DoxyParamCaption}\item[{const double}]{max\+\_\+acceleration }\end{DoxyParamCaption})}
+
+
+
+Sets the maximum acceleration. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em max\+\_\+acceleration} & Scalar of the maximum acceleration \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classOTG_aac75800c625bd1d4eba51e9ec7d95549}\label{classOTG_aac75800c625bd1d4eba51e9ec7d95549}} 
+\index{OTG@{OTG}!setMaxAcceleration@{setMaxAcceleration}}
+\index{setMaxAcceleration@{setMaxAcceleration}!OTG@{OTG}}
+\doxysubsubsection{\texorpdfstring{setMaxAcceleration()}{setMaxAcceleration()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void O\+T\+G\+::set\+Max\+Acceleration (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector\+Xd}]{max\+\_\+acceleration }\end{DoxyParamCaption})}
+
+
+
+Sets the maximum acceleration. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em max\+\_\+acceleration} & Vector of the maximum acceleration \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classOTG_ab055ccf4b494fe534279defa7100ea14}\label{classOTG_ab055ccf4b494fe534279defa7100ea14}} 
+\index{OTG@{OTG}!setMaxJerk@{setMaxJerk}}
+\index{setMaxJerk@{setMaxJerk}!OTG@{OTG}}
+\doxysubsubsection{\texorpdfstring{setMaxJerk()}{setMaxJerk()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void O\+T\+G\+::set\+Max\+Jerk (\begin{DoxyParamCaption}\item[{const double}]{max\+\_\+jerk }\end{DoxyParamCaption})}
+
+
+
+Sets the maximum jerk. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em max\+\_\+jerk} & Scalar of the maximum jerk \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classOTG_a0c4b31621c372a4fddf65489af033dc0}\label{classOTG_a0c4b31621c372a4fddf65489af033dc0}} 
+\index{OTG@{OTG}!setMaxJerk@{setMaxJerk}}
+\index{setMaxJerk@{setMaxJerk}!OTG@{OTG}}
+\doxysubsubsection{\texorpdfstring{setMaxJerk()}{setMaxJerk()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void O\+T\+G\+::set\+Max\+Jerk (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector\+Xd}]{max\+\_\+jerk }\end{DoxyParamCaption})}
+
+
+
+Sets the maximum jerk. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em max\+\_\+jerk} & Vector of the maximum jerk \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classOTG_ad83ea0f62b9a7110794cf38c723adb26}\label{classOTG_ad83ea0f62b9a7110794cf38c723adb26}} 
+\index{OTG@{OTG}!setMaxVelocity@{setMaxVelocity}}
+\index{setMaxVelocity@{setMaxVelocity}!OTG@{OTG}}
+\doxysubsubsection{\texorpdfstring{setMaxVelocity()}{setMaxVelocity()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void O\+T\+G\+::set\+Max\+Velocity (\begin{DoxyParamCaption}\item[{const double}]{max\+\_\+velocity }\end{DoxyParamCaption})}
+
+
+
+Sets the maximum velocity. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em max\+\_\+velocity} & Scalar of the maximum velocity in all directions \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classOTG_ae98f73af54f57c3952a36f10a3918aca}\label{classOTG_ae98f73af54f57c3952a36f10a3918aca}} 
+\index{OTG@{OTG}!setMaxVelocity@{setMaxVelocity}}
+\index{setMaxVelocity@{setMaxVelocity}!OTG@{OTG}}
+\doxysubsubsection{\texorpdfstring{setMaxVelocity()}{setMaxVelocity()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void O\+T\+G\+::set\+Max\+Velocity (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector\+Xd}]{max\+\_\+velocity }\end{DoxyParamCaption})}
+
+
+
+Sets the maximum velocity for the trajectory generator. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em max\+\_\+velocity} & Vector of the maximum velocity per direction \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/jonathan/\+Omni\+Dev/src/omniveyor\+\_\+hardware/pcv\+\_\+base/include/O\+T\+G.\+h\item 
+/home/jonathan/\+Omni\+Dev/src/omniveyor\+\_\+hardware/pcv\+\_\+base/src/O\+T\+G.\+cc\end{DoxyCompactItemize}

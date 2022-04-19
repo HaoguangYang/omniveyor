@@ -1,0 +1,25 @@
+We assume that we have two machines, machineA and machineB. Both will be running roscores, and we will transport some topics from machineA to machineB.
+
+On machineA\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{roslaunch nimbro\_topic\_transport sender.launch target:=machineB}
+\DoxyCodeLine{rostopic pub -\/r 1.0 /my\_first\_topic std\_msgs/String "Hello World"}
+\end{DoxyCode}
+
+
+Instead of using the host name {\ttfamily machineB}, you can also use an IP address.
+
+On machineB\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{roslaunch nimbro\_topic\_transport udp\_receiver.launch}
+\DoxyCodeLine{rostopic echo /recv/my\_first\_topic}
+\end{DoxyCode}
+
+
+You should see the {\ttfamily Hello World} messages arriving. Note that the topics are remapped to a /recv/ prefix, since the topics would conflict if you were to run both sender and receiver on the same roscore. In an usual application, this would not be necessary.
+
+For customization, you should copy the launch files into your own package. 

@@ -1,0 +1,9 @@
+<map id="scripts.Motion.PlannerModules.PlannerModule" name="scripts.Motion.PlannerModules.PlannerModule">
+<area shape="rect" id="node1" title=" " alt="" coords="244,39,471,80"/>
+<area shape="rect" id="node3" href="$classscripts_1_1Motion_1_1Managers_1_1MoveBaseManager.html" title=" " alt="" coords="539,5,725,47"/>
+<area shape="rect" id="node4" href="$classscripts_1_1Motion_1_1PlannerModules_1_1MoveBaseModule.html" title=" " alt="" coords="519,71,745,112"/>
+<area shape="rect" id="node2" href="$classscripts_1_1ReFrESH__ROS_1_1ReFrESH__Module.html" title=" " alt="" coords="5,39,196,80"/>
+<area shape="rect" id="node5" href="$classscripts_1_1Motion_1_1MoveBaseModules_1_1dwaPlannerROSModule.html" title=" " alt="" coords="793,5,1065,47"/>
+<area shape="rect" id="node6" href="$classscripts_1_1Motion_1_1MoveBaseModules_1_1pidControllerModule.html" title=" " alt="" coords="797,71,1062,112"/>
+<area shape="rect" id="node7" href="$classscripts_1_1Motion_1_1MoveBaseModules_1_1tebLocalPlannerROSModule.html" title=" " alt="" coords="796,136,1063,177"/>
+</map>

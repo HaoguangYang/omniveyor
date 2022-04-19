@@ -1,0 +1,555 @@
+\documentclass{article}
+\usepackage{ifthen}
+\usepackage{epsfig}
+\usepackage[utf8]{inputenc}
+\usepackage{newunicodechar}
+  \newunicodechar{⁻}{${}^{-}$}% Superscript minus
+  \newunicodechar{²}{${}^{2}$}% Superscript two
+  \newunicodechar{³}{${}^{3}$}% Superscript three
+
+\pagestyle{empty}
+\begin{document}
+\[ {\bf M}_{i}\,=\,\left(\vec{P}_{i},\, \vec{V}_{i},\, \vec{A}_{i} \right) \]
+\pagebreak
+
+\[ {\bf M}_{i}^{\,trgt}\,=\,\left(\vec{P}_{i}^{\,trgt},\, \vec{V}_{i}^{\,trgt},\, \vec{0} \right) \]
+\pagebreak
+
+\[ {\bf B}_{i}\,=\,\left( \vec{V}_{i}^{\,max},\, \vec{A}_{i}^{\,max},\, \vec{J}_{i}^{\,max} \right) \]
+\pagebreak
+
+$ {\bf M}_{i+1} $
+\pagebreak
+
+$ \vec{S}_i $
+\pagebreak
+
+$ _kt_{i}^{\,min} $
+\pagebreak
+
+$ k \ \in\ \{1,\dots,K\}$
+\pagebreak
+
+$ t_i^{\,sync} $
+\pagebreak
+
+$ {\cal P}_{Step1} $
+\pagebreak
+
+$ _k\Psi_i^{\,Step1}\ \in\ {\cal P}_{Step1} $
+\pagebreak
+
+$ k \ \in\ \{1,\dots,K\} $
+\pagebreak
+
+$ Z\,=\,3 $
+\pagebreak
+
+$ Z\,=\,1 $
+\pagebreak
+
+$ _k{\cal Z}_{i} $
+\pagebreak
+
+\[ _k^z\zeta_{i}\,=\,\left[^z_kt_{i}^{\,begin},\,^z_kt_{i}^{\,end}\right],\ \mbox{with}\ z\ \in\ \left\{1,\,\dots,\,Z\right\} \]
+\pagebreak
+
+\[ _k^z\zeta_{i}\ \forall\ (z,\,k)\ \in \ \left\{1,\,\dots,\,Z\right\}\times\left\{1,\,\dots,\,K\right\} \]
+\pagebreak
+
+$ _k\vec{M}_i $
+\pagebreak
+
+$ _k\vec{M}_i^{\,trgt} $
+\pagebreak
+
+$ _k\Psi_i^{\,Step2} $
+\pagebreak
+
+$ k $
+\pagebreak
+
+$ {\cal P}_{Step2} $
+\pagebreak
+
+$ T_{i+1}$
+\pagebreak
+
+$ \vec{A}_i$
+\pagebreak
+
+$ \vec{J}_i^{\,max} $
+\pagebreak
+
+$ 10^{11} $
+\pagebreak
+
+$ \vec{V}_{i}^{\,\underline{trgt}} $
+\pagebreak
+
+$ \vec{A}_i^{\,max} $
+\pagebreak
+
+$ \vec{V}_{i}^{\,\underline{trgt}}\ =\ \vec{0}$
+\pagebreak
+
+$ \vec{V}_{i}^{\,\underline{trgt}}\ \neq\ \vec{0}$
+\pagebreak
+
+$ \vec{V}_{i}^{\,\underline{trgt}}\ =\ \vec{V}_i$
+\pagebreak
+
+\[ \begin{array}{rrcl} \forall\ k\ \in\ \left\{1,\,\dots,\,K\right\}:\ \ \ \ &_{k}P_{i+1}&\ =\ &_{k}P_{i}\ +\ _{k}V_{i}\,T^{\,cycle}\\[3ex] &_{k}V_{i+1}&\ =\ &_{k}V_{i}\\[3ex] \end{array} \]
+\pagebreak
+
+$ K $
+\pagebreak
+
+$ T^{\,cycle} $
+\pagebreak
+
+$ _{k}P_{i} $
+\pagebreak
+
+$ T_i $
+\pagebreak
+
+$ _{k}V_{i} $
+\pagebreak
+
+$ _{k}P_{i+1} $
+\pagebreak
+
+$ T_{i+1} $
+\pagebreak
+
+$ _{k}V_{i+1} $
+\pagebreak
+
+$ T_{i} $
+\pagebreak
+
+$ T_{i+1}\ -\ T_{i}\ =\ T^{\,cycle} $
+\pagebreak
+
+$ t\ =\ 3075\,ms$
+\pagebreak
+
+$ t\ =\ 6190\,ms$
+\pagebreak
+
+$ t\ =\ 9305\,ms, 12420\,ms, 15535\,ms$
+\pagebreak
+
+$ \vec{P}_i(t)\ =\ \left(\,\!_1p_i(t),\,_2p_i(t)\right) $
+\pagebreak
+
+$ {\bf M}_i $
+\pagebreak
+
+$ \vec{P}_i \ \Longrightarrow \ $
+\pagebreak
+
+$ \vec{V}_i \ \Longrightarrow \ $
+\pagebreak
+
+$ {\bf B}_i \ \Longrightarrow \ $
+\pagebreak
+
+$ \vec{V}_i^{\,max} \ \Longrightarrow \ $
+\pagebreak
+
+$ \vec{A}_i^{\,max} \ \Longrightarrow \ $
+\pagebreak
+
+$ {\bf M}_i^{\,trgt} \ \Longrightarrow \ $
+\pagebreak
+
+$ \vec{P}_i^{\,trgt} \ \Longrightarrow \ $
+\pagebreak
+
+$ \vec{V}_i^{\,trgt} \ \Longrightarrow \ $
+\pagebreak
+
+$ \vec{S}_i \ \Longrightarrow \ $
+\pagebreak
+
+$ 1,\,\dots,\,K $
+\pagebreak
+
+\[ \vec{P}_i\ =\ \left(\,\!_1P_i,\,\dots,\,_kP_i,\,\dots,\,_KP_i\right)^T \]
+\pagebreak
+
+$ _kP_i $
+\pagebreak
+
+$ _kS_i $
+\pagebreak
+
+$ _kP_i^{\,trgt} $
+\pagebreak
+
+$ \vec{V}_i^{\,max} $
+\pagebreak
+
+$ _kV_i^{\,max} $
+\pagebreak
+
+$ _kA_i^{\,max} $
+\pagebreak
+
+$ _kV_i^{\,max} \ > \ 0 $
+\pagebreak
+
+$ _kA_i^{\,max} \ > \ 0 $
+\pagebreak
+
+$ \vec{V}_i^{\,trgt} $
+\pagebreak
+
+\[ _kV_i^{\,trgt}\ \le \ _kV_i^{\,max}\ \forall\ \left\{1,\,\dots,\,K\right\} \]
+\pagebreak
+
+\[ \frac{\displaystyle \mbox{max}\left( \,\!_kA_i^{\,max}, \, \,\!_kV_i^{\,max}, \, \left|\,\!_kP_i\right|, \, \left|\,\!_kP_i^{\,trgt}\right|, \, \left|\,\!_kV_i\right| \right)}{\displaystyle \mbox{min}\left(\,\!_kA_i^{\,max}, \, \,\!_kV_i^{\,max} \right)} \ \le\ 10^8 \]
+\pagebreak
+
+\[ \frac{\displaystyle \mbox{max}\left( \,\!_kA_i^{\,max}, \, \left|\,\!_kP_i\right|, \, \left|\,\!_kV_i^{\,trgt}\right|, \, \left|\,\!_kV_i\right| \right)}{\displaystyle \mbox{min}\left(\,\!_kA_i^{\,max} \right)} \ \le\ 10^{10} \]
+\pagebreak
+
+\[ \begin{array}{rcl} _kV_i^{\,max}&=&10000000\\[2ex] _kA_i^{\,max}&=&500\\[2ex] _kP_i&=&25\\[2ex] _kV_i&=&-35\\[2ex] _kP_i^{\,trgt}&=&5\\[2ex] _kV_i^{\,trgt}&=&5000\\[2ex] \end{array} \]
+\pagebreak
+
+$ \frac{\displaystyle _kV_i^{\,max}}{\displaystyle _kP_i^{\,trgt}} \ =\ \frac{\displaystyle 10^7}{\displaystyle 5}\ =\ 2\cdot10^6\ \le 10^8 $
+\pagebreak
+
+\[ \begin{array}{rcl} _kV_i^{\,max}&=&10000000\\[2ex] _kA_i^{\,max}&=&0.001\\[2ex] _kP_i&=&25\\[2ex] _kV_i&=&-35\\[2ex] _kP_i^{\,trgt}&=&5\\[2ex] _kV_i^{\,trgt}&=&5000\\[2ex] \end{array} \]
+\pagebreak
+
+$ \frac{\displaystyle _kV_i^{\,max}}{\displaystyle _kA_i^{\,max}} \ =\ \frac{\displaystyle 10^7}{\displaystyle 10^{-3}}\ =\ 10^{10}\ \not\leq 10^8 $
+\pagebreak
+
+$ \vec{P}_{i+1} \ \Longrightarrow \ $
+\pagebreak
+
+$ \vec{V}_{i+1} \ \Longrightarrow \ $
+\pagebreak
+
+$ \vec{A}_{i+1} \ \Longrightarrow \ $
+\pagebreak
+
+$ {\bf M}_i^{\,trgt} $
+\pagebreak
+
+$ \overrightarrow{\mbox{min}}\Big(\vec{p}_i\left(t\right)\Big) \ \Longrightarrow \ $
+\pagebreak
+
+$ \overrightarrow{\mbox{max}}\Big(\vec{p}_i\left(t\right)\Big) \ \Longrightarrow \ $
+\pagebreak
+
+${\bf M}_0^{\,trgt}\,=\,\left(\vec{P}_{0}^{trgt},\,\vec{V}_{0}^{trgt},\,\vec{0}\right)$
+\pagebreak
+
+${\bf M}_0 $
+\pagebreak
+
+${\bf M}_0^{\,trgt} $
+\pagebreak
+
+$t\,=\,3075\,ms$
+\pagebreak
+
+${\bf M}_{3075}^{\,trgt}\,=\,{\bf M}_0^{\,trgt}$
+\pagebreak
+
+$ O(n) $
+\pagebreak
+
+$ n $
+\pagebreak
+
+$ {\bf W}_0\,=\,\left(\,\!_1\vec{W}_0,\,_2\vec{W}_0\right)^T $
+\pagebreak
+
+$ {\bf M}_{1000}^{\,trgt} $
+\pagebreak
+
+$ t\,=\,3873\,ms $
+\pagebreak
+
+$ {\bf M}_0^{\,trgt} $
+\pagebreak
+
+$ t\,=\,6756\,ms $
+\pagebreak
+
+$ {\bf W}_0 $
+\pagebreak
+
+$ {\bf B}_i $
+\pagebreak
+
+$ {\bf S}_i $
+\pagebreak
+
+$ {\bf M}_{i} $
+\pagebreak
+
+$ \vec{P}_i{\,trgt} $
+\pagebreak
+
+$ \vec{V}_i{\,max} $
+\pagebreak
+
+$ 10^{10} $
+\pagebreak
+
+$10^{10}\,s$
+\pagebreak
+
+$ \vec{S}_{i} $
+\pagebreak
+
+$ \vec{P}_{i} $
+\pagebreak
+
+$ \vec{V}_{i} $
+\pagebreak
+
+$ \vec{A}_{i} $
+\pagebreak
+
+$ \vec{A}_{i}^{\,max} $
+\pagebreak
+
+$ \vec{J}_{i}^{\,max} $
+\pagebreak
+
+$ \vec{V}_{i}^{\,trgt} $
+\pagebreak
+
+$ \vec{P}_{i+1} $
+\pagebreak
+
+$ \vec{V}_{i+1} $
+\pagebreak
+
+$ \vec{A}_{i+1} $
+\pagebreak
+
+$_{k}\vec{M}_{i}^{\,trgt} $
+\pagebreak
+
+$ t_{i}^{,sync} $
+\pagebreak
+
+$\ _{k}V_{i}^{\,trgt} $
+\pagebreak
+
+$ t_{i}^{\,sync} $
+\pagebreak
+
+$ \vec{V}_i $
+\pagebreak
+
+$ \vec{V}_{i}^{\,max} $
+\pagebreak
+
+$ \vec{P}_{i}^{\,trgt} $
+\pagebreak
+
+$\ _{k}t_{i}^{\,min} $
+\pagebreak
+
+$\ _{k}P_{i} $
+\pagebreak
+
+$\ _{k}V_{i} $
+\pagebreak
+
+$\ _{k}P_{i}^{\,trgt} $
+\pagebreak
+
+$\ _{k}V_{i}^{\,max} $
+\pagebreak
+
+$\ _{k}A_{i}^{\,max} $
+\pagebreak
+
+$\ _{k}t_{i}^{\,begin} $
+\pagebreak
+
+$\ _{k}t_{i}^{\,end} $
+\pagebreak
+
+$ \infty = 10^{100} $
+\pagebreak
+
+$t_i^{\,min}$
+\pagebreak
+
+$ \left(\left|Value1\,-\,Value2\right|\ <=\ Epsilon\right)$
+\pagebreak
+
+$ f(t) = a_2 \cdot (t - \Delta T)^2 + a_1 \cdot (t - \Delta T) + a_0 $
+\pagebreak
+
+$\ \Longrightarrow \ a_2$
+\pagebreak
+
+$\ \Longrightarrow \ a_1$
+\pagebreak
+
+$\ \Longrightarrow \ a_0$
+\pagebreak
+
+$\ \Longrightarrow \ \Delta T$
+\pagebreak
+
+$ f(t) = (t - r_1) \cdot (t - r_2) $
+\pagebreak
+
+$ r_1 $
+\pagebreak
+
+$ r_2 $
+\pagebreak
+
+$ t $
+\pagebreak
+
+$ f(t) $
+\pagebreak
+
+$t$
+\pagebreak
+
+$ a_2 $
+\pagebreak
+
+$ a_1 $
+\pagebreak
+
+$ a_0 $
+\pagebreak
+
+$ \Delta T $
+\pagebreak
+
+$\ _{k}^{l}p_{i}(t)\ \forall\ l\ \in\ \{1,\,\dots,\,L\} $
+\pagebreak
+
+$ L $
+\pagebreak
+
+$\ _{k}^{l}v_{i}(t)\ \forall\ l\ \in\ \{1,\,\dots,\,L\} $
+\pagebreak
+
+$\ _{k}^{l}a_{i}(t)\ \forall\ l\ \in\ \{1,\,\dots,\,L\} $
+\pagebreak
+
+$ {\cal M}_{i}(t) $
+\pagebreak
+
+$ \vec{P}_i^{\,trgt} $
+\pagebreak
+
+$ \vec{t}_i^{\,min} $
+\pagebreak
+
+$ _k{\cal Z}_i\ \forall\ k\ \in\ \left\{1,\,\dots,\,K\right\} $
+\pagebreak
+
+$ \vec{t}_i^{\,begin} $
+\pagebreak
+
+$ \vec{t}_i^{\,end} $
+\pagebreak
+
+$ _k\zeta_{i}\ \forall\ k\ \in \ \left\{1,\,\dots,\,K\right\} $
+\pagebreak
+
+$ _k\zeta_{i}\,=\,\left[_kt_{i}^{\,begin},\,_kt_{i}^{\,end}\right] $
+\pagebreak
+
+$ _kt_{i}^{\,begin} $
+\pagebreak
+
+$ _kt_{i}^{\,end} $
+\pagebreak
+
+$ \left(\vec{P}_{i}^{\,trgt}\,-\,\vec{P}_{i}\right) $
+\pagebreak
+
+$ \vec{\varrho}_i $
+\pagebreak
+
+$ \kappa $
+\pagebreak
+
+$ _{\kappa}{\cal M}_{i}(t) $
+\pagebreak
+
+$ \left\{1,\,\dots,\,K\right\}\backslash\left\{\kappa\right\} $
+\pagebreak
+
+$ \vec{P}_i $
+\pagebreak
+
+$ _{\kappa}\varrho_i\,=\,1 $
+\pagebreak
+
+$ \left( \vec{P}_i^{\,trgt}\,-\,\vec{P}_i \right) $
+\pagebreak
+
+$ \left.\vec{V}_i^{\,max}\right.' $
+\pagebreak
+
+$ \left.\vec{A}_i^{\,max}\right.' $
+\pagebreak
+
+$ 3\,\cdot\,K $
+\pagebreak
+
+$ {\bf W}_i $
+\pagebreak
+
+$ {\cal M}_i $
+\pagebreak
+
+$ \left( \vec{P}_i^{\,trgt}\ -\ \vec{P}_i\right) $
+\pagebreak
+
+$ \vec{A}_i $
+\pagebreak
+
+$ _kt_i^{\,min},\,_kt_i^{\,begin},\,_kt_i^{\,end}\ \forall\ k\ \in\ \left\{1,\,\dots,\,K\right\} $
+\pagebreak
+
+$ _k{\cal M}_{i}(t) $
+\pagebreak
+
+$ ^{\left(\Lambda+1\right)}_{\ \ \ \ \ k}t_i $
+\pagebreak
+
+$ \Lambda $
+\pagebreak
+
+$ t_{i}^{\,min} $
+\pagebreak
+
+$ \vec{A}_{i}\,=\,\vec{0} $
+\pagebreak
+
+$ \vec{V}_{i+1}\,=\,\vec{V}_{i} $
+\pagebreak
+
+$ \vec{P}_{i+1}\,=\,\vec{P}_{i}\,+\,\vec{V}_{i}\,\cdot\,T^{\,cycle} $
+\pagebreak
+
+$ _kV_i $
+\pagebreak
+
+$ _kV_i^{\,trgt} $
+\pagebreak
+
+\end{document}

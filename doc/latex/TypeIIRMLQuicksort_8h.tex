@@ -1,0 +1,81 @@
+\hypertarget{TypeIIRMLQuicksort_8h}{}\doxysection{/home/jonathan/\+Omni\+Dev/src/omniveyor\+\_\+hardware/pcv\+\_\+base/external/\+Reflexxes\+Type\+I\+I/include/\+Type\+I\+I\+R\+M\+L\+Quicksort.h File Reference}
+\label{TypeIIRMLQuicksort_8h}\index{/home/jonathan/OmniDev/src/omniveyor\_hardware/pcv\_base/external/ReflexxesTypeII/include/TypeIIRMLQuicksort.h@{/home/jonathan/OmniDev/src/omniveyor\_hardware/pcv\_base/external/ReflexxesTypeII/include/TypeIIRMLQuicksort.h}}
+
+
+\mbox{\hyperlink{structHeader}{Header}} file for the Quicksort algorithm.  
+
+
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{TypeIIRMLQuicksort_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{TypeIIRMLQuicksort_8h_a270812c90cd2fa70072d0563ce66accc}{Type\+I\+I\+R\+M\+L\+Math\+::\+Quicksort}} (const int \&Left\+Bound, const int \&Right\+Bound, double $\ast$Array\+Of\+Values)
+\begin{DoxyCompactList}\small\item\em Standard implementation of the Quicksort algorithm for {\ttfamily double} values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{structHeader}{Header}} file for the Quicksort algorithm. 
+
+\mbox{\hyperlink{structHeader}{Header}} file for the Quicksort algorithm to be used for within in the library of the Type II \mbox{\hyperlink{classOTG}{O\+TG}} algorithm. The Quicksort function is part of the namespace Type\+I\+I\+R\+M\+L\+Math.
+
+\begin{DoxyDate}{Date}
+April 2015
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+2.\+7
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Torsten Kroeger, \href{mailto:info@reflexxes.com}{\texttt{ info@reflexxes.\+com}} ~\newline
+ 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) 2015 Google, Inc. ~\newline
+~\newline
+{\bfseries{G\+NU Lesser General Public License}} ~\newline
+~\newline
+This file is part of the Type II Reflexxes Motion Library. ~\newline
+~\newline
+The Type II Reflexxes Motion Library is free software\+: you can redistribute it and/or modify it under the terms of the G\+NU Lesser General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. ~\newline
+~\newline
+The Type II Reflexxes Motion Library is distributed in the hope that it will be useful, but W\+I\+T\+H\+O\+UT A\+NY W\+A\+R\+R\+A\+N\+TY; without even the implied warranty of M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+TY or F\+I\+T\+N\+E\+SS F\+OR A P\+A\+R\+T\+I\+C\+U\+L\+AR P\+U\+R\+P\+O\+SE. See the G\+NU Lesser General Public License for more details. ~\newline
+~\newline
+You should have received a copy of the G\+NU Lesser General Public License along with the Type II Reflexxes Motion Library. If not, see \href{http://www.gnu.org/licenses/}{\texttt{ http\+://www.\+gnu.\+org/licenses/}}. 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{TypeIIRMLQuicksort_8h_a270812c90cd2fa70072d0563ce66accc}\label{TypeIIRMLQuicksort_8h_a270812c90cd2fa70072d0563ce66accc}} 
+\index{TypeIIRMLQuicksort.h@{TypeIIRMLQuicksort.h}!Quicksort@{Quicksort}}
+\index{Quicksort@{Quicksort}!TypeIIRMLQuicksort.h@{TypeIIRMLQuicksort.h}}
+\doxysubsubsection{\texorpdfstring{Quicksort()}{Quicksort()}}
+{\footnotesize\ttfamily void Type\+I\+I\+R\+M\+L\+Math\+::\+Quicksort (\begin{DoxyParamCaption}\item[{const int \&}]{Left\+Bound,  }\item[{const int \&}]{Right\+Bound,  }\item[{double $\ast$}]{Array\+Of\+Values }\end{DoxyParamCaption})}
+
+
+
+Standard implementation of the Quicksort algorithm for {\ttfamily double} values. 
+
+This function is used to sort of time values that are calculated during Step 1~\newline
+~\newline
+ $ _kt_i^{\,min},\,_kt_i^{\,begin},\,_kt_i^{\,end}\ \forall\ k\ \in\ \left\{1,\,\dots,\,K\right\} $~\newline
+~\newline
+where $ K $ is the number of degrees of freedom.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Left\+Bound} & Index value for the left border\\
+\hline
+{\em Right\+Bound} & Index value for the right border\\
+\hline
+{\em Array\+Of\+Values} & A pointer to an array of double values to be sorted\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classTypeIIRMLPosition_a8a1148e55ce2ddcb200605d81ba015a6}{Type\+I\+I\+R\+M\+L\+Position\+::\+Step1()}} 
+\end{DoxySeeAlso}

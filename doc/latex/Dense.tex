@@ -1,0 +1,55 @@
+After Compression, the GE matrix is a square matrix that looks like this\+: \begin{DoxyVerb}+-----------------+----------------+--------------+
+|  Dense Deferred | Dense Deferred | Dense Mixing | <- About half
+|                 |                |              |
++-----------------+----------------+--------------+
+|                 | Dense Deferred | Dense Mixing | <- About half
+|        0        |                |              |
+|                 |----------------+--------------+
+|                 | Sparse Deferred| Dense Mixing | <- Last few rows
++-----------------+----------------+--------------+
+         ^                  ^---- Middle third of the columns
+         \------ Left third of the columns
+\end{DoxyVerb}
+
+
+The dense rows are generated so that they can quickly be eliminated with as few row operations as possible. This elimination can be visualized as a matrix-\/matrix multiplication between the peeling submatrix and the deferred/dense submatrix intersection with the peeled columns. Using Shuffle-\/2 Codes, I have been able to achieve this matrix-\/matrix multiplication in just 2.\+5$\ast$N row operations, which is better than any other approach I have seen so far.
+
+I needed to find a way to generate a binary matrix that looks random but actually only differs by $\sim$2 bits per row. I looked at using normal Gray codes or more Weyl generators but they both are restricted to a subset of the total possibilities. Instead, the standard in-\/place shuffle algorithm is used to shuffle row and column orders to make it look random. This new algorithm is able to generate nearly all possible combinations with approximately uniform likelihood, and the generated matrix can be addressed by a 32-\/bit seed, so it is easy to regenerate the same matrix again, or generate many new random matrices without reseeding.
+
+Shuffling generates the first row randomly, and each following row is X\+O\+Red by two columns, one with a bit set and one without. The order of X\+OR pairs is decided by the initial shuffling. The order of the generated rows is shuffled separately.
+
+Example output\+: A random 17x17 matrix \begin{DoxyVerb}10000001111010011
+00111110100101100
+11000001011010011
+00101100111110010
+00111100101101100
+00111100101110100
+11000011010010011
+01111110000101100
+01011111000101100
+00101000111010011
+00101100111110100
+11010011000001011
+00101000111110010
+10100000111010011
+11010111000001101
+11010111000101100
+11000011010001011
+\end{DoxyVerb}
+
+
+This code I am calling a Perfect Shuffle-\/2 Code.
+
+These are \char`\"{}perfect\char`\"{} matrices in that they have the same Hamming weight in each row and each column. The problem is that this type of matrix is N\+E\+V\+ER invertible, so the perfect structure must be destroyed in order to get a good code for error correction.
+
+The resulting code is called a Shuffle-\/2 code.
+
+Here is the Shuffle-\/2 submatrix generation process\+:
+
+Split the dense submatrix of the matrix into DxD squares. For each DxD square subsubmatrix, Shuffle the destination row order. Shuffle the bit flip order. Generate a random bit string with weight D/2 for the first output row. Reshuffle the bit flip order. $<$-\/ Helps recovery properties a lot! Flip two bits for each row of the first half of the outputs. Reshuffle the bit flip order. $<$-\/ Helps recovery properties a lot! Flip two bits for each row of the last half of the outputs.
+
+This effectively destroys the perfection of the code, and makes the square matrices invertible about as often as a random G\+F(2) code, so that using these easily generated square matrices does not hurt the error correction properties of the code. Random G\+F(2) matrices are invertible about 30\% of the time, and these are invertible about 15\% of the time when D Mod 4 = 2. Other choices of D are not so good.
+
+A Shuffle-\/3 Code would reshuffle 3 times and flip 3 bits per row, and a Shuffle-\/4 Code would reshuffle 4 times and flip 4 bits per row. This is probably not the first time that someone has invented this. I believe that Moon Ho Lee has come up with something similar and more mathematically rigorous, though I believe he was using Shuffle-\/4 for quantum cryptography. Shuffle-\/2 is much faster and works for this application because columns from different DxD matrices are randomly selected for use in the GE matrix. And furthermore the rank needed from the selected columns is usually much less than the row count.
+
+Multiply\+Dense\+Rows() does not actually use memxor() to generate any row block values because it is not certain where the values will end up, yet. So instead this multiplication is done again in the Multiply\+Dense\+Values() function after Triangle() succeeds. 

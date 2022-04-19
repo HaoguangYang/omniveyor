@@ -1,0 +1,252 @@
+The input values of the position-\/based On-\/\+Line Trajectory Generation (\mbox{\hyperlink{classOTG}{O\+TG}}) algorithm are set-\/up through the classes \mbox{\hyperlink{classRMLPositionInputParameters}{R\+M\+L\+Position\+Input\+Parameters}} and \mbox{\hyperlink{classRMLPositionFlags}{R\+M\+L\+Position\+Flags}}, and the input values of the velocity-\/based On-\/\+Line Trajectory Generation algorithm are set-\/up through the classes \mbox{\hyperlink{classRMLVelocityInputParameters}{R\+M\+L\+Velocity\+Input\+Parameters}} and \mbox{\hyperlink{classRMLVelocityFlags}{R\+M\+L\+Velocity\+Flags}}. For a detailed description of these classes, please refer to the class documentation, and for a description of the output values, please refer to the page\+\_\+\+Output\+Values.~\newline
+ ~\newline
+This page contains three sections\+:~\newline
+~\newline
+
+\begin{DoxyEnumerate}
+\item sec\+\_\+\+Input\+Values\+Position~\newline
+~\newline
+
+\item sec\+\_\+\+Input\+Values\+Velocity~\newline
+~\newline
+
+\item sec\+\_\+\+Numerical\+Stability~\newline
+~\newline
+
+\end{DoxyEnumerate}
+
+\DoxyHorRuler{0}
+ \hypertarget{page_InputValues_sec_InputValuesPosition}{}\doxysection{Input Values for the Position-\/based On-\/\+Line Trajectory Generation Algorithm}\label{page_InputValues_sec_InputValuesPosition}
+~\newline
+~\newline
+ 
+
+The {\itshape position-\/based Type II On-\/\+Line Trajectory Generation algorithm} is executed by a call of \mbox{\hyperlink{classReflexxesAPI_a30d3cdba072553a5d53aa4ce4b4a77d1}{Reflexxes\+A\+P\+I\+::\+R\+M\+L\+Position()}}. The input values for the algorithm at a time instant $ T_i $ are contained in \mbox{\hyperlink{classRMLPositionInputParameters}{R\+M\+L\+Position\+Input\+Parameters}}\+:~\newline
+~\newline
+ 
+\begin{DoxyItemize}
+\item the current state of motion $ {\bf M}_i $ consisting of~\newline
+~\newline
+ 
+\begin{DoxyItemize}
+\item the current position/pose vector $ \vec{P}_i \ \Longrightarrow \ $ \mbox{\hyperlink{classRMLInputParameters_a938bd182da1dbb4e7408cd30366aa6e6}{R\+M\+L\+Position\+Input\+Parameters\+::\+Current\+Position\+Vector}} and~\newline
+~\newline
+ 
+\item the current velocity vector $ \vec{V}_i \ \Longrightarrow \ $ \mbox{\hyperlink{classRMLInputParameters_af0eba1c6d626ef1371ba339d3108d11c}{R\+M\+L\+Position\+Input\+Parameters\+::\+Current\+Velocity\+Vector}},~\newline
+~\newline
+ 
+\end{DoxyItemize}
+\item the kinematic motion constraints $ {\bf B}_i \ \Longrightarrow \ $ consisting of~\newline
+~\newline
+ 
+\begin{DoxyItemize}
+\item the current maximum velocity vector $ \vec{V}_i^{\,max} \ \Longrightarrow \ $ \mbox{\hyperlink{classRMLPositionInputParameters_a17a6627f4b46c55b8ff320773cb1b433}{R\+M\+L\+Position\+Input\+Parameters\+::\+Max\+Velocity\+Vector}} and~\newline
+~\newline
+ 
+\item the current maximum acceleration vector $ \vec{A}_i^{\,max} \ \Longrightarrow \ $ \mbox{\hyperlink{classRMLInputParameters_af9c1e6649468c56e9d7f53cf71c9f55d}{R\+M\+L\+Position\+Input\+Parameters\+::\+Max\+Acceleration\+Vector}},~\newline
+~\newline
+ 
+\end{DoxyItemize}
+\item the target state of motion $ {\bf M}_i^{\,trgt} \ \Longrightarrow \ $ consisting of~\newline
+~\newline
+ 
+\begin{DoxyItemize}
+\item the target position/pose vector $ \vec{P}_i^{\,trgt} \ \Longrightarrow \ $ \mbox{\hyperlink{classRMLPositionInputParameters_ad9d17846897a7ac4bef14f45c2a9fa71}{R\+M\+L\+Position\+Input\+Parameters\+::\+Target\+Position\+Vector}} and~\newline
+~\newline
+ 
+\item the target velocity vector $ \vec{V}_i^{\,trgt} \ \Longrightarrow \ $ \mbox{\hyperlink{classRMLInputParameters_a6a2ee2e9b0f995700c66207b35e7dd59}{R\+M\+L\+Position\+Input\+Parameters\+::\+Target\+Velocity\+Vector}},~\newline
+~\newline
+ 
+\end{DoxyItemize}
+\item the boolean selection vector $ \vec{S}_i \ \Longrightarrow \ $ \mbox{\hyperlink{classRMLInputParameters_a2d0492e641eb7018e39011635d6135b2}{R\+M\+L\+Position\+Input\+Parameters\+::\+Selection\+Vector}}, and~\newline
+~\newline
+ 
+\item an {\bfseries{optional}} value for the minimum synchronization time $ \vec{S}_i \ \Longrightarrow \ $ \mbox{\hyperlink{classRMLInputParameters_a293077b01e48af1657edd8765732c836}{R\+M\+L\+Position\+Input\+Parameters\+::\+Minimum\+Synchronization\+Time}}. 
+\end{DoxyItemize}
+
+Each vector contains the values for all degrees of freedom $ 1,\,\dots,\,K $, for instance,
+
+\[ \vec{P}_i\ =\ \left(\,\!_1P_i,\,\dots,\,_kP_i,\,\dots,\,_KP_i\right)^T \]
+
+such that the current position value of the degree of freedom with the index $ k $ is represented by $ _kP_i $.~\newline
+~\newline
+ The selection vector $ \vec{S}_i $ can be used to mask degrees of freedom individually. If the value of $ _kS_i $ is {\ttfamily false}, the degree of freedom with the index $ k $ will not be considered by the algorithm.~\newline
+~\newline
+ Besides the input values \mbox{\hyperlink{classRMLPositionInputParameters}{R\+M\+L\+Position\+Input\+Parameters}}, the class \mbox{\hyperlink{classRMLPositionFlags}{R\+M\+L\+Position\+Flags}} can be used to determine and obtain a certain behavior. The following flags may be used\+:~\newline
+~\newline
+
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{classRMLFlags_a86ba0c388c05fcee85dc57b2aefe5d21}{R\+M\+L\+Position\+Flags\+::\+Synchronization\+Behavior}},~\newline
+~\newline
+
+\item \mbox{\hyperlink{classRMLFlags_a5f2076c59d030993ee522b99873a41cb}{R\+M\+L\+Position\+Flags\+::\+Enable\+The\+Calculation\+Of\+The\+Extremum\+Motion\+States}}, and~\newline
+~\newline
+
+\item \mbox{\hyperlink{classRMLPositionFlags_aeb8be0d5bdaffa0384f2c9915c5134a1}{R\+M\+L\+Position\+Flags\+::\+Keep\+Current\+Velocity\+In\+Case\+Of\+Fallback\+Strategy}}.~\newline
+~\newline
+ A first and simple example that shows, how the position-\/based input values are commonly set-\/up, please refer to the \mbox{\hyperlink{page_Code_01_RMLPositionSampleApplication}{Example 1 --- Introduction to the Position-\/based algorithm}}. A description of the output values of this example can be found at the page \mbox{\hyperlink{page_OutputValues}{Description of Output Values}}. Please also refer to the Section \mbox{\hyperlink{page_InputValues_sec_NumericalStability}{Input Requirements for Numerical Stability}}, which describes the input domains of the algorithm.
+\end{DoxyItemize}
+
+~\newline
+ \begin{DoxyNote}{Note}
+{\bfseries{The variables}}~\newline
+~\newline
+
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{classRMLInputParameters_a423bf4b1ef337cbf6eee22fe2e2502c1}{R\+M\+L\+Position\+Input\+Parameters\+::\+Current\+Acceleration\+Vector}} (containing the the current acceleration vector $ \vec{A}_i$ and~\newline
+~\newline
+ 
+\item \mbox{\hyperlink{classRMLInputParameters_a5968ce643868260410f149996c446b66}{R\+M\+L\+Position\+Input\+Parameters\+::\+Max\+Jerk\+Vector}} (containing the maximum jerk vector $ \vec{J}_i^{\,max} $ ~\newline
+~\newline
+ 
+\end{DoxyItemize}{\bfseries{are only used by the Type IV Reflexxes Motion Library.}}
+\end{DoxyNote}
+~\newline
+ \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classRMLPositionInputParameters}{R\+M\+L\+Position\+Input\+Parameters}} 
+
+\mbox{\hyperlink{classRMLPositionFlags}{R\+M\+L\+Position\+Flags}} 
+
+\mbox{\hyperlink{page_OutputValues}{Description of Output Values}}
+\end{DoxySeeAlso}
+~\newline
+ \DoxyHorRuler{0}
+\hypertarget{page_InputValues_sec_InputValuesVelocity}{}\doxysection{Input Values for the Velocity-\/based On-\/\+Line Trajectory Generation Algorithm}\label{page_InputValues_sec_InputValuesVelocity}
+~\newline
+~\newline
+ 
+
+The {\itshape velocity-\/based Type II On-\/\+Line Trajectory Generation algorithm} is executed by a call of \mbox{\hyperlink{classReflexxesAPI_aaf2478f04265b6a6ac04b1b218a30678}{Reflexxes\+A\+P\+I\+::\+R\+M\+L\+Velocity()}}, and its input values are the very same as for the position-\/based algorithm (see above), but the values for the target position $ _kP_i^{\,trgt} $ and the maximum velocity vector $ \vec{V}_i^{\,max} $ are not considered, and the flag \mbox{\hyperlink{classRMLPositionFlags_aeb8be0d5bdaffa0384f2c9915c5134a1}{R\+M\+L\+Position\+Flags\+::\+Keep\+Current\+Velocity\+In\+Case\+Of\+Fallback\+Strategy}} is not available.~\newline
+~\newline
+The input values for the velocity-\/based algorithm at a time instant $ T_i $ are contained in \mbox{\hyperlink{classRMLVelocityInputParameters}{R\+M\+L\+Velocity\+Input\+Parameters}}\+:~\newline
+~\newline
+ 
+\begin{DoxyItemize}
+\item the current state of motion $ {\bf M}_i $ consisting of~\newline
+~\newline
+ 
+\begin{DoxyItemize}
+\item the current position/pose vector $ \vec{P}_i \ \Longrightarrow \ $ \mbox{\hyperlink{classRMLInputParameters_a938bd182da1dbb4e7408cd30366aa6e6}{R\+M\+L\+Velocity\+Input\+Parameters\+::\+Current\+Position\+Vector}} and~\newline
+~\newline
+ 
+\item the current velocity vector $ \vec{V}_i \ \Longrightarrow \ $ \mbox{\hyperlink{classRMLInputParameters_af0eba1c6d626ef1371ba339d3108d11c}{R\+M\+L\+Velocity\+Input\+Parameters\+::\+Current\+Velocity\+Vector}},~\newline
+~\newline
+ 
+\end{DoxyItemize}
+\item the kinematic motion constraints $ {\bf B}_i \ \Longrightarrow \ $ consisting of~\newline
+~\newline
+ 
+\begin{DoxyItemize}
+\item the current maximum acceleration vector $ \vec{A}_i^{\,max} \ \Longrightarrow \ $ \mbox{\hyperlink{classRMLInputParameters_af9c1e6649468c56e9d7f53cf71c9f55d}{R\+M\+L\+Velocity\+Input\+Parameters\+::\+Max\+Acceleration\+Vector}},~\newline
+~\newline
+ 
+\end{DoxyItemize}
+\item the target state of motion $ {\bf M}_i^{\,trgt} \ \Longrightarrow \ $ consisting of~\newline
+~\newline
+ 
+\begin{DoxyItemize}
+\item the target velocity vector $ \vec{V}_i^{\,trgt} \ \Longrightarrow \ $ \mbox{\hyperlink{classRMLInputParameters_a6a2ee2e9b0f995700c66207b35e7dd59}{R\+M\+L\+Position\+Input\+Parameters\+::\+Target\+Velocity\+Vector}},~\newline
+~\newline
+ 
+\end{DoxyItemize}
+\item the boolean selection vector $ \vec{S}_i \ \Longrightarrow \ $ \mbox{\hyperlink{classRMLInputParameters_a2d0492e641eb7018e39011635d6135b2}{R\+M\+L\+Velocity\+Input\+Parameters\+::\+Selection\+Vector}}, and~\newline
+~\newline
+ an {\bfseries{optional}} value for the minimum synchronization time $ \vec{S}_i \ \Longrightarrow \ $ \mbox{\hyperlink{classRMLInputParameters_a293077b01e48af1657edd8765732c836}{R\+M\+L\+Velocity\+Input\+Parameters\+::\+Minimum\+Synchronization\+Time}}.~\newline
+~\newline
+ 
+\end{DoxyItemize}
+
+Besides the input values \mbox{\hyperlink{classRMLVelocityInputParameters}{R\+M\+L\+Velocity\+Input\+Parameters}}, the class \mbox{\hyperlink{classRMLVelocityFlags}{R\+M\+L\+Velocity\+Flags}} can be used to determine and obtain a certain behavior. The following flags may be used\+:~\newline
+~\newline
+
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{classRMLFlags_a86ba0c388c05fcee85dc57b2aefe5d21}{R\+M\+L\+Velocity\+Flags\+::\+Synchronization\+Behavior}} and~\newline
+~\newline
+
+\item \mbox{\hyperlink{classRMLFlags_a5f2076c59d030993ee522b99873a41cb}{R\+M\+L\+Velocity\+Flags\+::\+Enable\+The\+Calculation\+Of\+The\+Extremum\+Motion\+States}}.~\newline
+~\newline
+ A first and simple example that shows, how the velocity-\/based input values are commonly set-\/up, please refer to the \mbox{\hyperlink{page_Code_04_RMLVelocitySampleApplication}{Example 4 --- Introduction to the Velocity-\/based algorithm}}. A description of the output values of this example can be found at the page \mbox{\hyperlink{page_OutputValues}{Description of Output Values}}. Please also refer to the Section \mbox{\hyperlink{page_InputValues_sec_NumericalStability}{Input Requirements for Numerical Stability}}, which describes the input domains of the algorithm.
+\end{DoxyItemize}
+
+~\newline
+ \begin{DoxyNote}{Note}
+{\bfseries{The variables}}~\newline
+~\newline
+
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{classRMLInputParameters_a423bf4b1ef337cbf6eee22fe2e2502c1}{R\+M\+L\+Position\+Input\+Parameters\+::\+Current\+Acceleration\+Vector}} (containing the the current acceleration vector $ \vec{A}_i$ and~\newline
+~\newline
+ 
+\item \mbox{\hyperlink{classRMLInputParameters_a5968ce643868260410f149996c446b66}{R\+M\+L\+Position\+Input\+Parameters\+::\+Max\+Jerk\+Vector}} (containing the maximum jerk vector $ \vec{J}_i^{\,max} $ ~\newline
+~\newline
+ 
+\end{DoxyItemize}{\bfseries{are only used by the Type IV Reflexxes Motion Library.}}
+\end{DoxyNote}
+~\newline
+ \begin{DoxyNote}{Note}
+The velocity-\/based algorithm is also used in the second layer of the safety mechanism to guarantee valid output value for any given set of input values (cf. \mbox{\hyperlink{page_ErrorHandling}{Safety\+: Three Layers of Error Handling}}).
+\end{DoxyNote}
+~\newline
+ \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classRMLVelocityInputParameters}{R\+M\+L\+Velocity\+Input\+Parameters}} 
+
+\mbox{\hyperlink{classRMLVelocityFlags}{R\+M\+L\+Velocity\+Flags}} 
+
+\mbox{\hyperlink{page_OutputValues}{Description of Output Values}}
+\end{DoxySeeAlso}
+~\newline
+ \DoxyHorRuler{0}
+\hypertarget{page_InputValues_sec_NumericalStability}{}\doxysection{Input Requirements for Numerical Stability}\label{page_InputValues_sec_NumericalStability}
+In order to assure feasibility and numerical stability, {\bfseries{two basic conditions}} have to be fulfilled for each selected degree of freedom $ k $ in order to obtain correct output values\+:~\newline
+~\newline
+ 
+\begin{DoxyEnumerate}
+\item The maximum velocity $ _kV_i^{\,max} $ and the maximum acceleration $ _kA_i^{\,max} $ must be greater than zero\+:~\newline
+~\newline
+ 
+\begin{DoxyItemize}
+\item $ _kV_i^{\,max} \ > \ 0 $~\newline
+~\newline
+ 
+\item $ _kA_i^{\,max} \ > \ 0 $~\newline
+~\newline
+~\newline
+ 
+\end{DoxyItemize}
+\item For the {\bfseries{position-\/based}} algorithm, the elements of the maximum velocity vector $ \vec{V}_i^{\,max} $ has to be greater or equal to the elements of the target velocity $ \vec{V}_i^{\,trgt} $. \[ _kV_i^{\,trgt}\ \le \ _kV_i^{\,max}\ \forall\ \left\{1,\,\dots,\,K\right\} \] ~\newline
+ ~\newline
+~\newline
+ 
+\item All input values have to be within a certain range of magnitude. For the {\bfseries{position-\/based}} algorithm this is range is specified by \[ \frac{\displaystyle \mbox{max}\left( \,\!_kA_i^{\,max}, \, \,\!_kV_i^{\,max}, \, \left|\,\!_kP_i\right|, \, \left|\,\!_kP_i^{\,trgt}\right|, \, \left|\,\!_kV_i\right| \right)}{\displaystyle \mbox{min}\left(\,\!_kA_i^{\,max}, \, \,\!_kV_i^{\,max} \right)} \ \le\ 10^8 \] and for the {\bfseries{velocity-\/based}} algorithm \[ \frac{\displaystyle \mbox{max}\left( \,\!_kA_i^{\,max}, \, \left|\,\!_kP_i\right|, \, \left|\,\!_kV_i^{\,trgt}\right|, \, \left|\,\!_kV_i\right| \right)}{\displaystyle \mbox{min}\left(\,\!_kA_i^{\,max} \right)} \ \le\ 10^{10} \]  
+\end{DoxyEnumerate}
+
+\begin{DoxyNote}{Note}
+
+\begin{DoxyEnumerate}
+\item Although this condition looks like a limitation, in real-\/world systems it does not lead to a disadvantage, because the range of {\bfseries{eight orders of magnitude}} should be very sufficient for any application. As the velocity-\/based algorithm is much simpler from a numerical point of view, {\bfseries{ten orders of magnitude}} are allowed here.~\newline
+~\newline
+  
+\item If this condition is {\itshape not} fulfilled, the Type II Reflexxes Motion Library will try to provide correct output values, and in many cases this will be possible, but no guarantee can be given. Valid output values that lead to steady, continuous and jerk-\/limited motion trajectories are guaranteed in any case (cf. \mbox{\hyperlink{page_ErrorHandling}{Safety\+: Three Layers of Error Handling}}).~\newline
+~\newline
+  
+\end{DoxyEnumerate}
+\end{DoxyNote}
+~\newline
+~\newline
+{\itshape Example for a set of {\bfseries{valid}} input values for one degree of freedom $ k $ at time instant $ T_i $ used for the position-\/based algorithm\+:}~\newline
+~\newline
+ \[ \begin{array}{rcl} _kV_i^{\,max}&=&10000000\\[2ex] _kA_i^{\,max}&=&500\\[2ex] _kP_i&=&25\\[2ex] _kV_i&=&-35\\[2ex] _kP_i^{\,trgt}&=&5\\[2ex] _kV_i^{\,trgt}&=&5000\\[2ex] \end{array} \]
+
+Reason\+: $ \frac{\displaystyle _kV_i^{\,max}}{\displaystyle _kP_i^{\,trgt}} \ =\ \frac{\displaystyle 10^7}{\displaystyle 5}\ =\ 2\cdot10^6\ \le 10^8 $.
+
+~\newline
+~\newline
+{\itshape Example for a set of {\bfseries{invalid}} input values for one degree of freedom $ k $ at time instant $ T_i $ used for the position-\/based algorithm\+:}~\newline
+~\newline
+ \[ \begin{array}{rcl} _kV_i^{\,max}&=&10000000\\[2ex] _kA_i^{\,max}&=&0.001\\[2ex] _kP_i&=&25\\[2ex] _kV_i&=&-35\\[2ex] _kP_i^{\,trgt}&=&5\\[2ex] _kV_i^{\,trgt}&=&5000\\[2ex] \end{array} \]
+
+Reason\+: $ \frac{\displaystyle _kV_i^{\,max}}{\displaystyle _kA_i^{\,max}} \ =\ \frac{\displaystyle 10^7}{\displaystyle 10^{-3}}\ =\ 10^{10}\ \not\leq 10^8 $.~\newline
+~\newline
+
+
+The check, whether the input values are valid, can be done with the methods \mbox{\hyperlink{classRMLPositionInputParameters_a8a36aa4df4c86606a1d47f204cb901a3}{R\+M\+L\+Position\+Input\+Parameters\+::\+Check\+For\+Validity()}} and \mbox{\hyperlink{classRMLVelocityInputParameters_a73ad2f505ef37bef4a8b3b8fdbae95b2}{R\+M\+L\+Velocity\+Input\+Parameters\+::\+Check\+For\+Validity()}}. 

@@ -1,0 +1,261 @@
+\hypertarget{classpid__controller_1_1PIDController}{}\doxysection{pid\+\_\+controller\+::P\+I\+D\+Controller Class Reference}
+\label{classpid__controller_1_1PIDController}\index{pid\_controller::PIDController@{pid\_controller::PIDController}}
+
+
+P\+ID controller as a local planner plugin for movebase. Executes the global plan as-\/is, with optional pose interpretation by interpolating via points in the global plan.  
+
+
+
+
+{\ttfamily \#include $<$pid\+\_\+controller.\+h$>$}
+
+
+
+Inheritance diagram for pid\+\_\+controller\+::P\+I\+D\+Controller\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{classpid__controller_1_1PIDController__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for pid\+\_\+controller\+::P\+I\+D\+Controller\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{classpid__controller_1_1PIDController__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classpid__controller_1_1PIDController_a1549408fe0548a39189705905af73ff4}{P\+I\+D\+Controller}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classpid__controller_1_1PIDController}{P\+I\+D\+Controller}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classpid__controller_1_1PIDController_a0699969a056f9db016fb5cb44d3d5936}{P\+I\+D\+Controller}} (std\+::string name, tf2\+\_\+ros\+::\+Buffer $\ast$tf, costmap\+\_\+2d\+::\+Costmap2\+D\+R\+OS $\ast$costmap\+\_\+ros)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classpid__controller_1_1PIDController}{P\+I\+D\+Controller}} object by passing in parameters. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classpid__controller_1_1PIDController_ad46d28f52e6f3cf03d2f4c23674b65b2}{$\sim$\+P\+I\+D\+Controller}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classpid__controller_1_1PIDController}{P\+I\+D\+Controller}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classpid__controller_1_1PIDController_a7596e97ce94db3a8cc0097a59709ac81}{reconfigure\+Cb}} (P\+I\+D\+Controller\+Config \&config, uint32\+\_\+t level)
+\begin{DoxyCompactList}\small\item\em Callback at a dynamic reconfigure event. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classpid__controller_1_1PIDController_af35582d1760b88430dd2706f4c87e275}{initialize}} (std\+::string name, tf2\+\_\+ros\+::\+Buffer $\ast$tf, costmap\+\_\+2d\+::\+Costmap2\+D\+R\+OS $\ast$costmap\+\_\+ros)
+\begin{DoxyCompactList}\small\item\em Initialize the plugin. Called during construction of the object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classpid__controller_1_1PIDController_a92a05425c3769b12c900199b0bb98853}{accept\+Plan}} (const std\+::vector$<$ geometry\+\_\+msgs\+::\+Pose\+Stamped $>$ \&global\+\_\+plan)
+\begin{DoxyCompactList}\small\item\em Accepting the global plan, transforms and stores via points locally. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classpid__controller_1_1PIDController_a7a39bed019b57a89cc24713614bf9b5c}{set\+Plan}} (const std\+::vector$<$ geometry\+\_\+msgs\+::\+Pose\+Stamped $>$ \&global\+\_\+plan)
+\begin{DoxyCompactList}\small\item\em Set the Plan object. \mbox{\hyperlink{structInterface}{Interface}} with Move\+Base. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classpid__controller_1_1PIDController_a49391c0ccd14f28825cc5ad8ee442a8c}{get\+Transformed\+Position}} (geometry\+\_\+msgs\+::\+Pose\+Stamped \&pose, double $\ast$x, double $\ast$y, double $\ast$th)
+\begin{DoxyCompactList}\small\item\em Get the Transformed Position object, transform poses from map frame to base frame and outputs 2D coordinates in base frame. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classpid__controller_1_1PIDController_a5ae922460398004b5043a526b4dcf658}{calculate\+P\+I\+D\+Controller}} (geometry\+\_\+msgs\+::\+Twist \&cmd\+\_\+vel, bool yield\+Output)
+\begin{DoxyCompactList}\small\item\em Calculate the controller output. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classpid__controller_1_1PIDController_ad3096cada07b27965a8b9d39fee35c09}{compute\+Velocity\+Commands}} (geometry\+\_\+msgs\+::\+Twist \&cmd\+\_\+vel)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structInterface}{Interface}} with Move\+Base that transmits the controller output. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classpid__controller_1_1PIDController_a259d6f45a707b7c9f36bdcd3f6c3654a}{is\+Goal\+Reached}} ()
+\begin{DoxyCompactList}\small\item\em Determines if the final goal of the global plan has reached. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+P\+ID controller as a local planner plugin for movebase. Executes the global plan as-\/is, with optional pose interpretation by interpolating via points in the global plan. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classpid__controller_1_1PIDController_a1549408fe0548a39189705905af73ff4}\label{classpid__controller_1_1PIDController_a1549408fe0548a39189705905af73ff4}} 
+\index{pid\_controller::PIDController@{pid\_controller::PIDController}!PIDController@{PIDController}}
+\index{PIDController@{PIDController}!pid\_controller::PIDController@{pid\_controller::PIDController}}
+\doxysubsubsection{\texorpdfstring{PIDController()}{PIDController()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily pid\+\_\+controller\+::\+P\+I\+D\+Controller\+::\+P\+I\+D\+Controller (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classpid__controller_1_1PIDController}{P\+I\+D\+Controller}} object. 
+
+\mbox{\Hypertarget{classpid__controller_1_1PIDController_a0699969a056f9db016fb5cb44d3d5936}\label{classpid__controller_1_1PIDController_a0699969a056f9db016fb5cb44d3d5936}} 
+\index{pid\_controller::PIDController@{pid\_controller::PIDController}!PIDController@{PIDController}}
+\index{PIDController@{PIDController}!pid\_controller::PIDController@{pid\_controller::PIDController}}
+\doxysubsubsection{\texorpdfstring{PIDController()}{PIDController()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily pid\+\_\+controller\+::\+P\+I\+D\+Controller\+::\+P\+I\+D\+Controller (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{tf2\+\_\+ros\+::\+Buffer $\ast$}]{tf,  }\item[{costmap\+\_\+2d\+::\+Costmap2\+D\+R\+OS $\ast$}]{costmap\+\_\+ros }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classpid__controller_1_1PIDController}{P\+I\+D\+Controller}} object by passing in parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the plugin and its associated namespace. \\
+\hline
+{\em tf} & tf2 buffer with tf\+Listener already attached. \\
+\hline
+{\em costmap\+\_\+ros} & global costmap. Not used in this plugin. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classpid__controller_1_1PIDController_ad46d28f52e6f3cf03d2f4c23674b65b2}\label{classpid__controller_1_1PIDController_ad46d28f52e6f3cf03d2f4c23674b65b2}} 
+\index{pid\_controller::PIDController@{pid\_controller::PIDController}!````~PIDController@{$\sim$PIDController}}
+\index{````~PIDController@{$\sim$PIDController}!pid\_controller::PIDController@{pid\_controller::PIDController}}
+\doxysubsubsection{\texorpdfstring{$\sim$PIDController()}{~PIDController()}}
+{\footnotesize\ttfamily pid\+\_\+controller\+::\+P\+I\+D\+Controller\+::$\sim$\+P\+I\+D\+Controller (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the \mbox{\hyperlink{classpid__controller_1_1PIDController}{P\+I\+D\+Controller}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classpid__controller_1_1PIDController_a92a05425c3769b12c900199b0bb98853}\label{classpid__controller_1_1PIDController_a92a05425c3769b12c900199b0bb98853}} 
+\index{pid\_controller::PIDController@{pid\_controller::PIDController}!acceptPlan@{acceptPlan}}
+\index{acceptPlan@{acceptPlan}!pid\_controller::PIDController@{pid\_controller::PIDController}}
+\doxysubsubsection{\texorpdfstring{acceptPlan()}{acceptPlan()}}
+{\footnotesize\ttfamily void pid\+\_\+controller\+::\+P\+I\+D\+Controller\+::accept\+Plan (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ geometry\+\_\+msgs\+::\+Pose\+Stamped $>$ \&}]{global\+\_\+plan }\end{DoxyParamCaption})}
+
+
+
+Accepting the global plan, transforms and stores via points locally. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em global\+\_\+plan} & plan generated by the global planner. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classpid__controller_1_1PIDController_a5ae922460398004b5043a526b4dcf658}\label{classpid__controller_1_1PIDController_a5ae922460398004b5043a526b4dcf658}} 
+\index{pid\_controller::PIDController@{pid\_controller::PIDController}!calculatePIDController@{calculatePIDController}}
+\index{calculatePIDController@{calculatePIDController}!pid\_controller::PIDController@{pid\_controller::PIDController}}
+\doxysubsubsection{\texorpdfstring{calculatePIDController()}{calculatePIDController()}}
+{\footnotesize\ttfamily void pid\+\_\+controller\+::\+P\+I\+D\+Controller\+::calculate\+P\+I\+D\+Controller (\begin{DoxyParamCaption}\item[{geometry\+\_\+msgs\+::\+Twist \&}]{cmd\+\_\+vel,  }\item[{bool}]{yield\+Output }\end{DoxyParamCaption})}
+
+
+
+Calculate the controller output. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cmd\+\_\+vel} & raw controller output. \\
+\hline
+{\em yield\+Output} & whether the cmd\+\_\+vel should be sent out. Sets zero command when set false. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classpid__controller_1_1PIDController_ad3096cada07b27965a8b9d39fee35c09}\label{classpid__controller_1_1PIDController_ad3096cada07b27965a8b9d39fee35c09}} 
+\index{pid\_controller::PIDController@{pid\_controller::PIDController}!computeVelocityCommands@{computeVelocityCommands}}
+\index{computeVelocityCommands@{computeVelocityCommands}!pid\_controller::PIDController@{pid\_controller::PIDController}}
+\doxysubsubsection{\texorpdfstring{computeVelocityCommands()}{computeVelocityCommands()}}
+{\footnotesize\ttfamily bool pid\+\_\+controller\+::\+P\+I\+D\+Controller\+::compute\+Velocity\+Commands (\begin{DoxyParamCaption}\item[{geometry\+\_\+msgs\+::\+Twist \&}]{cmd\+\_\+vel }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{structInterface}{Interface}} with Move\+Base that transmits the controller output. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cmd\+\_\+vel} & velocity command output. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true when the function executes normally. 
+
+false when the plugin has not yet initialized. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classpid__controller_1_1PIDController_a49391c0ccd14f28825cc5ad8ee442a8c}\label{classpid__controller_1_1PIDController_a49391c0ccd14f28825cc5ad8ee442a8c}} 
+\index{pid\_controller::PIDController@{pid\_controller::PIDController}!getTransformedPosition@{getTransformedPosition}}
+\index{getTransformedPosition@{getTransformedPosition}!pid\_controller::PIDController@{pid\_controller::PIDController}}
+\doxysubsubsection{\texorpdfstring{getTransformedPosition()}{getTransformedPosition()}}
+{\footnotesize\ttfamily bool pid\+\_\+controller\+::\+P\+I\+D\+Controller\+::get\+Transformed\+Position (\begin{DoxyParamCaption}\item[{geometry\+\_\+msgs\+::\+Pose\+Stamped \&}]{pose,  }\item[{double $\ast$}]{x,  }\item[{double $\ast$}]{y,  }\item[{double $\ast$}]{th }\end{DoxyParamCaption})}
+
+
+
+Get the Transformed Position object, transform poses from map frame to base frame and outputs 2D coordinates in base frame. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pose} & input of goal pose currently pursuing \\
+\hline
+{\em x} & output of error in X direction of base frame. \\
+\hline
+{\em y} & output of error in Y direction of base frame. \\
+\hline
+{\em th} & output of error in Y\+AW direction of base frame. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if result is valid. 
+
+false if result is invalid (transform timed out). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classpid__controller_1_1PIDController_af35582d1760b88430dd2706f4c87e275}\label{classpid__controller_1_1PIDController_af35582d1760b88430dd2706f4c87e275}} 
+\index{pid\_controller::PIDController@{pid\_controller::PIDController}!initialize@{initialize}}
+\index{initialize@{initialize}!pid\_controller::PIDController@{pid\_controller::PIDController}}
+\doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily void pid\+\_\+controller\+::\+P\+I\+D\+Controller\+::initialize (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{tf2\+\_\+ros\+::\+Buffer $\ast$}]{tf,  }\item[{costmap\+\_\+2d\+::\+Costmap2\+D\+R\+OS $\ast$}]{costmap\+\_\+ros }\end{DoxyParamCaption})}
+
+
+
+Initialize the plugin. Called during construction of the object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the plugin and its associated namespace. \\
+\hline
+{\em tf} & tf2 buffer with tf\+Listener already attached. \\
+\hline
+{\em costmap\+\_\+ros} & global costmap. Not used in this plugin. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classpid__controller_1_1PIDController_a259d6f45a707b7c9f36bdcd3f6c3654a}\label{classpid__controller_1_1PIDController_a259d6f45a707b7c9f36bdcd3f6c3654a}} 
+\index{pid\_controller::PIDController@{pid\_controller::PIDController}!isGoalReached@{isGoalReached}}
+\index{isGoalReached@{isGoalReached}!pid\_controller::PIDController@{pid\_controller::PIDController}}
+\doxysubsubsection{\texorpdfstring{isGoalReached()}{isGoalReached()}}
+{\footnotesize\ttfamily bool pid\+\_\+controller\+::\+P\+I\+D\+Controller\+::is\+Goal\+Reached (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Determines if the final goal of the global plan has reached. 
+
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classpid__controller_1_1PIDController_a7596e97ce94db3a8cc0097a59709ac81}\label{classpid__controller_1_1PIDController_a7596e97ce94db3a8cc0097a59709ac81}} 
+\index{pid\_controller::PIDController@{pid\_controller::PIDController}!reconfigureCb@{reconfigureCb}}
+\index{reconfigureCb@{reconfigureCb}!pid\_controller::PIDController@{pid\_controller::PIDController}}
+\doxysubsubsection{\texorpdfstring{reconfigureCb()}{reconfigureCb()}}
+{\footnotesize\ttfamily void pid\+\_\+controller\+::\+P\+I\+D\+Controller\+::reconfigure\+Cb (\begin{DoxyParamCaption}\item[{P\+I\+D\+Controller\+Config \&}]{config,  }\item[{uint32\+\_\+t}]{level }\end{DoxyParamCaption})}
+
+
+
+Callback at a dynamic reconfigure event. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em config} & config input \\
+\hline
+{\em level} & level of the event \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classpid__controller_1_1PIDController_a7a39bed019b57a89cc24713614bf9b5c}\label{classpid__controller_1_1PIDController_a7a39bed019b57a89cc24713614bf9b5c}} 
+\index{pid\_controller::PIDController@{pid\_controller::PIDController}!setPlan@{setPlan}}
+\index{setPlan@{setPlan}!pid\_controller::PIDController@{pid\_controller::PIDController}}
+\doxysubsubsection{\texorpdfstring{setPlan()}{setPlan()}}
+{\footnotesize\ttfamily bool pid\+\_\+controller\+::\+P\+I\+D\+Controller\+::set\+Plan (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ geometry\+\_\+msgs\+::\+Pose\+Stamped $>$ \&}]{global\+\_\+plan }\end{DoxyParamCaption})}
+
+
+
+Set the Plan object. \mbox{\hyperlink{structInterface}{Interface}} with Move\+Base. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em global\+\_\+plan} & plan generated by the global planner. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the controller has stored the global plan for control. 
+
+false if the plugin has not yet initialized. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+omniveyor\+\_\+mobility/include/omniveyor\+\_\+mobility/\mbox{\hyperlink{pid__controller_8h}{pid\+\_\+controller.\+h}}\item 
+omniveyor\+\_\+mobility/src/pid\+\_\+controller.\+cpp\end{DoxyCompactItemize}

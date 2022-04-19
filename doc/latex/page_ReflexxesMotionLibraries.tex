@@ -1,0 +1,101 @@
+\hypertarget{page_ReflexxesMotionLibraries_sec_IntroductionOverview}{}\doxysection{Introduction}\label{page_ReflexxesMotionLibraries_sec_IntroductionOverview}
+The {\itshape Reflexxes Motion Libraries} are designed to achieve new opportunities in sensor-\/based motion control opening the door to new applications, safe human-\/robot interaction, and advanced robot motion capabilities. The three key features of these libraries are\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Jerk-\/limited robot motions can be calculated from arbitrary initial states of motion (i.\+e., during any motion).}}
+\item {\bfseries{New motions are calculated within one low-\/level control cycle (typically within one millisecond or less).}}
+\item {\bfseries{The interface is very simple and clear, such that it can easily be integrated in existing systems.}}
+\end{DoxyItemize}
+
+Based on the Reflexxes framework, the following new motion control features can be realized with the {\itshape Reflexxes Motion Libraries}\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Instantaneous changes of coordinate frames}}
+\item {\bfseries{Instantaneous changes of control state spaces}}
+\item {\bfseries{Deterministic, instantaneous reactions to sensor signals}}
+\item {\bfseries{Safe and stable reactions to sensor failures}}
+\item {\bfseries{Simple and robust visual servo control}}
+\item {\bfseries{Stable switched-\/system control}}
+\end{DoxyItemize}
+
+All these features let robots and mechanical systems {\bfseries{instantaneously}} react to {\bfseries{unforeseen}} events and enable new opportunities for sensor-\/based robot motion control --- and and thus helping to realize new and advanced robot and motion control applications.~\newline
+~\newline
+~\newline
+\hypertarget{page_ReflexxesMotionLibraries_sec_Overview}{}\doxysection{Overview}\label{page_ReflexxesMotionLibraries_sec_Overview}
+This page gives an overview about~\newline
+
+\begin{DoxyItemize}
+\item the {\bfseries{Reflexxes \mbox{\hyperlink{page_ReflexxesMotionLibraries_sec_TypeIIBrief}{Type II}} Motion Library}} and~\newline
+~\newline
+
+\item the {\bfseries{Reflexxes \mbox{\hyperlink{page_ReflexxesMotionLibraries_sec_TypeIVBrief}{Type IV}} Motion Library}}.~\newline
+ Each Reflexxes Motion Library contains a set of {\bfseries{On-\/\+Line Trajectory Generation (\mbox{\hyperlink{classOTG}{O\+TG}})}} algorithms that are designed to control robots and mechanical systems in order to take advantage of the features above. A description is also provided in\+:~\newline
+ {\bfseries{T. Kroeger.}}~\newline
+\href{papers/ReflexxesICRA2011.pdf}{\texttt{ {\bfseries{Opening the Door to New Sensor-\/based Robot Applications --- The Reflexxes Motion Libraries}}}}.~\newline
+{\bfseries{In Proc. of the I\+E\+EE International Conference on Robotics and Automation, Shanghai, China, May 2011.}}~\newline
+~\newline
+ The {\bfseries{difference}} between {\bfseries{Type II}} and {\bfseries{Type IV}} is the usage of {\bfseries{jerk-\/limitation}} and the consideration of {\bfseries{initial acceleration values}} in the Type IV library. ~\newline
+
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+ \hypertarget{page_ReflexxesMotionLibraries_sec_TypeIIBrief}{}\doxysection{Type I\+I Reflexxes Motion Library}\label{page_ReflexxesMotionLibraries_sec_TypeIIBrief}
+
+\begin{DoxyItemize}
+\item The Type II Reflexxes Motion Library is released as open source software under the \href{http://www.gnu.org/licenses/lgpl.html}{\texttt{ {\bfseries{G\+NU Lesser General Public License}}}}.  
+\item Includes Type I 
+\item Position-\/based Type II On-\/\+Line Trajectory Generation (\mbox{\hyperlink{classOTG}{O\+TG}}) algorithm 
+\begin{DoxyItemize}
+\item Acceleration limitation 
+\item Time-\/ and phase-\/synchronization 
+\item Time-\/optimal trajectories 
+\item The desired target state of motion at the end of each motion trajectory only consists of a desired position/pose/vector and velocity vector. 
+\item Input and output values\+:  
+\end{DoxyItemize}
+\item Velocity-\/based Type II On-\/\+Line Trajectory Generation (\mbox{\hyperlink{classOTG}{O\+TG}}) algorithm 
+\begin{DoxyItemize}
+\item Acceleration limitation 
+\item Time-\/optimal trajectories 
+\item Input and output values\+:  
+\end{DoxyItemize}
+\end{DoxyItemize}~\newline
+
+
+\DoxyHorRuler{0}
+ \hypertarget{page_ReflexxesMotionLibraries_sec_TypeIVBrief}{}\doxysection{Reflexxes Type I\+V Motion Library}\label{page_ReflexxesMotionLibraries_sec_TypeIVBrief}
+
+\begin{DoxyItemize}
+\item Freely available for research and education\+: \href{http://www.reflexxes.com/products/academic-version}{\texttt{ {\bfseries{http\+://www.\+reflexxes.\+com/products/academic-\/version}}}}. 
+\item Includes Type I, \mbox{\hyperlink{page_ReflexxesMotionLibraries_sec_TypeIIBrief}{Type II}}, and Type I\+II 
+\item Position-\/based On-\/\+Line Trajectory Generation (\mbox{\hyperlink{classOTG}{O\+TG}}) algorithm 
+\begin{DoxyItemize}
+\item 
+\end{DoxyItemize}~\newline
+ 
+\item Jerk limitation 
+\item Time-\/ and phase-\/synchronization 
+\item Time-\/optimal trajectories 
+\item The desired target state of motion at the end of each motion trajectory consists of a desired position/pose/vector and a desired velocity vector. 
+\item Input and output values\+:  
+\end{DoxyItemize}Velocity-\/based On-\/\+Line Trajectory Generation (\mbox{\hyperlink{classOTG}{O\+TG}}) algorithm 
+\begin{DoxyItemize}
+\item 
+\end{DoxyItemize}~\newline
+ Jerk limitation Time-\/optimal trajectories Input and output values\+:    ~\newline
+
+
+~\newline
+ \DoxyHorRuler{0}
+ ~\newline
+ Further types are being developed and will be available in the future. An overview about all types of On-\/\+Line Trajectory Generation algorithms can be found in~\newline
+~\newline
+{\bfseries{T. Kroeger.~\newline
+On-\/\+Line Trajectory Generation in Robotic Systems.~\newline
+Springer Tracts in Advanced Robotics, Vol. 58, Springer, January 2010.~\newline
+\href{http://www.springer.com/978-3-642-05174-6}{\texttt{ http\+://www.\+springer.\+com/978-\/3-\/642-\/05174-\/6}}}}.~\newline
+~\newline
+
+
+This \mbox{\hyperlink{index}{on-\/line documentation}} entirely describes the implementation of the {\itshape Type II Reflexxes Motion Library}. 

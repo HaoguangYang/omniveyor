@@ -1,0 +1,156 @@
+\hypertarget{classPCVBaseNode}{}\doxysection{P\+C\+V\+Base\+Node Class Reference}
+\label{classPCVBaseNode}\index{PCVBaseNode@{PCVBaseNode}}
+
+
+Collaboration diagram for P\+C\+V\+Base\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{classPCVBaseNode__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_a8933460c544202dd574ca26462940ea9}\label{classPCVBaseNode_a8933460c544202dd574ca26462940ea9}} 
+{\bfseries P\+C\+V\+Base\+Node} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]}, ros\+::\+Node\+Handle $\ast$ros\+NH)
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_a195ef3afd7d8d4f59c784bbaf329e2ab}\label{classPCVBaseNode_a195ef3afd7d8d4f59c784bbaf329e2ab}} 
+void {\bfseries cmd\+Pos\+Recv\+Callback} (const geometry\+\_\+msgs\+::\+Pose\+::\+Const\+Ptr \&x\+\_\+des)
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_a24e4f5666245da8a03a8890075d193d3}\label{classPCVBaseNode_a24e4f5666245da8a03a8890075d193d3}} 
+void {\bfseries cmd\+Vel\+Recv\+Callback} (const geometry\+\_\+msgs\+::\+Twist\+::\+Const\+Ptr \&xd\+\_\+des)
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_a5a8aff852c91b225b121cbe59eb73a38}\label{classPCVBaseNode_a5a8aff852c91b225b121cbe59eb73a38}} 
+void {\bfseries cmd\+Vel\+Raw\+Callback} (const geometry\+\_\+msgs\+::\+Twist\+::\+Const\+Ptr \&xd\+\_\+des)
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_a8d5eabc4478527b82f823e1dfddc736c}\label{classPCVBaseNode_a8d5eabc4478527b82f823e1dfddc736c}} 
+void {\bfseries cmd\+Acc\+Recv\+Callback} (const geometry\+\_\+msgs\+::\+Accel\+::\+Const\+Ptr \&xdd\+\_\+des)
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_ac5bf404b01aa112a885a815f5fdf9a2a}\label{classPCVBaseNode_ac5bf404b01aa112a885a815f5fdf9a2a}} 
+void {\bfseries ctrl\+Mode\+Recv\+Callback} (const std\+\_\+msgs\+::\+Byte\+::\+Const\+Ptr \&ctrl\+Mode)
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_aa2f138186a971a0e4578dc2b3c55e13e}\label{classPCVBaseNode_aa2f138186a971a0e4578dc2b3c55e13e}} 
+void {\bfseries lidar\+Callback} (const sensor\+\_\+msgs\+::\+Laser\+Scan\+::\+Const\+Ptr \&scan)
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_a662b4f81ae5f8f8a77b5a751a051a781}\label{classPCVBaseNode_a662b4f81ae5f8f8a77b5a751a051a781}} 
+void {\bfseries spin} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_a0c562ca97d19d3c0438f5e79be2ae4ff}\label{classPCVBaseNode_a0c562ca97d19d3c0438f5e79be2ae4ff}} 
+static void {\bfseries perform\+\_\+startup\+\_\+tasks} (void)
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_a0c37f47e2cd19ba6713ee4ac580e39cd}\label{classPCVBaseNode_a0c37f47e2cd19ba6713ee4ac580e39cd}} 
+static void {\bfseries parse\+\_\+command\+\_\+args} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_a5056da1150faa561bd2748b153ec8340}\label{classPCVBaseNode_a5056da1150faa561bd2748b153ec8340}} 
+static void $\ast$ {\bfseries control\+\_\+thread} (void $\ast$aux)
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_a664789f130bf02db9fc14933648ed464}\label{classPCVBaseNode_a664789f130bf02db9fc14933648ed464}} 
+static void {\bfseries sig\+\_\+handler\+\_\+tstp} (int)
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_ae6bdca6ff56d414f7916e1f19c13efc3}\label{classPCVBaseNode_ae6bdca6ff56d414f7916e1f19c13efc3}} 
+static void {\bfseries sig\+\_\+handler\+\_\+cont} (int)
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_ab8e4ac33ce8cfe3b9425400b3e12b36d}\label{classPCVBaseNode_ab8e4ac33ce8cfe3b9425400b3e12b36d}} 
+static void {\bfseries sleep\+\_\+until} (struct timespec $\ast$ts, long delay)
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_a5d023bc45a2295f1ea55f1c05d471d6b}\label{classPCVBaseNode_a5d023bc45a2295f1ea55f1c05d471d6b}} 
+static int {\bfseries kbhit} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_aa9041fe8c2c71abaa3e8f962c36935c2}\label{classPCVBaseNode_aa9041fe8c2c71abaa3e8f962c36935c2}} 
+ros\+::\+Node\+Handle $\ast$ {\bfseries \+\_\+ros\+NH}
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_a63be2f713fab0fff842790386f8711f3}\label{classPCVBaseNode_a63be2f713fab0fff842790386f8711f3}} 
+ros\+::\+Publisher {\bfseries odom\+Pub}
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_a63813f399592109896a81b1eb836c4dd}\label{classPCVBaseNode_a63813f399592109896a81b1eb836c4dd}} 
+ros\+::\+Publisher {\bfseries e\+Status\+Pub}
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_a29d147ff7d35094ceeceb7c8f32620f9}\label{classPCVBaseNode_a29d147ff7d35094ceeceb7c8f32620f9}} 
+ros\+::\+Subscriber {\bfseries cmd\+SubV}
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_a69f80635c024c291e10b5f495a28f4f2}\label{classPCVBaseNode_a69f80635c024c291e10b5f495a28f4f2}} 
+ros\+::\+Subscriber {\bfseries cmd\+SubX}
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_a959e1f490b4ab8ff06dd190a85fec766}\label{classPCVBaseNode_a959e1f490b4ab8ff06dd190a85fec766}} 
+ros\+::\+Subscriber {\bfseries cmd\+SubA}
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_ac38d764c3d98cd7389a73f3c5c5f52d6}\label{classPCVBaseNode_ac38d764c3d98cd7389a73f3c5c5f52d6}} 
+ros\+::\+Subscriber {\bfseries ctrl\+Mode\+Sub}
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_a7765d9c17ecb9654e7fed3f87aa0ab8c}\label{classPCVBaseNode_a7765d9c17ecb9654e7fed3f87aa0ab8c}} 
+ros\+::\+Subscriber {\bfseries lidar\+Sub}
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_a9a8f3552e4d5acbccb0477669eabf016}\label{classPCVBaseNode_a9a8f3552e4d5acbccb0477669eabf016}} 
+float {\bfseries tf\+Cos}
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_acb36370dc2b778e7d494a502b190b03f}\label{classPCVBaseNode_acb36370dc2b778e7d494a502b190b03f}} 
+float {\bfseries tf\+Sin}
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_a6401efb5cef4b1a2e29695df574bff41}\label{classPCVBaseNode_a6401efb5cef4b1a2e29695df574bff41}} 
+float {\bfseries tfX}
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_ab05248bcc3e60afba05d7aaec8aaacb3}\label{classPCVBaseNode_ab05248bcc3e60afba05d7aaec8aaacb3}} 
+float {\bfseries tfY}
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_aebc82ad9e6cc2b7aeaef6204bb4da75a}\label{classPCVBaseNode_aebc82ad9e6cc2b7aeaef6204bb4da75a}} 
+float $\ast$ {\bfseries ray\+Cos}
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_aaf048aec7bda5212ad02370247c097a2}\label{classPCVBaseNode_aaf048aec7bda5212ad02370247c097a2}} 
+float $\ast$ {\bfseries ray\+Sin}
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_a3f9ea58b575d5b742d5290cf728f446a}\label{classPCVBaseNode_a3f9ea58b575d5b742d5290cf728f446a}} 
+float $\ast$ {\bfseries rayX}
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_a0690924898448afbba9217db47e28380}\label{classPCVBaseNode_a0690924898448afbba9217db47e28380}} 
+float $\ast$ {\bfseries rayY}
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_a95d62bac714a47aa3e67365c77a47397}\label{classPCVBaseNode_a95d62bac714a47aa3e67365c77a47397}} 
+double {\bfseries pub\+Rate}
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_ad3e94e0e3fbc134be16f5891ddab799e}\label{classPCVBaseNode_ad3e94e0e3fbc134be16f5891ddab799e}} 
+tf\+::\+Transform\+Broadcaster {\bfseries odom\+Broadcaster}
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_a2a37e8577fbfd72e112e4bab2c5b3941}\label{classPCVBaseNode_a2a37e8577fbfd72e112e4bab2c5b3941}} 
+pthread\+\_\+t {\bfseries control}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_a1daef4ec7acc236b6c87f6cef2ff096d}\label{classPCVBaseNode_a1daef4ec7acc236b6c87f6cef2ff096d}} 
+static \mbox{\hyperlink{classVehicle}{Vehicle}} $\ast$ {\bfseries vehicle} = new \mbox{\hyperlink{classVehicle}{Vehicle}}()
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_a48e20dd600425afbc4f4a017d6d77452}\label{classPCVBaseNode_a48e20dd600425afbc4f4a017d6d77452}} 
+static double {\bfseries gx\+\_\+des\+\_\+g} \mbox{[}3\mbox{]} = \{0.\}
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_a5acbad5900ee233ea56002d6d6a9c340}\label{classPCVBaseNode_a5acbad5900ee233ea56002d6d6a9c340}} 
+static double {\bfseries gxd\+\_\+des\+\_\+g\+\_\+raw} \mbox{[}3\mbox{]} = \{0.\}
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_a8628833001ab62fe3ea24055e8debbd0}\label{classPCVBaseNode_a8628833001ab62fe3ea24055e8debbd0}} 
+static double {\bfseries gxd\+\_\+des\+\_\+g} \mbox{[}3\mbox{]} = \{0.\}
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_a511d106a3aca4c5031dd1bdeccea45c7}\label{classPCVBaseNode_a511d106a3aca4c5031dd1bdeccea45c7}} 
+static double {\bfseries gxdd\+\_\+des\+\_\+g} \mbox{[}3\mbox{]} = \{0.\}
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_a5ff88af74598d0073e5f333da6f3e6ac}\label{classPCVBaseNode_a5ff88af74598d0073e5f333da6f3e6ac}} 
+static bool {\bfseries dump\+Data} = false
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_a8ab74819881bb82ae997eb4b92bdd379}\label{classPCVBaseNode_a8ab74819881bb82ae997eb4b92bdd379}} 
+static std\+::ofstream {\bfseries file}
+\item 
+\mbox{\Hypertarget{classPCVBaseNode_a811ca0b7ca4923b64930bcfb0390ba29}\label{classPCVBaseNode_a811ca0b7ca4923b64930bcfb0390ba29}} 
+static enum ctrl\+\_\+mode {\bfseries control\+\_\+mode} = V\+E\+L\+O\+C\+I\+TY
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/jonathan/\+Omni\+Dev/src/omniveyor\+\_\+hardware/pcv\+\_\+base/include/pcv\+\_\+base\+\_\+node.\+h\item 
+/home/jonathan/\+Omni\+Dev/src/omniveyor\+\_\+hardware/pcv\+\_\+base/src/pcv\+\_\+base\+\_\+node.\+cc\end{DoxyCompactItemize}

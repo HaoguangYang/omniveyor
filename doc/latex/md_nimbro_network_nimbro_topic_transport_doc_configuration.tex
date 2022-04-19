@@ -1,0 +1,43 @@
+{\ttfamily nimbro\+\_\+topic\+\_\+transport} is configured through R\+OS parameters.\hypertarget{md_nimbro_network_nimbro_topic_transport_doc_configuration_autotoc_md13}{}\doxysection{Receiver parameters}\label{md_nimbro_network_nimbro_topic_transport_doc_configuration_autotoc_md13}
+{\ttfamily receiver} accepts the following parameters\+:
+
+Required\+:
+\begin{DoxyItemize}
+\item {\ttfamily port} (int)\+: U\+D\+P/\+T\+CP port to bind to (required)
+\end{DoxyItemize}
+
+Optional\+:
+\begin{DoxyItemize}
+\item {\ttfamily drop\+\_\+repeated\+\_\+msgs} (bool)\+: If a message with the same sequence number arrives twice, drop it. Needed in conjunction with the relay mode. (U\+DP only, default true)
+\item {\ttfamily fec} (bool)\+: Enable Forward Error correction (U\+DP only, default false)
+\item {\ttfamily label} (string)\+: Display a label in the visualization G\+U\+Is
+\end{DoxyItemize}\hypertarget{md_nimbro_network_nimbro_topic_transport_doc_configuration_autotoc_md14}{}\doxysection{Sender parameters}\label{md_nimbro_network_nimbro_topic_transport_doc_configuration_autotoc_md14}
+{\ttfamily sender} accepts the following parameters\+:
+
+Required\+:
+\begin{DoxyItemize}
+\item {\ttfamily destination\+\_\+addr} (string)\+: Hostname or IP address of the destination machine (required)
+\item {\ttfamily port} (int)\+: Port number to connect to (required)
+\item {\ttfamily source\+\_\+port} (int)\+: Source port to bind to. If not specified, the port is chosen by the OS.
+\item {\ttfamily topics} (list)\+: List of topics to be transmitted (see below)
+\end{DoxyItemize}
+
+Optional\+:
+\begin{DoxyItemize}
+\item {\ttfamily fec} (float)\+: If non-\/zero, this is the proportion of repair packets sent for Forward Error Correction (0.\+5 -\/$>$ Send 50\% more data). Default\+: 0.\+0.
+\item {\ttfamily label} (string)\+: Display a label in the visualization G\+U\+Is
+\item {\ttfamily relay\+\_\+mode} (bool)\+: Enable relay mode, see R\+E\+A\+D\+M\+E.\+md (U\+DP only, default false)
+\item {\ttfamily relay\+\_\+target\+\_\+bitrate} (float)\+: Target bitrate for relay mode (U\+DP only)
+\item {\ttfamily relay\+\_\+control\+\_\+rate} (float)\+: Check if new packets can be sent in relay mode at this rate (U\+DP only)
+\end{DoxyItemize}\hypertarget{md_nimbro_network_nimbro_topic_transport_doc_configuration_autotoc_md15}{}\doxysection{Topic configuration}\label{md_nimbro_network_nimbro_topic_transport_doc_configuration_autotoc_md15}
+Configuration of topics to be transmitted is done on the parameter server of the sender\textquotesingle{}s side. See the example launch files for the usual setup.
+
+Here is a list of parameters that are available per topic. The only mandatory parameter is {\ttfamily name}.
+
+
+\begin{DoxyItemize}
+\item {\ttfamily name}\+: Name of the topic to be sent over.
+\item {\ttfamily rate}\+: Rate limit on messages / sec (floating point). Messages over the rate limit are silently dropped on the sender side. The default is 0.\+0 (no rate limit). Note\+: Limiting only works well for lower rates ($<$20 Hz). (U\+DP only)
+\item {\ttfamily resend}\+: If the sender does not get a message 1.\+0/{\ttfamily rate} after the last one, it will re-\/send the last received one. (U\+DP only)
+\item {\ttfamily compress}\+: If true, compress the data on the wire using zstd. If you specify an integer, it will determine the zstd compression level. 
+\end{DoxyItemize}

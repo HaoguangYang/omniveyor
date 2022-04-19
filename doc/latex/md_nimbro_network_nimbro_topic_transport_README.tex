@@ -1,0 +1,24 @@
+This package includes nodes for transmitting R\+OS topic messages over a network connection. For an overview over the available parameters, see {\ttfamily doc/configuration.\+md}.
+
+For a quick getting-\/started guide see {\ttfamily doc/getting\+\_\+started.\+md}.
+
+The remainder of this document introduces the features of the topic transport and explains the choices you have in detail.
+
+The fundamental choice you have is whether you want to use the T\+CP or the U\+DP protocol.\hypertarget{md_nimbro_network_nimbro_topic_transport_README_autotoc_md16}{}\doxysection{U\+DP}\label{md_nimbro_network_nimbro_topic_transport_README_autotoc_md16}
+The U\+DP protocol is the right choice for most R\+OS topics. It is especially suited for lossy and/or delayed connections, where T\+CP has problems. Note however, that with our U\+DP protocol there is no guarantee that a message arrives.
+
+Typical message types transmitted using the U\+DP protocol are camera images, joystick commands, TF snapshots (see tf\+\_\+throttle). In short, everything where retransmitting missed packets does not make sense, because you have newer data available already.
+
+For example launch files, see the launch directory.\hypertarget{md_nimbro_network_nimbro_topic_transport_README_autotoc_md17}{}\doxysection{T\+CP}\label{md_nimbro_network_nimbro_topic_transport_README_autotoc_md17}
+The T\+CP protocol is more useful for topics where you need a transmission guarantee. For example, it makes sense to transmit 3D laser scans via this method, because re-\/transmission of dropped packets is still faster than waiting for the next scan.
+
+For example launch files, see the launch directory.\hypertarget{md_nimbro_network_nimbro_topic_transport_README_autotoc_md18}{}\doxysection{Visualization \& diagnosis}\label{md_nimbro_network_nimbro_topic_transport_README_autotoc_md18}
+The nimbro\+\_\+topic\+\_\+transport package provides G\+UI plugins for the {\ttfamily rqt} G\+UI\+:
+
+
+\begin{DoxyItemize}
+\item \char`\"{}nimbro\+\_\+network/\+Topic Transport\char`\"{} shows a dot graph of all network connections
+\item \char`\"{}nimbro\+\_\+network/\+Topic Bandwidth\char`\"{} shows detailed bandwidth usage for a single connection.
+\end{DoxyItemize}
+
+Note that it may be necessary to transmit the topics {\ttfamily /network/sender\+\_\+stats} and {\ttfamily /network/receiver\+\_\+stats} over the network to get the full amount of information. 

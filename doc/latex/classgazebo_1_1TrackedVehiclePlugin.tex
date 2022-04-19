@@ -1,0 +1,298 @@
+\hypertarget{classgazebo_1_1TrackedVehiclePlugin}{}\doxysection{gazebo\+::Tracked\+Vehicle\+Plugin Class Reference}
+\label{classgazebo_1_1TrackedVehiclePlugin}\index{gazebo::TrackedVehiclePlugin@{gazebo::TrackedVehiclePlugin}}
+
+
+An abstract gazebo model plugin for tracked vehicles.  
+
+
+
+
+Inheritance diagram for gazebo\+::Tracked\+Vehicle\+Plugin\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=245pt]{classgazebo_1_1TrackedVehiclePlugin__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for gazebo\+::Tracked\+Vehicle\+Plugin\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=241pt]{classgazebo_1_1TrackedVehiclePlugin__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgazebo_1_1TrackedVehiclePlugin_a05c5f8180a4af0425b9ff6516ce45b2b}\label{classgazebo_1_1TrackedVehiclePlugin_a05c5f8180a4af0425b9ff6516ce45b2b}} 
+\mbox{\hyperlink{classgazebo_1_1TrackedVehiclePlugin_a05c5f8180a4af0425b9ff6516ce45b2b}{Tracked\+Vehicle\+Plugin}} ()
+\begin{DoxyCompactList}\small\item\em Default Contstuctor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgazebo_1_1TrackedVehiclePlugin_aaeb3d73b0444d3b8ef954cbc1e7242ea}\label{classgazebo_1_1TrackedVehiclePlugin_aaeb3d73b0444d3b8ef954cbc1e7242ea}} 
+virtual \mbox{\hyperlink{classgazebo_1_1TrackedVehiclePlugin_aaeb3d73b0444d3b8ef954cbc1e7242ea}{$\sim$\+Tracked\+Vehicle\+Plugin}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgazebo_1_1TrackedVehiclePlugin_a03ce0a43baf20e72d3f41668f58da409}{Load}} (physics\+::\+Model\+Ptr \+\_\+model, sdf\+::\+Element\+Ptr \+\_\+sdf) override
+\begin{DoxyCompactList}\small\item\em Called when the plugin is loaded. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgazebo_1_1TrackedVehiclePlugin_a6182767d95c1360d93be798937146479}\label{classgazebo_1_1TrackedVehiclePlugin_a6182767d95c1360d93be798937146479}} 
+void \mbox{\hyperlink{classgazebo_1_1TrackedVehiclePlugin_a6182767d95c1360d93be798937146479}{Init}} () override
+\begin{DoxyCompactList}\small\item\em Initialize the plugin. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgazebo_1_1TrackedVehiclePlugin_a864f61225456466bddc3df2c4a787ad2}\label{classgazebo_1_1TrackedVehiclePlugin_a864f61225456466bddc3df2c4a787ad2}} 
+void \mbox{\hyperlink{classgazebo_1_1TrackedVehiclePlugin_a864f61225456466bddc3df2c4a787ad2}{Reset}} () override
+\begin{DoxyCompactList}\small\item\em Reset the plugin. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgazebo_1_1TrackedVehiclePlugin_ada9705e2f1f273b60266d8df929fa699}{On\+Ros\+Msg}} (const geometry\+\_\+msgs\+::\+Twist\+Const\+Ptr \&\+\_\+msg)
+\begin{DoxyCompactList}\small\item\em Handle an incoming message from R\+OS. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgazebo_1_1TrackedVehiclePlugin_aed1e573bc6b441d77a8c2a0e4f5c0c00}\label{classgazebo_1_1TrackedVehiclePlugin_aed1e573bc6b441d77a8c2a0e4f5c0c00}} 
+virtual std\+::string \mbox{\hyperlink{classgazebo_1_1TrackedVehiclePlugin_aed1e573bc6b441d77a8c2a0e4f5c0c00}{Get\+Robot\+Namespace}} ()
+\begin{DoxyCompactList}\small\item\em Namespace used as a prefix for gazebo topic names. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgazebo_1_1TrackedVehiclePlugin_a278909d15a9d4771c7382cb013a5f6ba}\label{classgazebo_1_1TrackedVehiclePlugin_a278909d15a9d4771c7382cb013a5f6ba}} 
+virtual double \mbox{\hyperlink{classgazebo_1_1TrackedVehiclePlugin_a278909d15a9d4771c7382cb013a5f6ba}{Get\+Steering\+Efficiency}} ()
+\begin{DoxyCompactList}\small\item\em Steering efficiency coefficient (between 0.\+0 and 1.\+0). \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classgazebo_1_1TrackedVehiclePlugin_adfcd01c89014f3a46b4e6c922cd53d2b}{Set\+Steering\+Efficiency}} (double \+\_\+steering\+Efficiency)
+\begin{DoxyCompactList}\small\item\em Set steering efficiency coefficient (between 0.\+0 and 1.\+0). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgazebo_1_1TrackedVehiclePlugin_a8a2f3ee59db939b1d5e64cfeb998a81d}\label{classgazebo_1_1TrackedVehiclePlugin_a8a2f3ee59db939b1d5e64cfeb998a81d}} 
+virtual boost\+::optional$<$ double $>$ \mbox{\hyperlink{classgazebo_1_1TrackedVehiclePlugin_a8a2f3ee59db939b1d5e64cfeb998a81d}{Get\+Track\+Mu}} ()
+\begin{DoxyCompactList}\small\item\em Friction coefficient in the first friction direction. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classgazebo_1_1TrackedVehiclePlugin_a2bd16c62b8b325df9d847f7de9aade6d}{Set\+Track\+Mu}} (double \+\_\+mu)
+\begin{DoxyCompactList}\small\item\em Friction coefficient in the first friction direction. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgazebo_1_1TrackedVehiclePlugin_a436904fc7ec48690a384b63bd332417c}\label{classgazebo_1_1TrackedVehiclePlugin_a436904fc7ec48690a384b63bd332417c}} 
+virtual boost\+::optional$<$ double $>$ \mbox{\hyperlink{classgazebo_1_1TrackedVehiclePlugin_a436904fc7ec48690a384b63bd332417c}{Get\+Track\+Mu2}} ()
+\begin{DoxyCompactList}\small\item\em Friction coefficient in the second friction direction. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classgazebo_1_1TrackedVehiclePlugin_aead7889cb22fb89add3ea35d7235e1da}{Set\+Track\+Mu2}} (double \+\_\+mu2)
+\begin{DoxyCompactList}\small\item\em Friction coefficient in the second friction direction. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgazebo_1_1TrackedVehiclePlugin_af72212e41da3ada72bc5a09e2a71c2dd}\label{classgazebo_1_1TrackedVehiclePlugin_af72212e41da3ada72bc5a09e2a71c2dd}} 
+virtual void \mbox{\hyperlink{classgazebo_1_1TrackedVehiclePlugin_af72212e41da3ada72bc5a09e2a71c2dd}{Update\+Track\+Surface}} ()=0
+\begin{DoxyCompactList}\small\item\em Update surface parameters of the tracks to correspond to the values set in this plugin. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgazebo_1_1TrackedVehiclePlugin_a5a0d6398ed49e4f599aa5a548c781742}{Set\+Link\+Mu}} (const physics\+::\+Link\+Ptr \&\+\_\+link)
+\begin{DoxyCompactList}\small\item\em Set mu and mu2 of all collisions of the given link to values given by \mbox{\hyperlink{classgazebo_1_1TrackedVehiclePlugin_a8a2f3ee59db939b1d5e64cfeb998a81d}{Get\+Track\+Mu()}} and \mbox{\hyperlink{classgazebo_1_1TrackedVehiclePlugin_a436904fc7ec48690a384b63bd332417c}{Get\+Track\+Mu2()}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgazebo_1_1TrackedVehiclePlugin_aa7524adcbcdaa078afa0c2d0a1078bfe}\label{classgazebo_1_1TrackedVehiclePlugin_aa7524adcbcdaa078afa0c2d0a1078bfe}} 
+virtual double \mbox{\hyperlink{classgazebo_1_1TrackedVehiclePlugin_aa7524adcbcdaa078afa0c2d0a1078bfe}{Get\+Tracks\+Separation}} ()
+\begin{DoxyCompactList}\small\item\em Distance between the centers of the tracks. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classgazebo_1_1TrackedVehiclePlugin_a779dd43329fe22a8757305a80c011209}{Set\+Track\+Velocity\+Impl}} (double \+\_\+left, double \+\_\+right)=0
+\begin{DoxyCompactList}\small\item\em Set new target velocity for the tracks. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classgazebo_1_1TrackedVehiclePlugin_adf44a37e980b209e200e1707a1b29f86}{Set\+Track\+Velocity}} (double \+\_\+left, double \+\_\+right)
+\begin{DoxyCompactList}\small\item\em Set new target velocity for the tracks. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgazebo_1_1TrackedVehiclePlugin_a019f86e64713797f99b42d3dacabbd66}{Set\+Body\+Velocity}} (double \+\_\+linear, double \+\_\+angular)
+\begin{DoxyCompactList}\small\item\em Set new target velocity for the tracks based on the desired. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classgazebo_1_1TrackedVehiclePlugin_ad09a1f99721f777506423b87fc48c7a3}{On\+Vel\+Msg}} (Const\+Pose\+Ptr \&\+\_\+msg) G\+A\+Z\+E\+B\+O\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED(9.\+0)
+\begin{DoxyCompactList}\small\item\em Callback for setting desired body velocity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgazebo_1_1TrackedVehiclePlugin_a8da6d2dc93e502b1a4a1e0f42405272a}{On\+Vel\+Msg}} (Const\+Twist\+Ptr \&\+\_\+msg)
+\begin{DoxyCompactList}\small\item\em Callback for setting desired body velocity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgazebo_1_1TrackedVehiclePlugin_a552db1bd0ee131652f9f897730666b87}\label{classgazebo_1_1TrackedVehiclePlugin_a552db1bd0ee131652f9f897730666b87}} 
+std\+::unordered\+\_\+map$<$ Tracks, std\+::string $>$ \mbox{\hyperlink{classgazebo_1_1TrackedVehiclePlugin_a552db1bd0ee131652f9f897730666b87}{track\+Names}}
+\begin{DoxyCompactList}\small\item\em Textual lowercase names of the tracks. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgazebo_1_1TrackedVehiclePlugin_a9103a9a96665a5e26c23ec7e00148f42}\label{classgazebo_1_1TrackedVehiclePlugin_a9103a9a96665a5e26c23ec7e00148f42}} 
+std\+::mutex \mbox{\hyperlink{classgazebo_1_1TrackedVehiclePlugin_a9103a9a96665a5e26c23ec7e00148f42}{mutex}}
+\begin{DoxyCompactList}\small\item\em Mutex to protect updates. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An abstract gazebo model plugin for tracked vehicles. 
+
+\begin{DoxySince}{Since}
+8.\+1
+\end{DoxySince}
+The plugin processes the following parameters (all have defaults)\+: $<$steering\+\_\+efficiency$>$ Steering efficiency coefficient (0.\+0 to 1.\+0). Default is 0.\+5. $<$tracks\+\_\+separation$>$ Distance between the centers of the tracks. Default is 0.\+4. Implementation may try to autodetect this value. $<$max\+\_\+linear\+\_\+speed$>$ Max linear velocity in m/s. Also max track velocity. Default is 1.\+0. $<$max\+\_\+angular\+\_\+speed$>$ Max angular speed in rad/s. Default is 1.\+0. $<$track\+\_\+mu$>$ Friction coefficient in the first friction direction. If not set, mu of the tracks is not changed, so the values from model definition are used. $<$track\+\_\+mu2$>$ Friction coefficient in the second friction direction. If not set, mu of the tracks is not changed, so the values from model definition are used. $<$robot\+\_\+namespace$>$ Namespace used as a prefix for gazebo topic names. Default is the name of the model. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classgazebo_1_1TrackedVehiclePlugin_a03ce0a43baf20e72d3f41668f58da409}\label{classgazebo_1_1TrackedVehiclePlugin_a03ce0a43baf20e72d3f41668f58da409}} 
+\index{gazebo::TrackedVehiclePlugin@{gazebo::TrackedVehiclePlugin}!Load@{Load}}
+\index{Load@{Load}!gazebo::TrackedVehiclePlugin@{gazebo::TrackedVehiclePlugin}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily void Tracked\+Vehicle\+Plugin\+::\+Load (\begin{DoxyParamCaption}\item[{physics\+::\+Model\+Ptr}]{\+\_\+model,  }\item[{sdf\+::\+Element\+Ptr}]{\+\_\+sdf }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Called when the plugin is loaded. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em \+\_\+model} & Pointer to the model for which the plugin is loaded \\
+\hline
+\mbox{\texttt{ in}}  & {\em \+\_\+sdf} & Pointer to the S\+DF for \+\_\+model \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classgazebo_1_1TrackedVehiclePlugin_ada9705e2f1f273b60266d8df929fa699}\label{classgazebo_1_1TrackedVehiclePlugin_ada9705e2f1f273b60266d8df929fa699}} 
+\index{gazebo::TrackedVehiclePlugin@{gazebo::TrackedVehiclePlugin}!OnRosMsg@{OnRosMsg}}
+\index{OnRosMsg@{OnRosMsg}!gazebo::TrackedVehiclePlugin@{gazebo::TrackedVehiclePlugin}}
+\doxysubsubsection{\texorpdfstring{OnRosMsg()}{OnRosMsg()}}
+{\footnotesize\ttfamily void gazebo\+::\+Tracked\+Vehicle\+Plugin\+::\+On\+Ros\+Msg (\begin{DoxyParamCaption}\item[{const geometry\+\_\+msgs\+::\+Twist\+Const\+Ptr \&}]{\+\_\+msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Handle an incoming message from R\+OS. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em \+\_\+msg} & A float value that is used to set the velocity of the Velodyne. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classgazebo_1_1TrackedVehiclePlugin_ad09a1f99721f777506423b87fc48c7a3}\label{classgazebo_1_1TrackedVehiclePlugin_ad09a1f99721f777506423b87fc48c7a3}} 
+\index{gazebo::TrackedVehiclePlugin@{gazebo::TrackedVehiclePlugin}!OnVelMsg@{OnVelMsg}}
+\index{OnVelMsg@{OnVelMsg}!gazebo::TrackedVehiclePlugin@{gazebo::TrackedVehiclePlugin}}
+\doxysubsubsection{\texorpdfstring{OnVelMsg()}{OnVelMsg()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Tracked\+Vehicle\+Plugin\+::\+On\+Vel\+Msg (\begin{DoxyParamCaption}\item[{Const\+Pose\+Ptr \&}]{\+\_\+msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Callback for setting desired body velocity. 
+
+Normally, this callback converts the x/yaw message to track velocities and calls \mbox{\hyperlink{classgazebo_1_1TrackedVehiclePlugin_adf44a37e980b209e200e1707a1b29f86}{Set\+Track\+Velocity()}}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em \+\_\+msg} & Pose message from external publisher \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classgazebo_1_1TrackedVehiclePlugin_a8da6d2dc93e502b1a4a1e0f42405272a}\label{classgazebo_1_1TrackedVehiclePlugin_a8da6d2dc93e502b1a4a1e0f42405272a}} 
+\index{gazebo::TrackedVehiclePlugin@{gazebo::TrackedVehiclePlugin}!OnVelMsg@{OnVelMsg}}
+\index{OnVelMsg@{OnVelMsg}!gazebo::TrackedVehiclePlugin@{gazebo::TrackedVehiclePlugin}}
+\doxysubsubsection{\texorpdfstring{OnVelMsg()}{OnVelMsg()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Tracked\+Vehicle\+Plugin\+::\+On\+Vel\+Msg (\begin{DoxyParamCaption}\item[{Const\+Twist\+Ptr \&}]{\+\_\+msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Callback for setting desired body velocity. 
+
+Normally, this callback converts the x/yaw message to track velocities and calls \mbox{\hyperlink{classgazebo_1_1TrackedVehiclePlugin_adf44a37e980b209e200e1707a1b29f86}{Set\+Track\+Velocity()}}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em \+\_\+msg} & Twist message from external publisher \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classgazebo_1_1TrackedVehiclePlugin_a019f86e64713797f99b42d3dacabbd66}\label{classgazebo_1_1TrackedVehiclePlugin_a019f86e64713797f99b42d3dacabbd66}} 
+\index{gazebo::TrackedVehiclePlugin@{gazebo::TrackedVehiclePlugin}!SetBodyVelocity@{SetBodyVelocity}}
+\index{SetBodyVelocity@{SetBodyVelocity}!gazebo::TrackedVehiclePlugin@{gazebo::TrackedVehiclePlugin}}
+\doxysubsubsection{\texorpdfstring{SetBodyVelocity()}{SetBodyVelocity()}}
+{\footnotesize\ttfamily void Tracked\+Vehicle\+Plugin\+::\+Set\+Body\+Velocity (\begin{DoxyParamCaption}\item[{double}]{\+\_\+linear,  }\item[{double}]{\+\_\+angular }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Set new target velocity for the tracks based on the desired. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em \+\_\+linear} & Desired linear velocity of the vehicle. \\
+\hline
+\mbox{\texttt{ in}}  & {\em \+\_\+angular} & Desired angular velocity of the vehicle. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classgazebo_1_1TrackedVehiclePlugin_a5a0d6398ed49e4f599aa5a548c781742}\label{classgazebo_1_1TrackedVehiclePlugin_a5a0d6398ed49e4f599aa5a548c781742}} 
+\index{gazebo::TrackedVehiclePlugin@{gazebo::TrackedVehiclePlugin}!SetLinkMu@{SetLinkMu}}
+\index{SetLinkMu@{SetLinkMu}!gazebo::TrackedVehiclePlugin@{gazebo::TrackedVehiclePlugin}}
+\doxysubsubsection{\texorpdfstring{SetLinkMu()}{SetLinkMu()}}
+{\footnotesize\ttfamily void Tracked\+Vehicle\+Plugin\+::\+Set\+Link\+Mu (\begin{DoxyParamCaption}\item[{const physics\+::\+Link\+Ptr \&}]{\+\_\+link }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Set mu and mu2 of all collisions of the given link to values given by \mbox{\hyperlink{classgazebo_1_1TrackedVehiclePlugin_a8a2f3ee59db939b1d5e64cfeb998a81d}{Get\+Track\+Mu()}} and \mbox{\hyperlink{classgazebo_1_1TrackedVehiclePlugin_a436904fc7ec48690a384b63bd332417c}{Get\+Track\+Mu2()}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em \+\_\+link} & The link whose \char`\"{}mu\char`\"{}s are to be set. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classgazebo_1_1TrackedVehiclePlugin_adfcd01c89014f3a46b4e6c922cd53d2b}\label{classgazebo_1_1TrackedVehiclePlugin_adfcd01c89014f3a46b4e6c922cd53d2b}} 
+\index{gazebo::TrackedVehiclePlugin@{gazebo::TrackedVehiclePlugin}!SetSteeringEfficiency@{SetSteeringEfficiency}}
+\index{SetSteeringEfficiency@{SetSteeringEfficiency}!gazebo::TrackedVehiclePlugin@{gazebo::TrackedVehiclePlugin}}
+\doxysubsubsection{\texorpdfstring{SetSteeringEfficiency()}{SetSteeringEfficiency()}}
+{\footnotesize\ttfamily void Tracked\+Vehicle\+Plugin\+::\+Set\+Steering\+Efficiency (\begin{DoxyParamCaption}\item[{double}]{\+\_\+steering\+Efficiency }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Set steering efficiency coefficient (between 0.\+0 and 1.\+0). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em \+\_\+steering\+Efficiency} & The new steering efficiency. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classgazebo_1_1TrackedVehiclePlugin_a2bd16c62b8b325df9d847f7de9aade6d}\label{classgazebo_1_1TrackedVehiclePlugin_a2bd16c62b8b325df9d847f7de9aade6d}} 
+\index{gazebo::TrackedVehiclePlugin@{gazebo::TrackedVehiclePlugin}!SetTrackMu@{SetTrackMu}}
+\index{SetTrackMu@{SetTrackMu}!gazebo::TrackedVehiclePlugin@{gazebo::TrackedVehiclePlugin}}
+\doxysubsubsection{\texorpdfstring{SetTrackMu()}{SetTrackMu()}}
+{\footnotesize\ttfamily void Tracked\+Vehicle\+Plugin\+::\+Set\+Track\+Mu (\begin{DoxyParamCaption}\item[{double}]{\+\_\+mu }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Friction coefficient in the first friction direction. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em \+\_\+mu} & The new coefficient. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classgazebo_1_1TrackedVehiclePlugin_aead7889cb22fb89add3ea35d7235e1da}\label{classgazebo_1_1TrackedVehiclePlugin_aead7889cb22fb89add3ea35d7235e1da}} 
+\index{gazebo::TrackedVehiclePlugin@{gazebo::TrackedVehiclePlugin}!SetTrackMu2@{SetTrackMu2}}
+\index{SetTrackMu2@{SetTrackMu2}!gazebo::TrackedVehiclePlugin@{gazebo::TrackedVehiclePlugin}}
+\doxysubsubsection{\texorpdfstring{SetTrackMu2()}{SetTrackMu2()}}
+{\footnotesize\ttfamily void Tracked\+Vehicle\+Plugin\+::\+Set\+Track\+Mu2 (\begin{DoxyParamCaption}\item[{double}]{\+\_\+mu2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Friction coefficient in the second friction direction. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em \+\_\+mu2} & The new coefficient. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classgazebo_1_1TrackedVehiclePlugin_adf44a37e980b209e200e1707a1b29f86}\label{classgazebo_1_1TrackedVehiclePlugin_adf44a37e980b209e200e1707a1b29f86}} 
+\index{gazebo::TrackedVehiclePlugin@{gazebo::TrackedVehiclePlugin}!SetTrackVelocity@{SetTrackVelocity}}
+\index{SetTrackVelocity@{SetTrackVelocity}!gazebo::TrackedVehiclePlugin@{gazebo::TrackedVehiclePlugin}}
+\doxysubsubsection{\texorpdfstring{SetTrackVelocity()}{SetTrackVelocity()}}
+{\footnotesize\ttfamily void Tracked\+Vehicle\+Plugin\+::\+Set\+Track\+Velocity (\begin{DoxyParamCaption}\item[{double}]{\+\_\+left,  }\item[{double}]{\+\_\+right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Set new target velocity for the tracks. 
+
+Descendant classes need to implement this function.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em \+\_\+left} & Velocity of left track. \\
+\hline
+\mbox{\texttt{ in}}  & {\em \+\_\+right} & Velocity of right track. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classgazebo_1_1TrackedVehiclePlugin_a779dd43329fe22a8757305a80c011209}\label{classgazebo_1_1TrackedVehiclePlugin_a779dd43329fe22a8757305a80c011209}} 
+\index{gazebo::TrackedVehiclePlugin@{gazebo::TrackedVehiclePlugin}!SetTrackVelocityImpl@{SetTrackVelocityImpl}}
+\index{SetTrackVelocityImpl@{SetTrackVelocityImpl}!gazebo::TrackedVehiclePlugin@{gazebo::TrackedVehiclePlugin}}
+\doxysubsubsection{\texorpdfstring{SetTrackVelocityImpl()}{SetTrackVelocityImpl()}}
+{\footnotesize\ttfamily virtual void gazebo\+::\+Tracked\+Vehicle\+Plugin\+::\+Set\+Track\+Velocity\+Impl (\begin{DoxyParamCaption}\item[{double}]{\+\_\+left,  }\item[{double}]{\+\_\+right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Set new target velocity for the tracks. 
+
+Descendant classes need to implement this function.
+
+Do not call this function directly, instead call \mbox{\hyperlink{classgazebo_1_1TrackedVehiclePlugin_adf44a37e980b209e200e1707a1b29f86}{Set\+Track\+Velocity()}}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em \+\_\+left} & Velocity of left track. \\
+\hline
+\mbox{\texttt{ in}}  & {\em \+\_\+right} & Velocity of right track. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classgazebo_1_1SimpleTrackedVehiclePlugin_ae73a1d4d86712dbed21ad04d41192e9a}{gazebo\+::\+Simple\+Tracked\+Vehicle\+Plugin}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/jonathan/\+Omni\+Dev/src/omniveyor\+\_\+gazebo\+\_\+world/include/omniveyor\+\_\+gazebo\+\_\+world/Tracked\+Vehicle\+Plugin\+\_\+\+R\+O\+S.\+hh\item 
+/home/jonathan/\+Omni\+Dev/src/omniveyor\+\_\+gazebo\+\_\+world/src/Tracked\+Vehicle\+Plugin\+\_\+\+R\+O\+S.\+cc\end{DoxyCompactItemize}

@@ -1,0 +1,13 @@
+<map id="/home/jonathan/OmniDev/src/omniveyor_hardware/pcv_base/external/ReflexxesTypeII/include/TypeIIRMLPosition.h" name="/home/jonathan/OmniDev/src/omniveyor_hardware/pcv_base/external/ReflexxesTypeII/include/TypeIIRMLPosition.h">
+<area shape="rect" id="node1" title="Header file for the class TypeIIRMLPosition, which constitutes the actual interface of the Type II Re..." alt="" coords="1505,5,1749,76"/>
+<area shape="rect" id="node2" href="$ReflexxesAPI_8cpp.html" title="Implementation file for the user interface (API)" alt="" coords="5,131,249,202"/>
+<area shape="rect" id="node3" href="$TypeIIRMLCalculatePositionalExtrems_8cpp.html" title="Implementation file for the Type II On&#45;Line Trajectory Generation algorithm." alt="" coords="273,124,592,209"/>
+<area shape="rect" id="node4" href="$TypeIIRMLFallBackStrategy_8cpp.html" title="Implementation file for the Type II On&#45;Line Trajectory Generation algorithm." alt="" coords="617,131,945,202"/>
+<area shape="rect" id="node5" href="$TypeIIRMLIsPhaseSynchronizationPossible_8cpp.html" title="Implementation file for the Type II On&#45;Line Trajectory Generation algorithm." alt="" coords="969,124,1315,209"/>
+<area shape="rect" id="node6" href="$TypeIIRMLPosition_8cpp.html" title="Main implementation file for the Type II On&#45;Line Trajectory Generation algorithm." alt="" coords="1339,131,1611,202"/>
+<area shape="rect" id="node7" href="$TypeIIRMLSetupModifiedSelectionVector_8cpp.html" title="Implementation file for the Type II On&#45;Line Trajectory Generation algorithm." alt="" coords="1636,124,1923,209"/>
+<area shape="rect" id="node8" href="$TypeIIRMLStep1_8cpp.html" title="Implementation file for the Type II On&#45;Line Trajectory Generation algorithm." alt="" coords="1947,131,2204,202"/>
+<area shape="rect" id="node9" href="$TypeIIRMLStep2_8cpp.html" title="Implementation file for the method TypeIIRMLPosition::Step2()" alt="" coords="2228,131,2485,202"/>
+<area shape="rect" id="node10" href="$TypeIIRMLStep2PhaseSynchronization_8cpp.html" title="Implementation file for the method TypeIIRMLPosition::Step2PhaseSynchronization()" alt="" coords="2510,131,2910,202"/>
+<area shape="rect" id="node11" href="$TypeIIRMLStep3_8cpp.html" title="Implementation file for the Type II On&#45;Line Trajectory Generation algorithm." alt="" coords="2935,131,3192,202"/>
+</map>

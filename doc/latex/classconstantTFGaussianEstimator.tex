@@ -1,0 +1,182 @@
+\hypertarget{classconstantTFGaussianEstimator}{}\doxysection{constant\+T\+F\+Gaussian\+Estimator Class Reference}
+\label{classconstantTFGaussianEstimator}\index{constantTFGaussianEstimator@{constantTFGaussianEstimator}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classconstantTFGaussianEstimator_ae5525187d783560d3ef05c0e40c16b57}{constant\+T\+F\+Gaussian\+Estimator}} (std\+::string \&target\+Frame, std\+::string \&origin, tf2\+\_\+ros\+::\+Buffer $\ast$tf\+Buffer, int window\+Length)
+\begin{DoxyCompactList}\small\item\em Construct a new constant TF Gaussian Estimator object. The object assumes a near-\/constant transform to be a white noise process, and estimates its covariance. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classconstantTFGaussianEstimator_abfdd135b8e92cfff70adbf41fd2ae35d}{$\sim$constant\+T\+F\+Gaussian\+Estimator}} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the constant TF Gaussian Estimator object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classconstantTFGaussianEstimator_a8bea2d0d02a2870af6b40978205fe873}{update}} ()
+\begin{DoxyCompactList}\small\item\em Update the internal states\+: push the latest TF to the record and update the mean over time. This function has to be called every cycle before other latest$\ast$ variables are updated. \end{DoxyCompactList}\item 
+geometry\+\_\+msgs\+::\+Transform\+Stamped \mbox{\hyperlink{classconstantTFGaussianEstimator_a4495b421df3423605872e5f59f011ce9}{latest\+Transform}} ()
+\begin{DoxyCompactList}\small\item\em Return the latest transform from origin to target. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{classconstantTFGaussianEstimator_a2b14b6499201bba47b52d1fbc9d14dcc}{latest\+Cov}} ()
+\begin{DoxyCompactList}\small\item\em Calculate and return the lastest covariance matrix of the monitored transform. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{classconstantTFGaussianEstimator_a14e9fbfe2116c4779e2cc0bef781d5f3}{cov\+Jacobian}} ()
+\begin{DoxyCompactList}\small\item\em Calculate and return the Jacobian matrix for transforming the covariance matrix of measurements in origin frame to target frame. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{classconstantTFGaussianEstimator_a0734d0624fee933a6a53bca6f3f5a912}{transform\+Cov}} (Eigen\+::\+Matrix\+Xd \&cov\+In)
+\begin{DoxyCompactList}\small\item\em Helper function that transforms the observation covariances in origin frame to target frame. This function calls \mbox{\hyperlink{classconstantTFGaussianEstimator_a2b14b6499201bba47b52d1fbc9d14dcc}{latest\+Cov()}} and \mbox{\hyperlink{classconstantTFGaussianEstimator_a14e9fbfe2116c4779e2cc0bef781d5f3}{cov\+Jacobian()}} internally. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classconstantTFGaussianEstimator_aeb2da76878c1d3f828c0f79f5a29f931}\label{classconstantTFGaussianEstimator_aeb2da76878c1d3f828c0f79f5a29f931}} 
+std\+::string {\bfseries \+\_\+target\+Frame}
+\item 
+\mbox{\Hypertarget{classconstantTFGaussianEstimator_a04d428b06c161104b91ff60c30d1d3e3}\label{classconstantTFGaussianEstimator_a04d428b06c161104b91ff60c30d1d3e3}} 
+std\+::string {\bfseries \+\_\+origin}
+\item 
+\mbox{\Hypertarget{classconstantTFGaussianEstimator_a03c9dd287156224945f5a30a7ad634e2}\label{classconstantTFGaussianEstimator_a03c9dd287156224945f5a30a7ad634e2}} 
+tf2\+\_\+ros\+::\+Buffer $\ast$ {\bfseries \+\_\+tf\+Buffer}
+\item 
+\mbox{\Hypertarget{classconstantTFGaussianEstimator_a89561f684c6ec4c910a6ea605a2fc670}\label{classconstantTFGaussianEstimator_a89561f684c6ec4c910a6ea605a2fc670}} 
+geometry\+\_\+msgs\+::\+Transform\+Stamped {\bfseries \+\_\+tf}
+\item 
+\mbox{\Hypertarget{classconstantTFGaussianEstimator_aa7a467c90b6ce97e34ae338df702517e}\label{classconstantTFGaussianEstimator_aa7a467c90b6ce97e34ae338df702517e}} 
+Eigen\+::\+Matrix\+Xd {\bfseries \+\_\+tf\+Cov}
+\item 
+\mbox{\Hypertarget{classconstantTFGaussianEstimator_aa9001baecd87a18c096e9f15678980ae}\label{classconstantTFGaussianEstimator_aa9001baecd87a18c096e9f15678980ae}} 
+Eigen\+::\+Matrix\+Xd {\bfseries \+\_\+jacobian}
+\item 
+\mbox{\Hypertarget{classconstantTFGaussianEstimator_a632a1d59c2b8f68184a9fb998a63d8e6}\label{classconstantTFGaussianEstimator_a632a1d59c2b8f68184a9fb998a63d8e6}} 
+Eigen\+::\+Matrix\+Xd {\bfseries \+\_\+r}
+\item 
+\mbox{\Hypertarget{classconstantTFGaussianEstimator_a0fc4564f9a7b2ce770928ab78ac1c0a6}\label{classconstantTFGaussianEstimator_a0fc4564f9a7b2ce770928ab78ac1c0a6}} 
+Eigen\+::\+Matrix\+Xd {\bfseries \+\_\+extracted\+TF}
+\item 
+\mbox{\Hypertarget{classconstantTFGaussianEstimator_a74a8dc083165e92cd7b1118bb24799dd}\label{classconstantTFGaussianEstimator_a74a8dc083165e92cd7b1118bb24799dd}} 
+Eigen\+::\+Vector\+Xd {\bfseries \+\_\+tf\+Mean}
+\item 
+\mbox{\Hypertarget{classconstantTFGaussianEstimator_a7cd3cba4b70a77a784aa9c2b004f73d1}\label{classconstantTFGaussianEstimator_a7cd3cba4b70a77a784aa9c2b004f73d1}} 
+bool {\bfseries \+\_\+is\+Extracted\+Tf\+Full}
+\item 
+\mbox{\Hypertarget{classconstantTFGaussianEstimator_af4b24f8aa4f5450619db96058065770a}\label{classconstantTFGaussianEstimator_af4b24f8aa4f5450619db96058065770a}} 
+unsigned int {\bfseries \+\_\+window\+Len}
+\item 
+\mbox{\Hypertarget{classconstantTFGaussianEstimator_aae345cf360809d77a7dbb4568f5d0434}\label{classconstantTFGaussianEstimator_aae345cf360809d77a7dbb4568f5d0434}} 
+unsigned int {\bfseries \+\_\+update\+Ind}
+\item 
+\mbox{\Hypertarget{classconstantTFGaussianEstimator_a86f3f1601a264f49de157c4666e26a60}\label{classconstantTFGaussianEstimator_a86f3f1601a264f49de157c4666e26a60}} 
+ros\+::\+Time {\bfseries \+\_\+last\+Stamp}
+\item 
+\mbox{\Hypertarget{classconstantTFGaussianEstimator_a5f154b41b2d8559deca4b40ae10b91e9}\label{classconstantTFGaussianEstimator_a5f154b41b2d8559deca4b40ae10b91e9}} 
+bool {\bfseries \+\_\+update\+Cov}
+\item 
+\mbox{\Hypertarget{classconstantTFGaussianEstimator_adc18301207ce89d847c8210527936c67}\label{classconstantTFGaussianEstimator_adc18301207ce89d847c8210527936c67}} 
+bool {\bfseries \+\_\+updateJ}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classconstantTFGaussianEstimator_ae5525187d783560d3ef05c0e40c16b57}\label{classconstantTFGaussianEstimator_ae5525187d783560d3ef05c0e40c16b57}} 
+\index{constantTFGaussianEstimator@{constantTFGaussianEstimator}!constantTFGaussianEstimator@{constantTFGaussianEstimator}}
+\index{constantTFGaussianEstimator@{constantTFGaussianEstimator}!constantTFGaussianEstimator@{constantTFGaussianEstimator}}
+\doxysubsubsection{\texorpdfstring{constantTFGaussianEstimator()}{constantTFGaussianEstimator()}}
+{\footnotesize\ttfamily constant\+T\+F\+Gaussian\+Estimator\+::constant\+T\+F\+Gaussian\+Estimator (\begin{DoxyParamCaption}\item[{std\+::string \&}]{target\+Frame,  }\item[{std\+::string \&}]{origin,  }\item[{tf2\+\_\+ros\+::\+Buffer $\ast$}]{tf\+Buffer,  }\item[{int}]{window\+Length }\end{DoxyParamCaption})}
+
+
+
+Construct a new constant TF Gaussian Estimator object. The object assumes a near-\/constant transform to be a white noise process, and estimates its covariance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target\+Frame} & Target frame of the transformation, such that \$\+\_\+\{target\}T$^\wedge$\{origin\} $\ast$ \+\_\+\{origin\}X = \+\_\+\{target\}X.\$ \\
+\hline
+{\em origin} & Origin frame of the transform. \\
+\hline
+{\em tf\+Buffer} & Pointer to an initialized tf2\+\_\+ros\+::\+Buffer, with its tf2\+\_\+ros\+::\+Transform\+Listener already attached. \\
+\hline
+{\em window\+Length} & How many consecutive TF are collected over time to calculate the covariance. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classconstantTFGaussianEstimator_abfdd135b8e92cfff70adbf41fd2ae35d}\label{classconstantTFGaussianEstimator_abfdd135b8e92cfff70adbf41fd2ae35d}} 
+\index{constantTFGaussianEstimator@{constantTFGaussianEstimator}!````~constantTFGaussianEstimator@{$\sim$constantTFGaussianEstimator}}
+\index{````~constantTFGaussianEstimator@{$\sim$constantTFGaussianEstimator}!constantTFGaussianEstimator@{constantTFGaussianEstimator}}
+\doxysubsubsection{\texorpdfstring{$\sim$constantTFGaussianEstimator()}{~constantTFGaussianEstimator()}}
+{\footnotesize\ttfamily virtual constant\+T\+F\+Gaussian\+Estimator\+::$\sim$constant\+T\+F\+Gaussian\+Estimator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Destroy the constant TF Gaussian Estimator object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classconstantTFGaussianEstimator_a14e9fbfe2116c4779e2cc0bef781d5f3}\label{classconstantTFGaussianEstimator_a14e9fbfe2116c4779e2cc0bef781d5f3}} 
+\index{constantTFGaussianEstimator@{constantTFGaussianEstimator}!covJacobian@{covJacobian}}
+\index{covJacobian@{covJacobian}!constantTFGaussianEstimator@{constantTFGaussianEstimator}}
+\doxysubsubsection{\texorpdfstring{covJacobian()}{covJacobian()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd constant\+T\+F\+Gaussian\+Estimator\+::cov\+Jacobian (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Calculate and return the Jacobian matrix for transforming the covariance matrix of measurements in origin frame to target frame. 
+
+\begin{DoxyReturn}{Returns}
+Eigen\+::\+Matrix\+Xd 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classconstantTFGaussianEstimator_a2b14b6499201bba47b52d1fbc9d14dcc}\label{classconstantTFGaussianEstimator_a2b14b6499201bba47b52d1fbc9d14dcc}} 
+\index{constantTFGaussianEstimator@{constantTFGaussianEstimator}!latestCov@{latestCov}}
+\index{latestCov@{latestCov}!constantTFGaussianEstimator@{constantTFGaussianEstimator}}
+\doxysubsubsection{\texorpdfstring{latestCov()}{latestCov()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd constant\+T\+F\+Gaussian\+Estimator\+::latest\+Cov (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Calculate and return the lastest covariance matrix of the monitored transform. 
+
+\begin{DoxyReturn}{Returns}
+Eigen\+::\+Matrix\+Xd 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classconstantTFGaussianEstimator_a4495b421df3423605872e5f59f011ce9}\label{classconstantTFGaussianEstimator_a4495b421df3423605872e5f59f011ce9}} 
+\index{constantTFGaussianEstimator@{constantTFGaussianEstimator}!latestTransform@{latestTransform}}
+\index{latestTransform@{latestTransform}!constantTFGaussianEstimator@{constantTFGaussianEstimator}}
+\doxysubsubsection{\texorpdfstring{latestTransform()}{latestTransform()}}
+{\footnotesize\ttfamily geometry\+\_\+msgs\+::\+Transform\+Stamped constant\+T\+F\+Gaussian\+Estimator\+::latest\+Transform (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Return the latest transform from origin to target. 
+
+\begin{DoxyReturn}{Returns}
+geometry\+\_\+msgs\+::\+Transform\+Stamped 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classconstantTFGaussianEstimator_a0734d0624fee933a6a53bca6f3f5a912}\label{classconstantTFGaussianEstimator_a0734d0624fee933a6a53bca6f3f5a912}} 
+\index{constantTFGaussianEstimator@{constantTFGaussianEstimator}!transformCov@{transformCov}}
+\index{transformCov@{transformCov}!constantTFGaussianEstimator@{constantTFGaussianEstimator}}
+\doxysubsubsection{\texorpdfstring{transformCov()}{transformCov()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd constant\+T\+F\+Gaussian\+Estimator\+::transform\+Cov (\begin{DoxyParamCaption}\item[{Eigen\+::\+Matrix\+Xd \&}]{cov\+In }\end{DoxyParamCaption})}
+
+
+
+Helper function that transforms the observation covariances in origin frame to target frame. This function calls \mbox{\hyperlink{classconstantTFGaussianEstimator_a2b14b6499201bba47b52d1fbc9d14dcc}{latest\+Cov()}} and \mbox{\hyperlink{classconstantTFGaussianEstimator_a14e9fbfe2116c4779e2cc0bef781d5f3}{cov\+Jacobian()}} internally. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cov\+In} & Observation covariance of values in origin frame. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Eigen\+::\+Matrix\+Xd Transformed covariance, with the covariance of the transform imposed. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classconstantTFGaussianEstimator_a8bea2d0d02a2870af6b40978205fe873}\label{classconstantTFGaussianEstimator_a8bea2d0d02a2870af6b40978205fe873}} 
+\index{constantTFGaussianEstimator@{constantTFGaussianEstimator}!update@{update}}
+\index{update@{update}!constantTFGaussianEstimator@{constantTFGaussianEstimator}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily bool constant\+T\+F\+Gaussian\+Estimator\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Update the internal states\+: push the latest TF to the record and update the mean over time. This function has to be called every cycle before other latest$\ast$ variables are updated. 
+
+\begin{DoxyReturn}{Returns}
+true -\/ A newer TF has been updated to the record. 
+
+false -\/ No newer TF is available. Last values are maintained. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+omniveyor\+\_\+mobility/include/omniveyor\+\_\+mobility/\mbox{\hyperlink{map__pose__from__tf_8h}{map\+\_\+pose\+\_\+from\+\_\+tf.\+h}}\item 
+omniveyor\+\_\+mobility/src/map\+\_\+pose\+\_\+from\+\_\+tf.\+cpp\end{DoxyCompactItemize}

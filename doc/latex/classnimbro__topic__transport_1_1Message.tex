@@ -1,0 +1,48 @@
+\hypertarget{classnimbro__topic__transport_1_1Message}{}\doxysection{nimbro\+\_\+topic\+\_\+transport\+::Message Class Reference}
+\label{classnimbro__topic__transport_1_1Message}\index{nimbro\_topic\_transport::Message@{nimbro\_topic\_transport::Message}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classnimbro__topic__transport_1_1Message_abaed8fe7480b92b69b1971369031d913}\label{classnimbro__topic__transport_1_1Message_abaed8fe7480b92b69b1971369031d913}} 
+enum {\bfseries Flag} \{ {\bfseries F\+L\+A\+G\+\_\+\+C\+O\+M\+P\+R\+E\+S\+S\+E\+D\+\_\+\+B\+Z2} = (1 $<$$<$ 0), 
+{\bfseries F\+L\+A\+G\+\_\+\+C\+O\+M\+P\+R\+E\+S\+S\+E\+D\+\_\+\+Z\+S\+TD} = (1 $<$$<$ 1)
+ \}
+\item 
+\mbox{\Hypertarget{classnimbro__topic__transport_1_1Message_a6e92ea4f3d0ddd134f3ea32f6b3c010d}\label{classnimbro__topic__transport_1_1Message_a6e92ea4f3d0ddd134f3ea32f6b3c010d}} 
+typedef std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classnimbro__topic__transport_1_1Message}{Message}} $>$ {\bfseries Ptr}
+\item 
+\mbox{\Hypertarget{classnimbro__topic__transport_1_1Message_a95337fefcf565bd174e85aa98cc5acda}\label{classnimbro__topic__transport_1_1Message_a95337fefcf565bd174e85aa98cc5acda}} 
+typedef std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classnimbro__topic__transport_1_1Message}{Message}} $>$ {\bfseries Const\+Ptr}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classnimbro__topic__transport_1_1Message_a891be1325210eb0b59d74f94e3f3df41}\label{classnimbro__topic__transport_1_1Message_a891be1325210eb0b59d74f94e3f3df41}} 
+void {\bfseries copy\+Meta\+Info\+From} (const \mbox{\hyperlink{classnimbro__topic__transport_1_1Message}{Message}} \&other)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classnimbro__topic__transport_1_1Message_a273bb72a75d04d56c1e1feb9b3128fad}\label{classnimbro__topic__transport_1_1Message_a273bb72a75d04d56c1e1feb9b3128fad}} 
+std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classnimbro__topic__transport_1_1Topic}{Topic}} $>$ {\bfseries topic}
+\item 
+\mbox{\Hypertarget{classnimbro__topic__transport_1_1Message_a9520785c7d33671015cbda206eabd8ec}\label{classnimbro__topic__transport_1_1Message_a9520785c7d33671015cbda206eabd8ec}} 
+std\+::string {\bfseries type}
+\item 
+\mbox{\Hypertarget{classnimbro__topic__transport_1_1Message_a1e9720febaddbbf73764d03a1087487d}\label{classnimbro__topic__transport_1_1Message_a1e9720febaddbbf73764d03a1087487d}} 
+std\+::string {\bfseries md5}
+\item 
+\mbox{\Hypertarget{classnimbro__topic__transport_1_1Message_a94711dcb9db590f30bf71024bc12f200}\label{classnimbro__topic__transport_1_1Message_a94711dcb9db590f30bf71024bc12f200}} 
+uint16\+\_\+t {\bfseries flags} = 0
+\item 
+\mbox{\Hypertarget{classnimbro__topic__transport_1_1Message_a00b01ebdfe512294628d6ef024cd4411}\label{classnimbro__topic__transport_1_1Message_a00b01ebdfe512294628d6ef024cd4411}} 
+std\+::vector$<$ uint8\+\_\+t $>$ {\bfseries payload}
+\item 
+\mbox{\Hypertarget{classnimbro__topic__transport_1_1Message_a7ce3cd4aa12b88d126d0d6fd42cb381a}\label{classnimbro__topic__transport_1_1Message_a7ce3cd4aa12b88d126d0d6fd42cb381a}} 
+uint32\+\_\+t \mbox{\hyperlink{classnimbro__topic__transport_1_1Message_a7ce3cd4aa12b88d126d0d6fd42cb381a}{counter}}
+\begin{DoxyCompactList}\small\item\em Sequential counter (incremented in \mbox{\hyperlink{classnimbro__topic__transport_1_1Subscriber}{Subscriber}} class) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+nimbro\+\_\+network/nimbro\+\_\+topic\+\_\+transport/src/message.\+h\end{DoxyCompactItemize}

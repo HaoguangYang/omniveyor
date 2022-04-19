@@ -1,0 +1,143 @@
+The source code of the {\itshape Type II Reflexxes Motion Library} is structured in a simple and clear three-\/layered way\+:~\newline
+~\newline
+ 
+\begin{DoxyEnumerate}
+\item sec\+\_\+\+Interface\+Layer~\newline
+~\newline
+ 
+\item sec\+\_\+\+Algorithm\+Layer~\newline
+~\newline
+ 
+\item sec\+\_\+\+Math\+Layer~\newline
+~\newline
+ 
+\end{DoxyEnumerate}
+
+
+
+\DoxyHorRuler{0}
+\hypertarget{page_SourceCode_sec_InterfaceLayer}{}\doxysection{The Interface Layer}\label{page_SourceCode_sec_InterfaceLayer}
+The {\itshape interface layer} is based on the class \mbox{\hyperlink{classReflexxesAPI}{Reflexxes\+A\+PI}} and constitutes the user A\+PI of the Reflexxes Motion Libraries. It wraps around the algorithmic classes \mbox{\hyperlink{classTypeIIRMLPosition}{Type\+I\+I\+R\+M\+L\+Position}} and \mbox{\hyperlink{classTypeIIRMLPosition}{Type\+I\+I\+R\+M\+L\+Position}} (cf. \mbox{\hyperlink{page_SourceCode_sec_AlgorithmLayer}{The Algorithm Layer}}) and hides all functionalities that are not required by the user application in order to obtain a clean and minimal interface for all applications. For a description of input and output values, please refer to the \mbox{\hyperlink{page_InputValues}{Description of Input Values}} and the page\+\_\+\+Output\+Values.~\newline
+
+
+~\newline
+ {\bfseries{Class List}}
+
+
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{classReflexxesAPI}{Reflexxes\+A\+PI}} 
+\item \mbox{\hyperlink{classRMLPositionInputParameters}{R\+M\+L\+Position\+Input\+Parameters}} 
+\item \mbox{\hyperlink{classRMLPositionOutputParameters}{R\+M\+L\+Position\+Output\+Parameters}} 
+\item \mbox{\hyperlink{classRMLPositionFlags}{R\+M\+L\+Position\+Flags}} 
+\item \mbox{\hyperlink{classRMLVelocityInputParameters}{R\+M\+L\+Velocity\+Input\+Parameters}} 
+\item \mbox{\hyperlink{classRMLVelocityOutputParameters}{R\+M\+L\+Velocity\+Output\+Parameters}} 
+\item \mbox{\hyperlink{classRMLVelocityFlags}{R\+M\+L\+Velocity\+Flags}} 
+\item \mbox{\hyperlink{classRMLVector}{R\+M\+L\+Vector}} 
+\end{DoxyItemize}~\newline
+ {\bfseries{File List}}
+
+
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{ReflexxesAPI_8h}{Reflexxes\+A\+P\+I.\+h}} 
+\item \mbox{\hyperlink{RMLInputParameters_8h}{R\+M\+L\+Input\+Parameters.\+h}} 
+\item \mbox{\hyperlink{RMLOutputParameters_8h}{R\+M\+L\+Output\+Parameters.\+h}} 
+\item \mbox{\hyperlink{RMLFlags_8h}{R\+M\+L\+Flags.\+h}} 
+\item \mbox{\hyperlink{RMLPositionInputParameters_8h}{R\+M\+L\+Position\+Input\+Parameters.\+h}} 
+\item \mbox{\hyperlink{RMLPositionOutputParameters_8h}{R\+M\+L\+Position\+Output\+Parameters.\+h}} 
+\item \mbox{\hyperlink{RMLPositionFlags_8h}{R\+M\+L\+Position\+Flags.\+h}} 
+\item \mbox{\hyperlink{RMLVelocityInputParameters_8h}{R\+M\+L\+Velocity\+Input\+Parameters.\+h}} 
+\item \mbox{\hyperlink{RMLVelocityOutputParameters_8h}{R\+M\+L\+Velocity\+Output\+Parameters.\+h}} 
+\item \mbox{\hyperlink{RMLVelocityFlags_8h}{R\+M\+L\+Velocity\+Flags.\+h}} 
+\item \mbox{\hyperlink{RMLVector_8h}{R\+M\+L\+Vector.\+h}} 
+\item \mbox{\hyperlink{ReflexxesAPI_8cpp}{Reflexxes\+A\+P\+I.\+cpp}} 
+\end{DoxyItemize}
+
+~\newline
+ \DoxyHorRuler{0}
+\hypertarget{page_SourceCode_sec_AlgorithmLayer}{}\doxysection{The Algorithm Layer}\label{page_SourceCode_sec_AlgorithmLayer}
+The {\itshape algorithm layer} contains the actual Type II On-\/\+Line Trajectory Generation (\mbox{\hyperlink{classOTG}{O\+TG}}) algorithm. The position-\/based algorithm is realized by the class \mbox{\hyperlink{classTypeIIRMLPosition}{Type\+I\+I\+R\+M\+L\+Position}}, and the velocity-\/based algorithm is realized by the class \mbox{\hyperlink{classTypeIIRMLVelocity}{Type\+I\+I\+R\+M\+L\+Velocity}}. Both classes make use of the namespace Type\+I\+I\+R\+M\+L\+Math, which provides all mathematical foundation for the algorithms (cf. \mbox{\hyperlink{page_SourceCode_sec_MathLayer}{The Math Layer}}). The methods to call the actual algorithms are \mbox{\hyperlink{classTypeIIRMLPosition_af2a8f0d8c55c3f5a4861149a7bc35d66}{Type\+I\+I\+R\+M\+L\+Position\+::\+Get\+Next\+State\+Of\+Motion()}} and \mbox{\hyperlink{classTypeIIRMLPosition_af2a8f0d8c55c3f5a4861149a7bc35d66}{Type\+I\+I\+R\+M\+L\+Position\+::\+Get\+Next\+State\+Of\+Motion()}}, both of which are used by the A\+PI class \mbox{\hyperlink{classReflexxesAPI}{Reflexxes\+A\+PI}} (cf. \mbox{\hyperlink{page_SourceCode_sec_InterfaceLayer}{The Interface Layer}}).
+
+~\newline
+ {\bfseries{Class List}}
+
+
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{classTypeIIRMLPosition}{Type\+I\+I\+R\+M\+L\+Position}} 
+\item \mbox{\hyperlink{classTypeIIRMLVelocity}{Type\+I\+I\+R\+M\+L\+Velocity}} 
+\end{DoxyItemize}
+
+~\newline
+ {\bfseries{File List for the Position-\/based Algorithm}}
+
+
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{TypeIIRMLPosition_8h}{Type\+I\+I\+R\+M\+L\+Position.\+h}} 
+\item \mbox{\hyperlink{TypeIIRMLPosition_8cpp}{Type\+I\+I\+R\+M\+L\+Position.\+cpp}} 
+\item \mbox{\hyperlink{TypeIIRMLCalculatePositionalExtrems_8cpp}{Type\+I\+I\+R\+M\+L\+Calculate\+Positional\+Extrems.\+cpp}} 
+\item \mbox{\hyperlink{TypeIIRMLFallBackStrategy_8cpp}{Type\+I\+I\+R\+M\+L\+Fall\+Back\+Strategy.\+cpp}} 
+\item \mbox{\hyperlink{TypeIIRMLIsPhaseSynchronizationPossible_8cpp}{Type\+I\+I\+R\+M\+L\+Is\+Phase\+Synchronization\+Possible.\+cpp}} 
+\item \mbox{\hyperlink{TypeIIRMLSetupModifiedSelectionVector_8cpp}{Type\+I\+I\+R\+M\+L\+Setup\+Modified\+Selection\+Vector.\+cpp}} 
+\item \mbox{\hyperlink{TypeIIRMLStep1_8cpp}{Type\+I\+I\+R\+M\+L\+Step1.\+cpp}} 
+\item \mbox{\hyperlink{TypeIIRMLStep2PhaseSynchronization_8cpp}{Type\+I\+I\+R\+M\+L\+Step2\+Phase\+Synchronization.\+cpp}} 
+\item \mbox{\hyperlink{TypeIIRMLStep2_8cpp}{Type\+I\+I\+R\+M\+L\+Step2.\+cpp}} 
+\item \mbox{\hyperlink{TypeIIRMLStep3_8cpp}{Type\+I\+I\+R\+M\+L\+Step3.\+cpp}} 
+\end{DoxyItemize}
+
+~\newline
+ {\bfseries{File List for the Velocity-\/based Algorithm}}
+
+
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{TypeIIRMLVelocity_8h}{Type\+I\+I\+R\+M\+L\+Velocity.\+h}} 
+\item \mbox{\hyperlink{TypeIIRMLVelocity_8cpp}{Type\+I\+I\+R\+M\+L\+Velocity.\+cpp}} 
+\item \mbox{\hyperlink{TypeIIRMLVelocityCalculatePositionalExtrems_8cpp}{Type\+I\+I\+R\+M\+L\+Velocity\+Calculate\+Positional\+Extrems.\+cpp}} 
+\item \mbox{\hyperlink{TypeIIRMLVelocityFallBackStrategy_8cpp}{Type\+I\+I\+R\+M\+L\+Velocity\+Fall\+Back\+Strategy.\+cpp}} 
+\item \mbox{\hyperlink{TypeIIRMLVelocityIsPhaseSynchronizationPossible_8cpp}{Type\+I\+I\+R\+M\+L\+Velocity\+Is\+Phase\+Synchronization\+Possible.\+cpp}} 
+\item \mbox{\hyperlink{TypeIIRMLVelocityMethods_8cpp}{Type\+I\+I\+R\+M\+L\+Velocity\+Methods.\+cpp}} 
+\item \mbox{\hyperlink{TypeIIRMLVelocitySetupPhaseSyncSelectionVector_8cpp}{Type\+I\+I\+R\+M\+L\+Velocity\+Setup\+Phase\+Sync\+Selection\+Vector.\+cpp}} 
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{page_SourceCode_sec_MathLayer}{}\doxysection{The Math Layer}\label{page_SourceCode_sec_MathLayer}
+The {\itshape math layer} is the most fundamental layer. It provides a collection of mathematical functions that required by the classes \mbox{\hyperlink{classTypeIIRMLPosition}{Type\+I\+I\+R\+M\+L\+Position}} and \mbox{\hyperlink{classTypeIIRMLVelocity}{Type\+I\+I\+R\+M\+L\+Velocity}}. All these functions are contained in the namespace Type\+I\+I\+R\+M\+L\+Math.
+
+~\newline
+ {\bfseries{Class List}}
+
+
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{structTypeIIRMLMath_1_1MotionPolynomials}{Type\+I\+I\+R\+M\+L\+Math\+::\+Motion\+Polynomials}} 
+\item \mbox{\hyperlink{classTypeIIRMLMath_1_1TypeIIRMLPolynomial}{Type\+I\+I\+R\+M\+L\+Math\+::\+Type\+I\+I\+R\+M\+L\+Polynomial}} 
+\end{DoxyItemize}
+
+~\newline
+ {\bfseries{File List}}
+
+
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{TypeIIRMLDecisionTree1A_8h}{Type\+I\+I\+R\+M\+L\+Decision\+Tree1\+A.\+h}} 
+\item \mbox{\hyperlink{TypeIIRMLDecisionTree1B_8h}{Type\+I\+I\+R\+M\+L\+Decision\+Tree1\+B.\+h}} 
+\item \mbox{\hyperlink{TypeIIRMLDecisionTree1C_8h}{Type\+I\+I\+R\+M\+L\+Decision\+Tree1\+C.\+h}} 
+\item \mbox{\hyperlink{TypeIIRMLDecisionTree2_8h}{Type\+I\+I\+R\+M\+L\+Decision\+Tree2.\+h}} 
+\item \mbox{\hyperlink{TypeIIRMLMath_8h}{Type\+I\+I\+R\+M\+L\+Math.\+h}} 
+\item \mbox{\hyperlink{TypeIIRMLPolynomial_8h}{Type\+I\+I\+R\+M\+L\+Polynomial.\+h}} 
+\item \mbox{\hyperlink{TypeIIRMLQuicksort_8h}{Type\+I\+I\+R\+M\+L\+Quicksort.\+h}} 
+\item \mbox{\hyperlink{TypeIIRMLDecisions_8h}{Type\+I\+I\+R\+M\+L\+Decisions.\+h}} 
+\item \mbox{\hyperlink{TypeIIRMLStep1IntermediateProfiles_8h}{Type\+I\+I\+R\+M\+L\+Step1\+Intermediate\+Profiles.\+h}} 
+\item \mbox{\hyperlink{TypeIIRMLStep1Profiles_8h}{Type\+I\+I\+R\+M\+L\+Step1\+Profiles.\+h}} 
+\item \mbox{\hyperlink{TypeIIRMLStep2IntermediateProfiles_8h}{Type\+I\+I\+R\+M\+L\+Step2\+Intermediate\+Profiles.\+h}} 
+\item \mbox{\hyperlink{TypeIIRMLStep2Profiles_8h}{Type\+I\+I\+R\+M\+L\+Step2\+Profiles.\+h}} 
+\item \mbox{\hyperlink{TypeIIRMLStep2WithoutSynchronization_8h}{Type\+I\+I\+R\+M\+L\+Step2\+Without\+Synchronization.\+h}} 
+\item \mbox{\hyperlink{TypeIIRMLDecisionTree1A_8cpp}{Type\+I\+I\+R\+M\+L\+Decision\+Tree1\+A.\+cpp}} 
+\item \mbox{\hyperlink{TypeIIRMLDecisionTree1B_8cpp}{Type\+I\+I\+R\+M\+L\+Decision\+Tree1\+B.\+cpp}} 
+\item \mbox{\hyperlink{TypeIIRMLDecisionTree1C_8cpp}{Type\+I\+I\+R\+M\+L\+Decision\+Tree1\+C.\+cpp}} 
+\item \mbox{\hyperlink{TypeIIRMLDecisionTree2_8cpp}{Type\+I\+I\+R\+M\+L\+Decision\+Tree2.\+cpp}} 
+\item \mbox{\hyperlink{TypeIIRMLPolynomial_8cpp}{Type\+I\+I\+R\+M\+L\+Polynomial.\+cpp}} 
+\item \mbox{\hyperlink{TypeIIRMLQuicksort_8cpp}{Type\+I\+I\+R\+M\+L\+Quicksort.\+cpp}} 
+\item \mbox{\hyperlink{TypeIIRMLDecisions_8cpp}{Type\+I\+I\+R\+M\+L\+Decisions.\+cpp}} 
+\item \mbox{\hyperlink{TypeIIRMLStep1IntermediateProfiles_8cpp}{Type\+I\+I\+R\+M\+L\+Step1\+Intermediate\+Profiles.\+cpp}} 
+\item \mbox{\hyperlink{TypeIIRMLStep1Profiles_8cpp}{Type\+I\+I\+R\+M\+L\+Step1\+Profiles.\+cpp}} 
+\item \mbox{\hyperlink{TypeIIRMLStep2IntermediateProfiles_8cpp}{Type\+I\+I\+R\+M\+L\+Step2\+Intermediate\+Profiles.\+cpp}} 
+\item \mbox{\hyperlink{TypeIIRMLStep2Profiles_8cpp}{Type\+I\+I\+R\+M\+L\+Step2\+Profiles.\+cpp}} 
+\item \mbox{\hyperlink{TypeIIRMLStep2WithoutSynchronization_8cpp}{Type\+I\+I\+R\+M\+L\+Step2\+Without\+Synchronization.\+cpp}} 
+\end{DoxyItemize}

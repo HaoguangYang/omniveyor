@@ -1,0 +1,55 @@
+\hypertarget{classgazebo_1_1OmniVeyorPluginPrivate}{}\doxysection{gazebo\+::Omni\+Veyor\+Plugin\+Private Class Reference}
+\label{classgazebo_1_1OmniVeyorPluginPrivate}\index{gazebo::OmniVeyorPluginPrivate@{gazebo::OmniVeyorPluginPrivate}}
+
+
+Private data class.  
+
+
+
+
+Collaboration diagram for gazebo\+::Omni\+Veyor\+Plugin\+Private\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=257pt]{classgazebo_1_1OmniVeyorPluginPrivate__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgazebo_1_1OmniVeyorPluginPrivate_a29823c8c4e8cfe3c918ddba228c35c10}\label{classgazebo_1_1OmniVeyorPluginPrivate_a29823c8c4e8cfe3c918ddba228c35c10}} 
+physics\+::\+Model\+Ptr \mbox{\hyperlink{classgazebo_1_1OmniVeyorPluginPrivate_a29823c8c4e8cfe3c918ddba228c35c10}{model}}
+\begin{DoxyCompactList}\small\item\em Pointer to model containing plugin. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgazebo_1_1OmniVeyorPluginPrivate_af8b010cbb46f90c4c72d7d7d29d3ea40}\label{classgazebo_1_1OmniVeyorPluginPrivate_af8b010cbb46f90c4c72d7d7d29d3ea40}} 
+sdf\+::\+Element\+Ptr \mbox{\hyperlink{classgazebo_1_1OmniVeyorPluginPrivate_af8b010cbb46f90c4c72d7d7d29d3ea40}{sdf}}
+\begin{DoxyCompactList}\small\item\em S\+DF for this plugin;. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgazebo_1_1OmniVeyorPluginPrivate_ae4a624647f89dbf05d8e8e41b413772b}\label{classgazebo_1_1OmniVeyorPluginPrivate_ae4a624647f89dbf05d8e8e41b413772b}} 
+transport\+::\+Node\+Ptr \mbox{\hyperlink{classgazebo_1_1OmniVeyorPluginPrivate_ae4a624647f89dbf05d8e8e41b413772b}{robot\+Node}}
+\begin{DoxyCompactList}\small\item\em Pointer to a node with robot prefix. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgazebo_1_1OmniVeyorPluginPrivate_a3ce076b745c432edd1d9799f3c711755}\label{classgazebo_1_1OmniVeyorPluginPrivate_a3ce076b745c432edd1d9799f3c711755}} 
+transport\+::\+Subscriber\+Ptr \mbox{\hyperlink{classgazebo_1_1OmniVeyorPluginPrivate_a3ce076b745c432edd1d9799f3c711755}{velocity\+Pose\+Sub}}
+\begin{DoxyCompactList}\small\item\em Velocity command subscriber. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgazebo_1_1OmniVeyorPluginPrivate_a9e57d13ff2815401ac6c2a7ccb932a9c}\label{classgazebo_1_1OmniVeyorPluginPrivate_a9e57d13ff2815401ac6c2a7ccb932a9c}} 
+transport\+::\+Subscriber\+Ptr \mbox{\hyperlink{classgazebo_1_1OmniVeyorPluginPrivate_a9e57d13ff2815401ac6c2a7ccb932a9c}{velocity\+Twist\+Sub}}
+\begin{DoxyCompactList}\small\item\em Velocity command subscriber. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgazebo_1_1OmniVeyorPluginPrivate_a09e30c37e24b386f1e224405d6e156af}\label{classgazebo_1_1OmniVeyorPluginPrivate_a09e30c37e24b386f1e224405d6e156af}} 
+transport\+::\+Publisher\+Ptr \mbox{\hyperlink{classgazebo_1_1OmniVeyorPluginPrivate_a09e30c37e24b386f1e224405d6e156af}{joint\+Velocity\+Pub}}
+\begin{DoxyCompactList}\small\item\em Publisher of the joint velocities. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgazebo_1_1OmniVeyorPluginPrivate_a4d1b2de116b3ca0033196312351f56f4}\label{classgazebo_1_1OmniVeyorPluginPrivate_a4d1b2de116b3ca0033196312351f56f4}} 
+double \mbox{\hyperlink{classgazebo_1_1OmniVeyorPluginPrivate_a4d1b2de116b3ca0033196312351f56f4}{max\+Axle\+Speed}} = 31.\+4
+\begin{DoxyCompactList}\small\item\em Max axle velocity in rad/s. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgazebo_1_1OmniVeyorPluginPrivate_a82acfd0417d6b9c861a1d728b0fdf1a4}\label{classgazebo_1_1OmniVeyorPluginPrivate_a82acfd0417d6b9c861a1d728b0fdf1a4}} 
+double \mbox{\hyperlink{classgazebo_1_1OmniVeyorPluginPrivate_a82acfd0417d6b9c861a1d728b0fdf1a4}{max\+Steer\+Speed}} = 31.\+4
+\begin{DoxyCompactList}\small\item\em Max steering speed in rad/s. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgazebo_1_1OmniVeyorPluginPrivate_a925a0e47653ce8f98694e48bb4bfe7b1}\label{classgazebo_1_1OmniVeyorPluginPrivate_a925a0e47653ce8f98694e48bb4bfe7b1}} 
+std\+::string \mbox{\hyperlink{classgazebo_1_1OmniVeyorPluginPrivate_a925a0e47653ce8f98694e48bb4bfe7b1}{robot\+Namespace}}
+\begin{DoxyCompactList}\small\item\em Namespace used as a prefix for gazebo topic names. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Private data class. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/jonathan/\+Omni\+Dev/src/omniveyor\+\_\+gazebo\+\_\+world/src/Omni\+Veyor\+Plugin\+\_\+\+R\+O\+S.\+cc\end{DoxyCompactItemize}

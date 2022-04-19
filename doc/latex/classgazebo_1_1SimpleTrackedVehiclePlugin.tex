@@ -1,0 +1,207 @@
+\hypertarget{classgazebo_1_1SimpleTrackedVehiclePlugin}{}\doxysection{gazebo\+::Simple\+Tracked\+Vehicle\+Plugin Class Reference}
+\label{classgazebo_1_1SimpleTrackedVehiclePlugin}\index{gazebo::SimpleTrackedVehiclePlugin@{gazebo::SimpleTrackedVehiclePlugin}}
+
+
+A very fast, but also very accurate model of non-\/deformable tracks without grousers.  
+
+
+
+
+Inheritance diagram for gazebo\+::Simple\+Tracked\+Vehicle\+Plugin\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=245pt]{classgazebo_1_1SimpleTrackedVehiclePlugin__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for gazebo\+::Simple\+Tracked\+Vehicle\+Plugin\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgazebo_1_1SimpleTrackedVehiclePlugin__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classgazebo_1_1SimpleTrackedVehiclePlugin_a7765ad7e7ed116e0919f4cc79d5de285}{Load}} (physics\+::\+Model\+Ptr \+\_\+model, sdf\+::\+Element\+Ptr \+\_\+sdf) override
+\begin{DoxyCompactList}\small\item\em Called when the plugin is loaded. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgazebo_1_1SimpleTrackedVehiclePlugin_aa53b94489f9bfafca1b42de710715355}\label{classgazebo_1_1SimpleTrackedVehiclePlugin_aa53b94489f9bfafca1b42de710715355}} 
+void \mbox{\hyperlink{classgazebo_1_1SimpleTrackedVehiclePlugin_aa53b94489f9bfafca1b42de710715355}{Init}} () override
+\begin{DoxyCompactList}\small\item\em Initialize the plugin. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgazebo_1_1SimpleTrackedVehiclePlugin_ae9c8af176b07a3f95444189b761a1d4f}\label{classgazebo_1_1SimpleTrackedVehiclePlugin_ae9c8af176b07a3f95444189b761a1d4f}} 
+void \mbox{\hyperlink{classgazebo_1_1SimpleTrackedVehiclePlugin_ae9c8af176b07a3f95444189b761a1d4f}{Reset}} () override
+\begin{DoxyCompactList}\small\item\em Reset the plugin. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgazebo_1_1SimpleTrackedVehiclePlugin_aa150aa94e854fa99e5f218561bdd9149}\label{classgazebo_1_1SimpleTrackedVehiclePlugin_aa150aa94e854fa99e5f218561bdd9149}} 
+size\+\_\+t \mbox{\hyperlink{classgazebo_1_1SimpleTrackedVehiclePlugin_aa150aa94e854fa99e5f218561bdd9149}{Get\+Num\+Tracks}} (Tracks side) const
+\begin{DoxyCompactList}\small\item\em Return the number of tracks on the given side. Should always be at least 1 for the main track. If flippers are present, the number is higher. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classgazebo_1_1SimpleTrackedVehiclePlugin_ae73a1d4d86712dbed21ad04d41192e9a}{Set\+Track\+Velocity\+Impl}} (double \+\_\+left, double \+\_\+right) override
+\begin{DoxyCompactList}\small\item\em Set new target velocity for the tracks. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgazebo_1_1SimpleTrackedVehiclePlugin_a9f5b7f0117dd1d747675d67ac9929f72}\label{classgazebo_1_1SimpleTrackedVehiclePlugin_a9f5b7f0117dd1d747675d67ac9929f72}} 
+void \mbox{\hyperlink{classgazebo_1_1SimpleTrackedVehiclePlugin_a9f5b7f0117dd1d747675d67ac9929f72}{Update\+Track\+Surface}} () override
+\begin{DoxyCompactList}\small\item\em Update surface parameters of the tracks to correspond to the values set in this plugin. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgazebo_1_1SimpleTrackedVehiclePlugin_a9a1bdf5411282294afba597e6d6782ca}\label{classgazebo_1_1SimpleTrackedVehiclePlugin_a9a1bdf5411282294afba597e6d6782ca}} 
+void \mbox{\hyperlink{classgazebo_1_1SimpleTrackedVehiclePlugin_a9a1bdf5411282294afba597e6d6782ca}{Drive\+Tracks}} (const common\+::\+Update\+Info \&)
+\begin{DoxyCompactList}\small\item\em Compute and apply the forces that make the tracks move. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgazebo_1_1SimpleTrackedVehiclePlugin_aec151f1934642f0355ea131afc831125}{Set\+Geom\+Categories}} ()
+\begin{DoxyCompactList}\small\item\em Set collide categories and bits of all geometries to the required values. \end{DoxyCompactList}\item 
+ignition\+::math\+::\+Vector3d \mbox{\hyperlink{classgazebo_1_1SimpleTrackedVehiclePlugin_a523686bc1b29f4c140e0c491bbc2d488}{Compute\+Friction\+Direction}} (double \+\_\+linear\+Speed, double \+\_\+angular\+Speed, bool \+\_\+driving\+Straight, const ignition\+::math\+::\+Pose3d \&\+\_\+body\+Pose, const ignition\+::math\+::\+Vector3d \&\+\_\+body\+Y\+Axis\+Global, const ignition\+::math\+::\+Vector3d \&\+\_\+center\+Of\+Rotation, const ignition\+::math\+::\+Vector3d \&\+\_\+contact\+World\+Position, const ignition\+::math\+::\+Vector3d \&\+\_\+contact\+Normal, const ignition\+::math\+::\+Vector3d \&\+\_\+belt\+Direction) const
+\begin{DoxyCompactList}\small\item\em Compute the direction of friction force in given contact point. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classgazebo_1_1SimpleTrackedVehiclePlugin_a38f50b2b5d5478c2f74ad9d7d7369244}{Compute\+Surface\+Motion}} (double \+\_\+belt\+Speed, const ignition\+::math\+::\+Vector3d \&\+\_\+belt\+Direction, const ignition\+::math\+::\+Vector3d \&\+\_\+friction\+Direction) const
+\begin{DoxyCompactList}\small\item\em Compute the velocity of the surface motion in all contact points. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgazebo_1_1SimpleTrackedVehiclePlugin_a5791c745470df8cff071636e38c002d5}\label{classgazebo_1_1SimpleTrackedVehiclePlugin_a5791c745470df8cff071636e38c002d5}} 
+physics\+::\+Link\+Ptr \mbox{\hyperlink{classgazebo_1_1SimpleTrackedVehiclePlugin_a5791c745470df8cff071636e38c002d5}{body}}
+\begin{DoxyCompactList}\small\item\em Body of the robot. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgazebo_1_1SimpleTrackedVehiclePlugin_ac90191a1ebc40153894438fcb419b10d}\label{classgazebo_1_1SimpleTrackedVehiclePlugin_ac90191a1ebc40153894438fcb419b10d}} 
+std\+::unordered\+\_\+map$<$ Tracks, physics\+::\+Link\+Ptr $>$ \mbox{\hyperlink{classgazebo_1_1SimpleTrackedVehiclePlugin_ac90191a1ebc40153894438fcb419b10d}{tracks}}
+\begin{DoxyCompactList}\small\item\em The tracks controlled by this plugin. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgazebo_1_1SimpleTrackedVehiclePlugin_a188dbfbee4aaec4b89a29c2aed31ebd9}\label{classgazebo_1_1SimpleTrackedVehiclePlugin_a188dbfbee4aaec4b89a29c2aed31ebd9}} 
+std\+::unordered\+\_\+map$<$ Tracks, double $>$ \mbox{\hyperlink{classgazebo_1_1SimpleTrackedVehiclePlugin_a188dbfbee4aaec4b89a29c2aed31ebd9}{track\+Velocity}}
+\begin{DoxyCompactList}\small\item\em Desired velocities of the tracks. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgazebo_1_1SimpleTrackedVehiclePlugin_a3e40efccd19d3ec34d95ede36f52a38c}\label{classgazebo_1_1SimpleTrackedVehiclePlugin_a3e40efccd19d3ec34d95ede36f52a38c}} 
+unsigned int \mbox{\hyperlink{classgazebo_1_1SimpleTrackedVehiclePlugin_a3e40efccd19d3ec34d95ede36f52a38c}{collide\+Without\+Contact\+Bitmask}}
+\begin{DoxyCompactList}\small\item\em This bitmask will be set to the whole vehicle body. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgazebo_1_1SimpleTrackedVehiclePlugin_a612a1b88e385d5d6d015ff7157d7173a}\label{classgazebo_1_1SimpleTrackedVehiclePlugin_a612a1b88e385d5d6d015ff7157d7173a}} 
+static const unsigned int \mbox{\hyperlink{classgazebo_1_1SimpleTrackedVehiclePlugin_a612a1b88e385d5d6d015ff7157d7173a}{R\+O\+B\+O\+T\+\_\+\+C\+A\+T\+E\+G\+O\+RY}} = 0x10000000
+\begin{DoxyCompactList}\small\item\em Category for the non-\/track parts of the robot. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgazebo_1_1SimpleTrackedVehiclePlugin_a0c111022999135f57ba07e243a220795}\label{classgazebo_1_1SimpleTrackedVehiclePlugin_a0c111022999135f57ba07e243a220795}} 
+static const unsigned int \mbox{\hyperlink{classgazebo_1_1SimpleTrackedVehiclePlugin_a0c111022999135f57ba07e243a220795}{B\+E\+L\+T\+\_\+\+C\+A\+T\+E\+G\+O\+RY}} = 0x20000000
+\begin{DoxyCompactList}\small\item\em Category for tracks. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgazebo_1_1SimpleTrackedVehiclePlugin_a9231345d7823b96c2555db8f1824af59}\label{classgazebo_1_1SimpleTrackedVehiclePlugin_a9231345d7823b96c2555db8f1824af59}} 
+static const unsigned int \mbox{\hyperlink{classgazebo_1_1SimpleTrackedVehiclePlugin_a9231345d7823b96c2555db8f1824af59}{L\+E\+F\+T\+\_\+\+C\+A\+T\+E\+G\+O\+RY}} = 0x40000000
+\begin{DoxyCompactList}\small\item\em Category for all items on the left side. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A very fast, but also very accurate model of non-\/deformable tracks without grousers. 
+
+\begin{DoxySince}{Since}
+8.\+1
+\end{DoxySince}
+The motion model is based on adjusting motion1 in O\+DE contact properties and on computing Instantaneous Center of Rotation for a tracked vehicle. A detailed description of the model is given in \href{https://arxiv.org/abs/1703.04316}{\texttt{ https\+://arxiv.\+org/abs/1703.\+04316}} .
+
+The plugin processes the following parameters, plus the common parameters defined in \mbox{\hyperlink{classgazebo_1_1TrackedVehiclePlugin}{Tracked\+Vehicle\+Plugin}}.
+
+$<$body$>$ Body of the vehicle to which the two tracks are connected. $<$left\+\_\+track$>$ The left track link\textquotesingle{}s name. $<$right\+\_\+track$>$ The right track link\textquotesingle{}s name. $<$left\+\_\+flipper$>$ The name of a left flipper link. Can appear multiple times. $<$right\+\_\+flipper$>$ The name of a right flipper link. Can appear multiple times. $<$collide\+\_\+without\+\_\+contact\+\_\+bitmask$>$ Collision bitmask that will be set to the whole vehicle (default is 1u). 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classgazebo_1_1SimpleTrackedVehiclePlugin_a523686bc1b29f4c140e0c491bbc2d488}\label{classgazebo_1_1SimpleTrackedVehiclePlugin_a523686bc1b29f4c140e0c491bbc2d488}} 
+\index{gazebo::SimpleTrackedVehiclePlugin@{gazebo::SimpleTrackedVehiclePlugin}!ComputeFrictionDirection@{ComputeFrictionDirection}}
+\index{ComputeFrictionDirection@{ComputeFrictionDirection}!gazebo::SimpleTrackedVehiclePlugin@{gazebo::SimpleTrackedVehiclePlugin}}
+\doxysubsubsection{\texorpdfstring{ComputeFrictionDirection()}{ComputeFrictionDirection()}}
+{\footnotesize\ttfamily ignition\+::math\+::\+Vector3d Simple\+Tracked\+Vehicle\+Plugin\+::\+Compute\+Friction\+Direction (\begin{DoxyParamCaption}\item[{double}]{\+\_\+linear\+Speed,  }\item[{double}]{\+\_\+angular\+Speed,  }\item[{bool}]{\+\_\+driving\+Straight,  }\item[{const ignition\+::math\+::\+Pose3d \&}]{\+\_\+body\+Pose,  }\item[{const ignition\+::math\+::\+Vector3d \&}]{\+\_\+body\+Y\+Axis\+Global,  }\item[{const ignition\+::math\+::\+Vector3d \&}]{\+\_\+center\+Of\+Rotation,  }\item[{const ignition\+::math\+::\+Vector3d \&}]{\+\_\+contact\+World\+Position,  }\item[{const ignition\+::math\+::\+Vector3d \&}]{\+\_\+contact\+Normal,  }\item[{const ignition\+::math\+::\+Vector3d \&}]{\+\_\+belt\+Direction }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Compute the direction of friction force in given contact point. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em \+\_\+linear\+Speed} & Linear speed of the vehicle. \\
+\hline
+\mbox{\texttt{ in}}  & {\em \+\_\+angular\+Speed} & Angular speed of the vehicle. \\
+\hline
+\mbox{\texttt{ in}}  & {\em \+\_\+driving\+Straight} & Whether the vehicle should steer. \\
+\hline
+\mbox{\texttt{ in}}  & {\em \+\_\+body\+Pose} & Pose of the vehicle body. \\
+\hline
+\mbox{\texttt{ in}}  & {\em \+\_\+body\+Y\+Axis\+Global} & Direction of the y-\/axis of the body in world frame. \\
+\hline
+\mbox{\texttt{ in}}  & {\em \+\_\+center\+Of\+Rotation} & Center of the circle the vehicle follows (Inf/-\/\+Inf if driving straight). \\
+\hline
+\mbox{\texttt{ in}}  & {\em \+\_\+contact\+World\+Position} & World position of the contact point. \\
+\hline
+\mbox{\texttt{ in}}  & {\em \+\_\+contact\+Normal} & Corrected contact normal (pointing inside the track). \\
+\hline
+\mbox{\texttt{ in}}  & {\em \+\_\+belt\+Direction} & World-\/frame forward direction of the belt. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Direction of the friction force in world frame. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classgazebo_1_1SimpleTrackedVehiclePlugin_a38f50b2b5d5478c2f74ad9d7d7369244}\label{classgazebo_1_1SimpleTrackedVehiclePlugin_a38f50b2b5d5478c2f74ad9d7d7369244}} 
+\index{gazebo::SimpleTrackedVehiclePlugin@{gazebo::SimpleTrackedVehiclePlugin}!ComputeSurfaceMotion@{ComputeSurfaceMotion}}
+\index{ComputeSurfaceMotion@{ComputeSurfaceMotion}!gazebo::SimpleTrackedVehiclePlugin@{gazebo::SimpleTrackedVehiclePlugin}}
+\doxysubsubsection{\texorpdfstring{ComputeSurfaceMotion()}{ComputeSurfaceMotion()}}
+{\footnotesize\ttfamily double Simple\+Tracked\+Vehicle\+Plugin\+::\+Compute\+Surface\+Motion (\begin{DoxyParamCaption}\item[{double}]{\+\_\+belt\+Speed,  }\item[{const ignition\+::math\+::\+Vector3d \&}]{\+\_\+belt\+Direction,  }\item[{const ignition\+::math\+::\+Vector3d \&}]{\+\_\+friction\+Direction }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Compute the velocity of the surface motion in all contact points. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em \+\_\+belt\+Speed} & The desired belt speed. \\
+\hline
+\mbox{\texttt{ in}}  & {\em \+\_\+belt\+Direction} & Forward direction of the belt. \\
+\hline
+\mbox{\texttt{ in}}  & {\em \+\_\+friction\+Direction} & First friction direction. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classgazebo_1_1SimpleTrackedVehiclePlugin_a7765ad7e7ed116e0919f4cc79d5de285}\label{classgazebo_1_1SimpleTrackedVehiclePlugin_a7765ad7e7ed116e0919f4cc79d5de285}} 
+\index{gazebo::SimpleTrackedVehiclePlugin@{gazebo::SimpleTrackedVehiclePlugin}!Load@{Load}}
+\index{Load@{Load}!gazebo::SimpleTrackedVehiclePlugin@{gazebo::SimpleTrackedVehiclePlugin}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily void Simple\+Tracked\+Vehicle\+Plugin\+::\+Load (\begin{DoxyParamCaption}\item[{physics\+::\+Model\+Ptr}]{\+\_\+model,  }\item[{sdf\+::\+Element\+Ptr}]{\+\_\+sdf }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Called when the plugin is loaded. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em model} & Pointer to the model for which the plugin is loaded \\
+\hline
+\mbox{\texttt{ in}}  & {\em \+\_\+sdf} & Pointer to the S\+DF for \+\_\+model \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classgazebo_1_1SimpleTrackedVehiclePlugin_aec151f1934642f0355ea131afc831125}\label{classgazebo_1_1SimpleTrackedVehiclePlugin_aec151f1934642f0355ea131afc831125}} 
+\index{gazebo::SimpleTrackedVehiclePlugin@{gazebo::SimpleTrackedVehiclePlugin}!SetGeomCategories@{SetGeomCategories}}
+\index{SetGeomCategories@{SetGeomCategories}!gazebo::SimpleTrackedVehiclePlugin@{gazebo::SimpleTrackedVehiclePlugin}}
+\doxysubsubsection{\texorpdfstring{SetGeomCategories()}{SetGeomCategories()}}
+{\footnotesize\ttfamily void Simple\+Tracked\+Vehicle\+Plugin\+::\+Set\+Geom\+Categories (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Set collide categories and bits of all geometries to the required values. 
+
+This is a workaround for \href{https://github.com/osrf/gazebo/issues/1855}{\texttt{ https\+://github.\+com/osrf/gazebo/issues/1855}} . \mbox{\Hypertarget{classgazebo_1_1SimpleTrackedVehiclePlugin_ae73a1d4d86712dbed21ad04d41192e9a}\label{classgazebo_1_1SimpleTrackedVehiclePlugin_ae73a1d4d86712dbed21ad04d41192e9a}} 
+\index{gazebo::SimpleTrackedVehiclePlugin@{gazebo::SimpleTrackedVehiclePlugin}!SetTrackVelocityImpl@{SetTrackVelocityImpl}}
+\index{SetTrackVelocityImpl@{SetTrackVelocityImpl}!gazebo::SimpleTrackedVehiclePlugin@{gazebo::SimpleTrackedVehiclePlugin}}
+\doxysubsubsection{\texorpdfstring{SetTrackVelocityImpl()}{SetTrackVelocityImpl()}}
+{\footnotesize\ttfamily void Simple\+Tracked\+Vehicle\+Plugin\+::\+Set\+Track\+Velocity\+Impl (\begin{DoxyParamCaption}\item[{double}]{\+\_\+left,  }\item[{double}]{\+\_\+right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Set new target velocity for the tracks. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em \+\_\+left} & Velocity of left track. \\
+\hline
+\mbox{\texttt{ in}}  & {\em \+\_\+right} & Velocity of right track. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classgazebo_1_1TrackedVehiclePlugin_a779dd43329fe22a8757305a80c011209}{gazebo\+::\+Tracked\+Vehicle\+Plugin}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/jonathan/\+Omni\+Dev/src/omniveyor\+\_\+gazebo\+\_\+world/include/omniveyor\+\_\+gazebo\+\_\+world/Simple\+Tracked\+Vehicle\+Plugin\+\_\+\+R\+O\+S.\+hh\item 
+/home/jonathan/\+Omni\+Dev/src/omniveyor\+\_\+gazebo\+\_\+world/src/Simple\+Tracked\+Vehicle\+Plugin\+\_\+\+R\+O\+S.\+cc\end{DoxyCompactItemize}

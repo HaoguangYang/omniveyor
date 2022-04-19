@@ -1,0 +1,16 @@
+After the peeling solver has completed, only Deferred columns remain to be solved. Conceptually the matrix can be re-\/ordered in the order of solution so that the matrix resembles this example\+: \begin{DoxyVerb}+-----+---------+-----+
+|   1 | 1       | 721 | <-- Peeled row 1
+| 1   |   1     | 518 | <-- Peeled row 2
+| 1   | 1   1   | 934 | <-- Peeled row 3
+|   1 | 1   1 1 | 275 | <-- Peeled row 4
++-----+---------+-----+
+| 1   | 1 1   1 | 123 | <-- Deferred rows
+|   1 |   1 1 1 | 207 | <-- Deferred rows
++-----+---------+-----+
+    ^       ^       ^---- Row value (unmodified input data)
+    |       \------------ Peeled columns
+    \-------------------- Deferred columns
+\end{DoxyVerb}
+
+
+Re-\/ordering the actual matrix is not required, but the lower-\/triangular form of the peeled matrix is apparent in the diagram above. 

@@ -1,0 +1,170 @@
+After calling the position-\/based On-\/\+Line Trajectory Generation (\mbox{\hyperlink{classOTG}{O\+TG}}) algorithm with \mbox{\hyperlink{classReflexxesAPI_a30d3cdba072553a5d53aa4ce4b4a77d1}{Reflexxes\+A\+P\+I\+::\+R\+M\+L\+Position()}}, the output values can be read from the class \mbox{\hyperlink{classRMLPositionOutputParameters}{R\+M\+L\+Position\+Output\+Parameters}}. The output values of the velocity-\/based On-\/\+Line Trajectory Generation algorithm, which is called with \mbox{\hyperlink{classReflexxesAPI_aaf2478f04265b6a6ac04b1b218a30678}{Reflexxes\+A\+P\+I\+::\+R\+M\+L\+Velocity()}} can be read from the class \mbox{\hyperlink{classRMLVelocityOutputParameters}{R\+M\+L\+Velocity\+Output\+Parameters}}. For a detailed description of these classes, please refer to the class documentation, and for a description of the input values of the Reflexxes Motion Library, please refer to the page\+\_\+\+Input\+Values.~\newline
+ ~\newline
+This page contains two main sections with one example each\+:~\newline
+~\newline
+ 
+\begin{DoxyEnumerate}
+\item \mbox{\hyperlink{page_OutputValues_sec_OutputValuesPosition}{Output Values of the Position-\/based On-\/\+Line Trajectory Generation Algorithm}} (\mbox{\hyperlink{page_OutputValues_sec_ExampleOutputValuesPosition}{Example}})~\newline
+~\newline
+ 
+\item \mbox{\hyperlink{page_OutputValues_sec_OutputValuesVelocity}{Output Values of the Velocity-\/based On-\/\+Line Trajectory Generation Algorithm}} (\mbox{\hyperlink{page_OutputValues_sec_ExampleOutputValuesVelocity}{Example}})~\newline
+~\newline
+ 
+\end{DoxyEnumerate}
+
+\DoxyHorRuler{0}
+ \hypertarget{page_OutputValues_sec_OutputValuesPosition}{}\doxysection{Output Values of the Position-\/based On-\/\+Line Trajectory Generation Algorithm}\label{page_OutputValues_sec_OutputValuesPosition}
+~\newline
+~\newline
+ 
+
+The {\itshape position-\/based Type II On-\/\+Line Trajectory Generation algorithm} called at a time instant $ T_i $ computes the following output values (cf. \mbox{\hyperlink{classRMLPositionOutputParameters}{R\+M\+L\+Position\+Output\+Parameters}})\+:~\newline
+~\newline
+ 
+\begin{DoxyItemize}
+\item The state of motion $ {\bf M}_{i+1} $ at time instant $ T_{i+1} $ consisting of~\newline
+~\newline
+ 
+\begin{DoxyItemize}
+\item the new position/pose vector $ \vec{P}_{i+1} \ \Longrightarrow \ $ \mbox{\hyperlink{classRMLOutputParameters_aad28c60ca31e3c86440d4f0caaca546e}{R\+M\+L\+Position\+Output\+Parameters\+::\+New\+Position\+Vector}},~\newline
+~\newline
+ 
+\item the new velocity vector $ \vec{V}_{i+1} \ \Longrightarrow \ $ \mbox{\hyperlink{classRMLOutputParameters_a1761b13fb525a62e1843b4d58ec571d4}{R\+M\+L\+Position\+Output\+Parameters\+::\+New\+Velocity\+Vector}}, and~\newline
+~\newline
+ 
+\item the new acceleration vector $ \vec{A}_{i+1} \ \Longrightarrow \ $ \mbox{\hyperlink{classRMLOutputParameters_a838d1e65d5694cee748edb1919f5e724}{R\+M\+L\+Position\+Output\+Parameters\+::\+New\+Acceleration\+Vector}}.~\newline
+~\newline
+ 
+\end{DoxyItemize}
+\item The value of the synchronization time $ t_i^{\,sync} $ in seconds (\mbox{\hyperlink{classRMLOutputParameters_a273ecb1a6e080466af95c5851f12f8ca}{R\+M\+L\+Position\+Output\+Parameters\+::\+Synchronization\+Time}}), that is, the time which is required until all selected degrees of freedom reach their desired target state of motion $ {\bf M}_i^{\,trgt} $.~\newline
+~\newline
+  
+\item A boolean flag \mbox{\hyperlink{classRMLOutputParameters_ac5bc428b2a2b6cb8ed4e9a7f9464f4e6}{R\+M\+L\+Position\+Output\+Parameters\+::\+A\+New\+Calculation\+Was\+Performed}}, which indicates, what an entirely new computation was performed for the call of \mbox{\hyperlink{classReflexxesAPI_a30d3cdba072553a5d53aa4ce4b4a77d1}{Reflexxes\+A\+P\+I\+::\+R\+M\+L\+Position()}} (cf. \mbox{\hyperlink{page_RealTimeBehavior}{Real-\/\+Time Behavior}}).~\newline
+~\newline
+ 
+\item A boolean flag \mbox{\hyperlink{classRMLOutputParameters_a07df860870497955b460cf9e9ee130c5}{R\+M\+L\+Position\+Output\+Parameters\+::\+Trajectory\+Is\+Phase\+Synchronized}}, which indicates, whether the current trajectory is phase-\/synchronized (cf. \mbox{\hyperlink{page_SynchronizationBehavior}{Synchronization Behavior}}).~\newline
+~\newline
+ 
+\item All data about the positional extremum values that will occur if the motion trajectory is executed. This includes two vectors, which contain the positional extremum values\+:~\newline
+~\newline
+ 
+\begin{DoxyItemize}
+\item the minimum positions for each degree of freedom $ \overrightarrow{\mbox{min}}\Big(\vec{p}_i\left(t\right)\Big) \ \Longrightarrow \ $ \mbox{\hyperlink{classRMLOutputParameters_ab09baf1ceba18244ac62718b6770faac}{R\+M\+L\+Position\+Output\+Parameters\+::\+Min\+Pos\+Extrema\+Position\+Vector\+Only}} and~\newline
+~\newline
+ 
+\item the minimum positions for each degree of freedom $ \overrightarrow{\mbox{max}}\Big(\vec{p}_i\left(t\right)\Big) \ \Longrightarrow \ $ \mbox{\hyperlink{classRMLOutputParameters_a1f45485fb851432786dba445d3ac9601}{R\+M\+L\+Position\+Output\+Parameters\+::\+Max\+Pos\+Extrema\+Position\+Vector\+Only}}.~\newline
+~\newline
+ ~\newline
+ 
+\end{DoxyItemize}Furthermore, the times in seconds, at which the positional extremum values are reached, are stored in~\newline
+~\newline
+ 
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{classRMLOutputParameters_a5cd2864b6303e692422488b625ad06e6}{R\+M\+L\+Position\+Output\+Parameters\+::\+Min\+Extrema\+Times\+Vector}} and~\newline
+~\newline
+ 
+\item \mbox{\hyperlink{classRMLOutputParameters_a83943264635585ddc1317a27617097bc}{R\+M\+L\+Position\+Output\+Parameters\+::\+Max\+Extrema\+Times\+Vector}}.~\newline
+~\newline
+ ~\newline
+ 
+\end{DoxyItemize}As a further addition, it is also possible to read the states of motion of {\itshape all} degrees of freedom that are reached if one degree of freedom is in its positional minimum or maximum\+:~\newline
+~\newline
+ 
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{classRMLOutputParameters_acf3c6cfd99d8d977f6b936291f3e5efa}{R\+M\+L\+Position\+Output\+Parameters\+::\+Min\+Pos\+Extrema\+Position\+Vector\+Array}},~\newline
+~\newline
+ 
+\item \mbox{\hyperlink{classRMLOutputParameters_a468389300a3e210a07d581264e0f0a52}{R\+M\+L\+Position\+Output\+Parameters\+::\+Min\+Pos\+Extrema\+Velocity\+Vector\+Array}},~\newline
+~\newline
+ 
+\item \mbox{\hyperlink{classRMLOutputParameters_ac46c5e971f7b2e0c5ad8e1f6991abeb7}{R\+M\+L\+Position\+Output\+Parameters\+::\+Min\+Pos\+Extrema\+Acceleration\+Vector\+Array}},~\newline
+~\newline
+ 
+\item \mbox{\hyperlink{classRMLOutputParameters_a91b62ae9bb4bd4a4f1663350d1a7be73}{R\+M\+L\+Position\+Output\+Parameters\+::\+Max\+Pos\+Extrema\+Position\+Vector\+Array}},~\newline
+~\newline
+ 
+\item \mbox{\hyperlink{classRMLOutputParameters_aedf2100e1236394243e94611bf9f4595}{R\+M\+L\+Position\+Output\+Parameters\+::\+Max\+Pos\+Extrema\+Velocity\+Vector\+Array}}, and~\newline
+~\newline
+ 
+\item \mbox{\hyperlink{classRMLOutputParameters_a01c315bdefca82f04100340edfa0cf10}{R\+M\+L\+Position\+Output\+Parameters\+::\+Max\+Pos\+Extrema\+Acceleration\+Vector\+Array}}.~\newline
+~\newline
+ 
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classRMLPositionOutputParameters}{R\+M\+L\+Position\+Output\+Parameters}} 
+
+\mbox{\hyperlink{page_InputValues}{Description of Input Values}}
+\end{DoxySeeAlso}
+~\newline
+~\newline
+ \DoxyHorRuler{0}
+\hypertarget{page_OutputValues_sec_ExampleOutputValuesPosition}{}\doxysection{Example}\label{page_OutputValues_sec_ExampleOutputValuesPosition}
+The {\bfseries{position-\/based}} On-\/\+Line Trajectory Generation algorithm of the Type II Reflexxes Motion Library is called by the method \mbox{\hyperlink{classReflexxesAPI_a30d3cdba072553a5d53aa4ce4b4a77d1}{Reflexxes\+A\+P\+I\+::\+R\+M\+L\+Position()}}.~\newline
+~\newline
+ In this example (cf. \mbox{\hyperlink{page_Code_01_RMLPositionSampleApplication}{Example 1 --- Introduction to the Position-\/based algorithm}}), we assume to control a simple Cartesian robot with three translational degrees of freedom, and we apply the following input values at time instant $ T_i $.~\newline
+~\newline
+ 
+
+
+
+~\newline
+Further examples can be found on pages
+
+
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{page_SynchronizationBehavior}{Synchronization Behavior}},
+\item \mbox{\hyperlink{page_PSIfPossible}{About the Flag R\+M\+L\+Flags\+::\+P\+H\+A\+S\+E\+\_\+\+S\+Y\+N\+C\+H\+R\+O\+N\+I\+Z\+A\+T\+I\+O\+N\+\_\+\+I\+F\+\_\+\+P\+O\+S\+S\+I\+B\+LE}}, and
+\item \mbox{\hyperlink{page_FinalStateReachedBehavior}{Behavior after the Final State of Motion is Reached}}.
+\end{DoxyItemize}
+
+~\newline
+ \begin{DoxyNote}{Note}
+{\bfseries{The input variables}}~\newline
+~\newline
+
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{classRMLInputParameters_a423bf4b1ef337cbf6eee22fe2e2502c1}{R\+M\+L\+Position\+Input\+Parameters\+::\+Current\+Acceleration\+Vector}} (containing the the current acceleration vector $ \vec{A}_i$ and~\newline
+~\newline
+ 
+\item \mbox{\hyperlink{classRMLInputParameters_a5968ce643868260410f149996c446b66}{R\+M\+L\+Position\+Input\+Parameters\+::\+Max\+Jerk\+Vector}} (containing the maximum jerk vector $ \vec{J}_i^{\,max} $ ~\newline
+~\newline
+ 
+\end{DoxyItemize}{\bfseries{are only used by the Type IV Reflexxes Motion Library.}} ~\newline
+ 
+\end{DoxyNote}
+\hypertarget{page_OutputValues_sec_ExampleSourceCodeOutputValuesPosition}{}\doxysection{Sample Source Code}\label{page_OutputValues_sec_ExampleSourceCodeOutputValuesPosition}
+For a program to set-\/up the corresponding input parameters please refer to the \mbox{\hyperlink{page_Code_01_RMLPositionSampleApplication}{Example 1 --- Introduction to the Position-\/based algorithm}}, to the \mbox{\hyperlink{page_Code_02_RMLPositionSampleApplication}{Example 2 --- Making Use of Output Parameters of the Position-\/based algorithm}}, and to the \mbox{\hyperlink{page_Result_02_RMLPositionSampleApplication}{Screen Output of 02\+\_\+\+R\+M\+L\+Position\+Sample\+Application.\+cpp}}.
+
+~\newline
+~\newline
+ \DoxyHorRuler{0}
+\hypertarget{page_OutputValues_sec_OutputValuesVelocity}{}\doxysection{Output Values of the Velocity-\/based On-\/\+Line Trajectory Generation Algorithm}\label{page_OutputValues_sec_OutputValuesVelocity}
+~\newline
+~\newline
+ 
+
+The {\itshape velocity-\/based Type II On-\/\+Line Trajectory Generation algorithm} is executed by a call of \mbox{\hyperlink{classReflexxesAPI_aaf2478f04265b6a6ac04b1b218a30678}{Reflexxes\+A\+P\+I\+::\+R\+M\+L\+Velocity()}}, and its output values \mbox{\hyperlink{classRMLVelocityOutputParameters}{R\+M\+L\+Velocity\+Output\+Parameters}} are the very same as for the position-\/based algorithm (see above), but the values for the target position $ _kP_i^{\,trgt} $ and the maximum velocity vector $ \vec{V}_i^{\,max} $ are not considered, and the flag \mbox{\hyperlink{classRMLPositionFlags_aeb8be0d5bdaffa0384f2c9915c5134a1}{R\+M\+L\+Position\+Flags\+::\+Keep\+Current\+Velocity\+In\+Case\+Of\+Fallback\+Strategy}} is not available.~\newline
+ \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classRMLVelocityOutputParameters}{R\+M\+L\+Velocity\+Output\+Parameters}} 
+
+\mbox{\hyperlink{page_InputValues}{Description of Input Values}}
+\end{DoxySeeAlso}
+~\newline
+ \begin{DoxyNote}{Note}
+The velocity-\/based algorithm is also used in the second layer of the safety mechanism to guarantee valid output value for any given set of input values (cf. \mbox{\hyperlink{page_ErrorHandling}{Safety\+: Three Layers of Error Handling}}).
+\end{DoxyNote}
+~\newline
+~\newline
+ \DoxyHorRuler{0}
+\hypertarget{page_OutputValues_sec_ExampleOutputValuesVelocity}{}\doxysection{Example}\label{page_OutputValues_sec_ExampleOutputValuesVelocity}
+For this second example (cf. \mbox{\hyperlink{page_Code_04_RMLVelocitySampleApplication}{Example 4 --- Introduction to the Velocity-\/based algorithm}}), we again assume a very simply Cartesian robot with three translational degrees of freedom.
+
+
+
+
+
+~\newline
+ \hypertarget{page_OutputValues_sec_ExampleSourceCodeOutputValuesVelocity}{}\doxysection{Sample Source Code}\label{page_OutputValues_sec_ExampleSourceCodeOutputValuesVelocity}
+For a program to set-\/up the corresponding input parameters please refer to the \mbox{\hyperlink{page_Code_04_RMLVelocitySampleApplication}{Example 4 --- Introduction to the Velocity-\/based algorithm}}, to the \mbox{\hyperlink{page_Code_05_RMLVelocitySampleApplication}{Example 5 --- Making Use of Output Parameters of the Velocity-\/based algorithm}}, and to the \mbox{\hyperlink{page_Result_05_RMLVelocitySampleApplication}{Screen Output of 05\+\_\+\+R\+M\+L\+Velocity\+Sample\+Application.\+cpp}}. 

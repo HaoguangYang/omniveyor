@@ -1,0 +1,144 @@
+\hypertarget{TypeIIRMLDecisions_8h}{}\doxysection{/home/jonathan/\+Omni\+Dev/src/omniveyor\+\_\+hardware/pcv\+\_\+base/external/\+Reflexxes\+Type\+I\+I/include/\+Type\+I\+I\+R\+M\+L\+Decisions.h File Reference}
+\label{TypeIIRMLDecisions_8h}\index{/home/jonathan/OmniDev/src/omniveyor\_hardware/pcv\_base/external/ReflexxesTypeII/include/TypeIIRMLDecisions.h@{/home/jonathan/OmniDev/src/omniveyor\_hardware/pcv\_base/external/ReflexxesTypeII/include/TypeIIRMLDecisions.h}}
+
+
+\mbox{\hyperlink{structHeader}{Header}} file for decisions of the two decision trees of the Type II On-\/\+Line Trajectory Generation algorithm.  
+
+
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{TypeIIRMLDecisions_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{TypeIIRMLDecisions_8h_a26fb2f3533c6dd8fc8e60eb5349b3900}\label{TypeIIRMLDecisions_8h_a26fb2f3533c6dd8fc8e60eb5349b3900}} 
+bool \mbox{\hyperlink{TypeIIRMLDecisions_8h_a26fb2f3533c6dd8fc8e60eb5349b3900}{Type\+I\+I\+R\+M\+L\+Math\+::\+Decision\+\_\+1\+A\+\_\+\+\_\+001}} (const double \&Current\+Velocity)
+\begin{DoxyCompactList}\small\item\em Is (vi $>$= 0)? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{TypeIIRMLDecisions_8h_a3dde7205cb5c57f2b86b7805f3d3703c}\label{TypeIIRMLDecisions_8h_a3dde7205cb5c57f2b86b7805f3d3703c}} 
+bool \mbox{\hyperlink{TypeIIRMLDecisions_8h_a3dde7205cb5c57f2b86b7805f3d3703c}{Type\+I\+I\+R\+M\+L\+Math\+::\+Decision\+\_\+1\+A\+\_\+\+\_\+002}} (const double \&Current\+Velocity, const double \&Max\+Velocity)
+\begin{DoxyCompactList}\small\item\em Is (vi $<$= +vmax)? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{TypeIIRMLDecisions_8h_ad5baffebc963b114f29a09020f52b241}\label{TypeIIRMLDecisions_8h_ad5baffebc963b114f29a09020f52b241}} 
+bool \mbox{\hyperlink{TypeIIRMLDecisions_8h_ad5baffebc963b114f29a09020f52b241}{Type\+I\+I\+R\+M\+L\+Math\+::\+Decision\+\_\+1\+A\+\_\+\+\_\+003}} (const double \&Current\+Velocity, const double \&Target\+Velocity)
+\begin{DoxyCompactList}\small\item\em Is (vi $<$= vtrgt)? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{TypeIIRMLDecisions_8h_ae79d8ed5d595932eaf79c5478e799d87}\label{TypeIIRMLDecisions_8h_ae79d8ed5d595932eaf79c5478e799d87}} 
+bool \mbox{\hyperlink{TypeIIRMLDecisions_8h_ae79d8ed5d595932eaf79c5478e799d87}{Type\+I\+I\+R\+M\+L\+Math\+::\+Decision\+\_\+1\+A\+\_\+\+\_\+004}} (const double \&Current\+Position, const double \&Current\+Velocity, const double \&Target\+Position, const double \&Target\+Velocity, const double \&Max\+Acceleration)
+\begin{DoxyCompactList}\small\item\em If v-\/$>$vtrgt, is p$<$=ptrgt? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{TypeIIRMLDecisions_8h_a58c6f0ea687643b3c0f8f705bf534ca9}\label{TypeIIRMLDecisions_8h_a58c6f0ea687643b3c0f8f705bf534ca9}} 
+bool \mbox{\hyperlink{TypeIIRMLDecisions_8h_a58c6f0ea687643b3c0f8f705bf534ca9}{Type\+I\+I\+R\+M\+L\+Math\+::\+Decision\+\_\+1\+A\+\_\+\+\_\+005}} (const double \&Current\+Position, const double \&Current\+Velocity, const double \&Target\+Position, const double \&Target\+Velocity, const double \&Max\+Velocity, const double \&Max\+Acceleration)
+\begin{DoxyCompactList}\small\item\em If v-\/$>$vmax-\/$>$vtrgt, is p$<$=ptrgt? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{TypeIIRMLDecisions_8h_a34693337127031764ca2edf21f1054df}\label{TypeIIRMLDecisions_8h_a34693337127031764ca2edf21f1054df}} 
+bool \mbox{\hyperlink{TypeIIRMLDecisions_8h_a34693337127031764ca2edf21f1054df}{Type\+I\+I\+R\+M\+L\+Math\+::\+Decision\+\_\+1\+A\+\_\+\+\_\+006}} (const double \&Target\+Velocity)
+\begin{DoxyCompactList}\small\item\em Is (vtrgt $>$= 0)? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{TypeIIRMLDecisions_8h_acd3e18d69883fa5124a22abc7a791cc2}\label{TypeIIRMLDecisions_8h_acd3e18d69883fa5124a22abc7a791cc2}} 
+bool \mbox{\hyperlink{TypeIIRMLDecisions_8h_acd3e18d69883fa5124a22abc7a791cc2}{Type\+I\+I\+R\+M\+L\+Math\+::\+Decision\+\_\+1\+A\+\_\+\+\_\+007}} (const double \&Current\+Position, const double \&Current\+Velocity, const double \&Target\+Position, const double \&Target\+Velocity, const double \&Max\+Acceleration)
+\begin{DoxyCompactList}\small\item\em If v-\/$>$vtrgt, is p$>$=ptrgt? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{TypeIIRMLDecisions_8h_a4bda1ada2e9fca859bb1325e882a7e5a}\label{TypeIIRMLDecisions_8h_a4bda1ada2e9fca859bb1325e882a7e5a}} 
+bool \mbox{\hyperlink{TypeIIRMLDecisions_8h_a4bda1ada2e9fca859bb1325e882a7e5a}{Type\+I\+I\+R\+M\+L\+Math\+::\+Decision\+\_\+1\+A\+\_\+\+\_\+008}} (const double \&Current\+Position, const double \&Current\+Velocity, const double \&Target\+Position, const double \&Target\+Velocity, const double \&Max\+Acceleration)
+\begin{DoxyCompactList}\small\item\em If v-\/$>$0-\/$>$vtrgt, is p$>$=ptrgt? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{TypeIIRMLDecisions_8h_acaef8a204d2a09f43d5e23fc32466fa8}\label{TypeIIRMLDecisions_8h_acaef8a204d2a09f43d5e23fc32466fa8}} 
+bool \mbox{\hyperlink{TypeIIRMLDecisions_8h_acaef8a204d2a09f43d5e23fc32466fa8}{Type\+I\+I\+R\+M\+L\+Math\+::\+Decision\+\_\+1\+A\+\_\+\+\_\+009}} (const double \&Current\+Position, const double \&Current\+Velocity, const double \&Target\+Position, const double \&Target\+Velocity, const double \&Max\+Velocity, const double \&Max\+Acceleration)
+\begin{DoxyCompactList}\small\item\em If v-\/$>$vmax-\/$>$0-\/$>$vtrgt, is p$>$=ptrgt? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{TypeIIRMLDecisions_8h_a8c8aa6eb65fedb3de0e68ee4c303c790}\label{TypeIIRMLDecisions_8h_a8c8aa6eb65fedb3de0e68ee4c303c790}} 
+bool \mbox{\hyperlink{TypeIIRMLDecisions_8h_a8c8aa6eb65fedb3de0e68ee4c303c790}{Type\+I\+I\+R\+M\+L\+Math\+::\+Decision\+\_\+1\+B\+\_\+\+\_\+001}} (const double \&Current\+Velocity)
+\begin{DoxyCompactList}\small\item\em Is (vi $>$= 0)? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{TypeIIRMLDecisions_8h_ac53d743f8f0b3699cddec449e20c079e}\label{TypeIIRMLDecisions_8h_ac53d743f8f0b3699cddec449e20c079e}} 
+bool \mbox{\hyperlink{TypeIIRMLDecisions_8h_ac53d743f8f0b3699cddec449e20c079e}{Type\+I\+I\+R\+M\+L\+Math\+::\+Decision\+\_\+1\+B\+\_\+\+\_\+002}} (const double \&Current\+Velocity, const double \&Max\+Velocity)
+\begin{DoxyCompactList}\small\item\em Is (vi $<$= +vmax)? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{TypeIIRMLDecisions_8h_a3c4ac4c139fef2b8630fcd5fdd622a8a}\label{TypeIIRMLDecisions_8h_a3c4ac4c139fef2b8630fcd5fdd622a8a}} 
+bool \mbox{\hyperlink{TypeIIRMLDecisions_8h_a3c4ac4c139fef2b8630fcd5fdd622a8a}{Type\+I\+I\+R\+M\+L\+Math\+::\+Decision\+\_\+1\+B\+\_\+\+\_\+003}} (const double \&Target\+Velocity)
+\begin{DoxyCompactList}\small\item\em Is (vtrgt $>$= 0)? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{TypeIIRMLDecisions_8h_a45fe4686e9e82e8ef733413f3f6667df}\label{TypeIIRMLDecisions_8h_a45fe4686e9e82e8ef733413f3f6667df}} 
+bool \mbox{\hyperlink{TypeIIRMLDecisions_8h_a45fe4686e9e82e8ef733413f3f6667df}{Type\+I\+I\+R\+M\+L\+Math\+::\+Decision\+\_\+1\+B\+\_\+\+\_\+004}} (const double \&Current\+Velocity, const double \&Target\+Velocity)
+\begin{DoxyCompactList}\small\item\em Is (vi $<$= vtrgt)? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{TypeIIRMLDecisions_8h_a9f4211c5ec821a1fb702f510319dc2cd}\label{TypeIIRMLDecisions_8h_a9f4211c5ec821a1fb702f510319dc2cd}} 
+bool \mbox{\hyperlink{TypeIIRMLDecisions_8h_a9f4211c5ec821a1fb702f510319dc2cd}{Type\+I\+I\+R\+M\+L\+Math\+::\+Decision\+\_\+1\+B\+\_\+\+\_\+005}} (const double \&Current\+Position, const double \&Current\+Velocity, const double \&Target\+Position, const double \&Target\+Velocity, const double \&Max\+Acceleration)
+\begin{DoxyCompactList}\small\item\em If v-\/$>$vtrgt, is p$<$=ptrgt? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{TypeIIRMLDecisions_8h_ae1cb106ecde2bf00633e74c6bbb95f87}\label{TypeIIRMLDecisions_8h_ae1cb106ecde2bf00633e74c6bbb95f87}} 
+bool \mbox{\hyperlink{TypeIIRMLDecisions_8h_ae1cb106ecde2bf00633e74c6bbb95f87}{Type\+I\+I\+R\+M\+L\+Math\+::\+Decision\+\_\+1\+B\+\_\+\+\_\+006}} (const double \&Current\+Position, const double \&Current\+Velocity, const double \&Target\+Position, const double \&Target\+Velocity, const double \&Max\+Acceleration)
+\begin{DoxyCompactList}\small\item\em If v-\/$>$0-\/$>$vtrgt, is p$<$=ptrgt? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{TypeIIRMLDecisions_8h_a6591b3866cf24099a2e2915b1216d5fa}\label{TypeIIRMLDecisions_8h_a6591b3866cf24099a2e2915b1216d5fa}} 
+bool \mbox{\hyperlink{TypeIIRMLDecisions_8h_a6591b3866cf24099a2e2915b1216d5fa}{Type\+I\+I\+R\+M\+L\+Math\+::\+Decision\+\_\+1\+B\+\_\+\+\_\+007}} (const double \&Current\+Position, const double \&Current\+Velocity, const double \&Target\+Position, const double \&Target\+Velocity, const double \&Max\+Acceleration)
+\begin{DoxyCompactList}\small\item\em If v-\/$>$vtrgt, is p$>$=ptrgt? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{TypeIIRMLDecisions_8h_ad01c30dfec4af1576ac885a3dd13d934}\label{TypeIIRMLDecisions_8h_ad01c30dfec4af1576ac885a3dd13d934}} 
+bool \mbox{\hyperlink{TypeIIRMLDecisions_8h_ad01c30dfec4af1576ac885a3dd13d934}{Type\+I\+I\+R\+M\+L\+Math\+::\+Decision\+\_\+1\+C\+\_\+\+\_\+001}} (const double \&Current\+Velocity)
+\begin{DoxyCompactList}\small\item\em Is (vi $>$= 0)? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{TypeIIRMLDecisions_8h_a6d9af1ce9894253c02ccc189d4c8a38b}\label{TypeIIRMLDecisions_8h_a6d9af1ce9894253c02ccc189d4c8a38b}} 
+bool \mbox{\hyperlink{TypeIIRMLDecisions_8h_a6d9af1ce9894253c02ccc189d4c8a38b}{Type\+I\+I\+R\+M\+L\+Math\+::\+Decision\+\_\+1\+C\+\_\+\+\_\+002}} (const double \&Current\+Velocity, const double \&Max\+Velocity)
+\begin{DoxyCompactList}\small\item\em Is (vi $<$= +vmax)? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{TypeIIRMLDecisions_8h_a233e04bf43a54115892b5e8cfced20c1}\label{TypeIIRMLDecisions_8h_a233e04bf43a54115892b5e8cfced20c1}} 
+bool \mbox{\hyperlink{TypeIIRMLDecisions_8h_a233e04bf43a54115892b5e8cfced20c1}{Type\+I\+I\+R\+M\+L\+Math\+::\+Decision\+\_\+1\+C\+\_\+\+\_\+003}} (const double \&Current\+Position, const double \&Current\+Velocity, const double \&Target\+Position, const double \&Target\+Velocity, const double \&Max\+Velocity, const double \&Max\+Acceleration)
+\begin{DoxyCompactList}\small\item\em If v-\/$>$vmax-\/$>$0-\/$>$vtrgt, is p$>$=ptrgt? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{TypeIIRMLDecisions_8h_a6c57f6e3d264f289bb1eb558088c2eec}\label{TypeIIRMLDecisions_8h_a6c57f6e3d264f289bb1eb558088c2eec}} 
+bool \mbox{\hyperlink{TypeIIRMLDecisions_8h_a6c57f6e3d264f289bb1eb558088c2eec}{Type\+I\+I\+R\+M\+L\+Math\+::\+Decision\+\_\+2\+\_\+\+\_\+\+\_\+001}} (const double \&Current\+Velocity)
+\begin{DoxyCompactList}\small\item\em Is (vi $>$= 0)? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{TypeIIRMLDecisions_8h_a7c7879ca7891f105dacd5bde429c99d0}\label{TypeIIRMLDecisions_8h_a7c7879ca7891f105dacd5bde429c99d0}} 
+bool \mbox{\hyperlink{TypeIIRMLDecisions_8h_a7c7879ca7891f105dacd5bde429c99d0}{Type\+I\+I\+R\+M\+L\+Math\+::\+Decision\+\_\+2\+\_\+\+\_\+\+\_\+002}} (const double \&Current\+Velocity, const double \&Max\+Velocity)
+\begin{DoxyCompactList}\small\item\em Is (vi $<$= +vmax)? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{TypeIIRMLDecisions_8h_a6d75e85eece38b4d02c9b44f5121cb95}\label{TypeIIRMLDecisions_8h_a6d75e85eece38b4d02c9b44f5121cb95}} 
+bool \mbox{\hyperlink{TypeIIRMLDecisions_8h_a6d75e85eece38b4d02c9b44f5121cb95}{Type\+I\+I\+R\+M\+L\+Math\+::\+Decision\+\_\+2\+\_\+\+\_\+\+\_\+003}} (const double \&Current\+Velocity, const double \&Target\+Velocity)
+\begin{DoxyCompactList}\small\item\em Is (vi $<$= vtrgt)? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{TypeIIRMLDecisions_8h_a42e6ea32ee9a0b6a2f775a7542a6ac5b}\label{TypeIIRMLDecisions_8h_a42e6ea32ee9a0b6a2f775a7542a6ac5b}} 
+bool \mbox{\hyperlink{TypeIIRMLDecisions_8h_a42e6ea32ee9a0b6a2f775a7542a6ac5b}{Type\+I\+I\+R\+M\+L\+Math\+::\+Decision\+\_\+2\+\_\+\+\_\+\+\_\+004}} (const double \&Current\+Position, const double \&Current\+Velocity, const double \&Target\+Position, const double \&Target\+Velocity, const double \&Max\+Acceleration, const double \&Current\+Time, const double \&Synchronization\+Time)
+\begin{DoxyCompactList}\small\item\em If v-\/$>$vtrgt-\/$>$hold, so that t=tsync, is p$<$=ptrgt? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{TypeIIRMLDecisions_8h_a1156d76be456fc042c3c796d25f68b25}\label{TypeIIRMLDecisions_8h_a1156d76be456fc042c3c796d25f68b25}} 
+bool \mbox{\hyperlink{TypeIIRMLDecisions_8h_a1156d76be456fc042c3c796d25f68b25}{Type\+I\+I\+R\+M\+L\+Math\+::\+Decision\+\_\+2\+\_\+\+\_\+\+\_\+005}} (const double \&Current\+Position, const double \&Current\+Velocity, const double \&Target\+Position, const double \&Target\+Velocity, const double \&Max\+Acceleration, const double \&Current\+Time, const double \&Synchronization\+Time)
+\begin{DoxyCompactList}\small\item\em If v-\/$>$hold-\/$>$vtrgt, so that t=tsync, is p$<$=ptrgt? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{TypeIIRMLDecisions_8h_a20d03f20f6a92d01437e2986443e4dee}\label{TypeIIRMLDecisions_8h_a20d03f20f6a92d01437e2986443e4dee}} 
+bool \mbox{\hyperlink{TypeIIRMLDecisions_8h_a20d03f20f6a92d01437e2986443e4dee}{Type\+I\+I\+R\+M\+L\+Math\+::\+Decision\+\_\+2\+\_\+\+\_\+\+\_\+006}} (const double \&Current\+Time, const double \&Synchronization\+Time, const double \&Current\+Position, const double \&Current\+Velocity, const double \&Target\+Position, const double \&Target\+Velocity, const double \&Max\+Acceleration)
+\begin{DoxyCompactList}\small\item\em If (v-\/$>$0-\/$>$vtrgt, is p$<$=ptrgt $\vert$$\vert$ t $>$ tsync)? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{TypeIIRMLDecisions_8h_a8d420e9b4b91d3f14bae89d8b025dab0}\label{TypeIIRMLDecisions_8h_a8d420e9b4b91d3f14bae89d8b025dab0}} 
+bool \mbox{\hyperlink{TypeIIRMLDecisions_8h_a8d420e9b4b91d3f14bae89d8b025dab0}{Type\+I\+I\+R\+M\+L\+Math\+::\+Decision\+\_\+2\+\_\+\+\_\+\+\_\+007}} (const double \&Target\+Velocity)
+\begin{DoxyCompactList}\small\item\em Is (vtrgt $>$= 0)? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{TypeIIRMLDecisions_8h_a3d66f6963766aae15068cf50ea9156fd}\label{TypeIIRMLDecisions_8h_a3d66f6963766aae15068cf50ea9156fd}} 
+bool \mbox{\hyperlink{TypeIIRMLDecisions_8h_a3d66f6963766aae15068cf50ea9156fd}{Type\+I\+I\+R\+M\+L\+Math\+::\+Decision\+\_\+2\+\_\+\+\_\+\+\_\+008}} (const double \&Current\+Position, const double \&Current\+Velocity, const double \&Target\+Position, const double \&Target\+Velocity, const double \&Max\+Acceleration, const double \&Current\+Time, const double \&Synchronization\+Time)
+\begin{DoxyCompactList}\small\item\em If v-\/$>$hold-\/$>$vtrgt, so that t=tsync, is p$<$=ptrgt? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{TypeIIRMLDecisions_8h_acacafacc3aa9ae9c7ee737409e0b8cd7}\label{TypeIIRMLDecisions_8h_acacafacc3aa9ae9c7ee737409e0b8cd7}} 
+bool \mbox{\hyperlink{TypeIIRMLDecisions_8h_acacafacc3aa9ae9c7ee737409e0b8cd7}{Type\+I\+I\+R\+M\+L\+Math\+::\+Decision\+\_\+2\+\_\+\+\_\+\+\_\+009}} (const double \&Current\+Position, const double \&Current\+Velocity, const double \&Target\+Position, const double \&Target\+Velocity, const double \&Max\+Acceleration, const double \&Current\+Time, const double \&Synchronization\+Time)
+\begin{DoxyCompactList}\small\item\em If v-\/$>$vtrgt-\/$>$hold, so that t=tsync, is p$<$=ptrgt? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{TypeIIRMLDecisions_8h_a148811b76970573063b68d1d92ec9b6e}\label{TypeIIRMLDecisions_8h_a148811b76970573063b68d1d92ec9b6e}} 
+bool \mbox{\hyperlink{TypeIIRMLDecisions_8h_a148811b76970573063b68d1d92ec9b6e}{Type\+I\+I\+R\+M\+L\+Math\+::\+Decision\+\_\+2\+\_\+\+\_\+\+\_\+010}} (const double \&Current\+Position, const double \&Current\+Velocity, const double \&Target\+Position, const double \&Target\+Velocity, const double \&Max\+Acceleration)
+\begin{DoxyCompactList}\small\item\em If v-\/$>$0-\/$>$vtrgt, is p$>$=ptrgt? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{TypeIIRMLDecisions_8h_ac2a980f973c2a88c33c6149112009382}\label{TypeIIRMLDecisions_8h_ac2a980f973c2a88c33c6149112009382}} 
+bool \mbox{\hyperlink{TypeIIRMLDecisions_8h_ac2a980f973c2a88c33c6149112009382}{Type\+I\+I\+R\+M\+L\+Math\+::\+Decision\+\_\+2\+\_\+\+\_\+\+\_\+011}} (const double \&Current\+Position, const double \&Current\+Velocity, const double \&Target\+Position, const double \&Target\+Velocity, const double \&Max\+Acceleration, const double \&Current\+Time, const double \&Synchronization\+Time)
+\begin{DoxyCompactList}\small\item\em If v-\/$>$vtrgt-\/$>$hold, so that t=tsync, is p$<$=ptrgt? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{TypeIIRMLDecisions_8h_af10e700d4b4df94679648ced3375ffd3}\label{TypeIIRMLDecisions_8h_af10e700d4b4df94679648ced3375ffd3}} 
+bool \mbox{\hyperlink{TypeIIRMLDecisions_8h_af10e700d4b4df94679648ced3375ffd3}{Type\+I\+I\+R\+M\+L\+Math\+::\+Decision\+\_\+2\+\_\+\+\_\+\+\_\+012}} (const double \&Current\+Position, const double \&Current\+Velocity, const double \&Target\+Position, const double \&Target\+Velocity, const double \&Max\+Acceleration, const double \&Current\+Time, const double \&Synchronization\+Time)
+\begin{DoxyCompactList}\small\item\em If v-\/$>$hold-\/$>$0-\/$>$vtrgt, so that t=tsync, is p$<$=ptrgt? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{TypeIIRMLDecisions_8h_a72da5b8e89a331e0735bb9b594b190ee}\label{TypeIIRMLDecisions_8h_a72da5b8e89a331e0735bb9b594b190ee}} 
+bool \mbox{\hyperlink{TypeIIRMLDecisions_8h_a72da5b8e89a331e0735bb9b594b190ee}{Type\+I\+I\+R\+M\+L\+Math\+::\+Decision\+\_\+\+V\+\_\+\+\_\+\+\_\+001}} (const double \&Current\+Velocity, const double \&Target\+Velocity)
+\begin{DoxyCompactList}\small\item\em Is (vi $<$= vtrgt)? \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{structHeader}{Header}} file for decisions of the two decision trees of the Type II On-\/\+Line Trajectory Generation algorithm. 
+
+This file contains all necessary decisions for the Type II On-\/\+Line Trajectory Generation algorithm. All functions are part of the namespace Type\+I\+I\+R\+M\+L\+Math.
+
+\begin{DoxyDate}{Date}
+April 2015
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+2.\+7
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Torsten Kroeger, \href{mailto:info@reflexxes.com}{\texttt{ info@reflexxes.\+com}} ~\newline
+ 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) 2015 Google, Inc. ~\newline
+~\newline
+{\bfseries{G\+NU Lesser General Public License}} ~\newline
+~\newline
+This file is part of the Type II Reflexxes Motion Library. ~\newline
+~\newline
+The Type II Reflexxes Motion Library is free software\+: you can redistribute it and/or modify it under the terms of the G\+NU Lesser General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. ~\newline
+~\newline
+The Type II Reflexxes Motion Library is distributed in the hope that it will be useful, but W\+I\+T\+H\+O\+UT A\+NY W\+A\+R\+R\+A\+N\+TY; without even the implied warranty of M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+TY or F\+I\+T\+N\+E\+SS F\+OR A P\+A\+R\+T\+I\+C\+U\+L\+AR P\+U\+R\+P\+O\+SE. See the G\+NU Lesser General Public License for more details. ~\newline
+~\newline
+You should have received a copy of the G\+NU Lesser General Public License along with the Type II Reflexxes Motion Library. If not, see \href{http://www.gnu.org/licenses/}{\texttt{ http\+://www.\+gnu.\+org/licenses/}}. 
+\end{DoxyCopyright}

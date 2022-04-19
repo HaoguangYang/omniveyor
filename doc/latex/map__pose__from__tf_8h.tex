@@ -1,0 +1,51 @@
+\hypertarget{map__pose__from__tf_8h}{}\doxysection{omniveyor\+\_\+mobility/include/omniveyor\+\_\+mobility/map\+\_\+pose\+\_\+from\+\_\+tf.h File Reference}
+\label{map__pose__from__tf_8h}\index{omniveyor\_mobility/include/omniveyor\_mobility/map\_pose\_from\_tf.h@{omniveyor\_mobility/include/omniveyor\_mobility/map\_pose\_from\_tf.h}}
+
+
+Helper node that republishes the TF(map-\/$>$base\+\_\+link) as a Pose\+With\+Covariance\+Stamped, with properly calculated covariance.  
+
+
+{\ttfamily \#include $<$ros/ros.\+h$>$}\newline
+{\ttfamily \#include $<$tf2\+\_\+ros/transform\+\_\+listener.\+h$>$}\newline
+{\ttfamily \#include $<$tf2\+\_\+geometry\+\_\+msgs/tf2\+\_\+geometry\+\_\+msgs.\+h$>$}\newline
+{\ttfamily \#include $<$tf2/buffer\+\_\+core.\+h$>$}\newline
+{\ttfamily \#include $<$geometry\+\_\+msgs/\+Transform\+Stamped.\+h$>$}\newline
+{\ttfamily \#include $<$geometry\+\_\+msgs/\+Pose\+Stamped.\+h$>$}\newline
+{\ttfamily \#include $<$geometry\+\_\+msgs/\+Pose\+With\+Covariance\+Stamped.\+h$>$}\newline
+{\ttfamily \#include $<$std\+\_\+msgs/\+Header.\+h$>$}\newline
+{\ttfamily \#include $<$std\+\_\+msgs/\+Float64\+Multi\+Array.\+h$>$}\newline
+{\ttfamily \#include $<$nav\+\_\+msgs/\+Odometry.\+h$>$}\newline
+{\ttfamily \#include $<$Eigen/\+Core$>$}\newline
+{\ttfamily \#include $<$Eigen/\+Geometry$>$}\newline
+Include dependency graph for map\+\_\+pose\+\_\+from\+\_\+tf.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{map__pose__from__tf_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classconstantTFGaussianEstimator}{constant\+T\+F\+Gaussian\+Estimator}}
+\item 
+class \mbox{\hyperlink{classmapPoseFromTFOdom__node}{map\+Pose\+From\+T\+F\+Odom\+\_\+node}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Helper node that republishes the TF(map-\/$>$base\+\_\+link) as a Pose\+With\+Covariance\+Stamped, with properly calculated covariance. 
+
+\begin{DoxyAuthor}{Author}
+Haoguang Yang (\href{mailto:yang1510@purdue.edu}{\texttt{ yang1510@purdue.\+edu}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2022-\/03-\/27
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2022 Haoguang Yang 
+\end{DoxyCopyright}

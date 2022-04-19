@@ -1,0 +1,315 @@
+\hypertarget{WirehairTools_8h}{}\doxysection{nimbro\+\_\+network/nimbro\+\_\+topic\+\_\+transport/contrib/wirehair/\+Wirehair\+Tools.h File Reference}
+\label{WirehairTools_8h}\index{nimbro\_network/nimbro\_topic\_transport/contrib/wirehair/WirehairTools.h@{nimbro\_network/nimbro\_topic\_transport/contrib/wirehair/WirehairTools.h}}
+
+
+Wirehair \+: Tools.  
+
+
+{\ttfamily \#include \char`\"{}wirehair.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}gf256.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$new$>$}\newline
+Include dependency graph for Wirehair\+Tools.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{WirehairTools_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{WirehairTools_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classwirehair_1_1PCGRandom}{wirehair\+::\+P\+C\+G\+Random}}
+\begin{DoxyCompactList}\small\item\em From \href{http://www.pcg-random.org/}{\texttt{ http\+://www.\+pcg-\/random.\+org/}}. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structwirehair_1_1PeelRowParameters}{wirehair\+::\+Peel\+Row\+Parameters}}
+\item 
+class \mbox{\hyperlink{classwirehair_1_1PeelRowIterator}{wirehair\+::\+Peel\+Row\+Iterator}}
+\begin{DoxyCompactList}\small\item\em Generates all of the columns referenced by a row. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classwirehair_1_1RowMixIterator}{wirehair\+::\+Row\+Mix\+Iterator}}
+\begin{DoxyCompactList}\small\item\em Generates all of the columns referenced by a row. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{WirehairTools_8h_a47a4c23552bdc1a384523c6cdb2ff5b2}\label{WirehairTools_8h_a47a4c23552bdc1a384523c6cdb2ff5b2}} 
+\#define {\bfseries C\+A\+T\+\_\+\+D\+E\+B\+U\+G\+\_\+\+B\+R\+E\+AK}()~do \{\} while (false);
+\item 
+\mbox{\Hypertarget{WirehairTools_8h_a89b38cdff086c8f23fc796f3595d348d}\label{WirehairTools_8h_a89b38cdff086c8f23fc796f3595d348d}} 
+\#define {\bfseries C\+A\+T\+\_\+\+D\+E\+B\+U\+G\+\_\+\+A\+S\+S\+E\+RT}(cond)~do \{\} while (false);
+\item 
+\#define \mbox{\hyperlink{WirehairTools_8h_aef57f52ddd6f3809db0d368d2f2069a8}{C\+A\+T\+\_\+\+R\+E\+F\+\_\+\+L\+I\+S\+T\+\_\+\+M\+AX}}~32
+\item 
+\#define \mbox{\hyperlink{WirehairTools_8h_a8dbc3d861f7af6c16e08de52d6ca1562}{C\+A\+T\+\_\+\+M\+A\+X\+\_\+\+D\+E\+N\+S\+E\+\_\+\+R\+O\+WS}}~500
+\item 
+\#define \mbox{\hyperlink{WirehairTools_8h_a6982f677e5d2c78ce716cd0b47b0c970}{C\+A\+T\+\_\+\+M\+A\+X\+\_\+\+E\+X\+T\+R\+A\+\_\+\+R\+O\+WS}}~32
+\item 
+\#define \mbox{\hyperlink{WirehairTools_8h_a42e41f305b85e079651a3a3af5b2e364}{C\+A\+T\+\_\+\+W\+I\+R\+E\+H\+A\+I\+R\+\_\+\+M\+A\+X\+\_\+N}}~64000
+\item 
+\#define \mbox{\hyperlink{WirehairTools_8h_a7ec2d05401754dd90f1877959f2b606c}{C\+A\+T\+\_\+\+W\+I\+R\+E\+H\+A\+I\+R\+\_\+\+M\+I\+N\+\_\+N}}~2
+\item 
+\#define \mbox{\hyperlink{WirehairTools_8h_ace0b60ba227ea3173a86a07b09db4d9a}{C\+A\+T\+\_\+\+C\+O\+P\+Y\+\_\+\+F\+I\+R\+S\+T\+\_\+N}}
+\item 
+\#define \mbox{\hyperlink{WirehairTools_8h_a34cd6e2d7d92aa40a6d58866283a67a9}{C\+A\+T\+\_\+\+H\+E\+A\+V\+Y\+\_\+\+W\+I\+N\+\_\+\+M\+U\+LT}}
+\item 
+\#define \mbox{\hyperlink{WirehairTools_8h_a397fc71750961cb71a9e73bddb72afe1}{C\+A\+T\+\_\+\+W\+I\+N\+D\+O\+W\+E\+D\+\_\+\+B\+A\+C\+K\+S\+UB}}
+\item 
+\#define \mbox{\hyperlink{WirehairTools_8h_ab778e98ea3f58cf5515821f9a28be93a}{C\+A\+T\+\_\+\+W\+I\+N\+D\+O\+W\+E\+D\+\_\+\+L\+O\+W\+E\+R\+T\+RI}}
+\item 
+\#define \mbox{\hyperlink{WirehairTools_8h_afc93bec7e39d7d2ee5db3ff73cb562ae}{C\+A\+T\+\_\+\+A\+L\+L\+\_\+\+O\+R\+I\+G\+I\+N\+AL}}
+\item 
+\mbox{\Hypertarget{WirehairTools_8h_ad1917ffde7e0ee7151ee9eeaaec39578}\label{WirehairTools_8h_ad1917ffde7e0ee7151ee9eeaaec39578}} 
+\#define \mbox{\hyperlink{WirehairTools_8h_ad1917ffde7e0ee7151ee9eeaaec39578}{C\+A\+T\+\_\+\+R\+O\+L64}}(n,  r)~( ((uint64\+\_\+t)(n) $<$$<$ (r)) $\vert$ ((uint64\+\_\+t)(n) $>$$>$ (64 -\/ (r))) )
+\begin{DoxyCompactList}\small\item\em These bit rotations only work for uint64\+\_\+t. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{WirehairTools_8h_a5a4bb8d3904dd83e3dd3523d67eb5c9b}\label{WirehairTools_8h_a5a4bb8d3904dd83e3dd3523d67eb5c9b}} 
+\#define {\bfseries C\+A\+T\+\_\+\+R\+O\+R64}(n,  r)~( ((uint64\+\_\+t)(n) $>$$>$ (r)) $\vert$ ((uint64\+\_\+t)(n) $<$$<$ (64 -\/ (r))) )
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{WirehairTools_8cpp_acbcde0c0c7ebb47be62b3901c7863066}{wirehair\+::\+Floor\+Square\+Root16}} (uint16\+\_\+t x)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{WirehairTools_8cpp_a7b6464481fd916c7f6a57e1456e80159}{wirehair\+::\+Next\+Prime16}} (uint16\+\_\+t n)
+\item 
+void \mbox{\hyperlink{WirehairTools_8cpp_a83b43286427750d4bde206235b40c2f3}{wirehair\+::\+Add\+Invertible\+G\+F2\+Matrix}} (uint64\+\_\+t $\ast$G\+F256\+\_\+\+R\+E\+S\+T\+R\+I\+CT matrix, const unsigned offset, const unsigned pitch\+Words, const unsigned n)
+\item 
+void \mbox{\hyperlink{WirehairTools_8cpp_ac89d9aebc0e2918ebec05a0fe330381b}{wirehair\+::\+Shuffle\+Deck16}} (P\+C\+G\+Random \&prng, uint16\+\_\+t $\ast$G\+F256\+\_\+\+R\+E\+S\+T\+R\+I\+CT deck, const uint32\+\_\+t count)
+\item 
+G\+F256\+\_\+\+F\+O\+R\+C\+E\+\_\+\+I\+N\+L\+I\+NE void \mbox{\hyperlink{WirehairTools_8h_aa6c972daefdc29d95412916d292ba0d6}{wirehair\+::\+Iterate\+Next\+Column}} (uint16\+\_\+t \&x, const uint16\+\_\+t b, const uint16\+\_\+t p, const uint16\+\_\+t a)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{WirehairTools_8cpp_aa9d449df70f74ada7c0379cfc6233736}{wirehair\+::\+Generate\+Peel\+Row\+Weight}} (uint32\+\_\+t rv, uint16\+\_\+t block\+\_\+count)
+\item 
+\mbox{\Hypertarget{WirehairTools_8cpp_a718b416bdf368427c96a5fcc11592e75}\label{WirehairTools_8cpp_a718b416bdf368427c96a5fcc11592e75}} 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{WirehairTools_8cpp_a718b416bdf368427c96a5fcc11592e75}{wirehair\+::\+S\+I\+M\+D\+Safe\+Allocate}} (size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Allocate memory and return a pointer aligned to the size used for S\+I\+MD ops. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{WirehairTools_8cpp_a8808e61f36b899d06980ffaeef65b874}\label{WirehairTools_8cpp_a8808e61f36b899d06980ffaeef65b874}} 
+void \mbox{\hyperlink{WirehairTools_8cpp_a8808e61f36b899d06980ffaeef65b874}{wirehair\+::\+S\+I\+M\+D\+Safe\+Free}} (void $\ast$ptr)
+\begin{DoxyCompactList}\small\item\em Free an aligned pointer. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{WirehairTools_8cpp_a32bce5e32a791d9bfffed41f00efccff}{wirehair\+::\+Get\+Dense\+Count}} (unsigned N)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{WirehairTools_8cpp_a8711c873efafa7143d2526b885dffec3}{wirehair\+::\+Get\+Dense\+Seed}} (unsigned N, unsigned dense\+\_\+count)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{WirehairTools_8cpp_ac17209543176e608e21918298b4b54d4}{wirehair\+::\+Get\+Peel\+Seed}} (unsigned N)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Wirehair \+: Tools. 
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2012-\/2018 Christopher A. Taylor. All rights reserved.
+\end{DoxyCopyright}
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\+:
+
+Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. Neither the name of Wirehair nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS P\+R\+O\+V\+I\+D\+ED BY T\+HE C\+O\+P\+Y\+R\+I\+G\+HT H\+O\+L\+D\+E\+RS A\+ND C\+O\+N\+T\+R\+I\+B\+U\+T\+O\+RS \char`\"{}\+A\+S I\+S\char`\"{} A\+ND A\+NY E\+X\+P\+R\+E\+SS OR I\+M\+P\+L\+I\+ED W\+A\+R\+R\+A\+N\+T\+I\+ES, I\+N\+C\+L\+U\+D\+I\+NG, B\+UT N\+OT L\+I\+M\+I\+T\+ED TO, T\+HE I\+M\+P\+L\+I\+ED W\+A\+R\+R\+A\+N\+T\+I\+ES OF M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+TY A\+ND F\+I\+T\+N\+E\+SS F\+OR A P\+A\+R\+T\+I\+C\+U\+L\+AR P\+U\+R\+P\+O\+SE A\+RE D\+I\+S\+C\+L\+A\+I\+M\+ED. IN NO E\+V\+E\+NT S\+H\+A\+LL T\+HE C\+O\+P\+Y\+R\+I\+G\+HT H\+O\+L\+D\+ER OR C\+O\+N\+T\+R\+I\+B\+U\+T\+O\+RS BE L\+I\+A\+B\+LE F\+OR A\+NY D\+I\+R\+E\+CT, I\+N\+D\+I\+R\+E\+CT, I\+N\+C\+I\+D\+E\+N\+T\+AL, S\+P\+E\+C\+I\+AL, E\+X\+E\+M\+P\+L\+A\+RY, OR C\+O\+N\+S\+E\+Q\+U\+E\+N\+T\+I\+AL D\+A\+M\+A\+G\+ES (I\+N\+C\+L\+U\+D\+I\+NG, B\+UT N\+OT L\+I\+M\+I\+T\+ED TO, P\+R\+O\+C\+U\+R\+E\+M\+E\+NT OF S\+U\+B\+S\+T\+I\+T\+U\+TE G\+O\+O\+DS OR S\+E\+R\+V\+I\+C\+ES; L\+O\+SS OF U\+SE, D\+A\+TA, OR P\+R\+O\+F\+I\+TS; OR B\+U\+S\+I\+N\+E\+SS I\+N\+T\+E\+R\+R\+U\+P\+T\+I\+ON) H\+O\+W\+E\+V\+ER C\+A\+U\+S\+ED A\+ND ON A\+NY T\+H\+E\+O\+RY OF L\+I\+A\+B\+I\+L\+I\+TY, W\+H\+E\+T\+H\+ER IN C\+O\+N\+T\+R\+A\+CT, S\+T\+R\+I\+CT L\+I\+A\+B\+I\+L\+I\+TY, OR T\+O\+RT (I\+N\+C\+L\+U\+D\+I\+NG N\+E\+G\+L\+I\+G\+E\+N\+CE OR O\+T\+H\+E\+R\+W\+I\+SE) A\+R\+I\+S\+I\+NG IN A\+NY W\+AY O\+UT OF T\+HE U\+SE OF T\+H\+IS S\+O\+F\+T\+W\+A\+RE, E\+V\+EN IF A\+D\+V\+I\+S\+ED OF T\+HE P\+O\+S\+S\+I\+B\+I\+L\+I\+TY OF S\+U\+CH D\+A\+M\+A\+GE. 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{WirehairTools_8h_afc93bec7e39d7d2ee5db3ff73cb562ae}\label{WirehairTools_8h_afc93bec7e39d7d2ee5db3ff73cb562ae}} 
+\index{WirehairTools.h@{WirehairTools.h}!CAT\_ALL\_ORIGINAL@{CAT\_ALL\_ORIGINAL}}
+\index{CAT\_ALL\_ORIGINAL@{CAT\_ALL\_ORIGINAL}!WirehairTools.h@{WirehairTools.h}}
+\doxysubsubsection{\texorpdfstring{CAT\_ALL\_ORIGINAL}{CAT\_ALL\_ORIGINAL}}
+{\footnotesize\ttfamily \#define C\+A\+T\+\_\+\+A\+L\+L\+\_\+\+O\+R\+I\+G\+I\+N\+AL}
+
+Avoid doing calculations for 0 losses -- Requires C\+A\+T\+\_\+\+C\+O\+P\+Y\+\_\+\+F\+I\+R\+S\+T\+\_\+N (faster) \mbox{\Hypertarget{WirehairTools_8h_ace0b60ba227ea3173a86a07b09db4d9a}\label{WirehairTools_8h_ace0b60ba227ea3173a86a07b09db4d9a}} 
+\index{WirehairTools.h@{WirehairTools.h}!CAT\_COPY\_FIRST\_N@{CAT\_COPY\_FIRST\_N}}
+\index{CAT\_COPY\_FIRST\_N@{CAT\_COPY\_FIRST\_N}!WirehairTools.h@{WirehairTools.h}}
+\doxysubsubsection{\texorpdfstring{CAT\_COPY\_FIRST\_N}{CAT\_COPY\_FIRST\_N}}
+{\footnotesize\ttfamily \#define C\+A\+T\+\_\+\+C\+O\+P\+Y\+\_\+\+F\+I\+R\+S\+T\+\_\+N}
+
+Copy the first N rows from the input (faster) \mbox{\Hypertarget{WirehairTools_8h_a34cd6e2d7d92aa40a6d58866283a67a9}\label{WirehairTools_8h_a34cd6e2d7d92aa40a6d58866283a67a9}} 
+\index{WirehairTools.h@{WirehairTools.h}!CAT\_HEAVY\_WIN\_MULT@{CAT\_HEAVY\_WIN\_MULT}}
+\index{CAT\_HEAVY\_WIN\_MULT@{CAT\_HEAVY\_WIN\_MULT}!WirehairTools.h@{WirehairTools.h}}
+\doxysubsubsection{\texorpdfstring{CAT\_HEAVY\_WIN\_MULT}{CAT\_HEAVY\_WIN\_MULT}}
+{\footnotesize\ttfamily \#define C\+A\+T\+\_\+\+H\+E\+A\+V\+Y\+\_\+\+W\+I\+N\+\_\+\+M\+U\+LT}
+
+Use 4-\/bit table and multiplication optimization (faster) \mbox{\Hypertarget{WirehairTools_8h_a8dbc3d861f7af6c16e08de52d6ca1562}\label{WirehairTools_8h_a8dbc3d861f7af6c16e08de52d6ca1562}} 
+\index{WirehairTools.h@{WirehairTools.h}!CAT\_MAX\_DENSE\_ROWS@{CAT\_MAX\_DENSE\_ROWS}}
+\index{CAT\_MAX\_DENSE\_ROWS@{CAT\_MAX\_DENSE\_ROWS}!WirehairTools.h@{WirehairTools.h}}
+\doxysubsubsection{\texorpdfstring{CAT\_MAX\_DENSE\_ROWS}{CAT\_MAX\_DENSE\_ROWS}}
+{\footnotesize\ttfamily \#define C\+A\+T\+\_\+\+M\+A\+X\+\_\+\+D\+E\+N\+S\+E\+\_\+\+R\+O\+WS~500}
+
+Maximum dense row count \mbox{\Hypertarget{WirehairTools_8h_a6982f677e5d2c78ce716cd0b47b0c970}\label{WirehairTools_8h_a6982f677e5d2c78ce716cd0b47b0c970}} 
+\index{WirehairTools.h@{WirehairTools.h}!CAT\_MAX\_EXTRA\_ROWS@{CAT\_MAX\_EXTRA\_ROWS}}
+\index{CAT\_MAX\_EXTRA\_ROWS@{CAT\_MAX\_EXTRA\_ROWS}!WirehairTools.h@{WirehairTools.h}}
+\doxysubsubsection{\texorpdfstring{CAT\_MAX\_EXTRA\_ROWS}{CAT\_MAX\_EXTRA\_ROWS}}
+{\footnotesize\ttfamily \#define C\+A\+T\+\_\+\+M\+A\+X\+\_\+\+E\+X\+T\+R\+A\+\_\+\+R\+O\+WS~32}
+
+Maximum number of extra rows to support before reusing existing rows \mbox{\Hypertarget{WirehairTools_8h_aef57f52ddd6f3809db0d368d2f2069a8}\label{WirehairTools_8h_aef57f52ddd6f3809db0d368d2f2069a8}} 
+\index{WirehairTools.h@{WirehairTools.h}!CAT\_REF\_LIST\_MAX@{CAT\_REF\_LIST\_MAX}}
+\index{CAT\_REF\_LIST\_MAX@{CAT\_REF\_LIST\_MAX}!WirehairTools.h@{WirehairTools.h}}
+\doxysubsubsection{\texorpdfstring{CAT\_REF\_LIST\_MAX}{CAT\_REF\_LIST\_MAX}}
+{\footnotesize\ttfamily \#define C\+A\+T\+\_\+\+R\+E\+F\+\_\+\+L\+I\+S\+T\+\_\+\+M\+AX~32}
+
+Tune to be as small as possible and still succeed \mbox{\Hypertarget{WirehairTools_8h_a397fc71750961cb71a9e73bddb72afe1}\label{WirehairTools_8h_a397fc71750961cb71a9e73bddb72afe1}} 
+\index{WirehairTools.h@{WirehairTools.h}!CAT\_WINDOWED\_BACKSUB@{CAT\_WINDOWED\_BACKSUB}}
+\index{CAT\_WINDOWED\_BACKSUB@{CAT\_WINDOWED\_BACKSUB}!WirehairTools.h@{WirehairTools.h}}
+\doxysubsubsection{\texorpdfstring{CAT\_WINDOWED\_BACKSUB}{CAT\_WINDOWED\_BACKSUB}}
+{\footnotesize\ttfamily \#define C\+A\+T\+\_\+\+W\+I\+N\+D\+O\+W\+E\+D\+\_\+\+B\+A\+C\+K\+S\+UB}
+
+Use window optimization for back-\/substitution (faster) \mbox{\Hypertarget{WirehairTools_8h_ab778e98ea3f58cf5515821f9a28be93a}\label{WirehairTools_8h_ab778e98ea3f58cf5515821f9a28be93a}} 
+\index{WirehairTools.h@{WirehairTools.h}!CAT\_WINDOWED\_LOWERTRI@{CAT\_WINDOWED\_LOWERTRI}}
+\index{CAT\_WINDOWED\_LOWERTRI@{CAT\_WINDOWED\_LOWERTRI}!WirehairTools.h@{WirehairTools.h}}
+\doxysubsubsection{\texorpdfstring{CAT\_WINDOWED\_LOWERTRI}{CAT\_WINDOWED\_LOWERTRI}}
+{\footnotesize\ttfamily \#define C\+A\+T\+\_\+\+W\+I\+N\+D\+O\+W\+E\+D\+\_\+\+L\+O\+W\+E\+R\+T\+RI}
+
+Use window optimization for lower triangle elimination (faster) \mbox{\Hypertarget{WirehairTools_8h_a42e41f305b85e079651a3a3af5b2e364}\label{WirehairTools_8h_a42e41f305b85e079651a3a3af5b2e364}} 
+\index{WirehairTools.h@{WirehairTools.h}!CAT\_WIREHAIR\_MAX\_N@{CAT\_WIREHAIR\_MAX\_N}}
+\index{CAT\_WIREHAIR\_MAX\_N@{CAT\_WIREHAIR\_MAX\_N}!WirehairTools.h@{WirehairTools.h}}
+\doxysubsubsection{\texorpdfstring{CAT\_WIREHAIR\_MAX\_N}{CAT\_WIREHAIR\_MAX\_N}}
+{\footnotesize\ttfamily \#define C\+A\+T\+\_\+\+W\+I\+R\+E\+H\+A\+I\+R\+\_\+\+M\+A\+X\+\_\+N~64000}
+
+Largest N value to allow \mbox{\Hypertarget{WirehairTools_8h_a7ec2d05401754dd90f1877959f2b606c}\label{WirehairTools_8h_a7ec2d05401754dd90f1877959f2b606c}} 
+\index{WirehairTools.h@{WirehairTools.h}!CAT\_WIREHAIR\_MIN\_N@{CAT\_WIREHAIR\_MIN\_N}}
+\index{CAT\_WIREHAIR\_MIN\_N@{CAT\_WIREHAIR\_MIN\_N}!WirehairTools.h@{WirehairTools.h}}
+\doxysubsubsection{\texorpdfstring{CAT\_WIREHAIR\_MIN\_N}{CAT\_WIREHAIR\_MIN\_N}}
+{\footnotesize\ttfamily \#define C\+A\+T\+\_\+\+W\+I\+R\+E\+H\+A\+I\+R\+\_\+\+M\+I\+N\+\_\+N~2}
+
+Smallest N value to allow 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{WirehairTools_8cpp_a83b43286427750d4bde206235b40c2f3}\label{WirehairTools_8cpp_a83b43286427750d4bde206235b40c2f3}} 
+\index{WirehairTools.h@{WirehairTools.h}!AddInvertibleGF2Matrix@{AddInvertibleGF2Matrix}}
+\index{AddInvertibleGF2Matrix@{AddInvertibleGF2Matrix}!WirehairTools.h@{WirehairTools.h}}
+\doxysubsubsection{\texorpdfstring{AddInvertibleGF2Matrix()}{AddInvertibleGF2Matrix()}}
+{\footnotesize\ttfamily void wirehair\+::\+Add\+Invertible\+G\+F2\+Matrix (\begin{DoxyParamCaption}\item[{uint64\+\_\+t $\ast$G\+F256\+\_\+\+R\+E\+S\+T\+R\+I\+CT}]{matrix,  }\item[{const unsigned}]{offset,  }\item[{const unsigned}]{pitch\+Words,  }\item[{const unsigned}]{n }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{WirehairTools_8cpp_a83b43286427750d4bde206235b40c2f3}{Add\+Invertible\+G\+F2\+Matrix()}}
+
+This function adds (xoring in) a binary matrix on top of the given one.
+
+This function generates random-\/looking invertible NxN binary matrices for N in the range \mbox{[}1, 512). For larger values of N it will just add the identity matrix.
+
+The input matrix is expected to be stored row-\/first in memory. The offset to the first column bit to add can be specified.
+
+Precondition\+: N != 0 
+\begin{DoxyParams}{Parameters}
+{\em matrix} & Address of upper left word \\
+\hline
+{\em offset} & Offset in bits to the first sum column \\
+\hline
+{\em pitch\+Words} & Pitch of the matrix in words \\
+\hline
+{\em n} & Number of bits in the matrix to generate \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{WirehairTools_8cpp_acbcde0c0c7ebb47be62b3901c7863066}\label{WirehairTools_8cpp_acbcde0c0c7ebb47be62b3901c7863066}} 
+\index{WirehairTools.h@{WirehairTools.h}!FloorSquareRoot16@{FloorSquareRoot16}}
+\index{FloorSquareRoot16@{FloorSquareRoot16}!WirehairTools.h@{WirehairTools.h}}
+\doxysubsubsection{\texorpdfstring{FloorSquareRoot16()}{FloorSquareRoot16()}}
+{\footnotesize\ttfamily uint16\+\_\+t wirehair\+::\+Floor\+Square\+Root16 (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{WirehairTools_8cpp_acbcde0c0c7ebb47be62b3901c7863066}{Floor\+Square\+Root16()}}
+
+16-\/bit Integer Square Root function = (uint16\+\_\+t)(sqrt(x))
+
+This is useful for prime testing, where the algorithm needs to stop testing at or before the square root of the number to test. \mbox{\Hypertarget{WirehairTools_8cpp_aa9d449df70f74ada7c0379cfc6233736}\label{WirehairTools_8cpp_aa9d449df70f74ada7c0379cfc6233736}} 
+\index{WirehairTools.h@{WirehairTools.h}!GeneratePeelRowWeight@{GeneratePeelRowWeight}}
+\index{GeneratePeelRowWeight@{GeneratePeelRowWeight}!WirehairTools.h@{WirehairTools.h}}
+\doxysubsubsection{\texorpdfstring{GeneratePeelRowWeight()}{GeneratePeelRowWeight()}}
+{\footnotesize\ttfamily uint16\+\_\+t wirehair\+::\+Generate\+Peel\+Row\+Weight (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{rv,  }\item[{uint16\+\_\+t}]{block\+\_\+count }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{WirehairTools_8cpp_aa9d449df70f74ada7c0379cfc6233736}{Generate\+Peel\+Row\+Weight()}}
+
+Ideal Soliton weight distribution from \char`\"{}\+L\+T Codes\char`\"{} (2002) by Michael Luby
+
+The weight distribution selected for use in this codec is the Ideal Soliton distribution. The P\+MF for weights 2 and higher is 1 / (k$\ast$(k -\/ 1)). Accumulating these yields the W\+E\+I\+G\+H\+T\+\_\+\+D\+I\+ST table below up to weight 64. I stuck $\sim$0 at the end of the table to make sure the while loop in the function terminates.
+
+To produce a good code, the probability of weight-\/1 should be added into each element of the W\+E\+I\+G\+H\+T\+\_\+\+D\+I\+ST table. Instead, I add it programmatically in the function to allow it to be easily tuned.
+
+I played around with where to truncate this table, and found that for higher block counts, the number of deferred rows after greedy peeling is much lower for 64 weights than 32. And after tuning the codec for weight 64, the performance was slightly better than with 32.
+
+I also tried different probabilities for weight-\/1 rows, and settled on 1/128 as having the best performance in a few select tests. Setting it too high or too low (or even to zero) tends to reduce the performance of the codec.
+
+However, once N gets much much larger, it is actually very beneficial to switch over to weight-\/2 as a minimum. 
+\begin{DoxyParams}{Parameters}
+{\em rv} & 32-\/bit random value \\
+\hline
+{\em block\+\_\+count} & Number of input blocks \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{WirehairTools_8cpp_a32bce5e32a791d9bfffed41f00efccff}\label{WirehairTools_8cpp_a32bce5e32a791d9bfffed41f00efccff}} 
+\index{WirehairTools.h@{WirehairTools.h}!GetDenseCount@{GetDenseCount}}
+\index{GetDenseCount@{GetDenseCount}!WirehairTools.h@{WirehairTools.h}}
+\doxysubsubsection{\texorpdfstring{GetDenseCount()}{GetDenseCount()}}
+{\footnotesize\ttfamily uint16\+\_\+t wirehair\+::\+Get\+Dense\+Count (\begin{DoxyParamCaption}\item[{unsigned}]{N }\end{DoxyParamCaption})}
+
+This function returns the number of dense rows in the matrix given the number of input blocks (N). The dense rows are supposed to make a random binary submatrix where it is equally likely to have a 1 or a 0. If the peel rows fail to contain a data piece it\textquotesingle{}s much more likely to find that piece in these rows. Whenever the peel row parameters are re-\/tuned, the optimal dense count for each N must be re-\/computed.
+
+For N $<$ 2048, a thorough search is performed by Generate\+Small\+Dense\+Seeds.\+cpp to find the best match of dense seed and dense count.
+
+For larger values of N up to 64000, the dense count is generated by the Generate\+Dense\+Count.\+cpp program. This program was run 5 times and the output graphed. The largest dense count from each run was used and approximated by 64 data points that overestimate the dense count needed for the other values of N.
+
+The binary search used is unit-\/tested in Table\+Generator.\+cpp with array bounds checks.
+
+For N $>$= 2048 the graph-\/based value is rounded up to the next value s.\+t. D Mod 4 = 2. This is because I found that on average these counts lead to much better results.
+
+Preconditions\+: N $>$= 2 and N $<$= 64000 \mbox{\Hypertarget{WirehairTools_8cpp_a8711c873efafa7143d2526b885dffec3}\label{WirehairTools_8cpp_a8711c873efafa7143d2526b885dffec3}} 
+\index{WirehairTools.h@{WirehairTools.h}!GetDenseSeed@{GetDenseSeed}}
+\index{GetDenseSeed@{GetDenseSeed}!WirehairTools.h@{WirehairTools.h}}
+\doxysubsubsection{\texorpdfstring{GetDenseSeed()}{GetDenseSeed()}}
+{\footnotesize\ttfamily uint16\+\_\+t wirehair\+::\+Get\+Dense\+Seed (\begin{DoxyParamCaption}\item[{unsigned}]{N,  }\item[{unsigned}]{dense\+\_\+count }\end{DoxyParamCaption})}
+
+This function returns the seed to use for the dense rows, given the number of input blocks (N) and the count of dense rows provided by \mbox{\hyperlink{WirehairTools_8cpp_a32bce5e32a791d9bfffed41f00efccff}{Get\+Dense\+Count()}}. \mbox{\Hypertarget{WirehairTools_8cpp_ac17209543176e608e21918298b4b54d4}\label{WirehairTools_8cpp_ac17209543176e608e21918298b4b54d4}} 
+\index{WirehairTools.h@{WirehairTools.h}!GetPeelSeed@{GetPeelSeed}}
+\index{GetPeelSeed@{GetPeelSeed}!WirehairTools.h@{WirehairTools.h}}
+\doxysubsubsection{\texorpdfstring{GetPeelSeed()}{GetPeelSeed()}}
+{\footnotesize\ttfamily uint16\+\_\+t wirehair\+::\+Get\+Peel\+Seed (\begin{DoxyParamCaption}\item[{unsigned}]{N }\end{DoxyParamCaption})}
+
+This function returns the seed to use for the peel rows. \mbox{\Hypertarget{WirehairTools_8h_aa6c972daefdc29d95412916d292ba0d6}\label{WirehairTools_8h_aa6c972daefdc29d95412916d292ba0d6}} 
+\index{WirehairTools.h@{WirehairTools.h}!IterateNextColumn@{IterateNextColumn}}
+\index{IterateNextColumn@{IterateNextColumn}!WirehairTools.h@{WirehairTools.h}}
+\doxysubsubsection{\texorpdfstring{IterateNextColumn()}{IterateNextColumn()}}
+{\footnotesize\ttfamily G\+F256\+\_\+\+F\+O\+R\+C\+E\+\_\+\+I\+N\+L\+I\+NE void wirehair\+::\+Iterate\+Next\+Column (\begin{DoxyParamCaption}\item[{uint16\+\_\+t \&}]{x,  }\item[{const uint16\+\_\+t}]{b,  }\item[{const uint16\+\_\+t}]{p,  }\item[{const uint16\+\_\+t}]{a }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{WirehairTools_8h_aa6c972daefdc29d95412916d292ba0d6}{Iterate\+Next\+Column()}}
+
+This implements a very light P\+R\+NG (Weyl function) to quickly generate a set of random-\/looking columns without replacement.
+
+This is Stewart Platt\textquotesingle{}s excellent loop-\/less iterator optimization. His common cases all require no additional modulus operation, which makes it faster than the rare case that I designed. 
+\begin{DoxyParams}{Parameters}
+{\em x} & Current column number to mutate \\
+\hline
+{\em b} & Non-\/prime modulus for addition \\
+\hline
+{\em p} & Next prime above b (or = b if prime) \\
+\hline
+{\em a} & Number to add for Weyl generator \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{WirehairTools_8cpp_a7b6464481fd916c7f6a57e1456e80159}\label{WirehairTools_8cpp_a7b6464481fd916c7f6a57e1456e80159}} 
+\index{WirehairTools.h@{WirehairTools.h}!NextPrime16@{NextPrime16}}
+\index{NextPrime16@{NextPrime16}!WirehairTools.h@{WirehairTools.h}}
+\doxysubsubsection{\texorpdfstring{NextPrime16()}{NextPrime16()}}
+{\footnotesize\ttfamily uint16\+\_\+t wirehair\+::\+Next\+Prime16 (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{WirehairTools_8cpp_a7b6464481fd916c7f6a57e1456e80159}{Next\+Prime16()}}
+
+16-\/bit Truncated Sieve of Eratosthenes Next Prime function
+
+It uses trial division up to the square root of the number to test. Uses a truncated sieve table to pick the next number to try, which avoids small factors 2, 3, 5, 7. This can be considered a more involved version of incrementing by 2 instead of 1. It takes about 25\% less time on average than the approach that just increments by 2.
+
+Because of the tabular increment this is a hybrid approach. The sieve would just use a very large table, but I wanted to limit the size of the table to something fairly small and reasonable. 210 bytes for the sieve table. 102 bytes for the primes list.
+
+It also calculates the integer square root faster than cmath sqrt() and uses multiplication to update the square root instead for speed.
+
+The largest prime number within 16 bits is 65521.
+
+If input is 0 or 1, it returns 1. If input is 2, it returns 2. If input is a prime, it will return the same number. If input is above 65521, it will return 0 and assert in debug mode. Otherwise it will return the next larger number that is prime. \mbox{\Hypertarget{WirehairTools_8cpp_ac89d9aebc0e2918ebec05a0fe330381b}\label{WirehairTools_8cpp_ac89d9aebc0e2918ebec05a0fe330381b}} 
+\index{WirehairTools.h@{WirehairTools.h}!ShuffleDeck16@{ShuffleDeck16}}
+\index{ShuffleDeck16@{ShuffleDeck16}!WirehairTools.h@{WirehairTools.h}}
+\doxysubsubsection{\texorpdfstring{ShuffleDeck16()}{ShuffleDeck16()}}
+{\footnotesize\ttfamily void wirehair\+::\+Shuffle\+Deck16 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classwirehair_1_1PCGRandom}{P\+C\+G\+Random}} \&}]{prng,  }\item[{uint16\+\_\+t $\ast$G\+F256\+\_\+\+R\+E\+S\+T\+R\+I\+CT}]{deck,  }\item[{const uint32\+\_\+t}]{count }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{WirehairTools_8cpp_ac89d9aebc0e2918ebec05a0fe330381b}{Shuffle\+Deck16()}}
+
+Given a P\+R\+NG, generate a deck of cards in a random order.
+
+The deck will contain elements with values between 0 and count -\/ 1. 

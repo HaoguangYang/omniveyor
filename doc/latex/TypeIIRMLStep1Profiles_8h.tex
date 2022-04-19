@@ -1,0 +1,464 @@
+\hypertarget{TypeIIRMLStep1Profiles_8h}{}\doxysection{/home/jonathan/\+Omni\+Dev/src/omniveyor\+\_\+hardware/pcv\+\_\+base/external/\+Reflexxes\+Type\+I\+I/include/\+Type\+I\+I\+R\+M\+L\+Step1\+Profiles.h File Reference}
+\label{TypeIIRMLStep1Profiles_8h}\index{/home/jonathan/OmniDev/src/omniveyor\_hardware/pcv\_base/external/ReflexxesTypeII/include/TypeIIRMLStep1Profiles.h@{/home/jonathan/OmniDev/src/omniveyor\_hardware/pcv\_base/external/ReflexxesTypeII/include/TypeIIRMLStep1Profiles.h}}
+
+
+\mbox{\hyperlink{structHeader}{Header}} file for the Step 1 motion profiles.  
+
+
+{\ttfamily \#include $<$Type\+I\+I\+R\+M\+L\+Math.\+h$>$}\newline
+Include dependency graph for Type\+I\+I\+R\+M\+L\+Step1\+Profiles.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=267pt]{TypeIIRMLStep1Profiles_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{TypeIIRMLStep1Profiles_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{TypeIIRMLStep1Profiles_8h_a5a9a8d674855dd963e3957f499c0ecfc}{Type\+I\+I\+R\+M\+L\+Math\+::\+Step1\+\_\+\+Profile}} \{ \newline
+\mbox{\hyperlink{TypeIIRMLStep1Profiles_8h_a5a9a8d674855dd963e3957f499c0ecfca8b5166d607ae0dcddff818b8d98686f3}{Type\+I\+I\+R\+M\+L\+Math\+::\+Step1\+\_\+\+Undefined}} = 0, 
+\mbox{\hyperlink{TypeIIRMLStep1Profiles_8h_a5a9a8d674855dd963e3957f499c0ecfca64a4e0d233708c3ad77cb82adc82238f}{Type\+I\+I\+R\+M\+L\+Math\+::\+Step1\+\_\+\+Profile\+\_\+\+Pos\+Lin\+Hld\+Neg\+Lin}} = 1, 
+\mbox{\hyperlink{TypeIIRMLStep1Profiles_8h_a5a9a8d674855dd963e3957f499c0ecfcaafd67958f84799679c5ade9887565926}{Type\+I\+I\+R\+M\+L\+Math\+::\+Step1\+\_\+\+Profile\+\_\+\+Pos\+Lin\+Neg\+Lin}} = 2, 
+\mbox{\hyperlink{TypeIIRMLStep1Profiles_8h_a5a9a8d674855dd963e3957f499c0ecfca644cb6666f86cfad9fe3cf3f15864028}{Type\+I\+I\+R\+M\+L\+Math\+::\+Step1\+\_\+\+Profile\+\_\+\+Pos\+Tri\+Neg\+Lin}} = 3, 
+\newline
+\mbox{\hyperlink{TypeIIRMLStep1Profiles_8h_a5a9a8d674855dd963e3957f499c0ecfca7ecee4c7a973da47d62dc684a3012ed5}{Type\+I\+I\+R\+M\+L\+Math\+::\+Step1\+\_\+\+Profile\+\_\+\+Pos\+Trap\+Neg\+Lin}} = 4, 
+\mbox{\hyperlink{TypeIIRMLStep1Profiles_8h_a5a9a8d674855dd963e3957f499c0ecfca8a823a7c920a5bc314c408e4a7d2f765}{Type\+I\+I\+R\+M\+L\+Math\+::\+Step1\+\_\+\+Profile\+\_\+\+Neg\+Lin\+Hld\+Pos\+Lin}} = 5, 
+\mbox{\hyperlink{TypeIIRMLStep1Profiles_8h_a5a9a8d674855dd963e3957f499c0ecfcab6cd4aaecdeb142d1ec252db565f62b5}{Type\+I\+I\+R\+M\+L\+Math\+::\+Step1\+\_\+\+Profile\+\_\+\+Neg\+Lin\+Pos\+Lin}} = 6, 
+\mbox{\hyperlink{TypeIIRMLStep1Profiles_8h_a5a9a8d674855dd963e3957f499c0ecfca76b44967d10cd70685c719da54e0e4e1}{Type\+I\+I\+R\+M\+L\+Math\+::\+Step1\+\_\+\+Profile\+\_\+\+Neg\+Tri\+Pos\+Lin}} = 7, 
+\newline
+\mbox{\hyperlink{TypeIIRMLStep1Profiles_8h_a5a9a8d674855dd963e3957f499c0ecfcaceded6f9e49ddaf97f657c3f451cee47}{Type\+I\+I\+R\+M\+L\+Math\+::\+Step1\+\_\+\+Profile\+\_\+\+Neg\+Trap\+Pos\+Lin}} = 8
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration of all possible profiles of Step 1 (A, B, and C). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{TypeIIRMLStep1Profiles_8h_a29d8337c7c8ed221f7b4ef49e34774cf}{Type\+I\+I\+R\+M\+L\+Math\+::\+Profile\+Step1\+Pos\+Lin\+Hld\+Neg\+Lin}} (const double \&Current\+Position, const double \&Current\+Velocity, const double \&Target\+Position, const double \&Target\+Velocity, const double \&Max\+Velocity, const double \&Max\+Acceleration)
+\begin{DoxyCompactList}\small\item\em Calculates the execution time of the {\itshape Pos\+Lin\+Hld\+Neg\+Lin} velocity profile. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{TypeIIRMLStep1Profiles_8h_a14c7941b4531c7a133fcf8d188e43ad7}{Type\+I\+I\+R\+M\+L\+Math\+::\+Profile\+Step1\+Pos\+Lin\+Neg\+Lin}} (const double \&Current\+Position, const double \&Current\+Velocity, const double \&Target\+Position, const double \&Target\+Velocity, const double \&Max\+Acceleration)
+\begin{DoxyCompactList}\small\item\em Calculates the execution time of the {\itshape Pos\+Lin\+Neg\+Lin} velocity profile. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{TypeIIRMLStep1Profiles_8h_a2d9fdcd89256dfea21c2ef968f349023}{Type\+I\+I\+R\+M\+L\+Math\+::\+Profile\+Step1\+Pos\+Tri\+Neg\+Lin}} (const double \&Current\+Position, const double \&Current\+Velocity, const double \&Target\+Position, const double \&Target\+Velocity, const double \&Max\+Acceleration)
+\begin{DoxyCompactList}\small\item\em Calculates the execution time of the {\itshape Pos\+Tri\+Neg\+Lin} velocity profile. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{TypeIIRMLStep1Profiles_8h_ab12b35898dc2269343cbac2c1d8013e4}{Type\+I\+I\+R\+M\+L\+Math\+::\+Profile\+Step1\+Pos\+Trap\+Neg\+Lin}} (const double \&Current\+Position, const double \&Current\+Velocity, const double \&Target\+Position, const double \&Target\+Velocity, const double \&Max\+Velocity, const double \&Max\+Acceleration)
+\begin{DoxyCompactList}\small\item\em Calculates the execution time of the {\itshape Pos\+Trap\+Neg\+Lin} velocity profile. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{TypeIIRMLStep1Profiles_8h_af306785ef595cb859a6ca3de49faa141}{Type\+I\+I\+R\+M\+L\+Math\+::\+Profile\+Step1\+Neg\+Lin\+Pos\+Lin}} (const double \&Current\+Position, const double \&Current\+Velocity, const double \&Target\+Position, const double \&Target\+Velocity, const double \&Max\+Acceleration)
+\begin{DoxyCompactList}\small\item\em Calculates the execution time of the {\itshape Neg\+Lin\+Pos\+Lin} velocity profile. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{TypeIIRMLStep1Profiles_8h_ace83eca1b68cf32e8261e3321f10b58a}{Type\+I\+I\+R\+M\+L\+Math\+::\+Is\+Solution\+For\+Profile\+\_\+\+Pos\+Lin\+Hld\+Neg\+Lin\+\_\+\+Possible}} (const double \&Current\+Position, const double \&Current\+Velocity, const double \&Target\+Position, const double \&Target\+Velocity, const double \&Max\+Velocity, const double \&Max\+Acceleration)
+\begin{DoxyCompactList}\small\item\em Checks whether a valid solution for the {\itshape Pos\+Lin\+Hld\+Neg\+Lin} velocity profile would be possible. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{TypeIIRMLStep1Profiles_8h_ae79b8403cb81a60174c8dc23fb93e76a}{Type\+I\+I\+R\+M\+L\+Math\+::\+Is\+Solution\+For\+Profile\+\_\+\+Pos\+Lin\+Neg\+Lin\+\_\+\+Possible}} (const double \&Current\+Position, const double \&Current\+Velocity, const double \&Target\+Position, const double \&Target\+Velocity, const double \&Max\+Velocity, const double \&Max\+Acceleration)
+\begin{DoxyCompactList}\small\item\em Checks whether a valid solution for the {\itshape Pos\+Lin\+Neg\+Lin} velocity profile would be possible. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{TypeIIRMLStep1Profiles_8h_a19d21434fc8986c2f798058082f3d717}{Type\+I\+I\+R\+M\+L\+Math\+::\+Is\+Solution\+For\+Profile\+\_\+\+Pos\+Tri\+Neg\+Lin\+\_\+\+Possible}} (const double \&Current\+Position, const double \&Current\+Velocity, const double \&Target\+Position, const double \&Target\+Velocity, const double \&Max\+Velocity, const double \&Max\+Acceleration)
+\begin{DoxyCompactList}\small\item\em Checks whether a valid solution for the {\itshape Pos\+Tri\+Neg\+Lin} velocity profile would be possible. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{TypeIIRMLStep1Profiles_8h_a9892b806043b27080c51bf0ff32a65f8}{Type\+I\+I\+R\+M\+L\+Math\+::\+Is\+Solution\+For\+Profile\+\_\+\+Pos\+Trap\+Neg\+Lin\+\_\+\+Possible}} (const double \&Current\+Position, const double \&Current\+Velocity, const double \&Target\+Position, const double \&Target\+Velocity, const double \&Max\+Velocity, const double \&Max\+Acceleration)
+\begin{DoxyCompactList}\small\item\em Checks whether a valid solution for the {\itshape Pos\+Trap\+Neg\+Lin} velocity profile would be possible. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{structHeader}{Header}} file for the Step 1 motion profiles. 
+
+\mbox{\hyperlink{structHeader}{Header}} file for the enumeration of all possible Step 1 motion profiles used for within in the library of the Type II On-\/\+Line Trajectory Generation algorithm. Further more, this file contains all calculation functions of the Step 1 motion profiles, that is, the leaves of the Step 1 decision trees 1A, 1B, and 1C. These functions calculate the minimum or maximum trajectory execution time for a specific motion profile.
+
+The enumeration as well as all profile functions are part of the namespace Type\+I\+I\+R\+M\+L\+Math.
+
+\begin{DoxyDate}{Date}
+April 2015
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+2.\+7
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Torsten Kroeger, \href{mailto:info@reflexxes.com}{\texttt{ info@reflexxes.\+com}} ~\newline
+ 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) 2015 Google, Inc. ~\newline
+~\newline
+{\bfseries{G\+NU Lesser General Public License}} ~\newline
+~\newline
+This file is part of the Type II Reflexxes Motion Library. ~\newline
+~\newline
+The Type II Reflexxes Motion Library is free software\+: you can redistribute it and/or modify it under the terms of the G\+NU Lesser General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. ~\newline
+~\newline
+The Type II Reflexxes Motion Library is distributed in the hope that it will be useful, but W\+I\+T\+H\+O\+UT A\+NY W\+A\+R\+R\+A\+N\+TY; without even the implied warranty of M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+TY or F\+I\+T\+N\+E\+SS F\+OR A P\+A\+R\+T\+I\+C\+U\+L\+AR P\+U\+R\+P\+O\+SE. See the G\+NU Lesser General Public License for more details. ~\newline
+~\newline
+You should have received a copy of the G\+NU Lesser General Public License along with the Type II Reflexxes Motion Library. If not, see \href{http://www.gnu.org/licenses/}{\texttt{ http\+://www.\+gnu.\+org/licenses/}}. 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{TypeIIRMLStep1Profiles_8h_a5a9a8d674855dd963e3957f499c0ecfc}\label{TypeIIRMLStep1Profiles_8h_a5a9a8d674855dd963e3957f499c0ecfc}} 
+\index{TypeIIRMLStep1Profiles.h@{TypeIIRMLStep1Profiles.h}!Step1\_Profile@{Step1\_Profile}}
+\index{Step1\_Profile@{Step1\_Profile}!TypeIIRMLStep1Profiles.h@{TypeIIRMLStep1Profiles.h}}
+\doxysubsubsection{\texorpdfstring{Step1\_Profile}{Step1\_Profile}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{TypeIIRMLStep1Profiles_8h_a5a9a8d674855dd963e3957f499c0ecfc}{Type\+I\+I\+R\+M\+L\+Math\+::\+Step1\+\_\+\+Profile}}}
+
+
+
+Enumeration of all possible profiles of Step 1 (A, B, and C). 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{TypeIIRMLDecisionTree1A_8h_a9b534037ecaeaa27482cfd2a30a31150}{Type\+I\+I\+R\+M\+L\+Math\+::\+Type\+I\+I\+R\+M\+L\+Decision\+Tree1\+A()}} 
+
+\mbox{\hyperlink{TypeIIRMLDecisionTree1B_8h_a67e4e4389348606dd2230b69cbcea0c1}{Type\+I\+I\+R\+M\+L\+Math\+::\+Type\+I\+I\+R\+M\+L\+Decision\+Tree1\+B()}} 
+
+\mbox{\hyperlink{TypeIIRMLDecisionTree1C_8h_abc680a9557457698f84c9705d657237b}{Type\+I\+I\+R\+M\+L\+Math\+::\+Type\+I\+I\+R\+M\+L\+Decision\+Tree1\+C()}} 
+\end{DoxySeeAlso}
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Step1\_Undefined@{Step1\_Undefined}!TypeIIRMLStep1Profiles.h@{TypeIIRMLStep1Profiles.h}}\index{TypeIIRMLStep1Profiles.h@{TypeIIRMLStep1Profiles.h}!Step1\_Undefined@{Step1\_Undefined}}}\mbox{\Hypertarget{TypeIIRMLStep1Profiles_8h_a5a9a8d674855dd963e3957f499c0ecfca8b5166d607ae0dcddff818b8d98686f3}\label{TypeIIRMLStep1Profiles_8h_a5a9a8d674855dd963e3957f499c0ecfca8b5166d607ae0dcddff818b8d98686f3}} 
+Step1\+\_\+\+Undefined&The profile is undefined. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Step1\_Profile\_PosLinHldNegLin@{Step1\_Profile\_PosLinHldNegLin}!TypeIIRMLStep1Profiles.h@{TypeIIRMLStep1Profiles.h}}\index{TypeIIRMLStep1Profiles.h@{TypeIIRMLStep1Profiles.h}!Step1\_Profile\_PosLinHldNegLin@{Step1\_Profile\_PosLinHldNegLin}}}\mbox{\Hypertarget{TypeIIRMLStep1Profiles_8h_a5a9a8d674855dd963e3957f499c0ecfca64a4e0d233708c3ad77cb82adc82238f}\label{TypeIIRMLStep1Profiles_8h_a5a9a8d674855dd963e3957f499c0ecfca64a4e0d233708c3ad77cb82adc82238f}} 
+Step1\+\_\+\+Profile\+\_\+\+Pos\+Lin\+Hld\+Neg\+Lin&The profile is {\itshape Pos\+Lin\+Hld\+Neg\+Lin}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Step1\_Profile\_PosLinNegLin@{Step1\_Profile\_PosLinNegLin}!TypeIIRMLStep1Profiles.h@{TypeIIRMLStep1Profiles.h}}\index{TypeIIRMLStep1Profiles.h@{TypeIIRMLStep1Profiles.h}!Step1\_Profile\_PosLinNegLin@{Step1\_Profile\_PosLinNegLin}}}\mbox{\Hypertarget{TypeIIRMLStep1Profiles_8h_a5a9a8d674855dd963e3957f499c0ecfcaafd67958f84799679c5ade9887565926}\label{TypeIIRMLStep1Profiles_8h_a5a9a8d674855dd963e3957f499c0ecfcaafd67958f84799679c5ade9887565926}} 
+Step1\+\_\+\+Profile\+\_\+\+Pos\+Lin\+Neg\+Lin&The profile is {\itshape Pos\+Lin\+Neg\+Lin}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Step1\_Profile\_PosTriNegLin@{Step1\_Profile\_PosTriNegLin}!TypeIIRMLStep1Profiles.h@{TypeIIRMLStep1Profiles.h}}\index{TypeIIRMLStep1Profiles.h@{TypeIIRMLStep1Profiles.h}!Step1\_Profile\_PosTriNegLin@{Step1\_Profile\_PosTriNegLin}}}\mbox{\Hypertarget{TypeIIRMLStep1Profiles_8h_a5a9a8d674855dd963e3957f499c0ecfca644cb6666f86cfad9fe3cf3f15864028}\label{TypeIIRMLStep1Profiles_8h_a5a9a8d674855dd963e3957f499c0ecfca644cb6666f86cfad9fe3cf3f15864028}} 
+Step1\+\_\+\+Profile\+\_\+\+Pos\+Tri\+Neg\+Lin&The profile is {\itshape Pos\+Tri\+Neg\+Lin}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Step1\_Profile\_PosTrapNegLin@{Step1\_Profile\_PosTrapNegLin}!TypeIIRMLStep1Profiles.h@{TypeIIRMLStep1Profiles.h}}\index{TypeIIRMLStep1Profiles.h@{TypeIIRMLStep1Profiles.h}!Step1\_Profile\_PosTrapNegLin@{Step1\_Profile\_PosTrapNegLin}}}\mbox{\Hypertarget{TypeIIRMLStep1Profiles_8h_a5a9a8d674855dd963e3957f499c0ecfca7ecee4c7a973da47d62dc684a3012ed5}\label{TypeIIRMLStep1Profiles_8h_a5a9a8d674855dd963e3957f499c0ecfca7ecee4c7a973da47d62dc684a3012ed5}} 
+Step1\+\_\+\+Profile\+\_\+\+Pos\+Trap\+Neg\+Lin&The profile is {\itshape Pos\+Trap\+Neg\+Lin}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Step1\_Profile\_NegLinHldPosLin@{Step1\_Profile\_NegLinHldPosLin}!TypeIIRMLStep1Profiles.h@{TypeIIRMLStep1Profiles.h}}\index{TypeIIRMLStep1Profiles.h@{TypeIIRMLStep1Profiles.h}!Step1\_Profile\_NegLinHldPosLin@{Step1\_Profile\_NegLinHldPosLin}}}\mbox{\Hypertarget{TypeIIRMLStep1Profiles_8h_a5a9a8d674855dd963e3957f499c0ecfca8a823a7c920a5bc314c408e4a7d2f765}\label{TypeIIRMLStep1Profiles_8h_a5a9a8d674855dd963e3957f499c0ecfca8a823a7c920a5bc314c408e4a7d2f765}} 
+Step1\+\_\+\+Profile\+\_\+\+Neg\+Lin\+Hld\+Pos\+Lin&The profile is {\itshape Neg\+Lin\+Hld\+Pos\+Lin}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Step1\_Profile\_NegLinPosLin@{Step1\_Profile\_NegLinPosLin}!TypeIIRMLStep1Profiles.h@{TypeIIRMLStep1Profiles.h}}\index{TypeIIRMLStep1Profiles.h@{TypeIIRMLStep1Profiles.h}!Step1\_Profile\_NegLinPosLin@{Step1\_Profile\_NegLinPosLin}}}\mbox{\Hypertarget{TypeIIRMLStep1Profiles_8h_a5a9a8d674855dd963e3957f499c0ecfcab6cd4aaecdeb142d1ec252db565f62b5}\label{TypeIIRMLStep1Profiles_8h_a5a9a8d674855dd963e3957f499c0ecfcab6cd4aaecdeb142d1ec252db565f62b5}} 
+Step1\+\_\+\+Profile\+\_\+\+Neg\+Lin\+Pos\+Lin&The profile is {\itshape Neg\+Lin\+Pos\+Lin}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Step1\_Profile\_NegTriPosLin@{Step1\_Profile\_NegTriPosLin}!TypeIIRMLStep1Profiles.h@{TypeIIRMLStep1Profiles.h}}\index{TypeIIRMLStep1Profiles.h@{TypeIIRMLStep1Profiles.h}!Step1\_Profile\_NegTriPosLin@{Step1\_Profile\_NegTriPosLin}}}\mbox{\Hypertarget{TypeIIRMLStep1Profiles_8h_a5a9a8d674855dd963e3957f499c0ecfca76b44967d10cd70685c719da54e0e4e1}\label{TypeIIRMLStep1Profiles_8h_a5a9a8d674855dd963e3957f499c0ecfca76b44967d10cd70685c719da54e0e4e1}} 
+Step1\+\_\+\+Profile\+\_\+\+Neg\+Tri\+Pos\+Lin&The profile is {\itshape Neg\+Tri\+Pos\+Lin}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Step1\_Profile\_NegTrapPosLin@{Step1\_Profile\_NegTrapPosLin}!TypeIIRMLStep1Profiles.h@{TypeIIRMLStep1Profiles.h}}\index{TypeIIRMLStep1Profiles.h@{TypeIIRMLStep1Profiles.h}!Step1\_Profile\_NegTrapPosLin@{Step1\_Profile\_NegTrapPosLin}}}\mbox{\Hypertarget{TypeIIRMLStep1Profiles_8h_a5a9a8d674855dd963e3957f499c0ecfcaceded6f9e49ddaf97f657c3f451cee47}\label{TypeIIRMLStep1Profiles_8h_a5a9a8d674855dd963e3957f499c0ecfcaceded6f9e49ddaf97f657c3f451cee47}} 
+Step1\+\_\+\+Profile\+\_\+\+Neg\+Trap\+Pos\+Lin&The profile is {\itshape Neg\+Trap\+Pos\+Lin}. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{TypeIIRMLStep1Profiles_8h_ace83eca1b68cf32e8261e3321f10b58a}\label{TypeIIRMLStep1Profiles_8h_ace83eca1b68cf32e8261e3321f10b58a}} 
+\index{TypeIIRMLStep1Profiles.h@{TypeIIRMLStep1Profiles.h}!IsSolutionForProfile\_PosLinHldNegLin\_Possible@{IsSolutionForProfile\_PosLinHldNegLin\_Possible}}
+\index{IsSolutionForProfile\_PosLinHldNegLin\_Possible@{IsSolutionForProfile\_PosLinHldNegLin\_Possible}!TypeIIRMLStep1Profiles.h@{TypeIIRMLStep1Profiles.h}}
+\doxysubsubsection{\texorpdfstring{IsSolutionForProfile\_PosLinHldNegLin\_Possible()}{IsSolutionForProfile\_PosLinHldNegLin\_Possible()}}
+{\footnotesize\ttfamily bool Type\+I\+I\+R\+M\+L\+Math\+::\+Is\+Solution\+For\+Profile\+\_\+\+Pos\+Lin\+Hld\+Neg\+Lin\+\_\+\+Possible (\begin{DoxyParamCaption}\item[{const double \&}]{Current\+Position,  }\item[{const double \&}]{Current\+Velocity,  }\item[{const double \&}]{Target\+Position,  }\item[{const double \&}]{Target\+Velocity,  }\item[{const double \&}]{Max\+Velocity,  }\item[{const double \&}]{Max\+Acceleration }\end{DoxyParamCaption})}
+
+
+
+Checks whether a valid solution for the {\itshape Pos\+Lin\+Hld\+Neg\+Lin} velocity profile would be possible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Current\+Position} & Current position value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}P_{i} $\\
+\hline
+{\em Current\+Velocity} & Current velocity value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}V_{i} $\\
+\hline
+{\em Target\+Position} & Target position value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}P_{i}^{\,trgt} $\\
+\hline
+{\em Target\+Velocity} & Target velocity value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}V_{i}^{\,trgt} $\\
+\hline
+{\em Max\+Velocity} & Maximum allowed velocity value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}V_{i}^{\,max} $\\
+\hline
+{\em Max\+Acceleration} & Maximum allowed acceleration value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}A_{i}^{\,max} $\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item {\ttfamily true} if a valid solution would be possible
+\item {\ttfamily false} otherwise
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classTypeIIRMLPosition_a8a1148e55ce2ddcb200605d81ba015a6}{Type\+I\+I\+R\+M\+L\+Position\+::\+Step1()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{TypeIIRMLStep1Profiles_8h_ae79b8403cb81a60174c8dc23fb93e76a}\label{TypeIIRMLStep1Profiles_8h_ae79b8403cb81a60174c8dc23fb93e76a}} 
+\index{TypeIIRMLStep1Profiles.h@{TypeIIRMLStep1Profiles.h}!IsSolutionForProfile\_PosLinNegLin\_Possible@{IsSolutionForProfile\_PosLinNegLin\_Possible}}
+\index{IsSolutionForProfile\_PosLinNegLin\_Possible@{IsSolutionForProfile\_PosLinNegLin\_Possible}!TypeIIRMLStep1Profiles.h@{TypeIIRMLStep1Profiles.h}}
+\doxysubsubsection{\texorpdfstring{IsSolutionForProfile\_PosLinNegLin\_Possible()}{IsSolutionForProfile\_PosLinNegLin\_Possible()}}
+{\footnotesize\ttfamily bool Type\+I\+I\+R\+M\+L\+Math\+::\+Is\+Solution\+For\+Profile\+\_\+\+Pos\+Lin\+Neg\+Lin\+\_\+\+Possible (\begin{DoxyParamCaption}\item[{const double \&}]{Current\+Position,  }\item[{const double \&}]{Current\+Velocity,  }\item[{const double \&}]{Target\+Position,  }\item[{const double \&}]{Target\+Velocity,  }\item[{const double \&}]{Max\+Velocity,  }\item[{const double \&}]{Max\+Acceleration }\end{DoxyParamCaption})}
+
+
+
+Checks whether a valid solution for the {\itshape Pos\+Lin\+Neg\+Lin} velocity profile would be possible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Current\+Position} & Current position value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}P_{i} $\\
+\hline
+{\em Current\+Velocity} & Current velocity value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}V_{i} $\\
+\hline
+{\em Target\+Position} & Target position value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}P_{i}^{\,trgt} $\\
+\hline
+{\em Target\+Velocity} & Target velocity value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}V_{i}^{\,trgt} $\\
+\hline
+{\em Max\+Velocity} & Maximum allowed velocity value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}V_{i}^{\,max} $\\
+\hline
+{\em Max\+Acceleration} & Maximum allowed acceleration value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}A_{i}^{\,max} $\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item {\ttfamily true} if a valid solution would be possible
+\item {\ttfamily false} otherwise
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classTypeIIRMLPosition_a8a1148e55ce2ddcb200605d81ba015a6}{Type\+I\+I\+R\+M\+L\+Position\+::\+Step1()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{TypeIIRMLStep1Profiles_8h_a9892b806043b27080c51bf0ff32a65f8}\label{TypeIIRMLStep1Profiles_8h_a9892b806043b27080c51bf0ff32a65f8}} 
+\index{TypeIIRMLStep1Profiles.h@{TypeIIRMLStep1Profiles.h}!IsSolutionForProfile\_PosTrapNegLin\_Possible@{IsSolutionForProfile\_PosTrapNegLin\_Possible}}
+\index{IsSolutionForProfile\_PosTrapNegLin\_Possible@{IsSolutionForProfile\_PosTrapNegLin\_Possible}!TypeIIRMLStep1Profiles.h@{TypeIIRMLStep1Profiles.h}}
+\doxysubsubsection{\texorpdfstring{IsSolutionForProfile\_PosTrapNegLin\_Possible()}{IsSolutionForProfile\_PosTrapNegLin\_Possible()}}
+{\footnotesize\ttfamily bool Type\+I\+I\+R\+M\+L\+Math\+::\+Is\+Solution\+For\+Profile\+\_\+\+Pos\+Trap\+Neg\+Lin\+\_\+\+Possible (\begin{DoxyParamCaption}\item[{const double \&}]{Current\+Position,  }\item[{const double \&}]{Current\+Velocity,  }\item[{const double \&}]{Target\+Position,  }\item[{const double \&}]{Target\+Velocity,  }\item[{const double \&}]{Max\+Velocity,  }\item[{const double \&}]{Max\+Acceleration }\end{DoxyParamCaption})}
+
+
+
+Checks whether a valid solution for the {\itshape Pos\+Trap\+Neg\+Lin} velocity profile would be possible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Current\+Position} & Current position value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}P_{i} $\\
+\hline
+{\em Current\+Velocity} & Current velocity value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}V_{i} $\\
+\hline
+{\em Target\+Position} & Target position value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}P_{i}^{\,trgt} $\\
+\hline
+{\em Target\+Velocity} & Target velocity value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}V_{i}^{\,trgt} $\\
+\hline
+{\em Max\+Velocity} & Maximum allowed velocity value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}V_{i}^{\,max} $\\
+\hline
+{\em Max\+Acceleration} & Maximum allowed acceleration value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}A_{i}^{\,max} $\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item {\ttfamily true} if a valid solution would be possible
+\item {\ttfamily false} otherwise
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classTypeIIRMLPosition_a8a1148e55ce2ddcb200605d81ba015a6}{Type\+I\+I\+R\+M\+L\+Position\+::\+Step1()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{TypeIIRMLStep1Profiles_8h_a19d21434fc8986c2f798058082f3d717}\label{TypeIIRMLStep1Profiles_8h_a19d21434fc8986c2f798058082f3d717}} 
+\index{TypeIIRMLStep1Profiles.h@{TypeIIRMLStep1Profiles.h}!IsSolutionForProfile\_PosTriNegLin\_Possible@{IsSolutionForProfile\_PosTriNegLin\_Possible}}
+\index{IsSolutionForProfile\_PosTriNegLin\_Possible@{IsSolutionForProfile\_PosTriNegLin\_Possible}!TypeIIRMLStep1Profiles.h@{TypeIIRMLStep1Profiles.h}}
+\doxysubsubsection{\texorpdfstring{IsSolutionForProfile\_PosTriNegLin\_Possible()}{IsSolutionForProfile\_PosTriNegLin\_Possible()}}
+{\footnotesize\ttfamily bool Type\+I\+I\+R\+M\+L\+Math\+::\+Is\+Solution\+For\+Profile\+\_\+\+Pos\+Tri\+Neg\+Lin\+\_\+\+Possible (\begin{DoxyParamCaption}\item[{const double \&}]{Current\+Position,  }\item[{const double \&}]{Current\+Velocity,  }\item[{const double \&}]{Target\+Position,  }\item[{const double \&}]{Target\+Velocity,  }\item[{const double \&}]{Max\+Velocity,  }\item[{const double \&}]{Max\+Acceleration }\end{DoxyParamCaption})}
+
+
+
+Checks whether a valid solution for the {\itshape Pos\+Tri\+Neg\+Lin} velocity profile would be possible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Current\+Position} & Current position value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}P_{i} $\\
+\hline
+{\em Current\+Velocity} & Current velocity value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}V_{i} $\\
+\hline
+{\em Target\+Position} & Target position value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}P_{i}^{\,trgt} $\\
+\hline
+{\em Target\+Velocity} & Target velocity value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}V_{i}^{\,trgt} $\\
+\hline
+{\em Max\+Velocity} & Maximum allowed velocity value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}V_{i}^{\,max} $\\
+\hline
+{\em Max\+Acceleration} & Maximum allowed acceleration value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}A_{i}^{\,max} $\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item {\ttfamily true} if a valid solution would be possible
+\item {\ttfamily false} otherwise
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classTypeIIRMLPosition_a8a1148e55ce2ddcb200605d81ba015a6}{Type\+I\+I\+R\+M\+L\+Position\+::\+Step1()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{TypeIIRMLStep1Profiles_8h_af306785ef595cb859a6ca3de49faa141}\label{TypeIIRMLStep1Profiles_8h_af306785ef595cb859a6ca3de49faa141}} 
+\index{TypeIIRMLStep1Profiles.h@{TypeIIRMLStep1Profiles.h}!ProfileStep1NegLinPosLin@{ProfileStep1NegLinPosLin}}
+\index{ProfileStep1NegLinPosLin@{ProfileStep1NegLinPosLin}!TypeIIRMLStep1Profiles.h@{TypeIIRMLStep1Profiles.h}}
+\doxysubsubsection{\texorpdfstring{ProfileStep1NegLinPosLin()}{ProfileStep1NegLinPosLin()}}
+{\footnotesize\ttfamily double Type\+I\+I\+R\+M\+L\+Math\+::\+Profile\+Step1\+Neg\+Lin\+Pos\+Lin (\begin{DoxyParamCaption}\item[{const double \&}]{Current\+Position,  }\item[{const double \&}]{Current\+Velocity,  }\item[{const double \&}]{Target\+Position,  }\item[{const double \&}]{Target\+Velocity,  }\item[{const double \&}]{Max\+Acceleration }\end{DoxyParamCaption})}
+
+
+
+Calculates the execution time of the {\itshape Neg\+Lin\+Pos\+Lin} velocity profile. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Current\+Position} & Current position value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}P_{i} $\\
+\hline
+{\em Current\+Velocity} & Current velocity value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}V_{i} $\\
+\hline
+{\em Target\+Position} & Target position value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}P_{i}^{\,trgt} $\\
+\hline
+{\em Target\+Velocity} & Target velocity value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}V_{i}^{\,trgt} $\\
+\hline
+{\em Max\+Acceleration} & Maximum allowed acceleration value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}A_{i}^{\,max} $\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Execution time for this profile in seconds
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{TypeIIRMLDecisionTree1A_8h_a9b534037ecaeaa27482cfd2a30a31150}{Type\+I\+I\+R\+M\+L\+Math\+::\+Type\+I\+I\+R\+M\+L\+Decision\+Tree1\+A()}} 
+
+\mbox{\hyperlink{TypeIIRMLDecisionTree1B_8h_a67e4e4389348606dd2230b69cbcea0c1}{Type\+I\+I\+R\+M\+L\+Math\+::\+Type\+I\+I\+R\+M\+L\+Decision\+Tree1\+B()}} 
+
+\mbox{\hyperlink{TypeIIRMLDecisionTree1C_8h_abc680a9557457698f84c9705d657237b}{Type\+I\+I\+R\+M\+L\+Math\+::\+Type\+I\+I\+R\+M\+L\+Decision\+Tree1\+C()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{TypeIIRMLStep1Profiles_8h_a29d8337c7c8ed221f7b4ef49e34774cf}\label{TypeIIRMLStep1Profiles_8h_a29d8337c7c8ed221f7b4ef49e34774cf}} 
+\index{TypeIIRMLStep1Profiles.h@{TypeIIRMLStep1Profiles.h}!ProfileStep1PosLinHldNegLin@{ProfileStep1PosLinHldNegLin}}
+\index{ProfileStep1PosLinHldNegLin@{ProfileStep1PosLinHldNegLin}!TypeIIRMLStep1Profiles.h@{TypeIIRMLStep1Profiles.h}}
+\doxysubsubsection{\texorpdfstring{ProfileStep1PosLinHldNegLin()}{ProfileStep1PosLinHldNegLin()}}
+{\footnotesize\ttfamily double Type\+I\+I\+R\+M\+L\+Math\+::\+Profile\+Step1\+Pos\+Lin\+Hld\+Neg\+Lin (\begin{DoxyParamCaption}\item[{const double \&}]{Current\+Position,  }\item[{const double \&}]{Current\+Velocity,  }\item[{const double \&}]{Target\+Position,  }\item[{const double \&}]{Target\+Velocity,  }\item[{const double \&}]{Max\+Velocity,  }\item[{const double \&}]{Max\+Acceleration }\end{DoxyParamCaption})}
+
+
+
+Calculates the execution time of the {\itshape Pos\+Lin\+Hld\+Neg\+Lin} velocity profile. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Current\+Position} & Current position value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}P_{i} $\\
+\hline
+{\em Current\+Velocity} & Current velocity value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}V_{i} $\\
+\hline
+{\em Target\+Position} & Target position value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}P_{i}^{\,trgt} $\\
+\hline
+{\em Target\+Velocity} & Target velocity value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}V_{i}^{\,trgt} $\\
+\hline
+{\em Max\+Velocity} & Maximum allowed velocity value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}V_{i}^{\,max} $\\
+\hline
+{\em Max\+Acceleration} & Maximum allowed acceleration value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}A_{i}^{\,max} $\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Execution time for this profile in seconds
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{TypeIIRMLDecisionTree1A_8h_a9b534037ecaeaa27482cfd2a30a31150}{Type\+I\+I\+R\+M\+L\+Math\+::\+Type\+I\+I\+R\+M\+L\+Decision\+Tree1\+A()}} 
+
+\mbox{\hyperlink{TypeIIRMLDecisionTree1B_8h_a67e4e4389348606dd2230b69cbcea0c1}{Type\+I\+I\+R\+M\+L\+Math\+::\+Type\+I\+I\+R\+M\+L\+Decision\+Tree1\+B()}} 
+
+\mbox{\hyperlink{TypeIIRMLDecisionTree1C_8h_abc680a9557457698f84c9705d657237b}{Type\+I\+I\+R\+M\+L\+Math\+::\+Type\+I\+I\+R\+M\+L\+Decision\+Tree1\+C()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{TypeIIRMLStep1Profiles_8h_a14c7941b4531c7a133fcf8d188e43ad7}\label{TypeIIRMLStep1Profiles_8h_a14c7941b4531c7a133fcf8d188e43ad7}} 
+\index{TypeIIRMLStep1Profiles.h@{TypeIIRMLStep1Profiles.h}!ProfileStep1PosLinNegLin@{ProfileStep1PosLinNegLin}}
+\index{ProfileStep1PosLinNegLin@{ProfileStep1PosLinNegLin}!TypeIIRMLStep1Profiles.h@{TypeIIRMLStep1Profiles.h}}
+\doxysubsubsection{\texorpdfstring{ProfileStep1PosLinNegLin()}{ProfileStep1PosLinNegLin()}}
+{\footnotesize\ttfamily double Type\+I\+I\+R\+M\+L\+Math\+::\+Profile\+Step1\+Pos\+Lin\+Neg\+Lin (\begin{DoxyParamCaption}\item[{const double \&}]{Current\+Position,  }\item[{const double \&}]{Current\+Velocity,  }\item[{const double \&}]{Target\+Position,  }\item[{const double \&}]{Target\+Velocity,  }\item[{const double \&}]{Max\+Acceleration }\end{DoxyParamCaption})}
+
+
+
+Calculates the execution time of the {\itshape Pos\+Lin\+Neg\+Lin} velocity profile. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Current\+Position} & Current position value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}P_{i} $\\
+\hline
+{\em Current\+Velocity} & Current velocity value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}V_{i} $\\
+\hline
+{\em Target\+Position} & Target position value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}P_{i}^{\,trgt} $\\
+\hline
+{\em Target\+Velocity} & Target velocity value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}V_{i}^{\,trgt} $\\
+\hline
+{\em Max\+Acceleration} & Maximum allowed acceleration value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}A_{i}^{\,max} $\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Execution time for this profile in seconds
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{TypeIIRMLDecisionTree1A_8h_a9b534037ecaeaa27482cfd2a30a31150}{Type\+I\+I\+R\+M\+L\+Math\+::\+Type\+I\+I\+R\+M\+L\+Decision\+Tree1\+A()}} 
+
+\mbox{\hyperlink{TypeIIRMLDecisionTree1B_8h_a67e4e4389348606dd2230b69cbcea0c1}{Type\+I\+I\+R\+M\+L\+Math\+::\+Type\+I\+I\+R\+M\+L\+Decision\+Tree1\+B()}} 
+
+\mbox{\hyperlink{TypeIIRMLDecisionTree1C_8h_abc680a9557457698f84c9705d657237b}{Type\+I\+I\+R\+M\+L\+Math\+::\+Type\+I\+I\+R\+M\+L\+Decision\+Tree1\+C()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{TypeIIRMLStep1Profiles_8h_ab12b35898dc2269343cbac2c1d8013e4}\label{TypeIIRMLStep1Profiles_8h_ab12b35898dc2269343cbac2c1d8013e4}} 
+\index{TypeIIRMLStep1Profiles.h@{TypeIIRMLStep1Profiles.h}!ProfileStep1PosTrapNegLin@{ProfileStep1PosTrapNegLin}}
+\index{ProfileStep1PosTrapNegLin@{ProfileStep1PosTrapNegLin}!TypeIIRMLStep1Profiles.h@{TypeIIRMLStep1Profiles.h}}
+\doxysubsubsection{\texorpdfstring{ProfileStep1PosTrapNegLin()}{ProfileStep1PosTrapNegLin()}}
+{\footnotesize\ttfamily double Type\+I\+I\+R\+M\+L\+Math\+::\+Profile\+Step1\+Pos\+Trap\+Neg\+Lin (\begin{DoxyParamCaption}\item[{const double \&}]{Current\+Position,  }\item[{const double \&}]{Current\+Velocity,  }\item[{const double \&}]{Target\+Position,  }\item[{const double \&}]{Target\+Velocity,  }\item[{const double \&}]{Max\+Velocity,  }\item[{const double \&}]{Max\+Acceleration }\end{DoxyParamCaption})}
+
+
+
+Calculates the execution time of the {\itshape Pos\+Trap\+Neg\+Lin} velocity profile. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Current\+Position} & Current position value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}P_{i} $\\
+\hline
+{\em Current\+Velocity} & Current velocity value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}V_{i} $\\
+\hline
+{\em Target\+Position} & Target position value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}P_{i}^{\,trgt} $\\
+\hline
+{\em Target\+Velocity} & Target velocity value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}V_{i}^{\,trgt} $\\
+\hline
+{\em Max\+Velocity} & Maximum allowed velocity value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}V_{i}^{\,max} $\\
+\hline
+{\em Max\+Acceleration} & Maximum allowed acceleration value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}A_{i}^{\,max} $\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Execution time for this profile in seconds
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{TypeIIRMLDecisionTree1A_8h_a9b534037ecaeaa27482cfd2a30a31150}{Type\+I\+I\+R\+M\+L\+Math\+::\+Type\+I\+I\+R\+M\+L\+Decision\+Tree1\+A()}} 
+
+\mbox{\hyperlink{TypeIIRMLDecisionTree1B_8h_a67e4e4389348606dd2230b69cbcea0c1}{Type\+I\+I\+R\+M\+L\+Math\+::\+Type\+I\+I\+R\+M\+L\+Decision\+Tree1\+B()}} 
+
+\mbox{\hyperlink{TypeIIRMLDecisionTree1C_8h_abc680a9557457698f84c9705d657237b}{Type\+I\+I\+R\+M\+L\+Math\+::\+Type\+I\+I\+R\+M\+L\+Decision\+Tree1\+C()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{TypeIIRMLStep1Profiles_8h_a2d9fdcd89256dfea21c2ef968f349023}\label{TypeIIRMLStep1Profiles_8h_a2d9fdcd89256dfea21c2ef968f349023}} 
+\index{TypeIIRMLStep1Profiles.h@{TypeIIRMLStep1Profiles.h}!ProfileStep1PosTriNegLin@{ProfileStep1PosTriNegLin}}
+\index{ProfileStep1PosTriNegLin@{ProfileStep1PosTriNegLin}!TypeIIRMLStep1Profiles.h@{TypeIIRMLStep1Profiles.h}}
+\doxysubsubsection{\texorpdfstring{ProfileStep1PosTriNegLin()}{ProfileStep1PosTriNegLin()}}
+{\footnotesize\ttfamily double Type\+I\+I\+R\+M\+L\+Math\+::\+Profile\+Step1\+Pos\+Tri\+Neg\+Lin (\begin{DoxyParamCaption}\item[{const double \&}]{Current\+Position,  }\item[{const double \&}]{Current\+Velocity,  }\item[{const double \&}]{Target\+Position,  }\item[{const double \&}]{Target\+Velocity,  }\item[{const double \&}]{Max\+Acceleration }\end{DoxyParamCaption})}
+
+
+
+Calculates the execution time of the {\itshape Pos\+Tri\+Neg\+Lin} velocity profile. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Current\+Position} & Current position value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}P_{i} $\\
+\hline
+{\em Current\+Velocity} & Current velocity value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}V_{i} $\\
+\hline
+{\em Target\+Position} & Target position value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}P_{i}^{\,trgt} $\\
+\hline
+{\em Target\+Velocity} & Target velocity value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}V_{i}^{\,trgt} $\\
+\hline
+{\em Max\+Acceleration} & Maximum allowed acceleration value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}A_{i}^{\,max} $\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Execution time for this profile in seconds
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{TypeIIRMLDecisionTree1A_8h_a9b534037ecaeaa27482cfd2a30a31150}{Type\+I\+I\+R\+M\+L\+Math\+::\+Type\+I\+I\+R\+M\+L\+Decision\+Tree1\+A()}} 
+
+\mbox{\hyperlink{TypeIIRMLDecisionTree1B_8h_a67e4e4389348606dd2230b69cbcea0c1}{Type\+I\+I\+R\+M\+L\+Math\+::\+Type\+I\+I\+R\+M\+L\+Decision\+Tree1\+B()}} 
+
+\mbox{\hyperlink{TypeIIRMLDecisionTree1C_8h_abc680a9557457698f84c9705d657237b}{Type\+I\+I\+R\+M\+L\+Math\+::\+Type\+I\+I\+R\+M\+L\+Decision\+Tree1\+C()}} 
+\end{DoxySeeAlso}

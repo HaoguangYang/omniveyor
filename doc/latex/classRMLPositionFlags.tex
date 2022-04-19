@@ -1,0 +1,196 @@
+\hypertarget{classRMLPositionFlags}{}\doxysection{R\+M\+L\+Position\+Flags Class Reference}
+\label{classRMLPositionFlags}\index{RMLPositionFlags@{RMLPositionFlags}}
+
+
+Data structure containing flags to parameterize the execution of the position-\/based On-\/\+Line Trajectory Generation algorithm.  
+
+
+
+
+{\ttfamily \#include $<$R\+M\+L\+Position\+Flags.\+h$>$}
+
+
+
+Inheritance diagram for R\+M\+L\+Position\+Flags\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=183pt]{classRMLPositionFlags__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for R\+M\+L\+Position\+Flags\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=183pt]{classRMLPositionFlags__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classRMLPositionFlags_a0cf5bb7ba9fb4d9ab8040b0546170761}{Final\+Motion\+Behavior\+Enum}} \{ \mbox{\hyperlink{classRMLPositionFlags_a0cf5bb7ba9fb4d9ab8040b0546170761a4c0ff3d692225145faf8ff420a181a6f}{K\+E\+E\+P\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+V\+E\+L\+O\+C\+I\+TY}} = 0, 
+\mbox{\hyperlink{classRMLPositionFlags_a0cf5bb7ba9fb4d9ab8040b0546170761a1aef826d31747b8d4e1f89c024fb36ae}{R\+E\+C\+O\+M\+P\+U\+T\+E\+\_\+\+T\+R\+A\+J\+E\+C\+T\+O\+RY}} = 1
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration whose values specify the behavior after the final state of motion is reached. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRMLPositionFlags_a1c2ddd4ed7945d5831418d8c2ca502d9}{R\+M\+L\+Position\+Flags}} (void)
+\begin{DoxyCompactList}\small\item\em Constructor of the class. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classRMLPositionFlags_ac4887baec8bd5dedcec55d0bc0b50b81}\label{classRMLPositionFlags_ac4887baec8bd5dedcec55d0bc0b50b81}} 
+\mbox{\hyperlink{classRMLPositionFlags_ac4887baec8bd5dedcec55d0bc0b50b81}{$\sim$\+R\+M\+L\+Position\+Flags}} (void)
+\begin{DoxyCompactList}\small\item\em Destructor of the class \mbox{\hyperlink{classRMLPositionFlags}{R\+M\+L\+Position\+Flags}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classRMLPositionFlags_a7862aa4650ab386dd1ea88775b22f2ee}{operator==}} (const \mbox{\hyperlink{classRMLPositionFlags}{R\+M\+L\+Position\+Flags}} \&Flags) const
+\begin{DoxyCompactList}\small\item\em Equal operator. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classRMLPositionFlags_aa8adf08b83202d53e2071d2ccd25c981}{operator!=}} (const \mbox{\hyperlink{classRMLPositionFlags}{R\+M\+L\+Position\+Flags}} \&Flags) const
+\begin{DoxyCompactList}\small\item\em Unequal operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classRMLPositionFlags_a85a2739dcace743bf56c81946036d504}{Behavior\+After\+Final\+State\+Of\+Motion\+Is\+Reached}}
+\begin{DoxyCompactList}\small\item\em This flag defines the behavior for the time {\itshape after} the final state of motion was reached. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classRMLPositionFlags_aeb8be0d5bdaffa0384f2c9915c5134a1}{Keep\+Current\+Velocity\+In\+Case\+Of\+Fallback\+Strategy}}
+\begin{DoxyCompactList}\small\item\em If true, \mbox{\hyperlink{classRMLPositionInputParameters_a04d8c3135843bae93cbf7b8cbab8d819}{R\+M\+L\+Position\+Input\+Parameters\+::\+Alternative\+Target\+Velocity\+Vector}} will be used in Type\+I\+V\+R\+M\+L\+Position\+::\+Fall\+Back\+Strategy() \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Data structure containing flags to parameterize the execution of the position-\/based On-\/\+Line Trajectory Generation algorithm. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classRMLFlags}{R\+M\+L\+Flags}} 
+
+\mbox{\hyperlink{classRMLVelocityFlags}{R\+M\+L\+Velocity\+Flags}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classRMLPositionFlags_a0cf5bb7ba9fb4d9ab8040b0546170761}\label{classRMLPositionFlags_a0cf5bb7ba9fb4d9ab8040b0546170761}} 
+\index{RMLPositionFlags@{RMLPositionFlags}!FinalMotionBehaviorEnum@{FinalMotionBehaviorEnum}}
+\index{FinalMotionBehaviorEnum@{FinalMotionBehaviorEnum}!RMLPositionFlags@{RMLPositionFlags}}
+\doxysubsubsection{\texorpdfstring{FinalMotionBehaviorEnum}{FinalMotionBehaviorEnum}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classRMLPositionFlags_a0cf5bb7ba9fb4d9ab8040b0546170761}{R\+M\+L\+Position\+Flags\+::\+Final\+Motion\+Behavior\+Enum}}}
+
+
+
+Enumeration whose values specify the behavior after the final state of motion is reached. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classRMLPositionFlags_a85a2739dcace743bf56c81946036d504}{Behavior\+After\+Final\+State\+Of\+Motion\+Is\+Reached}} 
+\end{DoxySeeAlso}
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEEP\_TARGET\_VELOCITY@{KEEP\_TARGET\_VELOCITY}!RMLPositionFlags@{RMLPositionFlags}}\index{RMLPositionFlags@{RMLPositionFlags}!KEEP\_TARGET\_VELOCITY@{KEEP\_TARGET\_VELOCITY}}}\mbox{\Hypertarget{classRMLPositionFlags_a0cf5bb7ba9fb4d9ab8040b0546170761a4c0ff3d692225145faf8ff420a181a6f}\label{classRMLPositionFlags_a0cf5bb7ba9fb4d9ab8040b0546170761a4c0ff3d692225145faf8ff420a181a6f}} 
+K\+E\+E\+P\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+V\+E\+L\+O\+C\+I\+TY&The desired velocity of the target state of motion will be kept at zero acceleration. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RECOMPUTE\_TRAJECTORY@{RECOMPUTE\_TRAJECTORY}!RMLPositionFlags@{RMLPositionFlags}}\index{RMLPositionFlags@{RMLPositionFlags}!RECOMPUTE\_TRAJECTORY@{RECOMPUTE\_TRAJECTORY}}}\mbox{\Hypertarget{classRMLPositionFlags_a0cf5bb7ba9fb4d9ab8040b0546170761a1aef826d31747b8d4e1f89c024fb36ae}\label{classRMLPositionFlags_a0cf5bb7ba9fb4d9ab8040b0546170761a1aef826d31747b8d4e1f89c024fb36ae}} 
+R\+E\+C\+O\+M\+P\+U\+T\+E\+\_\+\+T\+R\+A\+J\+E\+C\+T\+O\+RY&After the final state of motion is reached, a new trajectory will be computed, such that the desired state of motion will be reached again (and again, and again, etc.). \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classRMLPositionFlags_a1c2ddd4ed7945d5831418d8c2ca502d9}\label{classRMLPositionFlags_a1c2ddd4ed7945d5831418d8c2ca502d9}} 
+\index{RMLPositionFlags@{RMLPositionFlags}!RMLPositionFlags@{RMLPositionFlags}}
+\index{RMLPositionFlags@{RMLPositionFlags}!RMLPositionFlags@{RMLPositionFlags}}
+\doxysubsubsection{\texorpdfstring{RMLPositionFlags()}{RMLPositionFlags()}}
+{\footnotesize\ttfamily R\+M\+L\+Position\+Flags\+::\+R\+M\+L\+Position\+Flags (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor of the class. 
+
+Sets the default values\+:
+\begin{DoxyItemize}
+\item Synchronization behavior\+: phase-\/synchronization if possible (\mbox{\hyperlink{classRMLFlags_ac81441080dcaa610ff37c395ffc0bd5ea9f1e40a21dd62dbfb2413ef1d429547d}{R\+M\+L\+Flags\+::\+P\+H\+A\+S\+E\+\_\+\+S\+Y\+N\+C\+H\+R\+O\+N\+I\+Z\+A\+T\+I\+O\+N\+\_\+\+I\+F\+\_\+\+P\+O\+S\+S\+I\+B\+LE}})
+\item Behavior after the target state of motion is reached\+: keep target velocity (\mbox{\hyperlink{classRMLPositionFlags_a0cf5bb7ba9fb4d9ab8040b0546170761a4c0ff3d692225145faf8ff420a181a6f}{R\+M\+L\+Position\+Flags\+::\+K\+E\+E\+P\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+V\+E\+L\+O\+C\+I\+TY}})
+\item Calculation of extremum motion states enabled
+\item In case the fall back strategy becomes active\+: velocity to predefined values (default\+: zero) 
+\end{DoxyItemize}
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRMLPositionFlags_aa8adf08b83202d53e2071d2ccd25c981}\label{classRMLPositionFlags_aa8adf08b83202d53e2071d2ccd25c981}} 
+\index{RMLPositionFlags@{RMLPositionFlags}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!RMLPositionFlags@{RMLPositionFlags}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool R\+M\+L\+Position\+Flags\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classRMLPositionFlags}{R\+M\+L\+Position\+Flags}} \&}]{Flags }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Unequal operator. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily false} if all attributes of both objects are equal; {\ttfamily true} otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRMLPositionFlags_a7862aa4650ab386dd1ea88775b22f2ee}\label{classRMLPositionFlags_a7862aa4650ab386dd1ea88775b22f2ee}} 
+\index{RMLPositionFlags@{RMLPositionFlags}!operator==@{operator==}}
+\index{operator==@{operator==}!RMLPositionFlags@{RMLPositionFlags}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool R\+M\+L\+Position\+Flags\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classRMLPositionFlags}{R\+M\+L\+Position\+Flags}} \&}]{Flags }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Equal operator. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if all attributes of both objects are equal; {\ttfamily false} otherwise 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classRMLPositionFlags_a85a2739dcace743bf56c81946036d504}\label{classRMLPositionFlags_a85a2739dcace743bf56c81946036d504}} 
+\index{RMLPositionFlags@{RMLPositionFlags}!BehaviorAfterFinalStateOfMotionIsReached@{BehaviorAfterFinalStateOfMotionIsReached}}
+\index{BehaviorAfterFinalStateOfMotionIsReached@{BehaviorAfterFinalStateOfMotionIsReached}!RMLPositionFlags@{RMLPositionFlags}}
+\doxysubsubsection{\texorpdfstring{BehaviorAfterFinalStateOfMotionIsReached}{BehaviorAfterFinalStateOfMotionIsReached}}
+{\footnotesize\ttfamily int R\+M\+L\+Position\+Flags\+::\+Behavior\+After\+Final\+State\+Of\+Motion\+Is\+Reached}
+
+
+
+This flag defines the behavior for the time {\itshape after} the final state of motion was reached. 
+
+Two values are possible\+:
+
+
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{classRMLPositionFlags_a0cf5bb7ba9fb4d9ab8040b0546170761a4c0ff3d692225145faf8ff420a181a6f}{R\+M\+L\+Position\+Flags\+::\+K\+E\+E\+P\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+V\+E\+L\+O\+C\+I\+TY}} or
+\item \mbox{\hyperlink{classRMLPositionFlags_a0cf5bb7ba9fb4d9ab8040b0546170761a1aef826d31747b8d4e1f89c024fb36ae}{R\+M\+L\+Position\+Flags\+::\+R\+E\+C\+O\+M\+P\+U\+T\+E\+\_\+\+T\+R\+A\+J\+E\+C\+T\+O\+RY}}.
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+If the desired target velocity vector is zero, both values will lead to the same behavior.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classRMLPositionFlags_a0cf5bb7ba9fb4d9ab8040b0546170761}{Final\+Motion\+Behavior\+Enum}} 
+
+\mbox{\hyperlink{page_FinalStateReachedBehavior}{Behavior after the Final State of Motion is Reached}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classRMLPositionFlags_aeb8be0d5bdaffa0384f2c9915c5134a1}\label{classRMLPositionFlags_aeb8be0d5bdaffa0384f2c9915c5134a1}} 
+\index{RMLPositionFlags@{RMLPositionFlags}!KeepCurrentVelocityInCaseOfFallbackStrategy@{KeepCurrentVelocityInCaseOfFallbackStrategy}}
+\index{KeepCurrentVelocityInCaseOfFallbackStrategy@{KeepCurrentVelocityInCaseOfFallbackStrategy}!RMLPositionFlags@{RMLPositionFlags}}
+\doxysubsubsection{\texorpdfstring{KeepCurrentVelocityInCaseOfFallbackStrategy}{KeepCurrentVelocityInCaseOfFallbackStrategy}}
+{\footnotesize\ttfamily bool R\+M\+L\+Position\+Flags\+::\+Keep\+Current\+Velocity\+In\+Case\+Of\+Fallback\+Strategy}
+
+
+
+If true, \mbox{\hyperlink{classRMLPositionInputParameters_a04d8c3135843bae93cbf7b8cbab8d819}{R\+M\+L\+Position\+Input\+Parameters\+::\+Alternative\+Target\+Velocity\+Vector}} will be used in Type\+I\+V\+R\+M\+L\+Position\+::\+Fall\+Back\+Strategy() 
+
+In case, the second safety layer becomes activated by calling Type\+I\+V\+R\+M\+L\+Position\+::\+Fall\+Back\+Strategy(), this flag can optionally be used to set the current velocity vector $ \vec{V}_i $ as the alternative target velocity vector for the velocity-\/based On-\/\+Line Trajectory Generation algorithm.
+
+\begin{DoxyNote}{Note}
+By default, this flag is set to {\ttfamily false}, and in most cases, is not necessary to change this. Depending on the application, it may be reasonable to keep the current velocity in case of an error.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classRMLPositionInputParameters_a04d8c3135843bae93cbf7b8cbab8d819}{R\+M\+L\+Position\+Input\+Parameters\+::\+Alternative\+Target\+Velocity\+Vector}} 
+
+\mbox{\hyperlink{page_ErrorHandling}{Safety\+: Three Layers of Error Handling}} 
+\end{DoxySeeAlso}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/jonathan/\+Omni\+Dev/src/omniveyor\+\_\+hardware/pcv\+\_\+base/external/\+Reflexxes\+Type\+I\+I/include/\mbox{\hyperlink{RMLPositionFlags_8h}{R\+M\+L\+Position\+Flags.\+h}}\end{DoxyCompactItemize}

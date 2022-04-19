@@ -1,0 +1,5 @@
+<map id="RMLOutputParameters" name="RMLOutputParameters">
+<area shape="rect" id="node1" title="Class for the output parameters of the On&#45;Line Trajectory Generation algorithm." alt="" coords="154,5,323,32"/>
+<area shape="rect" id="node2" href="$classRMLPositionOutputParameters.html" title="Class for the output parameters of the position&#45;based On&#45;Line Trajectory Generation algorithm." alt="" coords="5,80,227,107"/>
+<area shape="rect" id="node3" href="$classRMLVelocityOutputParameters.html" title="Class for the output parameters of the velocity&#45;based On&#45;Line Trajectory Generation algorithm." alt="" coords="251,80,472,107"/>
+</map>

@@ -1,0 +1,27 @@
+The {\ttfamily rosconsole} logging system (the R\+O\+S\+\_\+\+I\+N\+F\+O/\+W\+A\+R\+N/\+E\+R\+R\+O\+R/... macros) is very useful for aggregating all logging output of R\+OS nodes in a single place (the {\ttfamily /rosout} topic).
+
+However, the topic usually has high bandwidth consisting of very small messages, which makes it hard to transmit over the network.
+
+{\ttfamily nimbro\+\_\+log\+\_\+transport} contains a sender node, which sends aggregates log messages at fixed intervals, and a receiver node, which publishes the information on {\ttfamily /rosout} again.
+
+Note that the sender node uses a circular buffer for aggregating messages, and thus will drop messages if the bandwidth is too high.\hypertarget{md_nimbro_network_nimbro_log_transport_README_autotoc_md3}{}\doxysection{Sender}\label{md_nimbro_network_nimbro_log_transport_README_autotoc_md3}
+Publications\+:
+\begin{DoxyItemize}
+\item {\ttfamily /rosout\+\_\+transport}\+: Aggregated log messages ready for transport over the network (see nimbro\+\_\+topic\+\_\+transport)
+\end{DoxyItemize}
+
+Parameters\+:
+\begin{DoxyItemize}
+\item {\ttfamily min\+\_\+level} (int)\+: Minimum log level (default\+: rosgraph\+\_\+msgs\+::\+Log\+::\+I\+N\+FO)
+\item {\ttfamily buffer\+\_\+size} (int)\+: Size of the circular buffer (default\+: 10)
+\item {\ttfamily rate} (float)\+: Rate at which the circular buffer is emptied and published (default\+: 2.\+0)
+\end{DoxyItemize}\hypertarget{md_nimbro_network_nimbro_log_transport_README_autotoc_md4}{}\doxysection{Receiver}\label{md_nimbro_network_nimbro_log_transport_README_autotoc_md4}
+Subscriptions\+:
+\begin{DoxyItemize}
+\item {\ttfamily /rosout\+\_\+transport}\+: Output from {\ttfamily log\+\_\+sender}
+\end{DoxyItemize}
+
+Publications\+:
+\begin{DoxyItemize}
+\item {\ttfamily /rosout}\+: Unpacked log messages 
+\end{DoxyItemize}

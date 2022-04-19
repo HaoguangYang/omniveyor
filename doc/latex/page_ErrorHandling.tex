@@ -1,0 +1,92 @@
+If one the methods~\newline
+~\newline
+
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{classReflexxesAPI_a30d3cdba072553a5d53aa4ce4b4a77d1}{Reflexxes\+A\+P\+I\+::\+R\+M\+L\+Position()}} or~\newline
+~\newline
+
+\item \mbox{\hyperlink{classReflexxesAPI_aaf2478f04265b6a6ac04b1b218a30678}{Reflexxes\+A\+P\+I\+::\+R\+M\+L\+Velocity()}}~\newline
+~\newline
+ is called with valid input values, it is {\bfseries{guaranteed}} that the output values of the Reflexxes algorithms lead to a {\bfseries{continuous acceleration-\/limited motion trajectory in any case}}. This fundamental feature was implemented using a three-\/layered approach of error-\/handling, which is described in the following two sections.~\newline
+~\newline
+
+\end{DoxyItemize}
+\begin{DoxyEnumerate}
+\item sec\+\_\+\+Error\+Handling\+Position\+Based~\newline
+~\newline
+
+\item sec\+\_\+\+Error\+Handling\+Velocity\+Based~\newline
+~\newline
+
+\end{DoxyEnumerate}
+
+~\newline
+ \DoxyHorRuler{0}
+\hypertarget{page_ErrorHandling_sec_ErrorHandlingPositionBased}{}\doxysection{Error-\/\+Handling for the Position-\/based On-\/\+Line Trajectory Generation Algorithm}\label{page_ErrorHandling_sec_ErrorHandlingPositionBased}
+The position-\/based Reflexxes Type II On-\/\+Line Trajectory Generation (\mbox{\hyperlink{classOTG}{O\+TG}}) algorithm is the most complex algorithm of the Reflexxes Motion Libraries. Robustness and numerical stability are key features to assure deterministic and safe behaviors of robots and mechanical systems. After more than eight years of research and development, the released algorithm runs robust and is numerically stable.
+
+In order to guarantee continuous acceleration-\/limited motion trajectories, three layers of error-\/handling have been implemented in order to obtain a deterministic and safe behavior of all Reflexxes Motion Libraries for any set given input values.
+
+~\newline
+ 
+
+~\newline
+ \hypertarget{page_ErrorHandling_ssec_Layer3Position}{}\doxysubsection{Layer 3}\label{page_ErrorHandling_ssec_Layer3Position}
+This layer contains the position-\/based Reflexxes Type II On-\/\+Line Trajectory Generation algorithm. This algorithm is called through the A\+PI method \mbox{\hyperlink{classReflexxesAPI_a30d3cdba072553a5d53aa4ce4b4a77d1}{Reflexxes\+A\+P\+I\+::\+R\+M\+L\+Position()}}, which calls the internal method \mbox{\hyperlink{classTypeIIRMLPosition_af2a8f0d8c55c3f5a4861149a7bc35d66}{Type\+I\+I\+R\+M\+L\+Position\+::\+Get\+Next\+State\+Of\+Motion()}} that contains the actual position-\/based trajectory generation algorithm. If the algorithm is fed with valid input values, that is, the method \mbox{\hyperlink{classRMLPositionInputParameters_a8a36aa4df4c86606a1d47f204cb901a3}{R\+M\+L\+Position\+Input\+Parameters\+::\+Check\+For\+Validity()}} returns {\ttfamily false}, we switch from {\itshape Layer 3} to {\itshape Layer 2} (even after after more than $ 10^{11} $ cylces, this has not happened yet).
+
+The implementation of {\itshape Layer 2} can be found in the method \mbox{\hyperlink{classTypeIIRMLPosition_a3077401a1e960822fef142d3cfddd21b}{Type\+I\+I\+R\+M\+L\+Position\+::\+Fall\+Back\+Strategy()}}.\hypertarget{page_ErrorHandling_ssec_Layer2Position}{}\doxysubsection{Layer 2}\label{page_ErrorHandling_ssec_Layer2Position}
+In the second layer, the velocity-\/based algorithm of the Reflexxes Type II Motion Library is executed in order to safely transfer the system to a predefined velocity (cf. \mbox{\hyperlink{classReflexxesAPI_aaf2478f04265b6a6ac04b1b218a30678}{Reflexxes\+A\+P\+I\+::\+R\+M\+L\+Velocity()}}). The default value for this alternative desired velocity vector $ \vec{V}_{i}^{\,\underline{trgt}} $ is zero, that is, the robot or mechanical system would simply slow down to zero-\/velocity by using the currently given maximum acceleration vector $ \vec{A}_i^{\,max} $ (cf. \mbox{\hyperlink{classRMLInputParameters_af9c1e6649468c56e9d7f53cf71c9f55d}{R\+M\+L\+Position\+Input\+Parameters\+::\+Max\+Acceleration\+Vector}}) until $ \vec{V}_{i}^{\,\underline{trgt}}\ =\ \vec{0}$ is reached. In order to decouple all selected degrees of freedom and to reach this sate safely, a non-\/synchronized motion will be computed, and the flag \mbox{\hyperlink{classRMLFlags_ac81441080dcaa610ff37c395ffc0bd5ea1139782c92cf4c4cd0b13fc049661b00}{R\+M\+L\+Flags\+::\+N\+O\+\_\+\+S\+Y\+N\+C\+H\+R\+O\+N\+I\+Z\+A\+T\+I\+ON}} will be used for the velocity-\/based algorithm.
+
+If it is not desired to decrease the velocity to zero but to continue moving the system with a certain application-\/ or task-\/dependent velocity, an alternative desired target velocity vector $ \vec{V}_{i}^{\,\underline{trgt}} $ can be defined. The attribute \mbox{\hyperlink{classRMLPositionInputParameters_a04d8c3135843bae93cbf7b8cbab8d819}{R\+M\+L\+Position\+Input\+Parameters\+::\+Alternative\+Target\+Velocity\+Vector}} can be used to specify this alternative velocity vector unequal to zero, $ \vec{V}_{i}^{\,\underline{trgt}}\ \neq\ \vec{0}$. Furthermore, the input flag \mbox{\hyperlink{classRMLPositionFlags_aeb8be0d5bdaffa0384f2c9915c5134a1}{R\+M\+L\+Position\+Flags\+::\+Keep\+Current\+Velocity\+In\+Case\+Of\+Fallback\+Strategy}} can be used to set the alternative desired target velocity vector to the current velocity vector, that is, $ \vec{V}_{i}^{\,\underline{trgt}}\ =\ \vec{V}_i$.
+
+The mathematical equations of the velocity-\/based On-\/\+Line Trajectory Generation only contain closed-\/form solutions; numerical instabilities cannot occur if the \mbox{\hyperlink{page_InputValues_sec_NumericalStability}{Input Requirements for Numerical Stability}} are met. In case, the user specifies elements of the maximum acceleration vector $ \vec{A}_i^{\,max} $ that are equal or less than zero (cf. \mbox{\hyperlink{classRMLInputParameters_af9c1e6649468c56e9d7f53cf71c9f55d}{R\+M\+L\+Position\+Input\+Parameters\+::\+Max\+Acceleration\+Vector}}), the algorithm will even switch from {\itshape Layer 2} to {\itshape Layer 1} in order to continue the current motion. This layer is implemented in the method \mbox{\hyperlink{classTypeIIRMLVelocity_a4ed81db3cc17aab8e52795386b5ce07d}{Type\+I\+I\+R\+M\+L\+Velocity\+::\+Fall\+Back\+Strategy()}}.\hypertarget{page_ErrorHandling_ssec_Layer1Position}{}\doxysubsection{Layer 1}\label{page_ErrorHandling_ssec_Layer1Position}
+Although even the probability of switching from {\itshape Layer 3} to {\itshape Layer 2} can only happen in case of incorrect input values, a third layer is used to handle this case. In this case, the motion of the system is continued with zero-\/acceleration. That means the output values \mbox{\hyperlink{classRMLPositionOutputParameters}{R\+M\+L\+Position\+Output\+Parameters}} determined by the following equations\+:
+
+\[ \begin{array}{rrcl} \forall\ k\ \in\ \left\{1,\,\dots,\,K\right\}:\ \ \ \ &_{k}P_{i+1}&\ =\ &_{k}P_{i}\ +\ _{k}V_{i}\,T^{\,cycle}\\[3ex] &_{k}V_{i+1}&\ =\ &_{k}V_{i}\\[3ex] \end{array} \] Where the variables and symbols represent the following data\+:~\newline
+~\newline
+
+\begin{DoxyItemize}
+\item $ K $ is the number of degrees of freedom of the system~\newline
+~\newline
+
+\item $ T^{\,cycle} $ is the cycle time given in seconds~\newline
+~\newline
+
+\item $ _{k}P_{i} $ is the position of the degree of freedom $ k $ at time instant $ T_i $~\newline
+~\newline
+
+\item $ _{k}V_{i} $ is the velocity of the degree of freedom $ k $ at time instant $ T_i $~\newline
+~\newline
+
+\item $ _{k}P_{i+1} $ is the position of the degree of freedom $ k $ at time instant $ T_{i+1} $~\newline
+~\newline
+
+\item $ _{k}V_{i+1} $ is the velocity of the degree of freedom $ k $ at time instant $ T_{i+1} $~\newline
+~\newline
+
+\item The time difference from one control cycle at $ T_{i} $ to the next control cycle at $ T_{i+1} $ is $ T^{\,cycle} $, that is $ T_{i+1}\ -\ T_{i}\ =\ T^{\,cycle} $.~\newline
+~\newline
+ Details about the implementation of these equations can be found in the method \mbox{\hyperlink{classTypeIIRMLVelocity_a4ed81db3cc17aab8e52795386b5ce07d}{Type\+I\+I\+R\+M\+L\+Velocity\+::\+Fall\+Back\+Strategy()}}.
+\end{DoxyItemize}
+
+~\newline
+ \hypertarget{page_ErrorHandling_ssec_RemarkPhaseSynchronizationPosition}{}\doxysubsection{Remark on Phase-\/\+Synchronized Trajectories}\label{page_ErrorHandling_ssec_RemarkPhaseSynchronizationPosition}
+If a phase-\/synchronized motion trajectory is required (i.\+e., the input flag \mbox{\hyperlink{classRMLFlags_ac81441080dcaa610ff37c395ffc0bd5ea4386bfe9c6eea47eaeaa7956a06774e0}{R\+M\+L\+Position\+Flags\+::\+O\+N\+L\+Y\+\_\+\+P\+H\+A\+S\+E\+\_\+\+S\+Y\+N\+C\+H\+R\+O\+N\+I\+Z\+A\+T\+I\+ON}} is set), and if phase-\/synchronisation is not possible because the input vectors are not collinear, we also switch from {\itshape Layer 3} to {\itshape Layer 2}, because in this case, priority is given to the fact that phase-\/synchronization is required (otherwise, the flag \mbox{\hyperlink{classRMLFlags_ac81441080dcaa610ff37c395ffc0bd5ea9f1e40a21dd62dbfb2413ef1d429547d}{R\+M\+L\+Position\+Flags\+::\+P\+H\+A\+S\+E\+\_\+\+S\+Y\+N\+C\+H\+R\+O\+N\+I\+Z\+A\+T\+I\+O\+N\+\_\+\+I\+F\+\_\+\+P\+O\+S\+S\+I\+B\+LE}} may be used). If we switch to the second layer in this case, the algorithm will check, whether a phase-\/synchronous solution is existent if the velocity-\/based On-\/\+Line Trajectory Generation is executed. If so, the velocity-\/based algorithm will compute a phase-\/synchronized motion. Otherwise, we will switch from {\itshape Layer 2} to {\itshape Layer 1}. If the current state of motion is homothetic, the trajectory will be continued homothetically (phase-\/synchronized) by applying zero-\/acceleration in the current control cycle.
+
+~\newline
+ \DoxyHorRuler{0}
+\hypertarget{page_ErrorHandling_sec_ErrorHandlingVelocityBased}{}\doxysection{Error-\/\+Handling for the Velocity-\/based On-\/\+Line Trajectory Generation Algorithm}\label{page_ErrorHandling_sec_ErrorHandlingVelocityBased}
+The velocity-\/based Reflexxes Type II On-\/\+Line Trajectory Generation (\mbox{\hyperlink{classOTG}{O\+TG}}) algorithm is of much simpler nature than the position-\/based algorithm and only a two-\/layered method is used for error-\/handling. This safety mechanism is directly derived from {\itshape Layer 2} and {\itshape Layer 1} of the position-\/based On-\/\+Line Trajectory Generation algorithm.
+
+~\newline
+ 
+
+~\newline
+ The algorithm is called through the A\+PI method \mbox{\hyperlink{classReflexxesAPI_aaf2478f04265b6a6ac04b1b218a30678}{Reflexxes\+A\+P\+I\+::\+R\+M\+L\+Velocity()}}, which executes the internal method \mbox{\hyperlink{classTypeIIRMLVelocity_aa9725881ff7c9355cfd1c4446cff0ffc}{Type\+I\+I\+R\+M\+L\+Velocity\+::\+Get\+Next\+State\+Of\+Motion()}}. If the input values for this algorithm are valid, that is, the result of \mbox{\hyperlink{classRMLVelocityInputParameters_a73ad2f505ef37bef4a8b3b8fdbae95b2}{R\+M\+L\+Velocity\+Input\+Parameters\+::\+Check\+For\+Validity()}} is {\ttfamily true}, the velocity-\/based algorithm will always find the correct solution. If \mbox{\hyperlink{classRMLVelocityInputParameters_a73ad2f505ef37bef4a8b3b8fdbae95b2}{R\+M\+L\+Velocity\+Input\+Parameters\+::\+Check\+For\+Validity()}} returns {\ttfamily false}, because elements of the maximum acceleration vector $ \vec{A}_i^{\,max} $ that or equal or less than zero (cf. \mbox{\hyperlink{classRMLInputParameters_af9c1e6649468c56e9d7f53cf71c9f55d}{R\+M\+L\+Velocity\+Input\+Parameters\+::\+Max\+Acceleration\+Vector}} and \mbox{\hyperlink{classRMLInputParameters_a5968ce643868260410f149996c446b66}{R\+M\+L\+Velocity\+Input\+Parameters\+::\+Max\+Jerk\+Vector}}), the algorithm will switch from {\itshape Layer 2} to {\itshape Layer 1} in order to continue the current motion. This layer is implemented in the method \mbox{\hyperlink{classTypeIIRMLVelocity_a4ed81db3cc17aab8e52795386b5ce07d}{Type\+I\+I\+R\+M\+L\+Velocity\+::\+Fall\+Back\+Strategy()}}. Please refer to Sec. \mbox{\hyperlink{page_ErrorHandling_ssec_Layer1Position}{Layer 1}} of the position-\/based algorithm for a detailed description.
+
+~\newline
+ \hypertarget{page_ErrorHandling_ssec_RemarkPhaseSynchronizationVelocity}{}\doxysubsection{Remark on Phase-\/\+Synchronized Trajectories}\label{page_ErrorHandling_ssec_RemarkPhaseSynchronizationVelocity}
+If a phase-\/synchronized motion trajectory is required (i.\+e., the input flag \mbox{\hyperlink{classRMLFlags_ac81441080dcaa610ff37c395ffc0bd5ea4386bfe9c6eea47eaeaa7956a06774e0}{R\+M\+L\+Velocity\+Flags\+::\+O\+N\+L\+Y\+\_\+\+P\+H\+A\+S\+E\+\_\+\+S\+Y\+N\+C\+H\+R\+O\+N\+I\+Z\+A\+T\+I\+ON}} is set), and if phase-\/synchronisation is not possible because the input vectors are not collinear, we also apply the switching mechanism described above (i.\+e., the new state of motion is computed by applying a zero-\/acceleration). If the current state of motion is homothetic, the trajectory will be continued homothetically (phase-\/synchronized).
+
+~\newline
+~\newline

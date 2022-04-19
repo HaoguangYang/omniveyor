@@ -1,0 +1,474 @@
+\hypertarget{classQCPLayoutInset}{}\doxysection{Q\+C\+P\+Layout\+Inset Class Reference}
+\label{classQCPLayoutInset}\index{QCPLayoutInset@{QCPLayoutInset}}
+
+
+A layout that places child elements aligned to the border or arbitrarily positioned.  
+
+
+
+
+Inheritance diagram for Q\+C\+P\+Layout\+Inset\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{classQCPLayoutInset__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Q\+C\+P\+Layout\+Inset\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classQCPLayoutInset__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192}{Inset\+Placement}} \{ \mbox{\hyperlink{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192a06556307ae5b8255297984219da4e8f4}{ip\+Free}}, 
+\mbox{\hyperlink{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192a41ae236f04e42d7098e09fd49dffeb06}{ip\+Border\+Aligned}}, 
+\mbox{\hyperlink{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192a06556307ae5b8255297984219da4e8f4}{ip\+Free}}, 
+\mbox{\hyperlink{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192a41ae236f04e42d7098e09fd49dffeb06}{ip\+Border\+Aligned}}
+ \}
+\item 
+enum \mbox{\hyperlink{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192}{Inset\+Placement}} \{ \mbox{\hyperlink{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192a06556307ae5b8255297984219da4e8f4}{ip\+Free}}, 
+\mbox{\hyperlink{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192a41ae236f04e42d7098e09fd49dffeb06}{ip\+Border\+Aligned}}, 
+\mbox{\hyperlink{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192a06556307ae5b8255297984219da4e8f4}{ip\+Free}}, 
+\mbox{\hyperlink{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192a41ae236f04e42d7098e09fd49dffeb06}{ip\+Border\+Aligned}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classQCPLayoutInset_a3ad984f3221735374cc5dee14356a7dd}{Q\+C\+P\+Layout\+Inset}} ()
+\item 
+\mbox{\hyperlink{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192}{Inset\+Placement}} \mbox{\hyperlink{classQCPLayoutInset_a6fcbd74ebbc45bfe64c604b2791aa57f}{inset\+Placement}} (int index) const
+\item 
+Qt\+::\+Alignment \mbox{\hyperlink{classQCPLayoutInset_a5b33b66f0abbb4a7cc2f8aa6c94cf7f8}{inset\+Alignment}} (int index) const
+\item 
+Q\+RectF \mbox{\hyperlink{classQCPLayoutInset_ab23099a46af17c31f4c40668f13c9de1}{inset\+Rect}} (int index) const
+\item 
+void \mbox{\hyperlink{classQCPLayoutInset_a63298830744d5d8c5345511c00fd2144}{set\+Inset\+Placement}} (int index, \mbox{\hyperlink{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192}{Inset\+Placement}} placement)
+\item 
+void \mbox{\hyperlink{classQCPLayoutInset_a62882a4f9ad58bb0f53da12fde022abe}{set\+Inset\+Alignment}} (int index, Qt\+::\+Alignment alignment)
+\item 
+void \mbox{\hyperlink{classQCPLayoutInset_aa487c8378a6f9533567a2e6430099dc3}{set\+Inset\+Rect}} (int index, const Q\+RectF \&\mbox{\hyperlink{classQCPLayoutElement_a208effccfe2cca4a0eaf9393e60f2dd4}{rect}})
+\item 
+\mbox{\Hypertarget{classQCPLayoutInset_a493526b922ea66a75c45ef1842446988}\label{classQCPLayoutInset_a493526b922ea66a75c45ef1842446988}} 
+virtual void {\bfseries update\+Layout} () Q\+\_\+\+D\+E\+C\+L\+\_\+\+O\+V\+E\+R\+R\+I\+DE
+\item 
+virtual int \mbox{\hyperlink{classQCPLayoutInset_a7f5aa4d48a2e844cfe6dd7ed8f0861df}{element\+Count}} () const Q\+\_\+\+D\+E\+C\+L\+\_\+\+O\+V\+E\+R\+R\+I\+DE
+\item 
+virtual \mbox{\hyperlink{classQCPLayoutElement}{Q\+C\+P\+Layout\+Element}} $\ast$ \mbox{\hyperlink{classQCPLayoutInset_a881ca205605bae9c034733b808f93a02}{element\+At}} (int index) const Q\+\_\+\+D\+E\+C\+L\+\_\+\+O\+V\+E\+R\+R\+I\+DE
+\item 
+virtual \mbox{\hyperlink{classQCPLayoutElement}{Q\+C\+P\+Layout\+Element}} $\ast$ \mbox{\hyperlink{classQCPLayoutInset_abf2e8233f5b7051220907e62ded490a2}{take\+At}} (int index) Q\+\_\+\+D\+E\+C\+L\+\_\+\+O\+V\+E\+R\+R\+I\+DE
+\item 
+virtual bool \mbox{\hyperlink{classQCPLayoutInset_af7f13cc369f8190b5e7e17d5f39dfe1c}{take}} (\mbox{\hyperlink{classQCPLayoutElement}{Q\+C\+P\+Layout\+Element}} $\ast$element) Q\+\_\+\+D\+E\+C\+L\+\_\+\+O\+V\+E\+R\+R\+I\+DE
+\item 
+virtual void \mbox{\hyperlink{classQCPLayoutInset_a18b7d508f0baa60cc5dcb1343cf7f32a}{simplify}} () Q\+\_\+\+D\+E\+C\+L\+\_\+\+O\+V\+E\+R\+R\+I\+DE
+\item 
+virtual double \mbox{\hyperlink{classQCPLayoutInset_a2eeef7ea1b8340e7c7c2e2fc229df5ea}{select\+Test}} (const Q\+PointF \&pos, bool only\+Selectable, Q\+Variant $\ast$details=0) const Q\+\_\+\+D\+E\+C\+L\+\_\+\+O\+V\+E\+R\+R\+I\+DE
+\item 
+void \mbox{\hyperlink{classQCPLayoutInset_ad61529eb576af7f04dff94abb10c745a}{add\+Element}} (\mbox{\hyperlink{classQCPLayoutElement}{Q\+C\+P\+Layout\+Element}} $\ast$element, Qt\+::\+Alignment alignment)
+\item 
+void \mbox{\hyperlink{classQCPLayoutInset_a8ff61fbee4a1f0ff45c398009d9f1e56}{add\+Element}} (\mbox{\hyperlink{classQCPLayoutElement}{Q\+C\+P\+Layout\+Element}} $\ast$element, const Q\+RectF \&\mbox{\hyperlink{classQCPLayoutElement_a208effccfe2cca4a0eaf9393e60f2dd4}{rect}})
+\item 
+\mbox{\Hypertarget{classQCPLayoutInset_af018971c512b19893b088a9f0a5b986d}\label{classQCPLayoutInset_af018971c512b19893b088a9f0a5b986d}} 
+\mbox{\hyperlink{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192}{Inset\+Placement}} {\bfseries inset\+Placement} (int index) const
+\item 
+\mbox{\Hypertarget{classQCPLayoutInset_a5b33b66f0abbb4a7cc2f8aa6c94cf7f8}\label{classQCPLayoutInset_a5b33b66f0abbb4a7cc2f8aa6c94cf7f8}} 
+Qt\+::\+Alignment {\bfseries inset\+Alignment} (int index) const
+\item 
+\mbox{\Hypertarget{classQCPLayoutInset_ab23099a46af17c31f4c40668f13c9de1}\label{classQCPLayoutInset_ab23099a46af17c31f4c40668f13c9de1}} 
+Q\+RectF {\bfseries inset\+Rect} (int index) const
+\item 
+\mbox{\Hypertarget{classQCPLayoutInset_a63298830744d5d8c5345511c00fd2144}\label{classQCPLayoutInset_a63298830744d5d8c5345511c00fd2144}} 
+void {\bfseries set\+Inset\+Placement} (int index, \mbox{\hyperlink{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192}{Inset\+Placement}} placement)
+\item 
+\mbox{\Hypertarget{classQCPLayoutInset_a62882a4f9ad58bb0f53da12fde022abe}\label{classQCPLayoutInset_a62882a4f9ad58bb0f53da12fde022abe}} 
+void {\bfseries set\+Inset\+Alignment} (int index, Qt\+::\+Alignment alignment)
+\item 
+\mbox{\Hypertarget{classQCPLayoutInset_aa487c8378a6f9533567a2e6430099dc3}\label{classQCPLayoutInset_aa487c8378a6f9533567a2e6430099dc3}} 
+void {\bfseries set\+Inset\+Rect} (int index, const Q\+RectF \&\mbox{\hyperlink{classQCPLayoutElement_a208effccfe2cca4a0eaf9393e60f2dd4}{rect}})
+\item 
+\mbox{\Hypertarget{classQCPLayoutInset_a7da0d1a31d6c7d4e4933f72a8caffc7d}\label{classQCPLayoutInset_a7da0d1a31d6c7d4e4933f72a8caffc7d}} 
+virtual void {\bfseries update\+Layout} () Q\+\_\+\+D\+E\+C\+L\+\_\+\+O\+V\+E\+R\+R\+I\+DE
+\item 
+virtual int \mbox{\hyperlink{classQCPLayoutInset_a4096aa1dc77ff54fc76df8e30b6d9e1b}{element\+Count}} () const Q\+\_\+\+D\+E\+C\+L\+\_\+\+O\+V\+E\+R\+R\+I\+DE
+\item 
+virtual \mbox{\hyperlink{classQCPLayoutElement}{Q\+C\+P\+Layout\+Element}} $\ast$ \mbox{\hyperlink{classQCPLayoutInset_a747a1c6f09d24e34b9179ecad2658066}{element\+At}} (int index) const Q\+\_\+\+D\+E\+C\+L\+\_\+\+O\+V\+E\+R\+R\+I\+DE
+\item 
+virtual \mbox{\hyperlink{classQCPLayoutElement}{Q\+C\+P\+Layout\+Element}} $\ast$ \mbox{\hyperlink{classQCPLayoutInset_ac95e930d304c7f07d9948f35172a396a}{take\+At}} (int index) Q\+\_\+\+D\+E\+C\+L\+\_\+\+O\+V\+E\+R\+R\+I\+DE
+\item 
+virtual bool \mbox{\hyperlink{classQCPLayoutInset_a1daf9fe747380dcd3cf8ef9deb470dc9}{take}} (\mbox{\hyperlink{classQCPLayoutElement}{Q\+C\+P\+Layout\+Element}} $\ast$element) Q\+\_\+\+D\+E\+C\+L\+\_\+\+O\+V\+E\+R\+R\+I\+DE
+\item 
+virtual void \mbox{\hyperlink{classQCPLayoutInset_abdac9a04752751ea68c320016086a2e8}{simplify}} () Q\+\_\+\+D\+E\+C\+L\+\_\+\+O\+V\+E\+R\+R\+I\+DE
+\item 
+virtual double \mbox{\hyperlink{classQCPLayoutInset_a4bd96dd77545a2b407d24c8bdc276927}{select\+Test}} (const Q\+PointF \&pos, bool only\+Selectable, Q\+Variant $\ast$details=0) const Q\+\_\+\+D\+E\+C\+L\+\_\+\+O\+V\+E\+R\+R\+I\+DE
+\item 
+\mbox{\Hypertarget{classQCPLayoutInset_ad61529eb576af7f04dff94abb10c745a}\label{classQCPLayoutInset_ad61529eb576af7f04dff94abb10c745a}} 
+void {\bfseries add\+Element} (\mbox{\hyperlink{classQCPLayoutElement}{Q\+C\+P\+Layout\+Element}} $\ast$element, Qt\+::\+Alignment alignment)
+\item 
+\mbox{\Hypertarget{classQCPLayoutInset_a8ff61fbee4a1f0ff45c398009d9f1e56}\label{classQCPLayoutInset_a8ff61fbee4a1f0ff45c398009d9f1e56}} 
+void {\bfseries add\+Element} (\mbox{\hyperlink{classQCPLayoutElement}{Q\+C\+P\+Layout\+Element}} $\ast$element, const Q\+RectF \&\mbox{\hyperlink{classQCPLayoutElement_a208effccfe2cca4a0eaf9393e60f2dd4}{rect}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQCPLayoutInset_a1778266b94c739a6874101a1df7c6824}\label{classQCPLayoutInset_a1778266b94c739a6874101a1df7c6824}} 
+Q\+List$<$ \mbox{\hyperlink{classQCPLayoutElement}{Q\+C\+P\+Layout\+Element}} $\ast$ $>$ {\bfseries m\+Elements}
+\item 
+\mbox{\Hypertarget{classQCPLayoutInset_a43939f5c6442ee652b23d9fe6b388878}\label{classQCPLayoutInset_a43939f5c6442ee652b23d9fe6b388878}} 
+Q\+List$<$ \mbox{\hyperlink{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192}{Inset\+Placement}} $>$ {\bfseries m\+Inset\+Placement}
+\item 
+\mbox{\Hypertarget{classQCPLayoutInset_a46f7eec552523efea663dd2d9bf7ed9f}\label{classQCPLayoutInset_a46f7eec552523efea663dd2d9bf7ed9f}} 
+Q\+List$<$ Qt\+::\+Alignment $>$ {\bfseries m\+Inset\+Alignment}
+\item 
+\mbox{\Hypertarget{classQCPLayoutInset_a9ff123727e9bec5a9d1a06e46e0d858b}\label{classQCPLayoutInset_a9ff123727e9bec5a9d1a06e46e0d858b}} 
+Q\+List$<$ Q\+RectF $>$ {\bfseries m\+Inset\+Rect}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+A layout that places child elements aligned to the border or arbitrarily positioned. 
+
+Elements are placed either aligned to the border or at arbitrary position in the area of the layout. Which placement applies is controlled with the \mbox{\hyperlink{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192}{Inset\+Placement}} (\mbox{\hyperlink{classQCPLayoutInset_a63298830744d5d8c5345511c00fd2144}{set\+Inset\+Placement}}).
+
+Elements are added via \mbox{\hyperlink{classQCPLayoutInset_ad61529eb576af7f04dff94abb10c745a}{add\+Element(\+Q\+C\+P\+Layout\+Element $\ast$element, Qt\+::\+Alignment alignment)}} or \mbox{\hyperlink{classQCPLayoutInset_a8ff61fbee4a1f0ff45c398009d9f1e56}{add\+Element(\+Q\+C\+P\+Layout\+Element $\ast$element, const Q\+Rect\+F \&rect)}}. If the first method is used, the inset placement will default to \mbox{\hyperlink{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192a41ae236f04e42d7098e09fd49dffeb06}{ip\+Border\+Aligned}} and the element will be aligned according to the {\itshape alignment} parameter. The second method defaults to \mbox{\hyperlink{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192a06556307ae5b8255297984219da4e8f4}{ip\+Free}} and allows placing elements at arbitrary position and size, defined by {\itshape rect}.
+
+The alignment or rect can be set via \mbox{\hyperlink{classQCPLayoutInset_a62882a4f9ad58bb0f53da12fde022abe}{set\+Inset\+Alignment}} or \mbox{\hyperlink{classQCPLayoutInset_aa487c8378a6f9533567a2e6430099dc3}{set\+Inset\+Rect}}, respectively.
+
+This is the layout that every \mbox{\hyperlink{classQCPAxisRect}{Q\+C\+P\+Axis\+Rect}} has as \mbox{\hyperlink{classQCPAxisRect_a949f803466619924c7018df4b511ae10}{Q\+C\+P\+Axis\+Rect\+::inset\+Layout}}. 
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192}\label{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192}} 
+\index{QCPLayoutInset@{QCPLayoutInset}!InsetPlacement@{InsetPlacement}}
+\index{InsetPlacement@{InsetPlacement}!QCPLayoutInset@{QCPLayoutInset}}
+\doxysubsubsection{\texorpdfstring{InsetPlacement}{InsetPlacement}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192}{Q\+C\+P\+Layout\+Inset\+::\+Inset\+Placement}}}
+
+Defines how the placement and sizing is handled for a certain element in a \mbox{\hyperlink{classQCPLayoutInset}{Q\+C\+P\+Layout\+Inset}}. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ipFree@{ipFree}!QCPLayoutInset@{QCPLayoutInset}}\index{QCPLayoutInset@{QCPLayoutInset}!ipFree@{ipFree}}}\mbox{\Hypertarget{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192a06556307ae5b8255297984219da4e8f4}\label{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192a06556307ae5b8255297984219da4e8f4}} 
+ip\+Free&The element may be positioned/sized arbitrarily, see \mbox{\hyperlink{classQCPLayoutInset_aa487c8378a6f9533567a2e6430099dc3}{set\+Inset\+Rect}}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ipBorderAligned@{ipBorderAligned}!QCPLayoutInset@{QCPLayoutInset}}\index{QCPLayoutInset@{QCPLayoutInset}!ipBorderAligned@{ipBorderAligned}}}\mbox{\Hypertarget{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192a41ae236f04e42d7098e09fd49dffeb06}\label{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192a41ae236f04e42d7098e09fd49dffeb06}} 
+ip\+Border\+Aligned&The element is aligned to one of the layout sides, see \mbox{\hyperlink{classQCPLayoutInset_a62882a4f9ad58bb0f53da12fde022abe}{set\+Inset\+Alignment}}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ipFree@{ipFree}!QCPLayoutInset@{QCPLayoutInset}}\index{QCPLayoutInset@{QCPLayoutInset}!ipFree@{ipFree}}}\mbox{\Hypertarget{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192a06556307ae5b8255297984219da4e8f4}\label{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192a06556307ae5b8255297984219da4e8f4}} 
+ip\+Free&The element may be positioned/sized arbitrarily, see \mbox{\hyperlink{classQCPLayoutInset_aa487c8378a6f9533567a2e6430099dc3}{set\+Inset\+Rect}}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ipBorderAligned@{ipBorderAligned}!QCPLayoutInset@{QCPLayoutInset}}\index{QCPLayoutInset@{QCPLayoutInset}!ipBorderAligned@{ipBorderAligned}}}\mbox{\Hypertarget{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192a41ae236f04e42d7098e09fd49dffeb06}\label{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192a41ae236f04e42d7098e09fd49dffeb06}} 
+ip\+Border\+Aligned&The element is aligned to one of the layout sides, see \mbox{\hyperlink{classQCPLayoutInset_a62882a4f9ad58bb0f53da12fde022abe}{set\+Inset\+Alignment}}. \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192}\label{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192}} 
+\index{QCPLayoutInset@{QCPLayoutInset}!InsetPlacement@{InsetPlacement}}
+\index{InsetPlacement@{InsetPlacement}!QCPLayoutInset@{QCPLayoutInset}}
+\doxysubsubsection{\texorpdfstring{InsetPlacement}{InsetPlacement}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192}{Q\+C\+P\+Layout\+Inset\+::\+Inset\+Placement}}}
+
+Defines how the placement and sizing is handled for a certain element in a \mbox{\hyperlink{classQCPLayoutInset}{Q\+C\+P\+Layout\+Inset}}. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ipFree@{ipFree}!QCPLayoutInset@{QCPLayoutInset}}\index{QCPLayoutInset@{QCPLayoutInset}!ipFree@{ipFree}}}\mbox{\Hypertarget{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192a06556307ae5b8255297984219da4e8f4}\label{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192a06556307ae5b8255297984219da4e8f4}} 
+ip\+Free&The element may be positioned/sized arbitrarily, see \mbox{\hyperlink{classQCPLayoutInset_aa487c8378a6f9533567a2e6430099dc3}{set\+Inset\+Rect}}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ipBorderAligned@{ipBorderAligned}!QCPLayoutInset@{QCPLayoutInset}}\index{QCPLayoutInset@{QCPLayoutInset}!ipBorderAligned@{ipBorderAligned}}}\mbox{\Hypertarget{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192a41ae236f04e42d7098e09fd49dffeb06}\label{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192a41ae236f04e42d7098e09fd49dffeb06}} 
+ip\+Border\+Aligned&The element is aligned to one of the layout sides, see \mbox{\hyperlink{classQCPLayoutInset_a62882a4f9ad58bb0f53da12fde022abe}{set\+Inset\+Alignment}}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ipFree@{ipFree}!QCPLayoutInset@{QCPLayoutInset}}\index{QCPLayoutInset@{QCPLayoutInset}!ipFree@{ipFree}}}\mbox{\Hypertarget{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192a06556307ae5b8255297984219da4e8f4}\label{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192a06556307ae5b8255297984219da4e8f4}} 
+ip\+Free&The element may be positioned/sized arbitrarily, see \mbox{\hyperlink{classQCPLayoutInset_aa487c8378a6f9533567a2e6430099dc3}{set\+Inset\+Rect}}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ipBorderAligned@{ipBorderAligned}!QCPLayoutInset@{QCPLayoutInset}}\index{QCPLayoutInset@{QCPLayoutInset}!ipBorderAligned@{ipBorderAligned}}}\mbox{\Hypertarget{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192a41ae236f04e42d7098e09fd49dffeb06}\label{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192a41ae236f04e42d7098e09fd49dffeb06}} 
+ip\+Border\+Aligned&The element is aligned to one of the layout sides, see \mbox{\hyperlink{classQCPLayoutInset_a62882a4f9ad58bb0f53da12fde022abe}{set\+Inset\+Alignment}}. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classQCPLayoutInset_a3ad984f3221735374cc5dee14356a7dd}\label{classQCPLayoutInset_a3ad984f3221735374cc5dee14356a7dd}} 
+\index{QCPLayoutInset@{QCPLayoutInset}!QCPLayoutInset@{QCPLayoutInset}}
+\index{QCPLayoutInset@{QCPLayoutInset}!QCPLayoutInset@{QCPLayoutInset}}
+\doxysubsubsection{\texorpdfstring{QCPLayoutInset()}{QCPLayoutInset()}}
+{\footnotesize\ttfamily Q\+C\+P\+Layout\+Inset\+::\+Q\+C\+P\+Layout\+Inset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+Creates an instance of \mbox{\hyperlink{classQCPLayoutInset}{Q\+C\+P\+Layout\+Inset}} and sets default values. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classQCPLayoutInset_a8ff61fbee4a1f0ff45c398009d9f1e56}\label{classQCPLayoutInset_a8ff61fbee4a1f0ff45c398009d9f1e56}} 
+\index{QCPLayoutInset@{QCPLayoutInset}!addElement@{addElement}}
+\index{addElement@{addElement}!QCPLayoutInset@{QCPLayoutInset}}
+\doxysubsubsection{\texorpdfstring{addElement()}{addElement()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Q\+C\+P\+Layout\+Inset\+::add\+Element (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQCPLayoutElement}{Q\+C\+P\+Layout\+Element}} $\ast$}]{element,  }\item[{const Q\+RectF \&}]{rect }\end{DoxyParamCaption})}
+
+Adds the specified {\itshape element} to the layout as an inset with free positioning/sizing (\mbox{\hyperlink{classQCPLayoutInset_a62882a4f9ad58bb0f53da12fde022abe}{set\+Inset\+Alignment}} is initialized with \mbox{\hyperlink{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192a06556307ae5b8255297984219da4e8f4}{ip\+Free}}). The position and size is set to {\itshape rect}.
+
+{\itshape rect} is given in fractions of the whole inset layout rect. So an inset with rect (0, 0, 1, 1) will span the entire layout. An inset with rect (0.\+6, 0.\+1, 0.\+35, 0.\+35) will be in the top right corner of the layout, with 35\% width and height of the parent layout.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classQCPLayoutInset_ad61529eb576af7f04dff94abb10c745a}{add\+Element(\+Q\+C\+P\+Layout\+Element $\ast$element, Qt\+::\+Alignment alignment)}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classQCPLayoutInset_ad61529eb576af7f04dff94abb10c745a}\label{classQCPLayoutInset_ad61529eb576af7f04dff94abb10c745a}} 
+\index{QCPLayoutInset@{QCPLayoutInset}!addElement@{addElement}}
+\index{addElement@{addElement}!QCPLayoutInset@{QCPLayoutInset}}
+\doxysubsubsection{\texorpdfstring{addElement()}{addElement()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Q\+C\+P\+Layout\+Inset\+::add\+Element (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQCPLayoutElement}{Q\+C\+P\+Layout\+Element}} $\ast$}]{element,  }\item[{Qt\+::\+Alignment}]{alignment }\end{DoxyParamCaption})}
+
+Adds the specified {\itshape element} to the layout as an inset aligned at the border (\mbox{\hyperlink{classQCPLayoutInset_a62882a4f9ad58bb0f53da12fde022abe}{set\+Inset\+Alignment}} is initialized with \mbox{\hyperlink{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192a41ae236f04e42d7098e09fd49dffeb06}{ip\+Border\+Aligned}}). The alignment is set to {\itshape alignment}.
+
+{\itshape alignment} is an or combination of the following alignment flags\+: Qt\+::\+Align\+Left, Qt\+::\+Align\+H\+Center, Qt\+::\+Aligh\+Right, Qt\+::\+Align\+Top, Qt\+::\+Align\+V\+Center, Qt\+::\+Align\+Bottom. Any other alignment flags will be ignored.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classQCPLayoutInset_a8ff61fbee4a1f0ff45c398009d9f1e56}{add\+Element(\+Q\+C\+P\+Layout\+Element $\ast$element, const Q\+Rect\+F \&rect)}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classQCPLayoutInset_a747a1c6f09d24e34b9179ecad2658066}\label{classQCPLayoutInset_a747a1c6f09d24e34b9179ecad2658066}} 
+\index{QCPLayoutInset@{QCPLayoutInset}!elementAt@{elementAt}}
+\index{elementAt@{elementAt}!QCPLayoutInset@{QCPLayoutInset}}
+\doxysubsubsection{\texorpdfstring{elementAt()}{elementAt()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classQCPLayoutElement}{Q\+C\+P\+Layout\+Element}}$\ast$ Q\+C\+P\+Layout\+Inset\+::element\+At (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Returns the element in the cell with the given {\itshape index}. If {\itshape index} is invalid, returns 0.
+
+Note that even if {\itshape index} is valid, the respective cell may be empty in some layouts (e.\+g. \mbox{\hyperlink{classQCPLayoutGrid}{Q\+C\+P\+Layout\+Grid}}), so this function may return 0 in those cases. You may use this function to check whether a cell is empty or not.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classQCPLayout_aca129722c019f91d3367046f80abfa77}{elements}}, \mbox{\hyperlink{classQCPLayoutInset_a7f5aa4d48a2e844cfe6dd7ed8f0861df}{element\+Count}}, \mbox{\hyperlink{classQCPLayoutInset_abf2e8233f5b7051220907e62ded490a2}{take\+At}} 
+\end{DoxySeeAlso}
+
+
+Implements \mbox{\hyperlink{classQCPLayout_afa73ca7d859f8a3ee5c73c9b353d2a56}{Q\+C\+P\+Layout}}.
+
+\mbox{\Hypertarget{classQCPLayoutInset_a881ca205605bae9c034733b808f93a02}\label{classQCPLayoutInset_a881ca205605bae9c034733b808f93a02}} 
+\index{QCPLayoutInset@{QCPLayoutInset}!elementAt@{elementAt}}
+\index{elementAt@{elementAt}!QCPLayoutInset@{QCPLayoutInset}}
+\doxysubsubsection{\texorpdfstring{elementAt()}{elementAt()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCPLayoutElement}{Q\+C\+P\+Layout\+Element}} $\ast$ Q\+C\+P\+Layout\+Inset\+::element\+At (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Returns the element in the cell with the given {\itshape index}. If {\itshape index} is invalid, returns 0.
+
+Note that even if {\itshape index} is valid, the respective cell may be empty in some layouts (e.\+g. \mbox{\hyperlink{classQCPLayoutGrid}{Q\+C\+P\+Layout\+Grid}}), so this function may return 0 in those cases. You may use this function to check whether a cell is empty or not.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classQCPLayout_aca129722c019f91d3367046f80abfa77}{elements}}, \mbox{\hyperlink{classQCPLayoutInset_a7f5aa4d48a2e844cfe6dd7ed8f0861df}{element\+Count}}, \mbox{\hyperlink{classQCPLayoutInset_abf2e8233f5b7051220907e62ded490a2}{take\+At}} 
+\end{DoxySeeAlso}
+
+
+Implements \mbox{\hyperlink{classQCPLayout_afa73ca7d859f8a3ee5c73c9b353d2a56}{Q\+C\+P\+Layout}}.
+
+\mbox{\Hypertarget{classQCPLayoutInset_a7f5aa4d48a2e844cfe6dd7ed8f0861df}\label{classQCPLayoutInset_a7f5aa4d48a2e844cfe6dd7ed8f0861df}} 
+\index{QCPLayoutInset@{QCPLayoutInset}!elementCount@{elementCount}}
+\index{elementCount@{elementCount}!QCPLayoutInset@{QCPLayoutInset}}
+\doxysubsubsection{\texorpdfstring{elementCount()}{elementCount()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int Q\+C\+P\+Layout\+Inset\+::element\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Returns the number of elements/cells in the layout.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classQCPLayout_aca129722c019f91d3367046f80abfa77}{elements}}, \mbox{\hyperlink{classQCPLayoutInset_a881ca205605bae9c034733b808f93a02}{element\+At}} 
+\end{DoxySeeAlso}
+
+
+Implements \mbox{\hyperlink{classQCPLayout_a39d3e9ef5d9b82ab1885ba1cb9597e56}{Q\+C\+P\+Layout}}.
+
+\mbox{\Hypertarget{classQCPLayoutInset_a4096aa1dc77ff54fc76df8e30b6d9e1b}\label{classQCPLayoutInset_a4096aa1dc77ff54fc76df8e30b6d9e1b}} 
+\index{QCPLayoutInset@{QCPLayoutInset}!elementCount@{elementCount}}
+\index{elementCount@{elementCount}!QCPLayoutInset@{QCPLayoutInset}}
+\doxysubsubsection{\texorpdfstring{elementCount()}{elementCount()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual int Q\+C\+P\+Layout\+Inset\+::element\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Returns the number of elements/cells in the layout.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classQCPLayout_aca129722c019f91d3367046f80abfa77}{elements}}, \mbox{\hyperlink{classQCPLayoutInset_a881ca205605bae9c034733b808f93a02}{element\+At}} 
+\end{DoxySeeAlso}
+
+
+Implements \mbox{\hyperlink{classQCPLayout_a39d3e9ef5d9b82ab1885ba1cb9597e56}{Q\+C\+P\+Layout}}.
+
+\mbox{\Hypertarget{classQCPLayoutInset_a5b33b66f0abbb4a7cc2f8aa6c94cf7f8}\label{classQCPLayoutInset_a5b33b66f0abbb4a7cc2f8aa6c94cf7f8}} 
+\index{QCPLayoutInset@{QCPLayoutInset}!insetAlignment@{insetAlignment}}
+\index{insetAlignment@{insetAlignment}!QCPLayoutInset@{QCPLayoutInset}}
+\doxysubsubsection{\texorpdfstring{insetAlignment()}{insetAlignment()}}
+{\footnotesize\ttfamily Qt\+::\+Alignment Q\+C\+P\+Layout\+Inset\+::inset\+Alignment (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption}) const}
+
+Returns the alignment of the element with the specified {\itshape index}. The alignment only has a meaning, if the inset placement (\mbox{\hyperlink{classQCPLayoutInset_a63298830744d5d8c5345511c00fd2144}{set\+Inset\+Placement}}) is \mbox{\hyperlink{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192a41ae236f04e42d7098e09fd49dffeb06}{ip\+Border\+Aligned}}. \mbox{\Hypertarget{classQCPLayoutInset_a6fcbd74ebbc45bfe64c604b2791aa57f}\label{classQCPLayoutInset_a6fcbd74ebbc45bfe64c604b2791aa57f}} 
+\index{QCPLayoutInset@{QCPLayoutInset}!insetPlacement@{insetPlacement}}
+\index{insetPlacement@{insetPlacement}!QCPLayoutInset@{QCPLayoutInset}}
+\doxysubsubsection{\texorpdfstring{insetPlacement()}{insetPlacement()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192}{Q\+C\+P\+Layout\+Inset\+::\+Inset\+Placement}} Q\+C\+P\+Layout\+Inset\+::inset\+Placement (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption}) const}
+
+Returns the placement type of the element with the specified {\itshape index}. \mbox{\Hypertarget{classQCPLayoutInset_ab23099a46af17c31f4c40668f13c9de1}\label{classQCPLayoutInset_ab23099a46af17c31f4c40668f13c9de1}} 
+\index{QCPLayoutInset@{QCPLayoutInset}!insetRect@{insetRect}}
+\index{insetRect@{insetRect}!QCPLayoutInset@{QCPLayoutInset}}
+\doxysubsubsection{\texorpdfstring{insetRect()}{insetRect()}}
+{\footnotesize\ttfamily Q\+RectF Q\+C\+P\+Layout\+Inset\+::inset\+Rect (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption}) const}
+
+Returns the rect of the element with the specified {\itshape index}. The rect only has a meaning, if the inset placement (\mbox{\hyperlink{classQCPLayoutInset_a63298830744d5d8c5345511c00fd2144}{set\+Inset\+Placement}}) is \mbox{\hyperlink{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192a06556307ae5b8255297984219da4e8f4}{ip\+Free}}. \mbox{\Hypertarget{classQCPLayoutInset_a2eeef7ea1b8340e7c7c2e2fc229df5ea}\label{classQCPLayoutInset_a2eeef7ea1b8340e7c7c2e2fc229df5ea}} 
+\index{QCPLayoutInset@{QCPLayoutInset}!selectTest@{selectTest}}
+\index{selectTest@{selectTest}!QCPLayoutInset@{QCPLayoutInset}}
+\doxysubsubsection{\texorpdfstring{selectTest()}{selectTest()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double Q\+C\+P\+Layout\+Inset\+::select\+Test (\begin{DoxyParamCaption}\item[{const Q\+PointF \&}]{pos,  }\item[{bool}]{only\+Selectable,  }\item[{Q\+Variant $\ast$}]{details = {\ttfamily 0} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+The inset layout is sensitive to events only at areas where its (visible) child elements are sensitive. If the select\+Test method of any of the child elements returns a positive number for {\itshape pos}, this method returns a value corresponding to 0.\+99 times the parent plot\textquotesingle{}s selection tolerance. The inset layout is not selectable itself by default. So if {\itshape only\+Selectable} is true, -\/1.\+0 is returned.
+
+See \mbox{\hyperlink{classQCPLayerable_a04db8351fefd44cfdb77958e75c6288e}{Q\+C\+P\+Layerable\+::select\+Test}} for a general explanation of this virtual method. 
+
+Reimplemented from \mbox{\hyperlink{classQCPLayoutElement_ae97f483cccedadbf18ea4525ef240ee4}{Q\+C\+P\+Layout\+Element}}.
+
+\mbox{\Hypertarget{classQCPLayoutInset_a4bd96dd77545a2b407d24c8bdc276927}\label{classQCPLayoutInset_a4bd96dd77545a2b407d24c8bdc276927}} 
+\index{QCPLayoutInset@{QCPLayoutInset}!selectTest@{selectTest}}
+\index{selectTest@{selectTest}!QCPLayoutInset@{QCPLayoutInset}}
+\doxysubsubsection{\texorpdfstring{selectTest()}{selectTest()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual double Q\+C\+P\+Layout\+Inset\+::select\+Test (\begin{DoxyParamCaption}\item[{const Q\+PointF \&}]{pos,  }\item[{bool}]{only\+Selectable,  }\item[{Q\+Variant $\ast$}]{details = {\ttfamily 0} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Layout elements are sensitive to events inside their outer rect. If {\itshape pos} is within the outer rect, this method returns a value corresponding to 0.\+99 times the parent plot\textquotesingle{}s selection tolerance. However, layout elements are not selectable by default. So if {\itshape only\+Selectable} is true, -\/1.\+0 is returned.
+
+See \mbox{\hyperlink{classQCPLayerable_a04db8351fefd44cfdb77958e75c6288e}{Q\+C\+P\+Layerable\+::select\+Test}} for a general explanation of this virtual method.
+
+\mbox{\hyperlink{classQCPLayoutElement}{Q\+C\+P\+Layout\+Element}} subclasses may reimplement this method to provide more specific selection test behaviour. 
+
+Reimplemented from \mbox{\hyperlink{classQCPLayoutElement_ae97f483cccedadbf18ea4525ef240ee4}{Q\+C\+P\+Layout\+Element}}.
+
+\mbox{\Hypertarget{classQCPLayoutInset_a62882a4f9ad58bb0f53da12fde022abe}\label{classQCPLayoutInset_a62882a4f9ad58bb0f53da12fde022abe}} 
+\index{QCPLayoutInset@{QCPLayoutInset}!setInsetAlignment@{setInsetAlignment}}
+\index{setInsetAlignment@{setInsetAlignment}!QCPLayoutInset@{QCPLayoutInset}}
+\doxysubsubsection{\texorpdfstring{setInsetAlignment()}{setInsetAlignment()}}
+{\footnotesize\ttfamily void Q\+C\+P\+Layout\+Inset\+::set\+Inset\+Alignment (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{Qt\+::\+Alignment}]{alignment }\end{DoxyParamCaption})}
+
+If the inset placement (\mbox{\hyperlink{classQCPLayoutInset_a63298830744d5d8c5345511c00fd2144}{set\+Inset\+Placement}}) is \mbox{\hyperlink{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192a41ae236f04e42d7098e09fd49dffeb06}{ip\+Border\+Aligned}}, this function is used to set the alignment of the element with the specified {\itshape index} to {\itshape alignment}.
+
+{\itshape alignment} is an or combination of the following alignment flags\+: Qt\+::\+Align\+Left, Qt\+::\+Align\+H\+Center, Qt\+::\+Aligh\+Right, Qt\+::\+Align\+Top, Qt\+::\+Align\+V\+Center, Qt\+::\+Align\+Bottom. Any other alignment flags will be ignored. \mbox{\Hypertarget{classQCPLayoutInset_a63298830744d5d8c5345511c00fd2144}\label{classQCPLayoutInset_a63298830744d5d8c5345511c00fd2144}} 
+\index{QCPLayoutInset@{QCPLayoutInset}!setInsetPlacement@{setInsetPlacement}}
+\index{setInsetPlacement@{setInsetPlacement}!QCPLayoutInset@{QCPLayoutInset}}
+\doxysubsubsection{\texorpdfstring{setInsetPlacement()}{setInsetPlacement()}}
+{\footnotesize\ttfamily void Q\+C\+P\+Layout\+Inset\+::set\+Inset\+Placement (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{\mbox{\hyperlink{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192}{Q\+C\+P\+Layout\+Inset\+::\+Inset\+Placement}}}]{placement }\end{DoxyParamCaption})}
+
+Sets the inset placement type of the element with the specified {\itshape index} to {\itshape placement}.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192}{Inset\+Placement}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classQCPLayoutInset_aa487c8378a6f9533567a2e6430099dc3}\label{classQCPLayoutInset_aa487c8378a6f9533567a2e6430099dc3}} 
+\index{QCPLayoutInset@{QCPLayoutInset}!setInsetRect@{setInsetRect}}
+\index{setInsetRect@{setInsetRect}!QCPLayoutInset@{QCPLayoutInset}}
+\doxysubsubsection{\texorpdfstring{setInsetRect()}{setInsetRect()}}
+{\footnotesize\ttfamily void Q\+C\+P\+Layout\+Inset\+::set\+Inset\+Rect (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{const Q\+RectF \&}]{rect }\end{DoxyParamCaption})}
+
+If the inset placement (\mbox{\hyperlink{classQCPLayoutInset_a63298830744d5d8c5345511c00fd2144}{set\+Inset\+Placement}}) is \mbox{\hyperlink{classQCPLayoutInset_a8b9e17d9a2768293d2a7d72f5e298192a06556307ae5b8255297984219da4e8f4}{ip\+Free}}, this function is used to set the position and size of the element with the specified {\itshape index} to {\itshape rect}.
+
+{\itshape rect} is given in fractions of the whole inset layout rect. So an inset with rect (0, 0, 1, 1) will span the entire layout. An inset with rect (0.\+6, 0.\+1, 0.\+35, 0.\+35) will be in the top right corner of the layout, with 35\% width and height of the parent layout.
+
+Note that the minimum and maximum sizes of the embedded element (\mbox{\hyperlink{classQCPLayoutElement_a5dd29a3c8bc88440c97c06b67be7886b}{Q\+C\+P\+Layout\+Element\+::set\+Minimum\+Size}}, \mbox{\hyperlink{classQCPLayoutElement_a74eb5280a737ab44833d506db65efd95}{Q\+C\+P\+Layout\+Element\+::set\+Maximum\+Size}}) are enforced. \mbox{\Hypertarget{classQCPLayoutInset_a18b7d508f0baa60cc5dcb1343cf7f32a}\label{classQCPLayoutInset_a18b7d508f0baa60cc5dcb1343cf7f32a}} 
+\index{QCPLayoutInset@{QCPLayoutInset}!simplify@{simplify}}
+\index{simplify@{simplify}!QCPLayoutInset@{QCPLayoutInset}}
+\doxysubsubsection{\texorpdfstring{simplify()}{simplify()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Q\+C\+P\+Layout\+Inset\+::simplify (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+The Q\+C\+P\+Inset\+Layout does not need simplification since it can never have empty cells due to its linear index structure. This method does nothing. 
+
+Reimplemented from \mbox{\hyperlink{classQCPLayout_a41e6ac049143866e8f8b4964efab01b2}{Q\+C\+P\+Layout}}.
+
+\mbox{\Hypertarget{classQCPLayoutInset_abdac9a04752751ea68c320016086a2e8}\label{classQCPLayoutInset_abdac9a04752751ea68c320016086a2e8}} 
+\index{QCPLayoutInset@{QCPLayoutInset}!simplify@{simplify}}
+\index{simplify@{simplify}!QCPLayoutInset@{QCPLayoutInset}}
+\doxysubsubsection{\texorpdfstring{simplify()}{simplify()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void Q\+C\+P\+Layout\+Inset\+::simplify (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Simplifies the layout by collapsing empty cells. The exact behavior depends on subclasses, the default implementation does nothing.
+
+Not all layouts need simplification. For example, \mbox{\hyperlink{classQCPLayoutInset}{Q\+C\+P\+Layout\+Inset}} doesn\textquotesingle{}t use explicit simplification while \mbox{\hyperlink{classQCPLayoutGrid}{Q\+C\+P\+Layout\+Grid}} does. 
+
+Reimplemented from \mbox{\hyperlink{classQCPLayout_a41e6ac049143866e8f8b4964efab01b2}{Q\+C\+P\+Layout}}.
+
+\mbox{\Hypertarget{classQCPLayoutInset_af7f13cc369f8190b5e7e17d5f39dfe1c}\label{classQCPLayoutInset_af7f13cc369f8190b5e7e17d5f39dfe1c}} 
+\index{QCPLayoutInset@{QCPLayoutInset}!take@{take}}
+\index{take@{take}!QCPLayoutInset@{QCPLayoutInset}}
+\doxysubsubsection{\texorpdfstring{take()}{take()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Q\+C\+P\+Layout\+Inset\+::take (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQCPLayoutElement}{Q\+C\+P\+Layout\+Element}} $\ast$}]{element }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Removes the specified {\itshape element} from the layout and returns true on success.
+
+If the {\itshape element} isn\textquotesingle{}t in this layout, returns false.
+
+Note that some layouts don\textquotesingle{}t remove the respective cell right away but leave an empty cell after successful removal of the layout element. To collapse empty cells, use \mbox{\hyperlink{classQCPLayoutInset_a18b7d508f0baa60cc5dcb1343cf7f32a}{simplify}}.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classQCPLayoutInset_abf2e8233f5b7051220907e62ded490a2}{take\+At}} 
+\end{DoxySeeAlso}
+
+
+Implements \mbox{\hyperlink{classQCPLayout_ada26cd17e56472b0b4d7fbbc96873e4c}{Q\+C\+P\+Layout}}.
+
+\mbox{\Hypertarget{classQCPLayoutInset_a1daf9fe747380dcd3cf8ef9deb470dc9}\label{classQCPLayoutInset_a1daf9fe747380dcd3cf8ef9deb470dc9}} 
+\index{QCPLayoutInset@{QCPLayoutInset}!take@{take}}
+\index{take@{take}!QCPLayoutInset@{QCPLayoutInset}}
+\doxysubsubsection{\texorpdfstring{take()}{take()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual bool Q\+C\+P\+Layout\+Inset\+::take (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQCPLayoutElement}{Q\+C\+P\+Layout\+Element}} $\ast$}]{element }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Removes the specified {\itshape element} from the layout and returns true on success.
+
+If the {\itshape element} isn\textquotesingle{}t in this layout, returns false.
+
+Note that some layouts don\textquotesingle{}t remove the respective cell right away but leave an empty cell after successful removal of the layout element. To collapse empty cells, use \mbox{\hyperlink{classQCPLayoutInset_a18b7d508f0baa60cc5dcb1343cf7f32a}{simplify}}.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classQCPLayoutInset_abf2e8233f5b7051220907e62ded490a2}{take\+At}} 
+\end{DoxySeeAlso}
+
+
+Implements \mbox{\hyperlink{classQCPLayout_ada26cd17e56472b0b4d7fbbc96873e4c}{Q\+C\+P\+Layout}}.
+
+\mbox{\Hypertarget{classQCPLayoutInset_abf2e8233f5b7051220907e62ded490a2}\label{classQCPLayoutInset_abf2e8233f5b7051220907e62ded490a2}} 
+\index{QCPLayoutInset@{QCPLayoutInset}!takeAt@{takeAt}}
+\index{takeAt@{takeAt}!QCPLayoutInset@{QCPLayoutInset}}
+\doxysubsubsection{\texorpdfstring{takeAt()}{takeAt()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCPLayoutElement}{Q\+C\+P\+Layout\+Element}} $\ast$ Q\+C\+P\+Layout\+Inset\+::take\+At (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Removes the element with the given {\itshape index} from the layout and returns it.
+
+If the {\itshape index} is invalid or the cell with that index is empty, returns 0.
+
+Note that some layouts don\textquotesingle{}t remove the respective cell right away but leave an empty cell after successful removal of the layout element. To collapse empty cells, use \mbox{\hyperlink{classQCPLayoutInset_a18b7d508f0baa60cc5dcb1343cf7f32a}{simplify}}.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classQCPLayoutInset_a881ca205605bae9c034733b808f93a02}{element\+At}}, \mbox{\hyperlink{classQCPLayoutInset_af7f13cc369f8190b5e7e17d5f39dfe1c}{take}} 
+\end{DoxySeeAlso}
+
+
+Implements \mbox{\hyperlink{classQCPLayout_a5a79621fa0a6eabb8b520cfc04fb601a}{Q\+C\+P\+Layout}}.
+
+\mbox{\Hypertarget{classQCPLayoutInset_ac95e930d304c7f07d9948f35172a396a}\label{classQCPLayoutInset_ac95e930d304c7f07d9948f35172a396a}} 
+\index{QCPLayoutInset@{QCPLayoutInset}!takeAt@{takeAt}}
+\index{takeAt@{takeAt}!QCPLayoutInset@{QCPLayoutInset}}
+\doxysubsubsection{\texorpdfstring{takeAt()}{takeAt()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classQCPLayoutElement}{Q\+C\+P\+Layout\+Element}}$\ast$ Q\+C\+P\+Layout\+Inset\+::take\+At (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Removes the element with the given {\itshape index} from the layout and returns it.
+
+If the {\itshape index} is invalid or the cell with that index is empty, returns 0.
+
+Note that some layouts don\textquotesingle{}t remove the respective cell right away but leave an empty cell after successful removal of the layout element. To collapse empty cells, use \mbox{\hyperlink{classQCPLayoutInset_a18b7d508f0baa60cc5dcb1343cf7f32a}{simplify}}.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classQCPLayoutInset_a881ca205605bae9c034733b808f93a02}{element\+At}}, \mbox{\hyperlink{classQCPLayoutInset_af7f13cc369f8190b5e7e17d5f39dfe1c}{take}} 
+\end{DoxySeeAlso}
+
+
+Implements \mbox{\hyperlink{classQCPLayout_a5a79621fa0a6eabb8b520cfc04fb601a}{Q\+C\+P\+Layout}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+nimbro\+\_\+network/nimbro\+\_\+net\+\_\+monitor/src/gui/contrib/qcustomplot/qcustomplot.\+h\item 
+nimbro\+\_\+network/nimbro\+\_\+net\+\_\+monitor/src/gui/contrib/qcustomplot/qcustomplot.\+cpp\end{DoxyCompactItemize}

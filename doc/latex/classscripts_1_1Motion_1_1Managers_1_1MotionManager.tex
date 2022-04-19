@@ -1,0 +1,146 @@
+\hypertarget{classscripts_1_1Motion_1_1Managers_1_1MotionManager}{}\doxysection{scripts.\+Motion.\+Managers.\+Motion\+Manager Class Reference}
+\label{classscripts_1_1Motion_1_1Managers_1_1MotionManager}\index{scripts.Motion.Managers.MotionManager@{scripts.Motion.Managers.MotionManager}}
+
+
+Inheritance diagram for scripts.\+Motion.\+Managers.\+Motion\+Manager\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{classscripts_1_1Motion_1_1Managers_1_1MotionManager__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for scripts.\+Motion.\+Managers.\+Motion\+Manager\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{classscripts_1_1Motion_1_1Managers_1_1MotionManager__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classscripts_1_1Motion_1_1Managers_1_1MotionManager_add8d297319cfe3514f5f2874d01ff6a3}\label{classscripts_1_1Motion_1_1Managers_1_1MotionManager_add8d297319cfe3514f5f2874d01ff6a3}} 
+def {\bfseries \+\_\+\+\_\+init\+\_\+\+\_\+} (self, \mbox{\hyperlink{classscripts_1_1ReFrESH__ROS__utils_1_1Launcher}{Launcher}} launcher, list managed\+Modules=\mbox{[}$\,$\mbox{]}, str name=\char`\"{}Motion\+Manager\char`\"{}, float freq=5.\+0, float min\+Reconfig\+Interval=1.\+0, bool map\+Ref=True, bool odom\+Ref=True, bool object\+Ref=True, float timeout=0.\+1, str ref\+Frame=\char`\"{}base\+\_\+link\char`\"{})
+\item 
+\mbox{\Hypertarget{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a507697f2ad0d9bb39f19620df0be5552}\label{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a507697f2ad0d9bb39f19620df0be5552}} 
+def {\bfseries run\+Goal\+Action\+Setup} (self)
+\item 
+\mbox{\Hypertarget{classscripts_1_1Motion_1_1Managers_1_1MotionManager_ae4dfae976cc78dd161847fdfb4647694}\label{classscripts_1_1Motion_1_1Managers_1_1MotionManager_ae4dfae976cc78dd161847fdfb4647694}} 
+def {\bfseries odom\+Pose\+Raw\+Cb} (self, Odometry msg)
+\item 
+\mbox{\Hypertarget{classscripts_1_1Motion_1_1Managers_1_1MotionManager_ac7613b4bc202b881d20f45d7932fd52e}\label{classscripts_1_1Motion_1_1Managers_1_1MotionManager_ac7613b4bc202b881d20f45d7932fd52e}} 
+def {\bfseries odom\+Pose\+Filtered\+Cb} (self, Odometry msg)
+\item 
+\mbox{\Hypertarget{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a01d5193dde0115a2ca8750d3b5724d01}\label{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a01d5193dde0115a2ca8750d3b5724d01}} 
+def {\bfseries map\+Pose\+Raw\+Cb} (self, Pose\+With\+Covariance\+Stamped msg)
+\item 
+\mbox{\Hypertarget{classscripts_1_1Motion_1_1Managers_1_1MotionManager_aee5d96f8d26f875dbb3f7c6b9835ae0c}\label{classscripts_1_1Motion_1_1Managers_1_1MotionManager_aee5d96f8d26f875dbb3f7c6b9835ae0c}} 
+def {\bfseries map\+Pose\+Filtered\+Cb} (self, Odometry msg)
+\item 
+\mbox{\Hypertarget{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a7ca56fa2e88cf032c108c8e7c8242d92}\label{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a7ca56fa2e88cf032c108c8e7c8242d92}} 
+def {\bfseries object\+Pose\+Cb} (self, Odometry msg)
+\item 
+def \mbox{\hyperlink{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a838ee105471fdcbd083e82ba67570526}{get\+Pose\+In\+Goal\+Frame}} (self)
+\item 
+\mbox{\Hypertarget{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a901e1441f331edfd34916d71d4aafd8d}\label{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a901e1441f331edfd34916d71d4aafd8d}} 
+tuple {\bfseries get\+Relative\+Pose\+Stamped} (self)
+\item 
+\mbox{\Hypertarget{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a2453daaa1c874b6eed22416300b907a3}\label{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a2453daaa1c874b6eed22416300b907a3}} 
+Pose\+With\+Covariance\+Stamped {\bfseries get\+Relative\+Pose\+With\+Covariance\+Stamped} (self)
+\item 
+\mbox{\Hypertarget{classscripts_1_1Motion_1_1Managers_1_1MotionManager_ad35b8306c3c24aa69f99489c88ed7bef}\label{classscripts_1_1Motion_1_1Managers_1_1MotionManager_ad35b8306c3c24aa69f99489c88ed7bef}} 
+def {\bfseries get\+Remaining\+Distance} (self, Pose\+With\+Covariance\+Stamped pose\+In\+Goal\+Frame=None)
+\item 
+\mbox{\Hypertarget{classscripts_1_1Motion_1_1Managers_1_1MotionManager_afde741c23ea21eb7e17375ff801c8e41}\label{classscripts_1_1Motion_1_1Managers_1_1MotionManager_afde741c23ea21eb7e17375ff801c8e41}} 
+def {\bfseries get\+Remaining\+Time} (self)
+\item 
+\mbox{\Hypertarget{classscripts_1_1Motion_1_1Managers_1_1MotionManager_aee0e7df37be5a9ecf6d9bb52f8e63a6e}\label{classscripts_1_1Motion_1_1Managers_1_1MotionManager_aee0e7df37be5a9ecf6d9bb52f8e63a6e}} 
+def {\bfseries run\+Goal} (self, Pose\+Stamped pose=Pose\+Stamped(), list tolerance=\mbox{[}0.\+1, 0.\+1\mbox{]}, float timeout=30.\+0, Low\+Level\+Pose\+Goal action\+Goal=None)
+\item 
+\mbox{\Hypertarget{classscripts_1_1Motion_1_1Managers_1_1MotionManager_ad0b12dac8429d68850519683fc9ca3d2}\label{classscripts_1_1Motion_1_1Managers_1_1MotionManager_ad0b12dac8429d68850519683fc9ca3d2}} 
+def {\bfseries shutdown} (self)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a2c58680cb00808c82a001d35f3da8275}\label{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a2c58680cb00808c82a001d35f3da8275}} 
+{\bfseries stale\+Tol}
+\item 
+\mbox{\Hypertarget{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a5185b1df540f521e4eb976f1b3f6ea14}\label{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a5185b1df540f521e4eb976f1b3f6ea14}} 
+{\bfseries odom\+Pose\+Sub}
+\item 
+\mbox{\Hypertarget{classscripts_1_1Motion_1_1Managers_1_1MotionManager_acf7c89906b3792639b8cf418c816f407}\label{classscripts_1_1Motion_1_1Managers_1_1MotionManager_acf7c89906b3792639b8cf418c816f407}} 
+{\bfseries odom\+Pose\+F\+Sub}
+\item 
+\mbox{\Hypertarget{classscripts_1_1Motion_1_1Managers_1_1MotionManager_afafa37af6158b01ab3b8062f254c29dd}\label{classscripts_1_1Motion_1_1Managers_1_1MotionManager_afafa37af6158b01ab3b8062f254c29dd}} 
+{\bfseries map\+Pose\+Sub}
+\item 
+\mbox{\Hypertarget{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a5bc4af1dbb2a6459c2f4ced71205e4d6}\label{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a5bc4af1dbb2a6459c2f4ced71205e4d6}} 
+{\bfseries map\+Pose\+F\+Sub}
+\item 
+\mbox{\Hypertarget{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a77edb87ceb05f98bc414a633b2096501}\label{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a77edb87ceb05f98bc414a633b2096501}} 
+{\bfseries object\+Pose\+Sub}
+\item 
+\mbox{\Hypertarget{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a3e4629239fd576d376d05c6647204c57}\label{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a3e4629239fd576d376d05c6647204c57}} 
+{\bfseries ref\+Frame}
+\item 
+\mbox{\Hypertarget{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a141646f03722502433bbb06b327eb029}\label{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a141646f03722502433bbb06b327eb029}} 
+{\bfseries raw\+Odom\+Pose}
+\item 
+\mbox{\Hypertarget{classscripts_1_1Motion_1_1Managers_1_1MotionManager_ac79963c21ae8452e9b9d062863ce693e}\label{classscripts_1_1Motion_1_1Managers_1_1MotionManager_ac79963c21ae8452e9b9d062863ce693e}} 
+{\bfseries filtered\+Odom\+Pose}
+\item 
+\mbox{\Hypertarget{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a29c47df8ff7e8a1c6fafb19742a830c8}\label{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a29c47df8ff7e8a1c6fafb19742a830c8}} 
+{\bfseries raw\+Map\+Pose}
+\item 
+\mbox{\Hypertarget{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a4e5403df55ad16ae0c7de99dd449c038}\label{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a4e5403df55ad16ae0c7de99dd449c038}} 
+{\bfseries filtered\+Map\+Pose}
+\item 
+\mbox{\Hypertarget{classscripts_1_1Motion_1_1Managers_1_1MotionManager_ac87b22d943b9f5d49c4e78b19229535d}\label{classscripts_1_1Motion_1_1Managers_1_1MotionManager_ac87b22d943b9f5d49c4e78b19229535d}} 
+{\bfseries object\+Pose}
+\item 
+\mbox{\Hypertarget{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a81bc07139aaea0683484325e92c40a60}\label{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a81bc07139aaea0683484325e92c40a60}} 
+{\bfseries new\+Goal\+Event}
+\item 
+\mbox{\Hypertarget{classscripts_1_1Motion_1_1Managers_1_1MotionManager_acb29653b7cad72d12de923d616c678d2}\label{classscripts_1_1Motion_1_1Managers_1_1MotionManager_acb29653b7cad72d12de923d616c678d2}} 
+{\bfseries current\+Action\+Goal}
+\item 
+\mbox{\Hypertarget{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a0806f76a57f8986dcda270811407ad44}\label{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a0806f76a57f8986dcda270811407ad44}} 
+{\bfseries goal\+Feedback}
+\item 
+\mbox{\Hypertarget{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a60aed6682cb745734c86dc2d22dc10bb}\label{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a60aed6682cb745734c86dc2d22dc10bb}} 
+{\bfseries goal\+Done\+Event}
+\item 
+\mbox{\Hypertarget{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a5cd95dc768c201fe05a1f6799825ff0d}\label{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a5cd95dc768c201fe05a1f6799825ff0d}} 
+{\bfseries goal\+Status}
+\item 
+\mbox{\Hypertarget{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a5e59ddab45022a371f9efe385e88e3dc}\label{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a5e59ddab45022a371f9efe385e88e3dc}} 
+{\bfseries goal\+\_\+id\+\_\+tracker}
+\item 
+\mbox{\Hypertarget{classscripts_1_1Motion_1_1Managers_1_1MotionManager_ad5cc9411f051e2ef0913f899ccb5156f}\label{classscripts_1_1Motion_1_1Managers_1_1MotionManager_ad5cc9411f051e2ef0913f899ccb5156f}} 
+{\bfseries run\+Action\+Srv}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a838ee105471fdcbd083e82ba67570526}\label{classscripts_1_1Motion_1_1Managers_1_1MotionManager_a838ee105471fdcbd083e82ba67570526}} 
+\index{scripts.Motion.Managers.MotionManager@{scripts.Motion.Managers.MotionManager}!getPoseInGoalFrame@{getPoseInGoalFrame}}
+\index{getPoseInGoalFrame@{getPoseInGoalFrame}!scripts.Motion.Managers.MotionManager@{scripts.Motion.Managers.MotionManager}}
+\doxysubsubsection{\texorpdfstring{getPoseInGoalFrame()}{getPoseInGoalFrame()}}
+{\footnotesize\ttfamily def scripts.\+Motion.\+Managers.\+Motion\+Manager.\+get\+Pose\+In\+Goal\+Frame (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Gets robot pose in the the frame same as currentActionGoal.header.frame_id. 
+Either the header.frame_id==goal.header.frame_id, or child_frame_id==goal.header.frame_id
+
+Returns:
+    Odometry | PoseWithCovarianceStamped | None: Relevant Pose
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+omniveyor\+\_\+mobility/scripts/\+Motion/Managers.\+py\end{DoxyCompactItemize}

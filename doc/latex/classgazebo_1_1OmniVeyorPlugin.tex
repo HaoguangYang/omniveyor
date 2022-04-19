@@ -1,0 +1,169 @@
+\hypertarget{classgazebo_1_1OmniVeyorPlugin}{}\doxysection{gazebo\+::Omni\+Veyor\+Plugin Class Reference}
+\label{classgazebo_1_1OmniVeyorPlugin}\index{gazebo::OmniVeyorPlugin@{gazebo::OmniVeyorPlugin}}
+
+
+An abstract gazebo model plugin for tracked vehicles.  
+
+
+
+
+Inheritance diagram for gazebo\+::Omni\+Veyor\+Plugin\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{classgazebo_1_1OmniVeyorPlugin__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for gazebo\+::Omni\+Veyor\+Plugin\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{classgazebo_1_1OmniVeyorPlugin__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgazebo_1_1OmniVeyorPlugin_a610156eb25d5675b9c626690f8c5a540}\label{classgazebo_1_1OmniVeyorPlugin_a610156eb25d5675b9c626690f8c5a540}} 
+\mbox{\hyperlink{classgazebo_1_1OmniVeyorPlugin_a610156eb25d5675b9c626690f8c5a540}{Omni\+Veyor\+Plugin}} ()
+\begin{DoxyCompactList}\small\item\em Default Contstuctor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgazebo_1_1OmniVeyorPlugin_a45c4de2246376644e437c1f44ab8c1c1}\label{classgazebo_1_1OmniVeyorPlugin_a45c4de2246376644e437c1f44ab8c1c1}} 
+virtual \mbox{\hyperlink{classgazebo_1_1OmniVeyorPlugin_a45c4de2246376644e437c1f44ab8c1c1}{$\sim$\+Omni\+Veyor\+Plugin}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgazebo_1_1OmniVeyorPlugin_a0219aba8f47c521fa6ff8ddd551f7f64}{Load}} (physics\+::\+Model\+Ptr \+\_\+model, sdf\+::\+Element\+Ptr \+\_\+sdf) override
+\begin{DoxyCompactList}\small\item\em Called when the plugin is loaded. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgazebo_1_1OmniVeyorPlugin_a9908385afb90e17cc4ebe926b67f074b}\label{classgazebo_1_1OmniVeyorPlugin_a9908385afb90e17cc4ebe926b67f074b}} 
+void \mbox{\hyperlink{classgazebo_1_1OmniVeyorPlugin_a9908385afb90e17cc4ebe926b67f074b}{Init}} () override
+\begin{DoxyCompactList}\small\item\em Initialize the plugin. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgazebo_1_1OmniVeyorPlugin_a377b092fa6268c4b36fa2b166f746b83}\label{classgazebo_1_1OmniVeyorPlugin_a377b092fa6268c4b36fa2b166f746b83}} 
+void \mbox{\hyperlink{classgazebo_1_1OmniVeyorPlugin_a377b092fa6268c4b36fa2b166f746b83}{Reset}} () override
+\begin{DoxyCompactList}\small\item\em Reset the plugin. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgazebo_1_1OmniVeyorPlugin_a60e5c879203a1cf9a437b72155e02ed0}{On\+Ros\+Msg}} (const geometry\+\_\+msgs\+::\+Twist\+Const\+Ptr \&\+\_\+msg)
+\begin{DoxyCompactList}\small\item\em Handle an incoming message from R\+OS. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgazebo_1_1OmniVeyorPlugin_a1c4ceed4d88629729a2ac88cbc7c7cc2}\label{classgazebo_1_1OmniVeyorPlugin_a1c4ceed4d88629729a2ac88cbc7c7cc2}} 
+void {\bfseries On\+Mode\+Msg} (const std\+\_\+msgs\+::\+Byte\+Const\+Ptr \&\+\_\+msg)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgazebo_1_1OmniVeyorPlugin_aaa43923eb31bfdf76c0d637ccbe29b2b}\label{classgazebo_1_1OmniVeyorPlugin_aaa43923eb31bfdf76c0d637ccbe29b2b}} 
+virtual std\+::string \mbox{\hyperlink{classgazebo_1_1OmniVeyorPlugin_aaa43923eb31bfdf76c0d637ccbe29b2b}{Get\+Robot\+Namespace}} ()
+\begin{DoxyCompactList}\small\item\em Namespace used as a prefix for gazebo topic names. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classgazebo_1_1OmniVeyorPlugin_a1a44f94511b02e68b8710f2a5ba56cc3}{Set\+Motor\+Velocity}} (double \+\_\+str\+FL, double \+\_\+rol\+FL, double \+\_\+str\+FR, double \+\_\+rol\+FR, double \+\_\+str\+RL, double \+\_\+rol\+RL, double \+\_\+str\+RR, double \+\_\+rol\+RR)
+\begin{DoxyCompactList}\small\item\em Set new target velocity for the tracks. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgazebo_1_1OmniVeyorPlugin_a32aac397257f320441018a1fcde972a7}{Set\+Body\+Velocity}} (double \+\_\+linearX, double \+\_\+linearY, double \+\_\+angular)
+\begin{DoxyCompactList}\small\item\em Set new target velocity for the tracks based on the desired. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgazebo_1_1OmniVeyorPlugin_ad37772ce58d6c59732fc3728c8489115}{On\+Vel\+Msg}} (Const\+Twist\+Ptr \&\+\_\+msg)
+\begin{DoxyCompactList}\small\item\em Callback for setting desired body velocity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgazebo_1_1OmniVeyorPlugin_aa81682880e547eab6739c3cbe54d9c42}\label{classgazebo_1_1OmniVeyorPlugin_aa81682880e547eab6739c3cbe54d9c42}} 
+std\+::mutex \mbox{\hyperlink{classgazebo_1_1OmniVeyorPlugin_aa81682880e547eab6739c3cbe54d9c42}{mutex}}
+\begin{DoxyCompactList}\small\item\em Mutex to protect updates. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An abstract gazebo model plugin for tracked vehicles. 
+
+\begin{DoxySince}{Since}
+8.\+1
+\end{DoxySince}
+The plugin processes the following parameters (all have defaults)\+: $<$max\+\_\+linear\+\_\+speed$>$ Max linear velocity in m/s. Also max track velocity. Default is 1.\+0. $<$max\+\_\+angular\+\_\+speed$>$ Max angular speed in rad/s. Default is 1.\+0. $<$robot\+\_\+namespace$>$ Namespace used as a prefix for gazebo topic names. Default is the name of the model. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classgazebo_1_1OmniVeyorPlugin_a0219aba8f47c521fa6ff8ddd551f7f64}\label{classgazebo_1_1OmniVeyorPlugin_a0219aba8f47c521fa6ff8ddd551f7f64}} 
+\index{gazebo::OmniVeyorPlugin@{gazebo::OmniVeyorPlugin}!Load@{Load}}
+\index{Load@{Load}!gazebo::OmniVeyorPlugin@{gazebo::OmniVeyorPlugin}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily void Omni\+Veyor\+Plugin\+::\+Load (\begin{DoxyParamCaption}\item[{physics\+::\+Model\+Ptr}]{\+\_\+model,  }\item[{sdf\+::\+Element\+Ptr}]{\+\_\+sdf }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Called when the plugin is loaded. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em \+\_\+model} & Pointer to the model for which the plugin is loaded \\
+\hline
+\mbox{\texttt{ in}}  & {\em \+\_\+sdf} & Pointer to the S\+DF for \+\_\+model \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classgazebo_1_1OmniVeyorPlugin_a60e5c879203a1cf9a437b72155e02ed0}\label{classgazebo_1_1OmniVeyorPlugin_a60e5c879203a1cf9a437b72155e02ed0}} 
+\index{gazebo::OmniVeyorPlugin@{gazebo::OmniVeyorPlugin}!OnRosMsg@{OnRosMsg}}
+\index{OnRosMsg@{OnRosMsg}!gazebo::OmniVeyorPlugin@{gazebo::OmniVeyorPlugin}}
+\doxysubsubsection{\texorpdfstring{OnRosMsg()}{OnRosMsg()}}
+{\footnotesize\ttfamily void gazebo\+::\+Omni\+Veyor\+Plugin\+::\+On\+Ros\+Msg (\begin{DoxyParamCaption}\item[{const geometry\+\_\+msgs\+::\+Twist\+Const\+Ptr \&}]{\+\_\+msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Handle an incoming message from R\+OS. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em \+\_\+msg} & A float value that is used to set the velocity of the Velodyne. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classgazebo_1_1OmniVeyorPlugin_ad37772ce58d6c59732fc3728c8489115}\label{classgazebo_1_1OmniVeyorPlugin_ad37772ce58d6c59732fc3728c8489115}} 
+\index{gazebo::OmniVeyorPlugin@{gazebo::OmniVeyorPlugin}!OnVelMsg@{OnVelMsg}}
+\index{OnVelMsg@{OnVelMsg}!gazebo::OmniVeyorPlugin@{gazebo::OmniVeyorPlugin}}
+\doxysubsubsection{\texorpdfstring{OnVelMsg()}{OnVelMsg()}}
+{\footnotesize\ttfamily void Omni\+Veyor\+Plugin\+::\+On\+Vel\+Msg (\begin{DoxyParamCaption}\item[{Const\+Twist\+Ptr \&}]{\+\_\+msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Callback for setting desired body velocity. 
+
+Normally, this callback converts the x/yaw message to track velocities and calls Set\+Track\+Velocity().
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em \+\_\+msg} & Twist message from external publisher \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classgazebo_1_1OmniVeyorPlugin_a32aac397257f320441018a1fcde972a7}\label{classgazebo_1_1OmniVeyorPlugin_a32aac397257f320441018a1fcde972a7}} 
+\index{gazebo::OmniVeyorPlugin@{gazebo::OmniVeyorPlugin}!SetBodyVelocity@{SetBodyVelocity}}
+\index{SetBodyVelocity@{SetBodyVelocity}!gazebo::OmniVeyorPlugin@{gazebo::OmniVeyorPlugin}}
+\doxysubsubsection{\texorpdfstring{SetBodyVelocity()}{SetBodyVelocity()}}
+{\footnotesize\ttfamily void Omni\+Veyor\+Plugin\+::\+Set\+Body\+Velocity (\begin{DoxyParamCaption}\item[{double}]{\+\_\+linearX,  }\item[{double}]{\+\_\+linearY,  }\item[{double}]{\+\_\+angular }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Set new target velocity for the tracks based on the desired. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em \+\_\+linear} & Desired linear velocity of the vehicle. \\
+\hline
+\mbox{\texttt{ in}}  & {\em \+\_\+angular} & Desired angular velocity of the vehicle. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classgazebo_1_1OmniVeyorPlugin_a1a44f94511b02e68b8710f2a5ba56cc3}\label{classgazebo_1_1OmniVeyorPlugin_a1a44f94511b02e68b8710f2a5ba56cc3}} 
+\index{gazebo::OmniVeyorPlugin@{gazebo::OmniVeyorPlugin}!SetMotorVelocity@{SetMotorVelocity}}
+\index{SetMotorVelocity@{SetMotorVelocity}!gazebo::OmniVeyorPlugin@{gazebo::OmniVeyorPlugin}}
+\doxysubsubsection{\texorpdfstring{SetMotorVelocity()}{SetMotorVelocity()}}
+{\footnotesize\ttfamily void Omni\+Veyor\+Plugin\+::\+Set\+Motor\+Velocity (\begin{DoxyParamCaption}\item[{double}]{\+\_\+str\+FL,  }\item[{double}]{\+\_\+rol\+FL,  }\item[{double}]{\+\_\+str\+FR,  }\item[{double}]{\+\_\+rol\+FR,  }\item[{double}]{\+\_\+str\+RL,  }\item[{double}]{\+\_\+rol\+RL,  }\item[{double}]{\+\_\+str\+RR,  }\item[{double}]{\+\_\+rol\+RR }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Set new target velocity for the tracks. 
+
+Descendant classes need to implement this function.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em \+\_\+left} & Velocity of left track. \\
+\hline
+\mbox{\texttt{ in}}  & {\em \+\_\+right} & Velocity of right track. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/jonathan/\+Omni\+Dev/src/omniveyor\+\_\+gazebo\+\_\+world/include/omniveyor\+\_\+gazebo\+\_\+world/Omni\+Veyor\+Plugin\+\_\+\+R\+O\+S.\+hh\item 
+/home/jonathan/\+Omni\+Dev/src/omniveyor\+\_\+gazebo\+\_\+world/src/Omni\+Veyor\+Plugin\+\_\+\+R\+O\+S.\+cc\end{DoxyCompactItemize}

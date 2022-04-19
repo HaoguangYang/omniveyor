@@ -1,0 +1,6 @@
+<map id="RMLPositionInputParameters" name="RMLPositionInputParameters">
+<area shape="rect" id="node1" title="Class for the input parameters of the position&#45;based On&#45;Line Trajectory Generation algorithm." alt="" coords="105,380,316,407"/>
+<area shape="rect" id="node2" href="$classRMLInputParameters.html" title="Class for the input parameters of the On&#45;Line Trajectory Generation algorithm." alt="" coords="34,288,193,315"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,5,72,32"/>
+<area shape="rect" id="node4" href="$classRMLVector.html" title="This is a minimalistic dynamic vector class implementation used for the Reflexxes Motion Libraries." alt="" coords="245,95,374,121"/>
+</map>

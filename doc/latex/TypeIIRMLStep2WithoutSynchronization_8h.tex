@@ -1,0 +1,101 @@
+\hypertarget{TypeIIRMLStep2WithoutSynchronization_8h}{}\doxysection{/home/jonathan/\+Omni\+Dev/src/omniveyor\+\_\+hardware/pcv\+\_\+base/external/\+Reflexxes\+Type\+I\+I/include/\+Type\+I\+I\+R\+M\+L\+Step2\+Without\+Synchronization.h File Reference}
+\label{TypeIIRMLStep2WithoutSynchronization_8h}\index{/home/jonathan/OmniDev/src/omniveyor\_hardware/pcv\_base/external/ReflexxesTypeII/include/TypeIIRMLStep2WithoutSynchronization.h@{/home/jonathan/OmniDev/src/omniveyor\_hardware/pcv\_base/external/ReflexxesTypeII/include/TypeIIRMLStep2WithoutSynchronization.h}}
+
+
+\mbox{\hyperlink{structHeader}{Header}} file file for the declaration of the function \mbox{\hyperlink{TypeIIRMLStep2WithoutSynchronization_8h_af1c03cc2441e8a9c42eb5af392ad613c}{Type\+I\+I\+R\+M\+L\+Math\+::\+Step2\+Without\+Synchronization()}}.  
+
+
+{\ttfamily \#include $<$Type\+I\+I\+R\+M\+L\+Math.\+h$>$}\newline
+{\ttfamily \#include $<$Type\+I\+I\+R\+M\+L\+Step1\+Profiles.\+h$>$}\newline
+{\ttfamily \#include $<$Type\+I\+I\+R\+M\+L\+Polynomial.\+h$>$}\newline
+Include dependency graph for Type\+I\+I\+R\+M\+L\+Step2\+Without\+Synchronization.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{TypeIIRMLStep2WithoutSynchronization_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{TypeIIRMLStep2WithoutSynchronization_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{TypeIIRMLStep2WithoutSynchronization_8h_af1c03cc2441e8a9c42eb5af392ad613c}{Type\+I\+I\+R\+M\+L\+Math\+::\+Step2\+Without\+Synchronization}} (const double \&Current\+Position, const double \&Current\+Velocity, const double \&Target\+Position, const double \&Target\+Velocity, const double \&Max\+Velocity, const double \&Max\+Acceleration, const \mbox{\hyperlink{TypeIIRMLStep1Profiles_8h_a5a9a8d674855dd963e3957f499c0ecfc}{Type\+I\+I\+R\+M\+L\+Math\+::\+Step1\+\_\+\+Profile}} \&Used\+Profile, const double \&Minimum\+Execution\+Time, Motion\+Polynomials $\ast$Polynomials\+Internal)
+\begin{DoxyCompactList}\small\item\em This function contains sets of trajectory parameters (i.\+e., all polynomial coefficients) in the case of non-\/synchronized trajectories. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{structHeader}{Header}} file file for the declaration of the function \mbox{\hyperlink{TypeIIRMLStep2WithoutSynchronization_8h_af1c03cc2441e8a9c42eb5af392ad613c}{Type\+I\+I\+R\+M\+L\+Math\+::\+Step2\+Without\+Synchronization()}}. 
+
+\mbox{\hyperlink{structHeader}{Header}} file for the function \mbox{\hyperlink{TypeIIRMLStep2WithoutSynchronization_8h_af1c03cc2441e8a9c42eb5af392ad613c}{Type\+I\+I\+R\+M\+L\+Math\+::\+Step2\+Without\+Synchronization()}}, which sets up all polynomial parameters in the case of non-\/synchronized trajectories (cf. \mbox{\hyperlink{classRMLFlags_ac81441080dcaa610ff37c395ffc0bd5ea1139782c92cf4c4cd0b13fc049661b00}{R\+M\+L\+Flags\+::\+N\+O\+\_\+\+S\+Y\+N\+C\+H\+R\+O\+N\+I\+Z\+A\+T\+I\+ON}}). ~\newline
+The function is part of the namespace Type\+I\+I\+R\+M\+L\+Math.
+
+\begin{DoxyDate}{Date}
+April 2015
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+2.\+7
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Torsten Kroeger, \href{mailto:info@reflexxes.com}{\texttt{ info@reflexxes.\+com}} ~\newline
+ 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) 2015 Google, Inc. ~\newline
+~\newline
+{\bfseries{G\+NU Lesser General Public License}} ~\newline
+~\newline
+This file is part of the Type II Reflexxes Motion Library. ~\newline
+~\newline
+The Type II Reflexxes Motion Library is free software\+: you can redistribute it and/or modify it under the terms of the G\+NU Lesser General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. ~\newline
+~\newline
+The Type II Reflexxes Motion Library is distributed in the hope that it will be useful, but W\+I\+T\+H\+O\+UT A\+NY W\+A\+R\+R\+A\+N\+TY; without even the implied warranty of M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+TY or F\+I\+T\+N\+E\+SS F\+OR A P\+A\+R\+T\+I\+C\+U\+L\+AR P\+U\+R\+P\+O\+SE. See the G\+NU Lesser General Public License for more details. ~\newline
+~\newline
+You should have received a copy of the G\+NU Lesser General Public License along with the Type II Reflexxes Motion Library. If not, see \href{http://www.gnu.org/licenses/}{\texttt{ http\+://www.\+gnu.\+org/licenses/}}. 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{TypeIIRMLStep2WithoutSynchronization_8h_af1c03cc2441e8a9c42eb5af392ad613c}\label{TypeIIRMLStep2WithoutSynchronization_8h_af1c03cc2441e8a9c42eb5af392ad613c}} 
+\index{TypeIIRMLStep2WithoutSynchronization.h@{TypeIIRMLStep2WithoutSynchronization.h}!Step2WithoutSynchronization@{Step2WithoutSynchronization}}
+\index{Step2WithoutSynchronization@{Step2WithoutSynchronization}!TypeIIRMLStep2WithoutSynchronization.h@{TypeIIRMLStep2WithoutSynchronization.h}}
+\doxysubsubsection{\texorpdfstring{Step2WithoutSynchronization()}{Step2WithoutSynchronization()}}
+{\footnotesize\ttfamily void Type\+I\+I\+R\+M\+L\+Math\+::\+Step2\+Without\+Synchronization (\begin{DoxyParamCaption}\item[{const double \&}]{Current\+Position,  }\item[{const double \&}]{Current\+Velocity,  }\item[{const double \&}]{Target\+Position,  }\item[{const double \&}]{Target\+Velocity,  }\item[{const double \&}]{Max\+Velocity,  }\item[{const double \&}]{Max\+Acceleration,  }\item[{const \mbox{\hyperlink{TypeIIRMLStep1Profiles_8h_a5a9a8d674855dd963e3957f499c0ecfc}{Type\+I\+I\+R\+M\+L\+Math\+::\+Step1\+\_\+\+Profile}} \&}]{Used\+Profile,  }\item[{const double \&}]{Minimum\+Execution\+Time,  }\item[{\mbox{\hyperlink{structTypeIIRMLMath_1_1MotionPolynomials}{Motion\+Polynomials}} $\ast$}]{Polynomials\+Internal }\end{DoxyParamCaption})}
+
+
+
+This function contains sets of trajectory parameters (i.\+e., all polynomial coefficients) in the case of non-\/synchronized trajectories. 
+
+Based on all input values for one selected degree of freedom and on the velocity profile that was applied in Step 1A, all trajectory parameters, that is, all polynomial coefficients, are set-\/up. This method is only applied in the case of non-\/synchronized trajectories (cf. \mbox{\hyperlink{classRMLFlags_ac81441080dcaa610ff37c395ffc0bd5ea1139782c92cf4c4cd0b13fc049661b00}{R\+M\+L\+Flags\+::\+N\+O\+\_\+\+S\+Y\+N\+C\+H\+R\+O\+N\+I\+Z\+A\+T\+I\+ON}}).
+
+
+\begin{DoxyParams}{Parameters}
+{\em Current\+Position} & Current position value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}P_{i} $\\
+\hline
+{\em Current\+Velocity} & Current velocity value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}V_{i} $\\
+\hline
+{\em Target\+Position} & Target position value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}P_{i}^{\,trgt} $\\
+\hline
+{\em Target\+Velocity} & Target velocity value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}V_{i}^{\,trgt} $\\
+\hline
+{\em Max\+Velocity} & Maximum allowed velocity value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}V_{i}^{\,max} $\\
+\hline
+{\em Max\+Acceleration} & Maximum allowed acceleration value for D\+OF $ k $ at instant $ T_{i} $, $\ _{k}A_{i}^{\,max} $\\
+\hline
+{\em Used\+Profile} & The ID of the used acceleration profile in Step 1A (cf. R\+M\+L\+Math\+::\+Step1\+\_\+\+Profile).\\
+\hline
+{\em Minimum\+Execution\+Time} & Minimum execution time $ t_{i}^{\,min} $ for the current degree of freedom $ k $ (i.\+e., the result of profiles of the Step 1A 1A decision tree.\\
+\hline
+{\em Polynomials\+Internal} & A pointer to a {\ttfamily Motion\+Polynomials} object (cf. \mbox{\hyperlink{structTypeIIRMLMath_1_1MotionPolynomials}{Type\+I\+I\+R\+M\+L\+Math\+::\+Motion\+Polynomials}}). All trajectory parameters of the synchronized Type II trajectory will be written into this object.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classRMLFlags_ac81441080dcaa610ff37c395ffc0bd5ea1139782c92cf4c4cd0b13fc049661b00}{R\+M\+L\+Flags\+::\+N\+O\+\_\+\+S\+Y\+N\+C\+H\+R\+O\+N\+I\+Z\+A\+T\+I\+ON}} 
+\end{DoxySeeAlso}

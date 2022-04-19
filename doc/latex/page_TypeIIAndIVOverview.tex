@@ -1,0 +1,81 @@
+This page contains four sections~\newline
+~\newline
+ 
+\begin{DoxyItemize}
+\item sec\+\_\+\+Brief\+Introduction~\newline
+~\newline
+ 
+\item sec\+\_\+\+Step1~\newline
+~\newline
+ 
+\item sec\+\_\+\+Step2~\newline
+~\newline
+ 
+\item sec\+\_\+\+Step3~\newline
+~\newline
+ 
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{page_TypeIIAndIVOverview_sec_BriefIntroduction}{}\doxysection{A Brief Introduction}\label{page_TypeIIAndIVOverview_sec_BriefIntroduction}
+
+
+The interface (\mbox{\hyperlink{classReflexxesAPI}{Reflexxes\+A\+PI}}) of all {\itshape Reflexxes} {\itshape Motion} {\itshape Libraries} is very simple and can easily be integrated into existing systems. Based on the {\itshape current} {\itshape state} {\itshape of} {\itshape motion} and the {\itshape kinematic} {\itshape motion} {\itshape constraints}, a {\itshape new} {\itshape state} {\itshape of} {\itshape motion} is calculated with lies exactly on the time-\/optimal trajectory to reach the desired {\itshape target} {\itshape state} {\itshape of} {\itshape motion}. All input values can change arbitrarily based on sensor signals and even discontinuously, and a steady jerk-\/limited motion trajectory is always {\itshape guaranteed} at the output The above figure shows the input and output values of the R\+ML algorithm in a generic manner. It is the task of the algorithm to time-\/optimally transfer an arbitrary current state of motion~\newline
+~\newline
+ \[ {\bf M}_{i}\,=\,\left(\vec{P}_{i},\, \vec{V}_{i},\, \vec{A}_{i} \right) \] ~\newline
+into the desired target state of motion~\newline
+~\newline
+ \[ {\bf M}_{i}^{\,trgt}\,=\,\left(\vec{P}_{i}^{\,trgt},\, \vec{V}_{i}^{\,trgt},\, \vec{0} \right) \] ~\newline
+under consideration of the kinematic motion constraints~\newline
+~\newline
+ \[ {\bf B}_{i}\,=\,\left( \vec{V}_{i}^{\,max},\, \vec{A}_{i}^{\,max},\, \vec{J}_{i}^{\,max} \right) \]~\newline
+~\newline
+The algorithm works memoryless and calculates only the next state of motion $ {\bf M}_{i+1} $, which is used as input value for lower-\/level motion controllers. The resulting trajectories are time-\/optimal and synchronized, such that all selected D\+O\+Fs coinstantaneously reach their target state of motion. The selection vector $ \vec{S}_i $ contains boolean values to mask single D\+O\+Fs, for which no output values are calculated. All types and variant of the algorithm consist of three steps, which are introduced in the following.~\newline
+
+
+~\newline
+~\newline
+ For a better understanding of the basic algorithm for Type II On-\/\+Line Trajectory generation (\mbox{\hyperlink{classOTG}{O\+TG}}), this section presents a brief overview. For a detailed description, please refer to~\newline
+~\newline
+{\bfseries{T. Kroeger.}}~\newline
+{\bfseries{On-\/\+Line Trajectory Generation in Robotic Systems.}}~\newline
+{\bfseries{Springer Tracts in Advanced Robotics, Vol. 58, Springer, January 2010.}}~\newline
+{\bfseries{\href{http://www.springer.com/978-3-642-05174-6}{\texttt{ http\+://www.\+springer.\+com/978-\/3-\/642-\/05174-\/6}}}}~\newline
+~\newline
+ ~\newline
+~\newline
+ \DoxyHorRuler{0}
+\hypertarget{page_TypeIIAndIVOverview_sec_Step1}{}\doxysection{Step 1\+: Calculate the Synchronization Time}\label{page_TypeIIAndIVOverview_sec_Step1}
+Although only one single scalar value is calculate in this step, it the the most complex one. First, the minimum execution times $ _kt_{i}^{\,min} $ are calculated for each selected D\+OF $ k \ \in\ \{1,\dots,K\}$. The value of the minimum synchronization time $ t_i^{\,sync} $ must be equal or greater than the minimum value of all minimum execution times. To transfer the motion state of one D\+OF to another, a finite set of motion profiles $ {\cal P}_{Step1} $ is considered, and a decision tree selects a motion profile $ _k\Psi_i^{\,Step1}\ \in\ {\cal P}_{Step1} $ for each selected D\+OF $ k \ \in\ \{1,\dots,K\} $. To calculate $ _kt_{i}^{\,min} $, a system of nonlinear equation is set-\/up, and the solution contains the desired value.~\newline
+~\newline
+Depending on the type of the algorithm (I-\/\+IX), it may happen that up to $ Z\,=\,3 $ time intervals are existent, within which the target state of motion cannot be reached. For the Type II algorithm only $ Z\,=\,1 $ inoperative interval may be existent. The decision trees 1B and 1C are used to calculate all limits of these intervals $ _k{\cal Z}_{i} $, whose elements are denoted by~\newline
+~\newline
+ \[ _k^z\zeta_{i}\,=\,\left[^z_kt_{i}^{\,begin},\,^z_kt_{i}^{\,end}\right],\ \mbox{with}\ z\ \in\ \left\{1,\,\dots,\,Z\right\} \]~\newline
+~\newline
+Finally, the minimum time not being within any inoperative time interval~\newline
+~\newline
+ \[ _k^z\zeta_{i}\ \forall\ (z,\,k)\ \in \ \left\{1,\,\dots,\,Z\right\}\times\left\{1,\,\dots,\,K\right\} \] ~\newline
+~\newline
+is selected as the value for the synchronization time $ t_i^{\,sync} $.
+
+~\newline
+~\newline
+ \DoxyHorRuler{0}
+\hypertarget{page_TypeIIAndIVOverview_sec_Step2}{}\doxysection{Step 2\+: Synchronization of All Selected D\+O\+Fs}\label{page_TypeIIAndIVOverview_sec_Step2}
+All selected D\+O\+Fs that did not determine $ t_i^{\,sync} $ have to be synchronized to this time value. In principal, an infinite number of solutions can be found to parameterize a trajectory that transfers such a D\+OF from $ _k\vec{M}_i $ to $ _k\vec{M}_i^{\,trgt} $ in $ t_i^{\,sync} $. In order to achieve a deterministic framework, an optimization criterion must be used in order to compute a {\itshape time-\/} or a {\itshape phase-\/synchronized} motion trajectory. Therefore, another decision tree is used, which selects a motion profile $ _k\Psi_i^{\,Step2} $ for each D\+OF $ k $ from a different set that is denoted by $ {\cal P}_{Step2} $. Based on this profile, a nonlinear system of equations can be solved, and the solution contains all required parameters for the synchronized motion trajectory.
+
+~\newline
+~\newline
+ \DoxyHorRuler{0}
+\hypertarget{page_TypeIIAndIVOverview_sec_Step3}{}\doxysection{Step 3\+: Calculate Output Values}\label{page_TypeIIAndIVOverview_sec_Step3}
+This last step is trivial\+: the resulting trajectory parameters of Step 2 are used to calculate a new state of motion $ {\bf M}_{i+1} $, which is used as set-\/point for lower-\/level controllers at $ T_{i+1}$.~\newline
+
+
+
+
+The figure above summarizes the generic version of the \mbox{\hyperlink{classOTG}{O\+TG}} algorithm for time-\/synchronization, while the figure below summarizes the version, in which phase-\/synchronization is applied.~\newline
+
+
+
+
+The class \mbox{\hyperlink{classReflexxesAPI}{Reflexxes\+A\+PI}} constitutes the actual user interface and provides the complete set of functionalities while hiding all parts of the library that are not required by the user. Users, who like to take a deeper look to the implementation of the algorithm, may learn about the class \mbox{\hyperlink{classTypeIIRMLPosition}{Type\+I\+I\+R\+M\+L\+Position}} and the namespace Type\+I\+I\+R\+M\+L\+Math, both of which contain all mathematical details. 

@@ -1,0 +1,49 @@
+\hypertarget{page_VersionHistory_sec_Version12}{}\doxysection{Version 1.\+2 (\+February 2012)}\label{page_VersionHistory_sec_Version12}
+
+\begin{DoxyItemize}
+\item Version 1.\+2 is the first public release of the Type II Reflexxes Motion Library
+\end{DoxyItemize}\hypertarget{page_VersionHistory_sec_Version122}{}\doxysection{Version 1.\+2.\+2 (\+March 2012)}\label{page_VersionHistory_sec_Version122}
+
+\begin{DoxyItemize}
+\item A\+PI Get\+Reference\+Of\+X\+X\+X() methods removed.
+\item \mbox{\hyperlink{classRMLOutputParameters_a1bc953d12e83636ffe48c69e03e42394}{R\+M\+L\+Output\+Parameters\+::\+Echo()}} is now protected.
+\item Minor fixes and improvements.
+\end{DoxyItemize}\hypertarget{page_VersionHistory_sec_Version123}{}\doxysection{version 1.\+2.\+3 (\+October 2013)}\label{page_VersionHistory_sec_Version123}
+
+\begin{DoxyItemize}
+\item Minor fixes and improvements.
+\end{DoxyItemize}\hypertarget{page_VersionHistory_sec_Version124}{}\doxysection{version 1.\+2.\+4 (\+June 2013)}\label{page_VersionHistory_sec_Version124}
+
+\begin{DoxyItemize}
+\item The {\bfseries{optional}} input parameter \mbox{\hyperlink{classRMLInputParameters_a293077b01e48af1657edd8765732c836}{R\+M\+L\+Input\+Parameters\+::\+Minimum\+Synchronization\+Time}} was added, which allows specifying a desired execution of the trajectory.
+\item Two examples 
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{page_Code_07_RMLPositionSampleApplication}{Example 7 --- Making Use of the Optional Parameter Minimum\+Synchronization\+Time for the Position-\/based Algorithm}} 
+\item \mbox{\hyperlink{page_Code_08_RMLVelocitySampleApplication}{Example 8 --- Making Use of the Optional Parameter Minimum\+Synchronization\+Time for the Velocity-\/based Algorithm}} 
+\end{DoxyItemize}were added.
+\item {\bfseries{Bug}} fixed\+: In rare cases, when the maximum number of polynomial was used, an memory fault could have happen in the method \mbox{\hyperlink{classTypeIIRMLPosition_ad29826853220efa74ffd18b3b25c7f2a}{Type\+I\+I\+R\+M\+L\+Position\+::\+Step3()}}. This has been corrected.
+\end{DoxyItemize}\hypertarget{page_VersionHistory_sec_Version125}{}\doxysection{version 1.\+2.\+5 (\+February 2014)}\label{page_VersionHistory_sec_Version125}
+~\newline
+
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Bug}} fixed\+: In rare cases, the maximum velocity and the maximum acceleration were swapped (cf. file \mbox{\hyperlink{TypeIIRMLStep1_8cpp}{Type\+I\+I\+R\+M\+L\+Step1.\+cpp}}).
+\end{DoxyItemize}\hypertarget{page_VersionHistory_sec_Version126}{}\doxysection{version 1.\+2.\+6 (\+March 2014)}\label{page_VersionHistory_sec_Version126}
+~\newline
+
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Bug}} fixed\+: If inoperative time intervals are existent, an incorrect trajectory is computed, because Decision 6 in Step 2 was not implemented correctly (cf. \mbox{\hyperlink{TypeIIRMLDecisions_8h_a20d03f20f6a92d01437e2986443e4dee}{Type\+I\+I\+R\+M\+L\+Math\+::\+Decision\+\_\+2\+\_\+\+\_\+\+\_\+006()}}).
+\end{DoxyItemize}\hypertarget{page_VersionHistory_sec_Version127}{}\doxysection{version 1.\+2.\+7 (\+April 2015)}\label{page_VersionHistory_sec_Version127}
+~\newline
+
+
+
+\begin{DoxyItemize}
+\item The source code has moved to \href{http://www.github.com}{\texttt{ Git\+Hub}}.
+\item {\bfseries{Bug}} fixed\+: Under very unlikely circumstances, a division by zero could happen in some of the function in the file \mbox{\hyperlink{TypeIIRMLStep2Profiles_8cpp}{Type\+I\+I\+R\+M\+L\+Step2\+Profiles.\+cpp}}. This has been fixed.
+\item Minor changes and improvements
+\item Doxygen documentation files openly available 
+\end{DoxyItemize}

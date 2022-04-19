@@ -1,0 +1,93 @@
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\# first make a catkin workspace if you haven't done so.}
+\DoxyCodeLine{source /opt/ros/noetic/setup.bash   \# if you haven't done so.}
+\DoxyCodeLine{mkdir -\/p ./ros\_ws/src}
+\DoxyCodeLine{cd ./ros\_ws}
+\DoxyCodeLine{rosinstall ./src https://raw.githubusercontent.com/HaoguangYang/omniveyor\_gazebo\_world/master/omniveyor\_gazebo\_world.rosinstall}
+\DoxyCodeLine{\# compile the package.}
+\DoxyCodeLine{catkin\_make}
+\end{DoxyCode}
+
+
+Fix any dependency issues should they causes compilation error. Then\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{source ./devel/setup.sh}
+\DoxyCodeLine{roslaunch omniveyor\_gazebo\_world IMI.launch}
+\end{DoxyCode}
+
+
+You should see three robots spawned in the simulated 3D factory floor.
+
+Current status\+:
+
+
+\begin{DoxyItemize}
+\item The differential-\/drive robot is set up for manually specifying joint commands in the Gazebo G\+UI.
+\item The treaded robot is set up to receive Twist command from R\+OS. Try\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{rostopic pub /simple\_tracked/cmd\_vel\_twist geometry\_msgs/Twist}
+\DoxyCodeLine{"linear:}
+\DoxyCodeLine{  x: 1.0}
+\DoxyCodeLine{  y: 0.0}
+\DoxyCodeLine{  z: 0.0}
+\DoxyCodeLine{angular:}
+\DoxyCodeLine{  x: 0.0}
+\DoxyCodeLine{  y: 0.0}
+\DoxyCodeLine{  z: 0.0" }
+\end{DoxyCode}
+
+\item The Omni\+Veyor is set up with a full suite of Li\+D\+AR and camera sensors. Its motion is a testing Work In Progress. To control its motion and receive its wheel odometry, try\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{rostopic pub /omniveyor\_robot/cmd\_vel geometry\_msgs/Twist }
+\DoxyCodeLine{"linear:}
+\DoxyCodeLine{  x: 1.0}
+\DoxyCodeLine{  y: 1.0}
+\DoxyCodeLine{  z: 0.0}
+\DoxyCodeLine{angular:}
+\DoxyCodeLine{  x: 0.0}
+\DoxyCodeLine{  y: 0.0}
+\DoxyCodeLine{  z: 1.0" }
+\end{DoxyCode}
+
+\end{DoxyItemize}
+
+and 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{rostopic echo /omniveyor\_robot/odom}
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item To fetch Li\+D\+AR scans, refer to the {\ttfamily /scan} topic.
+\item To fetch camera R\+GB and depth images, refer to the {\ttfamily /cam\+\_\+d1/depth/image\+\_\+raw}, {\ttfamily /cam\+\_\+d1/color/image\+\_\+raw} topics, etc.
+\end{DoxyItemize}\hypertarget{md__home_jonathan_OmniDev_src_omniveyor_gazebo_world_README_autotoc_md54}{}\doxysubsection{Troubleshooting\+:}\label{md__home_jonathan_OmniDev_src_omniveyor_gazebo_world_README_autotoc_md54}
+
+\begin{DoxyItemize}
+\item If Li\+D\+AR returns all inf readings, your computer probably don\textquotesingle{}t have a capable G\+PU to run G\+PU ray tracing. Change {\ttfamily models/\+Omniveyor/model.\+sdf} Lines 423 and 440 by removing the {\ttfamily gpu} strings, i.\+e.\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<\textcolor{keywordtype}{sensor} \textcolor{keyword}{name}=\textcolor{stringliteral}{"laser"} \textcolor{keyword}{type}=\textcolor{stringliteral}{"ray"}>}
+\end{DoxyCode}
+
+\end{DoxyItemize}
+
+and 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<\textcolor{keywordtype}{plugin} \textcolor{keyword}{name}=\textcolor{stringliteral}{"gazebo\_ros\_head\_hokuyo\_controller"} \textcolor{keyword}{filename}=\textcolor{stringliteral}{"libgazebo\_ros\_laser.so"}>}
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item If the scene is dark
+\item If the robot initialized \char`\"{}\+Flying off\char`\"{}, the solver failed to converge. Restart the simulation.
+\end{DoxyItemize}\hypertarget{md__home_jonathan_OmniDev_src_omniveyor_gazebo_world_README_autotoc_md55}{}\doxysubsection{Work In Progress\+:}\label{md__home_jonathan_OmniDev_src_omniveyor_gazebo_world_README_autotoc_md55}
+
+\begin{DoxyItemize}
+\item A plugin that publishes the name of object selected in Gazebo G\+UI.
+\item Integration with the task dispatcher of the Mobile\+Manipulation software stack.
+\item Kind-\/of slow (sometimes Real Time ratio $\sim$ 0.\+45), still figuring out why. 
+\end{DoxyItemize}

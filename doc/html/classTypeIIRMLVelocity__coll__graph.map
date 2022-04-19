@@ -1,0 +1,13 @@
+<map id="TypeIIRMLVelocity" name="TypeIIRMLVelocity">
+<area shape="rect" id="node1" title="This class constitutes the user interface of velocity&#45;based the Type II On&#45;Line Trajectory Generation..." alt="" coords="1704,485,1844,512"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,189,72,216"/>
+<area shape="rect" id="node3" href="$structTypeIIRMLMath_1_1MotionPolynomials.html" title="Three arrays of TypeIIRMLMath::TypeIIRMLPolynomial." alt="" coords="721,159,976,185"/>
+<area shape="rect" id="node4" href="$classTypeIIRMLMath_1_1TypeIIRMLPolynomial.html" title="This class realizes polynomials of degree three as required for the Type II On&#45;Line Trajectory Genera..." alt="" coords="180,159,448,185"/>
+<area shape="rect" id="node6" href="$classRMLOutputParameters.html" title="Class for the output parameters of the On&#45;Line Trajectory Generation algorithm." alt="" coords="764,368,933,395"/>
+<area shape="rect" id="node7" href="$classRMLVector.html" title="This is a minimalistic dynamic vector class implementation used for the Reflexxes Motion Libraries." alt="" coords="249,535,379,561"/>
+<area shape="rect" id="node11" href="$classRMLInputParameters.html" title="Class for the input parameters of the On&#45;Line Trajectory Generation algorithm." alt="" coords="769,691,928,717"/>
+<area shape="rect" id="node5" href="$classRMLVelocityOutputParameters.html" title="Class for the output parameters of the velocity&#45;based On&#45;Line Trajectory Generation algorithm." alt="" coords="1277,401,1499,428"/>
+<area shape="rect" id="node8" href="$classRMLVelocityFlags.html" title="Data structure containing flags to parameterize the execution of the velocity&#45;based On&#45;Line Trajector..." alt="" coords="1319,619,1457,645"/>
+<area shape="rect" id="node9" href="$classRMLFlags.html" title="Data structure containing flags to parameterize the execution of the On&#45;Line Trajectory Generation al..." alt="" coords="806,619,891,645"/>
+<area shape="rect" id="node10" href="$classRMLVelocityInputParameters.html" title="Class for the input parameters of the velocity&#45;based On&#45;Line Trajectory Generation algorithm." alt="" coords="1283,675,1493,701"/>
+</map>
