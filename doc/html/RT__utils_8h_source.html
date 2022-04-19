@@ -70,7 +70,7 @@ $(function() {
 <div class="title">RT_utils.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef RT_UTILS_H</span></div>
+<a href="RT__utils_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef RT_UTILS_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define RT_UTILS_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/* cpp - c cross compilation */</span></div>
@@ -87,13 +87,13 @@ $(function() {
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/* for union sigval */</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;signal.h&gt;</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define MAX_PRIO        (80)</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="RT__utils_8h.html#a1f299144afed11f70eec730732c20dda">   18</a></span>&#160;<span class="preprocessor">#define MAX_PRIO        (80)</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">/* functions for rt applications */</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">int</span> launch_rt_thread (<span class="keywordtype">void</span> *(*func)(<span class="keywordtype">void</span> *), pthread_t *t, <span class="keywordtype">void</span> *aux, <span class="keywordtype">int</span> priority);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">int</span> <a class="code" href="RT__utils_8h.html#a4a641f42a2e67e38a17f64bdfcc13350">launch_rt_thread</a> (<span class="keywordtype">void</span> *(*func)(<span class="keywordtype">void</span> *), pthread_t *<a class="code" href="namespacescripts_1_1Motion_1_1MoveBaseModules.html#a63b4c69f8b9dba31cc40622a2f683f4f">t</a>, <span class="keywordtype">void</span> *aux, <span class="keywordtype">int</span> <a class="code" href="namespacescripts_1_1ReFrESH__ROS.html#a5bea3b52ef9a9085856bc78b784b7d32">priority</a>);</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">/* timer init for rt threads */</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">int</span> init_rt_timer (timer_t *t, <span class="keywordtype">void</span> (*handler)(<span class="keyword">union</span> sigval val), <span class="keywordtype">void</span> *aux);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">int</span> <a class="code" href="RT__utils_8h.html#a9acc8a136c38d320efe164793adb8fc5">init_rt_timer</a> (timer_t *<a class="code" href="namespacescripts_1_1Motion_1_1MoveBaseModules.html#a63b4c69f8b9dba31cc40622a2f683f4f">t</a>, <span class="keywordtype">void</span> (*handler)(<span class="keyword">union</span> sigval val), <span class="keywordtype">void</span> *aux);</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/* cpp - c cross compilation */</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
@@ -102,6 +102,10 @@ $(function() {
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="anamespacescripts_1_1Motion_1_1MoveBaseModules_html_a63b4c69f8b9dba31cc40622a2f683f4f"><div class="ttname"><a href="namespacescripts_1_1Motion_1_1MoveBaseModules.html#a63b4c69f8b9dba31cc40622a2f683f4f">scripts.Motion.MoveBaseModules.t</a></div><div class="ttdeci">t</div><div class="ttdef"><b>Definition:</b> MoveBaseModules.py:113</div></div>
+<div class="ttc" id="anamespacescripts_1_1ReFrESH__ROS_html_a5bea3b52ef9a9085856bc78b784b7d32"><div class="ttname"><a href="namespacescripts_1_1ReFrESH__ROS.html#a5bea3b52ef9a9085856bc78b784b7d32">scripts.ReFrESH_ROS.priority</a></div><div class="ttdeci">priority</div><div class="ttdef"><b>Definition:</b> ReFrESH_ROS.py:638</div></div>
+<div class="ttc" id="aRT__utils_8h_html_a9acc8a136c38d320efe164793adb8fc5"><div class="ttname"><a href="RT__utils_8h.html#a9acc8a136c38d320efe164793adb8fc5">init_rt_timer</a></div><div class="ttdeci">int init_rt_timer(timer_t *t, void(*handler)(union sigval val), void *aux)</div><div class="ttdef"><b>Definition:</b> RT_utils.c:83</div></div>
+<div class="ttc" id="aRT__utils_8h_html_a4a641f42a2e67e38a17f64bdfcc13350"><div class="ttname"><a href="RT__utils_8h.html#a4a641f42a2e67e38a17f64bdfcc13350">launch_rt_thread</a></div><div class="ttdeci">int launch_rt_thread(void *(*func)(void *), pthread_t *t, void *aux, int priority)</div><div class="ttdef"><b>Definition:</b> RT_utils.c:25</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

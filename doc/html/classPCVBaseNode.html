@@ -72,6 +72,8 @@ $(function() {
 <div class="title">PCVBaseNode Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="pcv__base__node_8h_source.html">pcv_base_node.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for PCVBaseNode:</div>
 <div class="dyncontent">
@@ -85,145 +87,928 @@ Collaboration diagram for PCVBaseNode:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8933460c544202dd574ca26462940ea9"><td class="memItemLeft" align="right" valign="top"><a id="a8933460c544202dd574ca26462940ea9"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>PCVBaseNode</b> (int argc, char *argv[], ros::NodeHandle *rosNH)</td></tr>
-<tr class="separator:a8933460c544202dd574ca26462940ea9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a195ef3afd7d8d4f59c784bbaf329e2ab"><td class="memItemLeft" align="right" valign="top"><a id="a195ef3afd7d8d4f59c784bbaf329e2ab"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>cmdPosRecvCallback</b> (const geometry_msgs::Pose::ConstPtr &amp;x_des)</td></tr>
-<tr class="separator:a195ef3afd7d8d4f59c784bbaf329e2ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24e4f5666245da8a03a8890075d193d3"><td class="memItemLeft" align="right" valign="top"><a id="a24e4f5666245da8a03a8890075d193d3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>cmdVelRecvCallback</b> (const geometry_msgs::Twist::ConstPtr &amp;xd_des)</td></tr>
-<tr class="separator:a24e4f5666245da8a03a8890075d193d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a8aff852c91b225b121cbe59eb73a38"><td class="memItemLeft" align="right" valign="top"><a id="a5a8aff852c91b225b121cbe59eb73a38"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>cmdVelRawCallback</b> (const geometry_msgs::Twist::ConstPtr &amp;xd_des)</td></tr>
-<tr class="separator:a5a8aff852c91b225b121cbe59eb73a38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d5eabc4478527b82f823e1dfddc736c"><td class="memItemLeft" align="right" valign="top"><a id="a8d5eabc4478527b82f823e1dfddc736c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>cmdAccRecvCallback</b> (const geometry_msgs::Accel::ConstPtr &amp;xdd_des)</td></tr>
+<tr class="memitem:a8d5eabc4478527b82f823e1dfddc736c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#a8d5eabc4478527b82f823e1dfddc736c">cmdAccRecvCallback</a> (const geometry_msgs::Accel::ConstPtr &amp;xdd_des)</td></tr>
 <tr class="separator:a8d5eabc4478527b82f823e1dfddc736c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5bf404b01aa112a885a815f5fdf9a2a"><td class="memItemLeft" align="right" valign="top"><a id="ac5bf404b01aa112a885a815f5fdf9a2a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ctrlModeRecvCallback</b> (const std_msgs::Byte::ConstPtr &amp;ctrlMode)</td></tr>
+<tr class="memitem:a195ef3afd7d8d4f59c784bbaf329e2ab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#a195ef3afd7d8d4f59c784bbaf329e2ab">cmdPosRecvCallback</a> (const geometry_msgs::Pose::ConstPtr &amp;x_des)</td></tr>
+<tr class="separator:a195ef3afd7d8d4f59c784bbaf329e2ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a8aff852c91b225b121cbe59eb73a38"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#a5a8aff852c91b225b121cbe59eb73a38">cmdVelRawCallback</a> (const geometry_msgs::Twist::ConstPtr &amp;xd_des)</td></tr>
+<tr class="separator:a5a8aff852c91b225b121cbe59eb73a38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24e4f5666245da8a03a8890075d193d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#a24e4f5666245da8a03a8890075d193d3">cmdVelRecvCallback</a> (const geometry_msgs::Twist::ConstPtr &amp;xd_des)</td></tr>
+<tr class="separator:a24e4f5666245da8a03a8890075d193d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5bf404b01aa112a885a815f5fdf9a2a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#ac5bf404b01aa112a885a815f5fdf9a2a">ctrlModeRecvCallback</a> (const std_msgs::Byte::ConstPtr &amp;ctrlMode)</td></tr>
 <tr class="separator:ac5bf404b01aa112a885a815f5fdf9a2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2f138186a971a0e4578dc2b3c55e13e"><td class="memItemLeft" align="right" valign="top"><a id="aa2f138186a971a0e4578dc2b3c55e13e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>lidarCallback</b> (const sensor_msgs::LaserScan::ConstPtr &amp;scan)</td></tr>
+<tr class="memitem:aa2f138186a971a0e4578dc2b3c55e13e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#aa2f138186a971a0e4578dc2b3c55e13e">lidarCallback</a> (const sensor_msgs::LaserScan::ConstPtr &amp;scan)</td></tr>
 <tr class="separator:aa2f138186a971a0e4578dc2b3c55e13e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a662b4f81ae5f8f8a77b5a751a051a781"><td class="memItemLeft" align="right" valign="top"><a id="a662b4f81ae5f8f8a77b5a751a051a781"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>spin</b> ()</td></tr>
+<tr class="memitem:a8933460c544202dd574ca26462940ea9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#a8933460c544202dd574ca26462940ea9">PCVBaseNode</a> (int argc, char *argv[], ros::NodeHandle *rosNH)</td></tr>
+<tr class="separator:a8933460c544202dd574ca26462940ea9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a662b4f81ae5f8f8a77b5a751a051a781"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#a662b4f81ae5f8f8a77b5a751a051a781">spin</a> ()</td></tr>
 <tr class="separator:a662b4f81ae5f8f8a77b5a751a051a781"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a804248c2ab93d5000465a251e6dc918b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#a804248c2ab93d5000465a251e6dc918b">~PCVBaseNode</a> ()</td></tr>
+<tr class="separator:a804248c2ab93d5000465a251e6dc918b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a0c562ca97d19d3c0438f5e79be2ae4ff"><td class="memItemLeft" align="right" valign="top"><a id="a0c562ca97d19d3c0438f5e79be2ae4ff"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>perform_startup_tasks</b> (void)</td></tr>
-<tr class="separator:a0c562ca97d19d3c0438f5e79be2ae4ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c37f47e2cd19ba6713ee4ac580e39cd"><td class="memItemLeft" align="right" valign="top"><a id="a0c37f47e2cd19ba6713ee4ac580e39cd"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>parse_command_args</b> (int argc, char *argv[])</td></tr>
-<tr class="separator:a0c37f47e2cd19ba6713ee4ac580e39cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5056da1150faa561bd2748b153ec8340"><td class="memItemLeft" align="right" valign="top"><a id="a5056da1150faa561bd2748b153ec8340"></a>
-static void *&#160;</td><td class="memItemRight" valign="bottom"><b>control_thread</b> (void *aux)</td></tr>
+<tr class="memitem:a5056da1150faa561bd2748b153ec8340"><td class="memItemLeft" align="right" valign="top">static void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#a5056da1150faa561bd2748b153ec8340">control_thread</a> (void *aux)</td></tr>
 <tr class="separator:a5056da1150faa561bd2748b153ec8340"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a664789f130bf02db9fc14933648ed464"><td class="memItemLeft" align="right" valign="top"><a id="a664789f130bf02db9fc14933648ed464"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>sig_handler_tstp</b> (int)</td></tr>
-<tr class="separator:a664789f130bf02db9fc14933648ed464"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6bdca6ff56d414f7916e1f19c13efc3"><td class="memItemLeft" align="right" valign="top"><a id="ae6bdca6ff56d414f7916e1f19c13efc3"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>sig_handler_cont</b> (int)</td></tr>
-<tr class="separator:ae6bdca6ff56d414f7916e1f19c13efc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8e4ac33ce8cfe3b9425400b3e12b36d"><td class="memItemLeft" align="right" valign="top"><a id="ab8e4ac33ce8cfe3b9425400b3e12b36d"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>sleep_until</b> (struct timespec *ts, long delay)</td></tr>
-<tr class="separator:ab8e4ac33ce8cfe3b9425400b3e12b36d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d023bc45a2295f1ea55f1c05d471d6b"><td class="memItemLeft" align="right" valign="top"><a id="a5d023bc45a2295f1ea55f1c05d471d6b"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><b>kbhit</b> (void)</td></tr>
+<tr class="memitem:a5d023bc45a2295f1ea55f1c05d471d6b"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#a5d023bc45a2295f1ea55f1c05d471d6b">kbhit</a> (void)</td></tr>
 <tr class="separator:a5d023bc45a2295f1ea55f1c05d471d6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c37f47e2cd19ba6713ee4ac580e39cd"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#a0c37f47e2cd19ba6713ee4ac580e39cd">parse_command_args</a> (int argc, char *argv[])</td></tr>
+<tr class="separator:a0c37f47e2cd19ba6713ee4ac580e39cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c562ca97d19d3c0438f5e79be2ae4ff"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#a0c562ca97d19d3c0438f5e79be2ae4ff">perform_startup_tasks</a> (void)</td></tr>
+<tr class="separator:a0c562ca97d19d3c0438f5e79be2ae4ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6bdca6ff56d414f7916e1f19c13efc3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#ae6bdca6ff56d414f7916e1f19c13efc3">sig_handler_cont</a> (int)</td></tr>
+<tr class="separator:ae6bdca6ff56d414f7916e1f19c13efc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a664789f130bf02db9fc14933648ed464"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#a664789f130bf02db9fc14933648ed464">sig_handler_tstp</a> (int)</td></tr>
+<tr class="separator:a664789f130bf02db9fc14933648ed464"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8e4ac33ce8cfe3b9425400b3e12b36d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#ab8e4ac33ce8cfe3b9425400b3e12b36d">sleep_until</a> (struct timespec *ts, long delay)</td></tr>
+<tr class="separator:ab8e4ac33ce8cfe3b9425400b3e12b36d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:aa9041fe8c2c71abaa3e8f962c36935c2"><td class="memItemLeft" align="right" valign="top"><a id="aa9041fe8c2c71abaa3e8f962c36935c2"></a>
-ros::NodeHandle *&#160;</td><td class="memItemRight" valign="bottom"><b>_rosNH</b></td></tr>
+<tr class="memitem:aa9041fe8c2c71abaa3e8f962c36935c2"><td class="memItemLeft" align="right" valign="top">ros::NodeHandle *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#aa9041fe8c2c71abaa3e8f962c36935c2">_rosNH</a></td></tr>
 <tr class="separator:aa9041fe8c2c71abaa3e8f962c36935c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63be2f713fab0fff842790386f8711f3"><td class="memItemLeft" align="right" valign="top"><a id="a63be2f713fab0fff842790386f8711f3"></a>
-ros::Publisher&#160;</td><td class="memItemRight" valign="bottom"><b>odomPub</b></td></tr>
-<tr class="separator:a63be2f713fab0fff842790386f8711f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63813f399592109896a81b1eb836c4dd"><td class="memItemLeft" align="right" valign="top"><a id="a63813f399592109896a81b1eb836c4dd"></a>
-ros::Publisher&#160;</td><td class="memItemRight" valign="bottom"><b>eStatusPub</b></td></tr>
-<tr class="separator:a63813f399592109896a81b1eb836c4dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29d147ff7d35094ceeceb7c8f32620f9"><td class="memItemLeft" align="right" valign="top"><a id="a29d147ff7d35094ceeceb7c8f32620f9"></a>
-ros::Subscriber&#160;</td><td class="memItemRight" valign="bottom"><b>cmdSubV</b></td></tr>
-<tr class="separator:a29d147ff7d35094ceeceb7c8f32620f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69f80635c024c291e10b5f495a28f4f2"><td class="memItemLeft" align="right" valign="top"><a id="a69f80635c024c291e10b5f495a28f4f2"></a>
-ros::Subscriber&#160;</td><td class="memItemRight" valign="bottom"><b>cmdSubX</b></td></tr>
-<tr class="separator:a69f80635c024c291e10b5f495a28f4f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a959e1f490b4ab8ff06dd190a85fec766"><td class="memItemLeft" align="right" valign="top"><a id="a959e1f490b4ab8ff06dd190a85fec766"></a>
-ros::Subscriber&#160;</td><td class="memItemRight" valign="bottom"><b>cmdSubA</b></td></tr>
+<tr class="memitem:a959e1f490b4ab8ff06dd190a85fec766"><td class="memItemLeft" align="right" valign="top">ros::Subscriber&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#a959e1f490b4ab8ff06dd190a85fec766">cmdSubA</a></td></tr>
 <tr class="separator:a959e1f490b4ab8ff06dd190a85fec766"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac38d764c3d98cd7389a73f3c5c5f52d6"><td class="memItemLeft" align="right" valign="top"><a id="ac38d764c3d98cd7389a73f3c5c5f52d6"></a>
-ros::Subscriber&#160;</td><td class="memItemRight" valign="bottom"><b>ctrlModeSub</b></td></tr>
-<tr class="separator:ac38d764c3d98cd7389a73f3c5c5f52d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7765d9c17ecb9654e7fed3f87aa0ab8c"><td class="memItemLeft" align="right" valign="top"><a id="a7765d9c17ecb9654e7fed3f87aa0ab8c"></a>
-ros::Subscriber&#160;</td><td class="memItemRight" valign="bottom"><b>lidarSub</b></td></tr>
-<tr class="separator:a7765d9c17ecb9654e7fed3f87aa0ab8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a8f3552e4d5acbccb0477669eabf016"><td class="memItemLeft" align="right" valign="top"><a id="a9a8f3552e4d5acbccb0477669eabf016"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>tfCos</b></td></tr>
-<tr class="separator:a9a8f3552e4d5acbccb0477669eabf016"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb36370dc2b778e7d494a502b190b03f"><td class="memItemLeft" align="right" valign="top"><a id="acb36370dc2b778e7d494a502b190b03f"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>tfSin</b></td></tr>
-<tr class="separator:acb36370dc2b778e7d494a502b190b03f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6401efb5cef4b1a2e29695df574bff41"><td class="memItemLeft" align="right" valign="top"><a id="a6401efb5cef4b1a2e29695df574bff41"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>tfX</b></td></tr>
-<tr class="separator:a6401efb5cef4b1a2e29695df574bff41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab05248bcc3e60afba05d7aaec8aaacb3"><td class="memItemLeft" align="right" valign="top"><a id="ab05248bcc3e60afba05d7aaec8aaacb3"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>tfY</b></td></tr>
-<tr class="separator:ab05248bcc3e60afba05d7aaec8aaacb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebc82ad9e6cc2b7aeaef6204bb4da75a"><td class="memItemLeft" align="right" valign="top"><a id="aebc82ad9e6cc2b7aeaef6204bb4da75a"></a>
-float *&#160;</td><td class="memItemRight" valign="bottom"><b>rayCos</b></td></tr>
-<tr class="separator:aebc82ad9e6cc2b7aeaef6204bb4da75a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf048aec7bda5212ad02370247c097a2"><td class="memItemLeft" align="right" valign="top"><a id="aaf048aec7bda5212ad02370247c097a2"></a>
-float *&#160;</td><td class="memItemRight" valign="bottom"><b>raySin</b></td></tr>
-<tr class="separator:aaf048aec7bda5212ad02370247c097a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f9ea58b575d5b742d5290cf728f446a"><td class="memItemLeft" align="right" valign="top"><a id="a3f9ea58b575d5b742d5290cf728f446a"></a>
-float *&#160;</td><td class="memItemRight" valign="bottom"><b>rayX</b></td></tr>
-<tr class="separator:a3f9ea58b575d5b742d5290cf728f446a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0690924898448afbba9217db47e28380"><td class="memItemLeft" align="right" valign="top"><a id="a0690924898448afbba9217db47e28380"></a>
-float *&#160;</td><td class="memItemRight" valign="bottom"><b>rayY</b></td></tr>
-<tr class="separator:a0690924898448afbba9217db47e28380"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95d62bac714a47aa3e67365c77a47397"><td class="memItemLeft" align="right" valign="top"><a id="a95d62bac714a47aa3e67365c77a47397"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>pubRate</b></td></tr>
-<tr class="separator:a95d62bac714a47aa3e67365c77a47397"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3e94e0e3fbc134be16f5891ddab799e"><td class="memItemLeft" align="right" valign="top"><a id="ad3e94e0e3fbc134be16f5891ddab799e"></a>
-tf::TransformBroadcaster&#160;</td><td class="memItemRight" valign="bottom"><b>odomBroadcaster</b></td></tr>
-<tr class="separator:ad3e94e0e3fbc134be16f5891ddab799e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a37e8577fbfd72e112e4bab2c5b3941"><td class="memItemLeft" align="right" valign="top"><a id="a2a37e8577fbfd72e112e4bab2c5b3941"></a>
-pthread_t&#160;</td><td class="memItemRight" valign="bottom"><b>control</b></td></tr>
+<tr class="memitem:a29d147ff7d35094ceeceb7c8f32620f9"><td class="memItemLeft" align="right" valign="top">ros::Subscriber&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#a29d147ff7d35094ceeceb7c8f32620f9">cmdSubV</a></td></tr>
+<tr class="separator:a29d147ff7d35094ceeceb7c8f32620f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69f80635c024c291e10b5f495a28f4f2"><td class="memItemLeft" align="right" valign="top">ros::Subscriber&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#a69f80635c024c291e10b5f495a28f4f2">cmdSubX</a></td></tr>
+<tr class="separator:a69f80635c024c291e10b5f495a28f4f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a37e8577fbfd72e112e4bab2c5b3941"><td class="memItemLeft" align="right" valign="top">pthread_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#a2a37e8577fbfd72e112e4bab2c5b3941">control</a></td></tr>
 <tr class="separator:a2a37e8577fbfd72e112e4bab2c5b3941"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac38d764c3d98cd7389a73f3c5c5f52d6"><td class="memItemLeft" align="right" valign="top">ros::Subscriber&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#ac38d764c3d98cd7389a73f3c5c5f52d6">ctrlModeSub</a></td></tr>
+<tr class="separator:ac38d764c3d98cd7389a73f3c5c5f52d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63813f399592109896a81b1eb836c4dd"><td class="memItemLeft" align="right" valign="top">ros::Publisher&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#a63813f399592109896a81b1eb836c4dd">eStatusPub</a></td></tr>
+<tr class="separator:a63813f399592109896a81b1eb836c4dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7765d9c17ecb9654e7fed3f87aa0ab8c"><td class="memItemLeft" align="right" valign="top">ros::Subscriber&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#a7765d9c17ecb9654e7fed3f87aa0ab8c">lidarSub</a></td></tr>
+<tr class="separator:a7765d9c17ecb9654e7fed3f87aa0ab8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3e94e0e3fbc134be16f5891ddab799e"><td class="memItemLeft" align="right" valign="top">tf::TransformBroadcaster&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#ad3e94e0e3fbc134be16f5891ddab799e">odomBroadcaster</a></td></tr>
+<tr class="separator:ad3e94e0e3fbc134be16f5891ddab799e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63be2f713fab0fff842790386f8711f3"><td class="memItemLeft" align="right" valign="top">ros::Publisher&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#a63be2f713fab0fff842790386f8711f3">odomPub</a></td></tr>
+<tr class="separator:a63be2f713fab0fff842790386f8711f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95d62bac714a47aa3e67365c77a47397"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#a95d62bac714a47aa3e67365c77a47397">pubRate</a></td></tr>
+<tr class="separator:a95d62bac714a47aa3e67365c77a47397"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebc82ad9e6cc2b7aeaef6204bb4da75a"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#aebc82ad9e6cc2b7aeaef6204bb4da75a">rayCos</a></td></tr>
+<tr class="separator:aebc82ad9e6cc2b7aeaef6204bb4da75a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf048aec7bda5212ad02370247c097a2"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#aaf048aec7bda5212ad02370247c097a2">raySin</a></td></tr>
+<tr class="separator:aaf048aec7bda5212ad02370247c097a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f9ea58b575d5b742d5290cf728f446a"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#a3f9ea58b575d5b742d5290cf728f446a">rayX</a></td></tr>
+<tr class="separator:a3f9ea58b575d5b742d5290cf728f446a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0690924898448afbba9217db47e28380"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#a0690924898448afbba9217db47e28380">rayY</a></td></tr>
+<tr class="separator:a0690924898448afbba9217db47e28380"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a8f3552e4d5acbccb0477669eabf016"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#a9a8f3552e4d5acbccb0477669eabf016">tfCos</a></td></tr>
+<tr class="separator:a9a8f3552e4d5acbccb0477669eabf016"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb36370dc2b778e7d494a502b190b03f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#acb36370dc2b778e7d494a502b190b03f">tfSin</a></td></tr>
+<tr class="separator:acb36370dc2b778e7d494a502b190b03f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6401efb5cef4b1a2e29695df574bff41"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#a6401efb5cef4b1a2e29695df574bff41">tfX</a></td></tr>
+<tr class="separator:a6401efb5cef4b1a2e29695df574bff41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab05248bcc3e60afba05d7aaec8aaacb3"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#ab05248bcc3e60afba05d7aaec8aaacb3">tfY</a></td></tr>
+<tr class="separator:ab05248bcc3e60afba05d7aaec8aaacb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a1daef4ec7acc236b6c87f6cef2ff096d"><td class="memItemLeft" align="right" valign="top"><a id="a1daef4ec7acc236b6c87f6cef2ff096d"></a>
-static <a class="el" href="classVehicle.html">Vehicle</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>vehicle</b> = new <a class="el" href="classVehicle.html">Vehicle</a>()</td></tr>
-<tr class="separator:a1daef4ec7acc236b6c87f6cef2ff096d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48e20dd600425afbc4f4a017d6d77452"><td class="memItemLeft" align="right" valign="top"><a id="a48e20dd600425afbc4f4a017d6d77452"></a>
-static double&#160;</td><td class="memItemRight" valign="bottom"><b>gx_des_g</b> [3] = {0.}</td></tr>
-<tr class="separator:a48e20dd600425afbc4f4a017d6d77452"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5acbad5900ee233ea56002d6d6a9c340"><td class="memItemLeft" align="right" valign="top"><a id="a5acbad5900ee233ea56002d6d6a9c340"></a>
-static double&#160;</td><td class="memItemRight" valign="bottom"><b>gxd_des_g_raw</b> [3] = {0.}</td></tr>
-<tr class="separator:a5acbad5900ee233ea56002d6d6a9c340"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8628833001ab62fe3ea24055e8debbd0"><td class="memItemLeft" align="right" valign="top"><a id="a8628833001ab62fe3ea24055e8debbd0"></a>
-static double&#160;</td><td class="memItemRight" valign="bottom"><b>gxd_des_g</b> [3] = {0.}</td></tr>
-<tr class="separator:a8628833001ab62fe3ea24055e8debbd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a511d106a3aca4c5031dd1bdeccea45c7"><td class="memItemLeft" align="right" valign="top"><a id="a511d106a3aca4c5031dd1bdeccea45c7"></a>
-static double&#160;</td><td class="memItemRight" valign="bottom"><b>gxdd_des_g</b> [3] = {0.}</td></tr>
-<tr class="separator:a511d106a3aca4c5031dd1bdeccea45c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ff88af74598d0073e5f333da6f3e6ac"><td class="memItemLeft" align="right" valign="top"><a id="a5ff88af74598d0073e5f333da6f3e6ac"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>dumpData</b> = false</td></tr>
-<tr class="separator:a5ff88af74598d0073e5f333da6f3e6ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ab74819881bb82ae997eb4b92bdd379"><td class="memItemLeft" align="right" valign="top"><a id="a8ab74819881bb82ae997eb4b92bdd379"></a>
-static std::ofstream&#160;</td><td class="memItemRight" valign="bottom"><b>file</b></td></tr>
-<tr class="separator:a8ab74819881bb82ae997eb4b92bdd379"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a811ca0b7ca4923b64930bcfb0390ba29"><td class="memItemLeft" align="right" valign="top"><a id="a811ca0b7ca4923b64930bcfb0390ba29"></a>
-static enum ctrl_mode&#160;</td><td class="memItemRight" valign="bottom"><b>control_mode</b> = VELOCITY</td></tr>
+<tr class="memitem:a811ca0b7ca4923b64930bcfb0390ba29"><td class="memItemLeft" align="right" valign="top">static enum <a class="el" href="motor_8h.html#a8cba1d5aebbed0609a07e75b663289c3">ctrl_mode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#a811ca0b7ca4923b64930bcfb0390ba29">control_mode</a> = <a class="el" href="motor_8h.html#a8cba1d5aebbed0609a07e75b663289c3a06e15744a8bd69fceeeb39ab3614b3f6">VELOCITY</a></td></tr>
 <tr class="separator:a811ca0b7ca4923b64930bcfb0390ba29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ff88af74598d0073e5f333da6f3e6ac"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#a5ff88af74598d0073e5f333da6f3e6ac">dumpData</a> = false</td></tr>
+<tr class="separator:a5ff88af74598d0073e5f333da6f3e6ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ab74819881bb82ae997eb4b92bdd379"><td class="memItemLeft" align="right" valign="top">static std::ofstream&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#a8ab74819881bb82ae997eb4b92bdd379">file</a></td></tr>
+<tr class="separator:a8ab74819881bb82ae997eb4b92bdd379"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48e20dd600425afbc4f4a017d6d77452"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#a48e20dd600425afbc4f4a017d6d77452">gx_des_g</a> [3] = {0.}</td></tr>
+<tr class="separator:a48e20dd600425afbc4f4a017d6d77452"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8628833001ab62fe3ea24055e8debbd0"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#a8628833001ab62fe3ea24055e8debbd0">gxd_des_g</a> [3] = {0.}</td></tr>
+<tr class="separator:a8628833001ab62fe3ea24055e8debbd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5acbad5900ee233ea56002d6d6a9c340"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#a5acbad5900ee233ea56002d6d6a9c340">gxd_des_g_raw</a> [3] = {0.}</td></tr>
+<tr class="separator:a5acbad5900ee233ea56002d6d6a9c340"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a511d106a3aca4c5031dd1bdeccea45c7"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#a511d106a3aca4c5031dd1bdeccea45c7">gxdd_des_g</a> [3] = {0.}</td></tr>
+<tr class="separator:a511d106a3aca4c5031dd1bdeccea45c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1daef4ec7acc236b6c87f6cef2ff096d"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classVehicle.html">Vehicle</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPCVBaseNode.html#a1daef4ec7acc236b6c87f6cef2ff096d">vehicle</a> = new <a class="el" href="classVehicle.html">Vehicle</a>()</td></tr>
+<tr class="separator:a1daef4ec7acc236b6c87f6cef2ff096d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a8933460c544202dd574ca26462940ea9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8933460c544202dd574ca26462940ea9">&#9670;&nbsp;</a></span>PCVBaseNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PCVBaseNode::PCVBaseNode </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>argv</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ros::NodeHandle *&#160;</td>
+          <td class="paramname"><em>rosNH</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a804248c2ab93d5000465a251e6dc918b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a804248c2ab93d5000465a251e6dc918b">&#9670;&nbsp;</a></span>~PCVBaseNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PCVBaseNode::~PCVBaseNode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a8d5eabc4478527b82f823e1dfddc736c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d5eabc4478527b82f823e1dfddc736c">&#9670;&nbsp;</a></span>cmdAccRecvCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PCVBaseNode::cmdAccRecvCallback </td>
+          <td>(</td>
+          <td class="paramtype">const geometry_msgs::Accel::ConstPtr &amp;&#160;</td>
+          <td class="paramname"><em>xdd_des</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a195ef3afd7d8d4f59c784bbaf329e2ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a195ef3afd7d8d4f59c784bbaf329e2ab">&#9670;&nbsp;</a></span>cmdPosRecvCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PCVBaseNode::cmdPosRecvCallback </td>
+          <td>(</td>
+          <td class="paramtype">const geometry_msgs::Pose::ConstPtr &amp;&#160;</td>
+          <td class="paramname"><em>x_des</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5a8aff852c91b225b121cbe59eb73a38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a8aff852c91b225b121cbe59eb73a38">&#9670;&nbsp;</a></span>cmdVelRawCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PCVBaseNode::cmdVelRawCallback </td>
+          <td>(</td>
+          <td class="paramtype">const geometry_msgs::Twist::ConstPtr &amp;&#160;</td>
+          <td class="paramname"><em>xd_des</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a24e4f5666245da8a03a8890075d193d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24e4f5666245da8a03a8890075d193d3">&#9670;&nbsp;</a></span>cmdVelRecvCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PCVBaseNode::cmdVelRecvCallback </td>
+          <td>(</td>
+          <td class="paramtype">const geometry_msgs::Twist::ConstPtr &amp;&#160;</td>
+          <td class="paramname"><em>xd_des</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5056da1150faa561bd2748b153ec8340"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5056da1150faa561bd2748b153ec8340">&#9670;&nbsp;</a></span>control_thread()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void * PCVBaseNode::control_thread </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>aux</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac5bf404b01aa112a885a815f5fdf9a2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5bf404b01aa112a885a815f5fdf9a2a">&#9670;&nbsp;</a></span>ctrlModeRecvCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PCVBaseNode::ctrlModeRecvCallback </td>
+          <td>(</td>
+          <td class="paramtype">const std_msgs::Byte::ConstPtr &amp;&#160;</td>
+          <td class="paramname"><em>ctrlMode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5d023bc45a2295f1ea55f1c05d471d6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d023bc45a2295f1ea55f1c05d471d6b">&#9670;&nbsp;</a></span>kbhit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int PCVBaseNode::kbhit </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa2f138186a971a0e4578dc2b3c55e13e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2f138186a971a0e4578dc2b3c55e13e">&#9670;&nbsp;</a></span>lidarCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PCVBaseNode::lidarCallback </td>
+          <td>(</td>
+          <td class="paramtype">const sensor_msgs::LaserScan::ConstPtr &amp;&#160;</td>
+          <td class="paramname"><em>scan</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0c37f47e2cd19ba6713ee4ac580e39cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c37f47e2cd19ba6713ee4ac580e39cd">&#9670;&nbsp;</a></span>parse_command_args()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PCVBaseNode::parse_command_args </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>argv</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0c562ca97d19d3c0438f5e79be2ae4ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c562ca97d19d3c0438f5e79be2ae4ff">&#9670;&nbsp;</a></span>perform_startup_tasks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PCVBaseNode::perform_startup_tasks </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae6bdca6ff56d414f7916e1f19c13efc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6bdca6ff56d414f7916e1f19c13efc3">&#9670;&nbsp;</a></span>sig_handler_cont()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PCVBaseNode::sig_handler_cont </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a664789f130bf02db9fc14933648ed464"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a664789f130bf02db9fc14933648ed464">&#9670;&nbsp;</a></span>sig_handler_tstp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PCVBaseNode::sig_handler_tstp </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab8e4ac33ce8cfe3b9425400b3e12b36d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8e4ac33ce8cfe3b9425400b3e12b36d">&#9670;&nbsp;</a></span>sleep_until()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PCVBaseNode::sleep_until </td>
+          <td>(</td>
+          <td class="paramtype">struct timespec *&#160;</td>
+          <td class="paramname"><em>ts</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>delay</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a662b4f81ae5f8f8a77b5a751a051a781"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a662b4f81ae5f8f8a77b5a751a051a781">&#9670;&nbsp;</a></span>spin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PCVBaseNode::spin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aa9041fe8c2c71abaa3e8f962c36935c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9041fe8c2c71abaa3e8f962c36935c2">&#9670;&nbsp;</a></span>_rosNH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ros::NodeHandle* PCVBaseNode::_rosNH</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a959e1f490b4ab8ff06dd190a85fec766"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a959e1f490b4ab8ff06dd190a85fec766">&#9670;&nbsp;</a></span>cmdSubA</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ros::Subscriber PCVBaseNode::cmdSubA</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a29d147ff7d35094ceeceb7c8f32620f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29d147ff7d35094ceeceb7c8f32620f9">&#9670;&nbsp;</a></span>cmdSubV</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ros::Subscriber PCVBaseNode::cmdSubV</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a69f80635c024c291e10b5f495a28f4f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69f80635c024c291e10b5f495a28f4f2">&#9670;&nbsp;</a></span>cmdSubX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ros::Subscriber PCVBaseNode::cmdSubX</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2a37e8577fbfd72e112e4bab2c5b3941"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a37e8577fbfd72e112e4bab2c5b3941">&#9670;&nbsp;</a></span>control</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pthread_t PCVBaseNode::control</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a811ca0b7ca4923b64930bcfb0390ba29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a811ca0b7ca4923b64930bcfb0390ba29">&#9670;&nbsp;</a></span>control_mode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="motor_8h.html#a8cba1d5aebbed0609a07e75b663289c3">ctrl_mode</a> PCVBaseNode::control_mode = <a class="el" href="motor_8h.html#a8cba1d5aebbed0609a07e75b663289c3a06e15744a8bd69fceeeb39ab3614b3f6">VELOCITY</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac38d764c3d98cd7389a73f3c5c5f52d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac38d764c3d98cd7389a73f3c5c5f52d6">&#9670;&nbsp;</a></span>ctrlModeSub</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ros::Subscriber PCVBaseNode::ctrlModeSub</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5ff88af74598d0073e5f333da6f3e6ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ff88af74598d0073e5f333da6f3e6ac">&#9670;&nbsp;</a></span>dumpData</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PCVBaseNode::dumpData = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a63813f399592109896a81b1eb836c4dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63813f399592109896a81b1eb836c4dd">&#9670;&nbsp;</a></span>eStatusPub</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ros::Publisher PCVBaseNode::eStatusPub</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8ab74819881bb82ae997eb4b92bdd379"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ab74819881bb82ae997eb4b92bdd379">&#9670;&nbsp;</a></span>file</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ofstream PCVBaseNode::file</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a48e20dd600425afbc4f4a017d6d77452"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48e20dd600425afbc4f4a017d6d77452">&#9670;&nbsp;</a></span>gx_des_g</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PCVBaseNode::gx_des_g[3] = {0.}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8628833001ab62fe3ea24055e8debbd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8628833001ab62fe3ea24055e8debbd0">&#9670;&nbsp;</a></span>gxd_des_g</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PCVBaseNode::gxd_des_g[3] = {0.}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5acbad5900ee233ea56002d6d6a9c340"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5acbad5900ee233ea56002d6d6a9c340">&#9670;&nbsp;</a></span>gxd_des_g_raw</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PCVBaseNode::gxd_des_g_raw[3] = {0.}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a511d106a3aca4c5031dd1bdeccea45c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a511d106a3aca4c5031dd1bdeccea45c7">&#9670;&nbsp;</a></span>gxdd_des_g</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PCVBaseNode::gxdd_des_g[3] = {0.}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7765d9c17ecb9654e7fed3f87aa0ab8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7765d9c17ecb9654e7fed3f87aa0ab8c">&#9670;&nbsp;</a></span>lidarSub</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ros::Subscriber PCVBaseNode::lidarSub</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad3e94e0e3fbc134be16f5891ddab799e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3e94e0e3fbc134be16f5891ddab799e">&#9670;&nbsp;</a></span>odomBroadcaster</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">tf::TransformBroadcaster PCVBaseNode::odomBroadcaster</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a63be2f713fab0fff842790386f8711f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63be2f713fab0fff842790386f8711f3">&#9670;&nbsp;</a></span>odomPub</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ros::Publisher PCVBaseNode::odomPub</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a95d62bac714a47aa3e67365c77a47397"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95d62bac714a47aa3e67365c77a47397">&#9670;&nbsp;</a></span>pubRate</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PCVBaseNode::pubRate</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aebc82ad9e6cc2b7aeaef6204bb4da75a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebc82ad9e6cc2b7aeaef6204bb4da75a">&#9670;&nbsp;</a></span>rayCos</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float* PCVBaseNode::rayCos</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaf048aec7bda5212ad02370247c097a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf048aec7bda5212ad02370247c097a2">&#9670;&nbsp;</a></span>raySin</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float * PCVBaseNode::raySin</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3f9ea58b575d5b742d5290cf728f446a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f9ea58b575d5b742d5290cf728f446a">&#9670;&nbsp;</a></span>rayX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float * PCVBaseNode::rayX</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0690924898448afbba9217db47e28380"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0690924898448afbba9217db47e28380">&#9670;&nbsp;</a></span>rayY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float * PCVBaseNode::rayY</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9a8f3552e4d5acbccb0477669eabf016"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a8f3552e4d5acbccb0477669eabf016">&#9670;&nbsp;</a></span>tfCos</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float PCVBaseNode::tfCos</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acb36370dc2b778e7d494a502b190b03f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb36370dc2b778e7d494a502b190b03f">&#9670;&nbsp;</a></span>tfSin</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float PCVBaseNode::tfSin</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6401efb5cef4b1a2e29695df574bff41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6401efb5cef4b1a2e29695df574bff41">&#9670;&nbsp;</a></span>tfX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float PCVBaseNode::tfX</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab05248bcc3e60afba05d7aaec8aaacb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab05248bcc3e60afba05d7aaec8aaacb3">&#9670;&nbsp;</a></span>tfY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float PCVBaseNode::tfY</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1daef4ec7acc236b6c87f6cef2ff096d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1daef4ec7acc236b6c87f6cef2ff096d">&#9670;&nbsp;</a></span>vehicle</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classVehicle.html">Vehicle</a>* PCVBaseNode::vehicle = new <a class="el" href="classVehicle.html">Vehicle</a>()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/jonathan/OmniDev/src/omniveyor_hardware/pcv_base/include/<a class="el" href="pcv__base__node_8h_source.html">pcv_base_node.h</a></li>
-<li>/home/jonathan/OmniDev/src/omniveyor_hardware/pcv_base/src/pcv_base_node.cc</li>
+<li>/home/jonathan/OmniDev/src/omniveyor_hardware/pcv_base/src/<a class="el" href="pcv__base__node_8cc.html">pcv_base_node.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

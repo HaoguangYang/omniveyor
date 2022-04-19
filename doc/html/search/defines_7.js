@@ -1,6 +1,19 @@
 var searchData=
 [
-  ['phase_5fsync_5fcollinearity_5frel_5fepsilon_3353',['PHASE_SYNC_COLLINEARITY_REL_EPSILON',['../TypeIIRMLMath_8h.html#a10cb2964d558ed4251b43e065c9b8d8b',1,'TypeIIRMLMath.h']]],
-  ['positive_5fzero_3354',['POSITIVE_ZERO',['../TypeIIRMLMath_8h.html#afe1400b342bc0b420686feba22e47963',1,'TypeIIRMLMath.h']]],
-  ['pow2_3355',['pow2',['../TypeIIRMLMath_8h.html#a582333d12974127f17f1947475801d1e',1,'TypeIIRMLMath.h']]]
+  ['heartbeat_5finterval_5fms_8989',['HEARTBEAT_INTERVAL_ms',['../motor__init__sequence_8h.html#aec09308ae49ed3ceaea6403b55bac2b6',1,'motor_init_sequence.h']]],
+  ['heartbeat_5ftimeout_8990',['HEARTBEAT_TIMEOUT',['../definitions_8h.html#abd1e24640abcadec19ebb45ce2f73c10',1,'definitions.h']]],
+  ['home_5faccel_8991',['HOME_ACCEL',['../motor__init__sequence_8h.html#adb4ad9b1137d576ec44149e18fb70dcc',1,'motor_init_sequence.h']]],
+  ['home_5fmethod_8992',['HOME_METHOD',['../motor__init__sequence_8h.html#ab1b7e7131eeaa378ca1ea602ee226a4b',1,'motor_init_sequence.h']]],
+  ['home_5fmode_8993',['HOME_MODE',['../motor__init__sequence_8h.html#a080faec8ee338468b220a8183eec1780',1,'motor_init_sequence.h']]],
+  ['home_5foffset_8994',['HOME_OFFSET',['../CO__objects_8h.html#afb8486f2e79d662c9bdba93911b8bf7a',1,'CO_objects.h']]],
+  ['home_5foffset_5fmtr_5f1_8995',['HOME_OFFSET_MTR_1',['../definitions_8h.html#a9d6827c995a979373b3b12adbae9938d',1,'definitions.h']]],
+  ['home_5foffset_5fmtr_5f3_8996',['HOME_OFFSET_MTR_3',['../definitions_8h.html#a182cbb6b30be23420adf76dac91bb11f',1,'definitions.h']]],
+  ['home_5foffset_5fmtr_5f5_8997',['HOME_OFFSET_MTR_5',['../definitions_8h.html#a9f5d01a9e6f904cecb57f38d7347d9b8',1,'definitions.h']]],
+  ['home_5foffset_5fmtr_5f7_8998',['HOME_OFFSET_MTR_7',['../definitions_8h.html#aeb6c5acd96209ee66f399a13411d4738',1,'definitions.h']]],
+  ['home_5fspeed_5ffast_8999',['HOME_SPEED_FAST',['../motor__init__sequence_8h.html#ace19f6f9e5d5e278bf8130a4fb4925bc',1,'motor_init_sequence.h']]],
+  ['home_5fspeed_5fslow_9000',['HOME_SPEED_SLOW',['../motor__init__sequence_8h.html#ab3501ad3ed5df7603bdf46d1d6983e06',1,'motor_init_sequence.h']]],
+  ['home_5ftimeout_9001',['HOME_TIMEOUT',['../definitions_8h.html#a3b6e81516186a2aaf785b216332a0506',1,'definitions.h']]],
+  ['homing_5faccel_9002',['HOMING_ACCEL',['../CO__objects_8h.html#ad99a12e30d0edad8397c4539e007ee96',1,'CO_objects.h']]],
+  ['homing_5fmethod_9003',['HOMING_METHOD',['../CO__objects_8h.html#a141daed78e89a67ef220bb189119c69a',1,'CO_objects.h']]],
+  ['homing_5fspeeds_9004',['HOMING_SPEEDS',['../CO__objects_8h.html#a84311a393f59ff06840d65dd28da8890',1,'CO_objects.h']]]
 ];

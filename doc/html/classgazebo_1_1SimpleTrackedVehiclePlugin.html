@@ -62,7 +62,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>gazebo</b></li><li class="navelem"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin.html">SimpleTrackedVehiclePlugin</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacegazebo.html">gazebo</a></li><li class="navelem"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin.html">SimpleTrackedVehiclePlugin</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -72,6 +72,7 @@ $(function() {
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="#pro-static-attribs">Static Protected Attributes</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classgazebo_1_1SimpleTrackedVehiclePlugin-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">gazebo::SimpleTrackedVehiclePlugin Class Reference</div>  </div>
@@ -80,6 +81,8 @@ $(function() {
 
 <p>A very fast, but also very accurate model of non-deformable tracks without grousers.  
  <a href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="SimpleTrackedVehiclePlugin__ROS_8hh_source.html">SimpleTrackedVehiclePlugin_ROS.hh</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for gazebo::SimpleTrackedVehiclePlugin:</div>
 <div class="dyncontent">
@@ -102,157 +105,153 @@ Collaboration diagram for gazebo::SimpleTrackedVehiclePlugin:</div>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin_1_1ContactIterator.html">ContactIterator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An iterator over all contacts between two geometries.  <a href="classgazebo_1_1SimpleTrackedVehiclePlugin_1_1ContactIterator.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:aa150aa94e854fa99e5f218561bdd9149"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#aa150aa94e854fa99e5f218561bdd9149">GetNumTracks</a> (<a class="el" href="namespacegazebo.html#ab9be2e5ca13f5e72455d31bbdb81b537">Tracks</a> side) const</td></tr>
+<tr class="memdesc:aa150aa94e854fa99e5f218561bdd9149"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the number of tracks on the given side.  <a href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#aa150aa94e854fa99e5f218561bdd9149">More...</a><br /></td></tr>
+<tr class="separator:aa150aa94e854fa99e5f218561bdd9149"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa53b94489f9bfafca1b42de710715355"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#aa53b94489f9bfafca1b42de710715355">Init</a> () override</td></tr>
+<tr class="memdesc:aa53b94489f9bfafca1b42de710715355"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the plugin.  <a href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#aa53b94489f9bfafca1b42de710715355">More...</a><br /></td></tr>
+<tr class="separator:aa53b94489f9bfafca1b42de710715355"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7765ad7e7ed116e0919f4cc79d5de285"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#a7765ad7e7ed116e0919f4cc79d5de285">Load</a> (physics::ModelPtr _model, sdf::ElementPtr _sdf) override</td></tr>
 <tr class="memdesc:a7765ad7e7ed116e0919f4cc79d5de285"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the plugin is loaded.  <a href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#a7765ad7e7ed116e0919f4cc79d5de285">More...</a><br /></td></tr>
 <tr class="separator:a7765ad7e7ed116e0919f4cc79d5de285"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa53b94489f9bfafca1b42de710715355"><td class="memItemLeft" align="right" valign="top"><a id="aa53b94489f9bfafca1b42de710715355"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#aa53b94489f9bfafca1b42de710715355">Init</a> () override</td></tr>
-<tr class="memdesc:aa53b94489f9bfafca1b42de710715355"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the plugin. <br /></td></tr>
-<tr class="separator:aa53b94489f9bfafca1b42de710715355"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9c8af176b07a3f95444189b761a1d4f"><td class="memItemLeft" align="right" valign="top"><a id="ae9c8af176b07a3f95444189b761a1d4f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#ae9c8af176b07a3f95444189b761a1d4f">Reset</a> () override</td></tr>
-<tr class="memdesc:ae9c8af176b07a3f95444189b761a1d4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the plugin. <br /></td></tr>
+<tr class="memitem:ae9c8af176b07a3f95444189b761a1d4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#ae9c8af176b07a3f95444189b761a1d4f">Reset</a> () override</td></tr>
+<tr class="memdesc:ae9c8af176b07a3f95444189b761a1d4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the plugin.  <a href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#ae9c8af176b07a3f95444189b761a1d4f">More...</a><br /></td></tr>
 <tr class="separator:ae9c8af176b07a3f95444189b761a1d4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa150aa94e854fa99e5f218561bdd9149"><td class="memItemLeft" align="right" valign="top"><a id="aa150aa94e854fa99e5f218561bdd9149"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#aa150aa94e854fa99e5f218561bdd9149">GetNumTracks</a> (Tracks side) const</td></tr>
-<tr class="memdesc:aa150aa94e854fa99e5f218561bdd9149"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the number of tracks on the given side. Should always be at least 1 for the main track. If flippers are present, the number is higher. <br /></td></tr>
-<tr class="separator:aa150aa94e854fa99e5f218561bdd9149"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7005252f3b05ea9d9792674dddc19e45"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#a7005252f3b05ea9d9792674dddc19e45">SimpleTrackedVehiclePlugin</a> ()=default</td></tr>
+<tr class="separator:a7005252f3b05ea9d9792674dddc19e45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73984e877f49aeee217e50d977f81df9"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#a73984e877f49aeee217e50d977f81df9">~SimpleTrackedVehiclePlugin</a> ()</td></tr>
+<tr class="separator:a73984e877f49aeee217e50d977f81df9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classgazebo_1_1TrackedVehiclePlugin"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classgazebo_1_1TrackedVehiclePlugin')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html">gazebo::TrackedVehiclePlugin</a></td></tr>
-<tr class="memitem:a05c5f8180a4af0425b9ff6516ce45b2b inherit pub_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memItemLeft" align="right" valign="top"><a id="a05c5f8180a4af0425b9ff6516ce45b2b"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#a05c5f8180a4af0425b9ff6516ce45b2b">TrackedVehiclePlugin</a> ()</td></tr>
-<tr class="memdesc:a05c5f8180a4af0425b9ff6516ce45b2b inherit pub_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default Contstuctor. <br /></td></tr>
-<tr class="separator:a05c5f8180a4af0425b9ff6516ce45b2b inherit pub_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaeb3d73b0444d3b8ef954cbc1e7242ea inherit pub_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memItemLeft" align="right" valign="top"><a id="aaeb3d73b0444d3b8ef954cbc1e7242ea"></a>
-virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#aaeb3d73b0444d3b8ef954cbc1e7242ea">~TrackedVehiclePlugin</a> ()</td></tr>
-<tr class="memdesc:aaeb3d73b0444d3b8ef954cbc1e7242ea inherit pub_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br /></td></tr>
-<tr class="separator:aaeb3d73b0444d3b8ef954cbc1e7242ea inherit pub_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6182767d95c1360d93be798937146479 inherit pub_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#a6182767d95c1360d93be798937146479">Init</a> () override</td></tr>
+<tr class="memdesc:a6182767d95c1360d93be798937146479 inherit pub_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the plugin.  <a href="classgazebo_1_1TrackedVehiclePlugin.html#a6182767d95c1360d93be798937146479">More...</a><br /></td></tr>
+<tr class="separator:a6182767d95c1360d93be798937146479 inherit pub_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03ce0a43baf20e72d3f41668f58da409 inherit pub_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#a03ce0a43baf20e72d3f41668f58da409">Load</a> (physics::ModelPtr _model, sdf::ElementPtr _sdf) override</td></tr>
 <tr class="memdesc:a03ce0a43baf20e72d3f41668f58da409 inherit pub_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the plugin is loaded.  <a href="classgazebo_1_1TrackedVehiclePlugin.html#a03ce0a43baf20e72d3f41668f58da409">More...</a><br /></td></tr>
 <tr class="separator:a03ce0a43baf20e72d3f41668f58da409 inherit pub_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6182767d95c1360d93be798937146479 inherit pub_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memItemLeft" align="right" valign="top"><a id="a6182767d95c1360d93be798937146479"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#a6182767d95c1360d93be798937146479">Init</a> () override</td></tr>
-<tr class="memdesc:a6182767d95c1360d93be798937146479 inherit pub_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the plugin. <br /></td></tr>
-<tr class="separator:a6182767d95c1360d93be798937146479 inherit pub_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a864f61225456466bddc3df2c4a787ad2 inherit pub_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memItemLeft" align="right" valign="top"><a id="a864f61225456466bddc3df2c4a787ad2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#a864f61225456466bddc3df2c4a787ad2">Reset</a> () override</td></tr>
-<tr class="memdesc:a864f61225456466bddc3df2c4a787ad2 inherit pub_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the plugin. <br /></td></tr>
-<tr class="separator:a864f61225456466bddc3df2c4a787ad2 inherit pub_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada9705e2f1f273b60266d8df929fa699 inherit pub_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#ada9705e2f1f273b60266d8df929fa699">OnRosMsg</a> (const geometry_msgs::TwistConstPtr &amp;_msg)</td></tr>
 <tr class="memdesc:ada9705e2f1f273b60266d8df929fa699 inherit pub_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle an incoming message from ROS.  <a href="classgazebo_1_1TrackedVehiclePlugin.html#ada9705e2f1f273b60266d8df929fa699">More...</a><br /></td></tr>
 <tr class="separator:ada9705e2f1f273b60266d8df929fa699 inherit pub_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a864f61225456466bddc3df2c4a787ad2 inherit pub_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#a864f61225456466bddc3df2c4a787ad2">Reset</a> () override</td></tr>
+<tr class="memdesc:a864f61225456466bddc3df2c4a787ad2 inherit pub_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the plugin.  <a href="classgazebo_1_1TrackedVehiclePlugin.html#a864f61225456466bddc3df2c4a787ad2">More...</a><br /></td></tr>
+<tr class="separator:a864f61225456466bddc3df2c4a787ad2 inherit pub_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05c5f8180a4af0425b9ff6516ce45b2b inherit pub_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#a05c5f8180a4af0425b9ff6516ce45b2b">TrackedVehiclePlugin</a> ()</td></tr>
+<tr class="memdesc:a05c5f8180a4af0425b9ff6516ce45b2b inherit pub_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default Contstuctor.  <a href="classgazebo_1_1TrackedVehiclePlugin.html#a05c5f8180a4af0425b9ff6516ce45b2b">More...</a><br /></td></tr>
+<tr class="separator:a05c5f8180a4af0425b9ff6516ce45b2b inherit pub_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaeb3d73b0444d3b8ef954cbc1e7242ea inherit pub_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#aaeb3d73b0444d3b8ef954cbc1e7242ea">~TrackedVehiclePlugin</a> ()</td></tr>
+<tr class="memdesc:aaeb3d73b0444d3b8ef954cbc1e7242ea inherit pub_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="classgazebo_1_1TrackedVehiclePlugin.html#aaeb3d73b0444d3b8ef954cbc1e7242ea">More...</a><br /></td></tr>
+<tr class="separator:aaeb3d73b0444d3b8ef954cbc1e7242ea inherit pub_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:ae73a1d4d86712dbed21ad04d41192e9a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#ae73a1d4d86712dbed21ad04d41192e9a">SetTrackVelocityImpl</a> (double _left, double _right) override</td></tr>
-<tr class="memdesc:ae73a1d4d86712dbed21ad04d41192e9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set new target velocity for the tracks.  <a href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#ae73a1d4d86712dbed21ad04d41192e9a">More...</a><br /></td></tr>
-<tr class="separator:ae73a1d4d86712dbed21ad04d41192e9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f5b7f0117dd1d747675d67ac9929f72"><td class="memItemLeft" align="right" valign="top"><a id="a9f5b7f0117dd1d747675d67ac9929f72"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#a9f5b7f0117dd1d747675d67ac9929f72">UpdateTrackSurface</a> () override</td></tr>
-<tr class="memdesc:a9f5b7f0117dd1d747675d67ac9929f72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update surface parameters of the tracks to correspond to the values set in this plugin. <br /></td></tr>
-<tr class="separator:a9f5b7f0117dd1d747675d67ac9929f72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a1bdf5411282294afba597e6d6782ca"><td class="memItemLeft" align="right" valign="top"><a id="a9a1bdf5411282294afba597e6d6782ca"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#a9a1bdf5411282294afba597e6d6782ca">DriveTracks</a> (const common::UpdateInfo &amp;)</td></tr>
-<tr class="memdesc:a9a1bdf5411282294afba597e6d6782ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute and apply the forces that make the tracks move. <br /></td></tr>
-<tr class="separator:a9a1bdf5411282294afba597e6d6782ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec151f1934642f0355ea131afc831125"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#aec151f1934642f0355ea131afc831125">SetGeomCategories</a> ()</td></tr>
-<tr class="memdesc:aec151f1934642f0355ea131afc831125"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set collide categories and bits of all geometries to the required values.  <a href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#aec151f1934642f0355ea131afc831125">More...</a><br /></td></tr>
-<tr class="separator:aec151f1934642f0355ea131afc831125"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a523686bc1b29f4c140e0c491bbc2d488"><td class="memItemLeft" align="right" valign="top">ignition::math::Vector3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#a523686bc1b29f4c140e0c491bbc2d488">ComputeFrictionDirection</a> (double _linearSpeed, double _angularSpeed, bool _drivingStraight, const ignition::math::Pose3d &amp;_bodyPose, const ignition::math::Vector3d &amp;_bodyYAxisGlobal, const ignition::math::Vector3d &amp;_centerOfRotation, const ignition::math::Vector3d &amp;_contactWorldPosition, const ignition::math::Vector3d &amp;_contactNormal, const ignition::math::Vector3d &amp;_beltDirection) const</td></tr>
 <tr class="memdesc:a523686bc1b29f4c140e0c491bbc2d488"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the direction of friction force in given contact point.  <a href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#a523686bc1b29f4c140e0c491bbc2d488">More...</a><br /></td></tr>
 <tr class="separator:a523686bc1b29f4c140e0c491bbc2d488"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38f50b2b5d5478c2f74ad9d7d7369244"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#a38f50b2b5d5478c2f74ad9d7d7369244">ComputeSurfaceMotion</a> (double _beltSpeed, const ignition::math::Vector3d &amp;_beltDirection, const ignition::math::Vector3d &amp;_frictionDirection) const</td></tr>
 <tr class="memdesc:a38f50b2b5d5478c2f74ad9d7d7369244"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the velocity of the surface motion in all contact points.  <a href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#a38f50b2b5d5478c2f74ad9d7d7369244">More...</a><br /></td></tr>
 <tr class="separator:a38f50b2b5d5478c2f74ad9d7d7369244"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a1bdf5411282294afba597e6d6782ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#a9a1bdf5411282294afba597e6d6782ca">DriveTracks</a> (const common::UpdateInfo &amp;)</td></tr>
+<tr class="memdesc:a9a1bdf5411282294afba597e6d6782ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute and apply the forces that make the tracks move.  <a href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#a9a1bdf5411282294afba597e6d6782ca">More...</a><br /></td></tr>
+<tr class="separator:a9a1bdf5411282294afba597e6d6782ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec151f1934642f0355ea131afc831125"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#aec151f1934642f0355ea131afc831125">SetGeomCategories</a> ()</td></tr>
+<tr class="memdesc:aec151f1934642f0355ea131afc831125"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set collide categories and bits of all geometries to the required values.  <a href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#aec151f1934642f0355ea131afc831125">More...</a><br /></td></tr>
+<tr class="separator:aec151f1934642f0355ea131afc831125"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae73a1d4d86712dbed21ad04d41192e9a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#ae73a1d4d86712dbed21ad04d41192e9a">SetTrackVelocityImpl</a> (double _left, double _right) override</td></tr>
+<tr class="memdesc:ae73a1d4d86712dbed21ad04d41192e9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set new target velocity for the tracks.  <a href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#ae73a1d4d86712dbed21ad04d41192e9a">More...</a><br /></td></tr>
+<tr class="separator:ae73a1d4d86712dbed21ad04d41192e9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f5b7f0117dd1d747675d67ac9929f72"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#a9f5b7f0117dd1d747675d67ac9929f72">UpdateTrackSurface</a> () override</td></tr>
+<tr class="memdesc:a9f5b7f0117dd1d747675d67ac9929f72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update surface parameters of the tracks to correspond to the values set in this plugin.  <a href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#a9f5b7f0117dd1d747675d67ac9929f72">More...</a><br /></td></tr>
+<tr class="separator:a9f5b7f0117dd1d747675d67ac9929f72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classgazebo_1_1TrackedVehiclePlugin')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html">gazebo::TrackedVehiclePlugin</a></td></tr>
-<tr class="memitem:aed1e573bc6b441d77a8c2a0e4f5c0c00 inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memItemLeft" align="right" valign="top"><a id="aed1e573bc6b441d77a8c2a0e4f5c0c00"></a>
-virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#aed1e573bc6b441d77a8c2a0e4f5c0c00">GetRobotNamespace</a> ()</td></tr>
-<tr class="memdesc:aed1e573bc6b441d77a8c2a0e4f5c0c00 inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace used as a prefix for gazebo topic names. <br /></td></tr>
+<tr class="memitem:aed1e573bc6b441d77a8c2a0e4f5c0c00 inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#aed1e573bc6b441d77a8c2a0e4f5c0c00">GetRobotNamespace</a> ()</td></tr>
+<tr class="memdesc:aed1e573bc6b441d77a8c2a0e4f5c0c00 inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace used as a prefix for gazebo topic names.  <a href="classgazebo_1_1TrackedVehiclePlugin.html#aed1e573bc6b441d77a8c2a0e4f5c0c00">More...</a><br /></td></tr>
 <tr class="separator:aed1e573bc6b441d77a8c2a0e4f5c0c00 inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a278909d15a9d4771c7382cb013a5f6ba inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memItemLeft" align="right" valign="top"><a id="a278909d15a9d4771c7382cb013a5f6ba"></a>
-virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#a278909d15a9d4771c7382cb013a5f6ba">GetSteeringEfficiency</a> ()</td></tr>
-<tr class="memdesc:a278909d15a9d4771c7382cb013a5f6ba inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Steering efficiency coefficient (between 0.0 and 1.0). <br /></td></tr>
+<tr class="memitem:a278909d15a9d4771c7382cb013a5f6ba inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#a278909d15a9d4771c7382cb013a5f6ba">GetSteeringEfficiency</a> ()</td></tr>
+<tr class="memdesc:a278909d15a9d4771c7382cb013a5f6ba inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Steering efficiency coefficient (between 0.0 and 1.0).  <a href="classgazebo_1_1TrackedVehiclePlugin.html#a278909d15a9d4771c7382cb013a5f6ba">More...</a><br /></td></tr>
 <tr class="separator:a278909d15a9d4771c7382cb013a5f6ba inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adfcd01c89014f3a46b4e6c922cd53d2b inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#adfcd01c89014f3a46b4e6c922cd53d2b">SetSteeringEfficiency</a> (double _steeringEfficiency)</td></tr>
-<tr class="memdesc:adfcd01c89014f3a46b4e6c922cd53d2b inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set steering efficiency coefficient (between 0.0 and 1.0).  <a href="classgazebo_1_1TrackedVehiclePlugin.html#adfcd01c89014f3a46b4e6c922cd53d2b">More...</a><br /></td></tr>
-<tr class="separator:adfcd01c89014f3a46b4e6c922cd53d2b inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a2f3ee59db939b1d5e64cfeb998a81d inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memItemLeft" align="right" valign="top"><a id="a8a2f3ee59db939b1d5e64cfeb998a81d"></a>
-virtual boost::optional&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#a8a2f3ee59db939b1d5e64cfeb998a81d">GetTrackMu</a> ()</td></tr>
-<tr class="memdesc:a8a2f3ee59db939b1d5e64cfeb998a81d inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Friction coefficient in the first friction direction. <br /></td></tr>
+<tr class="memitem:a8a2f3ee59db939b1d5e64cfeb998a81d inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memItemLeft" align="right" valign="top">virtual boost::optional&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#a8a2f3ee59db939b1d5e64cfeb998a81d">GetTrackMu</a> ()</td></tr>
+<tr class="memdesc:a8a2f3ee59db939b1d5e64cfeb998a81d inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Friction coefficient in the first friction direction.  <a href="classgazebo_1_1TrackedVehiclePlugin.html#a8a2f3ee59db939b1d5e64cfeb998a81d">More...</a><br /></td></tr>
 <tr class="separator:a8a2f3ee59db939b1d5e64cfeb998a81d inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2bd16c62b8b325df9d847f7de9aade6d inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#a2bd16c62b8b325df9d847f7de9aade6d">SetTrackMu</a> (double _mu)</td></tr>
-<tr class="memdesc:a2bd16c62b8b325df9d847f7de9aade6d inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Friction coefficient in the first friction direction.  <a href="classgazebo_1_1TrackedVehiclePlugin.html#a2bd16c62b8b325df9d847f7de9aade6d">More...</a><br /></td></tr>
-<tr class="separator:a2bd16c62b8b325df9d847f7de9aade6d inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a436904fc7ec48690a384b63bd332417c inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memItemLeft" align="right" valign="top"><a id="a436904fc7ec48690a384b63bd332417c"></a>
-virtual boost::optional&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#a436904fc7ec48690a384b63bd332417c">GetTrackMu2</a> ()</td></tr>
-<tr class="memdesc:a436904fc7ec48690a384b63bd332417c inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Friction coefficient in the second friction direction. <br /></td></tr>
+<tr class="memitem:a436904fc7ec48690a384b63bd332417c inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memItemLeft" align="right" valign="top">virtual boost::optional&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#a436904fc7ec48690a384b63bd332417c">GetTrackMu2</a> ()</td></tr>
+<tr class="memdesc:a436904fc7ec48690a384b63bd332417c inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Friction coefficient in the second friction direction.  <a href="classgazebo_1_1TrackedVehiclePlugin.html#a436904fc7ec48690a384b63bd332417c">More...</a><br /></td></tr>
 <tr class="separator:a436904fc7ec48690a384b63bd332417c inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aead7889cb22fb89add3ea35d7235e1da inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#aead7889cb22fb89add3ea35d7235e1da">SetTrackMu2</a> (double _mu2)</td></tr>
-<tr class="memdesc:aead7889cb22fb89add3ea35d7235e1da inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Friction coefficient in the second friction direction.  <a href="classgazebo_1_1TrackedVehiclePlugin.html#aead7889cb22fb89add3ea35d7235e1da">More...</a><br /></td></tr>
-<tr class="separator:aead7889cb22fb89add3ea35d7235e1da inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a0d6398ed49e4f599aa5a548c781742 inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#a5a0d6398ed49e4f599aa5a548c781742">SetLinkMu</a> (const physics::LinkPtr &amp;_link)</td></tr>
-<tr class="memdesc:a5a0d6398ed49e4f599aa5a548c781742 inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set mu and mu2 of all collisions of the given link to values given by <a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#a8a2f3ee59db939b1d5e64cfeb998a81d" title="Friction coefficient in the first friction direction.">GetTrackMu()</a> and <a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#a436904fc7ec48690a384b63bd332417c" title="Friction coefficient in the second friction direction.">GetTrackMu2()</a>.  <a href="classgazebo_1_1TrackedVehiclePlugin.html#a5a0d6398ed49e4f599aa5a548c781742">More...</a><br /></td></tr>
-<tr class="separator:a5a0d6398ed49e4f599aa5a548c781742 inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7524adcbcdaa078afa0c2d0a1078bfe inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memItemLeft" align="right" valign="top"><a id="aa7524adcbcdaa078afa0c2d0a1078bfe"></a>
-virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#aa7524adcbcdaa078afa0c2d0a1078bfe">GetTracksSeparation</a> ()</td></tr>
-<tr class="memdesc:aa7524adcbcdaa078afa0c2d0a1078bfe inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distance between the centers of the tracks. <br /></td></tr>
+<tr class="memitem:aa7524adcbcdaa078afa0c2d0a1078bfe inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#aa7524adcbcdaa078afa0c2d0a1078bfe">GetTracksSeparation</a> ()</td></tr>
+<tr class="memdesc:aa7524adcbcdaa078afa0c2d0a1078bfe inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distance between the centers of the tracks.  <a href="classgazebo_1_1TrackedVehiclePlugin.html#aa7524adcbcdaa078afa0c2d0a1078bfe">More...</a><br /></td></tr>
 <tr class="separator:aa7524adcbcdaa078afa0c2d0a1078bfe inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf44a37e980b209e200e1707a1b29f86 inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#adf44a37e980b209e200e1707a1b29f86">SetTrackVelocity</a> (double _left, double _right)</td></tr>
-<tr class="memdesc:adf44a37e980b209e200e1707a1b29f86 inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set new target velocity for the tracks.  <a href="classgazebo_1_1TrackedVehiclePlugin.html#adf44a37e980b209e200e1707a1b29f86">More...</a><br /></td></tr>
-<tr class="separator:adf44a37e980b209e200e1707a1b29f86 inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a019f86e64713797f99b42d3dacabbd66 inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#a019f86e64713797f99b42d3dacabbd66">SetBodyVelocity</a> (double _linear, double _angular)</td></tr>
-<tr class="memdesc:a019f86e64713797f99b42d3dacabbd66 inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set new target velocity for the tracks based on the desired.  <a href="classgazebo_1_1TrackedVehiclePlugin.html#a019f86e64713797f99b42d3dacabbd66">More...</a><br /></td></tr>
-<tr class="separator:a019f86e64713797f99b42d3dacabbd66 inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad09a1f99721f777506423b87fc48c7a3 inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#ad09a1f99721f777506423b87fc48c7a3">OnVelMsg</a> (ConstPosePtr &amp;_msg) GAZEBO_DEPRECATED(9.0)</td></tr>
 <tr class="memdesc:ad09a1f99721f777506423b87fc48c7a3 inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback for setting desired body velocity.  <a href="classgazebo_1_1TrackedVehiclePlugin.html#ad09a1f99721f777506423b87fc48c7a3">More...</a><br /></td></tr>
 <tr class="separator:ad09a1f99721f777506423b87fc48c7a3 inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8da6d2dc93e502b1a4a1e0f42405272a inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#a8da6d2dc93e502b1a4a1e0f42405272a">OnVelMsg</a> (ConstTwistPtr &amp;_msg)</td></tr>
 <tr class="memdesc:a8da6d2dc93e502b1a4a1e0f42405272a inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback for setting desired body velocity.  <a href="classgazebo_1_1TrackedVehiclePlugin.html#a8da6d2dc93e502b1a4a1e0f42405272a">More...</a><br /></td></tr>
 <tr class="separator:a8da6d2dc93e502b1a4a1e0f42405272a inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a019f86e64713797f99b42d3dacabbd66 inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#a019f86e64713797f99b42d3dacabbd66">SetBodyVelocity</a> (double _linear, double _angular)</td></tr>
+<tr class="memdesc:a019f86e64713797f99b42d3dacabbd66 inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set new target velocity for the tracks based on the desired.  <a href="classgazebo_1_1TrackedVehiclePlugin.html#a019f86e64713797f99b42d3dacabbd66">More...</a><br /></td></tr>
+<tr class="separator:a019f86e64713797f99b42d3dacabbd66 inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a0d6398ed49e4f599aa5a548c781742 inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#a5a0d6398ed49e4f599aa5a548c781742">SetLinkMu</a> (const physics::LinkPtr &amp;_link)</td></tr>
+<tr class="memdesc:a5a0d6398ed49e4f599aa5a548c781742 inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set mu and mu2 of all collisions of the given link to values given by <a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#a8a2f3ee59db939b1d5e64cfeb998a81d" title="Friction coefficient in the first friction direction.">GetTrackMu()</a> and <a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#a436904fc7ec48690a384b63bd332417c" title="Friction coefficient in the second friction direction.">GetTrackMu2()</a>.  <a href="classgazebo_1_1TrackedVehiclePlugin.html#a5a0d6398ed49e4f599aa5a548c781742">More...</a><br /></td></tr>
+<tr class="separator:a5a0d6398ed49e4f599aa5a548c781742 inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfcd01c89014f3a46b4e6c922cd53d2b inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#adfcd01c89014f3a46b4e6c922cd53d2b">SetSteeringEfficiency</a> (double _steeringEfficiency)</td></tr>
+<tr class="memdesc:adfcd01c89014f3a46b4e6c922cd53d2b inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set steering efficiency coefficient (between 0.0 and 1.0).  <a href="classgazebo_1_1TrackedVehiclePlugin.html#adfcd01c89014f3a46b4e6c922cd53d2b">More...</a><br /></td></tr>
+<tr class="separator:adfcd01c89014f3a46b4e6c922cd53d2b inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bd16c62b8b325df9d847f7de9aade6d inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#a2bd16c62b8b325df9d847f7de9aade6d">SetTrackMu</a> (double _mu)</td></tr>
+<tr class="memdesc:a2bd16c62b8b325df9d847f7de9aade6d inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Friction coefficient in the first friction direction.  <a href="classgazebo_1_1TrackedVehiclePlugin.html#a2bd16c62b8b325df9d847f7de9aade6d">More...</a><br /></td></tr>
+<tr class="separator:a2bd16c62b8b325df9d847f7de9aade6d inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aead7889cb22fb89add3ea35d7235e1da inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#aead7889cb22fb89add3ea35d7235e1da">SetTrackMu2</a> (double _mu2)</td></tr>
+<tr class="memdesc:aead7889cb22fb89add3ea35d7235e1da inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Friction coefficient in the second friction direction.  <a href="classgazebo_1_1TrackedVehiclePlugin.html#aead7889cb22fb89add3ea35d7235e1da">More...</a><br /></td></tr>
+<tr class="separator:aead7889cb22fb89add3ea35d7235e1da inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf44a37e980b209e200e1707a1b29f86 inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#adf44a37e980b209e200e1707a1b29f86">SetTrackVelocity</a> (double _left, double _right)</td></tr>
+<tr class="memdesc:adf44a37e980b209e200e1707a1b29f86 inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set new target velocity for the tracks.  <a href="classgazebo_1_1TrackedVehiclePlugin.html#adf44a37e980b209e200e1707a1b29f86">More...</a><br /></td></tr>
+<tr class="separator:adf44a37e980b209e200e1707a1b29f86 inherit pro_methods_classgazebo_1_1TrackedVehiclePlugin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a5791c745470df8cff071636e38c002d5"><td class="memItemLeft" align="right" valign="top"><a id="a5791c745470df8cff071636e38c002d5"></a>
-physics::LinkPtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#a5791c745470df8cff071636e38c002d5">body</a></td></tr>
-<tr class="memdesc:a5791c745470df8cff071636e38c002d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Body of the robot. <br /></td></tr>
+<tr class="memitem:a5791c745470df8cff071636e38c002d5"><td class="memItemLeft" align="right" valign="top">physics::LinkPtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#a5791c745470df8cff071636e38c002d5">body</a></td></tr>
+<tr class="memdesc:a5791c745470df8cff071636e38c002d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Body of the robot.  <a href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#a5791c745470df8cff071636e38c002d5">More...</a><br /></td></tr>
 <tr class="separator:a5791c745470df8cff071636e38c002d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac90191a1ebc40153894438fcb419b10d"><td class="memItemLeft" align="right" valign="top"><a id="ac90191a1ebc40153894438fcb419b10d"></a>
-std::unordered_map&lt; Tracks, physics::LinkPtr &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#ac90191a1ebc40153894438fcb419b10d">tracks</a></td></tr>
-<tr class="memdesc:ac90191a1ebc40153894438fcb419b10d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The tracks controlled by this plugin. <br /></td></tr>
-<tr class="separator:ac90191a1ebc40153894438fcb419b10d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a188dbfbee4aaec4b89a29c2aed31ebd9"><td class="memItemLeft" align="right" valign="top"><a id="a188dbfbee4aaec4b89a29c2aed31ebd9"></a>
-std::unordered_map&lt; Tracks, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#a188dbfbee4aaec4b89a29c2aed31ebd9">trackVelocity</a></td></tr>
-<tr class="memdesc:a188dbfbee4aaec4b89a29c2aed31ebd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desired velocities of the tracks. <br /></td></tr>
-<tr class="separator:a188dbfbee4aaec4b89a29c2aed31ebd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e40efccd19d3ec34d95ede36f52a38c"><td class="memItemLeft" align="right" valign="top"><a id="a3e40efccd19d3ec34d95ede36f52a38c"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#a3e40efccd19d3ec34d95ede36f52a38c">collideWithoutContactBitmask</a></td></tr>
-<tr class="memdesc:a3e40efccd19d3ec34d95ede36f52a38c"><td class="mdescLeft">&#160;</td><td class="mdescRight">This bitmask will be set to the whole vehicle body. <br /></td></tr>
+<tr class="memitem:a3e40efccd19d3ec34d95ede36f52a38c"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#a3e40efccd19d3ec34d95ede36f52a38c">collideWithoutContactBitmask</a></td></tr>
+<tr class="memdesc:a3e40efccd19d3ec34d95ede36f52a38c"><td class="mdescLeft">&#160;</td><td class="mdescRight">This bitmask will be set to the whole vehicle body.  <a href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#a3e40efccd19d3ec34d95ede36f52a38c">More...</a><br /></td></tr>
 <tr class="separator:a3e40efccd19d3ec34d95ede36f52a38c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac90191a1ebc40153894438fcb419b10d"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; <a class="el" href="namespacegazebo.html#ab9be2e5ca13f5e72455d31bbdb81b537">Tracks</a>, physics::LinkPtr &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#ac90191a1ebc40153894438fcb419b10d">tracks</a></td></tr>
+<tr class="memdesc:ac90191a1ebc40153894438fcb419b10d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The tracks controlled by this plugin.  <a href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#ac90191a1ebc40153894438fcb419b10d">More...</a><br /></td></tr>
+<tr class="separator:ac90191a1ebc40153894438fcb419b10d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a188dbfbee4aaec4b89a29c2aed31ebd9"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; <a class="el" href="namespacegazebo.html#ab9be2e5ca13f5e72455d31bbdb81b537">Tracks</a>, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#a188dbfbee4aaec4b89a29c2aed31ebd9">trackVelocity</a></td></tr>
+<tr class="memdesc:a188dbfbee4aaec4b89a29c2aed31ebd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desired velocities of the tracks.  <a href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#a188dbfbee4aaec4b89a29c2aed31ebd9">More...</a><br /></td></tr>
+<tr class="separator:a188dbfbee4aaec4b89a29c2aed31ebd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classgazebo_1_1TrackedVehiclePlugin"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classgazebo_1_1TrackedVehiclePlugin')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html">gazebo::TrackedVehiclePlugin</a></td></tr>
-<tr class="memitem:a552db1bd0ee131652f9f897730666b87 inherit pro_attribs_classgazebo_1_1TrackedVehiclePlugin"><td class="memItemLeft" align="right" valign="top"><a id="a552db1bd0ee131652f9f897730666b87"></a>
-std::unordered_map&lt; Tracks, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#a552db1bd0ee131652f9f897730666b87">trackNames</a></td></tr>
-<tr class="memdesc:a552db1bd0ee131652f9f897730666b87 inherit pro_attribs_classgazebo_1_1TrackedVehiclePlugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Textual lowercase names of the tracks. <br /></td></tr>
-<tr class="separator:a552db1bd0ee131652f9f897730666b87 inherit pro_attribs_classgazebo_1_1TrackedVehiclePlugin"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9103a9a96665a5e26c23ec7e00148f42 inherit pro_attribs_classgazebo_1_1TrackedVehiclePlugin"><td class="memItemLeft" align="right" valign="top"><a id="a9103a9a96665a5e26c23ec7e00148f42"></a>
-std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#a9103a9a96665a5e26c23ec7e00148f42">mutex</a></td></tr>
-<tr class="memdesc:a9103a9a96665a5e26c23ec7e00148f42 inherit pro_attribs_classgazebo_1_1TrackedVehiclePlugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutex to protect updates. <br /></td></tr>
+<tr class="memitem:a9103a9a96665a5e26c23ec7e00148f42 inherit pro_attribs_classgazebo_1_1TrackedVehiclePlugin"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#a9103a9a96665a5e26c23ec7e00148f42">mutex</a></td></tr>
+<tr class="memdesc:a9103a9a96665a5e26c23ec7e00148f42 inherit pro_attribs_classgazebo_1_1TrackedVehiclePlugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutex to protect updates.  <a href="classgazebo_1_1TrackedVehiclePlugin.html#a9103a9a96665a5e26c23ec7e00148f42">More...</a><br /></td></tr>
 <tr class="separator:a9103a9a96665a5e26c23ec7e00148f42 inherit pro_attribs_classgazebo_1_1TrackedVehiclePlugin"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a552db1bd0ee131652f9f897730666b87 inherit pro_attribs_classgazebo_1_1TrackedVehiclePlugin"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; <a class="el" href="namespacegazebo.html#ab9be2e5ca13f5e72455d31bbdb81b537">Tracks</a>, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#a552db1bd0ee131652f9f897730666b87">trackNames</a></td></tr>
+<tr class="memdesc:a552db1bd0ee131652f9f897730666b87 inherit pro_attribs_classgazebo_1_1TrackedVehiclePlugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Textual lowercase names of the tracks.  <a href="classgazebo_1_1TrackedVehiclePlugin.html#a552db1bd0ee131652f9f897730666b87">More...</a><br /></td></tr>
+<tr class="separator:a552db1bd0ee131652f9f897730666b87 inherit pro_attribs_classgazebo_1_1TrackedVehiclePlugin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-attribs"></a>
 Static Protected Attributes</h2></td></tr>
-<tr class="memitem:a612a1b88e385d5d6d015ff7157d7173a"><td class="memItemLeft" align="right" valign="top"><a id="a612a1b88e385d5d6d015ff7157d7173a"></a>
-static const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#a612a1b88e385d5d6d015ff7157d7173a">ROBOT_CATEGORY</a> = 0x10000000</td></tr>
-<tr class="memdesc:a612a1b88e385d5d6d015ff7157d7173a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Category for the non-track parts of the robot. <br /></td></tr>
-<tr class="separator:a612a1b88e385d5d6d015ff7157d7173a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c111022999135f57ba07e243a220795"><td class="memItemLeft" align="right" valign="top"><a id="a0c111022999135f57ba07e243a220795"></a>
-static const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#a0c111022999135f57ba07e243a220795">BELT_CATEGORY</a> = 0x20000000</td></tr>
-<tr class="memdesc:a0c111022999135f57ba07e243a220795"><td class="mdescLeft">&#160;</td><td class="mdescRight">Category for tracks. <br /></td></tr>
+<tr class="memitem:a0c111022999135f57ba07e243a220795"><td class="memItemLeft" align="right" valign="top">static const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#a0c111022999135f57ba07e243a220795">BELT_CATEGORY</a> = 0x20000000</td></tr>
+<tr class="memdesc:a0c111022999135f57ba07e243a220795"><td class="mdescLeft">&#160;</td><td class="mdescRight">Category for tracks.  <a href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#a0c111022999135f57ba07e243a220795">More...</a><br /></td></tr>
 <tr class="separator:a0c111022999135f57ba07e243a220795"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9231345d7823b96c2555db8f1824af59"><td class="memItemLeft" align="right" valign="top"><a id="a9231345d7823b96c2555db8f1824af59"></a>
-static const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#a9231345d7823b96c2555db8f1824af59">LEFT_CATEGORY</a> = 0x40000000</td></tr>
-<tr class="memdesc:a9231345d7823b96c2555db8f1824af59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Category for all items on the left side. <br /></td></tr>
+<tr class="memitem:a9231345d7823b96c2555db8f1824af59"><td class="memItemLeft" align="right" valign="top">static const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#a9231345d7823b96c2555db8f1824af59">LEFT_CATEGORY</a> = 0x40000000</td></tr>
+<tr class="memdesc:a9231345d7823b96c2555db8f1824af59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Category for all items on the left side.  <a href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#a9231345d7823b96c2555db8f1824af59">More...</a><br /></td></tr>
 <tr class="separator:a9231345d7823b96c2555db8f1824af59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a612a1b88e385d5d6d015ff7157d7173a"><td class="memItemLeft" align="right" valign="top">static const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#a612a1b88e385d5d6d015ff7157d7173a">ROBOT_CATEGORY</a> = 0x10000000</td></tr>
+<tr class="memdesc:a612a1b88e385d5d6d015ff7157d7173a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Category for the non-track parts of the robot.  <a href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#a612a1b88e385d5d6d015ff7157d7173a">More...</a><br /></td></tr>
+<tr class="separator:a612a1b88e385d5d6d015ff7157d7173a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a6fd5c8fb08f0359058e98fe448a4d4d7"><td class="memItemLeft" align="right" valign="top">event::ConnectionPtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#a6fd5c8fb08f0359058e98fe448a4d4d7">beforePhysicsUpdateConnection</a></td></tr>
+<tr class="separator:a6fd5c8fb08f0359058e98fe448a4d4d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c51650bdb8b52f1cf284a9d2d949210"><td class="memItemLeft" align="right" valign="top">physics::ContactManager *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#a7c51650bdb8b52f1cf284a9d2d949210">contactManager</a></td></tr>
+<tr class="separator:a7c51650bdb8b52f1cf284a9d2d949210"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adaf26bb14c829541b694cf3644b92e71"><td class="memItemLeft" align="right" valign="top">transport::NodePtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1SimpleTrackedVehiclePlugin.html#adaf26bb14c829541b694cf3644b92e71">node</a></td></tr>
+<tr class="separator:adaf26bb14c829541b694cf3644b92e71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A very fast, but also very accurate model of non-deformable tracks without grousers. </p>
@@ -260,7 +259,58 @@ static const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a 
 <p>The motion model is based on adjusting motion1 in ODE contact properties and on computing Instantaneous Center of Rotation for a tracked vehicle. A detailed description of the model is given in <a href="https://arxiv.org/abs/1703.04316">https://arxiv.org/abs/1703.04316</a> .</p>
 <p>The plugin processes the following parameters, plus the common parameters defined in <a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html" title="An abstract gazebo model plugin for tracked vehicles.">TrackedVehiclePlugin</a>.</p>
 <p>&lt;body&gt; Body of the vehicle to which the two tracks are connected. &lt;left_track&gt; The left track link's name. &lt;right_track&gt; The right track link's name. &lt;left_flipper&gt; The name of a left flipper link. Can appear multiple times. &lt;right_flipper&gt; The name of a right flipper link. Can appear multiple times. &lt;collide_without_contact_bitmask&gt; Collision bitmask that will be set to the whole vehicle (default is 1u). </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a7005252f3b05ea9d9792674dddc19e45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7005252f3b05ea9d9792674dddc19e45">&#9670;&nbsp;</a></span>SimpleTrackedVehiclePlugin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">gazebo::SimpleTrackedVehiclePlugin::SimpleTrackedVehiclePlugin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a73984e877f49aeee217e50d977f81df9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73984e877f49aeee217e50d977f81df9">&#9670;&nbsp;</a></span>~SimpleTrackedVehiclePlugin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SimpleTrackedVehiclePlugin::~SimpleTrackedVehiclePlugin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="a523686bc1b29f4c140e0c491bbc2d488"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a523686bc1b29f4c140e0c491bbc2d488">&#9670;&nbsp;</a></span>ComputeFrictionDirection()</h2>
 
@@ -408,6 +458,82 @@ static const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a 
 
 </div>
 </div>
+<a id="a9a1bdf5411282294afba597e6d6782ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a1bdf5411282294afba597e6d6782ca">&#9670;&nbsp;</a></span>DriveTracks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SimpleTrackedVehiclePlugin::DriveTracks </td>
+          <td>(</td>
+          <td class="paramtype">const common::UpdateInfo &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compute and apply the forces that make the tracks move. </p>
+
+</div>
+</div>
+<a id="aa150aa94e854fa99e5f218561bdd9149"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa150aa94e854fa99e5f218561bdd9149">&#9670;&nbsp;</a></span>GetNumTracks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t SimpleTrackedVehiclePlugin::GetNumTracks </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacegazebo.html#ab9be2e5ca13f5e72455d31bbdb81b537">Tracks</a>&#160;</td>
+          <td class="paramname"><em>side</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return the number of tracks on the given side. </p>
+<p>Should always be at least 1 for the main track. If flippers are present, the number is higher. </p>
+
+</div>
+</div>
+<a id="aa53b94489f9bfafca1b42de710715355"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa53b94489f9bfafca1b42de710715355">&#9670;&nbsp;</a></span>Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SimpleTrackedVehiclePlugin::Init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initialize the plugin. </p>
+
+</div>
+</div>
 <a id="a7765ad7e7ed116e0919f4cc79d5de285"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7765ad7e7ed116e0919f4cc79d5de285">&#9670;&nbsp;</a></span>Load()</h2>
 
@@ -450,6 +576,33 @@ static const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a 
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="ae9c8af176b07a3f95444189b761a1d4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9c8af176b07a3f95444189b761a1d4f">&#9670;&nbsp;</a></span>Reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SimpleTrackedVehiclePlugin::Reset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reset the plugin. </p>
 
 </div>
 </div>
@@ -528,9 +681,273 @@ static const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a 
 
 </div>
 </div>
+<a id="a9f5b7f0117dd1d747675d67ac9929f72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f5b7f0117dd1d747675d67ac9929f72">&#9670;&nbsp;</a></span>UpdateTrackSurface()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SimpleTrackedVehiclePlugin::UpdateTrackSurface </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Update surface parameters of the tracks to correspond to the values set in this plugin. </p>
+
+<p>Implements <a class="el" href="classgazebo_1_1TrackedVehiclePlugin.html#af72212e41da3ada72bc5a09e2a71c2dd">gazebo::TrackedVehiclePlugin</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a6fd5c8fb08f0359058e98fe448a4d4d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fd5c8fb08f0359058e98fe448a4d4d7">&#9670;&nbsp;</a></span>beforePhysicsUpdateConnection</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">event::ConnectionPtr gazebo::SimpleTrackedVehiclePlugin::beforePhysicsUpdateConnection</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0c111022999135f57ba07e243a220795"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c111022999135f57ba07e243a220795">&#9670;&nbsp;</a></span>BELT_CATEGORY</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int gazebo::SimpleTrackedVehiclePlugin::BELT_CATEGORY = 0x20000000</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Category for tracks. </p>
+
+</div>
+</div>
+<a id="a5791c745470df8cff071636e38c002d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5791c745470df8cff071636e38c002d5">&#9670;&nbsp;</a></span>body</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">physics::LinkPtr gazebo::SimpleTrackedVehiclePlugin::body</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Body of the robot. </p>
+
+</div>
+</div>
+<a id="a3e40efccd19d3ec34d95ede36f52a38c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e40efccd19d3ec34d95ede36f52a38c">&#9670;&nbsp;</a></span>collideWithoutContactBitmask</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int gazebo::SimpleTrackedVehiclePlugin::collideWithoutContactBitmask</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This bitmask will be set to the whole vehicle body. </p>
+
+</div>
+</div>
+<a id="a7c51650bdb8b52f1cf284a9d2d949210"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c51650bdb8b52f1cf284a9d2d949210">&#9670;&nbsp;</a></span>contactManager</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">physics::ContactManager* gazebo::SimpleTrackedVehiclePlugin::contactManager</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9231345d7823b96c2555db8f1824af59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9231345d7823b96c2555db8f1824af59">&#9670;&nbsp;</a></span>LEFT_CATEGORY</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int gazebo::SimpleTrackedVehiclePlugin::LEFT_CATEGORY = 0x40000000</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Category for all items on the left side. </p>
+
+</div>
+</div>
+<a id="adaf26bb14c829541b694cf3644b92e71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adaf26bb14c829541b694cf3644b92e71">&#9670;&nbsp;</a></span>node</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">transport::NodePtr gazebo::SimpleTrackedVehiclePlugin::node</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a612a1b88e385d5d6d015ff7157d7173a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a612a1b88e385d5d6d015ff7157d7173a">&#9670;&nbsp;</a></span>ROBOT_CATEGORY</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int gazebo::SimpleTrackedVehiclePlugin::ROBOT_CATEGORY = 0x10000000</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Category for the non-track parts of the robot. </p>
+
+</div>
+</div>
+<a id="ac90191a1ebc40153894438fcb419b10d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac90191a1ebc40153894438fcb419b10d">&#9670;&nbsp;</a></span>tracks</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;<a class="el" href="namespacegazebo.html#ab9be2e5ca13f5e72455d31bbdb81b537">Tracks</a>, physics::LinkPtr&gt; gazebo::SimpleTrackedVehiclePlugin::tracks</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The tracks controlled by this plugin. </p>
+
+</div>
+</div>
+<a id="a188dbfbee4aaec4b89a29c2aed31ebd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a188dbfbee4aaec4b89a29c2aed31ebd9">&#9670;&nbsp;</a></span>trackVelocity</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;<a class="el" href="namespacegazebo.html#ab9be2e5ca13f5e72455d31bbdb81b537">Tracks</a>, double&gt; gazebo::SimpleTrackedVehiclePlugin::trackVelocity</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Desired velocities of the tracks. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/jonathan/OmniDev/src/omniveyor_gazebo_world/include/omniveyor_gazebo_world/<a class="el" href="SimpleTrackedVehiclePlugin__ROS_8hh_source.html">SimpleTrackedVehiclePlugin_ROS.hh</a></li>
-<li>/home/jonathan/OmniDev/src/omniveyor_gazebo_world/src/SimpleTrackedVehiclePlugin_ROS.cc</li>
+<li>/home/jonathan/OmniDev/src/omniveyor_gazebo_world/src/<a class="el" href="SimpleTrackedVehiclePlugin__ROS_8cc.html">SimpleTrackedVehiclePlugin_ROS.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

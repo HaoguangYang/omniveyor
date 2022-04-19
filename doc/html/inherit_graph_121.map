@@ -1,5 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classRMLOutputParameters.html" title="Class for the output parameters of the On&#45;Line Trajectory Generation algorithm." alt="" coords="5,31,175,57"/>
-<area shape="rect" id="node2" href="$classRMLPositionOutputParameters.html" title="Class for the output parameters of the position&#45;based On&#45;Line Trajectory Generation algorithm." alt="" coords="223,5,444,32"/>
-<area shape="rect" id="node3" href="$classRMLVelocityOutputParameters.html" title="Class for the output parameters of the velocity&#45;based On&#45;Line Trajectory Generation algorithm." alt="" coords="223,56,444,83"/>
+<area shape="rect" id="node1" href="$classQCPItemAnchor.html" title="An anchor of an item to which positions can be attached to." alt="" coords="5,5,129,32"/>
+<area shape="rect" id="node2" href="$classQCPItemPosition.html" title="Manages the position of an item." alt="" coords="177,5,308,32"/>
 </map>

@@ -70,7 +70,7 @@ $(function() {
 <div class="title">CO_message.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef CO_MESSAGE_H</span></div>
+<a href="CO__message_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef CO_MESSAGE_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define CO_MESSAGE_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/* cpp - c cross compilation */</span></div>
@@ -84,69 +84,69 @@ $(function() {
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">/* Defintions for CANopen command byte used in the first byte of the data</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">   in the CAN frame */</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#define CO_WRITE_Req_W      (0x23)</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#define CO_WRITE_Req_HW     (0x2B)</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#define CO_WRITE_Req_B      (0x2F)</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define CO_WRITE_Ack        (0x60)</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#define CO_READ_Req         (0x40)</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#define CO_READ_Ack_W       (0x43)</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#define CO_READ_Ack_HW      (0x4B)</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#define CO_READ_Ack_B       (0x4F)</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="CO__message_8h.html#ab0081f2c293c4f1bfcf0deb3ca902536">   15</a></span>&#160;<span class="preprocessor">#define CO_WRITE_Req_W      (0x23)</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="CO__message_8h.html#a881739093d990809c4d8183102a392dd">   16</a></span>&#160;<span class="preprocessor">#define CO_WRITE_Req_HW     (0x2B)</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="CO__message_8h.html#af51b39ae81ef24f066c90bf04a4b1a98">   17</a></span>&#160;<span class="preprocessor">#define CO_WRITE_Req_B      (0x2F)</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="CO__message_8h.html#a90411c5951873890fae2ebaed5e0237c">   18</a></span>&#160;<span class="preprocessor">#define CO_WRITE_Ack        (0x60)</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="CO__message_8h.html#a2530bda4fa1425c7b564b093ffa79d37">   19</a></span>&#160;<span class="preprocessor">#define CO_READ_Req         (0x40)</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="CO__message_8h.html#a0d835a9e1c371f8ec291aad94d15b478">   20</a></span>&#160;<span class="preprocessor">#define CO_READ_Ack_W       (0x43)</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="CO__message_8h.html#a5feffb053a350628669faef5a88a0400">   21</a></span>&#160;<span class="preprocessor">#define CO_READ_Ack_HW      (0x4B)</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="CO__message_8h.html#ae4ab2886f6293c17d60f9c05777edd38">   22</a></span>&#160;<span class="preprocessor">#define CO_READ_Ack_B       (0x4F)</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">enum</span> CO_msg_type</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="CO__message_8h.html#adc6a5ea4e7d74da567606663184bb8c0">   24</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="CO__message_8h.html#adc6a5ea4e7d74da567606663184bb8c0">CO_msg_type</a></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    SDO_Rx,</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    SDO_Tx,</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    RPDO,</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    TPDO,</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    NMT,</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    SYNC</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="CO__message_8h.html#adc6a5ea4e7d74da567606663184bb8c0ad121d4519b7c3486d6b9ff641d007cdd">   26</a></span>&#160;    <a class="code" href="CO__message_8h.html#adc6a5ea4e7d74da567606663184bb8c0ad121d4519b7c3486d6b9ff641d007cdd">SDO_Rx</a>,</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="CO__message_8h.html#adc6a5ea4e7d74da567606663184bb8c0abb5e7ef1ca1a4daa44a60ca195054dfe">   27</a></span>&#160;    <a class="code" href="CO__message_8h.html#adc6a5ea4e7d74da567606663184bb8c0abb5e7ef1ca1a4daa44a60ca195054dfe">SDO_Tx</a>,</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="CO__message_8h.html#adc6a5ea4e7d74da567606663184bb8c0a74330bce387b9b15d4ed87a0c20a0827">   28</a></span>&#160;    <a class="code" href="CO__message_8h.html#adc6a5ea4e7d74da567606663184bb8c0a74330bce387b9b15d4ed87a0c20a0827">RPDO</a>,</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="CO__message_8h.html#adc6a5ea4e7d74da567606663184bb8c0ab66c40991bbcdedf5b42278aaf8d3ca1">   29</a></span>&#160;    <a class="code" href="CO__message_8h.html#adc6a5ea4e7d74da567606663184bb8c0ab66c40991bbcdedf5b42278aaf8d3ca1">TPDO</a>,</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="CO__message_8h.html#adc6a5ea4e7d74da567606663184bb8c0a0a9ff8476ef47cf5288d21fdb45f347d">   30</a></span>&#160;    <a class="code" href="CO__message_8h.html#adc6a5ea4e7d74da567606663184bb8c0a0a9ff8476ef47cf5288d21fdb45f347d">NMT</a>,</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="CO__message_8h.html#adc6a5ea4e7d74da567606663184bb8c0a447bfe7992c2fe70bfe561225f74d379">   31</a></span>&#160;    <a class="code" href="CO__message_8h.html#adc6a5ea4e7d74da567606663184bb8c0a447bfe7992c2fe70bfe561225f74d379">SYNC</a></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;};</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">/* struct for sending a Service Data Object (SDO) message, data and sz_data fields are ignored </span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">   when attempting to read an object */</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="structSDO__message.html">   36</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structSDO__message.html">SDO_message</a></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    uint16_t index;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    uint8_t subindex;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    uint32_t data;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    uint8_t sz_data;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="structSDO__message.html#ab51820a1461565e02bfc5871817fb21e">   38</a></span>&#160;    uint16_t <a class="code" href="structSDO__message.html#ab51820a1461565e02bfc5871817fb21e">index</a>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="structSDO__message.html#a598e292233c4229e2ae5c37e26a70214">   39</a></span>&#160;    uint8_t <a class="code" href="structSDO__message.html#a598e292233c4229e2ae5c37e26a70214">subindex</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="structSDO__message.html#acd49382929b11fdbd2c2a96d1cce9cfe">   40</a></span>&#160;    uint32_t <a class="code" href="structSDO__message.html#acd49382929b11fdbd2c2a96d1cce9cfe">data</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="structSDO__message.html#ab9e7d8903225246b4703cee657acd1fe">   41</a></span>&#160;    uint8_t <a class="code" href="structSDO__message.html#ab9e7d8903225246b4703cee657acd1fe">sz_data</a>;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;};</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">/* struct for sending a Process Data Object (PDO) message */</span></div>
 <div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="structPDO__message.html">   45</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structPDO__message.html">PDO_message</a></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    uint8_t PDO_Num;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    uint64_t data;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    uint8_t sz_data;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="structPDO__message.html#aaad5d588acc18a8091c274d029fb68c2">   47</a></span>&#160;    uint8_t <a class="code" href="structPDO__message.html#aaad5d588acc18a8091c274d029fb68c2">PDO_Num</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="structPDO__message.html#a0ff955feeadf5769c1b2344281b36090">   48</a></span>&#160;    uint64_t <a class="code" href="structPDO__message.html#a0ff955feeadf5769c1b2344281b36090">data</a>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="structPDO__message.html#aff79d5a420e82f22a0b1144cfed5440e">   49</a></span>&#160;    uint8_t <a class="code" href="structPDO__message.html#aff79d5a420e82f22a0b1144cfed5440e">sz_data</a>;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;};</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">/* struct for sending an NMT message */</span></div>
 <div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="structNMT__message.html">   53</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structNMT__message.html">NMT_message</a></div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;{</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    uint8_t data;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="structNMT__message.html#a62d41063de4e62759319356cd091885c">   55</a></span>&#160;    uint8_t <a class="code" href="structNMT__message.html#a62d41063de4e62759319356cd091885c">data</a>;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;};</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">/* union for the CO_Message object, the type is mutually exclusive so using</span></div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">   a union is appropriate */</span></div>
 <div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="unionmessage.html">   60</a></span>&#160;<span class="keyword">union </span><a class="code" href="unionmessage.html">message</a></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;{</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">struct </span><a class="code" href="structSDO__message.html">SDO_message</a>  SDO;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keyword">struct </span><a class="code" href="structPDO__message.html">PDO_message</a>  PDO;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">struct </span><a class="code" href="structNMT__message.html">NMT_message</a>  NMT;</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="unionmessage.html#a03434599fa9d49a46423f40aa23c4933">   62</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structSDO__message.html">SDO_message</a>  <a class="code" href="unionmessage.html#a03434599fa9d49a46423f40aa23c4933">SDO</a>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="unionmessage.html#ada4739e2a60c0c1261dbb66587fee0e4">   63</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structPDO__message.html">PDO_message</a>  <a class="code" href="unionmessage.html#ada4739e2a60c0c1261dbb66587fee0e4">PDO</a>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="unionmessage.html#aa0a18717b5f6ef868477fa55f6e3f0a3">   64</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structNMT__message.html">NMT_message</a>  <a class="code" href="unionmessage.html#aa0a18717b5f6ef868477fa55f6e3f0a3">NMT</a>;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;};</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
 <div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="structCO__message.html">   67</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structCO__message.html">CO_message</a></div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;{</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">enum</span> CO_msg_type type;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">union </span><a class="code" href="unionmessage.html">message</a> m;</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="structCO__message.html#a4bcc6adb54c20fa076be35bc9b62c60a">   69</a></span>&#160;    <span class="keyword">enum</span> <a class="code" href="CO__message_8h.html#adc6a5ea4e7d74da567606663184bb8c0">CO_msg_type</a> <a class="code" href="structCO__message.html#a4bcc6adb54c20fa076be35bc9b62c60a">type</a>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="structCO__message.html#a826bcce94f74ea9f762e304f181d8c42">   70</a></span>&#160;    <span class="keyword">union </span><a class="code" href="unionmessage.html">message</a> <a class="code" href="structCO__message.html#a826bcce94f74ea9f762e304f181d8c42">m</a>;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;};</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">/* function to send a CANopen message, only transmission is handled with</span></div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">   this function, it does not check for proper reception of the message</span></div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">   by the remote node, ,motor_no = 0 is a broadcast for NMT messages */</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keywordtype">void</span> CO_send_message (<span class="keywordtype">int</span> s, uint8_t motor_no, <span class="keyword">const</span> <span class="keyword">struct</span> <a class="code" href="structCO__message.html">CO_message</a> *msg);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keywordtype">void</span> CO_Set_bitrate (<span class="keywordtype">int</span> s, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> br);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keywordtype">void</span> <a class="code" href="CO__message_8h.html#a6110cdbda2470d4b5b91a85210160356">CO_send_message</a> (<span class="keywordtype">int</span> s, uint8_t motor_no, <span class="keyword">const</span> <span class="keyword">struct</span> <a class="code" href="structCO__message.html">CO_message</a> *msg);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keywordtype">void</span> <a class="code" href="CO__message_8h.html#aba773c32d9892782746a3ec5da592096">CO_Set_bitrate</a> (<span class="keywordtype">int</span> s, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> br);</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">/* cpp - c cross compilation */</span></div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
@@ -155,11 +155,33 @@ $(function() {
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aCO__message_8h_html_adc6a5ea4e7d74da567606663184bb8c0abb5e7ef1ca1a4daa44a60ca195054dfe"><div class="ttname"><a href="CO__message_8h.html#adc6a5ea4e7d74da567606663184bb8c0abb5e7ef1ca1a4daa44a60ca195054dfe">SDO_Tx</a></div><div class="ttdeci">@ SDO_Tx</div><div class="ttdef"><b>Definition:</b> CO_message.h:27</div></div>
 <div class="ttc" id="aunionmessage_html"><div class="ttname"><a href="unionmessage.html">message</a></div><div class="ttdef"><b>Definition:</b> CO_message.h:60</div></div>
+<div class="ttc" id="aCO__message_8h_html_adc6a5ea4e7d74da567606663184bb8c0"><div class="ttname"><a href="CO__message_8h.html#adc6a5ea4e7d74da567606663184bb8c0">CO_msg_type</a></div><div class="ttdeci">CO_msg_type</div><div class="ttdef"><b>Definition:</b> CO_message.h:24</div></div>
+<div class="ttc" id="astructSDO__message_html_a598e292233c4229e2ae5c37e26a70214"><div class="ttname"><a href="structSDO__message.html#a598e292233c4229e2ae5c37e26a70214">SDO_message::subindex</a></div><div class="ttdeci">uint8_t subindex</div><div class="ttdef"><b>Definition:</b> CO_message.h:39</div></div>
+<div class="ttc" id="astructSDO__message_html_ab9e7d8903225246b4703cee657acd1fe"><div class="ttname"><a href="structSDO__message.html#ab9e7d8903225246b4703cee657acd1fe">SDO_message::sz_data</a></div><div class="ttdeci">uint8_t sz_data</div><div class="ttdef"><b>Definition:</b> CO_message.h:41</div></div>
+<div class="ttc" id="aCO__message_8h_html_adc6a5ea4e7d74da567606663184bb8c0a74330bce387b9b15d4ed87a0c20a0827"><div class="ttname"><a href="CO__message_8h.html#adc6a5ea4e7d74da567606663184bb8c0a74330bce387b9b15d4ed87a0c20a0827">RPDO</a></div><div class="ttdeci">@ RPDO</div><div class="ttdef"><b>Definition:</b> CO_message.h:28</div></div>
+<div class="ttc" id="astructCO__message_html_a826bcce94f74ea9f762e304f181d8c42"><div class="ttname"><a href="structCO__message.html#a826bcce94f74ea9f762e304f181d8c42">CO_message::m</a></div><div class="ttdeci">union message m</div><div class="ttdef"><b>Definition:</b> CO_message.h:70</div></div>
+<div class="ttc" id="astructSDO__message_html_acd49382929b11fdbd2c2a96d1cce9cfe"><div class="ttname"><a href="structSDO__message.html#acd49382929b11fdbd2c2a96d1cce9cfe">SDO_message::data</a></div><div class="ttdeci">uint32_t data</div><div class="ttdef"><b>Definition:</b> CO_message.h:40</div></div>
+<div class="ttc" id="astructCO__message_html_a4bcc6adb54c20fa076be35bc9b62c60a"><div class="ttname"><a href="structCO__message.html#a4bcc6adb54c20fa076be35bc9b62c60a">CO_message::type</a></div><div class="ttdeci">enum CO_msg_type type</div><div class="ttdef"><b>Definition:</b> CO_message.h:69</div></div>
+<div class="ttc" id="aunionmessage_html_aa0a18717b5f6ef868477fa55f6e3f0a3"><div class="ttname"><a href="unionmessage.html#aa0a18717b5f6ef868477fa55f6e3f0a3">message::NMT</a></div><div class="ttdeci">struct NMT_message NMT</div><div class="ttdef"><b>Definition:</b> CO_message.h:64</div></div>
+<div class="ttc" id="aCO__message_8h_html_adc6a5ea4e7d74da567606663184bb8c0ab66c40991bbcdedf5b42278aaf8d3ca1"><div class="ttname"><a href="CO__message_8h.html#adc6a5ea4e7d74da567606663184bb8c0ab66c40991bbcdedf5b42278aaf8d3ca1">TPDO</a></div><div class="ttdeci">@ TPDO</div><div class="ttdef"><b>Definition:</b> CO_message.h:29</div></div>
+<div class="ttc" id="aunionmessage_html_ada4739e2a60c0c1261dbb66587fee0e4"><div class="ttname"><a href="unionmessage.html#ada4739e2a60c0c1261dbb66587fee0e4">message::PDO</a></div><div class="ttdeci">struct PDO_message PDO</div><div class="ttdef"><b>Definition:</b> CO_message.h:63</div></div>
+<div class="ttc" id="astructPDO__message_html_aff79d5a420e82f22a0b1144cfed5440e"><div class="ttname"><a href="structPDO__message.html#aff79d5a420e82f22a0b1144cfed5440e">PDO_message::sz_data</a></div><div class="ttdeci">uint8_t sz_data</div><div class="ttdef"><b>Definition:</b> CO_message.h:49</div></div>
+<div class="ttc" id="aunionmessage_html_a03434599fa9d49a46423f40aa23c4933"><div class="ttname"><a href="unionmessage.html#a03434599fa9d49a46423f40aa23c4933">message::SDO</a></div><div class="ttdeci">struct SDO_message SDO</div><div class="ttdef"><b>Definition:</b> CO_message.h:62</div></div>
 <div class="ttc" id="astructPDO__message_html"><div class="ttname"><a href="structPDO__message.html">PDO_message</a></div><div class="ttdef"><b>Definition:</b> CO_message.h:45</div></div>
+<div class="ttc" id="aCO__message_8h_html_adc6a5ea4e7d74da567606663184bb8c0a0a9ff8476ef47cf5288d21fdb45f347d"><div class="ttname"><a href="CO__message_8h.html#adc6a5ea4e7d74da567606663184bb8c0a0a9ff8476ef47cf5288d21fdb45f347d">NMT</a></div><div class="ttdeci">@ NMT</div><div class="ttdef"><b>Definition:</b> CO_message.h:30</div></div>
+<div class="ttc" id="aCO__message_8h_html_adc6a5ea4e7d74da567606663184bb8c0ad121d4519b7c3486d6b9ff641d007cdd"><div class="ttname"><a href="CO__message_8h.html#adc6a5ea4e7d74da567606663184bb8c0ad121d4519b7c3486d6b9ff641d007cdd">SDO_Rx</a></div><div class="ttdeci">@ SDO_Rx</div><div class="ttdef"><b>Definition:</b> CO_message.h:26</div></div>
+<div class="ttc" id="aCO__message_8h_html_aba773c32d9892782746a3ec5da592096"><div class="ttname"><a href="CO__message_8h.html#aba773c32d9892782746a3ec5da592096">CO_Set_bitrate</a></div><div class="ttdeci">void CO_Set_bitrate(int s, unsigned int br)</div><div class="ttdef"><b>Definition:</b> CO_message.c:132</div></div>
+<div class="ttc" id="aCO__message_8h_html_adc6a5ea4e7d74da567606663184bb8c0a447bfe7992c2fe70bfe561225f74d379"><div class="ttname"><a href="CO__message_8h.html#adc6a5ea4e7d74da567606663184bb8c0a447bfe7992c2fe70bfe561225f74d379">SYNC</a></div><div class="ttdeci">@ SYNC</div><div class="ttdef"><b>Definition:</b> CO_message.h:31</div></div>
+<div class="ttc" id="astructSDO__message_html_ab51820a1461565e02bfc5871817fb21e"><div class="ttname"><a href="structSDO__message.html#ab51820a1461565e02bfc5871817fb21e">SDO_message::index</a></div><div class="ttdeci">uint16_t index</div><div class="ttdef"><b>Definition:</b> CO_message.h:38</div></div>
+<div class="ttc" id="astructNMT__message_html_a62d41063de4e62759319356cd091885c"><div class="ttname"><a href="structNMT__message.html#a62d41063de4e62759319356cd091885c">NMT_message::data</a></div><div class="ttdeci">uint8_t data</div><div class="ttdef"><b>Definition:</b> CO_message.h:55</div></div>
 <div class="ttc" id="astructSDO__message_html"><div class="ttname"><a href="structSDO__message.html">SDO_message</a></div><div class="ttdef"><b>Definition:</b> CO_message.h:36</div></div>
+<div class="ttc" id="astructPDO__message_html_a0ff955feeadf5769c1b2344281b36090"><div class="ttname"><a href="structPDO__message.html#a0ff955feeadf5769c1b2344281b36090">PDO_message::data</a></div><div class="ttdeci">uint64_t data</div><div class="ttdef"><b>Definition:</b> CO_message.h:48</div></div>
 <div class="ttc" id="astructNMT__message_html"><div class="ttname"><a href="structNMT__message.html">NMT_message</a></div><div class="ttdef"><b>Definition:</b> CO_message.h:53</div></div>
+<div class="ttc" id="aCO__message_8h_html_a6110cdbda2470d4b5b91a85210160356"><div class="ttname"><a href="CO__message_8h.html#a6110cdbda2470d4b5b91a85210160356">CO_send_message</a></div><div class="ttdeci">void CO_send_message(int s, uint8_t motor_no, const struct CO_message *msg)</div><div class="ttdef"><b>Definition:</b> CO_message.c:37</div></div>
 <div class="ttc" id="astructCO__message_html"><div class="ttname"><a href="structCO__message.html">CO_message</a></div><div class="ttdef"><b>Definition:</b> CO_message.h:67</div></div>
+<div class="ttc" id="astructPDO__message_html_aaad5d588acc18a8091c274d029fb68c2"><div class="ttname"><a href="structPDO__message.html#aaad5d588acc18a8091c274d029fb68c2">PDO_message::PDO_Num</a></div><div class="ttdeci">uint8_t PDO_Num</div><div class="ttdef"><b>Definition:</b> CO_message.h:47</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

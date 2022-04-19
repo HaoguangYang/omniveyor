@@ -70,7 +70,7 @@ $(function() {
 <div class="title">frustum.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*********************************************************************</span></div>
+<a href="frustum_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*********************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> * Software License Agreement</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *</span></div>
@@ -128,69 +128,85 @@ $(function() {
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">// ROS</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#include &lt;ros/ros.h&gt;</span></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">namespace </span>geometry</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacegeometry.html">geometry</a></div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;{</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">// A structure for maintaining vectors and points in world spaces</span></div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">struct </span>VectorWithPt3D</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;{</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  VectorWithPt3D(<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; x_, <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; y_, \</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <a class="code" href="structgeometry_1_1VectorWithPt3D.html#abb03084405fd590cea7fed03f263cb95">VectorWithPt3D</a>(<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; x_, <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; y_, \</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                 <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; z_, <span class="keyword">const</span> Eigen::Vector3d&amp; p0) : \</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                 x(x_), y(y_), z(z_), initial_point(p0)</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                 <a class="code" href="structgeometry_1_1VectorWithPt3D.html#a2db31961b090b075ece82ed3a54c13f6">x</a>(x_), <a class="code" href="structgeometry_1_1VectorWithPt3D.html#ab7a0918e3e8bb4b8ad79d2846f518945">y</a>(y_), <a class="code" href="structgeometry_1_1VectorWithPt3D.html#a5217383904d8df982b9d4170e3e2aec9">z</a>(z_), <a class="code" href="structgeometry_1_1VectorWithPt3D.html#a28cef3e1b8100cc2c39474066e027e94">initial_point</a>(p0)</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  {</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  }</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  VectorWithPt3D(<span class="keywordtype">void</span>) : x(0.), y(0.), z(0.)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <a class="code" href="structgeometry_1_1VectorWithPt3D.html#abb03084405fd590cea7fed03f263cb95">VectorWithPt3D</a>(<span class="keywordtype">void</span>) : <a class="code" href="structgeometry_1_1VectorWithPt3D.html#a2db31961b090b075ece82ed3a54c13f6">x</a>(0.), <a class="code" href="structgeometry_1_1VectorWithPt3D.html#ab7a0918e3e8bb4b8ad79d2846f518945">y</a>(0.), <a class="code" href="structgeometry_1_1VectorWithPt3D.html#a5217383904d8df982b9d4170e3e2aec9">z</a>(0.)</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  {</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  }</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="keyword">inline</span> VectorWithPt3D operator*(<span class="keywordtype">double</span> a)</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="keyword">inline</span> <a class="code" href="structgeometry_1_1VectorWithPt3D.html#abb03084405fd590cea7fed03f263cb95">VectorWithPt3D</a> <a class="code" href="structgeometry_1_1VectorWithPt3D.html#a2d65c91dd67e29d99a688fe9ec4db6f4">operator*</a>(<span class="keywordtype">double</span> a)</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  {</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">return</span> VectorWithPt3D(a*x, a*y, a*z, initial_point);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="structgeometry_1_1VectorWithPt3D.html#abb03084405fd590cea7fed03f263cb95">VectorWithPt3D</a>(a*<a class="code" href="structgeometry_1_1VectorWithPt3D.html#a2db31961b090b075ece82ed3a54c13f6">x</a>, a*<a class="code" href="structgeometry_1_1VectorWithPt3D.html#ab7a0918e3e8bb4b8ad79d2846f518945">y</a>, a*<a class="code" href="structgeometry_1_1VectorWithPt3D.html#a5217383904d8df982b9d4170e3e2aec9">z</a>, <a class="code" href="structgeometry_1_1VectorWithPt3D.html#a28cef3e1b8100cc2c39474066e027e94">initial_point</a>);</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  }</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <span class="comment">// given a transform, transform its information</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keywordtype">void</span> TransformFrames(<span class="keyword">const</span> Eigen::Affine3d&amp; homogeneous_transform)</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="structgeometry_1_1VectorWithPt3D.html#aed3c79b56bec45e40305bff9870bdb96">TransformFrames</a>(<span class="keyword">const</span> Eigen::Affine3d&amp; homogeneous_transform)</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  {</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    Eigen::Vector3d vec_t = homogeneous_transform.rotation() * Eigen::Vector3d(x,y,z);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    Eigen::Vector3d vec_t = homogeneous_transform.rotation() * Eigen::Vector3d(<a class="code" href="structgeometry_1_1VectorWithPt3D.html#a2db31961b090b075ece82ed3a54c13f6">x</a>,<a class="code" href="structgeometry_1_1VectorWithPt3D.html#ab7a0918e3e8bb4b8ad79d2846f518945">y</a>,<a class="code" href="structgeometry_1_1VectorWithPt3D.html#a5217383904d8df982b9d4170e3e2aec9">z</a>);</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    vec_t.normalize();</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    x = vec_t[0]; y = vec_t[1]; z = vec_t[2];</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    initial_point = homogeneous_transform * initial_point;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <a class="code" href="structgeometry_1_1VectorWithPt3D.html#a2db31961b090b075ece82ed3a54c13f6">x</a> = vec_t[0]; <a class="code" href="structgeometry_1_1VectorWithPt3D.html#ab7a0918e3e8bb4b8ad79d2846f518945">y</a> = vec_t[1]; <a class="code" href="structgeometry_1_1VectorWithPt3D.html#a5217383904d8df982b9d4170e3e2aec9">z</a> = vec_t[2];</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <a class="code" href="structgeometry_1_1VectorWithPt3D.html#a28cef3e1b8100cc2c39474066e027e94">initial_point</a> = homogeneous_transform * <a class="code" href="structgeometry_1_1VectorWithPt3D.html#a28cef3e1b8100cc2c39474066e027e94">initial_point</a>;</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  }</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="keywordtype">double</span> x, y, z;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  Eigen::Vector3d initial_point;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="keywordtype">double</span> <a class="code" href="structgeometry_1_1VectorWithPt3D.html#a2db31961b090b075ece82ed3a54c13f6">x</a>, <a class="code" href="structgeometry_1_1VectorWithPt3D.html#ab7a0918e3e8bb4b8ad79d2846f518945">y</a>, <a class="code" href="structgeometry_1_1VectorWithPt3D.html#a5217383904d8df982b9d4170e3e2aec9">z</a>;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  Eigen::Vector3d <a class="code" href="structgeometry_1_1VectorWithPt3D.html#a28cef3e1b8100cc2c39474066e027e94">initial_point</a>;</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;};</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">// A class to model a depth sensor frustum in world space</span></div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keyword">class </span>Frustum</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;{</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  Frustum() {};</div>
-<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="structgeometry_1_1VectorWithPt3D.html">   99</a></span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="classgeometry_1_1Frustum.html">Frustum</a>(<span class="keywordtype">void</span>) {};</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <a class="code" href="classgeometry_1_1Frustum.html#a80b2a1b649a26ab5dfe2386a79ec635d">Frustum</a>() {};</div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="structgeometry_1_1VectorWithPt3D.html">   99</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="classgeometry_1_1Frustum.html#ae6b1a2bf3164f382829bcab26f162f57">~Frustum</a>(<span class="keywordtype">void</span>) {};</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  <span class="comment">// determine if a point is inside of the transformed frustum</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> IsInside(<span class="keyword">const</span> openvdb::Vec3d&amp; pt) = 0;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classgeometry_1_1Frustum.html#ad3c0ffe136e678272d8c76471fc30111">IsInside</a>(<span class="keyword">const</span> openvdb::Vec3d&amp; pt) = 0;</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  <span class="comment">// set pose of depth camera in global space</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetPosition(<span class="keyword">const</span> geometry_msgs::Point&amp; origin) = 0;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetOrientation(<span class="keyword">const</span> geometry_msgs::Quaternion&amp; quat) = 0;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classgeometry_1_1Frustum.html#ae072694af39fd01cf6001406b067c89d">SetPosition</a>(<span class="keyword">const</span> geometry_msgs::Point&amp; origin) = 0;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classgeometry_1_1Frustum.html#adf1f45fbadb70ea9bc0620c441f3312c">SetOrientation</a>(<span class="keyword">const</span> geometry_msgs::Quaternion&amp; quat) = 0;</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  <span class="comment">// transform model to the current coordinates</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> TransformModel(<span class="keywordtype">void</span>) = 0;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classgeometry_1_1Frustum.html#afe93e08fa0970f980d80a81036a3d083">TransformModel</a>(<span class="keywordtype">void</span>) = 0;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  Eigen::Vector3d _position;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  Eigen::Quaterniond _orientation;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  <span class="keywordtype">bool</span> _valid_frustum;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  Eigen::Vector3d <a class="code" href="classgeometry_1_1Frustum.html#ae31faf3d31181609d0ad23a94ed236c4">_position</a>;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  Eigen::Quaterniond <a class="code" href="classgeometry_1_1Frustum.html#af092e0807a73793a19a4d240bfe57b52">_orientation</a>;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classgeometry_1_1Frustum.html#a6b9ef17c00d38303b7a0e457470f73f3">_valid_frustum</a>;</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;};</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;} <span class="comment">// end namespace</span></div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassgeometry_1_1Frustum_html"><div class="ttname"><a href="classgeometry_1_1Frustum.html">geometry::Frustum</a></div><div class="ttdef"><b>Definition:</b> frustum.hpp:131</div></div>
+<div class="ttc" id="aclassgeometry_1_1Frustum_html_ae31faf3d31181609d0ad23a94ed236c4"><div class="ttname"><a href="classgeometry_1_1Frustum.html#ae31faf3d31181609d0ad23a94ed236c4">geometry::Frustum::_position</a></div><div class="ttdeci">Eigen::Vector3d _position</div><div class="ttdef"><b>Definition:</b> frustum.hpp:148</div></div>
+<div class="ttc" id="astructgeometry_1_1VectorWithPt3D_html_a28cef3e1b8100cc2c39474066e027e94"><div class="ttname"><a href="structgeometry_1_1VectorWithPt3D.html#a28cef3e1b8100cc2c39474066e027e94">geometry::VectorWithPt3D::initial_point</a></div><div class="ttdeci">Eigen::Vector3d initial_point</div><div class="ttdef"><b>Definition:</b> frustum.hpp:163</div></div>
+<div class="ttc" id="anamespacegeometry_html"><div class="ttname"><a href="namespacegeometry.html">geometry</a></div><div class="ttdef"><b>Definition:</b> depth_camera_frustum.hpp:46</div></div>
+<div class="ttc" id="aclassgeometry_1_1Frustum_html_a80b2a1b649a26ab5dfe2386a79ec635d"><div class="ttname"><a href="classgeometry_1_1Frustum.html#a80b2a1b649a26ab5dfe2386a79ec635d">geometry::Frustum::Frustum</a></div><div class="ttdeci">Frustum()</div><div class="ttdef"><b>Definition:</b> frustum.hpp:134</div></div>
+<div class="ttc" id="astructgeometry_1_1VectorWithPt3D_html_aed3c79b56bec45e40305bff9870bdb96"><div class="ttname"><a href="structgeometry_1_1VectorWithPt3D.html#aed3c79b56bec45e40305bff9870bdb96">geometry::VectorWithPt3D::TransformFrames</a></div><div class="ttdeci">void TransformFrames(const Eigen::Affine3d &amp;homogeneous_transform)</div><div class="ttdef"><b>Definition:</b> frustum.hpp:153</div></div>
+<div class="ttc" id="aclassgeometry_1_1Frustum_html_ad3c0ffe136e678272d8c76471fc30111"><div class="ttname"><a href="classgeometry_1_1Frustum.html#ad3c0ffe136e678272d8c76471fc30111">geometry::Frustum::IsInside</a></div><div class="ttdeci">virtual bool IsInside(const openvdb::Vec3d &amp;pt)=0</div></div>
+<div class="ttc" id="astructgeometry_1_1VectorWithPt3D_html_a5217383904d8df982b9d4170e3e2aec9"><div class="ttname"><a href="structgeometry_1_1VectorWithPt3D.html#a5217383904d8df982b9d4170e3e2aec9">geometry::VectorWithPt3D::z</a></div><div class="ttdeci">double z</div><div class="ttdef"><b>Definition:</b> frustum.hpp:162</div></div>
+<div class="ttc" id="aclassgeometry_1_1Frustum_html_af092e0807a73793a19a4d240bfe57b52"><div class="ttname"><a href="classgeometry_1_1Frustum.html#af092e0807a73793a19a4d240bfe57b52">geometry::Frustum::_orientation</a></div><div class="ttdeci">Eigen::Quaterniond _orientation</div><div class="ttdef"><b>Definition:</b> frustum.hpp:149</div></div>
+<div class="ttc" id="astructgeometry_1_1VectorWithPt3D_html_a2d65c91dd67e29d99a688fe9ec4db6f4"><div class="ttname"><a href="structgeometry_1_1VectorWithPt3D.html#a2d65c91dd67e29d99a688fe9ec4db6f4">geometry::VectorWithPt3D::operator*</a></div><div class="ttdeci">VectorWithPt3D operator*(double a)</div><div class="ttdef"><b>Definition:</b> frustum.hpp:147</div></div>
+<div class="ttc" id="astructgeometry_1_1VectorWithPt3D_html_a2db31961b090b075ece82ed3a54c13f6"><div class="ttname"><a href="structgeometry_1_1VectorWithPt3D.html#a2db31961b090b075ece82ed3a54c13f6">geometry::VectorWithPt3D::x</a></div><div class="ttdeci">double x</div><div class="ttdef"><b>Definition:</b> frustum.hpp:162</div></div>
+<div class="ttc" id="aclassgeometry_1_1Frustum_html_ae072694af39fd01cf6001406b067c89d"><div class="ttname"><a href="classgeometry_1_1Frustum.html#ae072694af39fd01cf6001406b067c89d">geometry::Frustum::SetPosition</a></div><div class="ttdeci">virtual void SetPosition(const geometry_msgs::Point &amp;origin)=0</div></div>
+<div class="ttc" id="aclassgeometry_1_1Frustum_html_ae6b1a2bf3164f382829bcab26f162f57"><div class="ttname"><a href="classgeometry_1_1Frustum.html#ae6b1a2bf3164f382829bcab26f162f57">geometry::Frustum::~Frustum</a></div><div class="ttdeci">virtual ~Frustum(void)</div><div class="ttdef"><b>Definition:</b> frustum.hpp:135</div></div>
+<div class="ttc" id="aclassgeometry_1_1Frustum_html_adf1f45fbadb70ea9bc0620c441f3312c"><div class="ttname"><a href="classgeometry_1_1Frustum.html#adf1f45fbadb70ea9bc0620c441f3312c">geometry::Frustum::SetOrientation</a></div><div class="ttdeci">virtual void SetOrientation(const geometry_msgs::Quaternion &amp;quat)=0</div></div>
+<div class="ttc" id="astructgeometry_1_1VectorWithPt3D_html_abb03084405fd590cea7fed03f263cb95"><div class="ttname"><a href="structgeometry_1_1VectorWithPt3D.html#abb03084405fd590cea7fed03f263cb95">geometry::VectorWithPt3D::VectorWithPt3D</a></div><div class="ttdeci">VectorWithPt3D(void)</div><div class="ttdef"><b>Definition:</b> frustum.hpp:143</div></div>
+<div class="ttc" id="aclassgeometry_1_1Frustum_html_afe93e08fa0970f980d80a81036a3d083"><div class="ttname"><a href="classgeometry_1_1Frustum.html#afe93e08fa0970f980d80a81036a3d083">geometry::Frustum::TransformModel</a></div><div class="ttdeci">virtual void TransformModel(void)=0</div></div>
+<div class="ttc" id="astructgeometry_1_1VectorWithPt3D_html_ab7a0918e3e8bb4b8ad79d2846f518945"><div class="ttname"><a href="structgeometry_1_1VectorWithPt3D.html#ab7a0918e3e8bb4b8ad79d2846f518945">geometry::VectorWithPt3D::y</a></div><div class="ttdeci">double y</div><div class="ttdef"><b>Definition:</b> frustum.hpp:162</div></div>
+<div class="ttc" id="aclassgeometry_1_1Frustum_html_a6b9ef17c00d38303b7a0e457470f73f3"><div class="ttname"><a href="classgeometry_1_1Frustum.html#a6b9ef17c00d38303b7a0e457470f73f3">geometry::Frustum::_valid_frustum</a></div><div class="ttdeci">bool _valid_frustum</div><div class="ttdef"><b>Definition:</b> frustum.hpp:150</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

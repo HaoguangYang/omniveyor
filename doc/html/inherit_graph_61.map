@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classnimbro__topic__transport_1_1Message.html" title=" " alt="" coords="5,5,179,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,42,84,69"/>
+<area shape="rect" id="node2" href="$classnimbro__topic__transport_1_1DotWidget.html" title=" " alt="" coords="132,5,305,47"/>
+<area shape="rect" id="node3" href="$classQCustomPlot.html" title="The central class of the library. This is the QWidget which displays the plot and interacts with the ..." alt="" coords="165,71,272,98"/>
 </map>

@@ -75,6 +75,8 @@ $(function() {
 
 <p>Holds the two-dimensional data of a <a class="el" href="classQCPColorMap.html" title="A plottable representing a two-dimensional color map in a plot.">QCPColorMap</a> plottable.  
  <a href="classQCPColorMapData.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="nimbro__net__monitor_2src_2gui_2contrib_2qcustomplot_2qcustomplot_8h_source.html">qcustomplot.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for QCPColorMapData:</div>
 <div class="dyncontent">
@@ -89,197 +91,154 @@ Collaboration diagram for QCPColorMapData:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aac9d8eb81e18e240d89d56c01933fd23"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#aac9d8eb81e18e240d89d56c01933fd23">QCPColorMapData</a> (int keySize, int valueSize, const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;keyRange, const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;valueRange)</td></tr>
-<tr class="separator:aac9d8eb81e18e240d89d56c01933fd23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f2145d86473263494abb9bf1de20436"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a7f2145d86473263494abb9bf1de20436">QCPColorMapData</a> (const <a class="el" href="classQCPColorMapData.html">QCPColorMapData</a> &amp;other)</td></tr>
-<tr class="separator:a7f2145d86473263494abb9bf1de20436"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afdf4dd1b2f5714234fe84709b85c2a8d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classQCPColorMapData.html">QCPColorMapData</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#afdf4dd1b2f5714234fe84709b85c2a8d">operator=</a> (const <a class="el" href="classQCPColorMapData.html">QCPColorMapData</a> &amp;other)</td></tr>
-<tr class="separator:afdf4dd1b2f5714234fe84709b85c2a8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abbda4d28de97aedce1e6e6f008a0a1f7"><td class="memItemLeft" align="right" valign="top"><a id="abbda4d28de97aedce1e6e6f008a0a1f7"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>keySize</b> () const</td></tr>
-<tr class="separator:abbda4d28de97aedce1e6e6f008a0a1f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8510cafea24645bbb62b5e0bfc43209f"><td class="memItemLeft" align="right" valign="top"><a id="a8510cafea24645bbb62b5e0bfc43209f"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>valueSize</b> () const</td></tr>
-<tr class="separator:a8510cafea24645bbb62b5e0bfc43209f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e43abd20a77b922b7cecfc69bf4dad7"><td class="memItemLeft" align="right" valign="top"><a id="a1e43abd20a77b922b7cecfc69bf4dad7"></a>
-<a class="el" href="classQCPRange.html">QCPRange</a>&#160;</td><td class="memItemRight" valign="bottom"><b>keyRange</b> () const</td></tr>
-<tr class="separator:a1e43abd20a77b922b7cecfc69bf4dad7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a818e4e384aa4e5fad69ac603924394d3"><td class="memItemLeft" align="right" valign="top"><a id="a818e4e384aa4e5fad69ac603924394d3"></a>
-<a class="el" href="classQCPRange.html">QCPRange</a>&#160;</td><td class="memItemRight" valign="bottom"><b>valueRange</b> () const</td></tr>
-<tr class="separator:a818e4e384aa4e5fad69ac603924394d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7620248272c5ddd9a3f877f07179f6d"><td class="memItemLeft" align="right" valign="top"><a id="ab7620248272c5ddd9a3f877f07179f6d"></a>
-<a class="el" href="classQCPRange.html">QCPRange</a>&#160;</td><td class="memItemRight" valign="bottom"><b>dataBounds</b> () const</td></tr>
-<tr class="separator:ab7620248272c5ddd9a3f877f07179f6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c33807b008cdb9e1394245c294c0eaf"><td class="memItemLeft" align="right" valign="top"><a id="a2c33807b008cdb9e1394245c294c0eaf"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>data</b> (double key, double value)</td></tr>
-<tr class="separator:a2c33807b008cdb9e1394245c294c0eaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af51ecd21f347adbf87b4cce4e1f5cbd6"><td class="memItemLeft" align="right" valign="top"><a id="af51ecd21f347adbf87b4cce4e1f5cbd6"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>cell</b> (int keyIndex, int valueIndex)</td></tr>
-<tr class="separator:af51ecd21f347adbf87b4cce4e1f5cbd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f7e6b7a97017400cbbd46f0660e68ea"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a4f7e6b7a97017400cbbd46f0660e68ea">alpha</a> (int keyIndex, int valueIndex)</td></tr>
 <tr class="separator:a4f7e6b7a97017400cbbd46f0660e68ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d9ff35c299d0478b682bfbcdd9c097e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a0d9ff35c299d0478b682bfbcdd9c097e">setSize</a> (int keySize, int valueSize)</td></tr>
-<tr class="separator:a0d9ff35c299d0478b682bfbcdd9c097e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7ef70e383aface34b44dbde49234b6b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#ac7ef70e383aface34b44dbde49234b6b">setKeySize</a> (int keySize)</td></tr>
-<tr class="separator:ac7ef70e383aface34b44dbde49234b6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0893c9e3914513048b45e3429ffd16f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a0893c9e3914513048b45e3429ffd16f2">setValueSize</a> (int valueSize)</td></tr>
-<tr class="separator:a0893c9e3914513048b45e3429ffd16f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad9c1c7c703c1339489fc730517c83d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#aad9c1c7c703c1339489fc730517c83d4">setRange</a> (const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;keyRange, const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;valueRange)</td></tr>
-<tr class="separator:aad9c1c7c703c1339489fc730517c83d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0738c485f3c9df9ea1241b7a8bb6a86e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a0738c485f3c9df9ea1241b7a8bb6a86e">setKeyRange</a> (const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;keyRange)</td></tr>
-<tr class="separator:a0738c485f3c9df9ea1241b7a8bb6a86e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada1b2680ba96a5f4175b6d341cf75d23"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#ada1b2680ba96a5f4175b6d341cf75d23">setValueRange</a> (const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;valueRange)</td></tr>
-<tr class="separator:ada1b2680ba96a5f4175b6d341cf75d23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd2083ccfd6987ec94aa7ef8e91ca39a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#afd2083ccfd6987ec94aa7ef8e91ca39a">setData</a> (double key, double value, double z)</td></tr>
-<tr class="separator:afd2083ccfd6987ec94aa7ef8e91ca39a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e75eaf8746596319032a93f3d2d0683"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a8e75eaf8746596319032a93f3d2d0683">setCell</a> (int keyIndex, int valueIndex, double z)</td></tr>
-<tr class="separator:a8e75eaf8746596319032a93f3d2d0683"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf7de5b34c58f38d8f4c1ceb064a876c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#aaf7de5b34c58f38d8f4c1ceb064a876c">setAlpha</a> (int keyIndex, int valueIndex, unsigned char <a class="el" href="classQCPColorMapData.html#a4f7e6b7a97017400cbbd46f0660e68ea">alpha</a>)</td></tr>
-<tr class="separator:aaf7de5b34c58f38d8f4c1ceb064a876c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab235ade8a4d64bd3adb26a99b3dd57ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#ab235ade8a4d64bd3adb26a99b3dd57ee">recalculateDataBounds</a> ()</td></tr>
-<tr class="separator:ab235ade8a4d64bd3adb26a99b3dd57ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f7e6b7a97017400cbbd46f0660e68ea"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a4f7e6b7a97017400cbbd46f0660e68ea">alpha</a> (int keyIndex, int valueIndex)</td></tr>
+<tr class="separator:a4f7e6b7a97017400cbbd46f0660e68ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af51ecd21f347adbf87b4cce4e1f5cbd6"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#af51ecd21f347adbf87b4cce4e1f5cbd6">cell</a> (int keyIndex, int valueIndex)</td></tr>
+<tr class="separator:af51ecd21f347adbf87b4cce4e1f5cbd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af51ecd21f347adbf87b4cce4e1f5cbd6"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#af51ecd21f347adbf87b4cce4e1f5cbd6">cell</a> (int keyIndex, int valueIndex)</td></tr>
+<tr class="separator:af51ecd21f347adbf87b4cce4e1f5cbd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1a36385c78ab624cd617065602408b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#af1a36385c78ab624cd617065602408b6">cellToCoord</a> (int keyIndex, int valueIndex, double *<a class="el" href="log__sender_8cpp.html#ab889bf192829d81b14acffa5b10e9df3">key</a>, double *value) const</td></tr>
+<tr class="separator:af1a36385c78ab624cd617065602408b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1a36385c78ab624cd617065602408b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#af1a36385c78ab624cd617065602408b6">cellToCoord</a> (int keyIndex, int valueIndex, double *<a class="el" href="log__sender_8cpp.html#ab889bf192829d81b14acffa5b10e9df3">key</a>, double *value) const</td></tr>
+<tr class="separator:af1a36385c78ab624cd617065602408b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9910ba830e96955bd5c8e5bef1e77ef3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a9910ba830e96955bd5c8e5bef1e77ef3">clear</a> ()</td></tr>
+<tr class="separator:a9910ba830e96955bd5c8e5bef1e77ef3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9910ba830e96955bd5c8e5bef1e77ef3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a9910ba830e96955bd5c8e5bef1e77ef3">clear</a> ()</td></tr>
 <tr class="separator:a9910ba830e96955bd5c8e5bef1e77ef3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14d08b9c3720cd719400079b86d3906b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a14d08b9c3720cd719400079b86d3906b">clearAlpha</a> ()</td></tr>
 <tr class="separator:a14d08b9c3720cd719400079b86d3906b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14d08b9c3720cd719400079b86d3906b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a14d08b9c3720cd719400079b86d3906b">clearAlpha</a> ()</td></tr>
+<tr class="separator:a14d08b9c3720cd719400079b86d3906b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca5b29e0ca2f299c9060fc6e1f74d0c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#aca5b29e0ca2f299c9060fc6e1f74d0c8">coordToCell</a> (double <a class="el" href="log__sender_8cpp.html#ab889bf192829d81b14acffa5b10e9df3">key</a>, double value, int *keyIndex, int *valueIndex) const</td></tr>
+<tr class="separator:aca5b29e0ca2f299c9060fc6e1f74d0c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca5b29e0ca2f299c9060fc6e1f74d0c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#aca5b29e0ca2f299c9060fc6e1f74d0c8">coordToCell</a> (double <a class="el" href="log__sender_8cpp.html#ab889bf192829d81b14acffa5b10e9df3">key</a>, double value, int *keyIndex, int *valueIndex) const</td></tr>
+<tr class="separator:aca5b29e0ca2f299c9060fc6e1f74d0c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c33807b008cdb9e1394245c294c0eaf"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a2c33807b008cdb9e1394245c294c0eaf">data</a> (double <a class="el" href="log__sender_8cpp.html#ab889bf192829d81b14acffa5b10e9df3">key</a>, double value)</td></tr>
+<tr class="separator:a2c33807b008cdb9e1394245c294c0eaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c33807b008cdb9e1394245c294c0eaf"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a2c33807b008cdb9e1394245c294c0eaf">data</a> (double <a class="el" href="log__sender_8cpp.html#ab889bf192829d81b14acffa5b10e9df3">key</a>, double value)</td></tr>
+<tr class="separator:a2c33807b008cdb9e1394245c294c0eaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7620248272c5ddd9a3f877f07179f6d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classQCPRange.html">QCPRange</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#ab7620248272c5ddd9a3f877f07179f6d">dataBounds</a> () const</td></tr>
+<tr class="separator:ab7620248272c5ddd9a3f877f07179f6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7620248272c5ddd9a3f877f07179f6d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classQCPRange.html">QCPRange</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#ab7620248272c5ddd9a3f877f07179f6d">dataBounds</a> () const</td></tr>
+<tr class="separator:ab7620248272c5ddd9a3f877f07179f6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a350f783260eb9b5de5c7b5e0d5d3e3c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a350f783260eb9b5de5c7b5e0d5d3e3c2">fill</a> (double z)</td></tr>
+<tr class="separator:a350f783260eb9b5de5c7b5e0d5d3e3c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a350f783260eb9b5de5c7b5e0d5d3e3c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a350f783260eb9b5de5c7b5e0d5d3e3c2">fill</a> (double z)</td></tr>
 <tr class="separator:a350f783260eb9b5de5c7b5e0d5d3e3c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93e2a549d7702bc849cd48a585294657"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a93e2a549d7702bc849cd48a585294657">fillAlpha</a> (unsigned char <a class="el" href="classQCPColorMapData.html#a4f7e6b7a97017400cbbd46f0660e68ea">alpha</a>)</td></tr>
 <tr class="separator:a93e2a549d7702bc849cd48a585294657"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93e2a549d7702bc849cd48a585294657"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a93e2a549d7702bc849cd48a585294657">fillAlpha</a> (unsigned char <a class="el" href="classQCPColorMapData.html#a4f7e6b7a97017400cbbd46f0660e68ea">alpha</a>)</td></tr>
+<tr class="separator:a93e2a549d7702bc849cd48a585294657"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea88cc75a76ca571acf29b2ba8ac970d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#aea88cc75a76ca571acf29b2ba8ac970d">isEmpty</a> () const</td></tr>
 <tr class="separator:aea88cc75a76ca571acf29b2ba8ac970d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca5b29e0ca2f299c9060fc6e1f74d0c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#aca5b29e0ca2f299c9060fc6e1f74d0c8">coordToCell</a> (double key, double value, int *keyIndex, int *valueIndex) const</td></tr>
-<tr class="separator:aca5b29e0ca2f299c9060fc6e1f74d0c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1a36385c78ab624cd617065602408b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#af1a36385c78ab624cd617065602408b6">cellToCoord</a> (int keyIndex, int valueIndex, double *key, double *value) const</td></tr>
-<tr class="separator:af1a36385c78ab624cd617065602408b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac9d8eb81e18e240d89d56c01933fd23"><td class="memItemLeft" align="right" valign="top"><a id="aac9d8eb81e18e240d89d56c01933fd23"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>QCPColorMapData</b> (int keySize, int valueSize, const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;keyRange, const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;valueRange)</td></tr>
-<tr class="separator:aac9d8eb81e18e240d89d56c01933fd23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f2145d86473263494abb9bf1de20436"><td class="memItemLeft" align="right" valign="top"><a id="a7f2145d86473263494abb9bf1de20436"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>QCPColorMapData</b> (const <a class="el" href="classQCPColorMapData.html">QCPColorMapData</a> &amp;other)</td></tr>
-<tr class="separator:a7f2145d86473263494abb9bf1de20436"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a115b69e1f5a0f1294e16011793c4a583"><td class="memItemLeft" align="right" valign="top"><a id="a115b69e1f5a0f1294e16011793c4a583"></a>
-<a class="el" href="classQCPColorMapData.html">QCPColorMapData</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classQCPColorMapData.html">QCPColorMapData</a> &amp;other)</td></tr>
-<tr class="separator:a115b69e1f5a0f1294e16011793c4a583"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abbda4d28de97aedce1e6e6f008a0a1f7"><td class="memItemLeft" align="right" valign="top"><a id="abbda4d28de97aedce1e6e6f008a0a1f7"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>keySize</b> () const</td></tr>
-<tr class="separator:abbda4d28de97aedce1e6e6f008a0a1f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8510cafea24645bbb62b5e0bfc43209f"><td class="memItemLeft" align="right" valign="top"><a id="a8510cafea24645bbb62b5e0bfc43209f"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>valueSize</b> () const</td></tr>
-<tr class="separator:a8510cafea24645bbb62b5e0bfc43209f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e43abd20a77b922b7cecfc69bf4dad7"><td class="memItemLeft" align="right" valign="top"><a id="a1e43abd20a77b922b7cecfc69bf4dad7"></a>
-<a class="el" href="classQCPRange.html">QCPRange</a>&#160;</td><td class="memItemRight" valign="bottom"><b>keyRange</b> () const</td></tr>
-<tr class="separator:a1e43abd20a77b922b7cecfc69bf4dad7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a818e4e384aa4e5fad69ac603924394d3"><td class="memItemLeft" align="right" valign="top"><a id="a818e4e384aa4e5fad69ac603924394d3"></a>
-<a class="el" href="classQCPRange.html">QCPRange</a>&#160;</td><td class="memItemRight" valign="bottom"><b>valueRange</b> () const</td></tr>
-<tr class="separator:a818e4e384aa4e5fad69ac603924394d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7620248272c5ddd9a3f877f07179f6d"><td class="memItemLeft" align="right" valign="top"><a id="ab7620248272c5ddd9a3f877f07179f6d"></a>
-<a class="el" href="classQCPRange.html">QCPRange</a>&#160;</td><td class="memItemRight" valign="bottom"><b>dataBounds</b> () const</td></tr>
-<tr class="separator:ab7620248272c5ddd9a3f877f07179f6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c33807b008cdb9e1394245c294c0eaf"><td class="memItemLeft" align="right" valign="top"><a id="a2c33807b008cdb9e1394245c294c0eaf"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>data</b> (double key, double value)</td></tr>
-<tr class="separator:a2c33807b008cdb9e1394245c294c0eaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af51ecd21f347adbf87b4cce4e1f5cbd6"><td class="memItemLeft" align="right" valign="top"><a id="af51ecd21f347adbf87b4cce4e1f5cbd6"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>cell</b> (int keyIndex, int valueIndex)</td></tr>
-<tr class="separator:af51ecd21f347adbf87b4cce4e1f5cbd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f7e6b7a97017400cbbd46f0660e68ea"><td class="memItemLeft" align="right" valign="top"><a id="a4f7e6b7a97017400cbbd46f0660e68ea"></a>
-unsigned char&#160;</td><td class="memItemRight" valign="bottom"><b>alpha</b> (int keyIndex, int valueIndex)</td></tr>
-<tr class="separator:a4f7e6b7a97017400cbbd46f0660e68ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d9ff35c299d0478b682bfbcdd9c097e"><td class="memItemLeft" align="right" valign="top"><a id="a0d9ff35c299d0478b682bfbcdd9c097e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setSize</b> (int keySize, int valueSize)</td></tr>
-<tr class="separator:a0d9ff35c299d0478b682bfbcdd9c097e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7ef70e383aface34b44dbde49234b6b"><td class="memItemLeft" align="right" valign="top"><a id="ac7ef70e383aface34b44dbde49234b6b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setKeySize</b> (int keySize)</td></tr>
-<tr class="separator:ac7ef70e383aface34b44dbde49234b6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0893c9e3914513048b45e3429ffd16f2"><td class="memItemLeft" align="right" valign="top"><a id="a0893c9e3914513048b45e3429ffd16f2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setValueSize</b> (int valueSize)</td></tr>
-<tr class="separator:a0893c9e3914513048b45e3429ffd16f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad9c1c7c703c1339489fc730517c83d4"><td class="memItemLeft" align="right" valign="top"><a id="aad9c1c7c703c1339489fc730517c83d4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setRange</b> (const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;keyRange, const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;valueRange)</td></tr>
-<tr class="separator:aad9c1c7c703c1339489fc730517c83d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0738c485f3c9df9ea1241b7a8bb6a86e"><td class="memItemLeft" align="right" valign="top"><a id="a0738c485f3c9df9ea1241b7a8bb6a86e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setKeyRange</b> (const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;keyRange)</td></tr>
-<tr class="separator:a0738c485f3c9df9ea1241b7a8bb6a86e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada1b2680ba96a5f4175b6d341cf75d23"><td class="memItemLeft" align="right" valign="top"><a id="ada1b2680ba96a5f4175b6d341cf75d23"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setValueRange</b> (const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;valueRange)</td></tr>
-<tr class="separator:ada1b2680ba96a5f4175b6d341cf75d23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd2083ccfd6987ec94aa7ef8e91ca39a"><td class="memItemLeft" align="right" valign="top"><a id="afd2083ccfd6987ec94aa7ef8e91ca39a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setData</b> (double key, double value, double z)</td></tr>
-<tr class="separator:afd2083ccfd6987ec94aa7ef8e91ca39a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e75eaf8746596319032a93f3d2d0683"><td class="memItemLeft" align="right" valign="top"><a id="a8e75eaf8746596319032a93f3d2d0683"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setCell</b> (int keyIndex, int valueIndex, double z)</td></tr>
-<tr class="separator:a8e75eaf8746596319032a93f3d2d0683"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf7de5b34c58f38d8f4c1ceb064a876c"><td class="memItemLeft" align="right" valign="top"><a id="aaf7de5b34c58f38d8f4c1ceb064a876c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setAlpha</b> (int keyIndex, int valueIndex, unsigned char <a class="el" href="classQCPColorMapData.html#a4f7e6b7a97017400cbbd46f0660e68ea">alpha</a>)</td></tr>
-<tr class="separator:aaf7de5b34c58f38d8f4c1ceb064a876c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab235ade8a4d64bd3adb26a99b3dd57ee"><td class="memItemLeft" align="right" valign="top"><a id="ab235ade8a4d64bd3adb26a99b3dd57ee"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>recalculateDataBounds</b> ()</td></tr>
-<tr class="separator:ab235ade8a4d64bd3adb26a99b3dd57ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9910ba830e96955bd5c8e5bef1e77ef3"><td class="memItemLeft" align="right" valign="top"><a id="a9910ba830e96955bd5c8e5bef1e77ef3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()</td></tr>
-<tr class="separator:a9910ba830e96955bd5c8e5bef1e77ef3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14d08b9c3720cd719400079b86d3906b"><td class="memItemLeft" align="right" valign="top"><a id="a14d08b9c3720cd719400079b86d3906b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>clearAlpha</b> ()</td></tr>
-<tr class="separator:a14d08b9c3720cd719400079b86d3906b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a350f783260eb9b5de5c7b5e0d5d3e3c2"><td class="memItemLeft" align="right" valign="top"><a id="a350f783260eb9b5de5c7b5e0d5d3e3c2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>fill</b> (double z)</td></tr>
-<tr class="separator:a350f783260eb9b5de5c7b5e0d5d3e3c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93e2a549d7702bc849cd48a585294657"><td class="memItemLeft" align="right" valign="top"><a id="a93e2a549d7702bc849cd48a585294657"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>fillAlpha</b> (unsigned char <a class="el" href="classQCPColorMapData.html#a4f7e6b7a97017400cbbd46f0660e68ea">alpha</a>)</td></tr>
-<tr class="separator:a93e2a549d7702bc849cd48a585294657"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea88cc75a76ca571acf29b2ba8ac970d"><td class="memItemLeft" align="right" valign="top"><a id="aea88cc75a76ca571acf29b2ba8ac970d"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isEmpty</b> () const</td></tr>
+<tr class="memitem:aea88cc75a76ca571acf29b2ba8ac970d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#aea88cc75a76ca571acf29b2ba8ac970d">isEmpty</a> () const</td></tr>
 <tr class="separator:aea88cc75a76ca571acf29b2ba8ac970d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca5b29e0ca2f299c9060fc6e1f74d0c8"><td class="memItemLeft" align="right" valign="top"><a id="aca5b29e0ca2f299c9060fc6e1f74d0c8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>coordToCell</b> (double key, double value, int *keyIndex, int *valueIndex) const</td></tr>
-<tr class="separator:aca5b29e0ca2f299c9060fc6e1f74d0c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1a36385c78ab624cd617065602408b6"><td class="memItemLeft" align="right" valign="top"><a id="af1a36385c78ab624cd617065602408b6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>cellToCoord</b> (int keyIndex, int valueIndex, double *key, double *value) const</td></tr>
-<tr class="separator:af1a36385c78ab624cd617065602408b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e43abd20a77b922b7cecfc69bf4dad7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classQCPRange.html">QCPRange</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a1e43abd20a77b922b7cecfc69bf4dad7">keyRange</a> () const</td></tr>
+<tr class="separator:a1e43abd20a77b922b7cecfc69bf4dad7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e43abd20a77b922b7cecfc69bf4dad7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classQCPRange.html">QCPRange</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a1e43abd20a77b922b7cecfc69bf4dad7">keyRange</a> () const</td></tr>
+<tr class="separator:a1e43abd20a77b922b7cecfc69bf4dad7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbda4d28de97aedce1e6e6f008a0a1f7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#abbda4d28de97aedce1e6e6f008a0a1f7">keySize</a> () const</td></tr>
+<tr class="separator:abbda4d28de97aedce1e6e6f008a0a1f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbda4d28de97aedce1e6e6f008a0a1f7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#abbda4d28de97aedce1e6e6f008a0a1f7">keySize</a> () const</td></tr>
+<tr class="separator:abbda4d28de97aedce1e6e6f008a0a1f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdf4dd1b2f5714234fe84709b85c2a8d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classQCPColorMapData.html">QCPColorMapData</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#afdf4dd1b2f5714234fe84709b85c2a8d">operator=</a> (const <a class="el" href="classQCPColorMapData.html">QCPColorMapData</a> &amp;other)</td></tr>
+<tr class="separator:afdf4dd1b2f5714234fe84709b85c2a8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a115b69e1f5a0f1294e16011793c4a583"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classQCPColorMapData.html">QCPColorMapData</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a115b69e1f5a0f1294e16011793c4a583">operator=</a> (const <a class="el" href="classQCPColorMapData.html">QCPColorMapData</a> &amp;other)</td></tr>
+<tr class="separator:a115b69e1f5a0f1294e16011793c4a583"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f2145d86473263494abb9bf1de20436"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a7f2145d86473263494abb9bf1de20436">QCPColorMapData</a> (const <a class="el" href="classQCPColorMapData.html">QCPColorMapData</a> &amp;other)</td></tr>
+<tr class="separator:a7f2145d86473263494abb9bf1de20436"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f2145d86473263494abb9bf1de20436"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a7f2145d86473263494abb9bf1de20436">QCPColorMapData</a> (const <a class="el" href="classQCPColorMapData.html">QCPColorMapData</a> &amp;other)</td></tr>
+<tr class="separator:a7f2145d86473263494abb9bf1de20436"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac9d8eb81e18e240d89d56c01933fd23"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#aac9d8eb81e18e240d89d56c01933fd23">QCPColorMapData</a> (int <a class="el" href="classQCPColorMapData.html#abbda4d28de97aedce1e6e6f008a0a1f7">keySize</a>, int <a class="el" href="classQCPColorMapData.html#a8510cafea24645bbb62b5e0bfc43209f">valueSize</a>, const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;<a class="el" href="classQCPColorMapData.html#a1e43abd20a77b922b7cecfc69bf4dad7">keyRange</a>, const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;<a class="el" href="classQCPColorMapData.html#a818e4e384aa4e5fad69ac603924394d3">valueRange</a>)</td></tr>
+<tr class="separator:aac9d8eb81e18e240d89d56c01933fd23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac9d8eb81e18e240d89d56c01933fd23"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#aac9d8eb81e18e240d89d56c01933fd23">QCPColorMapData</a> (int <a class="el" href="classQCPColorMapData.html#abbda4d28de97aedce1e6e6f008a0a1f7">keySize</a>, int <a class="el" href="classQCPColorMapData.html#a8510cafea24645bbb62b5e0bfc43209f">valueSize</a>, const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;<a class="el" href="classQCPColorMapData.html#a1e43abd20a77b922b7cecfc69bf4dad7">keyRange</a>, const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;<a class="el" href="classQCPColorMapData.html#a818e4e384aa4e5fad69ac603924394d3">valueRange</a>)</td></tr>
+<tr class="separator:aac9d8eb81e18e240d89d56c01933fd23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab235ade8a4d64bd3adb26a99b3dd57ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#ab235ade8a4d64bd3adb26a99b3dd57ee">recalculateDataBounds</a> ()</td></tr>
+<tr class="separator:ab235ade8a4d64bd3adb26a99b3dd57ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab235ade8a4d64bd3adb26a99b3dd57ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#ab235ade8a4d64bd3adb26a99b3dd57ee">recalculateDataBounds</a> ()</td></tr>
+<tr class="separator:ab235ade8a4d64bd3adb26a99b3dd57ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf7de5b34c58f38d8f4c1ceb064a876c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#aaf7de5b34c58f38d8f4c1ceb064a876c">setAlpha</a> (int keyIndex, int valueIndex, unsigned char <a class="el" href="classQCPColorMapData.html#a4f7e6b7a97017400cbbd46f0660e68ea">alpha</a>)</td></tr>
+<tr class="separator:aaf7de5b34c58f38d8f4c1ceb064a876c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf7de5b34c58f38d8f4c1ceb064a876c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#aaf7de5b34c58f38d8f4c1ceb064a876c">setAlpha</a> (int keyIndex, int valueIndex, unsigned char <a class="el" href="classQCPColorMapData.html#a4f7e6b7a97017400cbbd46f0660e68ea">alpha</a>)</td></tr>
+<tr class="separator:aaf7de5b34c58f38d8f4c1ceb064a876c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e75eaf8746596319032a93f3d2d0683"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a8e75eaf8746596319032a93f3d2d0683">setCell</a> (int keyIndex, int valueIndex, double z)</td></tr>
+<tr class="separator:a8e75eaf8746596319032a93f3d2d0683"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e75eaf8746596319032a93f3d2d0683"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a8e75eaf8746596319032a93f3d2d0683">setCell</a> (int keyIndex, int valueIndex, double z)</td></tr>
+<tr class="separator:a8e75eaf8746596319032a93f3d2d0683"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd2083ccfd6987ec94aa7ef8e91ca39a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#afd2083ccfd6987ec94aa7ef8e91ca39a">setData</a> (double <a class="el" href="log__sender_8cpp.html#ab889bf192829d81b14acffa5b10e9df3">key</a>, double value, double z)</td></tr>
+<tr class="separator:afd2083ccfd6987ec94aa7ef8e91ca39a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd2083ccfd6987ec94aa7ef8e91ca39a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#afd2083ccfd6987ec94aa7ef8e91ca39a">setData</a> (double <a class="el" href="log__sender_8cpp.html#ab889bf192829d81b14acffa5b10e9df3">key</a>, double value, double z)</td></tr>
+<tr class="separator:afd2083ccfd6987ec94aa7ef8e91ca39a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0738c485f3c9df9ea1241b7a8bb6a86e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a0738c485f3c9df9ea1241b7a8bb6a86e">setKeyRange</a> (const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;<a class="el" href="classQCPColorMapData.html#a1e43abd20a77b922b7cecfc69bf4dad7">keyRange</a>)</td></tr>
+<tr class="separator:a0738c485f3c9df9ea1241b7a8bb6a86e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0738c485f3c9df9ea1241b7a8bb6a86e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a0738c485f3c9df9ea1241b7a8bb6a86e">setKeyRange</a> (const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;<a class="el" href="classQCPColorMapData.html#a1e43abd20a77b922b7cecfc69bf4dad7">keyRange</a>)</td></tr>
+<tr class="separator:a0738c485f3c9df9ea1241b7a8bb6a86e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7ef70e383aface34b44dbde49234b6b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#ac7ef70e383aface34b44dbde49234b6b">setKeySize</a> (int <a class="el" href="classQCPColorMapData.html#abbda4d28de97aedce1e6e6f008a0a1f7">keySize</a>)</td></tr>
+<tr class="separator:ac7ef70e383aface34b44dbde49234b6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7ef70e383aface34b44dbde49234b6b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#ac7ef70e383aface34b44dbde49234b6b">setKeySize</a> (int <a class="el" href="classQCPColorMapData.html#abbda4d28de97aedce1e6e6f008a0a1f7">keySize</a>)</td></tr>
+<tr class="separator:ac7ef70e383aface34b44dbde49234b6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad9c1c7c703c1339489fc730517c83d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#aad9c1c7c703c1339489fc730517c83d4">setRange</a> (const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;<a class="el" href="classQCPColorMapData.html#a1e43abd20a77b922b7cecfc69bf4dad7">keyRange</a>, const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;<a class="el" href="classQCPColorMapData.html#a818e4e384aa4e5fad69ac603924394d3">valueRange</a>)</td></tr>
+<tr class="separator:aad9c1c7c703c1339489fc730517c83d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad9c1c7c703c1339489fc730517c83d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#aad9c1c7c703c1339489fc730517c83d4">setRange</a> (const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;<a class="el" href="classQCPColorMapData.html#a1e43abd20a77b922b7cecfc69bf4dad7">keyRange</a>, const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;<a class="el" href="classQCPColorMapData.html#a818e4e384aa4e5fad69ac603924394d3">valueRange</a>)</td></tr>
+<tr class="separator:aad9c1c7c703c1339489fc730517c83d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d9ff35c299d0478b682bfbcdd9c097e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a0d9ff35c299d0478b682bfbcdd9c097e">setSize</a> (int <a class="el" href="classQCPColorMapData.html#abbda4d28de97aedce1e6e6f008a0a1f7">keySize</a>, int <a class="el" href="classQCPColorMapData.html#a8510cafea24645bbb62b5e0bfc43209f">valueSize</a>)</td></tr>
+<tr class="separator:a0d9ff35c299d0478b682bfbcdd9c097e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d9ff35c299d0478b682bfbcdd9c097e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a0d9ff35c299d0478b682bfbcdd9c097e">setSize</a> (int <a class="el" href="classQCPColorMapData.html#abbda4d28de97aedce1e6e6f008a0a1f7">keySize</a>, int <a class="el" href="classQCPColorMapData.html#a8510cafea24645bbb62b5e0bfc43209f">valueSize</a>)</td></tr>
+<tr class="separator:a0d9ff35c299d0478b682bfbcdd9c097e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada1b2680ba96a5f4175b6d341cf75d23"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#ada1b2680ba96a5f4175b6d341cf75d23">setValueRange</a> (const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;<a class="el" href="classQCPColorMapData.html#a818e4e384aa4e5fad69ac603924394d3">valueRange</a>)</td></tr>
+<tr class="separator:ada1b2680ba96a5f4175b6d341cf75d23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada1b2680ba96a5f4175b6d341cf75d23"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#ada1b2680ba96a5f4175b6d341cf75d23">setValueRange</a> (const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;<a class="el" href="classQCPColorMapData.html#a818e4e384aa4e5fad69ac603924394d3">valueRange</a>)</td></tr>
+<tr class="separator:ada1b2680ba96a5f4175b6d341cf75d23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0893c9e3914513048b45e3429ffd16f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a0893c9e3914513048b45e3429ffd16f2">setValueSize</a> (int <a class="el" href="classQCPColorMapData.html#a8510cafea24645bbb62b5e0bfc43209f">valueSize</a>)</td></tr>
+<tr class="separator:a0893c9e3914513048b45e3429ffd16f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0893c9e3914513048b45e3429ffd16f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a0893c9e3914513048b45e3429ffd16f2">setValueSize</a> (int <a class="el" href="classQCPColorMapData.html#a8510cafea24645bbb62b5e0bfc43209f">valueSize</a>)</td></tr>
+<tr class="separator:a0893c9e3914513048b45e3429ffd16f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a818e4e384aa4e5fad69ac603924394d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classQCPRange.html">QCPRange</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a818e4e384aa4e5fad69ac603924394d3">valueRange</a> () const</td></tr>
+<tr class="separator:a818e4e384aa4e5fad69ac603924394d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a818e4e384aa4e5fad69ac603924394d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classQCPRange.html">QCPRange</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a818e4e384aa4e5fad69ac603924394d3">valueRange</a> () const</td></tr>
+<tr class="separator:a818e4e384aa4e5fad69ac603924394d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8510cafea24645bbb62b5e0bfc43209f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a8510cafea24645bbb62b5e0bfc43209f">valueSize</a> () const</td></tr>
+<tr class="separator:a8510cafea24645bbb62b5e0bfc43209f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8510cafea24645bbb62b5e0bfc43209f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a8510cafea24645bbb62b5e0bfc43209f">valueSize</a> () const</td></tr>
+<tr class="separator:a8510cafea24645bbb62b5e0bfc43209f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ac252031d0921520d5bccb6bfa23a8b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a7ac252031d0921520d5bccb6bfa23a8b">~QCPColorMapData</a> ()</td></tr>
+<tr class="separator:a7ac252031d0921520d5bccb6bfa23a8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ac252031d0921520d5bccb6bfa23a8b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a7ac252031d0921520d5bccb6bfa23a8b">~QCPColorMapData</a> ()</td></tr>
+<tr class="separator:a7ac252031d0921520d5bccb6bfa23a8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a42c2b1c303683515fa4de4c551f54441"><td class="memItemLeft" align="right" valign="top"><a id="a42c2b1c303683515fa4de4c551f54441"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>createAlpha</b> (bool initializeOpaque=true)</td></tr>
+<tr class="memitem:a42c2b1c303683515fa4de4c551f54441"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a42c2b1c303683515fa4de4c551f54441">createAlpha</a> (bool initializeOpaque=true)</td></tr>
 <tr class="separator:a42c2b1c303683515fa4de4c551f54441"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42c2b1c303683515fa4de4c551f54441"><td class="memItemLeft" align="right" valign="top"><a id="a42c2b1c303683515fa4de4c551f54441"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>createAlpha</b> (bool initializeOpaque=true)</td></tr>
+<tr class="memitem:a42c2b1c303683515fa4de4c551f54441"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a42c2b1c303683515fa4de4c551f54441">createAlpha</a> (bool initializeOpaque=true)</td></tr>
 <tr class="separator:a42c2b1c303683515fa4de4c551f54441"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a354e06462023340fbc03894b22499f6d"><td class="memItemLeft" align="right" valign="top"><a id="a354e06462023340fbc03894b22499f6d"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>mKeySize</b></td></tr>
-<tr class="separator:a354e06462023340fbc03894b22499f6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8ee9093632a59f55eb4fc06579ed256"><td class="memItemLeft" align="right" valign="top"><a id="ae8ee9093632a59f55eb4fc06579ed256"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>mValueSize</b></td></tr>
-<tr class="separator:ae8ee9093632a59f55eb4fc06579ed256"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaaafd0d7d0f153dbd152f3daf34254ee"><td class="memItemLeft" align="right" valign="top"><a id="aaaafd0d7d0f153dbd152f3daf34254ee"></a>
-<a class="el" href="classQCPRange.html">QCPRange</a>&#160;</td><td class="memItemRight" valign="bottom"><b>mKeyRange</b></td></tr>
-<tr class="separator:aaaafd0d7d0f153dbd152f3daf34254ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a225bb96f10c1a27b51ae59249477dbef"><td class="memItemLeft" align="right" valign="top"><a id="a225bb96f10c1a27b51ae59249477dbef"></a>
-<a class="el" href="classQCPRange.html">QCPRange</a>&#160;</td><td class="memItemRight" valign="bottom"><b>mValueRange</b></td></tr>
-<tr class="separator:a225bb96f10c1a27b51ae59249477dbef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10e91aa89ed05bd177b1f81e07b465b8"><td class="memItemLeft" align="right" valign="top"><a id="a10e91aa89ed05bd177b1f81e07b465b8"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>mIsEmpty</b></td></tr>
-<tr class="separator:a10e91aa89ed05bd177b1f81e07b465b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5ce98c703d4cf6fb69ffd338b3321c9"><td class="memItemLeft" align="right" valign="top"><a id="ac5ce98c703d4cf6fb69ffd338b3321c9"></a>
-double *&#160;</td><td class="memItemRight" valign="bottom"><b>mData</b></td></tr>
-<tr class="separator:ac5ce98c703d4cf6fb69ffd338b3321c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a7dcec000080fe1e2ce3ca7399946ed"><td class="memItemLeft" align="right" valign="top"><a id="a3a7dcec000080fe1e2ce3ca7399946ed"></a>
-unsigned char *&#160;</td><td class="memItemRight" valign="bottom"><b>mAlpha</b></td></tr>
+<tr class="memitem:a3a7dcec000080fe1e2ce3ca7399946ed"><td class="memItemLeft" align="right" valign="top">unsigned char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a3a7dcec000080fe1e2ce3ca7399946ed">mAlpha</a></td></tr>
 <tr class="separator:a3a7dcec000080fe1e2ce3ca7399946ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1798b3dcc0a27091d196bfd156dcb3f2"><td class="memItemLeft" align="right" valign="top"><a id="a1798b3dcc0a27091d196bfd156dcb3f2"></a>
-<a class="el" href="classQCPRange.html">QCPRange</a>&#160;</td><td class="memItemRight" valign="bottom"><b>mDataBounds</b></td></tr>
+<tr class="memitem:ac5ce98c703d4cf6fb69ffd338b3321c9"><td class="memItemLeft" align="right" valign="top">double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#ac5ce98c703d4cf6fb69ffd338b3321c9">mData</a></td></tr>
+<tr class="separator:ac5ce98c703d4cf6fb69ffd338b3321c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1798b3dcc0a27091d196bfd156dcb3f2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classQCPRange.html">QCPRange</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a1798b3dcc0a27091d196bfd156dcb3f2">mDataBounds</a></td></tr>
 <tr class="separator:a1798b3dcc0a27091d196bfd156dcb3f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3cc682da2ac14e5acdbc05cf4d3d93b"><td class="memItemLeft" align="right" valign="top"><a id="ad3cc682da2ac14e5acdbc05cf4d3d93b"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>mDataModified</b></td></tr>
+<tr class="memitem:ad3cc682da2ac14e5acdbc05cf4d3d93b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#ad3cc682da2ac14e5acdbc05cf4d3d93b">mDataModified</a></td></tr>
 <tr class="separator:ad3cc682da2ac14e5acdbc05cf4d3d93b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10e91aa89ed05bd177b1f81e07b465b8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a10e91aa89ed05bd177b1f81e07b465b8">mIsEmpty</a></td></tr>
+<tr class="separator:a10e91aa89ed05bd177b1f81e07b465b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaaafd0d7d0f153dbd152f3daf34254ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classQCPRange.html">QCPRange</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#aaaafd0d7d0f153dbd152f3daf34254ee">mKeyRange</a></td></tr>
+<tr class="separator:aaaafd0d7d0f153dbd152f3daf34254ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a354e06462023340fbc03894b22499f6d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a354e06462023340fbc03894b22499f6d">mKeySize</a></td></tr>
+<tr class="separator:a354e06462023340fbc03894b22499f6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a225bb96f10c1a27b51ae59249477dbef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classQCPRange.html">QCPRange</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#a225bb96f10c1a27b51ae59249477dbef">mValueRange</a></td></tr>
+<tr class="separator:a225bb96f10c1a27b51ae59249477dbef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8ee9093632a59f55eb4fc06579ed256"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#ae8ee9093632a59f55eb4fc06579ed256">mValueSize</a></td></tr>
+<tr class="separator:ae8ee9093632a59f55eb4fc06579ed256"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:ae6b38f708771afd88992c2b46a5c984b"><td class="memItemLeft" align="right" valign="top"><a id="ae6b38f708771afd88992c2b46a5c984b"></a>
-class&#160;</td><td class="memItemRight" valign="bottom"><b>QCPColorMap</b></td></tr>
+<tr class="memitem:ae6b38f708771afd88992c2b46a5c984b"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorMapData.html#ae6b38f708771afd88992c2b46a5c984b">QCPColorMap</a></td></tr>
 <tr class="separator:ae6b38f708771afd88992c2b46a5c984b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -291,7 +250,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>QCPColorMap</b></td>
 <p>This class also buffers the minimum and maximum values that are in the data set, to provide <a class="el" href="classQCPColorMap.html#a856608fa3dd1cc290bcd5f29a5575774">QCPColorMap::rescaleDataRange</a> with the necessary information quickly. Setting a cell to a value that is greater than the current maximum increases this maximum to the new value. However, setting the cell that currently holds the maximum value to a smaller value doesn't decrease the maximum again, because finding the true new maximum would require going through the entire data array, which might be time consuming. The same holds for the data minimum. This functionality is given by <a class="el" href="classQCPColorMapData.html#ab235ade8a4d64bd3adb26a99b3dd57ee">recalculateDataBounds</a>, such that you can decide when it is sensible to find the true current minimum and maximum. The method <a class="el" href="classQCPColorMap.html#a856608fa3dd1cc290bcd5f29a5575774">QCPColorMap::rescaleDataRange</a> offers a convenience parameter <em>recalculateDataBounds</em> which may be set to true to automatically call <a class="el" href="classQCPColorMapData.html#ab235ade8a4d64bd3adb26a99b3dd57ee">recalculateDataBounds</a> internally. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aac9d8eb81e18e240d89d56c01933fd23"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aac9d8eb81e18e240d89d56c01933fd23">&#9670;&nbsp;</a></span>QCPColorMapData() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aac9d8eb81e18e240d89d56c01933fd23">&#9670;&nbsp;</a></span>QCPColorMapData() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -332,8 +291,25 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>QCPColorMap</b></td>
 
 </div>
 </div>
+<a id="a7ac252031d0921520d5bccb6bfa23a8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ac252031d0921520d5bccb6bfa23a8b">&#9670;&nbsp;</a></span>~QCPColorMapData() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QCPColorMapData::~QCPColorMapData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a7f2145d86473263494abb9bf1de20436"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f2145d86473263494abb9bf1de20436">&#9670;&nbsp;</a></span>QCPColorMapData() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f2145d86473263494abb9bf1de20436">&#9670;&nbsp;</a></span>QCPColorMapData() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -351,9 +327,84 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>QCPColorMap</b></td>
 
 </div>
 </div>
+<a id="aac9d8eb81e18e240d89d56c01933fd23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac9d8eb81e18e240d89d56c01933fd23">&#9670;&nbsp;</a></span>QCPColorMapData() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QCPColorMapData::QCPColorMapData </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>keySize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>valueSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;&#160;</td>
+          <td class="paramname"><em>keyRange</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;&#160;</td>
+          <td class="paramname"><em>valueRange</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7ac252031d0921520d5bccb6bfa23a8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ac252031d0921520d5bccb6bfa23a8b">&#9670;&nbsp;</a></span>~QCPColorMapData() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QCPColorMapData::~QCPColorMapData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7f2145d86473263494abb9bf1de20436"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f2145d86473263494abb9bf1de20436">&#9670;&nbsp;</a></span>QCPColorMapData() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QCPColorMapData::QCPColorMapData </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classQCPColorMapData.html">QCPColorMapData</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a4f7e6b7a97017400cbbd46f0660e68ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f7e6b7a97017400cbbd46f0660e68ea">&#9670;&nbsp;</a></span>alpha()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f7e6b7a97017400cbbd46f0660e68ea">&#9670;&nbsp;</a></span>alpha() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -383,8 +434,92 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>QCPColorMap</b></td>
 
 </div>
 </div>
+<a id="a4f7e6b7a97017400cbbd46f0660e68ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f7e6b7a97017400cbbd46f0660e68ea">&#9670;&nbsp;</a></span>alpha() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char QCPColorMapData::alpha </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>keyIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>valueIndex</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af51ecd21f347adbf87b4cce4e1f5cbd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af51ecd21f347adbf87b4cce4e1f5cbd6">&#9670;&nbsp;</a></span>cell() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double QCPColorMapData::cell </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>keyIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>valueIndex</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af51ecd21f347adbf87b4cce4e1f5cbd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af51ecd21f347adbf87b4cce4e1f5cbd6">&#9670;&nbsp;</a></span>cell() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double QCPColorMapData::cell </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>keyIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>valueIndex</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="af1a36385c78ab624cd617065602408b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af1a36385c78ab624cd617065602408b6">&#9670;&nbsp;</a></span>cellToCoord()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af1a36385c78ab624cd617065602408b6">&#9670;&nbsp;</a></span>cellToCoord() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -427,8 +562,48 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>QCPColorMap</b></td>
 
 </div>
 </div>
+<a id="af1a36385c78ab624cd617065602408b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1a36385c78ab624cd617065602408b6">&#9670;&nbsp;</a></span>cellToCoord() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QCPColorMapData::cellToCoord </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>keyIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>valueIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a9910ba830e96955bd5c8e5bef1e77ef3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9910ba830e96955bd5c8e5bef1e77ef3">&#9670;&nbsp;</a></span>clear()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9910ba830e96955bd5c8e5bef1e77ef3">&#9670;&nbsp;</a></span>clear() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -446,8 +621,25 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>QCPColorMap</b></td>
 
 </div>
 </div>
+<a id="a9910ba830e96955bd5c8e5bef1e77ef3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9910ba830e96955bd5c8e5bef1e77ef3">&#9670;&nbsp;</a></span>clear() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QCPColorMapData::clear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a14d08b9c3720cd719400079b86d3906b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a14d08b9c3720cd719400079b86d3906b">&#9670;&nbsp;</a></span>clearAlpha()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a14d08b9c3720cd719400079b86d3906b">&#9670;&nbsp;</a></span>clearAlpha() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -464,8 +656,25 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>QCPColorMap</b></td>
 
 </div>
 </div>
+<a id="a14d08b9c3720cd719400079b86d3906b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14d08b9c3720cd719400079b86d3906b">&#9670;&nbsp;</a></span>clearAlpha() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QCPColorMapData::clearAlpha </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aca5b29e0ca2f299c9060fc6e1f74d0c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca5b29e0ca2f299c9060fc6e1f74d0c8">&#9670;&nbsp;</a></span>coordToCell()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aca5b29e0ca2f299c9060fc6e1f74d0c8">&#9670;&nbsp;</a></span>coordToCell() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -509,8 +718,206 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>QCPColorMap</b></td>
 
 </div>
 </div>
+<a id="aca5b29e0ca2f299c9060fc6e1f74d0c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca5b29e0ca2f299c9060fc6e1f74d0c8">&#9670;&nbsp;</a></span>coordToCell() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QCPColorMapData::coordToCell </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>keyIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>valueIndex</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a42c2b1c303683515fa4de4c551f54441"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42c2b1c303683515fa4de4c551f54441">&#9670;&nbsp;</a></span>createAlpha() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool QCPColorMapData::createAlpha </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>initializeOpaque</em> = <code>true</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a42c2b1c303683515fa4de4c551f54441"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42c2b1c303683515fa4de4c551f54441">&#9670;&nbsp;</a></span>createAlpha() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool QCPColorMapData::createAlpha </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>initializeOpaque</em> = <code>true</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2c33807b008cdb9e1394245c294c0eaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c33807b008cdb9e1394245c294c0eaf">&#9670;&nbsp;</a></span>data() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double QCPColorMapData::data </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2c33807b008cdb9e1394245c294c0eaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c33807b008cdb9e1394245c294c0eaf">&#9670;&nbsp;</a></span>data() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double QCPColorMapData::data </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab7620248272c5ddd9a3f877f07179f6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7620248272c5ddd9a3f877f07179f6d">&#9670;&nbsp;</a></span>dataBounds() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classQCPRange.html">QCPRange</a> QCPColorMapData::dataBounds </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab7620248272c5ddd9a3f877f07179f6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7620248272c5ddd9a3f877f07179f6d">&#9670;&nbsp;</a></span>dataBounds() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classQCPRange.html">QCPRange</a> QCPColorMapData::dataBounds </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a350f783260eb9b5de5c7b5e0d5d3e3c2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a350f783260eb9b5de5c7b5e0d5d3e3c2">&#9670;&nbsp;</a></span>fill()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a350f783260eb9b5de5c7b5e0d5d3e3c2">&#9670;&nbsp;</a></span>fill() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -528,8 +935,26 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>QCPColorMap</b></td>
 
 </div>
 </div>
+<a id="a350f783260eb9b5de5c7b5e0d5d3e3c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a350f783260eb9b5de5c7b5e0d5d3e3c2">&#9670;&nbsp;</a></span>fill() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QCPColorMapData::fill </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>z</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a93e2a549d7702bc849cd48a585294657"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a93e2a549d7702bc849cd48a585294657">&#9670;&nbsp;</a></span>fillAlpha()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a93e2a549d7702bc849cd48a585294657">&#9670;&nbsp;</a></span>fillAlpha() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -549,8 +974,26 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>QCPColorMap</b></td>
 
 </div>
 </div>
+<a id="a93e2a549d7702bc849cd48a585294657"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93e2a549d7702bc849cd48a585294657">&#9670;&nbsp;</a></span>fillAlpha() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QCPColorMapData::fillAlpha </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname"><em>alpha</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aea88cc75a76ca571acf29b2ba8ac970d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea88cc75a76ca571acf29b2ba8ac970d">&#9670;&nbsp;</a></span>isEmpty()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aea88cc75a76ca571acf29b2ba8ac970d">&#9670;&nbsp;</a></span>isEmpty() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -575,8 +1018,133 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>QCPColorMap</b></td>
 
 </div>
 </div>
+<a id="aea88cc75a76ca571acf29b2ba8ac970d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea88cc75a76ca571acf29b2ba8ac970d">&#9670;&nbsp;</a></span>isEmpty() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool QCPColorMapData::isEmpty </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1e43abd20a77b922b7cecfc69bf4dad7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e43abd20a77b922b7cecfc69bf4dad7">&#9670;&nbsp;</a></span>keyRange() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classQCPRange.html">QCPRange</a> QCPColorMapData::keyRange </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1e43abd20a77b922b7cecfc69bf4dad7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e43abd20a77b922b7cecfc69bf4dad7">&#9670;&nbsp;</a></span>keyRange() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classQCPRange.html">QCPRange</a> QCPColorMapData::keyRange </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abbda4d28de97aedce1e6e6f008a0a1f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbda4d28de97aedce1e6e6f008a0a1f7">&#9670;&nbsp;</a></span>keySize() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int QCPColorMapData::keySize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abbda4d28de97aedce1e6e6f008a0a1f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbda4d28de97aedce1e6e6f008a0a1f7">&#9670;&nbsp;</a></span>keySize() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int QCPColorMapData::keySize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="afdf4dd1b2f5714234fe84709b85c2a8d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afdf4dd1b2f5714234fe84709b85c2a8d">&#9670;&nbsp;</a></span>operator=()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#afdf4dd1b2f5714234fe84709b85c2a8d">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -594,8 +1162,26 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>QCPColorMap</b></td>
 
 </div>
 </div>
+<a id="a115b69e1f5a0f1294e16011793c4a583"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a115b69e1f5a0f1294e16011793c4a583">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classQCPColorMapData.html">QCPColorMapData</a>&amp; QCPColorMapData::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classQCPColorMapData.html">QCPColorMapData</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ab235ade8a4d64bd3adb26a99b3dd57ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab235ade8a4d64bd3adb26a99b3dd57ee">&#9670;&nbsp;</a></span>recalculateDataBounds()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab235ade8a4d64bd3adb26a99b3dd57ee">&#9670;&nbsp;</a></span>recalculateDataBounds() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -614,8 +1200,25 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>QCPColorMap</b></td>
 
 </div>
 </div>
+<a id="ab235ade8a4d64bd3adb26a99b3dd57ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab235ade8a4d64bd3adb26a99b3dd57ee">&#9670;&nbsp;</a></span>recalculateDataBounds() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QCPColorMapData::recalculateDataBounds </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aaf7de5b34c58f38d8f4c1ceb064a876c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf7de5b34c58f38d8f4c1ceb064a876c">&#9670;&nbsp;</a></span>setAlpha()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf7de5b34c58f38d8f4c1ceb064a876c">&#9670;&nbsp;</a></span>setAlpha() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -652,8 +1255,42 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>QCPColorMap</b></td>
 
 </div>
 </div>
+<a id="aaf7de5b34c58f38d8f4c1ceb064a876c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf7de5b34c58f38d8f4c1ceb064a876c">&#9670;&nbsp;</a></span>setAlpha() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QCPColorMapData::setAlpha </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>keyIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>valueIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname"><em>alpha</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a8e75eaf8746596319032a93f3d2d0683"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e75eaf8746596319032a93f3d2d0683">&#9670;&nbsp;</a></span>setCell()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e75eaf8746596319032a93f3d2d0683">&#9670;&nbsp;</a></span>setCell() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -689,8 +1326,42 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>QCPColorMap</b></td>
 
 </div>
 </div>
+<a id="a8e75eaf8746596319032a93f3d2d0683"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e75eaf8746596319032a93f3d2d0683">&#9670;&nbsp;</a></span>setCell() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QCPColorMapData::setCell </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>keyIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>valueIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>z</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="afd2083ccfd6987ec94aa7ef8e91ca39a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd2083ccfd6987ec94aa7ef8e91ca39a">&#9670;&nbsp;</a></span>setData()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#afd2083ccfd6987ec94aa7ef8e91ca39a">&#9670;&nbsp;</a></span>setData() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -726,8 +1397,60 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>QCPColorMap</b></td>
 
 </div>
 </div>
+<a id="afd2083ccfd6987ec94aa7ef8e91ca39a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd2083ccfd6987ec94aa7ef8e91ca39a">&#9670;&nbsp;</a></span>setData() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QCPColorMapData::setData </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>z</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a0738c485f3c9df9ea1241b7a8bb6a86e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0738c485f3c9df9ea1241b7a8bb6a86e">&#9670;&nbsp;</a></span>setKeyRange()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0738c485f3c9df9ea1241b7a8bb6a86e">&#9670;&nbsp;</a></span>setKeyRange() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QCPColorMapData::setKeyRange </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;&#160;</td>
+          <td class="paramname"><em>keyRange</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0738c485f3c9df9ea1241b7a8bb6a86e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0738c485f3c9df9ea1241b7a8bb6a86e">&#9670;&nbsp;</a></span>setKeyRange() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -748,7 +1471,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>QCPColorMap</b></td>
 </div>
 </div>
 <a id="ac7ef70e383aface34b44dbde49234b6b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7ef70e383aface34b44dbde49234b6b">&#9670;&nbsp;</a></span>setKeySize()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7ef70e383aface34b44dbde49234b6b">&#9670;&nbsp;</a></span>setKeySize() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -769,8 +1492,26 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>QCPColorMap</b></td>
 
 </div>
 </div>
+<a id="ac7ef70e383aface34b44dbde49234b6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7ef70e383aface34b44dbde49234b6b">&#9670;&nbsp;</a></span>setKeySize() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QCPColorMapData::setKeySize </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>keySize</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aad9c1c7c703c1339489fc730517c83d4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aad9c1c7c703c1339489fc730517c83d4">&#9670;&nbsp;</a></span>setRange()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aad9c1c7c703c1339489fc730517c83d4">&#9670;&nbsp;</a></span>setRange() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -800,8 +1541,64 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>QCPColorMap</b></td>
 
 </div>
 </div>
+<a id="aad9c1c7c703c1339489fc730517c83d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad9c1c7c703c1339489fc730517c83d4">&#9670;&nbsp;</a></span>setRange() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QCPColorMapData::setRange </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;&#160;</td>
+          <td class="paramname"><em>keyRange</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;&#160;</td>
+          <td class="paramname"><em>valueRange</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a0d9ff35c299d0478b682bfbcdd9c097e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d9ff35c299d0478b682bfbcdd9c097e">&#9670;&nbsp;</a></span>setSize()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d9ff35c299d0478b682bfbcdd9c097e">&#9670;&nbsp;</a></span>setSize() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QCPColorMapData::setSize </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>keySize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>valueSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0d9ff35c299d0478b682bfbcdd9c097e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d9ff35c299d0478b682bfbcdd9c097e">&#9670;&nbsp;</a></span>setSize() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -833,7 +1630,25 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>QCPColorMap</b></td>
 </div>
 </div>
 <a id="ada1b2680ba96a5f4175b6d341cf75d23"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada1b2680ba96a5f4175b6d341cf75d23">&#9670;&nbsp;</a></span>setValueRange()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ada1b2680ba96a5f4175b6d341cf75d23">&#9670;&nbsp;</a></span>setValueRange() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QCPColorMapData::setValueRange </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;&#160;</td>
+          <td class="paramname"><em>valueRange</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ada1b2680ba96a5f4175b6d341cf75d23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada1b2680ba96a5f4175b6d341cf75d23">&#9670;&nbsp;</a></span>setValueRange() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -854,7 +1669,25 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>QCPColorMap</b></td>
 </div>
 </div>
 <a id="a0893c9e3914513048b45e3429ffd16f2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0893c9e3914513048b45e3429ffd16f2">&#9670;&nbsp;</a></span>setValueSize()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0893c9e3914513048b45e3429ffd16f2">&#9670;&nbsp;</a></span>setValueSize() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QCPColorMapData::setValueSize </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>valueSize</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0893c9e3914513048b45e3429ffd16f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0893c9e3914513048b45e3429ffd16f2">&#9670;&nbsp;</a></span>setValueSize() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -875,9 +1708,331 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>QCPColorMap</b></td>
 
 </div>
 </div>
+<a id="a818e4e384aa4e5fad69ac603924394d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a818e4e384aa4e5fad69ac603924394d3">&#9670;&nbsp;</a></span>valueRange() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classQCPRange.html">QCPRange</a> QCPColorMapData::valueRange </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a818e4e384aa4e5fad69ac603924394d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a818e4e384aa4e5fad69ac603924394d3">&#9670;&nbsp;</a></span>valueRange() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classQCPRange.html">QCPRange</a> QCPColorMapData::valueRange </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8510cafea24645bbb62b5e0bfc43209f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8510cafea24645bbb62b5e0bfc43209f">&#9670;&nbsp;</a></span>valueSize() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int QCPColorMapData::valueSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8510cafea24645bbb62b5e0bfc43209f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8510cafea24645bbb62b5e0bfc43209f">&#9670;&nbsp;</a></span>valueSize() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int QCPColorMapData::valueSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="ae6b38f708771afd88992c2b46a5c984b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6b38f708771afd88992c2b46a5c984b">&#9670;&nbsp;</a></span>QCPColorMap</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classQCPColorMap.html">QCPColorMap</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a3a7dcec000080fe1e2ce3ca7399946ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a7dcec000080fe1e2ce3ca7399946ed">&#9670;&nbsp;</a></span>mAlpha</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char * QCPColorMapData::mAlpha</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac5ce98c703d4cf6fb69ffd338b3321c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5ce98c703d4cf6fb69ffd338b3321c9">&#9670;&nbsp;</a></span>mData</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double * QCPColorMapData::mData</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1798b3dcc0a27091d196bfd156dcb3f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1798b3dcc0a27091d196bfd156dcb3f2">&#9670;&nbsp;</a></span>mDataBounds</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classQCPRange.html">QCPRange</a> QCPColorMapData::mDataBounds</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad3cc682da2ac14e5acdbc05cf4d3d93b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3cc682da2ac14e5acdbc05cf4d3d93b">&#9670;&nbsp;</a></span>mDataModified</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool QCPColorMapData::mDataModified</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a10e91aa89ed05bd177b1f81e07b465b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10e91aa89ed05bd177b1f81e07b465b8">&#9670;&nbsp;</a></span>mIsEmpty</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool QCPColorMapData::mIsEmpty</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaaafd0d7d0f153dbd152f3daf34254ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaaafd0d7d0f153dbd152f3daf34254ee">&#9670;&nbsp;</a></span>mKeyRange</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classQCPRange.html">QCPRange</a> QCPColorMapData::mKeyRange</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a354e06462023340fbc03894b22499f6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a354e06462023340fbc03894b22499f6d">&#9670;&nbsp;</a></span>mKeySize</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int QCPColorMapData::mKeySize</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a225bb96f10c1a27b51ae59249477dbef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a225bb96f10c1a27b51ae59249477dbef">&#9670;&nbsp;</a></span>mValueRange</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classQCPRange.html">QCPRange</a> QCPColorMapData::mValueRange</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae8ee9093632a59f55eb4fc06579ed256"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8ee9093632a59f55eb4fc06579ed256">&#9670;&nbsp;</a></span>mValueSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int QCPColorMapData::mValueSize</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>nimbro_network/nimbro_net_monitor/src/gui/contrib/qcustomplot/<a class="el" href="nimbro__net__monitor_2src_2gui_2contrib_2qcustomplot_2qcustomplot_8h_source.html">qcustomplot.h</a></li>
-<li>nimbro_network/nimbro_net_monitor/src/gui/contrib/qcustomplot/qcustomplot.cpp</li>
+<li>nimbro_network/nimbro_net_monitor/src/gui/contrib/qcustomplot/<a class="el" href="nimbro__net__monitor_2src_2gui_2contrib_2qcustomplot_2qcustomplot_8cpp.html">qcustomplot.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

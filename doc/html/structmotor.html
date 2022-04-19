@@ -81,81 +81,394 @@ Collaboration diagram for motor:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a61f48a68cd28504a37d079a7ca973ca4"><td class="memItemLeft" align="right" valign="top"><a id="a61f48a68cd28504a37d079a7ca973ca4"></a>
-pthread_mutex_t&#160;</td><td class="memItemRight" valign="bottom"><b>lock</b></td></tr>
-<tr class="separator:a61f48a68cd28504a37d079a7ca973ca4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9205f5f7eb7a4adc08d818f563b6e3c5"><td class="memItemLeft" align="right" valign="top"><a id="a9205f5f7eb7a4adc08d818f563b6e3c5"></a>
-pthread_t&#160;</td><td class="memItemRight" valign="bottom"><b>listener</b></td></tr>
-<tr class="separator:a9205f5f7eb7a4adc08d818f563b6e3c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62214820febc4324224e66a06f354dbd"><td class="memItemLeft" align="right" valign="top"><a id="a62214820febc4324224e66a06f354dbd"></a>
-mqd_t&#160;</td><td class="memItemRight" valign="bottom"><b>mQueue</b></td></tr>
-<tr class="separator:a62214820febc4324224e66a06f354dbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a58222907f53f0129ed8b7e36328ee6"><td class="memItemLeft" align="right" valign="top"><a id="a6a58222907f53f0129ed8b7e36328ee6"></a>
-char *&#160;</td><td class="memItemRight" valign="bottom"><b>mQueue_name</b></td></tr>
-<tr class="separator:a6a58222907f53f0129ed8b7e36328ee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a13688fb19783e76a7aee521929d6a9"><td class="memItemLeft" align="right" valign="top"><a id="a1a13688fb19783e76a7aee521929d6a9"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>s</b></td></tr>
-<tr class="separator:a1a13688fb19783e76a7aee521929d6a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b8e368c5dc201d10bb199624f868404"><td class="memItemLeft" align="right" valign="top"><a id="a4b8e368c5dc201d10bb199624f868404"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>no</b></td></tr>
-<tr class="separator:a4b8e368c5dc201d10bb199624f868404"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18b4dc843e142d002436716ec68a816b"><td class="memItemLeft" align="right" valign="top"><a id="a18b4dc843e142d002436716ec68a816b"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>cur_pos</b></td></tr>
-<tr class="separator:a18b4dc843e142d002436716ec68a816b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afbab3925a3412627a750e32c720131dc"><td class="memItemLeft" align="right" valign="top"><a id="afbab3925a3412627a750e32c720131dc"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>cur_vel</b></td></tr>
-<tr class="separator:afbab3925a3412627a750e32c720131dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a737a2cf5924ffbc124636d639bbfb5b1"><td class="memItemLeft" align="right" valign="top"><a id="a737a2cf5924ffbc124636d639bbfb5b1"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>cur_trq</b></td></tr>
-<tr class="separator:a737a2cf5924ffbc124636d639bbfb5b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89f8a841ed8dfe99f973dc33286b5cbf"><td class="memItemLeft" align="right" valign="top"><a id="a89f8a841ed8dfe99f973dc33286b5cbf"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>cur_voltage</b></td></tr>
-<tr class="separator:a89f8a841ed8dfe99f973dc33286b5cbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6fb8a0772acc1ab33605b6c82848f139"><td class="memItemLeft" align="right" valign="top"><a id="a6fb8a0772acc1ab33605b6c82848f139"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>cur_amp</b></td></tr>
-<tr class="separator:a6fb8a0772acc1ab33605b6c82848f139"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa80fb1e316858ba043c93ef282d61ab3"><td class="memItemLeft" align="right" valign="top"><a id="aa80fb1e316858ba043c93ef282d61ab3"></a>
-timer_t&#160;</td><td class="memItemRight" valign="bottom"><b>msg_timer</b></td></tr>
-<tr class="separator:aa80fb1e316858ba043c93ef282d61ab3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adcc0527897ea296855e319f1bbc2d750"><td class="memItemLeft" align="right" valign="top"><a id="adcc0527897ea296855e319f1bbc2d750"></a>
-timer_t&#160;</td><td class="memItemRight" valign="bottom"><b>heartbeat_timer</b></td></tr>
-<tr class="separator:adcc0527897ea296855e319f1bbc2d750"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a371a80ab4a202e62ee90bf2a4737731a"><td class="memItemLeft" align="right" valign="top"><a id="a371a80ab4a202e62ee90bf2a4737731a"></a>
-enum ctrl_mode&#160;</td><td class="memItemRight" valign="bottom"><b>cm</b></td></tr>
+<tr class="memitem:a371a80ab4a202e62ee90bf2a4737731a"><td class="memItemLeft" align="right" valign="top">enum <a class="el" href="motor_8h.html#a8cba1d5aebbed0609a07e75b663289c3">ctrl_mode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor.html#a371a80ab4a202e62ee90bf2a4737731a">cm</a></td></tr>
 <tr class="separator:a371a80ab4a202e62ee90bf2a4737731a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd3a79023277275d825c86b047514f1d"><td class="memItemLeft" align="right" valign="top"><a id="abd3a79023277275d825c86b047514f1d"></a>
-enum motor_type&#160;</td><td class="memItemRight" valign="bottom"><b>mt</b></td></tr>
-<tr class="separator:abd3a79023277275d825c86b047514f1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa826a15e03f356ff51b7495902553f4a"><td class="memItemLeft" align="right" valign="top"><a id="aa826a15e03f356ff51b7495902553f4a"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>enabled</b></td></tr>
-<tr class="separator:aa826a15e03f356ff51b7495902553f4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a23b3523d97cc96606aa5c58deceac850"><td class="memItemLeft" align="right" valign="top"><a id="a23b3523d97cc96606aa5c58deceac850"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>enable_pin_active</b></td></tr>
+<tr class="memitem:a6fb8a0772acc1ab33605b6c82848f139"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor.html#a6fb8a0772acc1ab33605b6c82848f139">cur_amp</a></td></tr>
+<tr class="separator:a6fb8a0772acc1ab33605b6c82848f139"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18b4dc843e142d002436716ec68a816b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor.html#a18b4dc843e142d002436716ec68a816b">cur_pos</a></td></tr>
+<tr class="separator:a18b4dc843e142d002436716ec68a816b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a737a2cf5924ffbc124636d639bbfb5b1"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor.html#a737a2cf5924ffbc124636d639bbfb5b1">cur_trq</a></td></tr>
+<tr class="separator:a737a2cf5924ffbc124636d639bbfb5b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbab3925a3412627a750e32c720131dc"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor.html#afbab3925a3412627a750e32c720131dc">cur_vel</a></td></tr>
+<tr class="separator:afbab3925a3412627a750e32c720131dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89f8a841ed8dfe99f973dc33286b5cbf"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor.html#a89f8a841ed8dfe99f973dc33286b5cbf">cur_voltage</a></td></tr>
+<tr class="separator:a89f8a841ed8dfe99f973dc33286b5cbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23b3523d97cc96606aa5c58deceac850"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor.html#a23b3523d97cc96606aa5c58deceac850">enable_pin_active</a></td></tr>
 <tr class="separator:a23b3523d97cc96606aa5c58deceac850"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9132e1af0dbf7107ae57b3ab95dc03a1"><td class="memItemLeft" align="right" valign="top"><a id="a9132e1af0dbf7107ae57b3ab95dc03a1"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>stopped</b></td></tr>
-<tr class="separator:a9132e1af0dbf7107ae57b3ab95dc03a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75521d2b7d820a5873a367464e1ef7f4"><td class="memItemLeft" align="right" valign="top"><a id="a75521d2b7d820a5873a367464e1ef7f4"></a>
-volatile bool&#160;</td><td class="memItemRight" valign="bottom"><b>fault</b></td></tr>
+<tr class="memitem:aa826a15e03f356ff51b7495902553f4a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor.html#aa826a15e03f356ff51b7495902553f4a">enabled</a></td></tr>
+<tr class="separator:aa826a15e03f356ff51b7495902553f4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75521d2b7d820a5873a367464e1ef7f4"><td class="memItemLeft" align="right" valign="top">volatile bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor.html#a75521d2b7d820a5873a367464e1ef7f4">fault</a></td></tr>
 <tr class="separator:a75521d2b7d820a5873a367464e1ef7f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ff43e74e0efdf3c0e37f47a83b83343"><td class="memItemLeft" align="right" valign="top"><a id="a8ff43e74e0efdf3c0e37f47a83b83343"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>stale_pos</b></td></tr>
-<tr class="separator:a8ff43e74e0efdf3c0e37f47a83b83343"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67ac283419606b6fb53a116446123b4b"><td class="memItemLeft" align="right" valign="top"><a id="a67ac283419606b6fb53a116446123b4b"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>stale_vel</b></td></tr>
-<tr class="separator:a67ac283419606b6fb53a116446123b4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a29f1f1b93105c71505048ea86f075b"><td class="memItemLeft" align="right" valign="top"><a id="a6a29f1f1b93105c71505048ea86f075b"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>stale_trq</b></td></tr>
-<tr class="separator:a6a29f1f1b93105c71505048ea86f075b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3cf49e9dab26ff8db4a256818f9d4e1"><td class="memItemLeft" align="right" valign="top"><a id="ab3cf49e9dab26ff8db4a256818f9d4e1"></a>
-int32_t&#160;</td><td class="memItemRight" valign="bottom"><b>inputs</b></td></tr>
+<tr class="memitem:adcc0527897ea296855e319f1bbc2d750"><td class="memItemLeft" align="right" valign="top">timer_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor.html#adcc0527897ea296855e319f1bbc2d750">heartbeat_timer</a></td></tr>
+<tr class="separator:adcc0527897ea296855e319f1bbc2d750"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3cf49e9dab26ff8db4a256818f9d4e1"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor.html#ab3cf49e9dab26ff8db4a256818f9d4e1">inputs</a></td></tr>
 <tr class="separator:ab3cf49e9dab26ff8db4a256818f9d4e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaac53f8f071af002d500892003cfe109"><td class="memItemLeft" align="right" valign="top"><a id="aaac53f8f071af002d500892003cfe109"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>ok</b></td></tr>
+<tr class="memitem:a9205f5f7eb7a4adc08d818f563b6e3c5"><td class="memItemLeft" align="right" valign="top">pthread_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor.html#a9205f5f7eb7a4adc08d818f563b6e3c5">listener</a></td></tr>
+<tr class="separator:a9205f5f7eb7a4adc08d818f563b6e3c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61f48a68cd28504a37d079a7ca973ca4"><td class="memItemLeft" align="right" valign="top">pthread_mutex_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor.html#a61f48a68cd28504a37d079a7ca973ca4">lock</a></td></tr>
+<tr class="separator:a61f48a68cd28504a37d079a7ca973ca4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62214820febc4324224e66a06f354dbd"><td class="memItemLeft" align="right" valign="top">mqd_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor.html#a62214820febc4324224e66a06f354dbd">mQueue</a></td></tr>
+<tr class="separator:a62214820febc4324224e66a06f354dbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a58222907f53f0129ed8b7e36328ee6"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor.html#a6a58222907f53f0129ed8b7e36328ee6">mQueue_name</a></td></tr>
+<tr class="separator:a6a58222907f53f0129ed8b7e36328ee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa80fb1e316858ba043c93ef282d61ab3"><td class="memItemLeft" align="right" valign="top">timer_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor.html#aa80fb1e316858ba043c93ef282d61ab3">msg_timer</a></td></tr>
+<tr class="separator:aa80fb1e316858ba043c93ef282d61ab3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd3a79023277275d825c86b047514f1d"><td class="memItemLeft" align="right" valign="top">enum <a class="el" href="motor_8h.html#a3d84d0c4686ce57991cf1330dcdee2cf">motor_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor.html#abd3a79023277275d825c86b047514f1d">mt</a></td></tr>
+<tr class="separator:abd3a79023277275d825c86b047514f1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b8e368c5dc201d10bb199624f868404"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor.html#a4b8e368c5dc201d10bb199624f868404">no</a></td></tr>
+<tr class="separator:a4b8e368c5dc201d10bb199624f868404"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaac53f8f071af002d500892003cfe109"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor.html#aaac53f8f071af002d500892003cfe109">ok</a></td></tr>
 <tr class="separator:aaac53f8f071af002d500892003cfe109"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a13688fb19783e76a7aee521929d6a9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor.html#a1a13688fb19783e76a7aee521929d6a9">s</a></td></tr>
+<tr class="separator:a1a13688fb19783e76a7aee521929d6a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ff43e74e0efdf3c0e37f47a83b83343"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor.html#a8ff43e74e0efdf3c0e37f47a83b83343">stale_pos</a></td></tr>
+<tr class="separator:a8ff43e74e0efdf3c0e37f47a83b83343"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a29f1f1b93105c71505048ea86f075b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor.html#a6a29f1f1b93105c71505048ea86f075b">stale_trq</a></td></tr>
+<tr class="separator:a6a29f1f1b93105c71505048ea86f075b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67ac283419606b6fb53a116446123b4b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor.html#a67ac283419606b6fb53a116446123b4b">stale_vel</a></td></tr>
+<tr class="separator:a67ac283419606b6fb53a116446123b4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9132e1af0dbf7107ae57b3ab95dc03a1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor.html#a9132e1af0dbf7107ae57b3ab95dc03a1">stopped</a></td></tr>
+<tr class="separator:a9132e1af0dbf7107ae57b3ab95dc03a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a371a80ab4a202e62ee90bf2a4737731a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a371a80ab4a202e62ee90bf2a4737731a">&#9670;&nbsp;</a></span>cm</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="motor_8h.html#a8cba1d5aebbed0609a07e75b663289c3">ctrl_mode</a> motor::cm</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6fb8a0772acc1ab33605b6c82848f139"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fb8a0772acc1ab33605b6c82848f139">&#9670;&nbsp;</a></span>cur_amp</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double motor::cur_amp</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a18b4dc843e142d002436716ec68a816b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18b4dc843e142d002436716ec68a816b">&#9670;&nbsp;</a></span>cur_pos</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double motor::cur_pos</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a737a2cf5924ffbc124636d639bbfb5b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a737a2cf5924ffbc124636d639bbfb5b1">&#9670;&nbsp;</a></span>cur_trq</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double motor::cur_trq</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afbab3925a3412627a750e32c720131dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbab3925a3412627a750e32c720131dc">&#9670;&nbsp;</a></span>cur_vel</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double motor::cur_vel</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a89f8a841ed8dfe99f973dc33286b5cbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89f8a841ed8dfe99f973dc33286b5cbf">&#9670;&nbsp;</a></span>cur_voltage</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double motor::cur_voltage</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a23b3523d97cc96606aa5c58deceac850"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23b3523d97cc96606aa5c58deceac850">&#9670;&nbsp;</a></span>enable_pin_active</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool motor::enable_pin_active</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa826a15e03f356ff51b7495902553f4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa826a15e03f356ff51b7495902553f4a">&#9670;&nbsp;</a></span>enabled</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool motor::enabled</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a75521d2b7d820a5873a367464e1ef7f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75521d2b7d820a5873a367464e1ef7f4">&#9670;&nbsp;</a></span>fault</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile bool motor::fault</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adcc0527897ea296855e319f1bbc2d750"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcc0527897ea296855e319f1bbc2d750">&#9670;&nbsp;</a></span>heartbeat_timer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">timer_t motor::heartbeat_timer</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab3cf49e9dab26ff8db4a256818f9d4e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3cf49e9dab26ff8db4a256818f9d4e1">&#9670;&nbsp;</a></span>inputs</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t motor::inputs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9205f5f7eb7a4adc08d818f563b6e3c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9205f5f7eb7a4adc08d818f563b6e3c5">&#9670;&nbsp;</a></span>listener</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pthread_t motor::listener</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a61f48a68cd28504a37d079a7ca973ca4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61f48a68cd28504a37d079a7ca973ca4">&#9670;&nbsp;</a></span>lock</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pthread_mutex_t motor::lock</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a62214820febc4324224e66a06f354dbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62214820febc4324224e66a06f354dbd">&#9670;&nbsp;</a></span>mQueue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">mqd_t motor::mQueue</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6a58222907f53f0129ed8b7e36328ee6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a58222907f53f0129ed8b7e36328ee6">&#9670;&nbsp;</a></span>mQueue_name</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* motor::mQueue_name</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa80fb1e316858ba043c93ef282d61ab3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa80fb1e316858ba043c93ef282d61ab3">&#9670;&nbsp;</a></span>msg_timer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">timer_t motor::msg_timer</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abd3a79023277275d825c86b047514f1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd3a79023277275d825c86b047514f1d">&#9670;&nbsp;</a></span>mt</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="motor_8h.html#a3d84d0c4686ce57991cf1330dcdee2cf">motor_type</a> motor::mt</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4b8e368c5dc201d10bb199624f868404"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b8e368c5dc201d10bb199624f868404">&#9670;&nbsp;</a></span>no</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t motor::no</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaac53f8f071af002d500892003cfe109"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaac53f8f071af002d500892003cfe109">&#9670;&nbsp;</a></span>ok</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool motor::ok</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1a13688fb19783e76a7aee521929d6a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a13688fb19783e76a7aee521929d6a9">&#9670;&nbsp;</a></span>s</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int motor::s</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8ff43e74e0efdf3c0e37f47a83b83343"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ff43e74e0efdf3c0e37f47a83b83343">&#9670;&nbsp;</a></span>stale_pos</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool motor::stale_pos</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6a29f1f1b93105c71505048ea86f075b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a29f1f1b93105c71505048ea86f075b">&#9670;&nbsp;</a></span>stale_trq</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool motor::stale_trq</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a67ac283419606b6fb53a116446123b4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67ac283419606b6fb53a116446123b4b">&#9670;&nbsp;</a></span>stale_vel</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool motor::stale_vel</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9132e1af0dbf7107ae57b3ab95dc03a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9132e1af0dbf7107ae57b3ab95dc03a1">&#9670;&nbsp;</a></span>stopped</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool motor::stopped</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>/home/jonathan/OmniDev/src/omniveyor_hardware/pcv_base/src/motor.c</li>
+<li>/home/jonathan/OmniDev/src/omniveyor_hardware/pcv_base/src/<a class="el" href="motor_8c.html">motor.c</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

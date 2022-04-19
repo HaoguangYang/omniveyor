@@ -1,4 +1,6 @@
 <map id="spatio_temporal_voxel_layer::SpatioTemporalVoxelLayer" name="spatio_temporal_voxel_layer::SpatioTemporalVoxelLayer">
-<area shape="rect" id="node1" title=" " alt="" coords="5,80,212,136"/>
-<area shape="rect" id="node2" title=" " alt="" coords="7,5,210,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="153,275,359,331"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,169,208,196"/>
+<area shape="rect" id="node3" title=" " alt="" coords="244,5,311,32"/>
+<area shape="rect" id="node4" href="$classvolume__grid_1_1SpatioTemporalVoxelGrid.html" title=" " alt="" coords="421,162,633,203"/>
 </map>

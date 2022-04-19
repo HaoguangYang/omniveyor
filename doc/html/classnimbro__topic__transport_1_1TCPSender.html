@@ -62,27 +62,125 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>nimbro_topic_transport</b></li><li class="navelem"><a class="el" href="classnimbro__topic__transport_1_1TCPSender.html">TCPSender</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacenimbro__topic__transport.html">nimbro_topic_transport</a></li><li class="navelem"><a class="el" href="classnimbro__topic__transport_1_1TCPSender.html">TCPSender</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classnimbro__topic__transport_1_1TCPSender-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">nimbro_topic_transport::TCPSender Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="tcp__sender_8h_source.html">tcp_sender.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac5f0373da730f760f79d2b399cbb78b4"><td class="memItemLeft" align="right" valign="top"><a id="ac5f0373da730f760f79d2b399cbb78b4"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>TCPSender</b> (ros::NodeHandle &amp;nh)</td></tr>
-<tr class="separator:ac5f0373da730f760f79d2b399cbb78b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abda4c92e67a62cde804a7ccc1c4d06ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnimbro__topic__transport_1_1TCPSender.html#abda4c92e67a62cde804a7ccc1c4d06ad">send</a> (const Message::ConstPtr &amp;msg)</td></tr>
+<tr class="memitem:abda4c92e67a62cde804a7ccc1c4d06ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnimbro__topic__transport_1_1TCPSender.html#abda4c92e67a62cde804a7ccc1c4d06ad">send</a> (const <a class="el" href="classnimbro__topic__transport_1_1Message.html#a95337fefcf565bd174e85aa98cc5acda">Message::ConstPtr</a> &amp;msg)</td></tr>
 <tr class="separator:abda4c92e67a62cde804a7ccc1c4d06ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5f0373da730f760f79d2b399cbb78b4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnimbro__topic__transport_1_1TCPSender.html#ac5f0373da730f760f79d2b399cbb78b4">TCPSender</a> (ros::NodeHandle &amp;nh)</td></tr>
+<tr class="separator:ac5f0373da730f760f79d2b399cbb78b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45a84aa55df5849f85dc9b7c6abbb926"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnimbro__topic__transport_1_1TCPSender.html#a45a84aa55df5849f85dc9b7c6abbb926">~TCPSender</a> ()</td></tr>
+<tr class="separator:a45a84aa55df5849f85dc9b7c6abbb926"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:ab91ed6dbf09d67166fab52f81ecc1fd8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnimbro__topic__transport_1_1TCPSender.html#ab91ed6dbf09d67166fab52f81ecc1fd8">connect</a> ()</td></tr>
+<tr class="separator:ab91ed6dbf09d67166fab52f81ecc1fd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a687b01b78af606aa1ea55d2efa3d401d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnimbro__topic__transport_1_1TCPSender.html#a687b01b78af606aa1ea55d2efa3d401d">updateStats</a> ()</td></tr>
+<tr class="separator:a687b01b78af606aa1ea55d2efa3d401d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a14fd2c1ac4c82f54f7cd790166942708"><td class="memItemLeft" align="right" valign="top">sockaddr_storage&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnimbro__topic__transport_1_1TCPSender.html#a14fd2c1ac4c82f54f7cd790166942708">m_addr</a></td></tr>
+<tr class="separator:a14fd2c1ac4c82f54f7cd790166942708"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4d5a2e1bdbd26ccfb034c3056efe70b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnimbro__topic__transport_1_1TCPSender.html#ad4d5a2e1bdbd26ccfb034c3056efe70b">m_addrFamily</a></td></tr>
+<tr class="separator:ad4d5a2e1bdbd26ccfb034c3056efe70b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b7a9c1d919072ce708ac3ae26f69ddf"><td class="memItemLeft" align="right" valign="top">socklen_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnimbro__topic__transport_1_1TCPSender.html#a0b7a9c1d919072ce708ac3ae26f69ddf">m_addrLen</a></td></tr>
+<tr class="separator:a0b7a9c1d919072ce708ac3ae26f69ddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3d3463ddd229722943273f880ce0a22"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnimbro__topic__transport_1_1TCPSender.html#ab3d3463ddd229722943273f880ce0a22">m_fd</a></td></tr>
+<tr class="separator:ab3d3463ddd229722943273f880ce0a22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1174bdb5fef0e1fc30506060f04768f"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnimbro__topic__transport_1_1TCPSender.html#af1174bdb5fef0e1fc30506060f04768f">m_mutex</a></td></tr>
+<tr class="separator:af1174bdb5fef0e1fc30506060f04768f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afaaebe6026a8c958ddefb0e311897384"><td class="memItemLeft" align="right" valign="top">ros::NodeHandle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnimbro__topic__transport_1_1TCPSender.html#afaaebe6026a8c958ddefb0e311897384">m_nh</a></td></tr>
+<tr class="separator:afaaebe6026a8c958ddefb0e311897384"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89015ed0f1a334e932513fc61dc7c727"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnimbro__topic__transport_1_1TCPSender.html#a89015ed0f1a334e932513fc61dc7c727">m_sourcePort</a></td></tr>
+<tr class="separator:a89015ed0f1a334e932513fc61dc7c727"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ac5f0373da730f760f79d2b399cbb78b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5f0373da730f760f79d2b399cbb78b4">&#9670;&nbsp;</a></span>TCPSender()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">nimbro_topic_transport::TCPSender::TCPSender </td>
+          <td>(</td>
+          <td class="paramtype">ros::NodeHandle &amp;&#160;</td>
+          <td class="paramname"><em>nh</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a45a84aa55df5849f85dc9b7c6abbb926"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45a84aa55df5849f85dc9b7c6abbb926">&#9670;&nbsp;</a></span>~TCPSender()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">nimbro_topic_transport::TCPSender::~TCPSender </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="ab91ed6dbf09d67166fab52f81ecc1fd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab91ed6dbf09d67166fab52f81ecc1fd8">&#9670;&nbsp;</a></span>connect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool nimbro_topic_transport::TCPSender::connect </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="abda4c92e67a62cde804a7ccc1c4d06ad"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abda4c92e67a62cde804a7ccc1c4d06ad">&#9670;&nbsp;</a></span>send()</h2>
 
@@ -92,7 +190,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void nimbro_topic_transport::TCPSender::send </td>
           <td>(</td>
-          <td class="paramtype">const Message::ConstPtr &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classnimbro__topic__transport_1_1Message.html#a95337fefcf565bd174e85aa98cc5acda">Message::ConstPtr</a> &amp;&#160;</td>
           <td class="paramname"><em>msg</em></td><td>)</td>
           <td></td>
         </tr>
@@ -102,9 +200,189 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a687b01b78af606aa1ea55d2efa3d401d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a687b01b78af606aa1ea55d2efa3d401d">&#9670;&nbsp;</a></span>updateStats()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nimbro_topic_transport::TCPSender::updateStats </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a14fd2c1ac4c82f54f7cd790166942708"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14fd2c1ac4c82f54f7cd790166942708">&#9670;&nbsp;</a></span>m_addr</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sockaddr_storage nimbro_topic_transport::TCPSender::m_addr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad4d5a2e1bdbd26ccfb034c3056efe70b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4d5a2e1bdbd26ccfb034c3056efe70b">&#9670;&nbsp;</a></span>m_addrFamily</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int nimbro_topic_transport::TCPSender::m_addrFamily</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0b7a9c1d919072ce708ac3ae26f69ddf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b7a9c1d919072ce708ac3ae26f69ddf">&#9670;&nbsp;</a></span>m_addrLen</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">socklen_t nimbro_topic_transport::TCPSender::m_addrLen</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab3d3463ddd229722943273f880ce0a22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3d3463ddd229722943273f880ce0a22">&#9670;&nbsp;</a></span>m_fd</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int nimbro_topic_transport::TCPSender::m_fd</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af1174bdb5fef0e1fc30506060f04768f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1174bdb5fef0e1fc30506060f04768f">&#9670;&nbsp;</a></span>m_mutex</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::mutex nimbro_topic_transport::TCPSender::m_mutex</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afaaebe6026a8c958ddefb0e311897384"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afaaebe6026a8c958ddefb0e311897384">&#9670;&nbsp;</a></span>m_nh</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ros::NodeHandle nimbro_topic_transport::TCPSender::m_nh</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a89015ed0f1a334e932513fc61dc7c727"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89015ed0f1a334e932513fc61dc7c727">&#9670;&nbsp;</a></span>m_sourcePort</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int nimbro_topic_transport::TCPSender::m_sourcePort</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>nimbro_network/nimbro_topic_transport/src/sender/<a class="el" href="tcp__sender_8h_source.html">tcp_sender.h</a></li>
-<li>nimbro_network/nimbro_topic_transport/src/sender/tcp_sender.cpp</li>
+<li>nimbro_network/nimbro_topic_transport/src/sender/<a class="el" href="tcp__sender_8cpp.html">tcp_sender.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

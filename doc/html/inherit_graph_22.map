@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$structgeometry_1_1VectorWithPt3D.html" title=" " alt="" coords="5,5,200,32"/>
+<area shape="rect" id="node1" href="$classgeometry_1_1Frustum.html" title=" " alt="" coords="5,35,151,61"/>
+<area shape="rect" id="node2" href="$classgeometry_1_1DepthCameraFrustum.html" title=" " alt="" coords="199,5,433,32"/>
+<area shape="rect" id="node3" href="$classgeometry_1_1ThreeDimensionalLidarFrustum.html" title=" " alt="" coords="211,57,421,98"/>
 </map>

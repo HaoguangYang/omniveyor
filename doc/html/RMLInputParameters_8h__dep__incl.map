@@ -1,7 +1,7 @@
 <map id="/home/jonathan/OmniDev/src/omniveyor_hardware/pcv_base/external/ReflexxesTypeII/include/RMLInputParameters.h" name="/home/jonathan/OmniDev/src/omniveyor_hardware/pcv_base/external/ReflexxesTypeII/include/RMLInputParameters.h">
 <area shape="rect" id="node1" title="Header file for the class RMLInputParameters." alt="" coords="3957,5,4201,76"/>
 <area shape="rect" id="node2" href="$RMLPositionInputParameters_8h.html" title="Header file for the class RMLPositionInputParameters." alt="" coords="2545,243,2830,313"/>
-<area shape="rect" id="node28" href="$RMLVelocityInputParameters_8h.html" title="Header file for the class RMLVelocityInputParameters." alt="" coords="5171,124,5457,195"/>
+<area shape="rect" id="node29" href="$RMLVelocityInputParameters_8h.html" title="Header file for the class RMLVelocityInputParameters." alt="" coords="5171,124,5457,195"/>
 <area shape="rect" id="node3" href="$ReflexxesAPI_8h.html" title="Header file for the class ReflexxesAPI (API of the Reflexxes Motion Libraries)" alt="" coords="3820,369,4064,439"/>
 <area shape="rect" id="node4" href="$01__RMLPositionSampleApplication_8cpp.html" title="Test application number 1 for the Reflexxes Motion Libraries (basic position&#45;based interface)" alt="" coords="1031,495,1309,580"/>
 <area shape="rect" id="node5" href="$02__RMLPositionSampleApplication_8cpp.html" title="Test application number 2 for the Reflexxes Motion Libraries (position&#45;based interface,..." alt="" coords="1333,495,1612,580"/>
@@ -12,11 +12,11 @@
 <area shape="rect" id="node14" href="$TypeIIRMLStep1_8cpp.html" title="Implementation file for the Type II On&#45;Line Trajectory Generation algorithm." alt="" coords="2639,502,2896,573"/>
 <area shape="rect" id="node15" href="$TypeIIRMLStep2_8cpp.html" title="Implementation file for the method TypeIIRMLPosition::Step2()" alt="" coords="2920,502,3177,573"/>
 <area shape="rect" id="node16" href="$TypeIIRMLStep3_8cpp.html" title="Implementation file for the Type II On&#45;Line Trajectory Generation algorithm." alt="" coords="1636,502,1893,573"/>
-<area shape="rect" id="node22" href="$TypeIIRMLPosition_8h.html" title="Header file for the class TypeIIRMLPosition, which constitutes the actual interface of the Type II Re..." alt="" coords="2485,369,2729,439"/>
-<area shape="rect" id="node23" href="$TypeIIRMLCalculatePositionalExtrems_8cpp.html" title="Implementation file for the Type II On&#45;Line Trajectory Generation algorithm." alt="" coords="5,495,324,580"/>
-<area shape="rect" id="node24" href="$TypeIIRMLFallBackStrategy_8cpp.html" title="Implementation file for the Type II On&#45;Line Trajectory Generation algorithm." alt="" coords="5501,502,5829,573"/>
-<area shape="rect" id="node25" href="$TypeIIRMLIsPhaseSynchronizationPossible_8cpp.html" title="Implementation file for the Type II On&#45;Line Trajectory Generation algorithm." alt="" coords="349,495,695,580"/>
-<area shape="rect" id="node26" href="$TypeIIRMLSetupModifiedSelectionVector_8cpp.html" title="Implementation file for the Type II On&#45;Line Trajectory Generation algorithm." alt="" coords="720,495,1007,580"/>
+<area shape="rect" id="node23" href="$TypeIIRMLPosition_8h.html" title="Header file for the class TypeIIRMLPosition, which constitutes the actual interface of the Type II Re..." alt="" coords="2485,369,2729,439"/>
+<area shape="rect" id="node24" href="$TypeIIRMLCalculatePositionalExtrems_8cpp.html" title="Implementation file for the Type II On&#45;Line Trajectory Generation algorithm." alt="" coords="5,495,324,580"/>
+<area shape="rect" id="node25" href="$TypeIIRMLFallBackStrategy_8cpp.html" title="Implementation file for the Type II On&#45;Line Trajectory Generation algorithm." alt="" coords="5501,502,5829,573"/>
+<area shape="rect" id="node26" href="$TypeIIRMLIsPhaseSynchronizationPossible_8cpp.html" title="Implementation file for the Type II On&#45;Line Trajectory Generation algorithm." alt="" coords="349,495,695,580"/>
+<area shape="rect" id="node27" href="$TypeIIRMLSetupModifiedSelectionVector_8cpp.html" title="Implementation file for the Type II On&#45;Line Trajectory Generation algorithm." alt="" coords="720,495,1007,580"/>
 <area shape="rect" id="node8" href="$04__RMLVelocitySampleApplication_8cpp.html" title="Test application number 1 for the Reflexxes Motion Libraries (basic velocity&#45;based interface)" alt="" coords="4289,495,4568,580"/>
 <area shape="rect" id="node9" href="$05__RMLVelocitySampleApplication_8cpp.html" title="Test application number 2 for the Reflexxes Motion Libraries (basic velocity&#45;based interface,..." alt="" coords="4592,495,4871,580"/>
 <area shape="rect" id="node10" href="$06__RMLVelocitySampleApplication_8cpp.html" title="Test application number 3 for the Reflexxes Motion Libraries (basic velocity&#45;based interface)" alt="" coords="4895,495,5173,580"/>
@@ -25,9 +25,10 @@
 <area shape="rect" id="node18" href="$TypeIIRMLVelocityCalculatePositionalExtrems_8cpp.html" title="Implementation file for the Type II On&#45;Line Trajectory Generation algorithm." alt="" coords="6147,495,6454,580"/>
 <area shape="rect" id="node19" href="$TypeIIRMLVelocityIsPhaseSynchronizationPossible_8cpp.html" title="Implementation file for the Type II On&#45;Line Trajectory Generation algorithm." alt="" coords="6479,495,6773,580"/>
 <area shape="rect" id="node20" href="$TypeIIRMLVelocityMethods_8cpp.html" title="Implementation file for specific tools used for the velocity&#45;based Type II On&#45;Line Trajectory Generat..." alt="" coords="6798,502,7126,573"/>
-<area shape="rect" id="node21" href="$OTG_8h_source.html" title=" " alt="" coords="3807,509,3997,565"/>
-<area shape="rect" id="node27" href="$TypeIIRMLStep2PhaseSynchronization_8cpp.html" title="Implementation file for the method TypeIIRMLPosition::Step2PhaseSynchronization()" alt="" coords="2214,502,2614,573"/>
-<area shape="rect" id="node29" href="$TypeIIRMLVelocity_8h.html" title="Header file for the class TypeIIRMLVelocity." alt="" coords="5479,243,5723,313"/>
-<area shape="rect" id="node30" href="$TypeIIRMLVelocityFallBackStrategy_8cpp.html" title="Implementation file for the Type II On&#45;Line Trajectory Generation algorithm." alt="" coords="5736,361,6004,447"/>
-<area shape="rect" id="node31" href="$TypeIIRMLVelocitySetupPhaseSyncSelectionVector_8cpp.html" title="Implementation file for the Type II On&#45;Line Trajectory Generation algorithm." alt="" coords="6029,361,6311,447"/>
+<area shape="rect" id="node21" href="$OTG_8h.html" title=" " alt="" coords="3807,509,3997,565"/>
+<area shape="rect" id="node22" href="$OTG_8cc.html" title=" " alt="" coords="3807,628,3997,684"/>
+<area shape="rect" id="node28" href="$TypeIIRMLStep2PhaseSynchronization_8cpp.html" title="Implementation file for the method TypeIIRMLPosition::Step2PhaseSynchronization()" alt="" coords="2214,502,2614,573"/>
+<area shape="rect" id="node30" href="$TypeIIRMLVelocity_8h.html" title="Header file for the class TypeIIRMLVelocity." alt="" coords="5479,243,5723,313"/>
+<area shape="rect" id="node31" href="$TypeIIRMLVelocityFallBackStrategy_8cpp.html" title="Implementation file for the Type II On&#45;Line Trajectory Generation algorithm." alt="" coords="5736,361,6004,447"/>
+<area shape="rect" id="node32" href="$TypeIIRMLVelocitySetupPhaseSyncSelectionVector_8cpp.html" title="Implementation file for the Type II On&#45;Line Trajectory Generation algorithm." alt="" coords="6029,361,6311,447"/>
 </map>

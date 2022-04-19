@@ -62,57 +62,647 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>wirehair</b></li><li class="navelem"><a class="el" href="classwirehair_1_1Codec.html">Codec</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacewirehair.html">wirehair</a></li><li class="navelem"><a class="el" href="classwirehair_1_1Codec.html">Codec</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="classwirehair_1_1Codec-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">wirehair::Codec Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="WirehairCodec_8h_source.html">WirehairCodec.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for wirehair::Codec:</div>
+<div class="dyncontent">
+<div class="center"><img src="classwirehair_1_1Codec__coll__graph.png" border="0" usemap="#wirehair_1_1Codec_coll__map" alt="Collaboration graph"/></div>
+<map name="wirehair_1_1Codec_coll__map" id="wirehair_1_1Codec_coll__map">
+<area shape="rect" title=" " alt="" coords="403,303,526,329"/>
+<area shape="rect" href="structwirehair_1_1PeelRow.html" title="Row in the sparse matrix." alt="" coords="145,199,283,225"/>
+<area shape="rect" href="unionwirehair_1_1PeelOverlappingFields.html" title=" " alt="" coords="5,95,196,136"/>
+<area shape="rect" href="structwirehair_1_1PeelRowResult.html" title=" " alt="" coords="11,5,191,32"/>
+<area shape="rect" href="structwirehair_1_1PeelRowParameters.html" title=" " alt="" coords="220,102,435,129"/>
+<area shape="rect" href="structwirehair_1_1PeelRefs.html" title="List of rows referencing a column." alt="" coords="308,199,448,225"/>
+<area shape="rect" href="structwirehair_1_1PeelColumn.html" title="Column in the sparse matrix." alt="" coords="472,199,633,225"/>
+<area shape="rect" title=" " alt="" coords="658,199,717,225"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0568571b041a1ff15f6ac5814004ec9d"><td class="memItemLeft" align="right" valign="top"><a id="a0568571b041a1ff15f6ac5814004ec9d"></a>
-GF256_FORCE_INLINE uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>PSeed</b> () const</td></tr>
-<tr class="separator:a0568571b041a1ff15f6ac5814004ec9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a167701b82968cccb8955825741dd05ee"><td class="memItemLeft" align="right" valign="top"><a id="a167701b82968cccb8955825741dd05ee"></a>
-GF256_FORCE_INLINE uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>CSeed</b> () const</td></tr>
-<tr class="separator:a167701b82968cccb8955825741dd05ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa3df96c951157479993c7c2da23e648"><td class="memItemLeft" align="right" valign="top"><a id="aaa3df96c951157479993c7c2da23e648"></a>
-GF256_FORCE_INLINE uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>BlockCount</b> () const</td></tr>
+<tr class="memitem:aaa3df96c951157479993c7c2da23e648"><td class="memItemLeft" align="right" valign="top"><a class="el" href="gf256_8h.html#a2509b0e66c19c68f86dd5fb77965a9ba">GF256_FORCE_INLINE</a> uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#aaa3df96c951157479993c7c2da23e648">BlockCount</a> () const</td></tr>
 <tr class="separator:aaa3df96c951157479993c7c2da23e648"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac5cbd2b4675815022d8d862ed6f75b4"><td class="memItemLeft" align="right" valign="top"><a id="aac5cbd2b4675815022d8d862ed6f75b4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#aac5cbd2b4675815022d8d862ed6f75b4">OverrideSeeds</a> (uint16_t dense_count, uint16_t p_seed, uint16_t d_seed)</td></tr>
-<tr class="memdesc:aac5cbd2b4675815022d8d862ed6f75b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow seeds to be overridden. <br /></td></tr>
-<tr class="separator:aac5cbd2b4675815022d8d862ed6f75b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef4b7b7cfc0e87b9730d49564504ce73"><td class="memItemLeft" align="right" valign="top"><a id="aef4b7b7cfc0e87b9730d49564504ce73"></a>
-WirehairResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#aef4b7b7cfc0e87b9730d49564504ce73">InitializeEncoder</a> (uint64_t message_bytes, unsigned block_bytes)</td></tr>
-<tr class="memdesc:aef4b7b7cfc0e87b9730d49564504ce73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize encoder mode. <br /></td></tr>
-<tr class="separator:aef4b7b7cfc0e87b9730d49564504ce73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b5ca5115d0efddaffb6792cf30dd8ed"><td class="memItemLeft" align="right" valign="top">WirehairResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a8b5ca5115d0efddaffb6792cf30dd8ed">EncodeFeed</a> (const void *GF256_RESTRICT message_in)</td></tr>
-<tr class="separator:a8b5ca5115d0efddaffb6792cf30dd8ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae70b40cfd3e7c121f204d90c249ba385"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#ae70b40cfd3e7c121f204d90c249ba385">Encode</a> (const uint32_t block_id, void *GF256_RESTRICT block_out, uint32_t out_buffer_bytes)</td></tr>
-<tr class="separator:ae70b40cfd3e7c121f204d90c249ba385"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1536a2aaccaa76330033f8282789d650"><td class="memItemLeft" align="right" valign="top"><a id="a1536a2aaccaa76330033f8282789d650"></a>
-WirehairResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a1536a2aaccaa76330033f8282789d650">InitializeDecoder</a> (uint64_t message_bytes, unsigned block_bytes)</td></tr>
-<tr class="memdesc:a1536a2aaccaa76330033f8282789d650"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize decoder mode. <br /></td></tr>
-<tr class="separator:a1536a2aaccaa76330033f8282789d650"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1e1e097b3bf9ea6b8d568af537d7868"><td class="memItemLeft" align="right" valign="top">WirehairResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#ac1e1e097b3bf9ea6b8d568af537d7868">DecodeFeed</a> (const unsigned block_id, const void *GF256_RESTRICT block_in, const unsigned block_bytes)</td></tr>
+<tr class="memitem:abe2fcad9fef12f0f2919c7f4f097ff4b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#abe2fcad9fef12f0f2919c7f4f097ff4b">Codec</a> ()</td></tr>
+<tr class="separator:abe2fcad9fef12f0f2919c7f4f097ff4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a167701b82968cccb8955825741dd05ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="gf256_8h.html#a2509b0e66c19c68f86dd5fb77965a9ba">GF256_FORCE_INLINE</a> uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a167701b82968cccb8955825741dd05ee">CSeed</a> () const</td></tr>
+<tr class="separator:a167701b82968cccb8955825741dd05ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1e1e097b3bf9ea6b8d568af537d7868"><td class="memItemLeft" align="right" valign="top"><a class="el" href="wirehair_8h.html#a2403368e59f5be1241175a0ca9a7945b">WirehairResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#ac1e1e097b3bf9ea6b8d568af537d7868">DecodeFeed</a> (const unsigned block_id, const void *<a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a> block_in, const unsigned block_bytes)</td></tr>
+<tr class="memdesc:ac1e1e097b3bf9ea6b8d568af537d7868"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classwirehair_1_1Codec.html#ac1e1e097b3bf9ea6b8d568af537d7868" title="DecodeFeed()">DecodeFeed()</a>  <a href="classwirehair_1_1Codec.html#ac1e1e097b3bf9ea6b8d568af537d7868">More...</a><br /></td></tr>
 <tr class="separator:ac1e1e097b3bf9ea6b8d568af537d7868"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae70b40cfd3e7c121f204d90c249ba385"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#ae70b40cfd3e7c121f204d90c249ba385">Encode</a> (const uint32_t block_id, void *<a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a> block_out, uint32_t out_buffer_bytes)</td></tr>
+<tr class="memdesc:ae70b40cfd3e7c121f204d90c249ba385"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classwirehair_1_1Codec.html#ae70b40cfd3e7c121f204d90c249ba385" title="Encode()">Encode()</a>  <a href="classwirehair_1_1Codec.html#ae70b40cfd3e7c121f204d90c249ba385">More...</a><br /></td></tr>
+<tr class="separator:ae70b40cfd3e7c121f204d90c249ba385"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b5ca5115d0efddaffb6792cf30dd8ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="wirehair_8h.html#a2403368e59f5be1241175a0ca9a7945b">WirehairResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a8b5ca5115d0efddaffb6792cf30dd8ed">EncodeFeed</a> (const void *<a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a> message_in)</td></tr>
+<tr class="memdesc:a8b5ca5115d0efddaffb6792cf30dd8ed"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classwirehair_1_1Codec.html#a8b5ca5115d0efddaffb6792cf30dd8ed" title="EncodeFeed()">EncodeFeed()</a>  <a href="classwirehair_1_1Codec.html#a8b5ca5115d0efddaffb6792cf30dd8ed">More...</a><br /></td></tr>
+<tr class="separator:a8b5ca5115d0efddaffb6792cf30dd8ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a996858c5b5d866072e8c7bb4fd650cb4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a996858c5b5d866072e8c7bb4fd650cb4">GenerateRecoveryBlocks</a> ()</td></tr>
+<tr class="memdesc:a996858c5b5d866072e8c7bb4fd650cb4"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classwirehair_1_1Codec.html#a996858c5b5d866072e8c7bb4fd650cb4" title="GenerateRecoveryBlocks()">GenerateRecoveryBlocks()</a>  <a href="classwirehair_1_1Codec.html#a996858c5b5d866072e8c7bb4fd650cb4">More...</a><br /></td></tr>
 <tr class="separator:a996858c5b5d866072e8c7bb4fd650cb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f4ec0f47c8c13478886033315700a03"><td class="memItemLeft" align="right" valign="top">WirehairResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a4f4ec0f47c8c13478886033315700a03">ReconstructOutput</a> (void *GF256_RESTRICT message_out, uint64_t message_bytes)</td></tr>
-<tr class="separator:a4f4ec0f47c8c13478886033315700a03"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5cc680bffd20cde13b49fc512989f00"><td class="memItemLeft" align="right" valign="top">WirehairResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#ae5cc680bffd20cde13b49fc512989f00">ReconstructBlock</a> (const uint16_t block_id, void *GF256_RESTRICT block_out, uint32_t *bytes_out)</td></tr>
-<tr class="separator:ae5cc680bffd20cde13b49fc512989f00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91efdb2a8659199a8f7b4be503c0c0e8"><td class="memItemLeft" align="right" valign="top">WirehairResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a91efdb2a8659199a8f7b4be503c0c0e8">InitializeEncoderFromDecoder</a> ()</td></tr>
+<tr class="memitem:a1536a2aaccaa76330033f8282789d650"><td class="memItemLeft" align="right" valign="top"><a class="el" href="wirehair_8h.html#a2403368e59f5be1241175a0ca9a7945b">WirehairResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a1536a2aaccaa76330033f8282789d650">InitializeDecoder</a> (uint64_t message_bytes, unsigned block_bytes)</td></tr>
+<tr class="memdesc:a1536a2aaccaa76330033f8282789d650"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize decoder mode.  <a href="classwirehair_1_1Codec.html#a1536a2aaccaa76330033f8282789d650">More...</a><br /></td></tr>
+<tr class="separator:a1536a2aaccaa76330033f8282789d650"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef4b7b7cfc0e87b9730d49564504ce73"><td class="memItemLeft" align="right" valign="top"><a class="el" href="wirehair_8h.html#a2403368e59f5be1241175a0ca9a7945b">WirehairResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#aef4b7b7cfc0e87b9730d49564504ce73">InitializeEncoder</a> (uint64_t message_bytes, unsigned block_bytes)</td></tr>
+<tr class="memdesc:aef4b7b7cfc0e87b9730d49564504ce73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize encoder mode.  <a href="classwirehair_1_1Codec.html#aef4b7b7cfc0e87b9730d49564504ce73">More...</a><br /></td></tr>
+<tr class="separator:aef4b7b7cfc0e87b9730d49564504ce73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91efdb2a8659199a8f7b4be503c0c0e8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="wirehair_8h.html#a2403368e59f5be1241175a0ca9a7945b">WirehairResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a91efdb2a8659199a8f7b4be503c0c0e8">InitializeEncoderFromDecoder</a> ()</td></tr>
+<tr class="memdesc:a91efdb2a8659199a8f7b4be503c0c0e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transition from decoder to encoder mode Precondition: <a class="el" href="classwirehair_1_1Codec.html#ac1e1e097b3bf9ea6b8d568af537d7868" title="DecodeFeed()">DecodeFeed()</a> succeeded with Wirehair_Success.  <a href="classwirehair_1_1Codec.html#a91efdb2a8659199a8f7b4be503c0c0e8">More...</a><br /></td></tr>
 <tr class="separator:a91efdb2a8659199a8f7b4be503c0c0e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac5cbd2b4675815022d8d862ed6f75b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#aac5cbd2b4675815022d8d862ed6f75b4">OverrideSeeds</a> (uint16_t dense_count, uint16_t p_seed, uint16_t d_seed)</td></tr>
+<tr class="memdesc:aac5cbd2b4675815022d8d862ed6f75b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow seeds to be overridden.  <a href="classwirehair_1_1Codec.html#aac5cbd2b4675815022d8d862ed6f75b4">More...</a><br /></td></tr>
+<tr class="separator:aac5cbd2b4675815022d8d862ed6f75b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0568571b041a1ff15f6ac5814004ec9d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="gf256_8h.html#a2509b0e66c19c68f86dd5fb77965a9ba">GF256_FORCE_INLINE</a> uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a0568571b041a1ff15f6ac5814004ec9d">PSeed</a> () const</td></tr>
+<tr class="separator:a0568571b041a1ff15f6ac5814004ec9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5cc680bffd20cde13b49fc512989f00"><td class="memItemLeft" align="right" valign="top"><a class="el" href="wirehair_8h.html#a2403368e59f5be1241175a0ca9a7945b">WirehairResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#ae5cc680bffd20cde13b49fc512989f00">ReconstructBlock</a> (const uint16_t block_id, void *<a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a> block_out, uint32_t *bytes_out)</td></tr>
+<tr class="memdesc:ae5cc680bffd20cde13b49fc512989f00"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classwirehair_1_1Codec.html#ae5cc680bffd20cde13b49fc512989f00" title="ReconstructBlock()">ReconstructBlock()</a>  <a href="classwirehair_1_1Codec.html#ae5cc680bffd20cde13b49fc512989f00">More...</a><br /></td></tr>
+<tr class="separator:ae5cc680bffd20cde13b49fc512989f00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f4ec0f47c8c13478886033315700a03"><td class="memItemLeft" align="right" valign="top"><a class="el" href="wirehair_8h.html#a2403368e59f5be1241175a0ca9a7945b">WirehairResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a4f4ec0f47c8c13478886033315700a03">ReconstructOutput</a> (void *<a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a> message_out, uint64_t message_bytes)</td></tr>
+<tr class="memdesc:a4f4ec0f47c8c13478886033315700a03"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classwirehair_1_1Codec.html#a4f4ec0f47c8c13478886033315700a03" title="ReconstructOutput()">ReconstructOutput()</a>  <a href="classwirehair_1_1Codec.html#a4f4ec0f47c8c13478886033315700a03">More...</a><br /></td></tr>
+<tr class="separator:a4f4ec0f47c8c13478886033315700a03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd32d35f84d08c8cc5ddea123debb81b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#afd32d35f84d08c8cc5ddea123debb81b">~Codec</a> ()</td></tr>
+<tr class="separator:afd32d35f84d08c8cc5ddea123debb81b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:aa867dfa7379f56d9993da38a9ff1613e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#aa867dfa7379f56d9993da38a9ff1613e">AddSubdiagonalValues</a> ()</td></tr>
+<tr class="memdesc:aa867dfa7379f56d9993da38a9ff1613e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classwirehair_1_1Codec.html#aa867dfa7379f56d9993da38a9ff1613e" title="AddSubdiagonalValues()">AddSubdiagonalValues()</a>  <a href="classwirehair_1_1Codec.html#aa867dfa7379f56d9993da38a9ff1613e">More...</a><br /></td></tr>
+<tr class="separator:aa867dfa7379f56d9993da38a9ff1613e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48ef41d547ddcaefce7692077bc8f7da"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a48ef41d547ddcaefce7692077bc8f7da">AllocateInput</a> ()</td></tr>
+<tr class="separator:a48ef41d547ddcaefce7692077bc8f7da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdc5bba759c8e86c20530e6e456668a2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#afdc5bba759c8e86c20530e6e456668a2">AllocateMatrix</a> ()</td></tr>
+<tr class="separator:afdc5bba759c8e86c20530e6e456668a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f3e92cd33f28f1597a0f5d436a8d34a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a2f3e92cd33f28f1597a0f5d436a8d34a">AllocateWorkspace</a> ()</td></tr>
+<tr class="separator:a2f3e92cd33f28f1597a0f5d436a8d34a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a616905fe122b42542d33e360d007b1da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a616905fe122b42542d33e360d007b1da">BackSubstituteAboveDiagonal</a> ()</td></tr>
+<tr class="memdesc:a616905fe122b42542d33e360d007b1da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Windowed Back-Substitution.  <a href="classwirehair_1_1Codec.html#a616905fe122b42542d33e360d007b1da">More...</a><br /></td></tr>
+<tr class="separator:a616905fe122b42542d33e360d007b1da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b1069360dd90bf3c41aeeeb2e18b00f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="wirehair_8h.html#a2403368e59f5be1241175a0ca9a7945b">WirehairResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a1b1069360dd90bf3c41aeeeb2e18b00f">ChooseMatrix</a> (uint64_t message_bytes, unsigned block_bytes)</td></tr>
+<tr class="memdesc:a1b1069360dd90bf3c41aeeeb2e18b00f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function determines the matrix to use based on the given message bytes and bytes per block.  <a href="classwirehair_1_1Codec.html#a1b1069360dd90bf3c41aeeeb2e18b00f">More...</a><br /></td></tr>
+<tr class="separator:a1b1069360dd90bf3c41aeeeb2e18b00f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afef5db51d5cd0fb6ad7258a6c6b6eb07"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#afef5db51d5cd0fb6ad7258a6c6b6eb07">CopyDeferredRows</a> ()</td></tr>
+<tr class="memdesc:afef5db51d5cd0fb6ad7258a6c6b6eb07"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classwirehair_1_1Codec.html#afef5db51d5cd0fb6ad7258a6c6b6eb07" title="CopyDeferredRows()">CopyDeferredRows()</a>  <a href="classwirehair_1_1Codec.html#afef5db51d5cd0fb6ad7258a6c6b6eb07">More...</a><br /></td></tr>
+<tr class="separator:afef5db51d5cd0fb6ad7258a6c6b6eb07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba943581ccbace22001c6a3b2f3a5bf8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#aba943581ccbace22001c6a3b2f3a5bf8">FixPeelFailure</a> (<a class="el" href="structwirehair_1_1PeelRow.html">PeelRow</a> *<a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a> row, const uint16_t fail_column_i)</td></tr>
+<tr class="memdesc:aba943581ccbace22001c6a3b2f3a5bf8"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classwirehair_1_1Codec.html#aba943581ccbace22001c6a3b2f3a5bf8" title="FixPeelFailure()">FixPeelFailure()</a>  <a href="classwirehair_1_1Codec.html#aba943581ccbace22001c6a3b2f3a5bf8">More...</a><br /></td></tr>
+<tr class="separator:aba943581ccbace22001c6a3b2f3a5bf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a26beeeac9f9e5349f5ccb33ab338d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a8a26beeeac9f9e5349f5ccb33ab338d1">FreeInput</a> ()</td></tr>
+<tr class="separator:a8a26beeeac9f9e5349f5ccb33ab338d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6a47b3ef6a0b7834bbdaf2d26ab9e53"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#af6a47b3ef6a0b7834bbdaf2d26ab9e53">FreeMatrix</a> ()</td></tr>
+<tr class="separator:af6a47b3ef6a0b7834bbdaf2d26ab9e53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8736aaaec0b5131f86ea4b7c58ee5ceb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a8736aaaec0b5131f86ea4b7c58ee5ceb">FreeWorkspace</a> ()</td></tr>
+<tr class="separator:a8736aaaec0b5131f86ea4b7c58ee5ceb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8468c46a0301ee9c3e43f24796dc9c33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a8468c46a0301ee9c3e43f24796dc9c33">GreedyPeeling</a> ()</td></tr>
+<tr class="memdesc:a8468c46a0301ee9c3e43f24796dc9c33"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classwirehair_1_1Codec.html#a8468c46a0301ee9c3e43f24796dc9c33" title="GreedyPeeling()">GreedyPeeling()</a>  <a href="classwirehair_1_1Codec.html#a8468c46a0301ee9c3e43f24796dc9c33">More...</a><br /></td></tr>
+<tr class="separator:a8468c46a0301ee9c3e43f24796dc9c33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f2e3d73424271edaf9d15039ca00e55"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a1f2e3d73424271edaf9d15039ca00e55">InitializeColumnValues</a> ()</td></tr>
+<tr class="memdesc:a1f2e3d73424271edaf9d15039ca00e55"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classwirehair_1_1Codec.html#a1f2e3d73424271edaf9d15039ca00e55" title="InitializeColumnValues()">InitializeColumnValues()</a>  <a href="classwirehair_1_1Codec.html#a1f2e3d73424271edaf9d15039ca00e55">More...</a><br /></td></tr>
+<tr class="separator:a1f2e3d73424271edaf9d15039ca00e55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9586e4d6bdc9d1b45ebe16a3a846b0d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a9586e4d6bdc9d1b45ebe16a3a846b0d5">InsertHeavyRows</a> ()</td></tr>
+<tr class="memdesc:a9586e4d6bdc9d1b45ebe16a3a846b0d5"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classwirehair_1_1Codec.html#a9586e4d6bdc9d1b45ebe16a3a846b0d5" title="InsertHeavyRows()">InsertHeavyRows()</a>  <a href="classwirehair_1_1Codec.html#a9586e4d6bdc9d1b45ebe16a3a846b0d5">More...</a><br /></td></tr>
+<tr class="separator:a9586e4d6bdc9d1b45ebe16a3a846b0d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa0fbcad703c770823246a46f37771bf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#aaa0fbcad703c770823246a46f37771bf">IsAllOriginalData</a> ()</td></tr>
+<tr class="memdesc:aaa0fbcad703c770823246a46f37771bf"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classwirehair_1_1Codec.html#aaa0fbcad703c770823246a46f37771bf" title="IsAllOriginalData()">IsAllOriginalData()</a>  <a href="classwirehair_1_1Codec.html#aaa0fbcad703c770823246a46f37771bf">More...</a><br /></td></tr>
+<tr class="separator:aaa0fbcad703c770823246a46f37771bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3a4af11f411d93315879c4e60de53a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#aa3a4af11f411d93315879c4e60de53a7">MultiplyDenseRows</a> ()</td></tr>
+<tr class="memdesc:aa3a4af11f411d93315879c4e60de53a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiply dense rows by peeling matrix to generate GE rows, but no row values are involed yet.  <a href="classwirehair_1_1Codec.html#aa3a4af11f411d93315879c4e60de53a7">More...</a><br /></td></tr>
+<tr class="separator:aa3a4af11f411d93315879c4e60de53a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac452f0682d00c7a425959db69f6df108"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#ac452f0682d00c7a425959db69f6df108">MultiplyDenseValues</a> ()</td></tr>
+<tr class="memdesc:ac452f0682d00c7a425959db69f6df108"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classwirehair_1_1Codec.html#ac452f0682d00c7a425959db69f6df108" title="MultiplyDenseValues()">MultiplyDenseValues()</a>  <a href="classwirehair_1_1Codec.html#ac452f0682d00c7a425959db69f6df108">More...</a><br /></td></tr>
+<tr class="separator:ac452f0682d00c7a425959db69f6df108"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add4088e92504f443ba0bae663e572805"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#add4088e92504f443ba0bae663e572805">OpportunisticPeeling</a> (const uint16_t row_i, const uint32_t row_seed)</td></tr>
+<tr class="memdesc:add4088e92504f443ba0bae663e572805"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classwirehair_1_1Codec.html#add4088e92504f443ba0bae663e572805" title="OpportunisticPeeling()">OpportunisticPeeling()</a>  <a href="classwirehair_1_1Codec.html#add4088e92504f443ba0bae663e572805">More...</a><br /></td></tr>
+<tr class="separator:add4088e92504f443ba0bae663e572805"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1e1bbd3839f0e30d8e2ca4e7a2a5a3e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#af1e1bbd3839f0e30d8e2ca4e7a2a5a3e">PeelAvalancheOnSolve</a> (uint16_t column_i)</td></tr>
+<tr class="memdesc:af1e1bbd3839f0e30d8e2ca4e7a2a5a3e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classwirehair_1_1Codec.html#af1e1bbd3839f0e30d8e2ca4e7a2a5a3e" title="PeelAvalancheOnSolve()">PeelAvalancheOnSolve()</a>  <a href="classwirehair_1_1Codec.html#af1e1bbd3839f0e30d8e2ca4e7a2a5a3e">More...</a><br /></td></tr>
+<tr class="separator:af1e1bbd3839f0e30d8e2ca4e7a2a5a3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73e1143e0104be68e7ec46527d5850ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a73e1143e0104be68e7ec46527d5850ac">PeelDiagonal</a> ()</td></tr>
+<tr class="memdesc:a73e1143e0104be68e7ec46527d5850ac"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classwirehair_1_1Codec.html#a73e1143e0104be68e7ec46527d5850ac" title="PeelDiagonal()">PeelDiagonal()</a>  <a href="classwirehair_1_1Codec.html#a73e1143e0104be68e7ec46527d5850ac">More...</a><br /></td></tr>
+<tr class="separator:a73e1143e0104be68e7ec46527d5850ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a231ec4075d1a5a734e1eabd29d86b002"><td class="memItemLeft" align="right" valign="top"><a class="el" href="wirehair_8h.html#a2403368e59f5be1241175a0ca9a7945b">WirehairResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a231ec4075d1a5a734e1eabd29d86b002">ResumeSolveMatrix</a> (const unsigned id, const void *<a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a> <a class="el" href="udp__packet_8h.html#a7f897df1949af68456ee830f2468e476">data</a>)</td></tr>
+<tr class="memdesc:a231ec4075d1a5a734e1eabd29d86b002"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classwirehair_1_1Codec.html#a231ec4075d1a5a734e1eabd29d86b002" title="ResumeSolveMatrix()">ResumeSolveMatrix()</a>  <a href="classwirehair_1_1Codec.html#a231ec4075d1a5a734e1eabd29d86b002">More...</a><br /></td></tr>
+<tr class="separator:a231ec4075d1a5a734e1eabd29d86b002"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9ee7806329f04d1e2cdb5ac0dc6d414"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#ac9ee7806329f04d1e2cdb5ac0dc6d414">SetDeferredColumns</a> ()</td></tr>
+<tr class="memdesc:ac9ee7806329f04d1e2cdb5ac0dc6d414"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classwirehair_1_1Codec.html#ac9ee7806329f04d1e2cdb5ac0dc6d414" title="SetDeferredColumns()">SetDeferredColumns()</a>  <a href="classwirehair_1_1Codec.html#ac9ee7806329f04d1e2cdb5ac0dc6d414">More...</a><br /></td></tr>
+<tr class="separator:ac9ee7806329f04d1e2cdb5ac0dc6d414"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee7183926db903364250ffe73ef1fccb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#aee7183926db903364250ffe73ef1fccb">SetHeavyRows</a> ()</td></tr>
+<tr class="memdesc:aee7183926db903364250ffe73ef1fccb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize heavy submatrix as described above.  <a href="classwirehair_1_1Codec.html#aee7183926db903364250ffe73ef1fccb">More...</a><br /></td></tr>
+<tr class="separator:aee7183926db903364250ffe73ef1fccb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e0e983530dda5c0be2d2727a371e371"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a4e0e983530dda5c0be2d2727a371e371">SetInput</a> (const void *<a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a> message_in)</td></tr>
+<tr class="separator:a4e0e983530dda5c0be2d2727a371e371"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5db434bc09b658174db2712af2f115e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a5db434bc09b658174db2712af2f115e1">SetMixingColumnsForDeferredRows</a> ()</td></tr>
+<tr class="memdesc:a5db434bc09b658174db2712af2f115e1"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classwirehair_1_1Codec.html#a5db434bc09b658174db2712af2f115e1" title="SetMixingColumnsForDeferredRows()">SetMixingColumnsForDeferredRows()</a>  <a href="classwirehair_1_1Codec.html#a5db434bc09b658174db2712af2f115e1">More...</a><br /></td></tr>
+<tr class="separator:a5db434bc09b658174db2712af2f115e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1dd2bcecda337c961ad95ea884a40dfc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a1dd2bcecda337c961ad95ea884a40dfc">SetupTriangle</a> ()</td></tr>
+<tr class="memdesc:a1dd2bcecda337c961ad95ea884a40dfc"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classwirehair_1_1Codec.html#a1dd2bcecda337c961ad95ea884a40dfc" title="SetupTriangle()">SetupTriangle()</a>  <a href="classwirehair_1_1Codec.html#a1dd2bcecda337c961ad95ea884a40dfc">More...</a><br /></td></tr>
+<tr class="separator:a1dd2bcecda337c961ad95ea884a40dfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70be224802df0df32dae3ed1b166f259"><td class="memItemLeft" align="right" valign="top"><a class="el" href="wirehair_8h.html#a2403368e59f5be1241175a0ca9a7945b">WirehairResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a70be224802df0df32dae3ed1b166f259">SolveMatrix</a> ()</td></tr>
+<tr class="memdesc:a70be224802df0df32dae3ed1b166f259"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classwirehair_1_1Codec.html#a70be224802df0df32dae3ed1b166f259" title="SolveMatrix()">SolveMatrix()</a>  <a href="classwirehair_1_1Codec.html#a70be224802df0df32dae3ed1b166f259">More...</a><br /></td></tr>
+<tr class="separator:a70be224802df0df32dae3ed1b166f259"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a07232898df9fddfc3fdb67042d603f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a4a07232898df9fddfc3fdb67042d603f">SolveWithPeel</a> (<a class="el" href="structwirehair_1_1PeelRow.html">PeelRow</a> *<a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a> row, uint16_t row_i, uint16_t column_i)</td></tr>
+<tr class="memdesc:a4a07232898df9fddfc3fdb67042d603f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classwirehair_1_1Codec.html#a4a07232898df9fddfc3fdb67042d603f" title="SolveWithPeel()">SolveWithPeel()</a>  <a href="classwirehair_1_1Codec.html#a4a07232898df9fddfc3fdb67042d603f">More...</a><br /></td></tr>
+<tr class="separator:a4a07232898df9fddfc3fdb67042d603f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada1bafb8017c3f31cbee9d8a474fbff9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#ada1bafb8017c3f31cbee9d8a474fbff9">Substitute</a> ()</td></tr>
+<tr class="memdesc:ada1bafb8017c3f31cbee9d8a474fbff9"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classwirehair_1_1Codec.html#ada1bafb8017c3f31cbee9d8a474fbff9" title="Substitute()">Substitute()</a>  <a href="classwirehair_1_1Codec.html#ada1bafb8017c3f31cbee9d8a474fbff9">More...</a><br /></td></tr>
+<tr class="separator:ada1bafb8017c3f31cbee9d8a474fbff9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06d08f9f2d1ae3c62076321a735a8a30"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a06d08f9f2d1ae3c62076321a735a8a30">Triangle</a> ()</td></tr>
+<tr class="memdesc:a06d08f9f2d1ae3c62076321a735a8a30"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classwirehair_1_1Codec.html#a06d08f9f2d1ae3c62076321a735a8a30" title="Triangle()">Triangle()</a>  <a href="classwirehair_1_1Codec.html#a06d08f9f2d1ae3c62076321a735a8a30">More...</a><br /></td></tr>
+<tr class="separator:a06d08f9f2d1ae3c62076321a735a8a30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a664cc2ee6bd0f8992b6ee0229c17cab5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a664cc2ee6bd0f8992b6ee0229c17cab5">TriangleNonHeavy</a> ()</td></tr>
+<tr class="memdesc:a664cc2ee6bd0f8992b6ee0229c17cab5"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classwirehair_1_1Codec.html#a664cc2ee6bd0f8992b6ee0229c17cab5" title="TriangleNonHeavy()">TriangleNonHeavy()</a>  <a href="classwirehair_1_1Codec.html#a664cc2ee6bd0f8992b6ee0229c17cab5">More...</a><br /></td></tr>
+<tr class="separator:a664cc2ee6bd0f8992b6ee0229c17cab5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ac7a7493892d11f937371085c2c100057"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#ac7a7493892d11f937371085c2c100057">_all_original</a> = false</td></tr>
+<tr class="memdesc:ac7a7493892d11f937371085c2c100057"><td class="mdescLeft">&#160;</td><td class="mdescRight">Boolean: Only seen original data block identifiers.  <a href="classwirehair_1_1Codec.html#ac7a7493892d11f937371085c2c100057">More...</a><br /></td></tr>
+<tr class="separator:ac7a7493892d11f937371085c2c100057"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9db29064eb61509b7f5b9b75fdcf6982"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a9db29064eb61509b7f5b9b75fdcf6982">_block_bytes</a> = 0</td></tr>
+<tr class="memdesc:a9db29064eb61509b7f5b9b75fdcf6982"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of bytes in a block.  <a href="classwirehair_1_1Codec.html#a9db29064eb61509b7f5b9b75fdcf6982">More...</a><br /></td></tr>
+<tr class="separator:a9db29064eb61509b7f5b9b75fdcf6982"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5963b0be37fa46999b4d6cc52e9d3a5"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#af5963b0be37fa46999b4d6cc52e9d3a5">_block_count</a> = 0</td></tr>
+<tr class="memdesc:af5963b0be37fa46999b4d6cc52e9d3a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of blocks in the message.  <a href="classwirehair_1_1Codec.html#af5963b0be37fa46999b4d6cc52e9d3a5">More...</a><br /></td></tr>
+<tr class="separator:af5963b0be37fa46999b4d6cc52e9d3a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08654871f9b70cddc7b4e0674bc98b3a"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a08654871f9b70cddc7b4e0674bc98b3a">_block_next_prime</a> = 0</td></tr>
+<tr class="memdesc:a08654871f9b70cddc7b4e0674bc98b3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Next prime number at or above block count.  <a href="classwirehair_1_1Codec.html#a08654871f9b70cddc7b4e0674bc98b3a">More...</a><br /></td></tr>
+<tr class="separator:a08654871f9b70cddc7b4e0674bc98b3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad11bd6aa87006973b95f1c88afeccbd4"><td class="memItemLeft" align="right" valign="top">uint64_t *<a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#ad11bd6aa87006973b95f1c88afeccbd4">_compress_matrix</a> = nullptr</td></tr>
+<tr class="memdesc:ad11bd6aa87006973b95f1c88afeccbd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gaussian elimination compression matrix.  <a href="classwirehair_1_1Codec.html#ad11bd6aa87006973b95f1c88afeccbd4">More...</a><br /></td></tr>
+<tr class="separator:ad11bd6aa87006973b95f1c88afeccbd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d46889e0acce90543535237810c5c8d"><td class="memItemLeft" align="right" valign="top">uint8_t *<a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a5d46889e0acce90543535237810c5c8d">_copied_original</a> = nullptr</td></tr>
+<tr class="separator:a5d46889e0acce90543535237810c5c8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a232bc4d44bf7e06bc628dbcaf38448c0"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a232bc4d44bf7e06bc628dbcaf38448c0">_d_seed</a> = 0</td></tr>
+<tr class="memdesc:a232bc4d44bf7e06bc628dbcaf38448c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seed for dense rows of matrix.  <a href="classwirehair_1_1Codec.html#a232bc4d44bf7e06bc628dbcaf38448c0">More...</a><br /></td></tr>
+<tr class="separator:a232bc4d44bf7e06bc628dbcaf38448c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab81d9bd93e5cccbe9799f92bbb1401a0"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#ab81d9bd93e5cccbe9799f92bbb1401a0">_defer_count</a> = 0</td></tr>
+<tr class="memdesc:ab81d9bd93e5cccbe9799f92bbb1401a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Count of deferred rows.  <a href="classwirehair_1_1Codec.html#ab81d9bd93e5cccbe9799f92bbb1401a0">More...</a><br /></td></tr>
+<tr class="separator:ab81d9bd93e5cccbe9799f92bbb1401a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76cf7d6a9c7dc1d483e94b4a8324d9c5"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a76cf7d6a9c7dc1d483e94b4a8324d9c5">_defer_head_columns</a> = 0</td></tr>
+<tr class="memdesc:a76cf7d6a9c7dc1d483e94b4a8324d9c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Head of peeling deferred columns list.  <a href="classwirehair_1_1Codec.html#a76cf7d6a9c7dc1d483e94b4a8324d9c5">More...</a><br /></td></tr>
+<tr class="separator:a76cf7d6a9c7dc1d483e94b4a8324d9c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf4fb748184cba8d6d2812413ceaecd4"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#adf4fb748184cba8d6d2812413ceaecd4">_defer_head_rows</a> = 0</td></tr>
+<tr class="memdesc:adf4fb748184cba8d6d2812413ceaecd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Head of peeling deferred rows list.  <a href="classwirehair_1_1Codec.html#adf4fb748184cba8d6d2812413ceaecd4">More...</a><br /></td></tr>
+<tr class="separator:adf4fb748184cba8d6d2812413ceaecd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af19813c181a69d024c60e02a3e9dad26"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#af19813c181a69d024c60e02a3e9dad26">_dense_count</a> = 0</td></tr>
+<tr class="memdesc:af19813c181a69d024c60e02a3e9dad26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of added dense code rows.  <a href="classwirehair_1_1Codec.html#af19813c181a69d024c60e02a3e9dad26">More...</a><br /></td></tr>
+<tr class="separator:af19813c181a69d024c60e02a3e9dad26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dbb060a1eb794ca90727b9a8b1657be"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a6dbb060a1eb794ca90727b9a8b1657be">_extra_count</a> = 0</td></tr>
+<tr class="memdesc:a6dbb060a1eb794ca90727b9a8b1657be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of extra rows to allocate.  <a href="classwirehair_1_1Codec.html#a6dbb060a1eb794ca90727b9a8b1657be">More...</a><br /></td></tr>
+<tr class="separator:a6dbb060a1eb794ca90727b9a8b1657be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d4fe6185e7f7fd7919284c7ca4ac7ec"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a6d4fe6185e7f7fd7919284c7ca4ac7ec">_first_heavy_column</a> = 0</td></tr>
+<tr class="memdesc:a6d4fe6185e7f7fd7919284c7ca4ac7ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">First heavy column that is non-zero.  <a href="classwirehair_1_1Codec.html#a6d4fe6185e7f7fd7919284c7ca4ac7ec">More...</a><br /></td></tr>
+<tr class="separator:a6d4fe6185e7f7fd7919284c7ca4ac7ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e17ab92683fb62ec28448151cf38591"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a8e17ab92683fb62ec28448151cf38591">_first_heavy_pivot</a> = 0</td></tr>
+<tr class="memdesc:a8e17ab92683fb62ec28448151cf38591"><td class="mdescLeft">&#160;</td><td class="mdescRight">First heavy pivot in the list.  <a href="classwirehair_1_1Codec.html#a8e17ab92683fb62ec28448151cf38591">More...</a><br /></td></tr>
+<tr class="separator:a8e17ab92683fb62ec28448151cf38591"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48c4c6a32b68d0855d1ae3403b87a179"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a48c4c6a32b68d0855d1ae3403b87a179">_ge_allocated</a> = 0</td></tr>
+<tr class="memdesc:a48c4c6a32b68d0855d1ae3403b87a179"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of bytes allocated to GE matrix.  <a href="classwirehair_1_1Codec.html#a48c4c6a32b68d0855d1ae3403b87a179">More...</a><br /></td></tr>
+<tr class="separator:a48c4c6a32b68d0855d1ae3403b87a179"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f7205ab8cffd8e0134c31287117505b"><td class="memItemLeft" align="right" valign="top">uint16_t *<a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a4f7205ab8cffd8e0134c31287117505b">_ge_col_map</a> = nullptr</td></tr>
+<tr class="memdesc:a4f7205ab8cffd8e0134c31287117505b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map of GE columns to conceptual matrix columns.  <a href="classwirehair_1_1Codec.html#a4f7205ab8cffd8e0134c31287117505b">More...</a><br /></td></tr>
+<tr class="separator:a4f7205ab8cffd8e0134c31287117505b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3bdd48d49c0afc6fb26fb3238304efa"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#ad3bdd48d49c0afc6fb26fb3238304efa">_ge_cols</a> = 0</td></tr>
+<tr class="separator:ad3bdd48d49c0afc6fb26fb3238304efa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a376ca3580f26a86df3a134d1f09d90cf"><td class="memItemLeft" align="right" valign="top">uint64_t *<a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a376ca3580f26a86df3a134d1f09d90cf">_ge_matrix</a> = nullptr</td></tr>
+<tr class="memdesc:a376ca3580f26a86df3a134d1f09d90cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gaussian elimination matrix.  <a href="classwirehair_1_1Codec.html#a376ca3580f26a86df3a134d1f09d90cf">More...</a><br /></td></tr>
+<tr class="separator:a376ca3580f26a86df3a134d1f09d90cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61352f3f684ba3e2a3477daf1366b200"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a61352f3f684ba3e2a3477daf1366b200">_ge_pitch</a> = 0</td></tr>
+<tr class="memdesc:a61352f3f684ba3e2a3477daf1366b200"><td class="mdescLeft">&#160;</td><td class="mdescRight">Words per row of GE matrix and compression matrix.  <a href="classwirehair_1_1Codec.html#a61352f3f684ba3e2a3477daf1366b200">More...</a><br /></td></tr>
+<tr class="separator:a61352f3f684ba3e2a3477daf1366b200"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57f44df4290c7c43f92c0367c984fb9b"><td class="memItemLeft" align="right" valign="top">uint16_t *<a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a57f44df4290c7c43f92c0367c984fb9b">_ge_row_map</a> = nullptr</td></tr>
+<tr class="memdesc:a57f44df4290c7c43f92c0367c984fb9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map of GE rows to conceptual matrix rows.  <a href="classwirehair_1_1Codec.html#a57f44df4290c7c43f92c0367c984fb9b">More...</a><br /></td></tr>
+<tr class="separator:a57f44df4290c7c43f92c0367c984fb9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abedef902421899131048c985d54f09f1"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#abedef902421899131048c985d54f09f1">_ge_rows</a> = 0</td></tr>
+<tr class="memdesc:abedef902421899131048c985d54f09f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">For debugging only: GE matrix rows and columns.  <a href="classwirehair_1_1Codec.html#abedef902421899131048c985d54f09f1">More...</a><br /></td></tr>
+<tr class="separator:abedef902421899131048c985d54f09f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac48e18686d17e0466ef547d8e73c7944"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#ac48e18686d17e0466ef547d8e73c7944">_heavy_columns</a> = 0</td></tr>
+<tr class="memdesc:ac48e18686d17e0466ef547d8e73c7944"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of heavy matrix columns.  <a href="classwirehair_1_1Codec.html#ac48e18686d17e0466ef547d8e73c7944">More...</a><br /></td></tr>
+<tr class="separator:ac48e18686d17e0466ef547d8e73c7944"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3faae83e5c4a930ff7753bd9465b43b7"><td class="memItemLeft" align="right" valign="top">uint8_t *<a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a3faae83e5c4a930ff7753bd9465b43b7">_heavy_matrix</a> = nullptr</td></tr>
+<tr class="memdesc:a3faae83e5c4a930ff7753bd9465b43b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Heavy rows of GE matrix.  <a href="classwirehair_1_1Codec.html#a3faae83e5c4a930ff7753bd9465b43b7">More...</a><br /></td></tr>
+<tr class="separator:a3faae83e5c4a930ff7753bd9465b43b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0f2516092e16411a2e8787d9a8b695f"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#ae0f2516092e16411a2e8787d9a8b695f">_heavy_pitch</a> = 0</td></tr>
+<tr class="memdesc:ae0f2516092e16411a2e8787d9a8b695f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bytes per heavy matrix row.  <a href="classwirehair_1_1Codec.html#ae0f2516092e16411a2e8787d9a8b695f">More...</a><br /></td></tr>
+<tr class="separator:ae0f2516092e16411a2e8787d9a8b695f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d19f8327b9ae2336c4a7201c00d95fe"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a0d19f8327b9ae2336c4a7201c00d95fe">_heavy_rows</a> = 0</td></tr>
+<tr class="memdesc:a0d19f8327b9ae2336c4a7201c00d95fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">For debugging: Number of heavy rows.  <a href="classwirehair_1_1Codec.html#a0d19f8327b9ae2336c4a7201c00d95fe">More...</a><br /></td></tr>
+<tr class="separator:a0d19f8327b9ae2336c4a7201c00d95fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb4de131b238b25ad39bbad39254ef68"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#aeb4de131b238b25ad39bbad39254ef68">_input_allocated</a> = 0</td></tr>
+<tr class="memdesc:aeb4de131b238b25ad39bbad39254ef68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of bytes allocated for input, or 0 if referenced.  <a href="classwirehair_1_1Codec.html#aeb4de131b238b25ad39bbad39254ef68">More...</a><br /></td></tr>
+<tr class="separator:aeb4de131b238b25ad39bbad39254ef68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a397e61387dd26f66c29ed14c0d083a93"><td class="memItemLeft" align="right" valign="top">uint8_t *<a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a397e61387dd26f66c29ed14c0d083a93">_input_blocks</a> = nullptr</td></tr>
+<tr class="memdesc:a397e61387dd26f66c29ed14c0d083a93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Input message blocks.  <a href="classwirehair_1_1Codec.html#a397e61387dd26f66c29ed14c0d083a93">More...</a><br /></td></tr>
+<tr class="separator:a397e61387dd26f66c29ed14c0d083a93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c1254cb5d7a3fa669dd2ca5e3b04cb7"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a7c1254cb5d7a3fa669dd2ca5e3b04cb7">_input_final_bytes</a> = 0</td></tr>
+<tr class="memdesc:a7c1254cb5d7a3fa669dd2ca5e3b04cb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of bytes in final block of input.  <a href="classwirehair_1_1Codec.html#a7c1254cb5d7a3fa669dd2ca5e3b04cb7">More...</a><br /></td></tr>
+<tr class="separator:a7c1254cb5d7a3fa669dd2ca5e3b04cb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21e90b2fd27eedbcb67f26bbe0433450"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a21e90b2fd27eedbcb67f26bbe0433450">_mix_count</a> = 0</td></tr>
+<tr class="memdesc:a21e90b2fd27eedbcb67f26bbe0433450"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of mix columns.  <a href="classwirehair_1_1Codec.html#a21e90b2fd27eedbcb67f26bbe0433450">More...</a><br /></td></tr>
+<tr class="separator:a21e90b2fd27eedbcb67f26bbe0433450"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3c1575a5db7c70c56eb1f0b7b329292"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#ac3c1575a5db7c70c56eb1f0b7b329292">_mix_next_prime</a> = 0</td></tr>
+<tr class="memdesc:ac3c1575a5db7c70c56eb1f0b7b329292"><td class="mdescLeft">&#160;</td><td class="mdescRight">Next prime number at or above dense count.  <a href="classwirehair_1_1Codec.html#ac3c1575a5db7c70c56eb1f0b7b329292">More...</a><br /></td></tr>
+<tr class="separator:ac3c1575a5db7c70c56eb1f0b7b329292"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a19ded4d2ff75de972f8d36264fcfa6"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a6a19ded4d2ff75de972f8d36264fcfa6">_next_pivot</a> = 0</td></tr>
+<tr class="memdesc:a6a19ded4d2ff75de972f8d36264fcfa6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pivot to resume <a class="el" href="classwirehair_1_1Codec.html#a06d08f9f2d1ae3c62076321a735a8a30" title="Triangle()">Triangle()</a> on after it fails.  <a href="classwirehair_1_1Codec.html#a6a19ded4d2ff75de972f8d36264fcfa6">More...</a><br /></td></tr>
+<tr class="separator:a6a19ded4d2ff75de972f8d36264fcfa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97e96a12d3d352dba53b662b9212fa2f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a97e96a12d3d352dba53b662b9212fa2f">_original_out_of_order</a> = false</td></tr>
+<tr class="memdesc:a97e96a12d3d352dba53b662b9212fa2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Boolean: Original blocks are out of order?  <a href="classwirehair_1_1Codec.html#a97e96a12d3d352dba53b662b9212fa2f">More...</a><br /></td></tr>
+<tr class="separator:a97e96a12d3d352dba53b662b9212fa2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa16cb987315bc13a133959f84dc0e0a0"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#aa16cb987315bc13a133959f84dc0e0a0">_output_final_bytes</a> = 0</td></tr>
+<tr class="memdesc:aa16cb987315bc13a133959f84dc0e0a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of bytes in final block of output.  <a href="classwirehair_1_1Codec.html#aa16cb987315bc13a133959f84dc0e0a0">More...</a><br /></td></tr>
+<tr class="separator:aa16cb987315bc13a133959f84dc0e0a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51a20fe0806d00cdd66f34c7e81469dd"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a51a20fe0806d00cdd66f34c7e81469dd">_p_seed</a> = 0</td></tr>
+<tr class="memdesc:a51a20fe0806d00cdd66f34c7e81469dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seed for peeled rows of matrix.  <a href="classwirehair_1_1Codec.html#a51a20fe0806d00cdd66f34c7e81469dd">More...</a><br /></td></tr>
+<tr class="separator:a51a20fe0806d00cdd66f34c7e81469dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91d94507590763662ea92242490b62f0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structwirehair_1_1PeelRefs.html">PeelRefs</a> *<a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a91d94507590763662ea92242490b62f0">_peel_col_refs</a> = nullptr</td></tr>
+<tr class="memdesc:a91d94507590763662ea92242490b62f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of column references.  <a href="classwirehair_1_1Codec.html#a91d94507590763662ea92242490b62f0">More...</a><br /></td></tr>
+<tr class="separator:a91d94507590763662ea92242490b62f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a077a408ec7b259cfb17d046975cda2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structwirehair_1_1PeelColumn.html">PeelColumn</a> *<a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a2a077a408ec7b259cfb17d046975cda2">_peel_cols</a> = nullptr</td></tr>
+<tr class="memdesc:a2a077a408ec7b259cfb17d046975cda2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array of N peeling matrix columns.  <a href="classwirehair_1_1Codec.html#a2a077a408ec7b259cfb17d046975cda2">More...</a><br /></td></tr>
+<tr class="separator:a2a077a408ec7b259cfb17d046975cda2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a472b87813aeb0ff9a27407911dbb3174"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a472b87813aeb0ff9a27407911dbb3174">_peel_head_rows</a> = 0</td></tr>
+<tr class="memdesc:a472b87813aeb0ff9a27407911dbb3174"><td class="mdescLeft">&#160;</td><td class="mdescRight">Head of peeling solved rows list.  <a href="classwirehair_1_1Codec.html#a472b87813aeb0ff9a27407911dbb3174">More...</a><br /></td></tr>
+<tr class="separator:a472b87813aeb0ff9a27407911dbb3174"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06ee13777928503e744ade479023b59f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structwirehair_1_1PeelRow.html">PeelRow</a> *<a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a06ee13777928503e744ade479023b59f">_peel_rows</a> = nullptr</td></tr>
+<tr class="memdesc:a06ee13777928503e744ade479023b59f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array of N peeling matrix rows.  <a href="classwirehair_1_1Codec.html#a06ee13777928503e744ade479023b59f">More...</a><br /></td></tr>
+<tr class="separator:a06ee13777928503e744ade479023b59f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae115dafb91cf24f2b22b3f81d7915464"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structwirehair_1_1PeelRow.html">PeelRow</a> *<a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#ae115dafb91cf24f2b22b3f81d7915464">_peel_tail_rows</a> = nullptr</td></tr>
+<tr class="memdesc:ae115dafb91cf24f2b22b3f81d7915464"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tail of peeling solved rows list.  <a href="classwirehair_1_1Codec.html#ae115dafb91cf24f2b22b3f81d7915464">More...</a><br /></td></tr>
+<tr class="separator:ae115dafb91cf24f2b22b3f81d7915464"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4e4bf2b6ed3b802135101ed2927d0cf"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#ab4e4bf2b6ed3b802135101ed2927d0cf">_pivot_count</a> = 0</td></tr>
+<tr class="memdesc:ab4e4bf2b6ed3b802135101ed2927d0cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of pivots in the pivot list.  <a href="classwirehair_1_1Codec.html#ab4e4bf2b6ed3b802135101ed2927d0cf">More...</a><br /></td></tr>
+<tr class="separator:ab4e4bf2b6ed3b802135101ed2927d0cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac510c40c89be9417d5116329a38997d1"><td class="memItemLeft" align="right" valign="top">uint16_t *<a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#ac510c40c89be9417d5116329a38997d1">_pivots</a> = nullptr</td></tr>
+<tr class="memdesc:ac510c40c89be9417d5116329a38997d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pivots for each column of the GE matrix.  <a href="classwirehair_1_1Codec.html#ac510c40c89be9417d5116329a38997d1">More...</a><br /></td></tr>
+<tr class="separator:ac510c40c89be9417d5116329a38997d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aace098322265bf2b625c822847d9252d"><td class="memItemLeft" align="right" valign="top">uint8_t *<a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#aace098322265bf2b625c822847d9252d">_recovery_blocks</a> = nullptr</td></tr>
+<tr class="memdesc:aace098322265bf2b625c822847d9252d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recovery blocks.  <a href="classwirehair_1_1Codec.html#aace098322265bf2b625c822847d9252d">More...</a><br /></td></tr>
+<tr class="separator:aace098322265bf2b625c822847d9252d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0eadf3992d73d964954110469de3d57a"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a0eadf3992d73d964954110469de3d57a">_recovery_rows</a> = 0</td></tr>
+<tr class="memdesc:a0eadf3992d73d964954110469de3d57a"><td class="mdescLeft">&#160;</td><td class="mdescRight">For debugging only: Maximum number of recovery rows.  <a href="classwirehair_1_1Codec.html#a0eadf3992d73d964954110469de3d57a">More...</a><br /></td></tr>
+<tr class="separator:a0eadf3992d73d964954110469de3d57a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad03e32721a224ec5d3ed5f33b4a139b2"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#ad03e32721a224ec5d3ed5f33b4a139b2">_row_count</a> = 0</td></tr>
+<tr class="memdesc:ad03e32721a224ec5d3ed5f33b4a139b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of stored rows.  <a href="classwirehair_1_1Codec.html#ad03e32721a224ec5d3ed5f33b4a139b2">More...</a><br /></td></tr>
+<tr class="separator:ad03e32721a224ec5d3ed5f33b4a139b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe6c2b4e2d41d1a7a0cef5d39a22f2a0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#afe6c2b4e2d41d1a7a0cef5d39a22f2a0">_seed_override</a> = false</td></tr>
+<tr class="memdesc:afe6c2b4e2d41d1a7a0cef5d39a22f2a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable override for _dense_count, _p_seed, _d_seed.  <a href="classwirehair_1_1Codec.html#afe6c2b4e2d41d1a7a0cef5d39a22f2a0">More...</a><br /></td></tr>
+<tr class="separator:afe6c2b4e2d41d1a7a0cef5d39a22f2a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1e4bc3d81aa4411f7091bf851c07275"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#ab1e4bc3d81aa4411f7091bf851c07275">_workspace_allocated</a> = 0</td></tr>
+<tr class="memdesc:ab1e4bc3d81aa4411f7091bf851c07275"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of bytes allocated for workspace.  <a href="classwirehair_1_1Codec.html#ab1e4bc3d81aa4411f7091bf851c07275">More...</a><br /></td></tr>
+<tr class="separator:ab1e4bc3d81aa4411f7091bf851c07275"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:a4d9af9fef5a9122b6a26b747eefcde55"><td class="memItemLeft" align="right" valign="top">static const uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwirehair_1_1Codec.html#a4d9af9fef5a9122b6a26b747eefcde55">LIST_TERM</a> = 0xffff</td></tr>
+<tr class="memdesc:a4d9af9fef5a9122b6a26b747eefcde55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Terminator for list (like nullptr in a linked list)  <a href="classwirehair_1_1Codec.html#a4d9af9fef5a9122b6a26b747eefcde55">More...</a><br /></td></tr>
+<tr class="separator:a4d9af9fef5a9122b6a26b747eefcde55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="abe2fcad9fef12f0f2919c7f4f097ff4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe2fcad9fef12f0f2919c7f4f097ff4b">&#9670;&nbsp;</a></span>Codec()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">wirehair::Codec::Codec </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afd32d35f84d08c8cc5ddea123debb81b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd32d35f84d08c8cc5ddea123debb81b">&#9670;&nbsp;</a></span>~Codec()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">wirehair::Codec::~Codec </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa867dfa7379f56d9993da38a9ff1613e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa867dfa7379f56d9993da38a9ff1613e">&#9670;&nbsp;</a></span>AddSubdiagonalValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void wirehair::Codec::AddSubdiagonalValues </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classwirehair_1_1Codec.html#aa867dfa7379f56d9993da38a9ff1613e" title="AddSubdiagonalValues()">AddSubdiagonalValues()</a> </p>
+<p>This function uses the bits that were left behind by the <a class="el" href="classwirehair_1_1Codec.html#a06d08f9f2d1ae3c62076321a735a8a30" title="Triangle()">Triangle()</a> function to follow the same order of operations to generate the row values for both deferred and dense rows. It is aided by the already roughly upper-triangular form of the GE matrix, making this function very cheap to execute. </p>
+
+</div>
+</div>
+<a id="a48ef41d547ddcaefce7692077bc8f7da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48ef41d547ddcaefce7692077bc8f7da">&#9670;&nbsp;</a></span>AllocateInput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool wirehair::Codec::AllocateInput </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afdc5bba759c8e86c20530e6e456668a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdc5bba759c8e86c20530e6e456668a2">&#9670;&nbsp;</a></span>AllocateMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool wirehair::Codec::AllocateMatrix </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2f3e92cd33f28f1597a0f5d436a8d34a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f3e92cd33f28f1597a0f5d436a8d34a">&#9670;&nbsp;</a></span>AllocateWorkspace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool wirehair::Codec::AllocateWorkspace </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a616905fe122b42542d33e360d007b1da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a616905fe122b42542d33e360d007b1da">&#9670;&nbsp;</a></span>BackSubstituteAboveDiagonal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void wirehair::Codec::BackSubstituteAboveDiagonal </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Windowed Back-Substitution. </p>
+<p>The matrix to diagonalize is in upper triangular form now, where each row is random and dense. Each column has a value assigned to it at this point but it is necessary to back-substitute up each column to eliminate the upper triangular part of the matrix. Because the matrix is random, the optimal window size for a windowed substitution method is approx: </p><pre class="fragment">w = CEIL[0.85 + 0.85*ln(r)]
+
+But in practice, the window size is selected from simple heuristic
+</pre><p> rules based on testing. For this function, the window size stays between 3 and 6 so it is fine to use heuristics.</p>
+<p>The matrix may look like: </p><pre class="fragment">+---+---+---+---+
+| A | 1 | 1 | 0 |
++---+---+---+---+
+| 0 | B | 1 | 1 |
++---+---+---+---+
+| 0 | 0 | C | 1 |
++---+---+---+---+
+| 0 | 0 | 0 | D |
++---+---+---+---+
+
+To do the back-substitution with a window width of 2 on the above
+</pre><p> matrix, first back-substitute to diagonalize the lower right: </p><pre class="fragment">+---+---+---+---+
+| A | 1 | 1 | 0 |
++---+---+---+---+
+| 0 | B | 1 | 1 |
++---+---+---+---+
+| 0 | 0 | C | 0 |
++---+---+---+---+
+| 0 | 0 | 0 | D |
++---+---+---+---+
+
+Then compute the 2-bit window:
+
+[0 0] = undefined
+[1 0] = C
+[0 1] = D
+[1 1] = C + D
+
+And substitute up the last two columns to eliminate them:
+
+B = B + [1 1] = B + C + D
+A = A + [1 0] = A + C
+
++---+---+---+---+
+| A | 1 | 0 | 0 |
++---+---+---+---+
+| 0 | B | 0 | 0 |
++---+---+---+---+
+| 0 | 0 | C | 0 |
++---+---+---+---+
+| 0 | 0 | 0 | D |
++---+---+---+---+
+
+This operation is performed until the windowing method is no
+</pre><p> longer worthwhile, and the normal back-substitution is used on the remaining matrix pivots. <a class="el" href="classwirehair_1_1Codec.html#a616905fe122b42542d33e360d007b1da" title="Windowed Back-Substitution.">BackSubstituteAboveDiagonal()</a></p>
+<p>This function uses the windowed approach outlined above to eliminate all of the bits in the upper triangular half, completing solving for these columns. </p>
+
+</div>
+</div>
+<a id="aaa3df96c951157479993c7c2da23e648"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa3df96c951157479993c7c2da23e648">&#9670;&nbsp;</a></span>BlockCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="gf256_8h.html#a2509b0e66c19c68f86dd5fb77965a9ba">GF256_FORCE_INLINE</a> uint32_t wirehair::Codec::BlockCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1b1069360dd90bf3c41aeeeb2e18b00f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b1069360dd90bf3c41aeeeb2e18b00f">&#9670;&nbsp;</a></span>ChooseMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="wirehair_8h.html#a2403368e59f5be1241175a0ca9a7945b">WirehairResult</a> wirehair::Codec::ChooseMatrix </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>message_bytes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>block_bytes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This function determines the matrix to use based on the given message bytes and bytes per block. </p>
+
+</div>
+</div>
+<a id="afef5db51d5cd0fb6ad7258a6c6b6eb07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afef5db51d5cd0fb6ad7258a6c6b6eb07">&#9670;&nbsp;</a></span>CopyDeferredRows()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void wirehair::Codec::CopyDeferredRows </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classwirehair_1_1Codec.html#afef5db51d5cd0fb6ad7258a6c6b6eb07" title="CopyDeferredRows()">CopyDeferredRows()</a> </p>
+<p>This function copies deferred rows from the Compression matrix into their final location in the GE matrix. It also maps the GE rows to the deferred rows. </p>
+
+</div>
+</div>
+<a id="a167701b82968cccb8955825741dd05ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a167701b82968cccb8955825741dd05ee">&#9670;&nbsp;</a></span>CSeed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="gf256_8h.html#a2509b0e66c19c68f86dd5fb77965a9ba">GF256_FORCE_INLINE</a> uint32_t wirehair::Codec::CSeed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ac1e1e097b3bf9ea6b8d568af537d7868"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac1e1e097b3bf9ea6b8d568af537d7868">&#9670;&nbsp;</a></span>DecodeFeed()</h2>
 
@@ -120,7 +710,7 @@ WirehairResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" 
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">WirehairResult wirehair::Codec::DecodeFeed </td>
+          <td class="memname"><a class="el" href="wirehair_8h.html#a2403368e59f5be1241175a0ca9a7945b">WirehairResult</a> wirehair::Codec::DecodeFeed </td>
           <td>(</td>
           <td class="paramtype">const unsigned&#160;</td>
           <td class="paramname"><em>block_id</em>, </td>
@@ -128,7 +718,7 @@ WirehairResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" 
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const void *GF256_RESTRICT&#160;</td>
+          <td class="paramtype">const void *<a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a>&#160;</td>
           <td class="paramname"><em>block_in</em>, </td>
         </tr>
         <tr>
@@ -144,8 +734,9 @@ WirehairResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" 
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a class="el" href="classwirehair_1_1Codec.html#ac1e1e097b3bf9ea6b8d568af537d7868">DecodeFeed()</a></p>
-<p>This function accumulates the new block in a large staging buffer. As soon as N blocks are collected, SolveMatrix() is run. After N blocks, ResumeSolveMatrix() is run. </p>
+
+<p><a class="el" href="classwirehair_1_1Codec.html#ac1e1e097b3bf9ea6b8d568af537d7868" title="DecodeFeed()">DecodeFeed()</a> </p>
+<p>This function accumulates the new block in a large staging buffer. As soon as N blocks are collected, <a class="el" href="classwirehair_1_1Codec.html#a70be224802df0df32dae3ed1b166f259" title="SolveMatrix()">SolveMatrix()</a> is run. After N blocks, <a class="el" href="classwirehair_1_1Codec.html#a231ec4075d1a5a734e1eabd29d86b002" title="ResumeSolveMatrix()">ResumeSolveMatrix()</a> is run. </p>
 
 </div>
 </div>
@@ -164,7 +755,7 @@ WirehairResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" 
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">void *GF256_RESTRICT&#160;</td>
+          <td class="paramtype">void *<a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a>&#160;</td>
           <td class="paramname"><em>block_out</em>, </td>
         </tr>
         <tr>
@@ -180,7 +771,8 @@ WirehairResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" 
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a class="el" href="classwirehair_1_1Codec.html#ae70b40cfd3e7c121f204d90c249ba385">Encode()</a></p>
+
+<p><a class="el" href="classwirehair_1_1Codec.html#ae70b40cfd3e7c121f204d90c249ba385" title="Encode()">Encode()</a> </p>
 <p>This function encodes a block. For the first N blocks it simply copies the input to the output block. For other block identifiers, it will generate a new random row and sum together recovery blocks to produce the new block. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -200,17 +792,141 @@ WirehairResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" 
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">WirehairResult wirehair::Codec::EncodeFeed </td>
+          <td class="memname"><a class="el" href="wirehair_8h.html#a2403368e59f5be1241175a0ca9a7945b">WirehairResult</a> wirehair::Codec::EncodeFeed </td>
           <td>(</td>
-          <td class="paramtype">const void *GF256_RESTRICT&#160;</td>
+          <td class="paramtype">const void *<a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a>&#160;</td>
           <td class="paramname"><em>message_in</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a class="el" href="classwirehair_1_1Codec.html#a8b5ca5115d0efddaffb6792cf30dd8ed">EncodeFeed()</a></p>
+
+<p><a class="el" href="classwirehair_1_1Codec.html#a8b5ca5115d0efddaffb6792cf30dd8ed" title="EncodeFeed()">EncodeFeed()</a> </p>
 <p>This function breaks the input message up into blocks and opportunistically peels with each one. After processing all of the blocks from the input, it runs the matrix solver and if the solver succeeds, it generates the recovery blocks.</p>
 <p>In practice, the solver should always succeed because the encoder should be looking up its matrix parameters from a table, which guarantees the matrix is invertible. </p>
+
+</div>
+</div>
+<a id="aba943581ccbace22001c6a3b2f3a5bf8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba943581ccbace22001c6a3b2f3a5bf8">&#9670;&nbsp;</a></span>FixPeelFailure()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void wirehair::Codec::FixPeelFailure </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structwirehair_1_1PeelRow.html">PeelRow</a> *<a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a>&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint16_t&#160;</td>
+          <td class="paramname"><em>fail_column_i</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classwirehair_1_1Codec.html#aba943581ccbace22001c6a3b2f3a5bf8" title="FixPeelFailure()">FixPeelFailure()</a> </p>
+<p>This function is called by <a class="el" href="classwirehair_1_1Codec.html#add4088e92504f443ba0bae663e572805" title="OpportunisticPeeling()">OpportunisticPeeling()</a> if the reference list overflows for one of the columns.</p>
+<p>This function unreferences previous columns for a row where, in one of the columns, the reference list overflowed.</p>
+<p>This avoids potential data corruption or more severe problems in case of unusually distributed peeling matrices. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">row</td><td>The row that failed </td></tr>
+    <tr><td class="paramname">fail_column_i</td><td>Column end point </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8a26beeeac9f9e5349f5ccb33ab338d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a26beeeac9f9e5349f5ccb33ab338d1">&#9670;&nbsp;</a></span>FreeInput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void wirehair::Codec::FreeInput </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af6a47b3ef6a0b7834bbdaf2d26ab9e53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6a47b3ef6a0b7834bbdaf2d26ab9e53">&#9670;&nbsp;</a></span>FreeMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void wirehair::Codec::FreeMatrix </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8736aaaec0b5131f86ea4b7c58ee5ceb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8736aaaec0b5131f86ea4b7c58ee5ceb">&#9670;&nbsp;</a></span>FreeWorkspace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void wirehair::Codec::FreeWorkspace </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -228,8 +944,9 @@ WirehairResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" 
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a class="el" href="classwirehair_1_1Codec.html#a996858c5b5d866072e8c7bb4fd650cb4">GenerateRecoveryBlocks()</a></p>
-<p>This function generates the recovery blocks after the Triangle() function succeeds in solving the matrix.</p>
+
+<p><a class="el" href="classwirehair_1_1Codec.html#a996858c5b5d866072e8c7bb4fd650cb4" title="GenerateRecoveryBlocks()">GenerateRecoveryBlocks()</a> </p>
+<p>This function generates the recovery blocks after the <a class="el" href="classwirehair_1_1Codec.html#a06d08f9f2d1ae3c62076321a735a8a30" title="Triangle()">Triangle()</a> function succeeds in solving the matrix.</p>
 <p>It performs the final Substitution step:</p>
 <p>(4) Substitution: </p><pre class="fragment">Solves across GE matrix rows:
 
@@ -247,6 +964,127 @@ Solves remaining columns:
 </pre> 
 </div>
 </div>
+<a id="a8468c46a0301ee9c3e43f24796dc9c33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8468c46a0301ee9c3e43f24796dc9c33">&#9670;&nbsp;</a></span>GreedyPeeling()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void wirehair::Codec::GreedyPeeling </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classwirehair_1_1Codec.html#a8468c46a0301ee9c3e43f24796dc9c33" title="GreedyPeeling()">GreedyPeeling()</a> </p>
+<p>After the opportunistic peeling solver has completed, no columns have been deferred to Gaussian elimination yet. Greedy peeling will then take over and start choosing columns to defer. It is greedy in that the selection of which columns to defer is based on a greedy initial approximation of the best column to choose, rather than the best one that could be chosen.</p>
+<p>In this algorithm, the column that will cause the largest immediate avalanche of peeling solutions is the one that is selected.</p>
+<p>If there is a tie between two or more columns based on just that criterion, then of the columns that tied, the one that affects the most rows is selected. This is a better way to choose which columns to defer than just selecting the one referenced by the most rows.</p>
+<p>In practice with a well-designed (good distribution) peeling matrix, about sqrt(N) + N/150 columns must be deferred to Gaussian elimination using this greedy approach. </p>
+
+</div>
+</div>
+<a id="a1f2e3d73424271edaf9d15039ca00e55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f2e3d73424271edaf9d15039ca00e55">&#9670;&nbsp;</a></span>InitializeColumnValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void wirehair::Codec::InitializeColumnValues </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classwirehair_1_1Codec.html#a1f2e3d73424271edaf9d15039ca00e55" title="InitializeColumnValues()">InitializeColumnValues()</a> </p>
+<p>This function initializes the output block value for each column that was solved by Gaussian elimination. For deferred rows it follows the same steps performed earlier in <a class="el" href="classwirehair_1_1Codec.html#a73e1143e0104be68e7ec46527d5850ac" title="PeelDiagonal()">PeelDiagonal()</a> just for those rows. The row values were not formed at that point because the destination was uncertain.</p>
+<p>For each pivot that solves the GE matrix: If GE row is from a dense row: Initialize row value to 0. Else it is from a deferred row: For each peeled column that it references: Add in that peeled column's row value from Compression.</p>
+<p>For each remaining unused row, (happens in the decoder for extra rows): If the unused row is a dense row: Set the GE row map entry to LIST_TERM so it can be ignored later. </p>
+
+</div>
+</div>
+<a id="a1536a2aaccaa76330033f8282789d650"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1536a2aaccaa76330033f8282789d650">&#9670;&nbsp;</a></span>InitializeDecoder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="wirehair_8h.html#a2403368e59f5be1241175a0ca9a7945b">WirehairResult</a> wirehair::Codec::InitializeDecoder </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>message_bytes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>block_bytes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialize decoder mode. </p>
+
+</div>
+</div>
+<a id="aef4b7b7cfc0e87b9730d49564504ce73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef4b7b7cfc0e87b9730d49564504ce73">&#9670;&nbsp;</a></span>InitializeEncoder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="wirehair_8h.html#a2403368e59f5be1241175a0ca9a7945b">WirehairResult</a> wirehair::Codec::InitializeEncoder </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>message_bytes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>block_bytes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialize encoder mode. </p>
+
+</div>
+</div>
 <a id="a91efdb2a8659199a8f7b4be503c0c0e8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a91efdb2a8659199a8f7b4be503c0c0e8">&#9670;&nbsp;</a></span>InitializeEncoderFromDecoder()</h2>
 
@@ -254,14 +1092,304 @@ Solves remaining columns:
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">WirehairResult wirehair::Codec::InitializeEncoderFromDecoder </td>
+          <td class="memname"><a class="el" href="wirehair_8h.html#a2403368e59f5be1241175a0ca9a7945b">WirehairResult</a> wirehair::Codec::InitializeEncoderFromDecoder </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Transition from decoder to encoder mode Precondition: <a class="el" href="classwirehair_1_1Codec.html#ac1e1e097b3bf9ea6b8d568af537d7868">DecodeFeed()</a> succeeded with Wirehair_Success </p>
+
+<p>Transition from decoder to encoder mode Precondition: <a class="el" href="classwirehair_1_1Codec.html#ac1e1e097b3bf9ea6b8d568af537d7868" title="DecodeFeed()">DecodeFeed()</a> succeeded with Wirehair_Success. </p>
+
+</div>
+</div>
+<a id="a9586e4d6bdc9d1b45ebe16a3a846b0d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9586e4d6bdc9d1b45ebe16a3a846b0d5">&#9670;&nbsp;</a></span>InsertHeavyRows()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void wirehair::Codec::InsertHeavyRows </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classwirehair_1_1Codec.html#a9586e4d6bdc9d1b45ebe16a3a846b0d5" title="InsertHeavyRows()">InsertHeavyRows()</a> </p>
+<p>This function converts remaining extra rows to heavy rows. It then adds heavy rows to the GE matrix to be used in the solver. </p>
+
+</div>
+</div>
+<a id="aaa0fbcad703c770823246a46f37771bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa0fbcad703c770823246a46f37771bf">&#9670;&nbsp;</a></span>IsAllOriginalData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool wirehair::Codec::IsAllOriginalData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classwirehair_1_1Codec.html#aaa0fbcad703c770823246a46f37771bf" title="IsAllOriginalData()">IsAllOriginalData()</a> </p>
+<p>This function verifies that all of the original N data blocks have been received. </p>
+
+</div>
+</div>
+<a id="aa3a4af11f411d93315879c4e60de53a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3a4af11f411d93315879c4e60de53a7">&#9670;&nbsp;</a></span>MultiplyDenseRows()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void wirehair::Codec::MultiplyDenseRows </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Multiply dense rows by peeling matrix to generate GE rows, but no row values are involed yet. </p>
+
+</div>
+</div>
+<a id="ac452f0682d00c7a425959db69f6df108"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac452f0682d00c7a425959db69f6df108">&#9670;&nbsp;</a></span>MultiplyDenseValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void wirehair::Codec::MultiplyDenseValues </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classwirehair_1_1Codec.html#ac452f0682d00c7a425959db69f6df108" title="MultiplyDenseValues()">MultiplyDenseValues()</a> </p>
+<p>This function follows the same order of operations as the <a class="el" href="classwirehair_1_1Codec.html#aa3a4af11f411d93315879c4e60de53a7" title="Multiply dense rows by peeling matrix to generate GE rows, but no row values are involed yet.">MultiplyDenseRows()</a> function to add in peeling column values to the dense rows. Deferred rows are handled above in the <a class="el" href="classwirehair_1_1Codec.html#a1f2e3d73424271edaf9d15039ca00e55" title="InitializeColumnValues()">InitializeColumnValues()</a> function.</p>
+<p>See <a class="el" href="classwirehair_1_1Codec.html#aa3a4af11f411d93315879c4e60de53a7" title="Multiply dense rows by peeling matrix to generate GE rows, but no row values are involed yet.">MultiplyDenseRows()</a> comments for justification of the design of the dense row structure. </p>
+
+</div>
+</div>
+<a id="add4088e92504f443ba0bae663e572805"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add4088e92504f443ba0bae663e572805">&#9670;&nbsp;</a></span>OpportunisticPeeling()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool wirehair::Codec::OpportunisticPeeling </td>
+          <td>(</td>
+          <td class="paramtype">const uint16_t&#160;</td>
+          <td class="paramname"><em>row_i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>row_seed</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classwirehair_1_1Codec.html#add4088e92504f443ba0bae663e572805" title="OpportunisticPeeling()">OpportunisticPeeling()</a> </p>
+<p>Walk forward through rows and solve as many as possible before deferring any columns for the GE solver.</p>
+<p>This function accepts a new row from the codec input and immediately attempts to solve a column opportunistically using the graph-based peeling decoding process.</p>
+<p>The row value is assumed to already be present in the _input_blocks data, but this function does take care of initializing everything else for a new row, including the row ID number and the peeling column generator parameters.</p>
+<p>Returns true on success. Returns false if there was not enough space in the reference list. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">row_i</td><td>Row index </td></tr>
+    <tr><td class="paramname">row_seed</td><td>Row PRNG seed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aac5cbd2b4675815022d8d862ed6f75b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac5cbd2b4675815022d8d862ed6f75b4">&#9670;&nbsp;</a></span>OverrideSeeds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void wirehair::Codec::OverrideSeeds </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>dense_count</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>p_seed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>d_seed</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Allow seeds to be overridden. </p>
+
+</div>
+</div>
+<a id="af1e1bbd3839f0e30d8e2ca4e7a2a5a3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1e1bbd3839f0e30d8e2ca4e7a2a5a3e">&#9670;&nbsp;</a></span>PeelAvalancheOnSolve()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void wirehair::Codec::PeelAvalancheOnSolve </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>column_i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classwirehair_1_1Codec.html#af1e1bbd3839f0e30d8e2ca4e7a2a5a3e" title="PeelAvalancheOnSolve()">PeelAvalancheOnSolve()</a> </p>
+<p>This function is called after a column is solved by a row during peeling. It attempts to find other rows that reference this column and resumes opportunistic peeling in an avalanche of solutions.</p>
+<p><a class="el" href="classwirehair_1_1Codec.html#add4088e92504f443ba0bae663e572805" title="OpportunisticPeeling()">OpportunisticPeeling()</a> and <a class="el" href="classwirehair_1_1Codec.html#af1e1bbd3839f0e30d8e2ca4e7a2a5a3e" title="PeelAvalancheOnSolve()">PeelAvalancheOnSolve()</a> are split up into two functions because I found that the <a class="el" href="classwirehair_1_1Codec.html#af1e1bbd3839f0e30d8e2ca4e7a2a5a3e" title="PeelAvalancheOnSolve()">PeelAvalancheOnSolve()</a> function can be reused later during <a class="el" href="classwirehair_1_1Codec.html#a8468c46a0301ee9c3e43f24796dc9c33" title="GreedyPeeling()">GreedyPeeling()</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">column_i</td><td>Column that was solved </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a73e1143e0104be68e7ec46527d5850ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73e1143e0104be68e7ec46527d5850ac">&#9670;&nbsp;</a></span>PeelDiagonal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void wirehair::Codec::PeelDiagonal </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classwirehair_1_1Codec.html#a73e1143e0104be68e7ec46527d5850ac" title="PeelDiagonal()">PeelDiagonal()</a> </p>
+<p>This function diagonalizes the peeled rows and columns of the matrix. The result is that the peeled submatrix is the identity matrix, and that the other columns of the peeled rows are very dense and have temporary block values assigned.</p>
+<p>These dense columns are used to efficiently zero-out the peeled columns of the other rows.</p>
+<p>This function is one of the most expensive in the whole codec, because its memory access patterns are not cache-friendly.</p>
+<p>For each peeled row in forward solution order, Set mixing column bits for the row in the Compression matrix. Generate row block value. For each row that references this row in the peeling matrix, Add Compression matrix row to referencing row. If row is peeled, Add row block value. </p>
+
+</div>
+</div>
+<a id="a0568571b041a1ff15f6ac5814004ec9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0568571b041a1ff15f6ac5814004ec9d">&#9670;&nbsp;</a></span>PSeed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="gf256_8h.html#a2509b0e66c19c68f86dd5fb77965a9ba">GF256_FORCE_INLINE</a> uint32_t wirehair::Codec::PSeed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -272,7 +1400,7 @@ Solves remaining columns:
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">WirehairResult wirehair::Codec::ReconstructBlock </td>
+          <td class="memname"><a class="el" href="wirehair_8h.html#a2403368e59f5be1241175a0ca9a7945b">WirehairResult</a> wirehair::Codec::ReconstructBlock </td>
           <td>(</td>
           <td class="paramtype">const uint16_t&#160;</td>
           <td class="paramname"><em>block_id</em>, </td>
@@ -280,7 +1408,7 @@ Solves remaining columns:
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">void *GF256_RESTRICT&#160;</td>
+          <td class="paramtype">void *<a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a>&#160;</td>
           <td class="paramname"><em>block_out</em>, </td>
         </tr>
         <tr>
@@ -296,9 +1424,10 @@ Solves remaining columns:
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a class="el" href="classwirehair_1_1Codec.html#ae5cc680bffd20cde13b49fc512989f00">ReconstructBlock()</a></p>
+
+<p><a class="el" href="classwirehair_1_1Codec.html#ae5cc680bffd20cde13b49fc512989f00" title="ReconstructBlock()">ReconstructBlock()</a> </p>
 <p>This function reconstructs an original block from the recovery blocks, which is much slower than copying from the input data, so should be done selectively. This is only done during decoding.</p>
-<p>Precondition: <a class="el" href="classwirehair_1_1Codec.html#ac1e1e097b3bf9ea6b8d568af537d7868">DecodeFeed()</a> has returned success</p>
+<p>Precondition: <a class="el" href="classwirehair_1_1Codec.html#ac1e1e097b3bf9ea6b8d568af537d7868" title="DecodeFeed()">DecodeFeed()</a> has returned success</p>
 <p>Returns Wirehair_Success on success.</p><ul>
 <li>block_out will be filled with the reconstructed block</li>
 <li>bytes_out will be the number of bytes in the block</li>
@@ -322,9 +1451,9 @@ Solves remaining columns:
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">WirehairResult wirehair::Codec::ReconstructOutput </td>
+          <td class="memname"><a class="el" href="wirehair_8h.html#a2403368e59f5be1241175a0ca9a7945b">WirehairResult</a> wirehair::Codec::ReconstructOutput </td>
           <td>(</td>
-          <td class="paramtype">void *GF256_RESTRICT&#160;</td>
+          <td class="paramtype">void *<a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a>&#160;</td>
           <td class="paramname"><em>message_out</em>, </td>
         </tr>
         <tr>
@@ -340,9 +1469,1503 @@ Solves remaining columns:
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a class="el" href="classwirehair_1_1Codec.html#a4f4ec0f47c8c13478886033315700a03">ReconstructOutput()</a></p>
+
+<p><a class="el" href="classwirehair_1_1Codec.html#a4f4ec0f47c8c13478886033315700a03" title="ReconstructOutput()">ReconstructOutput()</a> </p>
 <p>This function reconstructs the output by copying inputs that were from the first N blocks, and regenerating the rest. This is only done during decoding.</p>
-<p>Precondition: <a class="el" href="classwirehair_1_1Codec.html#ac1e1e097b3bf9ea6b8d568af537d7868">DecodeFeed()</a> has returned success </p>
+<p>Precondition: <a class="el" href="classwirehair_1_1Codec.html#ac1e1e097b3bf9ea6b8d568af537d7868" title="DecodeFeed()">DecodeFeed()</a> has returned success </p>
+
+</div>
+</div>
+<a id="a231ec4075d1a5a734e1eabd29d86b002"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a231ec4075d1a5a734e1eabd29d86b002">&#9670;&nbsp;</a></span>ResumeSolveMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="wirehair_8h.html#a2403368e59f5be1241175a0ca9a7945b">WirehairResult</a> wirehair::Codec::ResumeSolveMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *<a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a>&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classwirehair_1_1Codec.html#a231ec4075d1a5a734e1eabd29d86b002" title="ResumeSolveMatrix()">ResumeSolveMatrix()</a> </p>
+<p>This function resumes solving the matrix if the initial <a class="el" href="classwirehair_1_1Codec.html#a70be224802df0df32dae3ed1b166f259" title="SolveMatrix()">SolveMatrix()</a> failed at finding a pivot. With heavy rows added this is pretty rare, so in theory this function could be written inefficiently and it would not affect the average run time much. But that just wouldn't be right.</p>
+<p>Extra rows have been added to both the GE matrix and the heavy matrix. Since the heavy matrix does not cover all the columns of the GE matrix, the new rows are staged in the GE matrix and then copied into the heavy matrix after they get into range of the heavy columns. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>Block ID </td></tr>
+    <tr><td class="paramname">data</td><td>Block data </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac9ee7806329f04d1e2cdb5ac0dc6d414"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9ee7806329f04d1e2cdb5ac0dc6d414">&#9670;&nbsp;</a></span>SetDeferredColumns()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void wirehair::Codec::SetDeferredColumns </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classwirehair_1_1Codec.html#ac9ee7806329f04d1e2cdb5ac0dc6d414" title="SetDeferredColumns()">SetDeferredColumns()</a> </p>
+<p>This function initializes some mappings between GE columns and column values, and it sets bits in the Compression matrix in rows that reference the deferred columns. These bits will get mixed throughout the Compression matrix and will make it very dense.</p>
+<p>For each deferred column, Set bit for each row affected by this column. Map GE column to this column. Map this column to the GE column.</p>
+<p>For each mixing column, Map GE column to this column. </p>
+
+</div>
+</div>
+<a id="aee7183926db903364250ffe73ef1fccb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee7183926db903364250ffe73ef1fccb">&#9670;&nbsp;</a></span>SetHeavyRows()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void wirehair::Codec::SetHeavyRows </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initialize heavy submatrix as described above. </p>
+
+</div>
+</div>
+<a id="a4e0e983530dda5c0be2d2727a371e371"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e0e983530dda5c0be2d2727a371e371">&#9670;&nbsp;</a></span>SetInput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void wirehair::Codec::SetInput </td>
+          <td>(</td>
+          <td class="paramtype">const void *<a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a>&#160;</td>
+          <td class="paramname"><em>message_in</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5db434bc09b658174db2712af2f115e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5db434bc09b658174db2712af2f115e1">&#9670;&nbsp;</a></span>SetMixingColumnsForDeferredRows()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void wirehair::Codec::SetMixingColumnsForDeferredRows </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classwirehair_1_1Codec.html#a5db434bc09b658174db2712af2f115e1" title="SetMixingColumnsForDeferredRows()">SetMixingColumnsForDeferredRows()</a> </p>
+<p>This function generates the mixing column bits for each deferred row in the GE matrix. It also marks the row's peel_column with LIST_TERM so that later it will be easy to check if it was deferred. </p>
+
+</div>
+</div>
+<a id="a1dd2bcecda337c961ad95ea884a40dfc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1dd2bcecda337c961ad95ea884a40dfc">&#9670;&nbsp;</a></span>SetupTriangle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void wirehair::Codec::SetupTriangle </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classwirehair_1_1Codec.html#a1dd2bcecda337c961ad95ea884a40dfc" title="SetupTriangle()">SetupTriangle()</a> </p>
+<p>This function initializes the state variables to begin doing triangularization. It was split from <a class="el" href="classwirehair_1_1Codec.html#a06d08f9f2d1ae3c62076321a735a8a30" title="Triangle()">Triangle()</a> at one point during development so that <a class="el" href="classwirehair_1_1Codec.html#a06d08f9f2d1ae3c62076321a735a8a30" title="Triangle()">Triangle()</a> can be shared with <a class="el" href="classwirehair_1_1Codec.html#a231ec4075d1a5a734e1eabd29d86b002" title="ResumeSolveMatrix()">ResumeSolveMatrix()</a>, which saves a lot of code duplication.</p>
+<p>The pivot list is longer than the number of columns to determine so that it will be useful for keeping track of extra overhead blocks. Initially it only contains non-heavy rows. </p>
+
+</div>
+</div>
+<a id="a70be224802df0df32dae3ed1b166f259"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70be224802df0df32dae3ed1b166f259">&#9670;&nbsp;</a></span>SolveMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="wirehair_8h.html#a2403368e59f5be1241175a0ca9a7945b">WirehairResult</a> wirehair::Codec::SolveMatrix </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classwirehair_1_1Codec.html#a70be224802df0df32dae3ed1b166f259" title="SolveMatrix()">SolveMatrix()</a> </p>
+<p>This function attempts to solve the matrix, given that the matrix is currently square and may be solvable at this point without any additional blocks.</p>
+<p>It performs the peeling, compression, and GE steps:</p>
+<p>(1) Peeling: <a class="el" href="classwirehair_1_1Codec.html#a8468c46a0301ee9c3e43f24796dc9c33" title="GreedyPeeling()">GreedyPeeling()</a></p>
+<p>(2) Compression:</p>
+<p>Allocate GE and Compression matrix now that the size is known: </p><pre class="fragment">AllocateMatrix()
+</pre><p>Produce the Compression matrix: </p><pre class="fragment">SetDeferredColumns()
+SetMixingColumnsForDeferredRows()
+PeelDiagonal()
+</pre><p>Produce the GE matrix: </p><pre class="fragment">CopyDeferredRows()
+MultiplyDenseRows()
+AddInvertibleGF2Matrix()
+</pre><p>(3) Gaussian Elimination <a class="el" href="classwirehair_1_1Codec.html#a06d08f9f2d1ae3c62076321a735a8a30" title="Triangle()">Triangle()</a> </p>
+
+</div>
+</div>
+<a id="a4a07232898df9fddfc3fdb67042d603f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a07232898df9fddfc3fdb67042d603f">&#9670;&nbsp;</a></span>SolveWithPeel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void wirehair::Codec::SolveWithPeel </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structwirehair_1_1PeelRow.html">PeelRow</a> *<a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a>&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>row_i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>column_i</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classwirehair_1_1Codec.html#a4a07232898df9fddfc3fdb67042d603f" title="SolveWithPeel()">SolveWithPeel()</a> </p>
+<p>This function is called exclusively by <a class="el" href="classwirehair_1_1Codec.html#add4088e92504f443ba0bae663e572805" title="OpportunisticPeeling()">OpportunisticPeeling()</a> to take care of marking columns solved when a row is able to solve a column during the peeling process. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">row</td><td>Pointer to row data </td></tr>
+    <tr><td class="paramname">row_i</td><td>Row index </td></tr>
+    <tr><td class="paramname">column_i</td><td>Column that this solves </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ada1bafb8017c3f31cbee9d8a474fbff9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada1bafb8017c3f31cbee9d8a474fbff9">&#9670;&nbsp;</a></span>Substitute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void wirehair::Codec::Substitute </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classwirehair_1_1Codec.html#ada1bafb8017c3f31cbee9d8a474fbff9" title="Substitute()">Substitute()</a> </p>
+<p>This function generates all of the remaining column values. At the point this function is called, the GE columns were solved by <a class="el" href="classwirehair_1_1Codec.html#a616905fe122b42542d33e360d007b1da" title="Windowed Back-Substitution.">BackSubstituteAboveDiagonal()</a>. The remaining column values are solved by regenerating rows in forward order of peeling.</p>
+<p>Note that as each row is generated, that all of the columns active in that row have already been solved. So long as the substitution follows in forward solution order, this is guaranteed.</p>
+<p>It is also possible to start from the Compression matrix values and substitute into that matrix. However, because the mixing columns are so dense, it is actually faster in every case to just regenerate the rows from scratch and throw away those results. </p>
+
+</div>
+</div>
+<a id="a06d08f9f2d1ae3c62076321a735a8a30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06d08f9f2d1ae3c62076321a735a8a30">&#9670;&nbsp;</a></span>Triangle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool wirehair::Codec::Triangle </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classwirehair_1_1Codec.html#a06d08f9f2d1ae3c62076321a735a8a30" title="Triangle()">Triangle()</a> </p>
+<p>This function performs normal Gaussian elimination on the GE matrix in order to put it in upper triangular form, which would solve the system of linear equations represented by the matrix. The only wrinkle here is that instead of zeroing the columns as it goes, this algorithm will keep a record of which columns were added together so that these steps can be followed later to produce the column values with xors on the data.</p>
+<p>It uses a pivot array that it swaps row pointers around in, as opposed to actually swapping rows in the matrix, which would be more expensive. Heavy rows are kept at the end of the pivot array so that they are always selected last.</p>
+<p>Returns true if a solution was found. Returns false if more data is needed. </p>
+
+</div>
+</div>
+<a id="a664cc2ee6bd0f8992b6ee0229c17cab5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a664cc2ee6bd0f8992b6ee0229c17cab5">&#9670;&nbsp;</a></span>TriangleNonHeavy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool wirehair::Codec::TriangleNonHeavy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classwirehair_1_1Codec.html#a664cc2ee6bd0f8992b6ee0229c17cab5" title="TriangleNonHeavy()">TriangleNonHeavy()</a> </p>
+<p>This function performs triangularization for all of the non-heavy columns of the GE matrix. As soon as the first heavy column needs to be determined it converts the extra rows to heavy rows and adds in the heavy rows of the matrix to the pivot list.</p>
+<p>Returns true if a pivot could be found. Returns false if pivot could not be found. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ac7a7493892d11f937371085c2c100057"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7a7493892d11f937371085c2c100057">&#9670;&nbsp;</a></span>_all_original</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool wirehair::Codec::_all_original = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Boolean: Only seen original data block identifiers. </p>
+
+</div>
+</div>
+<a id="a9db29064eb61509b7f5b9b75fdcf6982"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9db29064eb61509b7f5b9b75fdcf6982">&#9670;&nbsp;</a></span>_block_bytes</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned wirehair::Codec::_block_bytes = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Number of bytes in a block. </p>
+
+</div>
+</div>
+<a id="af5963b0be37fa46999b4d6cc52e9d3a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5963b0be37fa46999b4d6cc52e9d3a5">&#9670;&nbsp;</a></span>_block_count</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t wirehair::Codec::_block_count = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Number of blocks in the message. </p>
+
+</div>
+</div>
+<a id="a08654871f9b70cddc7b4e0674bc98b3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08654871f9b70cddc7b4e0674bc98b3a">&#9670;&nbsp;</a></span>_block_next_prime</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t wirehair::Codec::_block_next_prime = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Next prime number at or above block count. </p>
+
+</div>
+</div>
+<a id="ad11bd6aa87006973b95f1c88afeccbd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad11bd6aa87006973b95f1c88afeccbd4">&#9670;&nbsp;</a></span>_compress_matrix</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t* <a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a> wirehair::Codec::_compress_matrix = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gaussian elimination compression matrix. </p>
+
+</div>
+</div>
+<a id="a5d46889e0acce90543535237810c5c8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d46889e0acce90543535237810c5c8d">&#9670;&nbsp;</a></span>_copied_original</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t* <a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a> wirehair::Codec::_copied_original = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a232bc4d44bf7e06bc628dbcaf38448c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a232bc4d44bf7e06bc628dbcaf38448c0">&#9670;&nbsp;</a></span>_d_seed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t wirehair::Codec::_d_seed = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Seed for dense rows of matrix. </p>
+
+</div>
+</div>
+<a id="ab81d9bd93e5cccbe9799f92bbb1401a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab81d9bd93e5cccbe9799f92bbb1401a0">&#9670;&nbsp;</a></span>_defer_count</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t wirehair::Codec::_defer_count = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Count of deferred rows. </p>
+
+</div>
+</div>
+<a id="a76cf7d6a9c7dc1d483e94b4a8324d9c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76cf7d6a9c7dc1d483e94b4a8324d9c5">&#9670;&nbsp;</a></span>_defer_head_columns</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t wirehair::Codec::_defer_head_columns = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Head of peeling deferred columns list. </p>
+
+</div>
+</div>
+<a id="adf4fb748184cba8d6d2812413ceaecd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf4fb748184cba8d6d2812413ceaecd4">&#9670;&nbsp;</a></span>_defer_head_rows</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t wirehair::Codec::_defer_head_rows = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Head of peeling deferred rows list. </p>
+
+</div>
+</div>
+<a id="af19813c181a69d024c60e02a3e9dad26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af19813c181a69d024c60e02a3e9dad26">&#9670;&nbsp;</a></span>_dense_count</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t wirehair::Codec::_dense_count = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Number of added dense code rows. </p>
+
+</div>
+</div>
+<a id="a6dbb060a1eb794ca90727b9a8b1657be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dbb060a1eb794ca90727b9a8b1657be">&#9670;&nbsp;</a></span>_extra_count</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t wirehair::Codec::_extra_count = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Number of extra rows to allocate. </p>
+
+</div>
+</div>
+<a id="a6d4fe6185e7f7fd7919284c7ca4ac7ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d4fe6185e7f7fd7919284c7ca4ac7ec">&#9670;&nbsp;</a></span>_first_heavy_column</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned wirehair::Codec::_first_heavy_column = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>First heavy column that is non-zero. </p>
+
+</div>
+</div>
+<a id="a8e17ab92683fb62ec28448151cf38591"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e17ab92683fb62ec28448151cf38591">&#9670;&nbsp;</a></span>_first_heavy_pivot</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned wirehair::Codec::_first_heavy_pivot = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>First heavy pivot in the list. </p>
+
+</div>
+</div>
+<a id="a48c4c6a32b68d0855d1ae3403b87a179"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48c4c6a32b68d0855d1ae3403b87a179">&#9670;&nbsp;</a></span>_ge_allocated</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t wirehair::Codec::_ge_allocated = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Number of bytes allocated to GE matrix. </p>
+
+</div>
+</div>
+<a id="a4f7205ab8cffd8e0134c31287117505b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f7205ab8cffd8e0134c31287117505b">&#9670;&nbsp;</a></span>_ge_col_map</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t* <a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a> wirehair::Codec::_ge_col_map = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Map of GE columns to conceptual matrix columns. </p>
+
+</div>
+</div>
+<a id="ad3bdd48d49c0afc6fb26fb3238304efa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3bdd48d49c0afc6fb26fb3238304efa">&#9670;&nbsp;</a></span>_ge_cols</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned wirehair::Codec::_ge_cols = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a376ca3580f26a86df3a134d1f09d90cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a376ca3580f26a86df3a134d1f09d90cf">&#9670;&nbsp;</a></span>_ge_matrix</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t* <a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a> wirehair::Codec::_ge_matrix = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gaussian elimination matrix. </p>
+
+</div>
+</div>
+<a id="a61352f3f684ba3e2a3477daf1366b200"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61352f3f684ba3e2a3477daf1366b200">&#9670;&nbsp;</a></span>_ge_pitch</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned wirehair::Codec::_ge_pitch = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Words per row of GE matrix and compression matrix. </p>
+
+</div>
+</div>
+<a id="a57f44df4290c7c43f92c0367c984fb9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57f44df4290c7c43f92c0367c984fb9b">&#9670;&nbsp;</a></span>_ge_row_map</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t* <a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a> wirehair::Codec::_ge_row_map = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Map of GE rows to conceptual matrix rows. </p>
+
+</div>
+</div>
+<a id="abedef902421899131048c985d54f09f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abedef902421899131048c985d54f09f1">&#9670;&nbsp;</a></span>_ge_rows</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned wirehair::Codec::_ge_rows = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>For debugging only: GE matrix rows and columns. </p>
+
+</div>
+</div>
+<a id="ac48e18686d17e0466ef547d8e73c7944"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac48e18686d17e0466ef547d8e73c7944">&#9670;&nbsp;</a></span>_heavy_columns</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned wirehair::Codec::_heavy_columns = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Number of heavy matrix columns. </p>
+
+</div>
+</div>
+<a id="a3faae83e5c4a930ff7753bd9465b43b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3faae83e5c4a930ff7753bd9465b43b7">&#9670;&nbsp;</a></span>_heavy_matrix</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t* <a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a> wirehair::Codec::_heavy_matrix = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Heavy rows of GE matrix. </p>
+
+</div>
+</div>
+<a id="ae0f2516092e16411a2e8787d9a8b695f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0f2516092e16411a2e8787d9a8b695f">&#9670;&nbsp;</a></span>_heavy_pitch</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned wirehair::Codec::_heavy_pitch = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Bytes per heavy matrix row. </p>
+
+</div>
+</div>
+<a id="a0d19f8327b9ae2336c4a7201c00d95fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d19f8327b9ae2336c4a7201c00d95fe">&#9670;&nbsp;</a></span>_heavy_rows</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned wirehair::Codec::_heavy_rows = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>For debugging: Number of heavy rows. </p>
+
+</div>
+</div>
+<a id="aeb4de131b238b25ad39bbad39254ef68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb4de131b238b25ad39bbad39254ef68">&#9670;&nbsp;</a></span>_input_allocated</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t wirehair::Codec::_input_allocated = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Number of bytes allocated for input, or 0 if referenced. </p>
+
+</div>
+</div>
+<a id="a397e61387dd26f66c29ed14c0d083a93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a397e61387dd26f66c29ed14c0d083a93">&#9670;&nbsp;</a></span>_input_blocks</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t* <a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a> wirehair::Codec::_input_blocks = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Input message blocks. </p>
+
+</div>
+</div>
+<a id="a7c1254cb5d7a3fa669dd2ca5e3b04cb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c1254cb5d7a3fa669dd2ca5e3b04cb7">&#9670;&nbsp;</a></span>_input_final_bytes</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned wirehair::Codec::_input_final_bytes = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Number of bytes in final block of input. </p>
+
+</div>
+</div>
+<a id="a21e90b2fd27eedbcb67f26bbe0433450"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21e90b2fd27eedbcb67f26bbe0433450">&#9670;&nbsp;</a></span>_mix_count</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t wirehair::Codec::_mix_count = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Number of mix columns. </p>
+
+</div>
+</div>
+<a id="ac3c1575a5db7c70c56eb1f0b7b329292"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3c1575a5db7c70c56eb1f0b7b329292">&#9670;&nbsp;</a></span>_mix_next_prime</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t wirehair::Codec::_mix_next_prime = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Next prime number at or above dense count. </p>
+
+</div>
+</div>
+<a id="a6a19ded4d2ff75de972f8d36264fcfa6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a19ded4d2ff75de972f8d36264fcfa6">&#9670;&nbsp;</a></span>_next_pivot</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned wirehair::Codec::_next_pivot = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pivot to resume <a class="el" href="classwirehair_1_1Codec.html#a06d08f9f2d1ae3c62076321a735a8a30" title="Triangle()">Triangle()</a> on after it fails. </p>
+
+</div>
+</div>
+<a id="a97e96a12d3d352dba53b662b9212fa2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97e96a12d3d352dba53b662b9212fa2f">&#9670;&nbsp;</a></span>_original_out_of_order</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool wirehair::Codec::_original_out_of_order = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Boolean: Original blocks are out of order? </p>
+
+</div>
+</div>
+<a id="aa16cb987315bc13a133959f84dc0e0a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa16cb987315bc13a133959f84dc0e0a0">&#9670;&nbsp;</a></span>_output_final_bytes</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned wirehair::Codec::_output_final_bytes = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Number of bytes in final block of output. </p>
+
+</div>
+</div>
+<a id="a51a20fe0806d00cdd66f34c7e81469dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51a20fe0806d00cdd66f34c7e81469dd">&#9670;&nbsp;</a></span>_p_seed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t wirehair::Codec::_p_seed = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Seed for peeled rows of matrix. </p>
+
+</div>
+</div>
+<a id="a91d94507590763662ea92242490b62f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91d94507590763662ea92242490b62f0">&#9670;&nbsp;</a></span>_peel_col_refs</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structwirehair_1_1PeelRefs.html">PeelRefs</a>* <a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a> wirehair::Codec::_peel_col_refs = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>List of column references. </p>
+
+</div>
+</div>
+<a id="a2a077a408ec7b259cfb17d046975cda2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a077a408ec7b259cfb17d046975cda2">&#9670;&nbsp;</a></span>_peel_cols</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structwirehair_1_1PeelColumn.html">PeelColumn</a>* <a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a> wirehair::Codec::_peel_cols = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Array of N peeling matrix columns. </p>
+
+</div>
+</div>
+<a id="a472b87813aeb0ff9a27407911dbb3174"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a472b87813aeb0ff9a27407911dbb3174">&#9670;&nbsp;</a></span>_peel_head_rows</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t wirehair::Codec::_peel_head_rows = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Head of peeling solved rows list. </p>
+
+</div>
+</div>
+<a id="a06ee13777928503e744ade479023b59f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06ee13777928503e744ade479023b59f">&#9670;&nbsp;</a></span>_peel_rows</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structwirehair_1_1PeelRow.html">PeelRow</a>* <a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a> wirehair::Codec::_peel_rows = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Array of N peeling matrix rows. </p>
+
+</div>
+</div>
+<a id="ae115dafb91cf24f2b22b3f81d7915464"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae115dafb91cf24f2b22b3f81d7915464">&#9670;&nbsp;</a></span>_peel_tail_rows</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structwirehair_1_1PeelRow.html">PeelRow</a>* <a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a> wirehair::Codec::_peel_tail_rows = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tail of peeling solved rows list. </p>
+
+</div>
+</div>
+<a id="ab4e4bf2b6ed3b802135101ed2927d0cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4e4bf2b6ed3b802135101ed2927d0cf">&#9670;&nbsp;</a></span>_pivot_count</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned wirehair::Codec::_pivot_count = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Number of pivots in the pivot list. </p>
+
+</div>
+</div>
+<a id="ac510c40c89be9417d5116329a38997d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac510c40c89be9417d5116329a38997d1">&#9670;&nbsp;</a></span>_pivots</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t* <a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a> wirehair::Codec::_pivots = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pivots for each column of the GE matrix. </p>
+
+</div>
+</div>
+<a id="aace098322265bf2b625c822847d9252d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aace098322265bf2b625c822847d9252d">&#9670;&nbsp;</a></span>_recovery_blocks</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t* <a class="el" href="gf256_8h.html#a729311733918dc41916d2227c1015400">GF256_RESTRICT</a> wirehair::Codec::_recovery_blocks = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Recovery blocks. </p>
+
+</div>
+</div>
+<a id="a0eadf3992d73d964954110469de3d57a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0eadf3992d73d964954110469de3d57a">&#9670;&nbsp;</a></span>_recovery_rows</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned wirehair::Codec::_recovery_rows = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>For debugging only: Maximum number of recovery rows. </p>
+
+</div>
+</div>
+<a id="ad03e32721a224ec5d3ed5f33b4a139b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad03e32721a224ec5d3ed5f33b4a139b2">&#9670;&nbsp;</a></span>_row_count</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t wirehair::Codec::_row_count = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Number of stored rows. </p>
+
+</div>
+</div>
+<a id="afe6c2b4e2d41d1a7a0cef5d39a22f2a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe6c2b4e2d41d1a7a0cef5d39a22f2a0">&#9670;&nbsp;</a></span>_seed_override</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool wirehair::Codec::_seed_override = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Enable override for _dense_count, _p_seed, _d_seed. </p>
+
+</div>
+</div>
+<a id="ab1e4bc3d81aa4411f7091bf851c07275"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1e4bc3d81aa4411f7091bf851c07275">&#9670;&nbsp;</a></span>_workspace_allocated</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t wirehair::Codec::_workspace_allocated = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Number of bytes allocated for workspace. </p>
+
+</div>
+</div>
+<a id="a4d9af9fef5a9122b6a26b747eefcde55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d9af9fef5a9122b6a26b747eefcde55">&#9670;&nbsp;</a></span>LIST_TERM</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint16_t wirehair::Codec::LIST_TERM = 0xffff</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Terminator for list (like nullptr in a linked list) </p>
 
 </div>
 </div>

@@ -77,43 +77,123 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ad3396418950c88e4d29cc7d15f34aa23"><td class="memItemLeft" >struct {</td></tr>
-<tr class="memitem:a19ce7f6728d7b461858d57c19b432e62"><td class="memItemLeft" >
-&#160;&#160;&#160;GF256_ALIGNED GF256_M128&#160;&#160;&#160;<b>TABLE_LO_Y</b> [256]</td></tr>
-<tr class="separator:a19ce7f6728d7b461858d57c19b432e62"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf57b7a3a8c83c16238f4954bdc02f2a"><td class="memItemLeft" >
-&#160;&#160;&#160;GF256_ALIGNED GF256_M128&#160;&#160;&#160;<b>TABLE_HI_Y</b> [256]</td></tr>
-<tr class="separator:acf57b7a3a8c83c16238f4954bdc02f2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3396418950c88e4d29cc7d15f34aa23"><td class="memItemLeft" valign="top">}&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgf256__ctx.html#ad3396418950c88e4d29cc7d15f34aa23">MM128</a></td></tr>
-<tr class="separator:ad3396418950c88e4d29cc7d15f34aa23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8896dcf0144f4a4097ccfe0bae92b95a"><td class="memItemLeft" align="right" valign="top"><a id="a8896dcf0144f4a4097ccfe0bae92b95a"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgf256__ctx.html#a8896dcf0144f4a4097ccfe0bae92b95a">GF256_MUL_TABLE</a> [256 *256]</td></tr>
-<tr class="memdesc:a8896dcf0144f4a4097ccfe0bae92b95a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mul/Div/Inv/Sqr tables. <br /></td></tr>
-<tr class="separator:a8896dcf0144f4a4097ccfe0bae92b95a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a150812cd7e31d68cd2b2f5513ff6cf38"><td class="memItemLeft" align="right" valign="top"><a id="a150812cd7e31d68cd2b2f5513ff6cf38"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>GF256_DIV_TABLE</b> [256 *256]</td></tr>
+<tr class="memitem:a150812cd7e31d68cd2b2f5513ff6cf38"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgf256__ctx.html#a150812cd7e31d68cd2b2f5513ff6cf38">GF256_DIV_TABLE</a> [256 *256]</td></tr>
 <tr class="separator:a150812cd7e31d68cd2b2f5513ff6cf38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a171f868bc75b09a538c31e77c5978cde"><td class="memItemLeft" align="right" valign="top"><a id="a171f868bc75b09a538c31e77c5978cde"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>GF256_INV_TABLE</b> [256]</td></tr>
-<tr class="separator:a171f868bc75b09a538c31e77c5978cde"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26b6687d2db2c080cfacf7f4310ff34c"><td class="memItemLeft" align="right" valign="top"><a id="a26b6687d2db2c080cfacf7f4310ff34c"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>GF256_SQR_TABLE</b> [256]</td></tr>
-<tr class="separator:a26b6687d2db2c080cfacf7f4310ff34c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56a509e59cbbe12fb2b4a27b822f3bdc"><td class="memItemLeft" align="right" valign="top"><a id="a56a509e59cbbe12fb2b4a27b822f3bdc"></a>
-uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgf256__ctx.html#a56a509e59cbbe12fb2b4a27b822f3bdc">GF256_LOG_TABLE</a> [256]</td></tr>
-<tr class="memdesc:a56a509e59cbbe12fb2b4a27b822f3bdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log/Exp tables. <br /></td></tr>
-<tr class="separator:a56a509e59cbbe12fb2b4a27b822f3bdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afed143b74aef038416642fc13fb74ce9"><td class="memItemLeft" align="right" valign="top"><a id="afed143b74aef038416642fc13fb74ce9"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>GF256_EXP_TABLE</b> [512 *2+1]</td></tr>
+<tr class="memitem:afed143b74aef038416642fc13fb74ce9"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgf256__ctx.html#afed143b74aef038416642fc13fb74ce9">GF256_EXP_TABLE</a> [512 *2+1]</td></tr>
 <tr class="separator:afed143b74aef038416642fc13fb74ce9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75c7445f79be203175100469bc0581e8"><td class="memItemLeft" align="right" valign="top"><a id="a75c7445f79be203175100469bc0581e8"></a>
-unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgf256__ctx.html#a75c7445f79be203175100469bc0581e8">Polynomial</a></td></tr>
-<tr class="memdesc:a75c7445f79be203175100469bc0581e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Polynomial used. <br /></td></tr>
+<tr class="memitem:a171f868bc75b09a538c31e77c5978cde"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgf256__ctx.html#a171f868bc75b09a538c31e77c5978cde">GF256_INV_TABLE</a> [256]</td></tr>
+<tr class="separator:a171f868bc75b09a538c31e77c5978cde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56a509e59cbbe12fb2b4a27b822f3bdc"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgf256__ctx.html#a56a509e59cbbe12fb2b4a27b822f3bdc">GF256_LOG_TABLE</a> [256]</td></tr>
+<tr class="memdesc:a56a509e59cbbe12fb2b4a27b822f3bdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log/Exp tables.  <a href="structgf256__ctx.html#a56a509e59cbbe12fb2b4a27b822f3bdc">More...</a><br /></td></tr>
+<tr class="separator:a56a509e59cbbe12fb2b4a27b822f3bdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8896dcf0144f4a4097ccfe0bae92b95a"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgf256__ctx.html#a8896dcf0144f4a4097ccfe0bae92b95a">GF256_MUL_TABLE</a> [256 *256]</td></tr>
+<tr class="memdesc:a8896dcf0144f4a4097ccfe0bae92b95a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mul/Div/Inv/Sqr tables.  <a href="structgf256__ctx.html#a8896dcf0144f4a4097ccfe0bae92b95a">More...</a><br /></td></tr>
+<tr class="separator:a8896dcf0144f4a4097ccfe0bae92b95a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26b6687d2db2c080cfacf7f4310ff34c"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgf256__ctx.html#a26b6687d2db2c080cfacf7f4310ff34c">GF256_SQR_TABLE</a> [256]</td></tr>
+<tr class="separator:a26b6687d2db2c080cfacf7f4310ff34c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3396418950c88e4d29cc7d15f34aa23"><td class="memItemLeft" >struct {</td></tr>
+<tr class="memitem:acf57b7a3a8c83c16238f4954bdc02f2a"><td class="memItemLeft" >&#160;&#160;&#160;<a class="el" href="gf256_8h.html#a13692fcbbc0412b6aa5cceb0764306f3">GF256_ALIGNED</a> <a class="el" href="gf256_8h.html#a8941d58e3d579643ac41b7ba754645f9">GF256_M128</a>&#160;&#160;&#160;<a class="el" href="structgf256__ctx.html#a2cf5195ffcbecde4382156f10cc04c88">TABLE_HI_Y</a> [256]</td></tr>
+<tr class="separator:acf57b7a3a8c83c16238f4954bdc02f2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19ce7f6728d7b461858d57c19b432e62"><td class="memItemLeft" >&#160;&#160;&#160;<a class="el" href="gf256_8h.html#a13692fcbbc0412b6aa5cceb0764306f3">GF256_ALIGNED</a> <a class="el" href="gf256_8h.html#a8941d58e3d579643ac41b7ba754645f9">GF256_M128</a>&#160;&#160;&#160;<a class="el" href="structgf256__ctx.html#a38e1b6bea256caf90e23fd804094de82">TABLE_LO_Y</a> [256]</td></tr>
+<tr class="separator:a19ce7f6728d7b461858d57c19b432e62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3396418950c88e4d29cc7d15f34aa23"><td class="memItemLeft" valign="top">}&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgf256__ctx.html#ad3396418950c88e4d29cc7d15f34aa23">MM128</a></td></tr>
+<tr class="memdesc:ad3396418950c88e4d29cc7d15f34aa23"><td class="mdescLeft">&#160;</td><td class="mdescRight">We require memory to be aligned since the SIMD instructions benefit from or require aligned accesses to the table data.  <a href="structgf256__ctx.html#ad3396418950c88e4d29cc7d15f34aa23">More...</a><br /></td></tr>
+<tr class="separator:ad3396418950c88e4d29cc7d15f34aa23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75c7445f79be203175100469bc0581e8"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgf256__ctx.html#a75c7445f79be203175100469bc0581e8">Polynomial</a></td></tr>
+<tr class="memdesc:a75c7445f79be203175100469bc0581e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Polynomial used.  <a href="structgf256__ctx.html#a75c7445f79be203175100469bc0581e8">More...</a><br /></td></tr>
 <tr class="separator:a75c7445f79be203175100469bc0581e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The context object stores tables required to perform library calculations. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
+<a id="a150812cd7e31d68cd2b2f5513ff6cf38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a150812cd7e31d68cd2b2f5513ff6cf38">&#9670;&nbsp;</a></span>GF256_DIV_TABLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t gf256_ctx::GF256_DIV_TABLE[256 *256]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afed143b74aef038416642fc13fb74ce9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afed143b74aef038416642fc13fb74ce9">&#9670;&nbsp;</a></span>GF256_EXP_TABLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t gf256_ctx::GF256_EXP_TABLE[512 *2+1]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a171f868bc75b09a538c31e77c5978cde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a171f868bc75b09a538c31e77c5978cde">&#9670;&nbsp;</a></span>GF256_INV_TABLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t gf256_ctx::GF256_INV_TABLE[256]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a56a509e59cbbe12fb2b4a27b822f3bdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56a509e59cbbe12fb2b4a27b822f3bdc">&#9670;&nbsp;</a></span>GF256_LOG_TABLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t gf256_ctx::GF256_LOG_TABLE[256]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Log/Exp tables. </p>
+
+</div>
+</div>
+<a id="a8896dcf0144f4a4097ccfe0bae92b95a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8896dcf0144f4a4097ccfe0bae92b95a">&#9670;&nbsp;</a></span>GF256_MUL_TABLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t gf256_ctx::GF256_MUL_TABLE[256 *256]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mul/Div/Inv/Sqr tables. </p>
+
+</div>
+</div>
+<a id="a26b6687d2db2c080cfacf7f4310ff34c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26b6687d2db2c080cfacf7f4310ff34c">&#9670;&nbsp;</a></span>GF256_SQR_TABLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t gf256_ctx::GF256_SQR_TABLE[256]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ad3396418950c88e4d29cc7d15f34aa23"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad3396418950c88e4d29cc7d15f34aa23">&#9670;&nbsp;</a></span>MM128</h2>
 
@@ -125,7 +205,52 @@ unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>We require memory to be aligned since the SIMD instructions benefit from or require aligned accesses to the table data. </p>
+
+</div>
+</div>
+<a id="a75c7445f79be203175100469bc0581e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75c7445f79be203175100469bc0581e8">&#9670;&nbsp;</a></span>Polynomial</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned gf256_ctx::Polynomial</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Polynomial used. </p>
+
+</div>
+</div>
+<a id="a2cf5195ffcbecde4382156f10cc04c88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cf5195ffcbecde4382156f10cc04c88">&#9670;&nbsp;</a></span>TABLE_HI_Y</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="gf256_8h.html#a13692fcbbc0412b6aa5cceb0764306f3">GF256_ALIGNED</a> <a class="el" href="gf256_8h.html#a8941d58e3d579643ac41b7ba754645f9">GF256_M128</a> gf256_ctx::TABLE_HI_Y[256]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a38e1b6bea256caf90e23fd804094de82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38e1b6bea256caf90e23fd804094de82">&#9670;&nbsp;</a></span>TABLE_LO_Y</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="gf256_8h.html#a13692fcbbc0412b6aa5cceb0764306f3">GF256_ALIGNED</a> <a class="el" href="gf256_8h.html#a8941d58e3d579643ac41b7ba754645f9">GF256_M128</a> gf256_ctx::TABLE_LO_Y[256]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

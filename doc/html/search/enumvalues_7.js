@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['keep_5ftarget_5fvelocity_3187',['KEEP_TARGET_VELOCITY',['../classRMLPositionFlags.html#a0cf5bb7ba9fb4d9ab8040b0546170761a4c0ff3d692225145faf8ff420a181a6f',1,'RMLPositionFlags']]]
+  ['homing_8661',['HOMING',['../motor_8h.html#a8cba1d5aebbed0609a07e75b663289c3a4bd626975c7076136f180e04b8748b39',1,'motor.h']]]
 ];

@@ -62,27 +62,291 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>nimbro_service_transport</b></li><li class="navelem"><a class="el" href="classnimbro__service__transport_1_1ClientHandler.html">ClientHandler</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacenimbro__service__transport.html">nimbro_service_transport</a></li><li class="navelem"><a class="el" href="classnimbro__service__transport_1_1ClientHandler.html">ClientHandler</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classnimbro__service__transport_1_1ClientHandler-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">nimbro_service_transport::ClientHandler Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="client__handler_8h_source.html">client_handler.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a475b4c0f705063e5cc29dd29e59c5f4a"><td class="memItemLeft" align="right" valign="top"><a id="a475b4c0f705063e5cc29dd29e59c5f4a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ClientHandler</b> (int fd)</td></tr>
+<tr class="memitem:a475b4c0f705063e5cc29dd29e59c5f4a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnimbro__service__transport_1_1ClientHandler.html#a475b4c0f705063e5cc29dd29e59c5f4a">ClientHandler</a> (int fd)</td></tr>
 <tr class="separator:a475b4c0f705063e5cc29dd29e59c5f4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3df4475ad6a07c9d1768ce297e017420"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnimbro__service__transport_1_1ClientHandler.html#a3df4475ad6a07c9d1768ce297e017420">~ClientHandler</a> ()</td></tr>
+<tr class="separator:a3df4475ad6a07c9d1768ce297e017420"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:ab0ab4140fc5ee5a14ef154e349285e39"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnimbro__service__transport_1_1ClientHandler.html#ab0ab4140fc5ee5a14ef154e349285e39">handleHeader</a> (const ros::ConnectionPtr &amp;connection, const ros::Header &amp;<a class="el" href="udp__packet_8h.html#a5bca8ae02052fbbf5777e6804628ff12">header</a>)</td></tr>
+<tr class="separator:ab0ab4140fc5ee5a14ef154e349285e39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8464cafb713220fdf31cb4eab130674"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnimbro__service__transport_1_1ClientHandler.html#ab8464cafb713220fdf31cb4eab130674">handleHeaderWritten</a> ()</td></tr>
+<tr class="separator:ab8464cafb713220fdf31cb4eab130674"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4541e66422bd680e92f2fc3897e3f104"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnimbro__service__transport_1_1ClientHandler.html#a4541e66422bd680e92f2fc3897e3f104">run</a> ()</td></tr>
+<tr class="separator:a4541e66422bd680e92f2fc3897e3f104"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50dd3e48db8cccdf0214499af0050c59"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnimbro__service__transport_1_1ClientHandler.html#a50dd3e48db8cccdf0214499af0050c59">sendAvailableServices</a> ()</td></tr>
+<tr class="separator:a50dd3e48db8cccdf0214499af0050c59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a1fc295654641fad75229091b0ee6377c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnimbro__service__transport_1_1ClientHandler.html#a1fc295654641fad75229091b0ee6377c">m_fd</a></td></tr>
+<tr class="separator:a1fc295654641fad75229091b0ee6377c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af84d1a7c7b5d085774c8e2050bcb87e8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnimbro__service__transport_1_1ClientHandler.html#af84d1a7c7b5d085774c8e2050bcb87e8">m_gotHeader</a></td></tr>
+<tr class="separator:af84d1a7c7b5d085774c8e2050bcb87e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ce65ac6ce68723648bb3a4c5490b9b0"><td class="memItemLeft" align="right" valign="top">ros::Header&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnimbro__service__transport_1_1ClientHandler.html#a2ce65ac6ce68723648bb3a4c5490b9b0">m_headerBuf</a></td></tr>
+<tr class="separator:a2ce65ac6ce68723648bb3a4c5490b9b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cfdb559df88d052beefa3477dc6c1b2"><td class="memItemLeft" align="right" valign="top">boost::thread&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnimbro__service__transport_1_1ClientHandler.html#a5cfdb559df88d052beefa3477dc6c1b2">m_thread</a></td></tr>
+<tr class="separator:a5cfdb559df88d052beefa3477dc6c1b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a475b4c0f705063e5cc29dd29e59c5f4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a475b4c0f705063e5cc29dd29e59c5f4a">&#9670;&nbsp;</a></span>ClientHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">nimbro_service_transport::ClientHandler::ClientHandler </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fd</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3df4475ad6a07c9d1768ce297e017420"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3df4475ad6a07c9d1768ce297e017420">&#9670;&nbsp;</a></span>~ClientHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">nimbro_service_transport::ClientHandler::~ClientHandler </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ab0ab4140fc5ee5a14ef154e349285e39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0ab4140fc5ee5a14ef154e349285e39">&#9670;&nbsp;</a></span>handleHeader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool nimbro_service_transport::ClientHandler::handleHeader </td>
+          <td>(</td>
+          <td class="paramtype">const ros::ConnectionPtr &amp;&#160;</td>
+          <td class="paramname"><em>connection</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const ros::Header &amp;&#160;</td>
+          <td class="paramname"><em>header</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab8464cafb713220fdf31cb4eab130674"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8464cafb713220fdf31cb4eab130674">&#9670;&nbsp;</a></span>handleHeaderWritten()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nimbro_service_transport::ClientHandler::handleHeaderWritten </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4541e66422bd680e92f2fc3897e3f104"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4541e66422bd680e92f2fc3897e3f104">&#9670;&nbsp;</a></span>run()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nimbro_service_transport::ClientHandler::run </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a50dd3e48db8cccdf0214499af0050c59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50dd3e48db8cccdf0214499af0050c59">&#9670;&nbsp;</a></span>sendAvailableServices()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nimbro_service_transport::ClientHandler::sendAvailableServices </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a1fc295654641fad75229091b0ee6377c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fc295654641fad75229091b0ee6377c">&#9670;&nbsp;</a></span>m_fd</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int nimbro_service_transport::ClientHandler::m_fd</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af84d1a7c7b5d085774c8e2050bcb87e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af84d1a7c7b5d085774c8e2050bcb87e8">&#9670;&nbsp;</a></span>m_gotHeader</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool nimbro_service_transport::ClientHandler::m_gotHeader</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2ce65ac6ce68723648bb3a4c5490b9b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ce65ac6ce68723648bb3a4c5490b9b0">&#9670;&nbsp;</a></span>m_headerBuf</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ros::Header nimbro_service_transport::ClientHandler::m_headerBuf</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5cfdb559df88d052beefa3477dc6c1b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cfdb559df88d052beefa3477dc6c1b2">&#9670;&nbsp;</a></span>m_thread</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::thread nimbro_service_transport::ClientHandler::m_thread</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>nimbro_network/nimbro_service_transport/src/tcp/<a class="el" href="client__handler_8h_source.html">client_handler.h</a></li>
-<li>nimbro_network/nimbro_service_transport/src/tcp/client_handler.cpp</li>
+<li>nimbro_network/nimbro_service_transport/src/tcp/<a class="el" href="client__handler_8cpp.html">client_handler.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

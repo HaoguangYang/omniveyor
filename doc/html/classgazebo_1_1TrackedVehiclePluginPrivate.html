@@ -62,7 +62,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>gazebo</b></li><li class="navelem"><a class="el" href="classgazebo_1_1TrackedVehiclePluginPrivate.html">TrackedVehiclePluginPrivate</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacegazebo.html">gazebo</a></li><li class="navelem"><a class="el" href="classgazebo_1_1TrackedVehiclePluginPrivate.html">TrackedVehiclePluginPrivate</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -88,63 +88,259 @@ Collaboration diagram for gazebo::TrackedVehiclePluginPrivate:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a4cb22d430c3673ccb1efbf006b82e38e"><td class="memItemLeft" align="right" valign="top"><a id="a4cb22d430c3673ccb1efbf006b82e38e"></a>
-physics::ModelPtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePluginPrivate.html#a4cb22d430c3673ccb1efbf006b82e38e">model</a></td></tr>
-<tr class="memdesc:a4cb22d430c3673ccb1efbf006b82e38e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to model containing plugin. <br /></td></tr>
-<tr class="separator:a4cb22d430c3673ccb1efbf006b82e38e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac27d9e6f9b6a18f05ef1a3ddaf86a78d"><td class="memItemLeft" align="right" valign="top"><a id="ac27d9e6f9b6a18f05ef1a3ddaf86a78d"></a>
-sdf::ElementPtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePluginPrivate.html#ac27d9e6f9b6a18f05ef1a3ddaf86a78d">sdf</a></td></tr>
-<tr class="memdesc:ac27d9e6f9b6a18f05ef1a3ddaf86a78d"><td class="mdescLeft">&#160;</td><td class="mdescRight">SDF for this plugin;. <br /></td></tr>
-<tr class="separator:ac27d9e6f9b6a18f05ef1a3ddaf86a78d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79160f70204e8e25a9a64b9781d9e41f"><td class="memItemLeft" align="right" valign="top"><a id="a79160f70204e8e25a9a64b9781d9e41f"></a>
-transport::NodePtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePluginPrivate.html#a79160f70204e8e25a9a64b9781d9e41f">robotNode</a></td></tr>
-<tr class="memdesc:a79160f70204e8e25a9a64b9781d9e41f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to a node with robot prefix. <br /></td></tr>
-<tr class="separator:a79160f70204e8e25a9a64b9781d9e41f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff97907b6adcde26cc677cbfb635ede9"><td class="memItemLeft" align="right" valign="top"><a id="aff97907b6adcde26cc677cbfb635ede9"></a>
-transport::SubscriberPtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePluginPrivate.html#aff97907b6adcde26cc677cbfb635ede9">velocityPoseSub</a></td></tr>
-<tr class="memdesc:aff97907b6adcde26cc677cbfb635ede9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Velocity command subscriber. <br /></td></tr>
-<tr class="separator:aff97907b6adcde26cc677cbfb635ede9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0ec693fabe4206a57db0d2d5c3c6cd2"><td class="memItemLeft" align="right" valign="top"><a id="af0ec693fabe4206a57db0d2d5c3c6cd2"></a>
-transport::SubscriberPtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePluginPrivate.html#af0ec693fabe4206a57db0d2d5c3c6cd2">velocityTwistSub</a></td></tr>
-<tr class="memdesc:af0ec693fabe4206a57db0d2d5c3c6cd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Velocity command subscriber. <br /></td></tr>
-<tr class="separator:af0ec693fabe4206a57db0d2d5c3c6cd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1019b28f3662e1889589a1a078e7577"><td class="memItemLeft" align="right" valign="top"><a id="aa1019b28f3662e1889589a1a078e7577"></a>
-transport::PublisherPtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePluginPrivate.html#aa1019b28f3662e1889589a1a078e7577">tracksVelocityPub</a></td></tr>
-<tr class="memdesc:aa1019b28f3662e1889589a1a078e7577"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publisher of the track velocities. <br /></td></tr>
-<tr class="separator:aa1019b28f3662e1889589a1a078e7577"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01cdaaf957ede947d9975313ddb4437c"><td class="memItemLeft" align="right" valign="top"><a id="a01cdaaf957ede947d9975313ddb4437c"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePluginPrivate.html#a01cdaaf957ede947d9975313ddb4437c">tracksSeparation</a> = 0.1</td></tr>
-<tr class="memdesc:a01cdaaf957ede947d9975313ddb4437c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distance between the centers of the tracks. <br /></td></tr>
-<tr class="separator:a01cdaaf957ede947d9975313ddb4437c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3471494fc5a45c493574a7deb190a76"><td class="memItemLeft" align="right" valign="top"><a id="ac3471494fc5a45c493574a7deb190a76"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePluginPrivate.html#ac3471494fc5a45c493574a7deb190a76">steeringEfficiency</a> = 0.5</td></tr>
-<tr class="memdesc:ac3471494fc5a45c493574a7deb190a76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Steering efficiency coefficient (between 0.0 and 1.0). <br /></td></tr>
-<tr class="separator:ac3471494fc5a45c493574a7deb190a76"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae778b922c4a39c07216fe339087234cb"><td class="memItemLeft" align="right" valign="top"><a id="ae778b922c4a39c07216fe339087234cb"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePluginPrivate.html#ae778b922c4a39c07216fe339087234cb">maxLinearSpeed</a> = 1.0</td></tr>
-<tr class="memdesc:ae778b922c4a39c07216fe339087234cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Max linear velocity in m/s. Also max track velocity. <br /></td></tr>
-<tr class="separator:ae778b922c4a39c07216fe339087234cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab95bee64be15fe8d9d001eb153f32e6"><td class="memItemLeft" align="right" valign="top"><a id="aab95bee64be15fe8d9d001eb153f32e6"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePluginPrivate.html#aab95bee64be15fe8d9d001eb153f32e6">maxAngularSpeed</a> = 1.0</td></tr>
-<tr class="memdesc:aab95bee64be15fe8d9d001eb153f32e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Max angular speed in rad/s. <br /></td></tr>
+<tr class="memitem:aab95bee64be15fe8d9d001eb153f32e6"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePluginPrivate.html#aab95bee64be15fe8d9d001eb153f32e6">maxAngularSpeed</a> = 1.0</td></tr>
+<tr class="memdesc:aab95bee64be15fe8d9d001eb153f32e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Max angular speed in rad/s.  <a href="classgazebo_1_1TrackedVehiclePluginPrivate.html#aab95bee64be15fe8d9d001eb153f32e6">More...</a><br /></td></tr>
 <tr class="separator:aab95bee64be15fe8d9d001eb153f32e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9afb6ec19a1d5ce9e6c60280618d97cb"><td class="memItemLeft" align="right" valign="top"><a id="a9afb6ec19a1d5ce9e6c60280618d97cb"></a>
-boost::optional&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePluginPrivate.html#a9afb6ec19a1d5ce9e6c60280618d97cb">trackMu</a></td></tr>
-<tr class="memdesc:a9afb6ec19a1d5ce9e6c60280618d97cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Friction coefficient in the first friction direction. <br /></td></tr>
-<tr class="separator:a9afb6ec19a1d5ce9e6c60280618d97cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f22544368bc901471f8dda2cdd172f3"><td class="memItemLeft" align="right" valign="top"><a id="a3f22544368bc901471f8dda2cdd172f3"></a>
-boost::optional&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePluginPrivate.html#a3f22544368bc901471f8dda2cdd172f3">trackMu2</a></td></tr>
-<tr class="memdesc:a3f22544368bc901471f8dda2cdd172f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Friction coefficient in the second friction direction. <br /></td></tr>
-<tr class="separator:a3f22544368bc901471f8dda2cdd172f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a786c37110e84ef8056acb5739c63f321"><td class="memItemLeft" align="right" valign="top"><a id="a786c37110e84ef8056acb5739c63f321"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePluginPrivate.html#a786c37110e84ef8056acb5739c63f321">robotNamespace</a></td></tr>
-<tr class="memdesc:a786c37110e84ef8056acb5739c63f321"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace used as a prefix for gazebo topic names. <br /></td></tr>
+<tr class="memitem:ae778b922c4a39c07216fe339087234cb"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePluginPrivate.html#ae778b922c4a39c07216fe339087234cb">maxLinearSpeed</a> = 1.0</td></tr>
+<tr class="memdesc:ae778b922c4a39c07216fe339087234cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Max linear velocity in m/s. Also max track velocity.  <a href="classgazebo_1_1TrackedVehiclePluginPrivate.html#ae778b922c4a39c07216fe339087234cb">More...</a><br /></td></tr>
+<tr class="separator:ae778b922c4a39c07216fe339087234cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cb22d430c3673ccb1efbf006b82e38e"><td class="memItemLeft" align="right" valign="top">physics::ModelPtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePluginPrivate.html#a4cb22d430c3673ccb1efbf006b82e38e">model</a></td></tr>
+<tr class="memdesc:a4cb22d430c3673ccb1efbf006b82e38e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to model containing plugin.  <a href="classgazebo_1_1TrackedVehiclePluginPrivate.html#a4cb22d430c3673ccb1efbf006b82e38e">More...</a><br /></td></tr>
+<tr class="separator:a4cb22d430c3673ccb1efbf006b82e38e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a786c37110e84ef8056acb5739c63f321"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePluginPrivate.html#a786c37110e84ef8056acb5739c63f321">robotNamespace</a></td></tr>
+<tr class="memdesc:a786c37110e84ef8056acb5739c63f321"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace used as a prefix for gazebo topic names.  <a href="classgazebo_1_1TrackedVehiclePluginPrivate.html#a786c37110e84ef8056acb5739c63f321">More...</a><br /></td></tr>
 <tr class="separator:a786c37110e84ef8056acb5739c63f321"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79160f70204e8e25a9a64b9781d9e41f"><td class="memItemLeft" align="right" valign="top">transport::NodePtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePluginPrivate.html#a79160f70204e8e25a9a64b9781d9e41f">robotNode</a></td></tr>
+<tr class="memdesc:a79160f70204e8e25a9a64b9781d9e41f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to a node with robot prefix.  <a href="classgazebo_1_1TrackedVehiclePluginPrivate.html#a79160f70204e8e25a9a64b9781d9e41f">More...</a><br /></td></tr>
+<tr class="separator:a79160f70204e8e25a9a64b9781d9e41f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac27d9e6f9b6a18f05ef1a3ddaf86a78d"><td class="memItemLeft" align="right" valign="top">sdf::ElementPtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePluginPrivate.html#ac27d9e6f9b6a18f05ef1a3ddaf86a78d">sdf</a></td></tr>
+<tr class="memdesc:ac27d9e6f9b6a18f05ef1a3ddaf86a78d"><td class="mdescLeft">&#160;</td><td class="mdescRight">SDF for this plugin;.  <a href="classgazebo_1_1TrackedVehiclePluginPrivate.html#ac27d9e6f9b6a18f05ef1a3ddaf86a78d">More...</a><br /></td></tr>
+<tr class="separator:ac27d9e6f9b6a18f05ef1a3ddaf86a78d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3471494fc5a45c493574a7deb190a76"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePluginPrivate.html#ac3471494fc5a45c493574a7deb190a76">steeringEfficiency</a> = 0.5</td></tr>
+<tr class="memdesc:ac3471494fc5a45c493574a7deb190a76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Steering efficiency coefficient (between 0.0 and 1.0).  <a href="classgazebo_1_1TrackedVehiclePluginPrivate.html#ac3471494fc5a45c493574a7deb190a76">More...</a><br /></td></tr>
+<tr class="separator:ac3471494fc5a45c493574a7deb190a76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9afb6ec19a1d5ce9e6c60280618d97cb"><td class="memItemLeft" align="right" valign="top">boost::optional&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePluginPrivate.html#a9afb6ec19a1d5ce9e6c60280618d97cb">trackMu</a></td></tr>
+<tr class="memdesc:a9afb6ec19a1d5ce9e6c60280618d97cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Friction coefficient in the first friction direction.  <a href="classgazebo_1_1TrackedVehiclePluginPrivate.html#a9afb6ec19a1d5ce9e6c60280618d97cb">More...</a><br /></td></tr>
+<tr class="separator:a9afb6ec19a1d5ce9e6c60280618d97cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f22544368bc901471f8dda2cdd172f3"><td class="memItemLeft" align="right" valign="top">boost::optional&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePluginPrivate.html#a3f22544368bc901471f8dda2cdd172f3">trackMu2</a></td></tr>
+<tr class="memdesc:a3f22544368bc901471f8dda2cdd172f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Friction coefficient in the second friction direction.  <a href="classgazebo_1_1TrackedVehiclePluginPrivate.html#a3f22544368bc901471f8dda2cdd172f3">More...</a><br /></td></tr>
+<tr class="separator:a3f22544368bc901471f8dda2cdd172f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01cdaaf957ede947d9975313ddb4437c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePluginPrivate.html#a01cdaaf957ede947d9975313ddb4437c">tracksSeparation</a> = 0.1</td></tr>
+<tr class="memdesc:a01cdaaf957ede947d9975313ddb4437c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distance between the centers of the tracks.  <a href="classgazebo_1_1TrackedVehiclePluginPrivate.html#a01cdaaf957ede947d9975313ddb4437c">More...</a><br /></td></tr>
+<tr class="separator:a01cdaaf957ede947d9975313ddb4437c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1019b28f3662e1889589a1a078e7577"><td class="memItemLeft" align="right" valign="top">transport::PublisherPtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePluginPrivate.html#aa1019b28f3662e1889589a1a078e7577">tracksVelocityPub</a></td></tr>
+<tr class="memdesc:aa1019b28f3662e1889589a1a078e7577"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publisher of the track velocities.  <a href="classgazebo_1_1TrackedVehiclePluginPrivate.html#aa1019b28f3662e1889589a1a078e7577">More...</a><br /></td></tr>
+<tr class="separator:aa1019b28f3662e1889589a1a078e7577"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff97907b6adcde26cc677cbfb635ede9"><td class="memItemLeft" align="right" valign="top">transport::SubscriberPtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePluginPrivate.html#aff97907b6adcde26cc677cbfb635ede9">velocityPoseSub</a></td></tr>
+<tr class="memdesc:aff97907b6adcde26cc677cbfb635ede9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Velocity command subscriber.  <a href="classgazebo_1_1TrackedVehiclePluginPrivate.html#aff97907b6adcde26cc677cbfb635ede9">More...</a><br /></td></tr>
+<tr class="separator:aff97907b6adcde26cc677cbfb635ede9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0ec693fabe4206a57db0d2d5c3c6cd2"><td class="memItemLeft" align="right" valign="top">transport::SubscriberPtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1TrackedVehiclePluginPrivate.html#af0ec693fabe4206a57db0d2d5c3c6cd2">velocityTwistSub</a></td></tr>
+<tr class="memdesc:af0ec693fabe4206a57db0d2d5c3c6cd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Velocity command subscriber.  <a href="classgazebo_1_1TrackedVehiclePluginPrivate.html#af0ec693fabe4206a57db0d2d5c3c6cd2">More...</a><br /></td></tr>
+<tr class="separator:af0ec693fabe4206a57db0d2d5c3c6cd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Private data class. </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
-<li>/home/jonathan/OmniDev/src/omniveyor_gazebo_world/src/TrackedVehiclePlugin_ROS.cc</li>
+</div><h2 class="groupheader">Member Data Documentation</h2>
+<a id="aab95bee64be15fe8d9d001eb153f32e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab95bee64be15fe8d9d001eb153f32e6">&#9670;&nbsp;</a></span>maxAngularSpeed</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double gazebo::TrackedVehiclePluginPrivate::maxAngularSpeed = 1.0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Max angular speed in rad/s. </p>
+
+</div>
+</div>
+<a id="ae778b922c4a39c07216fe339087234cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae778b922c4a39c07216fe339087234cb">&#9670;&nbsp;</a></span>maxLinearSpeed</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double gazebo::TrackedVehiclePluginPrivate::maxLinearSpeed = 1.0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Max linear velocity in m/s. Also max track velocity. </p>
+
+</div>
+</div>
+<a id="a4cb22d430c3673ccb1efbf006b82e38e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cb22d430c3673ccb1efbf006b82e38e">&#9670;&nbsp;</a></span>model</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">physics::ModelPtr gazebo::TrackedVehiclePluginPrivate::model</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pointer to model containing plugin. </p>
+
+</div>
+</div>
+<a id="a786c37110e84ef8056acb5739c63f321"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a786c37110e84ef8056acb5739c63f321">&#9670;&nbsp;</a></span>robotNamespace</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string gazebo::TrackedVehiclePluginPrivate::robotNamespace</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Namespace used as a prefix for gazebo topic names. </p>
+
+</div>
+</div>
+<a id="a79160f70204e8e25a9a64b9781d9e41f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79160f70204e8e25a9a64b9781d9e41f">&#9670;&nbsp;</a></span>robotNode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">transport::NodePtr gazebo::TrackedVehiclePluginPrivate::robotNode</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pointer to a node with robot prefix. </p>
+
+</div>
+</div>
+<a id="ac27d9e6f9b6a18f05ef1a3ddaf86a78d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac27d9e6f9b6a18f05ef1a3ddaf86a78d">&#9670;&nbsp;</a></span>sdf</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sdf::ElementPtr gazebo::TrackedVehiclePluginPrivate::sdf</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>SDF for this plugin;. </p>
+
+</div>
+</div>
+<a id="ac3471494fc5a45c493574a7deb190a76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3471494fc5a45c493574a7deb190a76">&#9670;&nbsp;</a></span>steeringEfficiency</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double gazebo::TrackedVehiclePluginPrivate::steeringEfficiency = 0.5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Steering efficiency coefficient (between 0.0 and 1.0). </p>
+
+</div>
+</div>
+<a id="a9afb6ec19a1d5ce9e6c60280618d97cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9afb6ec19a1d5ce9e6c60280618d97cb">&#9670;&nbsp;</a></span>trackMu</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::optional&lt;double&gt; gazebo::TrackedVehiclePluginPrivate::trackMu</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Friction coefficient in the first friction direction. </p>
+
+</div>
+</div>
+<a id="a3f22544368bc901471f8dda2cdd172f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f22544368bc901471f8dda2cdd172f3">&#9670;&nbsp;</a></span>trackMu2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::optional&lt;double&gt; gazebo::TrackedVehiclePluginPrivate::trackMu2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Friction coefficient in the second friction direction. </p>
+
+</div>
+</div>
+<a id="a01cdaaf957ede947d9975313ddb4437c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01cdaaf957ede947d9975313ddb4437c">&#9670;&nbsp;</a></span>tracksSeparation</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double gazebo::TrackedVehiclePluginPrivate::tracksSeparation = 0.1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Distance between the centers of the tracks. </p>
+
+</div>
+</div>
+<a id="aa1019b28f3662e1889589a1a078e7577"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1019b28f3662e1889589a1a078e7577">&#9670;&nbsp;</a></span>tracksVelocityPub</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">transport::PublisherPtr gazebo::TrackedVehiclePluginPrivate::tracksVelocityPub</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Publisher of the track velocities. </p>
+
+</div>
+</div>
+<a id="aff97907b6adcde26cc677cbfb635ede9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff97907b6adcde26cc677cbfb635ede9">&#9670;&nbsp;</a></span>velocityPoseSub</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">transport::SubscriberPtr gazebo::TrackedVehiclePluginPrivate::velocityPoseSub</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Velocity command subscriber. </p>
+
+</div>
+</div>
+<a id="af0ec693fabe4206a57db0d2d5c3c6cd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0ec693fabe4206a57db0d2d5c3c6cd2">&#9670;&nbsp;</a></span>velocityTwistSub</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">transport::SubscriberPtr gazebo::TrackedVehiclePluginPrivate::velocityTwistSub</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Velocity command subscriber. </p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>/home/jonathan/OmniDev/src/omniveyor_gazebo_world/src/<a class="el" href="TrackedVehiclePlugin__ROS_8cc.html">TrackedVehiclePlugin_ROS.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

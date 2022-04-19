@@ -62,17 +62,21 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>geometry</b></li><li class="navelem"><a class="el" href="classgeometry_1_1DepthCameraFrustum.html">DepthCameraFrustum</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacegeometry.html">geometry</a></li><li class="navelem"><a class="el" href="classgeometry_1_1DepthCameraFrustum.html">DepthCameraFrustum</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classgeometry_1_1DepthCameraFrustum-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">geometry::DepthCameraFrustum Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="depth__camera__frustum_8hpp_source.html">depth_camera_frustum.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for geometry::DepthCameraFrustum:</div>
 <div class="dyncontent">
@@ -87,32 +91,518 @@ Collaboration diagram for geometry::DepthCameraFrustum:</div>
 <div class="dyncontent">
 <div class="center"><img src="classgeometry_1_1DepthCameraFrustum__coll__graph.png" border="0" usemap="#geometry_1_1DepthCameraFrustum_coll__map" alt="Collaboration graph"/></div>
 <map name="geometry_1_1DepthCameraFrustum_coll__map" id="geometry_1_1DepthCameraFrustum_coll__map">
-<area shape="rect" title=" " alt="" coords="5,80,240,107"/>
-<area shape="rect" href="classgeometry_1_1Frustum.html" title=" " alt="" coords="50,5,195,32"/>
+<area shape="rect" title=" " alt="" coords="26,139,261,165"/>
+<area shape="rect" href="classgeometry_1_1Frustum.html" title=" " alt="" coords="5,5,151,32"/>
+<area shape="rect" title=" " alt="" coords="175,5,242,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac34d9c28491be53c8ba1ca34db8a97a0"><td class="memItemLeft" align="right" valign="top"><a id="ac34d9c28491be53c8ba1ca34db8a97a0"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>DepthCameraFrustum</b> (const double &amp;vFOV, const double &amp;hFOV, const double &amp;min_dist, const double &amp;max_dist)</td></tr>
+<tr class="memitem:ac34d9c28491be53c8ba1ca34db8a97a0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1DepthCameraFrustum.html#ac34d9c28491be53c8ba1ca34db8a97a0">DepthCameraFrustum</a> (const double &amp;vFOV, const double &amp;hFOV, const double &amp;min_dist, const double &amp;max_dist)</td></tr>
 <tr class="separator:ac34d9c28491be53c8ba1ca34db8a97a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bc4cc8d27ccfe7d18d02b168b5a5a4b"><td class="memItemLeft" align="right" valign="top"><a id="a5bc4cc8d27ccfe7d18d02b168b5a5a4b"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>TransformModel</b> (void)</td></tr>
-<tr class="separator:a5bc4cc8d27ccfe7d18d02b168b5a5a4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f9e900bdbef8019b396654b94dbda51"><td class="memItemLeft" align="right" valign="top"><a id="a0f9e900bdbef8019b396654b94dbda51"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsInside</b> (const openvdb::Vec3d &amp;pt)</td></tr>
+<tr class="memitem:a0f9e900bdbef8019b396654b94dbda51"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1DepthCameraFrustum.html#a0f9e900bdbef8019b396654b94dbda51">IsInside</a> (const openvdb::Vec3d &amp;pt)</td></tr>
 <tr class="separator:a0f9e900bdbef8019b396654b94dbda51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada9cd59e469c3c97d33576c37e673e58"><td class="memItemLeft" align="right" valign="top"><a id="ada9cd59e469c3c97d33576c37e673e58"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetPosition</b> (const geometry_msgs::Point &amp;origin)</td></tr>
-<tr class="separator:ada9cd59e469c3c97d33576c37e673e58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e646f65b110c1ce1632fe08f3dc95f8"><td class="memItemLeft" align="right" valign="top"><a id="a4e646f65b110c1ce1632fe08f3dc95f8"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetOrientation</b> (const geometry_msgs::Quaternion &amp;quat)</td></tr>
+<tr class="memitem:a4e646f65b110c1ce1632fe08f3dc95f8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1DepthCameraFrustum.html#a4e646f65b110c1ce1632fe08f3dc95f8">SetOrientation</a> (const geometry_msgs::Quaternion &amp;quat)</td></tr>
 <tr class="separator:a4e646f65b110c1ce1632fe08f3dc95f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada9cd59e469c3c97d33576c37e673e58"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1DepthCameraFrustum.html#ada9cd59e469c3c97d33576c37e673e58">SetPosition</a> (const geometry_msgs::Point &amp;origin)</td></tr>
+<tr class="separator:ada9cd59e469c3c97d33576c37e673e58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bc4cc8d27ccfe7d18d02b168b5a5a4b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1DepthCameraFrustum.html#a5bc4cc8d27ccfe7d18d02b168b5a5a4b">TransformModel</a> (void)</td></tr>
+<tr class="separator:a5bc4cc8d27ccfe7d18d02b168b5a5a4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30650de9b5e87666e0455497a0fe28e0"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1DepthCameraFrustum.html#a30650de9b5e87666e0455497a0fe28e0">~DepthCameraFrustum</a> (void)</td></tr>
+<tr class="separator:a30650de9b5e87666e0455497a0fe28e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classgeometry_1_1Frustum"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classgeometry_1_1Frustum')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classgeometry_1_1Frustum.html">geometry::Frustum</a></td></tr>
+<tr class="memitem:a80b2a1b649a26ab5dfe2386a79ec635d inherit pub_methods_classgeometry_1_1Frustum"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1Frustum.html#a80b2a1b649a26ab5dfe2386a79ec635d">Frustum</a> ()</td></tr>
+<tr class="separator:a80b2a1b649a26ab5dfe2386a79ec635d inherit pub_methods_classgeometry_1_1Frustum"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6b1a2bf3164f382829bcab26f162f57 inherit pub_methods_classgeometry_1_1Frustum"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1Frustum.html#ae6b1a2bf3164f382829bcab26f162f57">~Frustum</a> (void)</td></tr>
+<tr class="separator:ae6b1a2bf3164f382829bcab26f162f57 inherit pub_methods_classgeometry_1_1Frustum"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a3980438053f2748a30d691c53391f14c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1DepthCameraFrustum.html#a3980438053f2748a30d691c53391f14c">ComputePlaneNormals</a> (void)</td></tr>
+<tr class="separator:a3980438053f2748a30d691c53391f14c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a667da3e34a4884749d391999a40b97a0"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1DepthCameraFrustum.html#a667da3e34a4884749d391999a40b97a0">Dot</a> (const <a class="el" href="structgeometry_1_1VectorWithPt3D.html">VectorWithPt3D</a> &amp;, const Eigen::Vector3d &amp;) const</td></tr>
+<tr class="separator:a667da3e34a4884749d391999a40b97a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a687087e43dfec5b732ef6ab8a4c23ad1"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1DepthCameraFrustum.html#a687087e43dfec5b732ef6ab8a4c23ad1">Dot</a> (const <a class="el" href="structgeometry_1_1VectorWithPt3D.html">VectorWithPt3D</a> &amp;, const openvdb::Vec3d &amp;) const</td></tr>
+<tr class="separator:a687087e43dfec5b732ef6ab8a4c23ad1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a3466f91d62a27eac455a37014b4c12ad"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1DepthCameraFrustum.html#a3466f91d62a27eac455a37014b4c12ad">_hFOV</a></td></tr>
+<tr class="separator:a3466f91d62a27eac455a37014b4c12ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeeda4adb77fadc6efa7b678c4689bbdf"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1DepthCameraFrustum.html#aeeda4adb77fadc6efa7b678c4689bbdf">_max_d</a></td></tr>
+<tr class="separator:aeeda4adb77fadc6efa7b678c4689bbdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2e06ceaeed4aa60827f13b4ec4b7a51"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1DepthCameraFrustum.html#ae2e06ceaeed4aa60827f13b4ec4b7a51">_min_d</a></td></tr>
+<tr class="separator:ae2e06ceaeed4aa60827f13b4ec4b7a51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cf56cd1905647209dc54e240654976c"><td class="memItemLeft" align="right" valign="top">Eigen::Quaterniond&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1DepthCameraFrustum.html#a5cf56cd1905647209dc54e240654976c">_orientation</a></td></tr>
+<tr class="separator:a5cf56cd1905647209dc54e240654976c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a397b4764a31f4dd9c49a3ec5defdf19d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structgeometry_1_1VectorWithPt3D.html">VectorWithPt3D</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1DepthCameraFrustum.html#a397b4764a31f4dd9c49a3ec5defdf19d">_plane_normals</a></td></tr>
+<tr class="separator:a397b4764a31f4dd9c49a3ec5defdf19d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a459200124bacab95c37a9d3b25005acb"><td class="memItemLeft" align="right" valign="top">Eigen::Vector3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1DepthCameraFrustum.html#a459200124bacab95c37a9d3b25005acb">_position</a></td></tr>
+<tr class="separator:a459200124bacab95c37a9d3b25005acb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4365405bab7e9a93c79f32fb7e292e9a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1DepthCameraFrustum.html#a4365405bab7e9a93c79f32fb7e292e9a">_valid_frustum</a></td></tr>
+<tr class="separator:a4365405bab7e9a93c79f32fb7e292e9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d7ab955e42dc6d5a9b571998afa3317"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1DepthCameraFrustum.html#a1d7ab955e42dc6d5a9b571998afa3317">_vFOV</a></td></tr>
+<tr class="separator:a1d7ab955e42dc6d5a9b571998afa3317"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ac34d9c28491be53c8ba1ca34db8a97a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac34d9c28491be53c8ba1ca34db8a97a0">&#9670;&nbsp;</a></span>DepthCameraFrustum()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">geometry::DepthCameraFrustum::DepthCameraFrustum </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>vFOV</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>hFOV</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>min_dist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>max_dist</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a30650de9b5e87666e0455497a0fe28e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30650de9b5e87666e0455497a0fe28e0">&#9670;&nbsp;</a></span>~DepthCameraFrustum()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">geometry::DepthCameraFrustum::~DepthCameraFrustum </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3980438053f2748a30d691c53391f14c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3980438053f2748a30d691c53391f14c">&#9670;&nbsp;</a></span>ComputePlaneNormals()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void geometry::DepthCameraFrustum::ComputePlaneNormals </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a667da3e34a4884749d391999a40b97a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a667da3e34a4884749d391999a40b97a0">&#9670;&nbsp;</a></span>Dot() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double geometry::DepthCameraFrustum::Dot </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structgeometry_1_1VectorWithPt3D.html">VectorWithPt3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>plane_pt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Eigen::Vector3d &amp;&#160;</td>
+          <td class="paramname"><em>query_pt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a687087e43dfec5b732ef6ab8a4c23ad1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a687087e43dfec5b732ef6ab8a4c23ad1">&#9670;&nbsp;</a></span>Dot() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double geometry::DepthCameraFrustum::Dot </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structgeometry_1_1VectorWithPt3D.html">VectorWithPt3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>plane_pt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const openvdb::Vec3d &amp;&#160;</td>
+          <td class="paramname"><em>query_pt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0f9e900bdbef8019b396654b94dbda51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f9e900bdbef8019b396654b94dbda51">&#9670;&nbsp;</a></span>IsInside()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool geometry::DepthCameraFrustum::IsInside </td>
+          <td>(</td>
+          <td class="paramtype">const openvdb::Vec3d &amp;&#160;</td>
+          <td class="paramname"><em>pt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classgeometry_1_1Frustum.html#ad3c0ffe136e678272d8c76471fc30111">geometry::Frustum</a>.</p>
+
+</div>
+</div>
+<a id="a4e646f65b110c1ce1632fe08f3dc95f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e646f65b110c1ce1632fe08f3dc95f8">&#9670;&nbsp;</a></span>SetOrientation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void geometry::DepthCameraFrustum::SetOrientation </td>
+          <td>(</td>
+          <td class="paramtype">const geometry_msgs::Quaternion &amp;&#160;</td>
+          <td class="paramname"><em>quat</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classgeometry_1_1Frustum.html#adf1f45fbadb70ea9bc0620c441f3312c">geometry::Frustum</a>.</p>
+
+</div>
+</div>
+<a id="ada9cd59e469c3c97d33576c37e673e58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada9cd59e469c3c97d33576c37e673e58">&#9670;&nbsp;</a></span>SetPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void geometry::DepthCameraFrustum::SetPosition </td>
+          <td>(</td>
+          <td class="paramtype">const geometry_msgs::Point &amp;&#160;</td>
+          <td class="paramname"><em>origin</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classgeometry_1_1Frustum.html#ae072694af39fd01cf6001406b067c89d">geometry::Frustum</a>.</p>
+
+</div>
+</div>
+<a id="a5bc4cc8d27ccfe7d18d02b168b5a5a4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bc4cc8d27ccfe7d18d02b168b5a5a4b">&#9670;&nbsp;</a></span>TransformModel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void geometry::DepthCameraFrustum::TransformModel </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classgeometry_1_1Frustum.html#afe93e08fa0970f980d80a81036a3d083">geometry::Frustum</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a3466f91d62a27eac455a37014b4c12ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3466f91d62a27eac455a37014b4c12ad">&#9670;&nbsp;</a></span>_hFOV</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double geometry::DepthCameraFrustum::_hFOV</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeeda4adb77fadc6efa7b678c4689bbdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeeda4adb77fadc6efa7b678c4689bbdf">&#9670;&nbsp;</a></span>_max_d</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double geometry::DepthCameraFrustum::_max_d</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae2e06ceaeed4aa60827f13b4ec4b7a51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2e06ceaeed4aa60827f13b4ec4b7a51">&#9670;&nbsp;</a></span>_min_d</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double geometry::DepthCameraFrustum::_min_d</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5cf56cd1905647209dc54e240654976c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cf56cd1905647209dc54e240654976c">&#9670;&nbsp;</a></span>_orientation</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Quaterniond geometry::DepthCameraFrustum::_orientation</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a397b4764a31f4dd9c49a3ec5defdf19d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a397b4764a31f4dd9c49a3ec5defdf19d">&#9670;&nbsp;</a></span>_plane_normals</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="structgeometry_1_1VectorWithPt3D.html">VectorWithPt3D</a>&gt; geometry::DepthCameraFrustum::_plane_normals</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a459200124bacab95c37a9d3b25005acb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a459200124bacab95c37a9d3b25005acb">&#9670;&nbsp;</a></span>_position</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Vector3d geometry::DepthCameraFrustum::_position</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4365405bab7e9a93c79f32fb7e292e9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4365405bab7e9a93c79f32fb7e292e9a">&#9670;&nbsp;</a></span>_valid_frustum</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool geometry::DepthCameraFrustum::_valid_frustum</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1d7ab955e42dc6d5a9b571998afa3317"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d7ab955e42dc6d5a9b571998afa3317">&#9670;&nbsp;</a></span>_vFOV</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double geometry::DepthCameraFrustum::_vFOV</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>spatio_temporal_voxel_layer/include/spatio_temporal_voxel_layer/frustum_models/<a class="el" href="depth__camera__frustum_8hpp_source.html">depth_camera_frustum.hpp</a></li>
-<li>spatio_temporal_voxel_layer/src/frustum_models/depth_camera_frustum.cpp</li>
+<li>spatio_temporal_voxel_layer/src/frustum_models/<a class="el" href="depth__camera__frustum_8cpp.html">depth_camera_frustum.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

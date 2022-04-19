@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['print_20switches_3366',['Print Switches',['../group__Debug.html',1,'']]]
+  ['print_20switches_9141',['Print Switches',['../group__Debug.html',1,'']]]
 ];

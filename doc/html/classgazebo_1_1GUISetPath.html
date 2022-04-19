@@ -62,7 +62,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>gazebo</b></li><li class="navelem"><a class="el" href="classgazebo_1_1GUISetPath.html">GUISetPath</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacegazebo.html">gazebo</a></li><li class="navelem"><a class="el" href="classgazebo_1_1GUISetPath.html">GUISetPath</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -70,11 +70,15 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pri-slots">Private Slots</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classgazebo_1_1GUISetPath-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">gazebo::GUISetPath Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="GUISetPath_8hh_source.html">GUISetPath.hh</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for gazebo::GUISetPath:</div>
 <div class="dyncontent">
@@ -99,50 +103,59 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1550810ae78a74759a5c635840080c86"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1GUISetPath.html#a1550810ae78a74759a5c635840080c86">GUISetPath</a> ()</td></tr>
 <tr class="memdesc:a1550810ae78a74759a5c635840080c86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classgazebo_1_1GUISetPath.html#a1550810ae78a74759a5c635840080c86">More...</a><br /></td></tr>
 <tr class="separator:a1550810ae78a74759a5c635840080c86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ed8932c15d779705ccd334c7c9931a4"><td class="memItemLeft" align="right" valign="top"><a id="a8ed8932c15d779705ccd334c7c9931a4"></a>
-virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1GUISetPath.html#a8ed8932c15d779705ccd334c7c9931a4">~GUISetPath</a> ()</td></tr>
-<tr class="memdesc:a8ed8932c15d779705ccd334c7c9931a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br /></td></tr>
+<tr class="memitem:a8ed8932c15d779705ccd334c7c9931a4"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1GUISetPath.html#a8ed8932c15d779705ccd334c7c9931a4">~GUISetPath</a> ()</td></tr>
+<tr class="memdesc:a8ed8932c15d779705ccd334c7c9931a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="classgazebo_1_1GUISetPath.html#a8ed8932c15d779705ccd334c7c9931a4">More...</a><br /></td></tr>
 <tr class="separator:a8ed8932c15d779705ccd334c7c9931a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a65a24bc2bdc027c4b636959af9e8f9c1"><td class="memItemLeft" align="right" valign="top"><a id="a65a24bc2bdc027c4b636959af9e8f9c1"></a>
-QVBoxLayout *&#160;</td><td class="memItemRight" valign="bottom"><b>mainLayout</b></td></tr>
-<tr class="separator:a65a24bc2bdc027c4b636959af9e8f9c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12a2a150647df0c2b6f79fcd946aa7f1"><td class="memItemLeft" align="right" valign="top"><a id="a12a2a150647df0c2b6f79fcd946aa7f1"></a>
-QPushButton *&#160;</td><td class="memItemRight" valign="bottom"><b>button</b></td></tr>
+<tr class="memitem:a12a2a150647df0c2b6f79fcd946aa7f1"><td class="memItemLeft" align="right" valign="top">QPushButton *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1GUISetPath.html#a12a2a150647df0c2b6f79fcd946aa7f1">button</a></td></tr>
 <tr class="separator:a12a2a150647df0c2b6f79fcd946aa7f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acff7a884f69593d9a282001554042350"><td class="memItemLeft" align="right" valign="top"><a id="acff7a884f69593d9a282001554042350"></a>
-QListWidget *&#160;</td><td class="memItemRight" valign="bottom"><b>tgtlst</b></td></tr>
-<tr class="separator:acff7a884f69593d9a282001554042350"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a209ff17274c59b2b9547061357d9f9ee"><td class="memItemLeft" align="right" valign="top"><a id="a209ff17274c59b2b9547061357d9f9ee"></a>
-QCheckBox *&#160;</td><td class="memItemRight" valign="bottom"><b>cycl</b></td></tr>
+<tr class="memitem:a209ff17274c59b2b9547061357d9f9ee"><td class="memItemLeft" align="right" valign="top">QCheckBox *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1GUISetPath.html#a209ff17274c59b2b9547061357d9f9ee">cycl</a></td></tr>
 <tr class="separator:a209ff17274c59b2b9547061357d9f9ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c5fb3dc8351ccabc3cb39113aa013c1"><td class="memItemLeft" align="right" valign="top"><a id="a7c5fb3dc8351ccabc3cb39113aa013c1"></a>
-QPushButton *&#160;</td><td class="memItemRight" valign="bottom"><b>okButton</b></td></tr>
-<tr class="separator:a7c5fb3dc8351ccabc3cb39113aa013c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a484b009baada1c0f04cc190a92770084"><td class="memItemLeft" align="right" valign="top"><a id="a484b009baada1c0f04cc190a92770084"></a>
-QPushButton *&#160;</td><td class="memItemRight" valign="bottom"><b>rmvButton</b></td></tr>
-<tr class="separator:a484b009baada1c0f04cc190a92770084"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa19acb8cdf3f57d32d95f64fb24d78a"><td class="memItemLeft" align="right" valign="top"><a id="aaa19acb8cdf3f57d32d95f64fb24d78a"></a>
-QPushButton *&#160;</td><td class="memItemRight" valign="bottom"><b>rmvallButton</b></td></tr>
-<tr class="separator:aaa19acb8cdf3f57d32d95f64fb24d78a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6b53b0394873d0aa1703d5d09ac4fed"><td class="memItemLeft" align="right" valign="top"><a id="aa6b53b0394873d0aa1703d5d09ac4fed"></a>
-QGroupBox *&#160;</td><td class="memItemRight" valign="bottom"><b>groupBox</b></td></tr>
+<tr class="memitem:aa6b53b0394873d0aa1703d5d09ac4fed"><td class="memItemLeft" align="right" valign="top">QGroupBox *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1GUISetPath.html#aa6b53b0394873d0aa1703d5d09ac4fed">groupBox</a></td></tr>
 <tr class="separator:aa6b53b0394873d0aa1703d5d09ac4fed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a084c6b2ed46163014a65b6d7f4f95777"><td class="memItemLeft" align="right" valign="top"><a id="a084c6b2ed46163014a65b6d7f4f95777"></a>
-QHBoxLayout *&#160;</td><td class="memItemRight" valign="bottom"><b>layoutGroup</b></td></tr>
+<tr class="memitem:a084c6b2ed46163014a65b6d7f4f95777"><td class="memItemLeft" align="right" valign="top">QHBoxLayout *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1GUISetPath.html#a084c6b2ed46163014a65b6d7f4f95777">layoutGroup</a></td></tr>
 <tr class="separator:a084c6b2ed46163014a65b6d7f4f95777"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8386648f7ad57f9cc64cd226e82767f2"><td class="memItemLeft" align="right" valign="top"><a id="a8386648f7ad57f9cc64cd226e82767f2"></a>
-QMessageBox *&#160;</td><td class="memItemRight" valign="bottom"><b>msgBox</b></td></tr>
+<tr class="memitem:a65a24bc2bdc027c4b636959af9e8f9c1"><td class="memItemLeft" align="right" valign="top">QVBoxLayout *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1GUISetPath.html#a65a24bc2bdc027c4b636959af9e8f9c1">mainLayout</a></td></tr>
+<tr class="separator:a65a24bc2bdc027c4b636959af9e8f9c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8386648f7ad57f9cc64cd226e82767f2"><td class="memItemLeft" align="right" valign="top">QMessageBox *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1GUISetPath.html#a8386648f7ad57f9cc64cd226e82767f2">msgBox</a></td></tr>
 <tr class="separator:a8386648f7ad57f9cc64cd226e82767f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c5fb3dc8351ccabc3cb39113aa013c1"><td class="memItemLeft" align="right" valign="top">QPushButton *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1GUISetPath.html#a7c5fb3dc8351ccabc3cb39113aa013c1">okButton</a></td></tr>
+<tr class="separator:a7c5fb3dc8351ccabc3cb39113aa013c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa19acb8cdf3f57d32d95f64fb24d78a"><td class="memItemLeft" align="right" valign="top">QPushButton *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1GUISetPath.html#aaa19acb8cdf3f57d32d95f64fb24d78a">rmvallButton</a></td></tr>
+<tr class="separator:aaa19acb8cdf3f57d32d95f64fb24d78a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a484b009baada1c0f04cc190a92770084"><td class="memItemLeft" align="right" valign="top">QPushButton *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1GUISetPath.html#a484b009baada1c0f04cc190a92770084">rmvButton</a></td></tr>
+<tr class="separator:a484b009baada1c0f04cc190a92770084"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acff7a884f69593d9a282001554042350"><td class="memItemLeft" align="right" valign="top">QListWidget *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1GUISetPath.html#acff7a884f69593d9a282001554042350">tgtlst</a></td></tr>
+<tr class="separator:acff7a884f69593d9a282001554042350"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a3fe731a76a5b882aff52c63c88cea664"><td class="memItemLeft" align="right" valign="top"><a id="a3fe731a76a5b882aff52c63c88cea664"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1GUISetPath.html#a3fe731a76a5b882aff52c63c88cea664">cb</a> (ConstSelectionPtr &amp;_msg)</td></tr>
-<tr class="memdesc:a3fe731a76a5b882aff52c63c88cea664"><td class="mdescLeft">&#160;</td><td class="mdescRight">callback that received selection message <br /></td></tr>
+<tr class="memitem:a3fe731a76a5b882aff52c63c88cea664"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1GUISetPath.html#a3fe731a76a5b882aff52c63c88cea664">cb</a> (ConstSelectionPtr &amp;_msg)</td></tr>
+<tr class="memdesc:a3fe731a76a5b882aff52c63c88cea664"><td class="mdescLeft">&#160;</td><td class="mdescRight">callback that received selection message  <a href="classgazebo_1_1GUISetPath.html#a3fe731a76a5b882aff52c63c88cea664">More...</a><br /></td></tr>
 <tr class="separator:a3fe731a76a5b882aff52c63c88cea664"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-slots"></a>
+Private Slots</h2></td></tr>
+<tr class="memitem:ab7691052407e75c2edf73466134c18b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1GUISetPath.html#ab7691052407e75c2edf73466134c18b1">okOn</a> ()</td></tr>
+<tr class="separator:ab7691052407e75c2edf73466134c18b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94f3f4db55134587832932183d0f69f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1GUISetPath.html#a94f3f4db55134587832932183d0f69f2">OnButton</a> ()</td></tr>
+<tr class="memdesc:a94f3f4db55134587832932183d0f69f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback trigged when the set path button is pressed.  <a href="classgazebo_1_1GUISetPath.html#a94f3f4db55134587832932183d0f69f2">More...</a><br /></td></tr>
+<tr class="separator:a94f3f4db55134587832932183d0f69f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d25c963d258e241d9717952e4dbfeaa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1GUISetPath.html#a5d25c963d258e241d9717952e4dbfeaa">rmvallOn</a> ()</td></tr>
+<tr class="separator:a5d25c963d258e241d9717952e4dbfeaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cef6da71fa6edabd87ca69c68b44e7a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1GUISetPath.html#a8cef6da71fa6edabd87ca69c68b44e7a">rmvOn</a> ()</td></tr>
+<tr class="separator:a8cef6da71fa6edabd87ca69c68b44e7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a253556fd2ffa88f575f78afeadd1d6ab"><td class="memItemLeft" align="right" valign="top">transport::NodePtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1GUISetPath.html#a253556fd2ffa88f575f78afeadd1d6ab">node</a></td></tr>
+<tr class="memdesc:a253556fd2ffa88f575f78afeadd1d6ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Node used to establish communication with gzserver.  <a href="classgazebo_1_1GUISetPath.html#a253556fd2ffa88f575f78afeadd1d6ab">More...</a><br /></td></tr>
+<tr class="separator:a253556fd2ffa88f575f78afeadd1d6ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b5c8be4a4289453c8f8fd624b468c01"><td class="memItemLeft" align="right" valign="top">transport::SubscriberPtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1GUISetPath.html#a7b5c8be4a4289453c8f8fd624b468c01">selSub</a></td></tr>
+<tr class="memdesc:a7b5c8be4a4289453c8f8fd624b468c01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subsciber of selected messages.  <a href="classgazebo_1_1GUISetPath.html#a7b5c8be4a4289453c8f8fd624b468c01">More...</a><br /></td></tr>
+<tr class="separator:a7b5c8be4a4289453c8f8fd624b468c01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a1550810ae78a74759a5c635840080c86"></a>
@@ -178,9 +191,356 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
+<a id="a8ed8932c15d779705ccd334c7c9931a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ed8932c15d779705ccd334c7c9931a4">&#9670;&nbsp;</a></span>~GUISetPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GUISetPath::~GUISetPath </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destructor. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3fe731a76a5b882aff52c63c88cea664"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fe731a76a5b882aff52c63c88cea664">&#9670;&nbsp;</a></span>cb()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GUISetPath::cb </td>
+          <td>(</td>
+          <td class="paramtype">ConstSelectionPtr &amp;&#160;</td>
+          <td class="paramname"><em>_msg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>callback that received selection message </p>
+
+</div>
+</div>
+<a id="ab7691052407e75c2edf73466134c18b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7691052407e75c2edf73466134c18b1">&#9670;&nbsp;</a></span>okOn</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GUISetPath::okOn </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a94f3f4db55134587832932183d0f69f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94f3f4db55134587832932183d0f69f2">&#9670;&nbsp;</a></span>OnButton</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GUISetPath::OnButton </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Callback trigged when the set path button is pressed. </p>
+
+</div>
+</div>
+<a id="a5d25c963d258e241d9717952e4dbfeaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d25c963d258e241d9717952e4dbfeaa">&#9670;&nbsp;</a></span>rmvallOn</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GUISetPath::rmvallOn </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8cef6da71fa6edabd87ca69c68b44e7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cef6da71fa6edabd87ca69c68b44e7a">&#9670;&nbsp;</a></span>rmvOn</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GUISetPath::rmvOn </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a12a2a150647df0c2b6f79fcd946aa7f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12a2a150647df0c2b6f79fcd946aa7f1">&#9670;&nbsp;</a></span>button</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPushButton* gazebo::GUISetPath::button</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a209ff17274c59b2b9547061357d9f9ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a209ff17274c59b2b9547061357d9f9ee">&#9670;&nbsp;</a></span>cycl</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QCheckBox* gazebo::GUISetPath::cycl</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa6b53b0394873d0aa1703d5d09ac4fed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6b53b0394873d0aa1703d5d09ac4fed">&#9670;&nbsp;</a></span>groupBox</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QGroupBox* gazebo::GUISetPath::groupBox</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a084c6b2ed46163014a65b6d7f4f95777"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a084c6b2ed46163014a65b6d7f4f95777">&#9670;&nbsp;</a></span>layoutGroup</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QHBoxLayout* gazebo::GUISetPath::layoutGroup</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a65a24bc2bdc027c4b636959af9e8f9c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65a24bc2bdc027c4b636959af9e8f9c1">&#9670;&nbsp;</a></span>mainLayout</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QVBoxLayout* gazebo::GUISetPath::mainLayout</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8386648f7ad57f9cc64cd226e82767f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8386648f7ad57f9cc64cd226e82767f2">&#9670;&nbsp;</a></span>msgBox</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QMessageBox* gazebo::GUISetPath::msgBox</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a253556fd2ffa88f575f78afeadd1d6ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a253556fd2ffa88f575f78afeadd1d6ab">&#9670;&nbsp;</a></span>node</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">transport::NodePtr gazebo::GUISetPath::node</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Node used to establish communication with gzserver. </p>
+
+</div>
+</div>
+<a id="a7c5fb3dc8351ccabc3cb39113aa013c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c5fb3dc8351ccabc3cb39113aa013c1">&#9670;&nbsp;</a></span>okButton</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPushButton* gazebo::GUISetPath::okButton</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaa19acb8cdf3f57d32d95f64fb24d78a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa19acb8cdf3f57d32d95f64fb24d78a">&#9670;&nbsp;</a></span>rmvallButton</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPushButton* gazebo::GUISetPath::rmvallButton</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a484b009baada1c0f04cc190a92770084"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a484b009baada1c0f04cc190a92770084">&#9670;&nbsp;</a></span>rmvButton</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPushButton* gazebo::GUISetPath::rmvButton</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7b5c8be4a4289453c8f8fd624b468c01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b5c8be4a4289453c8f8fd624b468c01">&#9670;&nbsp;</a></span>selSub</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">transport::SubscriberPtr gazebo::GUISetPath::selSub</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Subsciber of selected messages. </p>
+
+</div>
+</div>
+<a id="acff7a884f69593d9a282001554042350"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acff7a884f69593d9a282001554042350">&#9670;&nbsp;</a></span>tgtlst</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QListWidget* gazebo::GUISetPath::tgtlst</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/jonathan/OmniDev/src/omniveyor_gazebo_world/include/omniveyor_gazebo_world/<a class="el" href="GUISetPath_8hh_source.html">GUISetPath.hh</a></li>
-<li>/home/jonathan/OmniDev/src/omniveyor_gazebo_world/src/GUISetPath.cc</li>
+<li>/home/jonathan/OmniDev/src/omniveyor_gazebo_world/src/<a class="el" href="GUISetPath_8cc.html">GUISetPath.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

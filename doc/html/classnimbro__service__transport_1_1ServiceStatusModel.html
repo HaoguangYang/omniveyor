@@ -62,7 +62,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>nimbro_service_transport</b></li><li class="navelem"><a class="el" href="classnimbro__service__transport_1_1ServiceStatusModel.html">ServiceStatusModel</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacenimbro__service__transport.html">nimbro_service_transport</a></li><li class="navelem"><a class="el" href="classnimbro__service__transport_1_1ServiceStatusModel.html">ServiceStatusModel</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -70,11 +70,15 @@ $(function() {
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-slots">Public Slots</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-types">Private Types</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classnimbro__service__transport_1_1ServiceStatusModel-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">nimbro_service_transport::ServiceStatusModel Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="service__widget_8h_source.html">service_widget.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for nimbro_service_transport::ServiceStatusModel:</div>
 <div class="dyncontent">
@@ -94,33 +98,298 @@ Collaboration diagram for nimbro_service_transport::ServiceStatusModel:</div>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnimbro__service__transport_1_1ServiceStatusModel_1_1ServiceData.html">ServiceData</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-slots"></a>
 Public Slots</h2></td></tr>
-<tr class="memitem:adce19e53509ed3d6624c866b73907763"><td class="memItemLeft" align="right" valign="top"><a id="adce19e53509ed3d6624c866b73907763"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>clearData</b> ()</td></tr>
+<tr class="memitem:adce19e53509ed3d6624c866b73907763"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnimbro__service__transport_1_1ServiceStatusModel.html#adce19e53509ed3d6624c866b73907763">clearData</a> ()</td></tr>
 <tr class="separator:adce19e53509ed3d6624c866b73907763"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a703af41e76b74dccaa4b70f1458f1815"><td class="memItemLeft" align="right" valign="top"><a id="a703af41e76b74dccaa4b70f1458f1815"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ServiceStatusModel</b> (QWidget *parent=0)</td></tr>
-<tr class="separator:a703af41e76b74dccaa4b70f1458f1815"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d408667670eb8f2e2aa061f1f35b66e"><td class="memItemLeft" align="right" valign="top"><a id="a1d408667670eb8f2e2aa061f1f35b66e"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>rowCount</b> (const QModelIndex &amp;parent=QModelIndex()) const override</td></tr>
-<tr class="separator:a1d408667670eb8f2e2aa061f1f35b66e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab811c0d69a82ce3a66f03f890587cadc"><td class="memItemLeft" align="right" valign="top"><a id="ab811c0d69a82ce3a66f03f890587cadc"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>columnCount</b> (const QModelIndex &amp;parent=QModelIndex()) const override</td></tr>
-<tr class="separator:ab811c0d69a82ce3a66f03f890587cadc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d49c5d170dc7ee14e7a423adaca8a83"><td class="memItemLeft" align="right" valign="top"><a id="a1d49c5d170dc7ee14e7a423adaca8a83"></a>
-QVariant&#160;</td><td class="memItemRight" valign="bottom"><b>data</b> (const QModelIndex &amp;parent=QModelIndex(), int role=Qt::DisplayRole) const override</td></tr>
-<tr class="separator:a1d49c5d170dc7ee14e7a423adaca8a83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a326ea4ec1db369341a8b5d8f40072561"><td class="memItemLeft" align="right" valign="top"><a id="a326ea4ec1db369341a8b5d8f40072561"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addService</b> (std::string name, uint8_t status, uint32_t call_id)</td></tr>
+<tr class="memitem:a326ea4ec1db369341a8b5d8f40072561"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnimbro__service__transport_1_1ServiceStatusModel.html#a326ea4ec1db369341a8b5d8f40072561">addService</a> (std::string name, uint8_t status, uint32_t call_id)</td></tr>
 <tr class="separator:a326ea4ec1db369341a8b5d8f40072561"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab811c0d69a82ce3a66f03f890587cadc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnimbro__service__transport_1_1ServiceStatusModel.html#ab811c0d69a82ce3a66f03f890587cadc">columnCount</a> (const QModelIndex &amp;parent=QModelIndex()) const override</td></tr>
+<tr class="separator:ab811c0d69a82ce3a66f03f890587cadc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d49c5d170dc7ee14e7a423adaca8a83"><td class="memItemLeft" align="right" valign="top">QVariant&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnimbro__service__transport_1_1ServiceStatusModel.html#a1d49c5d170dc7ee14e7a423adaca8a83">data</a> (const QModelIndex &amp;parent=QModelIndex(), int role=Qt::DisplayRole) const override</td></tr>
+<tr class="separator:a1d49c5d170dc7ee14e7a423adaca8a83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d408667670eb8f2e2aa061f1f35b66e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnimbro__service__transport_1_1ServiceStatusModel.html#a1d408667670eb8f2e2aa061f1f35b66e">rowCount</a> (const QModelIndex &amp;parent=QModelIndex()) const override</td></tr>
+<tr class="separator:a1d408667670eb8f2e2aa061f1f35b66e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a703af41e76b74dccaa4b70f1458f1815"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnimbro__service__transport_1_1ServiceStatusModel.html#a703af41e76b74dccaa4b70f1458f1815">ServiceStatusModel</a> (QWidget *parent=0)</td></tr>
+<tr class="separator:a703af41e76b74dccaa4b70f1458f1815"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adabfec065620e5001a8af67598dc6889"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnimbro__service__transport_1_1ServiceStatusModel.html#adabfec065620e5001a8af67598dc6889">~ServiceStatusModel</a> ()</td></tr>
+<tr class="separator:adabfec065620e5001a8af67598dc6889"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-types"></a>
+Private Types</h2></td></tr>
+<tr class="memitem:a4d7de948f11803a9321e1907da412cee"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnimbro__service__transport_1_1ServiceStatusModel.html#a4d7de948f11803a9321e1907da412cee">columns</a> { <a class="el" href="classnimbro__service__transport_1_1ServiceStatusModel.html#a4d7de948f11803a9321e1907da412ceea0cdd4cfc0cc2a1001bb4b182b54cbdfa">NAME_COL</a> = 0, 
+<a class="el" href="classnimbro__service__transport_1_1ServiceStatusModel.html#a4d7de948f11803a9321e1907da412ceea84064bf1fa031a4045c63e048cf6a1f5">STATUS_COL</a>, 
+<a class="el" href="classnimbro__service__transport_1_1ServiceStatusModel.html#a4d7de948f11803a9321e1907da412ceea4b3cff99987bb2571aa59765888cab13">NUM_COLUMNS</a>
+ }</td></tr>
+<tr class="separator:a4d7de948f11803a9321e1907da412cee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ae66dfc200cebb05c8a6507b7bb700492"><td class="memItemLeft" align="right" valign="top">std::deque&lt; <a class="el" href="structnimbro__service__transport_1_1ServiceStatusModel_1_1ServiceData.html">ServiceData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnimbro__service__transport_1_1ServiceStatusModel.html#ae66dfc200cebb05c8a6507b7bb700492">m_data</a></td></tr>
+<tr class="separator:ae66dfc200cebb05c8a6507b7bb700492"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a4d7de948f11803a9321e1907da412cee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d7de948f11803a9321e1907da412cee">&#9670;&nbsp;</a></span>columns</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classnimbro__service__transport_1_1ServiceStatusModel.html#a4d7de948f11803a9321e1907da412cee">nimbro_service_transport::ServiceStatusModel::columns</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a4d7de948f11803a9321e1907da412ceea0cdd4cfc0cc2a1001bb4b182b54cbdfa"></a>NAME_COL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4d7de948f11803a9321e1907da412ceea84064bf1fa031a4045c63e048cf6a1f5"></a>STATUS_COL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4d7de948f11803a9321e1907da412ceea4b3cff99987bb2571aa59765888cab13"></a>NUM_COLUMNS&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a703af41e76b74dccaa4b70f1458f1815"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a703af41e76b74dccaa4b70f1458f1815">&#9670;&nbsp;</a></span>ServiceStatusModel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">nimbro_service_transport::ServiceStatusModel::ServiceStatusModel </td>
+          <td>(</td>
+          <td class="paramtype">QWidget *&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>0</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adabfec065620e5001a8af67598dc6889"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adabfec065620e5001a8af67598dc6889">&#9670;&nbsp;</a></span>~ServiceStatusModel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">nimbro_service_transport::ServiceStatusModel::~ServiceStatusModel </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a326ea4ec1db369341a8b5d8f40072561"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a326ea4ec1db369341a8b5d8f40072561">&#9670;&nbsp;</a></span>addService()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nimbro_service_transport::ServiceStatusModel::addService </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>status</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>call_id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adce19e53509ed3d6624c866b73907763"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adce19e53509ed3d6624c866b73907763">&#9670;&nbsp;</a></span>clearData</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nimbro_service_transport::ServiceStatusModel::clearData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab811c0d69a82ce3a66f03f890587cadc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab811c0d69a82ce3a66f03f890587cadc">&#9670;&nbsp;</a></span>columnCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int nimbro_service_transport::ServiceStatusModel::columnCount </td>
+          <td>(</td>
+          <td class="paramtype">const QModelIndex &amp;&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>QModelIndex()</code></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1d49c5d170dc7ee14e7a423adaca8a83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d49c5d170dc7ee14e7a423adaca8a83">&#9670;&nbsp;</a></span>data()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QVariant nimbro_service_transport::ServiceStatusModel::data </td>
+          <td>(</td>
+          <td class="paramtype">const QModelIndex &amp;&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>QModelIndex()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>role</em> = <code>Qt::DisplayRole</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1d408667670eb8f2e2aa061f1f35b66e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d408667670eb8f2e2aa061f1f35b66e">&#9670;&nbsp;</a></span>rowCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int nimbro_service_transport::ServiceStatusModel::rowCount </td>
+          <td>(</td>
+          <td class="paramtype">const QModelIndex &amp;&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>QModelIndex()</code></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ae66dfc200cebb05c8a6507b7bb700492"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae66dfc200cebb05c8a6507b7bb700492">&#9670;&nbsp;</a></span>m_data</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::deque&lt;<a class="el" href="structnimbro__service__transport_1_1ServiceStatusModel_1_1ServiceData.html">ServiceData</a>&gt; nimbro_service_transport::ServiceStatusModel::m_data</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>nimbro_network/nimbro_service_transport/src/gui/<a class="el" href="service__widget_8h_source.html">service_widget.h</a></li>
-<li>nimbro_network/nimbro_service_transport/src/gui/service_widget.cpp</li>
+<li>nimbro_network/nimbro_service_transport/src/gui/<a class="el" href="service__widget_8cpp.html">service_widget.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

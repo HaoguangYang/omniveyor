@@ -64,84 +64,880 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classCaster-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Caster Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="caster_8h_source.html">caster.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for Caster:</div>
+<div class="dyncontent">
+<div class="center"><img src="classCaster__coll__graph.png" border="0" usemap="#Caster_coll__map" alt="Collaboration graph"/></div>
+<map name="Caster_coll__map" id="Caster_coll__map">
+<area shape="rect" title=" " alt="" coords="7,348,71,375"/>
+<area shape="rect" title=" " alt="" coords="5,5,72,32"/>
+<area shape="rect" href="structmotor.html" title=" " alt="" coords="161,199,223,225"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3a1b8ad865a1b688670557203a3629df"><td class="memItemLeft" align="right" valign="top"><a id="a3a1b8ad865a1b688670557203a3629df"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Caster</b> (int casterNum)</td></tr>
+<tr class="memitem:a3a1b8ad865a1b688670557203a3629df"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaster.html#a3a1b8ad865a1b688670557203a3629df">Caster</a> (int casterNum)</td></tr>
 <tr class="separator:a3a1b8ad865a1b688670557203a3629df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6bff06908ddce1ea42c126a6c7a3d12"><td class="memItemLeft" align="right" valign="top"><a id="aa6bff06908ddce1ea42c126a6c7a3d12"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> ()</td></tr>
-<tr class="separator:aa6bff06908ddce1ea42c126a6c7a3d12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a285b18e337e23b322e405647a351b4ff"><td class="memItemLeft" align="right" valign="top"><a id="a285b18e337e23b322e405647a351b4ff"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>enable</b> ()</td></tr>
-<tr class="separator:a285b18e337e23b322e405647a351b4ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9903729a48cabf86c41bad12ce101e47"><td class="memItemLeft" align="right" valign="top"><a id="a9903729a48cabf86c41bad12ce101e47"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>disable</b> ()</td></tr>
+<tr class="memitem:a9903729a48cabf86c41bad12ce101e47"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaster.html#a9903729a48cabf86c41bad12ce101e47">disable</a> ()</td></tr>
 <tr class="separator:a9903729a48cabf86c41bad12ce101e47"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a175cc640d2b504a1b33c75b99adef607"><td class="memItemLeft" align="right" valign="top"><a id="a175cc640d2b504a1b33c75b99adef607"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>stop</b> ()</td></tr>
-<tr class="separator:a175cc640d2b504a1b33c75b99adef607"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2bcb4ab01f0759ac1a7fb7a125d9805c"><td class="memItemLeft" align="right" valign="top"><a id="a2bcb4ab01f0759ac1a7fb7a125d9805c"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>start</b> ()</td></tr>
-<tr class="separator:a2bcb4ab01f0759ac1a7fb7a125d9805c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe52936614307968bef76ae127642404"><td class="memItemLeft" align="right" valign="top"><a id="afe52936614307968bef76ae127642404"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>setCtrlMode</b> (enum ctrl_mode cm)</td></tr>
-<tr class="separator:afe52936614307968bef76ae127642404"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42db54275d09809c9e402321a9f80c87"><td class="memItemLeft" align="right" valign="top"><a id="a42db54275d09809c9e402321a9f80c87"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>setVelocities</b> (double steerVel, double rollVel)</td></tr>
-<tr class="separator:a42db54275d09809c9e402321a9f80c87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21a8d4fb60cdedbad85101ef208370c8"><td class="memItemLeft" align="right" valign="top"><a id="a21a8d4fb60cdedbad85101ef208370c8"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>setTorques</b> (double steerTorque, double rollTorque)</td></tr>
-<tr class="separator:a21a8d4fb60cdedbad85101ef208370c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a673da4da9bff7e55c2229e2d5862fe8c"><td class="memItemLeft" align="right" valign="top"><a id="a673da4da9bff7e55c2229e2d5862fe8c"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getNumber</b> () const</td></tr>
-<tr class="separator:a673da4da9bff7e55c2229e2d5862fe8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8865bdbcaadadacff3e754d4e2219d45"><td class="memItemLeft" align="right" valign="top"><a id="a8865bdbcaadadacff3e754d4e2219d45"></a>
-enum ctrl_mode&#160;</td><td class="memItemRight" valign="bottom"><b>getCtrlMode</b> () const</td></tr>
-<tr class="separator:a8865bdbcaadadacff3e754d4e2219d45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72021af7fec2f657feb8c1a4d104f9fa"><td class="memItemLeft" align="right" valign="top"><a id="a72021af7fec2f657feb8c1a4d104f9fa"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>getSteerPosition</b> ()</td></tr>
-<tr class="separator:a72021af7fec2f657feb8c1a4d104f9fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52b22fa724b15a1d37e15718144d728e"><td class="memItemLeft" align="right" valign="top"><a id="a52b22fa724b15a1d37e15718144d728e"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>getSteerDeltaQ</b> ()</td></tr>
-<tr class="separator:a52b22fa724b15a1d37e15718144d728e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad53ba1ddd46cd191292f536a2414e9c2"><td class="memItemLeft" align="right" valign="top"><a id="ad53ba1ddd46cd191292f536a2414e9c2"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>getRollDeltaQ</b> ()</td></tr>
-<tr class="separator:ad53ba1ddd46cd191292f536a2414e9c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6045e323efb6b7a4cc4b8045308cfd4"><td class="memItemLeft" align="right" valign="top"><a id="af6045e323efb6b7a4cc4b8045308cfd4"></a>
-std::pair&lt; double, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getVelocities</b> ()</td></tr>
-<tr class="separator:af6045e323efb6b7a4cc4b8045308cfd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49d12b739b41705dc5968b94bf650e18"><td class="memItemLeft" align="right" valign="top"><a id="a49d12b739b41705dc5968b94bf650e18"></a>
-std::pair&lt; double, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getTorques</b> ()</td></tr>
-<tr class="separator:a49d12b739b41705dc5968b94bf650e18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a025a4f7230deb8bd3b2608dde3bb25bf"><td class="memItemLeft" align="right" valign="top"><a id="a025a4f7230deb8bd3b2608dde3bb25bf"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>getAmps</b> (double *steerMotorAmp, double *rollMotorAmp)</td></tr>
+<tr class="memitem:a285b18e337e23b322e405647a351b4ff"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaster.html#a285b18e337e23b322e405647a351b4ff">enable</a> ()</td></tr>
+<tr class="separator:a285b18e337e23b322e405647a351b4ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a025a4f7230deb8bd3b2608dde3bb25bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaster.html#a025a4f7230deb8bd3b2608dde3bb25bf">getAmps</a> (double *steerMotorAmp, double *rollMotorAmp)</td></tr>
 <tr class="separator:a025a4f7230deb8bd3b2608dde3bb25bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e4ec01e9f7a6c6d68a0443219b26ac8"><td class="memItemLeft" align="right" valign="top"><a id="a0e4ec01e9f7a6c6d68a0443219b26ac8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>getVolts</b> (double *steerMotorVolt, double *rollMotorVolt)</td></tr>
-<tr class="separator:a0e4ec01e9f7a6c6d68a0443219b26ac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5534510276a7c1f50c8a5985048e91d5"><td class="memItemLeft" align="right" valign="top"><a id="a5534510276a7c1f50c8a5985048e91d5"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>getBumperState</b> ()</td></tr>
+<tr class="memitem:a5534510276a7c1f50c8a5985048e91d5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaster.html#a5534510276a7c1f50c8a5985048e91d5">getBumperState</a> ()</td></tr>
 <tr class="separator:a5534510276a7c1f50c8a5985048e91d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75b0b92e589a327608850f5933e63ec2"><td class="memItemLeft" align="right" valign="top"><a id="a75b0b92e589a327608850f5933e63ec2"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isInitialized</b> () const</td></tr>
-<tr class="separator:a75b0b92e589a327608850f5933e63ec2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acbf34019e6cd235138b95c3c126dbeb7"><td class="memItemLeft" align="right" valign="top"><a id="acbf34019e6cd235138b95c3c126dbeb7"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isEnabled</b> () const</td></tr>
+<tr class="memitem:a8865bdbcaadadacff3e754d4e2219d45"><td class="memItemLeft" align="right" valign="top">enum <a class="el" href="motor_8h.html#a8cba1d5aebbed0609a07e75b663289c3">ctrl_mode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaster.html#a8865bdbcaadadacff3e754d4e2219d45">getCtrlMode</a> () const</td></tr>
+<tr class="separator:a8865bdbcaadadacff3e754d4e2219d45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a673da4da9bff7e55c2229e2d5862fe8c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaster.html#a673da4da9bff7e55c2229e2d5862fe8c">getNumber</a> () const</td></tr>
+<tr class="separator:a673da4da9bff7e55c2229e2d5862fe8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad53ba1ddd46cd191292f536a2414e9c2"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaster.html#ad53ba1ddd46cd191292f536a2414e9c2">getRollDeltaQ</a> ()</td></tr>
+<tr class="separator:ad53ba1ddd46cd191292f536a2414e9c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52b22fa724b15a1d37e15718144d728e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaster.html#a52b22fa724b15a1d37e15718144d728e">getSteerDeltaQ</a> ()</td></tr>
+<tr class="separator:a52b22fa724b15a1d37e15718144d728e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72021af7fec2f657feb8c1a4d104f9fa"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaster.html#a72021af7fec2f657feb8c1a4d104f9fa">getSteerPosition</a> ()</td></tr>
+<tr class="separator:a72021af7fec2f657feb8c1a4d104f9fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49d12b739b41705dc5968b94bf650e18"><td class="memItemLeft" align="right" valign="top">std::pair&lt; double, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaster.html#a49d12b739b41705dc5968b94bf650e18">getTorques</a> ()</td></tr>
+<tr class="separator:a49d12b739b41705dc5968b94bf650e18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6045e323efb6b7a4cc4b8045308cfd4"><td class="memItemLeft" align="right" valign="top">std::pair&lt; double, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaster.html#af6045e323efb6b7a4cc4b8045308cfd4">getVelocities</a> ()</td></tr>
+<tr class="separator:af6045e323efb6b7a4cc4b8045308cfd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e4ec01e9f7a6c6d68a0443219b26ac8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaster.html#a0e4ec01e9f7a6c6d68a0443219b26ac8">getVolts</a> (double *steerMotorVolt, double *rollMotorVolt)</td></tr>
+<tr class="separator:a0e4ec01e9f7a6c6d68a0443219b26ac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6bff06908ddce1ea42c126a6c7a3d12"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaster.html#aa6bff06908ddce1ea42c126a6c7a3d12">init</a> ()</td></tr>
+<tr class="separator:aa6bff06908ddce1ea42c126a6c7a3d12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbf34019e6cd235138b95c3c126dbeb7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaster.html#acbf34019e6cd235138b95c3c126dbeb7">isEnabled</a> () const</td></tr>
 <tr class="separator:acbf34019e6cd235138b95c3c126dbeb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7dc4fe60e1145b3a459417a46f990ae6"><td class="memItemLeft" align="right" valign="top"><a id="a7dc4fe60e1145b3a459417a46f990ae6"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isStopped</b> () const</td></tr>
+<tr class="memitem:a75b0b92e589a327608850f5933e63ec2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaster.html#a75b0b92e589a327608850f5933e63ec2">isInitialized</a> () const</td></tr>
+<tr class="separator:a75b0b92e589a327608850f5933e63ec2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7dc4fe60e1145b3a459417a46f990ae6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaster.html#a7dc4fe60e1145b3a459417a46f990ae6">isStopped</a> () const</td></tr>
 <tr class="separator:a7dc4fe60e1145b3a459417a46f990ae6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe52936614307968bef76ae127642404"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaster.html#afe52936614307968bef76ae127642404">setCtrlMode</a> (enum <a class="el" href="motor_8h.html#a8cba1d5aebbed0609a07e75b663289c3">ctrl_mode</a> cm)</td></tr>
+<tr class="separator:afe52936614307968bef76ae127642404"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21a8d4fb60cdedbad85101ef208370c8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaster.html#a21a8d4fb60cdedbad85101ef208370c8">setTorques</a> (double <a class="el" href="classCaster.html#ac77faa5bf738fdd5c53dcae64f4157f6">steerTorque</a>, double <a class="el" href="classCaster.html#a7cb80013097afc0a5a8c9f5a7f48f65f">rollTorque</a>)</td></tr>
+<tr class="separator:a21a8d4fb60cdedbad85101ef208370c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42db54275d09809c9e402321a9f80c87"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaster.html#a42db54275d09809c9e402321a9f80c87">setVelocities</a> (double <a class="el" href="classCaster.html#a8de6912668f28385b699cbe8149cd94d">steerVel</a>, double <a class="el" href="classCaster.html#ae8e61ddec52cbf9c05a7907b450360d5">rollVel</a>)</td></tr>
+<tr class="separator:a42db54275d09809c9e402321a9f80c87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bcb4ab01f0759ac1a7fb7a125d9805c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaster.html#a2bcb4ab01f0759ac1a7fb7a125d9805c">start</a> ()</td></tr>
+<tr class="separator:a2bcb4ab01f0759ac1a7fb7a125d9805c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a175cc640d2b504a1b33c75b99adef607"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaster.html#a175cc640d2b504a1b33c75b99adef607">stop</a> ()</td></tr>
+<tr class="separator:a175cc640d2b504a1b33c75b99adef607"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad706e94448def0eaea188af19ef6e960"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaster.html#ad706e94448def0eaea188af19ef6e960">~Caster</a> ()</td></tr>
+<tr class="separator:ad706e94448def0eaea188af19ef6e960"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ada2105929f83d5a65ba999596608b541"><td class="memItemLeft" align="right" valign="top">enum <a class="el" href="motor_8h.html#a8cba1d5aebbed0609a07e75b663289c3">ctrl_mode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaster.html#ada2105929f83d5a65ba999596608b541">control</a></td></tr>
+<tr class="separator:ada2105929f83d5a65ba999596608b541"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaee07a57db130a17815651d1a437e157"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaster.html#aaee07a57db130a17815651d1a437e157">enabled</a></td></tr>
+<tr class="separator:aaee07a57db130a17815651d1a437e157"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af35e394332dd220a00399450d6b5d8db"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaster.html#af35e394332dd220a00399450d6b5d8db">initialized</a></td></tr>
+<tr class="separator:af35e394332dd220a00399450d6b5d8db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba7295c14966cb139facb4d549cf9507"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaster.html#aba7295c14966cb139facb4d549cf9507">lastRollMotorPos</a></td></tr>
+<tr class="separator:aba7295c14966cb139facb4d549cf9507"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5926b1ee9cb23ba30eb0df44ae733fff"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaster.html#a5926b1ee9cb23ba30eb0df44ae733fff">lastRollPos</a></td></tr>
+<tr class="separator:a5926b1ee9cb23ba30eb0df44ae733fff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfeaa5aa59f2c99c5c59480b33f2ff4c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaster.html#acfeaa5aa59f2c99c5c59480b33f2ff4c">lastSteerMotorPos</a></td></tr>
+<tr class="separator:acfeaa5aa59f2c99c5c59480b33f2ff4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f48538febbd34847fec39e871920394"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaster.html#a0f48538febbd34847fec39e871920394">number</a></td></tr>
+<tr class="separator:a0f48538febbd34847fec39e871920394"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7eec8e0959a3b501491565b3979259e"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structmotor.html">motor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaster.html#ac7eec8e0959a3b501491565b3979259e">rollMotor</a></td></tr>
+<tr class="separator:ac7eec8e0959a3b501491565b3979259e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7cb80013097afc0a5a8c9f5a7f48f65f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaster.html#a7cb80013097afc0a5a8c9f5a7f48f65f">rollTorque</a></td></tr>
+<tr class="separator:a7cb80013097afc0a5a8c9f5a7f48f65f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8e61ddec52cbf9c05a7907b450360d5"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaster.html#ae8e61ddec52cbf9c05a7907b450360d5">rollVel</a></td></tr>
+<tr class="separator:ae8e61ddec52cbf9c05a7907b450360d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cf91d6642a3194080dbab224cbf3721"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structmotor.html">motor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaster.html#a0cf91d6642a3194080dbab224cbf3721">steerMotor</a></td></tr>
+<tr class="separator:a0cf91d6642a3194080dbab224cbf3721"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fe4c7c49ba24261abb91a29c5e27f3c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaster.html#a3fe4c7c49ba24261abb91a29c5e27f3c">steerPos</a></td></tr>
+<tr class="separator:a3fe4c7c49ba24261abb91a29c5e27f3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac77faa5bf738fdd5c53dcae64f4157f6"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaster.html#ac77faa5bf738fdd5c53dcae64f4157f6">steerTorque</a></td></tr>
+<tr class="separator:ac77faa5bf738fdd5c53dcae64f4157f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8de6912668f28385b699cbe8149cd94d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaster.html#a8de6912668f28385b699cbe8149cd94d">steerVel</a></td></tr>
+<tr class="separator:a8de6912668f28385b699cbe8149cd94d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a620c1f88fd66940ea8cc958e5c6e237c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaster.html#a620c1f88fd66940ea8cc958e5c6e237c">stopped</a></td></tr>
+<tr class="separator:a620c1f88fd66940ea8cc958e5c6e237c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a3a1b8ad865a1b688670557203a3629df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a1b8ad865a1b688670557203a3629df">&#9670;&nbsp;</a></span>Caster()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Caster::Caster </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>casterNum</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad706e94448def0eaea188af19ef6e960"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad706e94448def0eaea188af19ef6e960">&#9670;&nbsp;</a></span>~Caster()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Caster::~Caster </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a9903729a48cabf86c41bad12ce101e47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9903729a48cabf86c41bad12ce101e47">&#9670;&nbsp;</a></span>disable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Caster::disable </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a285b18e337e23b322e405647a351b4ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a285b18e337e23b322e405647a351b4ff">&#9670;&nbsp;</a></span>enable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Caster::enable </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a025a4f7230deb8bd3b2608dde3bb25bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a025a4f7230deb8bd3b2608dde3bb25bf">&#9670;&nbsp;</a></span>getAmps()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Caster::getAmps </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>steerMotorAmp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>rollMotorAmp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5534510276a7c1f50c8a5985048e91d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5534510276a7c1f50c8a5985048e91d5">&#9670;&nbsp;</a></span>getBumperState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Caster::getBumperState </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8865bdbcaadadacff3e754d4e2219d45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8865bdbcaadadacff3e754d4e2219d45">&#9670;&nbsp;</a></span>getCtrlMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="motor_8h.html#a8cba1d5aebbed0609a07e75b663289c3">ctrl_mode</a> Caster::getCtrlMode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a673da4da9bff7e55c2229e2d5862fe8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a673da4da9bff7e55c2229e2d5862fe8c">&#9670;&nbsp;</a></span>getNumber()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Caster::getNumber </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad53ba1ddd46cd191292f536a2414e9c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad53ba1ddd46cd191292f536a2414e9c2">&#9670;&nbsp;</a></span>getRollDeltaQ()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Caster::getRollDeltaQ </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a52b22fa724b15a1d37e15718144d728e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52b22fa724b15a1d37e15718144d728e">&#9670;&nbsp;</a></span>getSteerDeltaQ()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Caster::getSteerDeltaQ </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a72021af7fec2f657feb8c1a4d104f9fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72021af7fec2f657feb8c1a4d104f9fa">&#9670;&nbsp;</a></span>getSteerPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Caster::getSteerPosition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a49d12b739b41705dc5968b94bf650e18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49d12b739b41705dc5968b94bf650e18">&#9670;&nbsp;</a></span>getTorques()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pair&lt; double, double &gt; Caster::getTorques </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af6045e323efb6b7a4cc4b8045308cfd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6045e323efb6b7a4cc4b8045308cfd4">&#9670;&nbsp;</a></span>getVelocities()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pair&lt; double, double &gt; Caster::getVelocities </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0e4ec01e9f7a6c6d68a0443219b26ac8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e4ec01e9f7a6c6d68a0443219b26ac8">&#9670;&nbsp;</a></span>getVolts()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Caster::getVolts </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>steerMotorVolt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>rollMotorVolt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa6bff06908ddce1ea42c126a6c7a3d12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6bff06908ddce1ea42c126a6c7a3d12">&#9670;&nbsp;</a></span>init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Caster::init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acbf34019e6cd235138b95c3c126dbeb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbf34019e6cd235138b95c3c126dbeb7">&#9670;&nbsp;</a></span>isEnabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Caster::isEnabled </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a75b0b92e589a327608850f5933e63ec2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75b0b92e589a327608850f5933e63ec2">&#9670;&nbsp;</a></span>isInitialized()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Caster::isInitialized </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7dc4fe60e1145b3a459417a46f990ae6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7dc4fe60e1145b3a459417a46f990ae6">&#9670;&nbsp;</a></span>isStopped()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Caster::isStopped </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afe52936614307968bef76ae127642404"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe52936614307968bef76ae127642404">&#9670;&nbsp;</a></span>setCtrlMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Caster::setCtrlMode </td>
+          <td>(</td>
+          <td class="paramtype">enum <a class="el" href="motor_8h.html#a8cba1d5aebbed0609a07e75b663289c3">ctrl_mode</a>&#160;</td>
+          <td class="paramname"><em>cm</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a21a8d4fb60cdedbad85101ef208370c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21a8d4fb60cdedbad85101ef208370c8">&#9670;&nbsp;</a></span>setTorques()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Caster::setTorques </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>steerTorque</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>rollTorque</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a42db54275d09809c9e402321a9f80c87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42db54275d09809c9e402321a9f80c87">&#9670;&nbsp;</a></span>setVelocities()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Caster::setVelocities </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>steerVel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>rollVel</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2bcb4ab01f0759ac1a7fb7a125d9805c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bcb4ab01f0759ac1a7fb7a125d9805c">&#9670;&nbsp;</a></span>start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Caster::start </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a175cc640d2b504a1b33c75b99adef607"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a175cc640d2b504a1b33c75b99adef607">&#9670;&nbsp;</a></span>stop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Caster::stop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ada2105929f83d5a65ba999596608b541"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada2105929f83d5a65ba999596608b541">&#9670;&nbsp;</a></span>control</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="motor_8h.html#a8cba1d5aebbed0609a07e75b663289c3">ctrl_mode</a> Caster::control</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaee07a57db130a17815651d1a437e157"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaee07a57db130a17815651d1a437e157">&#9670;&nbsp;</a></span>enabled</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Caster::enabled</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af35e394332dd220a00399450d6b5d8db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af35e394332dd220a00399450d6b5d8db">&#9670;&nbsp;</a></span>initialized</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Caster::initialized</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aba7295c14966cb139facb4d549cf9507"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba7295c14966cb139facb4d549cf9507">&#9670;&nbsp;</a></span>lastRollMotorPos</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Caster::lastRollMotorPos</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5926b1ee9cb23ba30eb0df44ae733fff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5926b1ee9cb23ba30eb0df44ae733fff">&#9670;&nbsp;</a></span>lastRollPos</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Caster::lastRollPos</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acfeaa5aa59f2c99c5c59480b33f2ff4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfeaa5aa59f2c99c5c59480b33f2ff4c">&#9670;&nbsp;</a></span>lastSteerMotorPos</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Caster::lastSteerMotorPos</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0f48538febbd34847fec39e871920394"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f48538febbd34847fec39e871920394">&#9670;&nbsp;</a></span>number</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Caster::number</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac7eec8e0959a3b501491565b3979259e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7eec8e0959a3b501491565b3979259e">&#9670;&nbsp;</a></span>rollMotor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="structmotor.html">motor</a>* Caster::rollMotor</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7cb80013097afc0a5a8c9f5a7f48f65f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cb80013097afc0a5a8c9f5a7f48f65f">&#9670;&nbsp;</a></span>rollTorque</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Caster::rollTorque</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae8e61ddec52cbf9c05a7907b450360d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8e61ddec52cbf9c05a7907b450360d5">&#9670;&nbsp;</a></span>rollVel</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Caster::rollVel</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0cf91d6642a3194080dbab224cbf3721"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cf91d6642a3194080dbab224cbf3721">&#9670;&nbsp;</a></span>steerMotor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="structmotor.html">motor</a>* Caster::steerMotor</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3fe4c7c49ba24261abb91a29c5e27f3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fe4c7c49ba24261abb91a29c5e27f3c">&#9670;&nbsp;</a></span>steerPos</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Caster::steerPos</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac77faa5bf738fdd5c53dcae64f4157f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac77faa5bf738fdd5c53dcae64f4157f6">&#9670;&nbsp;</a></span>steerTorque</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Caster::steerTorque</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8de6912668f28385b699cbe8149cd94d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8de6912668f28385b699cbe8149cd94d">&#9670;&nbsp;</a></span>steerVel</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Caster::steerVel</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a620c1f88fd66940ea8cc958e5c6e237c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a620c1f88fd66940ea8cc958e5c6e237c">&#9670;&nbsp;</a></span>stopped</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Caster::stopped</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/jonathan/OmniDev/src/omniveyor_hardware/pcv_base/include/<a class="el" href="caster_8h_source.html">caster.h</a></li>
-<li>/home/jonathan/OmniDev/src/omniveyor_hardware/pcv_base/src/caster.cc</li>
+<li>/home/jonathan/OmniDev/src/omniveyor_hardware/pcv_base/src/<a class="el" href="caster_8cc.html">caster.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

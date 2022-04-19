@@ -69,47 +69,208 @@ $(function() {
 <div class="title">Header Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="udp__packet_8h_source.html">udp_packet.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:adfc9d044e57c091b56c23aec68f4f299"><td class="memItemLeft" align="right" valign="top"><a id="adfc9d044e57c091b56c23aec68f4f299"></a>
-LEValue&lt; 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>packet_id</b></td></tr>
-<tr class="separator:adfc9d044e57c091b56c23aec68f4f299"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af26dffa0314132ddafc5a6c5a8850666"><td class="memItemLeft" align="right" valign="top"><a id="af26dffa0314132ddafc5a6c5a8850666"></a>
-LEValue&lt; 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>msg_id</b></td></tr>
-<tr class="separator:af26dffa0314132ddafc5a6c5a8850666"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae613d36a1872290041b78bceccfade03"><td class="memItemLeft" align="right" valign="top"><a id="ae613d36a1872290041b78bceccfade03"></a>
-LEValue&lt; 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>symbol_id</b></td></tr>
-<tr class="separator:ae613d36a1872290041b78bceccfade03"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6eb1111e23fd38651767b578064d37e2"><td class="memItemLeft" align="right" valign="top"><a id="a6eb1111e23fd38651767b578064d37e2"></a>
-LEValue&lt; 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>source_symbols</b></td></tr>
-<tr class="separator:a6eb1111e23fd38651767b578064d37e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88201a9186bf31af3073f9518d89f6d7"><td class="memItemLeft" align="right" valign="top"><a id="a88201a9186bf31af3073f9518d89f6d7"></a>
-LEValue&lt; 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHeader.html#a88201a9186bf31af3073f9518d89f6d7">repair_symbols</a></td></tr>
-<tr class="memdesc:a88201a9186bf31af3073f9518d89f6d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">if zero, no FEC. <br /></td></tr>
-<tr class="separator:a88201a9186bf31af3073f9518d89f6d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abaebdb2c6e8dd5ac738b55f18a6f2b1d"><td class="memItemLeft" align="right" valign="top"><a id="abaebdb2c6e8dd5ac738b55f18a6f2b1d"></a>
-LEValue&lt; 4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>prng_seed</b></td></tr>
-<tr class="separator:abaebdb2c6e8dd5ac738b55f18a6f2b1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00d42b1630e728e653882ed560b398b7"><td class="memItemLeft" align="right" valign="top"><a id="a00d42b1630e728e653882ed560b398b7"></a>
-char&#160;</td><td class="memItemRight" valign="bottom"><b>topic_name</b> [64]</td></tr>
-<tr class="separator:a00d42b1630e728e653882ed560b398b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa75dc9fdafc793a79ce376a2c6ff75fc"><td class="memItemLeft" align="right" valign="top"><a id="aa75dc9fdafc793a79ce376a2c6ff75fc"></a>
-char&#160;</td><td class="memItemRight" valign="bottom"><b>topic_type</b> [64]</td></tr>
-<tr class="separator:aa75dc9fdafc793a79ce376a2c6ff75fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10142b1f871ac4b1a16097ff45f76673"><td class="memItemLeft" align="right" valign="top"><a id="a10142b1f871ac4b1a16097ff45f76673"></a>
-LEValue&lt; 4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>topic_md5</b> [4]</td></tr>
-<tr class="separator:a10142b1f871ac4b1a16097ff45f76673"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49b33f2259cfa2cc3d73212eff80d08b"><td class="memItemLeft" align="right" valign="top"><a id="a49b33f2259cfa2cc3d73212eff80d08b"></a>
-LEValue&lt; 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>flags</b></td></tr>
+<tr class="memitem:a49b33f2259cfa2cc3d73212eff80d08b"><td class="memItemLeft" align="right" valign="top">LEValue&lt; 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHeader.html#a49b33f2259cfa2cc3d73212eff80d08b">flags</a></td></tr>
 <tr class="separator:a49b33f2259cfa2cc3d73212eff80d08b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab13640c626f11c852ae8dff743021dd0"><td class="memItemLeft" align="right" valign="top"><a id="ab13640c626f11c852ae8dff743021dd0"></a>
-LEValue&lt; 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>topic_msg_counter</b></td></tr>
-<tr class="separator:ab13640c626f11c852ae8dff743021dd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a55aefd3291cbad9fba688f35ce5d4a"><td class="memItemLeft" align="right" valign="top"><a id="a8a55aefd3291cbad9fba688f35ce5d4a"></a>
-LEValue&lt; 4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>size</b></td></tr>
+<tr class="memitem:af26dffa0314132ddafc5a6c5a8850666"><td class="memItemLeft" align="right" valign="top">LEValue&lt; 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHeader.html#af26dffa0314132ddafc5a6c5a8850666">msg_id</a></td></tr>
+<tr class="separator:af26dffa0314132ddafc5a6c5a8850666"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfc9d044e57c091b56c23aec68f4f299"><td class="memItemLeft" align="right" valign="top">LEValue&lt; 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHeader.html#adfc9d044e57c091b56c23aec68f4f299">packet_id</a></td></tr>
+<tr class="separator:adfc9d044e57c091b56c23aec68f4f299"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abaebdb2c6e8dd5ac738b55f18a6f2b1d"><td class="memItemLeft" align="right" valign="top">LEValue&lt; 4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHeader.html#abaebdb2c6e8dd5ac738b55f18a6f2b1d">prng_seed</a></td></tr>
+<tr class="separator:abaebdb2c6e8dd5ac738b55f18a6f2b1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88201a9186bf31af3073f9518d89f6d7"><td class="memItemLeft" align="right" valign="top">LEValue&lt; 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHeader.html#a88201a9186bf31af3073f9518d89f6d7">repair_symbols</a></td></tr>
+<tr class="memdesc:a88201a9186bf31af3073f9518d89f6d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">if zero, no FEC.  <a href="structHeader.html#a88201a9186bf31af3073f9518d89f6d7">More...</a><br /></td></tr>
+<tr class="separator:a88201a9186bf31af3073f9518d89f6d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a55aefd3291cbad9fba688f35ce5d4a"><td class="memItemLeft" align="right" valign="top">LEValue&lt; 4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHeader.html#a8a55aefd3291cbad9fba688f35ce5d4a">size</a></td></tr>
 <tr class="separator:a8a55aefd3291cbad9fba688f35ce5d4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6eb1111e23fd38651767b578064d37e2"><td class="memItemLeft" align="right" valign="top">LEValue&lt; 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHeader.html#a6eb1111e23fd38651767b578064d37e2">source_symbols</a></td></tr>
+<tr class="separator:a6eb1111e23fd38651767b578064d37e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae613d36a1872290041b78bceccfade03"><td class="memItemLeft" align="right" valign="top">LEValue&lt; 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHeader.html#ae613d36a1872290041b78bceccfade03">symbol_id</a></td></tr>
+<tr class="separator:ae613d36a1872290041b78bceccfade03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10142b1f871ac4b1a16097ff45f76673"><td class="memItemLeft" align="right" valign="top">LEValue&lt; 4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHeader.html#a10142b1f871ac4b1a16097ff45f76673">topic_md5</a> [4]</td></tr>
+<tr class="separator:a10142b1f871ac4b1a16097ff45f76673"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab13640c626f11c852ae8dff743021dd0"><td class="memItemLeft" align="right" valign="top">LEValue&lt; 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHeader.html#ab13640c626f11c852ae8dff743021dd0">topic_msg_counter</a></td></tr>
+<tr class="separator:ab13640c626f11c852ae8dff743021dd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00d42b1630e728e653882ed560b398b7"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHeader.html#a00d42b1630e728e653882ed560b398b7">topic_name</a> [64]</td></tr>
+<tr class="separator:a00d42b1630e728e653882ed560b398b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa75dc9fdafc793a79ce376a2c6ff75fc"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHeader.html#aa75dc9fdafc793a79ce376a2c6ff75fc">topic_type</a> [64]</td></tr>
+<tr class="separator:aa75dc9fdafc793a79ce376a2c6ff75fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a49b33f2259cfa2cc3d73212eff80d08b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49b33f2259cfa2cc3d73212eff80d08b">&#9670;&nbsp;</a></span>flags</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LEValue&lt;2&gt; Header::flags</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af26dffa0314132ddafc5a6c5a8850666"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af26dffa0314132ddafc5a6c5a8850666">&#9670;&nbsp;</a></span>msg_id</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LEValue&lt;2&gt; Header::msg_id</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adfc9d044e57c091b56c23aec68f4f299"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfc9d044e57c091b56c23aec68f4f299">&#9670;&nbsp;</a></span>packet_id</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LEValue&lt;3&gt; Header::packet_id</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abaebdb2c6e8dd5ac738b55f18a6f2b1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abaebdb2c6e8dd5ac738b55f18a6f2b1d">&#9670;&nbsp;</a></span>prng_seed</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LEValue&lt;4&gt; Header::prng_seed</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a88201a9186bf31af3073f9518d89f6d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88201a9186bf31af3073f9518d89f6d7">&#9670;&nbsp;</a></span>repair_symbols</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LEValue&lt;2&gt; Header::repair_symbols</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>if zero, no FEC. </p>
+
+</div>
+</div>
+<a id="a8a55aefd3291cbad9fba688f35ce5d4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a55aefd3291cbad9fba688f35ce5d4a">&#9670;&nbsp;</a></span>size</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LEValue&lt;4&gt; Header::size</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6eb1111e23fd38651767b578064d37e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6eb1111e23fd38651767b578064d37e2">&#9670;&nbsp;</a></span>source_symbols</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LEValue&lt;2&gt; Header::source_symbols</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae613d36a1872290041b78bceccfade03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae613d36a1872290041b78bceccfade03">&#9670;&nbsp;</a></span>symbol_id</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LEValue&lt;3&gt; Header::symbol_id</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a10142b1f871ac4b1a16097ff45f76673"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10142b1f871ac4b1a16097ff45f76673">&#9670;&nbsp;</a></span>topic_md5</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LEValue&lt;4&gt; Header::topic_md5[4]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab13640c626f11c852ae8dff743021dd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab13640c626f11c852ae8dff743021dd0">&#9670;&nbsp;</a></span>topic_msg_counter</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LEValue&lt;2&gt; Header::topic_msg_counter</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a00d42b1630e728e653882ed560b398b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00d42b1630e728e653882ed560b398b7">&#9670;&nbsp;</a></span>topic_name</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char Header::topic_name[64]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa75dc9fdafc793a79ce376a2c6ff75fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa75dc9fdafc793a79ce376a2c6ff75fc">&#9670;&nbsp;</a></span>topic_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char Header::topic_type[64]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>nimbro_network/nimbro_topic_transport/src/<a class="el" href="udp__packet_8h_source.html">udp_packet.h</a></li>
 </ul>

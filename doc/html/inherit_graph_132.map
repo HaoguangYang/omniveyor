@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classscripts_1_1ReFrESH__ROS_1_1ModuleComponent.html" title=" " alt="" coords="5,5,216,47"/>
+<area shape="rect" id="node1" href="$classRMLOutputParameters.html" title="Class for the output parameters of the On&#45;Line Trajectory Generation algorithm." alt="" coords="5,31,175,57"/>
+<area shape="rect" id="node2" href="$classRMLPositionOutputParameters.html" title="Class for the output parameters of the position&#45;based On&#45;Line Trajectory Generation algorithm." alt="" coords="223,5,444,32"/>
+<area shape="rect" id="node3" href="$classRMLVelocityOutputParameters.html" title="Class for the output parameters of the velocity&#45;based On&#45;Line Trajectory Generation algorithm." alt="" coords="223,56,444,83"/>
 </map>

@@ -1,15 +1,14 @@
 var searchData=
 [
-  ['limabove_3188',['limAbove',['../classQCustomPlot.html#a75a8afbe6ef333b1f3d47abb25b9add7a56ffb40bbf81e9b5d869cffc88999a36',1,'QCustomPlot']]],
-  ['limbelow_3189',['limBelow',['../classQCustomPlot.html#a75a8afbe6ef333b1f3d47abb25b9add7a127695ec06044d5986ae0fe6bd8f0ec3',1,'QCustomPlot']]],
-  ['lmbuffered_3190',['lmBuffered',['../classQCPLayer.html#a67dcfc1590be2a1f2227c5a39bb59c7cada274b1644a2a3c1b794c052f1601bb2',1,'QCPLayer']]],
-  ['lmlogical_3191',['lmLogical',['../classQCPLayer.html#a67dcfc1590be2a1f2227c5a39bb59c7ca6294b5ed9040aede762c626f5108f934',1,'QCPLayer']]],
-  ['lsimpulse_3192',['lsImpulse',['../classQCPGraph.html#ad60175cd9b5cac937c5ee685c32c0859a9564511c68ac5c2d27146e8fd977335f',1,'QCPGraph']]],
-  ['lsinside_3193',['lsInside',['../classQCPAxis.html#a24b13374b9b8f75f47eed2ea78c37db9aff95f9e416645472248f680fc64c28d1',1,'QCPAxis']]],
-  ['lsline_3194',['lsLine',['../classQCPGraph.html#ad60175cd9b5cac937c5ee685c32c0859ac2ecb6878883968d436c06d5a1345867',1,'QCPGraph::lsLine()'],['../classQCPCurve.html#a2710e9f79302152cff794c6e16cc01f1abb5cbe337df27682d7674652057fdc58',1,'QCPCurve::lsLine()']]],
-  ['lsnone_3195',['lsNone',['../classQCPGraph.html#ad60175cd9b5cac937c5ee685c32c0859a2c4b4f5d9c34928d369cd649518bdb79',1,'QCPGraph::lsNone()'],['../classQCPCurve.html#a2710e9f79302152cff794c6e16cc01f1a65deb77129bf07722cc01d54ddf0b6b7',1,'QCPCurve::lsNone()']]],
-  ['lsoutside_3196',['lsOutside',['../classQCPAxis.html#a24b13374b9b8f75f47eed2ea78c37db9a6485a6945fe86bb5acb881c4f45121b0',1,'QCPAxis']]],
-  ['lsstepcenter_3197',['lsStepCenter',['../classQCPGraph.html#ad60175cd9b5cac937c5ee685c32c0859a9f7f3f66a811a18fe1b0a3e3a0928a73',1,'QCPGraph']]],
-  ['lsstepleft_3198',['lsStepLeft',['../classQCPGraph.html#ad60175cd9b5cac937c5ee685c32c0859a50a5619169124b3b524cebb6de993eee',1,'QCPGraph']]],
-  ['lsstepright_3199',['lsStepRight',['../classQCPGraph.html#ad60175cd9b5cac937c5ee685c32c0859afc3a655d34d56ee2a3a9d4969bf0a6b8',1,'QCPGraph']]]
+  ['imultiselect_8662',['iMultiSelect',['../namespaceQCP.html#a2ad6bb6281c7c2d593d4277b44c2b037ad0378264fda468cecdab409dde4542ad',1,'QCP']]],
+  ['in_8663',['In',['../structConnectionInfo.html#a340e726bde384c35236e3da2ab8d02cdaefeb369cccbd560588a756610865664c',1,'ConnectionInfo']]],
+  ['ipborderaligned_8664',['ipBorderAligned',['../classQCPLayoutInset.html#a8b9e17d9a2768293d2a7d72f5e298192a41ae236f04e42d7098e09fd49dffeb06',1,'QCPLayoutInset']]],
+  ['ipfree_8665',['ipFree',['../classQCPLayoutInset.html#a8b9e17d9a2768293d2a7d72f5e298192a06556307ae5b8255297984219da4e8f4',1,'QCPLayoutInset']]],
+  ['irangedrag_8666',['iRangeDrag',['../namespaceQCP.html#a2ad6bb6281c7c2d593d4277b44c2b037a15aab687b04f7ecf86506102b41b0900',1,'QCP']]],
+  ['irangezoom_8667',['iRangeZoom',['../namespaceQCP.html#a2ad6bb6281c7c2d593d4277b44c2b037ae91a9794d8323fe08229dda97d2c17a0',1,'QCP']]],
+  ['iselectaxes_8668',['iSelectAxes',['../namespaceQCP.html#a2ad6bb6281c7c2d593d4277b44c2b037a7f49c26c8cf12373ac867d63737c62b9',1,'QCP']]],
+  ['iselectitems_8669',['iSelectItems',['../namespaceQCP.html#a2ad6bb6281c7c2d593d4277b44c2b037a271679ebb13ab4a6b4c2c2d9459f1de8',1,'QCP']]],
+  ['iselectlegend_8670',['iSelectLegend',['../namespaceQCP.html#a2ad6bb6281c7c2d593d4277b44c2b037a2b0800bffd93fc13090670eabf0fe1db',1,'QCP']]],
+  ['iselectother_8671',['iSelectOther',['../namespaceQCP.html#a2ad6bb6281c7c2d593d4277b44c2b037a2ba96f62595bc22603da0e575b589a83',1,'QCP']]],
+  ['iselectplottables_8672',['iSelectPlottables',['../namespaceQCP.html#a2ad6bb6281c7c2d593d4277b44c2b037ab4ac8dbba56ed6ef7d1355895707d6a5',1,'QCP']]]
 ];

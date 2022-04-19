@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['maximal_5fno_5fof_5fpolynomials_3351',['MAXIMAL_NO_OF_POLYNOMIALS',['../TypeIIRMLMath_8h.html#ab4364ecac65fb35b7ec07e01686f810f',1,'TypeIIRMLMath.h']]]
+  ['fault_5fhandling_8978',['FAULT_HANDLING',['../CO__objects_8h.html#a126c364594430fc28490384ea413536a',1,'CO_objects.h']]],
+  ['fsign_8979',['FSign',['../TypeIIRMLMath_8h.html#af76a224d364cecb0b70ccfdf39595f51',1,'TypeIIRMLMath.h']]]
 ];

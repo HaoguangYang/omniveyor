@@ -74,6 +74,8 @@ $(function() {
 
 <p>The abstract base class for paint buffers, which define the rendering backend.  
  <a href="classQCPAbstractPaintBuffer.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="nimbro__net__monitor_2src_2gui_2contrib_2qcustomplot_2qcustomplot_8h_source.html">qcustomplot.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for QCPAbstractPaintBuffer:</div>
 <div class="dyncontent">
@@ -95,84 +97,70 @@ Collaboration diagram for QCPAbstractPaintBuffer:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3ce532c12f10b81697108835755641e2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPAbstractPaintBuffer.html#a3ce532c12f10b81697108835755641e2">QCPAbstractPaintBuffer</a> (const QSize &amp;size, double devicePixelRatio)</td></tr>
-<tr class="separator:a3ce532c12f10b81697108835755641e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ea8284e547985c5d263f26a6adfa11f"><td class="memItemLeft" align="right" valign="top"><a id="a3ea8284e547985c5d263f26a6adfa11f"></a>
-QSize&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> () const</td></tr>
-<tr class="separator:a3ea8284e547985c5d263f26a6adfa11f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76bf771cda945a6c602cf9b7d365d92b"><td class="memItemLeft" align="right" valign="top"><a id="a76bf771cda945a6c602cf9b7d365d92b"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>invalidated</b> () const</td></tr>
-<tr class="separator:a76bf771cda945a6c602cf9b7d365d92b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac1b981f8c1744036610ff1a6b9461f9"><td class="memItemLeft" align="right" valign="top"><a id="aac1b981f8c1744036610ff1a6b9461f9"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>devicePixelRatio</b> () const</td></tr>
-<tr class="separator:aac1b981f8c1744036610ff1a6b9461f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b68c3cd36533f1a4a23b5ce8cd66f01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPAbstractPaintBuffer.html#a8b68c3cd36533f1a4a23b5ce8cd66f01">setSize</a> (const QSize &amp;size)</td></tr>
-<tr class="separator:a8b68c3cd36533f1a4a23b5ce8cd66f01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4c7dc70dfc66be2879ce297b2b3d67f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPAbstractPaintBuffer.html#ae4c7dc70dfc66be2879ce297b2b3d67f">setInvalidated</a> (bool invalidated=true)</td></tr>
-<tr class="separator:ae4c7dc70dfc66be2879ce297b2b3d67f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a555eaad5d5c806420ff35602a1bb68fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPAbstractPaintBuffer.html#a555eaad5d5c806420ff35602a1bb68fa">setDevicePixelRatio</a> (double ratio)</td></tr>
-<tr class="separator:a555eaad5d5c806420ff35602a1bb68fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e9f29b19c033cf02fb96f1a148463f3"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classQCPPainter.html">QCPPainter</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPAbstractPaintBuffer.html#a9e9f29b19c033cf02fb96f1a148463f3">startPainting</a> ()=0</td></tr>
-<tr class="separator:a9e9f29b19c033cf02fb96f1a148463f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41b0dc6e7744f19fae09f8532c207dc1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPAbstractPaintBuffer.html#a41b0dc6e7744f19fae09f8532c207dc1">donePainting</a> ()</td></tr>
-<tr class="separator:a41b0dc6e7744f19fae09f8532c207dc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb998c7525e3ae37d9d2d46c7aaf461a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPAbstractPaintBuffer.html#afb998c7525e3ae37d9d2d46c7aaf461a">draw</a> (<a class="el" href="classQCPPainter.html">QCPPainter</a> *painter) const =0</td></tr>
-<tr class="separator:afb998c7525e3ae37d9d2d46c7aaf461a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e253f4541dfc01992b77e8830bd7722"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPAbstractPaintBuffer.html#a9e253f4541dfc01992b77e8830bd7722">clear</a> (const QColor &amp;color)=0</td></tr>
 <tr class="separator:a9e253f4541dfc01992b77e8830bd7722"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ce532c12f10b81697108835755641e2"><td class="memItemLeft" align="right" valign="top"><a id="a3ce532c12f10b81697108835755641e2"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>QCPAbstractPaintBuffer</b> (const QSize &amp;size, double devicePixelRatio)</td></tr>
-<tr class="separator:a3ce532c12f10b81697108835755641e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ea8284e547985c5d263f26a6adfa11f"><td class="memItemLeft" align="right" valign="top"><a id="a3ea8284e547985c5d263f26a6adfa11f"></a>
-QSize&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> () const</td></tr>
-<tr class="separator:a3ea8284e547985c5d263f26a6adfa11f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76bf771cda945a6c602cf9b7d365d92b"><td class="memItemLeft" align="right" valign="top"><a id="a76bf771cda945a6c602cf9b7d365d92b"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>invalidated</b> () const</td></tr>
-<tr class="separator:a76bf771cda945a6c602cf9b7d365d92b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac1b981f8c1744036610ff1a6b9461f9"><td class="memItemLeft" align="right" valign="top"><a id="aac1b981f8c1744036610ff1a6b9461f9"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>devicePixelRatio</b> () const</td></tr>
-<tr class="separator:aac1b981f8c1744036610ff1a6b9461f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b68c3cd36533f1a4a23b5ce8cd66f01"><td class="memItemLeft" align="right" valign="top"><a id="a8b68c3cd36533f1a4a23b5ce8cd66f01"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setSize</b> (const QSize &amp;size)</td></tr>
-<tr class="separator:a8b68c3cd36533f1a4a23b5ce8cd66f01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4c7dc70dfc66be2879ce297b2b3d67f"><td class="memItemLeft" align="right" valign="top"><a id="ae4c7dc70dfc66be2879ce297b2b3d67f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setInvalidated</b> (bool invalidated=true)</td></tr>
-<tr class="separator:ae4c7dc70dfc66be2879ce297b2b3d67f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a555eaad5d5c806420ff35602a1bb68fa"><td class="memItemLeft" align="right" valign="top"><a id="a555eaad5d5c806420ff35602a1bb68fa"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setDevicePixelRatio</b> (double ratio)</td></tr>
-<tr class="separator:a555eaad5d5c806420ff35602a1bb68fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4840bb68102b9c04f716f550de66b2f3"><td class="memItemLeft" align="right" valign="top"><a id="a4840bb68102b9c04f716f550de66b2f3"></a>
-virtual <a class="el" href="classQCPPainter.html">QCPPainter</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>startPainting</b> ()=0</td></tr>
-<tr class="separator:a4840bb68102b9c04f716f550de66b2f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a996577a718aecb3b9b5351fab797a062"><td class="memItemLeft" align="right" valign="top"><a id="a996577a718aecb3b9b5351fab797a062"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>donePainting</b> ()</td></tr>
-<tr class="separator:a996577a718aecb3b9b5351fab797a062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f92e533105b575951eba5f01d8d129d"><td class="memItemLeft" align="right" valign="top"><a id="a1f92e533105b575951eba5f01d8d129d"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> (<a class="el" href="classQCPPainter.html">QCPPainter</a> *painter) const =0</td></tr>
-<tr class="separator:a1f92e533105b575951eba5f01d8d129d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7fc69e37c2a8232e8b2eb8b5853aae4c"><td class="memItemLeft" align="right" valign="top"><a id="a7fc69e37c2a8232e8b2eb8b5853aae4c"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> (const QColor &amp;color)=0</td></tr>
+<tr class="memitem:a7fc69e37c2a8232e8b2eb8b5853aae4c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPAbstractPaintBuffer.html#a7fc69e37c2a8232e8b2eb8b5853aae4c">clear</a> (const QColor &amp;color)=0</td></tr>
 <tr class="separator:a7fc69e37c2a8232e8b2eb8b5853aae4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac1b981f8c1744036610ff1a6b9461f9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPAbstractPaintBuffer.html#aac1b981f8c1744036610ff1a6b9461f9">devicePixelRatio</a> () const</td></tr>
+<tr class="separator:aac1b981f8c1744036610ff1a6b9461f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac1b981f8c1744036610ff1a6b9461f9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPAbstractPaintBuffer.html#aac1b981f8c1744036610ff1a6b9461f9">devicePixelRatio</a> () const</td></tr>
+<tr class="separator:aac1b981f8c1744036610ff1a6b9461f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41b0dc6e7744f19fae09f8532c207dc1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPAbstractPaintBuffer.html#a41b0dc6e7744f19fae09f8532c207dc1">donePainting</a> ()</td></tr>
+<tr class="separator:a41b0dc6e7744f19fae09f8532c207dc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a996577a718aecb3b9b5351fab797a062"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPAbstractPaintBuffer.html#a996577a718aecb3b9b5351fab797a062">donePainting</a> ()</td></tr>
+<tr class="separator:a996577a718aecb3b9b5351fab797a062"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f92e533105b575951eba5f01d8d129d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPAbstractPaintBuffer.html#a1f92e533105b575951eba5f01d8d129d">draw</a> (<a class="el" href="classQCPPainter.html">QCPPainter</a> *painter) const =0</td></tr>
+<tr class="separator:a1f92e533105b575951eba5f01d8d129d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb998c7525e3ae37d9d2d46c7aaf461a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPAbstractPaintBuffer.html#afb998c7525e3ae37d9d2d46c7aaf461a">draw</a> (<a class="el" href="classQCPPainter.html">QCPPainter</a> *painter) const =0</td></tr>
+<tr class="separator:afb998c7525e3ae37d9d2d46c7aaf461a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76bf771cda945a6c602cf9b7d365d92b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPAbstractPaintBuffer.html#a76bf771cda945a6c602cf9b7d365d92b">invalidated</a> () const</td></tr>
+<tr class="separator:a76bf771cda945a6c602cf9b7d365d92b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76bf771cda945a6c602cf9b7d365d92b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPAbstractPaintBuffer.html#a76bf771cda945a6c602cf9b7d365d92b">invalidated</a> () const</td></tr>
+<tr class="separator:a76bf771cda945a6c602cf9b7d365d92b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ce532c12f10b81697108835755641e2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPAbstractPaintBuffer.html#a3ce532c12f10b81697108835755641e2">QCPAbstractPaintBuffer</a> (const QSize &amp;<a class="el" href="classQCPAbstractPaintBuffer.html#a3ea8284e547985c5d263f26a6adfa11f">size</a>, double <a class="el" href="classQCPAbstractPaintBuffer.html#aac1b981f8c1744036610ff1a6b9461f9">devicePixelRatio</a>)</td></tr>
+<tr class="separator:a3ce532c12f10b81697108835755641e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ce532c12f10b81697108835755641e2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPAbstractPaintBuffer.html#a3ce532c12f10b81697108835755641e2">QCPAbstractPaintBuffer</a> (const QSize &amp;<a class="el" href="classQCPAbstractPaintBuffer.html#a3ea8284e547985c5d263f26a6adfa11f">size</a>, double <a class="el" href="classQCPAbstractPaintBuffer.html#aac1b981f8c1744036610ff1a6b9461f9">devicePixelRatio</a>)</td></tr>
+<tr class="separator:a3ce532c12f10b81697108835755641e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a555eaad5d5c806420ff35602a1bb68fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPAbstractPaintBuffer.html#a555eaad5d5c806420ff35602a1bb68fa">setDevicePixelRatio</a> (double ratio)</td></tr>
+<tr class="separator:a555eaad5d5c806420ff35602a1bb68fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a555eaad5d5c806420ff35602a1bb68fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPAbstractPaintBuffer.html#a555eaad5d5c806420ff35602a1bb68fa">setDevicePixelRatio</a> (double ratio)</td></tr>
+<tr class="separator:a555eaad5d5c806420ff35602a1bb68fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4c7dc70dfc66be2879ce297b2b3d67f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPAbstractPaintBuffer.html#ae4c7dc70dfc66be2879ce297b2b3d67f">setInvalidated</a> (bool <a class="el" href="classQCPAbstractPaintBuffer.html#a76bf771cda945a6c602cf9b7d365d92b">invalidated</a>=true)</td></tr>
+<tr class="separator:ae4c7dc70dfc66be2879ce297b2b3d67f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4c7dc70dfc66be2879ce297b2b3d67f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPAbstractPaintBuffer.html#ae4c7dc70dfc66be2879ce297b2b3d67f">setInvalidated</a> (bool <a class="el" href="classQCPAbstractPaintBuffer.html#a76bf771cda945a6c602cf9b7d365d92b">invalidated</a>=true)</td></tr>
+<tr class="separator:ae4c7dc70dfc66be2879ce297b2b3d67f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b68c3cd36533f1a4a23b5ce8cd66f01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPAbstractPaintBuffer.html#a8b68c3cd36533f1a4a23b5ce8cd66f01">setSize</a> (const QSize &amp;<a class="el" href="classQCPAbstractPaintBuffer.html#a3ea8284e547985c5d263f26a6adfa11f">size</a>)</td></tr>
+<tr class="separator:a8b68c3cd36533f1a4a23b5ce8cd66f01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b68c3cd36533f1a4a23b5ce8cd66f01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPAbstractPaintBuffer.html#a8b68c3cd36533f1a4a23b5ce8cd66f01">setSize</a> (const QSize &amp;<a class="el" href="classQCPAbstractPaintBuffer.html#a3ea8284e547985c5d263f26a6adfa11f">size</a>)</td></tr>
+<tr class="separator:a8b68c3cd36533f1a4a23b5ce8cd66f01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ea8284e547985c5d263f26a6adfa11f"><td class="memItemLeft" align="right" valign="top">QSize&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPAbstractPaintBuffer.html#a3ea8284e547985c5d263f26a6adfa11f">size</a> () const</td></tr>
+<tr class="separator:a3ea8284e547985c5d263f26a6adfa11f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ea8284e547985c5d263f26a6adfa11f"><td class="memItemLeft" align="right" valign="top">QSize&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPAbstractPaintBuffer.html#a3ea8284e547985c5d263f26a6adfa11f">size</a> () const</td></tr>
+<tr class="separator:a3ea8284e547985c5d263f26a6adfa11f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4840bb68102b9c04f716f550de66b2f3"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classQCPPainter.html">QCPPainter</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPAbstractPaintBuffer.html#a4840bb68102b9c04f716f550de66b2f3">startPainting</a> ()=0</td></tr>
+<tr class="separator:a4840bb68102b9c04f716f550de66b2f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e9f29b19c033cf02fb96f1a148463f3"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classQCPPainter.html">QCPPainter</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPAbstractPaintBuffer.html#a9e9f29b19c033cf02fb96f1a148463f3">startPainting</a> ()=0</td></tr>
+<tr class="separator:a9e9f29b19c033cf02fb96f1a148463f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1d0fef5b9dce4bb6caa4b5a11ff917c"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPAbstractPaintBuffer.html#ad1d0fef5b9dce4bb6caa4b5a11ff917c">~QCPAbstractPaintBuffer</a> ()</td></tr>
+<tr class="separator:ad1d0fef5b9dce4bb6caa4b5a11ff917c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50fbb1265814d019a1707f4cb11e20de"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPAbstractPaintBuffer.html#a50fbb1265814d019a1707f4cb11e20de">~QCPAbstractPaintBuffer</a> ()</td></tr>
+<tr class="separator:a50fbb1265814d019a1707f4cb11e20de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:aee7506a52bd7e5a07c2af27935eb13e7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPAbstractPaintBuffer.html#aee7506a52bd7e5a07c2af27935eb13e7">reallocateBuffer</a> ()=0</td></tr>
 <tr class="separator:aee7506a52bd7e5a07c2af27935eb13e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9bbd9f7520ccfa3e13fc737813f706e4"><td class="memItemLeft" align="right" valign="top"><a id="a9bbd9f7520ccfa3e13fc737813f706e4"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>reallocateBuffer</b> ()=0</td></tr>
+<tr class="memitem:a9bbd9f7520ccfa3e13fc737813f706e4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPAbstractPaintBuffer.html#a9bbd9f7520ccfa3e13fc737813f706e4">reallocateBuffer</a> ()=0</td></tr>
 <tr class="separator:a9bbd9f7520ccfa3e13fc737813f706e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:ae246c426222bfa18d5e8797fab73e3ce"><td class="memItemLeft" align="right" valign="top"><a id="ae246c426222bfa18d5e8797fab73e3ce"></a>
-QSize&#160;</td><td class="memItemRight" valign="bottom"><b>mSize</b></td></tr>
-<tr class="separator:ae246c426222bfa18d5e8797fab73e3ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33c1fd784478441fcff9ebf3d69af5b2"><td class="memItemLeft" align="right" valign="top"><a id="a33c1fd784478441fcff9ebf3d69af5b2"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>mDevicePixelRatio</b></td></tr>
+<tr class="memitem:a33c1fd784478441fcff9ebf3d69af5b2"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPAbstractPaintBuffer.html#a33c1fd784478441fcff9ebf3d69af5b2">mDevicePixelRatio</a></td></tr>
 <tr class="separator:a33c1fd784478441fcff9ebf3d69af5b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bc49cc9cf9daaca3a60977f010c08c9"><td class="memItemLeft" align="right" valign="top"><a id="a3bc49cc9cf9daaca3a60977f010c08c9"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>mInvalidated</b></td></tr>
+<tr class="memitem:a3bc49cc9cf9daaca3a60977f010c08c9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPAbstractPaintBuffer.html#a3bc49cc9cf9daaca3a60977f010c08c9">mInvalidated</a></td></tr>
 <tr class="separator:a3bc49cc9cf9daaca3a60977f010c08c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae246c426222bfa18d5e8797fab73e3ce"><td class="memItemLeft" align="right" valign="top">QSize&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPAbstractPaintBuffer.html#ae246c426222bfa18d5e8797fab73e3ce">mSize</a></td></tr>
+<tr class="separator:ae246c426222bfa18d5e8797fab73e3ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The abstract base class for paint buffers, which define the rendering backend. </p>
@@ -181,7 +169,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>mInvalidated</b></td>
 <p>The simplest paint buffer implementation is <a class="el" href="classQCPPaintBufferPixmap.html">QCPPaintBufferPixmap</a> which allows regular software rendering via the raster engine. Hardware accelerated rendering via pixel buffers and frame buffer objects is provided by QCPPaintBufferGlPbuffer and QCPPaintBufferGlFbo. They are used automatically if <a class="el" href="classQCustomPlot.html#a7db1adc09016329f3aef7c60da935789">QCustomPlot::setOpenGl</a> is enabled. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3ce532c12f10b81697108835755641e2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3ce532c12f10b81697108835755641e2">&#9670;&nbsp;</a></span>QCPAbstractPaintBuffer()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ce532c12f10b81697108835755641e2">&#9670;&nbsp;</a></span>QCPAbstractPaintBuffer() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -218,9 +206,95 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>mInvalidated</b></td>
 
 </div>
 </div>
+<a id="a50fbb1265814d019a1707f4cb11e20de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50fbb1265814d019a1707f4cb11e20de">&#9670;&nbsp;</a></span>~QCPAbstractPaintBuffer() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QCPAbstractPaintBuffer::~QCPAbstractPaintBuffer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3ce532c12f10b81697108835755641e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ce532c12f10b81697108835755641e2">&#9670;&nbsp;</a></span>QCPAbstractPaintBuffer() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QCPAbstractPaintBuffer::QCPAbstractPaintBuffer </td>
+          <td>(</td>
+          <td class="paramtype">const QSize &amp;&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>devicePixelRatio</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad1d0fef5b9dce4bb6caa4b5a11ff917c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1d0fef5b9dce4bb6caa4b5a11ff917c">&#9670;&nbsp;</a></span>~QCPAbstractPaintBuffer() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual QCPAbstractPaintBuffer::~QCPAbstractPaintBuffer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a9e253f4541dfc01992b77e8830bd7722"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e253f4541dfc01992b77e8830bd7722">&#9670;&nbsp;</a></span>clear()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e253f4541dfc01992b77e8830bd7722">&#9670;&nbsp;</a></span>clear() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -249,8 +323,111 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>mInvalidated</b></td>
 
 </div>
 </div>
+<a id="a7fc69e37c2a8232e8b2eb8b5853aae4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fc69e37c2a8232e8b2eb8b5853aae4c">&#9670;&nbsp;</a></span>clear() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void QCPAbstractPaintBuffer::clear </td>
+          <td>(</td>
+          <td class="paramtype">const QColor &amp;&#160;</td>
+          <td class="paramname"><em>color</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classQCPPaintBufferPixmap.html#a14badbd010a3cde6b55817ccb7b65217">QCPPaintBufferPixmap</a>, and <a class="el" href="classQCPPaintBufferPixmap.html#a14badbd010a3cde6b55817ccb7b65217">QCPPaintBufferPixmap</a>.</p>
+
+</div>
+</div>
+<a id="aac1b981f8c1744036610ff1a6b9461f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac1b981f8c1744036610ff1a6b9461f9">&#9670;&nbsp;</a></span>devicePixelRatio() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double QCPAbstractPaintBuffer::devicePixelRatio </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aac1b981f8c1744036610ff1a6b9461f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac1b981f8c1744036610ff1a6b9461f9">&#9670;&nbsp;</a></span>devicePixelRatio() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double QCPAbstractPaintBuffer::devicePixelRatio </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a996577a718aecb3b9b5351fab797a062"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a996577a718aecb3b9b5351fab797a062">&#9670;&nbsp;</a></span>donePainting() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void QCPAbstractPaintBuffer::donePainting </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a41b0dc6e7744f19fae09f8532c207dc1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a41b0dc6e7744f19fae09f8532c207dc1">&#9670;&nbsp;</a></span>donePainting()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a41b0dc6e7744f19fae09f8532c207dc1">&#9670;&nbsp;</a></span>donePainting() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -277,7 +454,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>mInvalidated</b></td>
 </div>
 </div>
 <a id="afb998c7525e3ae37d9d2d46c7aaf461a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb998c7525e3ae37d9d2d46c7aaf461a">&#9670;&nbsp;</a></span>draw()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#afb998c7525e3ae37d9d2d46c7aaf461a">&#9670;&nbsp;</a></span>draw() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -305,8 +482,113 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>mInvalidated</b></td>
 
 </div>
 </div>
+<a id="a1f92e533105b575951eba5f01d8d129d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f92e533105b575951eba5f01d8d129d">&#9670;&nbsp;</a></span>draw() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void QCPAbstractPaintBuffer::draw </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classQCPPainter.html">QCPPainter</a> *&#160;</td>
+          <td class="paramname"><em>painter</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classQCPPaintBufferPixmap.html#af7bfc685e56a0a9329e57cd9a265eb74">QCPPaintBufferPixmap</a>, and <a class="el" href="classQCPPaintBufferPixmap.html#a7f8df231d2439e6b9953b86798815600">QCPPaintBufferPixmap</a>.</p>
+
+</div>
+</div>
+<a id="a76bf771cda945a6c602cf9b7d365d92b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76bf771cda945a6c602cf9b7d365d92b">&#9670;&nbsp;</a></span>invalidated() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool QCPAbstractPaintBuffer::invalidated </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a76bf771cda945a6c602cf9b7d365d92b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76bf771cda945a6c602cf9b7d365d92b">&#9670;&nbsp;</a></span>invalidated() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool QCPAbstractPaintBuffer::invalidated </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9bbd9f7520ccfa3e13fc737813f706e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bbd9f7520ccfa3e13fc737813f706e4">&#9670;&nbsp;</a></span>reallocateBuffer() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void QCPAbstractPaintBuffer::reallocateBuffer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classQCPPaintBufferPixmap.html#ad49f3205ba3463b1c44f8db3cfcc90f0">QCPPaintBufferPixmap</a>, and <a class="el" href="classQCPPaintBufferPixmap.html#a055692ff7293153ed5c589f3d7a6718e">QCPPaintBufferPixmap</a>.</p>
+
+</div>
+</div>
 <a id="aee7506a52bd7e5a07c2af27935eb13e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee7506a52bd7e5a07c2af27935eb13e7">&#9670;&nbsp;</a></span>reallocateBuffer()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aee7506a52bd7e5a07c2af27935eb13e7">&#9670;&nbsp;</a></span>reallocateBuffer() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -335,7 +617,25 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>mInvalidated</b></td>
 </div>
 </div>
 <a id="a555eaad5d5c806420ff35602a1bb68fa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a555eaad5d5c806420ff35602a1bb68fa">&#9670;&nbsp;</a></span>setDevicePixelRatio()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a555eaad5d5c806420ff35602a1bb68fa">&#9670;&nbsp;</a></span>setDevicePixelRatio() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QCPAbstractPaintBuffer::setDevicePixelRatio </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>ratio</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a555eaad5d5c806420ff35602a1bb68fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a555eaad5d5c806420ff35602a1bb68fa">&#9670;&nbsp;</a></span>setDevicePixelRatio() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -356,7 +656,25 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>mInvalidated</b></td>
 </div>
 </div>
 <a id="ae4c7dc70dfc66be2879ce297b2b3d67f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae4c7dc70dfc66be2879ce297b2b3d67f">&#9670;&nbsp;</a></span>setInvalidated()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4c7dc70dfc66be2879ce297b2b3d67f">&#9670;&nbsp;</a></span>setInvalidated() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QCPAbstractPaintBuffer::setInvalidated </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>invalidated</em> = <code>true</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae4c7dc70dfc66be2879ce297b2b3d67f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4c7dc70dfc66be2879ce297b2b3d67f">&#9670;&nbsp;</a></span>setInvalidated() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -378,7 +696,25 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>mInvalidated</b></td>
 </div>
 </div>
 <a id="a8b68c3cd36533f1a4a23b5ce8cd66f01"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8b68c3cd36533f1a4a23b5ce8cd66f01">&#9670;&nbsp;</a></span>setSize()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b68c3cd36533f1a4a23b5ce8cd66f01">&#9670;&nbsp;</a></span>setSize() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QCPAbstractPaintBuffer::setSize </td>
+          <td>(</td>
+          <td class="paramtype">const QSize &amp;&#160;</td>
+          <td class="paramname"><em>size</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8b68c3cd36533f1a4a23b5ce8cd66f01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b68c3cd36533f1a4a23b5ce8cd66f01">&#9670;&nbsp;</a></span>setSize() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -398,8 +734,58 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>mInvalidated</b></td>
 
 </div>
 </div>
+<a id="a3ea8284e547985c5d263f26a6adfa11f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ea8284e547985c5d263f26a6adfa11f">&#9670;&nbsp;</a></span>size() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QSize QCPAbstractPaintBuffer::size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3ea8284e547985c5d263f26a6adfa11f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ea8284e547985c5d263f26a6adfa11f">&#9670;&nbsp;</a></span>size() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QSize QCPAbstractPaintBuffer::size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a9e9f29b19c033cf02fb96f1a148463f3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e9f29b19c033cf02fb96f1a148463f3">&#9670;&nbsp;</a></span>startPainting()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e9f29b19c033cf02fb96f1a148463f3">&#9670;&nbsp;</a></span>startPainting() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -429,9 +815,103 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>mInvalidated</b></td>
 
 </div>
 </div>
+<a id="a4840bb68102b9c04f716f550de66b2f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4840bb68102b9c04f716f550de66b2f3">&#9670;&nbsp;</a></span>startPainting() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classQCPPainter.html">QCPPainter</a>* QCPAbstractPaintBuffer::startPainting </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classQCPPaintBufferPixmap.html#a357964ef7d28cfa530338be4e5c93234">QCPPaintBufferPixmap</a>, and <a class="el" href="classQCPPaintBufferPixmap.html#a0b919d080c2551ee35aedccebde0a67d">QCPPaintBufferPixmap</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a33c1fd784478441fcff9ebf3d69af5b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33c1fd784478441fcff9ebf3d69af5b2">&#9670;&nbsp;</a></span>mDevicePixelRatio</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double QCPAbstractPaintBuffer::mDevicePixelRatio</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3bc49cc9cf9daaca3a60977f010c08c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bc49cc9cf9daaca3a60977f010c08c9">&#9670;&nbsp;</a></span>mInvalidated</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool QCPAbstractPaintBuffer::mInvalidated</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae246c426222bfa18d5e8797fab73e3ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae246c426222bfa18d5e8797fab73e3ce">&#9670;&nbsp;</a></span>mSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QSize QCPAbstractPaintBuffer::mSize</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>nimbro_network/nimbro_net_monitor/src/gui/contrib/qcustomplot/<a class="el" href="nimbro__net__monitor_2src_2gui_2contrib_2qcustomplot_2qcustomplot_8h_source.html">qcustomplot.h</a></li>
-<li>nimbro_network/nimbro_net_monitor/src/gui/contrib/qcustomplot/qcustomplot.cpp</li>
+<li>nimbro_network/nimbro_net_monitor/src/gui/contrib/qcustomplot/<a class="el" href="nimbro__net__monitor_2src_2gui_2contrib_2qcustomplot_2qcustomplot_8cpp.html">qcustomplot.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

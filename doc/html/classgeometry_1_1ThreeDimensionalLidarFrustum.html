@@ -62,17 +62,21 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>geometry</b></li><li class="navelem"><a class="el" href="classgeometry_1_1ThreeDimensionalLidarFrustum.html">ThreeDimensionalLidarFrustum</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacegeometry.html">geometry</a></li><li class="navelem"><a class="el" href="classgeometry_1_1ThreeDimensionalLidarFrustum.html">ThreeDimensionalLidarFrustum</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classgeometry_1_1ThreeDimensionalLidarFrustum-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">geometry::ThreeDimensionalLidarFrustum Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="three__dimensional__lidar__frustum_8hpp_source.html">three_dimensional_lidar_frustum.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for geometry::ThreeDimensionalLidarFrustum:</div>
 <div class="dyncontent">
@@ -87,32 +91,664 @@ Collaboration diagram for geometry::ThreeDimensionalLidarFrustum:</div>
 <div class="dyncontent">
 <div class="center"><img src="classgeometry_1_1ThreeDimensionalLidarFrustum__coll__graph.png" border="0" usemap="#geometry_1_1ThreeDimensionalLidarFrustum_coll__map" alt="Collaboration graph"/></div>
 <map name="geometry_1_1ThreeDimensionalLidarFrustum_coll__map" id="geometry_1_1ThreeDimensionalLidarFrustum_coll__map">
-<area shape="rect" title=" " alt="" coords="5,80,216,121"/>
-<area shape="rect" href="classgeometry_1_1Frustum.html" title=" " alt="" coords="38,5,183,32"/>
+<area shape="rect" title=" " alt="" coords="38,256,249,297"/>
+<area shape="rect" href="classgeometry_1_1Frustum.html" title=" " alt="" coords="5,5,151,32"/>
+<area shape="rect" title=" " alt="" coords="175,5,242,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af865380e1f89e3ff9ec6c7a13644afdf"><td class="memItemLeft" align="right" valign="top"><a id="af865380e1f89e3ff9ec6c7a13644afdf"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ThreeDimensionalLidarFrustum</b> (const double &amp;vFOV, const double &amp;vFOVPadding, const double &amp;hFOV, const double &amp;min_dist, const double &amp;max_dist)</td></tr>
-<tr class="separator:af865380e1f89e3ff9ec6c7a13644afdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7ba50631fcba4b1dc187ae36c7bd7e1"><td class="memItemLeft" align="right" valign="top"><a id="ac7ba50631fcba4b1dc187ae36c7bd7e1"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>TransformModel</b> (void)</td></tr>
-<tr class="separator:ac7ba50631fcba4b1dc187ae36c7bd7e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a873f7a903495705bfc4ef1861d85bcc1"><td class="memItemLeft" align="right" valign="top"><a id="a873f7a903495705bfc4ef1861d85bcc1"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsInside</b> (const openvdb::Vec3d &amp;pt)</td></tr>
+<tr class="memitem:a873f7a903495705bfc4ef1861d85bcc1"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1ThreeDimensionalLidarFrustum.html#a873f7a903495705bfc4ef1861d85bcc1">IsInside</a> (const openvdb::Vec3d &amp;pt)</td></tr>
 <tr class="separator:a873f7a903495705bfc4ef1861d85bcc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac39d15c598c43f41bb8ea2c985bb28df"><td class="memItemLeft" align="right" valign="top"><a id="ac39d15c598c43f41bb8ea2c985bb28df"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetPosition</b> (const geometry_msgs::Point &amp;origin)</td></tr>
-<tr class="separator:ac39d15c598c43f41bb8ea2c985bb28df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af857b3e491d8c073753a3d1d0f2ea009"><td class="memItemLeft" align="right" valign="top"><a id="af857b3e491d8c073753a3d1d0f2ea009"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetOrientation</b> (const geometry_msgs::Quaternion &amp;quat)</td></tr>
+<tr class="memitem:af857b3e491d8c073753a3d1d0f2ea009"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1ThreeDimensionalLidarFrustum.html#af857b3e491d8c073753a3d1d0f2ea009">SetOrientation</a> (const geometry_msgs::Quaternion &amp;quat)</td></tr>
 <tr class="separator:af857b3e491d8c073753a3d1d0f2ea009"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac39d15c598c43f41bb8ea2c985bb28df"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1ThreeDimensionalLidarFrustum.html#ac39d15c598c43f41bb8ea2c985bb28df">SetPosition</a> (const geometry_msgs::Point &amp;origin)</td></tr>
+<tr class="separator:ac39d15c598c43f41bb8ea2c985bb28df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af865380e1f89e3ff9ec6c7a13644afdf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1ThreeDimensionalLidarFrustum.html#af865380e1f89e3ff9ec6c7a13644afdf">ThreeDimensionalLidarFrustum</a> (const double &amp;vFOV, const double &amp;vFOVPadding, const double &amp;hFOV, const double &amp;min_dist, const double &amp;max_dist)</td></tr>
+<tr class="separator:af865380e1f89e3ff9ec6c7a13644afdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7ba50631fcba4b1dc187ae36c7bd7e1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1ThreeDimensionalLidarFrustum.html#ac7ba50631fcba4b1dc187ae36c7bd7e1">TransformModel</a> (void)</td></tr>
+<tr class="separator:ac7ba50631fcba4b1dc187ae36c7bd7e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a33867a340bc7b4e2537d3f7013929f"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1ThreeDimensionalLidarFrustum.html#a8a33867a340bc7b4e2537d3f7013929f">~ThreeDimensionalLidarFrustum</a> (void)</td></tr>
+<tr class="separator:a8a33867a340bc7b4e2537d3f7013929f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classgeometry_1_1Frustum"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classgeometry_1_1Frustum')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classgeometry_1_1Frustum.html">geometry::Frustum</a></td></tr>
+<tr class="memitem:a80b2a1b649a26ab5dfe2386a79ec635d inherit pub_methods_classgeometry_1_1Frustum"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1Frustum.html#a80b2a1b649a26ab5dfe2386a79ec635d">Frustum</a> ()</td></tr>
+<tr class="separator:a80b2a1b649a26ab5dfe2386a79ec635d inherit pub_methods_classgeometry_1_1Frustum"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6b1a2bf3164f382829bcab26f162f57 inherit pub_methods_classgeometry_1_1Frustum"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1Frustum.html#ae6b1a2bf3164f382829bcab26f162f57">~Frustum</a> (void)</td></tr>
+<tr class="separator:ae6b1a2bf3164f382829bcab26f162f57 inherit pub_methods_classgeometry_1_1Frustum"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:aa11b88d516e9f56e3d0bb49a16b1cdc6"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1ThreeDimensionalLidarFrustum.html#aa11b88d516e9f56e3d0bb49a16b1cdc6">Dot</a> (const <a class="el" href="structgeometry_1_1VectorWithPt3D.html">VectorWithPt3D</a> &amp;, const Eigen::Vector3d &amp;) const</td></tr>
+<tr class="separator:aa11b88d516e9f56e3d0bb49a16b1cdc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9ef9acb0fe92bd8e7eddf28d723e430"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1ThreeDimensionalLidarFrustum.html#af9ef9acb0fe92bd8e7eddf28d723e430">Dot</a> (const <a class="el" href="structgeometry_1_1VectorWithPt3D.html">VectorWithPt3D</a> &amp;, const openvdb::Vec3d &amp;) const</td></tr>
+<tr class="separator:af9ef9acb0fe92bd8e7eddf28d723e430"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a54ad0eb985de7fbda070d2e3397cecf5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1ThreeDimensionalLidarFrustum.html#a54ad0eb985de7fbda070d2e3397cecf5">_full_hFOV</a></td></tr>
+<tr class="separator:a54ad0eb985de7fbda070d2e3397cecf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adac048ac95517df9148269d53ab389b9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1ThreeDimensionalLidarFrustum.html#adac048ac95517df9148269d53ab389b9">_hFOV</a></td></tr>
+<tr class="separator:adac048ac95517df9148269d53ab389b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8ac22f1aef99f655ade7093c324d289"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1ThreeDimensionalLidarFrustum.html#ab8ac22f1aef99f655ade7093c324d289">_hFOVhalf</a></td></tr>
+<tr class="separator:ab8ac22f1aef99f655ade7093c324d289"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeec11f37ae283e3304003bc4f0e78fdf"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1ThreeDimensionalLidarFrustum.html#aeec11f37ae283e3304003bc4f0e78fdf">_max_d</a></td></tr>
+<tr class="separator:aeec11f37ae283e3304003bc4f0e78fdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5efdd10daee0bf115acac9b494656c2"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1ThreeDimensionalLidarFrustum.html#af5efdd10daee0bf115acac9b494656c2">_max_d_squared</a></td></tr>
+<tr class="separator:af5efdd10daee0bf115acac9b494656c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab07cedd27fa32486bd35d6e4fe1ff3fa"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1ThreeDimensionalLidarFrustum.html#ab07cedd27fa32486bd35d6e4fe1ff3fa">_min_d</a></td></tr>
+<tr class="separator:ab07cedd27fa32486bd35d6e4fe1ff3fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5334a5490e74fecb2e39df5ef8c02f39"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1ThreeDimensionalLidarFrustum.html#a5334a5490e74fecb2e39df5ef8c02f39">_min_d_squared</a></td></tr>
+<tr class="separator:a5334a5490e74fecb2e39df5ef8c02f39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd42ad7d97397c2eb3aa8378ace48eb3"><td class="memItemLeft" align="right" valign="top">Eigen::Quaterniond&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1ThreeDimensionalLidarFrustum.html#afd42ad7d97397c2eb3aa8378ace48eb3">_orientation</a></td></tr>
+<tr class="separator:afd42ad7d97397c2eb3aa8378ace48eb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cc456fea99974ad96c21d0f4677e185"><td class="memItemLeft" align="right" valign="top">Eigen::Quaterniond&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1ThreeDimensionalLidarFrustum.html#a0cc456fea99974ad96c21d0f4677e185">_orientation_conjugate</a></td></tr>
+<tr class="separator:a0cc456fea99974ad96c21d0f4677e185"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4851405f9f74c9a66986843c5594c2ad"><td class="memItemLeft" align="right" valign="top">Eigen::Vector3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1ThreeDimensionalLidarFrustum.html#a4851405f9f74c9a66986843c5594c2ad">_position</a></td></tr>
+<tr class="separator:a4851405f9f74c9a66986843c5594c2ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0743b6d0e8f5a3cca31fa454fece423"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1ThreeDimensionalLidarFrustum.html#ad0743b6d0e8f5a3cca31fa454fece423">_tan_vFOVhalf</a></td></tr>
+<tr class="separator:ad0743b6d0e8f5a3cca31fa454fece423"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9b4f43a09a01bc5b5e3d04b03611d99"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1ThreeDimensionalLidarFrustum.html#aa9b4f43a09a01bc5b5e3d04b03611d99">_tan_vFOVhalf_squared</a></td></tr>
+<tr class="separator:aa9b4f43a09a01bc5b5e3d04b03611d99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef74ca9a213722044ee25c9e51d80ea1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1ThreeDimensionalLidarFrustum.html#aef74ca9a213722044ee25c9e51d80ea1">_valid_frustum</a></td></tr>
+<tr class="separator:aef74ca9a213722044ee25c9e51d80ea1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9757f39cd720e9f98c37847a2b3bc1b2"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1ThreeDimensionalLidarFrustum.html#a9757f39cd720e9f98c37847a2b3bc1b2">_vFOV</a></td></tr>
+<tr class="separator:a9757f39cd720e9f98c37847a2b3bc1b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a265cd35e903333e8789feb9e301f1382"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeometry_1_1ThreeDimensionalLidarFrustum.html#a265cd35e903333e8789feb9e301f1382">_vFOVPadding</a></td></tr>
+<tr class="separator:a265cd35e903333e8789feb9e301f1382"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="af865380e1f89e3ff9ec6c7a13644afdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af865380e1f89e3ff9ec6c7a13644afdf">&#9670;&nbsp;</a></span>ThreeDimensionalLidarFrustum()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">geometry::ThreeDimensionalLidarFrustum::ThreeDimensionalLidarFrustum </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>vFOV</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>vFOVPadding</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>hFOV</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>min_dist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>max_dist</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8a33867a340bc7b4e2537d3f7013929f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a33867a340bc7b4e2537d3f7013929f">&#9670;&nbsp;</a></span>~ThreeDimensionalLidarFrustum()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">geometry::ThreeDimensionalLidarFrustum::~ThreeDimensionalLidarFrustum </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa11b88d516e9f56e3d0bb49a16b1cdc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa11b88d516e9f56e3d0bb49a16b1cdc6">&#9670;&nbsp;</a></span>Dot() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double geometry::ThreeDimensionalLidarFrustum::Dot </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structgeometry_1_1VectorWithPt3D.html">VectorWithPt3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>plane_pt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Eigen::Vector3d &amp;&#160;</td>
+          <td class="paramname"><em>query_pt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af9ef9acb0fe92bd8e7eddf28d723e430"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9ef9acb0fe92bd8e7eddf28d723e430">&#9670;&nbsp;</a></span>Dot() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double geometry::ThreeDimensionalLidarFrustum::Dot </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structgeometry_1_1VectorWithPt3D.html">VectorWithPt3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>plane_pt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const openvdb::Vec3d &amp;&#160;</td>
+          <td class="paramname"><em>query_pt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a873f7a903495705bfc4ef1861d85bcc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a873f7a903495705bfc4ef1861d85bcc1">&#9670;&nbsp;</a></span>IsInside()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool geometry::ThreeDimensionalLidarFrustum::IsInside </td>
+          <td>(</td>
+          <td class="paramtype">const openvdb::Vec3d &amp;&#160;</td>
+          <td class="paramname"><em>pt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classgeometry_1_1Frustum.html#ad3c0ffe136e678272d8c76471fc30111">geometry::Frustum</a>.</p>
+
+</div>
+</div>
+<a id="af857b3e491d8c073753a3d1d0f2ea009"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af857b3e491d8c073753a3d1d0f2ea009">&#9670;&nbsp;</a></span>SetOrientation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void geometry::ThreeDimensionalLidarFrustum::SetOrientation </td>
+          <td>(</td>
+          <td class="paramtype">const geometry_msgs::Quaternion &amp;&#160;</td>
+          <td class="paramname"><em>quat</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classgeometry_1_1Frustum.html#adf1f45fbadb70ea9bc0620c441f3312c">geometry::Frustum</a>.</p>
+
+</div>
+</div>
+<a id="ac39d15c598c43f41bb8ea2c985bb28df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac39d15c598c43f41bb8ea2c985bb28df">&#9670;&nbsp;</a></span>SetPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void geometry::ThreeDimensionalLidarFrustum::SetPosition </td>
+          <td>(</td>
+          <td class="paramtype">const geometry_msgs::Point &amp;&#160;</td>
+          <td class="paramname"><em>origin</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classgeometry_1_1Frustum.html#ae072694af39fd01cf6001406b067c89d">geometry::Frustum</a>.</p>
+
+</div>
+</div>
+<a id="ac7ba50631fcba4b1dc187ae36c7bd7e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7ba50631fcba4b1dc187ae36c7bd7e1">&#9670;&nbsp;</a></span>TransformModel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void geometry::ThreeDimensionalLidarFrustum::TransformModel </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classgeometry_1_1Frustum.html#afe93e08fa0970f980d80a81036a3d083">geometry::Frustum</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a54ad0eb985de7fbda070d2e3397cecf5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54ad0eb985de7fbda070d2e3397cecf5">&#9670;&nbsp;</a></span>_full_hFOV</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool geometry::ThreeDimensionalLidarFrustum::_full_hFOV</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adac048ac95517df9148269d53ab389b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adac048ac95517df9148269d53ab389b9">&#9670;&nbsp;</a></span>_hFOV</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double geometry::ThreeDimensionalLidarFrustum::_hFOV</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab8ac22f1aef99f655ade7093c324d289"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8ac22f1aef99f655ade7093c324d289">&#9670;&nbsp;</a></span>_hFOVhalf</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double geometry::ThreeDimensionalLidarFrustum::_hFOVhalf</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeec11f37ae283e3304003bc4f0e78fdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeec11f37ae283e3304003bc4f0e78fdf">&#9670;&nbsp;</a></span>_max_d</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double geometry::ThreeDimensionalLidarFrustum::_max_d</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af5efdd10daee0bf115acac9b494656c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5efdd10daee0bf115acac9b494656c2">&#9670;&nbsp;</a></span>_max_d_squared</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double geometry::ThreeDimensionalLidarFrustum::_max_d_squared</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab07cedd27fa32486bd35d6e4fe1ff3fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab07cedd27fa32486bd35d6e4fe1ff3fa">&#9670;&nbsp;</a></span>_min_d</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double geometry::ThreeDimensionalLidarFrustum::_min_d</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5334a5490e74fecb2e39df5ef8c02f39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5334a5490e74fecb2e39df5ef8c02f39">&#9670;&nbsp;</a></span>_min_d_squared</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double geometry::ThreeDimensionalLidarFrustum::_min_d_squared</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afd42ad7d97397c2eb3aa8378ace48eb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd42ad7d97397c2eb3aa8378ace48eb3">&#9670;&nbsp;</a></span>_orientation</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Quaterniond geometry::ThreeDimensionalLidarFrustum::_orientation</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0cc456fea99974ad96c21d0f4677e185"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cc456fea99974ad96c21d0f4677e185">&#9670;&nbsp;</a></span>_orientation_conjugate</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Quaterniond geometry::ThreeDimensionalLidarFrustum::_orientation_conjugate</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4851405f9f74c9a66986843c5594c2ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4851405f9f74c9a66986843c5594c2ad">&#9670;&nbsp;</a></span>_position</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Vector3d geometry::ThreeDimensionalLidarFrustum::_position</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad0743b6d0e8f5a3cca31fa454fece423"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0743b6d0e8f5a3cca31fa454fece423">&#9670;&nbsp;</a></span>_tan_vFOVhalf</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double geometry::ThreeDimensionalLidarFrustum::_tan_vFOVhalf</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa9b4f43a09a01bc5b5e3d04b03611d99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9b4f43a09a01bc5b5e3d04b03611d99">&#9670;&nbsp;</a></span>_tan_vFOVhalf_squared</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double geometry::ThreeDimensionalLidarFrustum::_tan_vFOVhalf_squared</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aef74ca9a213722044ee25c9e51d80ea1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef74ca9a213722044ee25c9e51d80ea1">&#9670;&nbsp;</a></span>_valid_frustum</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool geometry::ThreeDimensionalLidarFrustum::_valid_frustum</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9757f39cd720e9f98c37847a2b3bc1b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9757f39cd720e9f98c37847a2b3bc1b2">&#9670;&nbsp;</a></span>_vFOV</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double geometry::ThreeDimensionalLidarFrustum::_vFOV</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a265cd35e903333e8789feb9e301f1382"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a265cd35e903333e8789feb9e301f1382">&#9670;&nbsp;</a></span>_vFOVPadding</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double geometry::ThreeDimensionalLidarFrustum::_vFOVPadding</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>spatio_temporal_voxel_layer/include/spatio_temporal_voxel_layer/frustum_models/<a class="el" href="three__dimensional__lidar__frustum_8hpp_source.html">three_dimensional_lidar_frustum.hpp</a></li>
-<li>spatio_temporal_voxel_layer/src/frustum_models/three_dimensional_lidar_frustum.cpp</li>
+<li>spatio_temporal_voxel_layer/src/frustum_models/<a class="el" href="three__dimensional__lidar__frustum_8cpp.html">three_dimensional_lidar_frustum.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

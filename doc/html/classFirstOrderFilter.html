@@ -71,7 +71,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>This class can be used to apply a first order filter on a signal. It allows different acceleration and deceleration time constants.  
+<p>This class can be used to apply a first order filter on a signal.  
  <a href="classFirstOrderFilter.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="gazebo__2Dmap__plugin_8h_source.html">gazebo_2Dmap_plugin.h</a>&gt;</code></p>
@@ -80,40 +80,224 @@ Collaboration diagram for FirstOrderFilter&lt; T &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classFirstOrderFilter__coll__graph.png" border="0" usemap="#FirstOrderFilter_3_01T_01_4_coll__map" alt="Collaboration graph"/></div>
 <map name="FirstOrderFilter_3_01T_01_4_coll__map" id="FirstOrderFilter_3_01T_01_4_coll__map">
-<area shape="rect" title="This class can be used to apply a first order filter on a signal. It allows different acceleration an..." alt="" coords="5,109,160,136"/>
+<area shape="rect" title="This class can be used to apply a first order filter on a signal." alt="" coords="5,109,160,136"/>
 <area shape="rect" title=" " alt="" coords="49,5,116,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a69ca7302a06941315d5e315a6ed726b7"><td class="memItemLeft" align="right" valign="top"><a id="a69ca7302a06941315d5e315a6ed726b7"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>FirstOrderFilter</b> (double timeConstantUp, double timeConstantDown, T initialState)</td></tr>
+<tr class="memitem:a69ca7302a06941315d5e315a6ed726b7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFirstOrderFilter.html#a69ca7302a06941315d5e315a6ed726b7">FirstOrderFilter</a> (double timeConstantUp, double timeConstantDown, T initialState)</td></tr>
 <tr class="separator:a69ca7302a06941315d5e315a6ed726b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f2fa033f6d23d6fe789c0455ebc49c4"><td class="memItemLeft" align="right" valign="top"><a id="a2f2fa033f6d23d6fe789c0455ebc49c4"></a>
-T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFirstOrderFilter.html#a2f2fa033f6d23d6fe789c0455ebc49c4">updateFilter</a> (T inputState, double samplingTime)</td></tr>
-<tr class="memdesc:a2f2fa033f6d23d6fe789c0455ebc49c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method will apply a first order filter on the inputState. <br /></td></tr>
+<tr class="memitem:a2f2fa033f6d23d6fe789c0455ebc49c4"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFirstOrderFilter.html#a2f2fa033f6d23d6fe789c0455ebc49c4">updateFilter</a> (T inputState, double samplingTime)</td></tr>
+<tr class="memdesc:a2f2fa033f6d23d6fe789c0455ebc49c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method will apply a first order filter on the inputState.  <a href="classFirstOrderFilter.html#a2f2fa033f6d23d6fe789c0455ebc49c4">More...</a><br /></td></tr>
 <tr class="separator:a2f2fa033f6d23d6fe789c0455ebc49c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e8a8a7fc06a34578f5c18d44af7300b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFirstOrderFilter.html#a8e8a8a7fc06a34578f5c18d44af7300b">~FirstOrderFilter</a> ()</td></tr>
+<tr class="separator:a8e8a8a7fc06a34578f5c18d44af7300b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:abf96f40acfd447b1f6eedbfa8bd9ad00"><td class="memItemLeft" align="right" valign="top"><a id="abf96f40acfd447b1f6eedbfa8bd9ad00"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>timeConstantUp_</b></td></tr>
-<tr class="separator:abf96f40acfd447b1f6eedbfa8bd9ad00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b6fdd458ba76b911e527945eb10e394"><td class="memItemLeft" align="right" valign="top"><a id="a8b6fdd458ba76b911e527945eb10e394"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>timeConstantDown_</b></td></tr>
-<tr class="separator:a8b6fdd458ba76b911e527945eb10e394"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeac705e33da04871e0f222d24ef8ece6"><td class="memItemLeft" align="right" valign="top"><a id="aeac705e33da04871e0f222d24ef8ece6"></a>
-T&#160;</td><td class="memItemRight" valign="bottom"><b>previousState_</b></td></tr>
+<tr class="memitem:aeac705e33da04871e0f222d24ef8ece6"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFirstOrderFilter.html#aeac705e33da04871e0f222d24ef8ece6">previousState_</a></td></tr>
 <tr class="separator:aeac705e33da04871e0f222d24ef8ece6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b6fdd458ba76b911e527945eb10e394"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFirstOrderFilter.html#a8b6fdd458ba76b911e527945eb10e394">timeConstantDown_</a></td></tr>
+<tr class="separator:a8b6fdd458ba76b911e527945eb10e394"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf96f40acfd447b1f6eedbfa8bd9ad00"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFirstOrderFilter.html#abf96f40acfd447b1f6eedbfa8bd9ad00">timeConstantUp_</a></td></tr>
+<tr class="separator:abf96f40acfd447b1f6eedbfa8bd9ad00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename T&gt;<br />
 class FirstOrderFilter&lt; T &gt;</h3>
 
-<p>This class can be used to apply a first order filter on a signal. It allows different acceleration and deceleration time constants. </p>
+<p>This class can be used to apply a first order filter on a signal. </p>
+<p>It allows different acceleration and deceleration time constants.</p>
 <p>Short reveiw of discrete time implementation of first order system: Laplace: X(s)/U(s) = 1/(tau*s + 1) continous time system: dx(t) = (-1/tau)*x(t) + (1/tau)*u(t) discretized system (ZoH): x(k+1) = exp(samplingTime*(-1/tau))*x(k) + (1 - exp(samplingTime*(-1/tau))) * u(k) </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a69ca7302a06941315d5e315a6ed726b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69ca7302a06941315d5e315a6ed726b7">&#9670;&nbsp;</a></span>FirstOrderFilter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classFirstOrderFilter.html">FirstOrderFilter</a>&lt; T &gt;::<a class="el" href="classFirstOrderFilter.html">FirstOrderFilter</a> </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>timeConstantUp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>timeConstantDown</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>initialState</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8e8a8a7fc06a34578f5c18d44af7300b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e8a8a7fc06a34578f5c18d44af7300b">&#9670;&nbsp;</a></span>~FirstOrderFilter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classFirstOrderFilter.html">FirstOrderFilter</a>&lt; T &gt;::~<a class="el" href="classFirstOrderFilter.html">FirstOrderFilter</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2f2fa033f6d23d6fe789c0455ebc49c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f2fa033f6d23d6fe789c0455ebc49c4">&#9670;&nbsp;</a></span>updateFilter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="classFirstOrderFilter.html">FirstOrderFilter</a>&lt; T &gt;::updateFilter </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>inputState</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>samplingTime</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method will apply a first order filter on the inputState. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aeac705e33da04871e0f222d24ef8ece6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeac705e33da04871e0f222d24ef8ece6">&#9670;&nbsp;</a></span>previousState_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="classFirstOrderFilter.html">FirstOrderFilter</a>&lt; T &gt;::previousState_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8b6fdd458ba76b911e527945eb10e394"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b6fdd458ba76b911e527945eb10e394">&#9670;&nbsp;</a></span>timeConstantDown_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="classFirstOrderFilter.html">FirstOrderFilter</a>&lt; T &gt;::timeConstantDown_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abf96f40acfd447b1f6eedbfa8bd9ad00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf96f40acfd447b1f6eedbfa8bd9ad00">&#9670;&nbsp;</a></span>timeConstantUp_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="classFirstOrderFilter.html">FirstOrderFilter</a>&lt; T &gt;::timeConstantUp_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>/home/jonathan/OmniDev/src/omniveyor_gazebo_world/include/omniveyor_gazebo_world/<a class="el" href="gazebo__2Dmap__plugin_8h_source.html">gazebo_2Dmap_plugin.h</a></li>
 </ul>
 </div><!-- contents -->

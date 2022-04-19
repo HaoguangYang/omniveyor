@@ -1,5 +1,5 @@
 <map id="OTG" name="OTG">
-<area shape="rect" id="node1" title=" " alt="" coords="1243,271,1293,297"/>
+<area shape="rect" id="node1" title="OTG.h." alt="" coords="1243,271,1293,297"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,109,72,136"/>
 <area shape="rect" id="node3" href="$classReflexxesAPI.html" title="This class constitutes the API of the Reflexxes Motion Libraries" alt="" coords="479,61,587,88"/>
 <area shape="rect" id="node5" href="$classRMLOutputParameters.html" title="Class for the output parameters of the On&#45;Line Trajectory Generation algorithm." alt="" coords="669,271,839,297"/>

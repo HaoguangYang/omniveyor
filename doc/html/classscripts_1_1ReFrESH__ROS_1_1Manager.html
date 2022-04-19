@@ -62,7 +62,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>scripts</b></li><li class="navelem"><a class="el" href="namespacescripts_1_1ReFrESH__ROS.html">ReFrESH_ROS</a></li><li class="navelem"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1Manager.html">Manager</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacescripts.html">scripts</a></li><li class="navelem"><a class="el" href="namespacescripts_1_1ReFrESH__ROS.html">ReFrESH_ROS</a></li><li class="navelem"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1Manager.html">Manager</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -87,108 +87,833 @@ Inheritance diagram for scripts.ReFrESH_ROS.Manager:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a429c06c34b8efc68f9c670a056d943ae"><td class="memItemLeft" align="right" valign="top"><a id="a429c06c34b8efc68f9c670a056d943ae"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b> (self, <a class="el" href="classscripts_1_1ReFrESH__ROS__utils_1_1Launcher.html">Launcher</a> launcher, dict managedModules=[], str name=&quot;Manager&quot;, float freq=5.0, float minReconfigInterval=1.0)</td></tr>
+<tr class="memitem:a429c06c34b8efc68f9c670a056d943ae"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1Manager.html#a429c06c34b8efc68f9c670a056d943ae">__init__</a> (self, <a class="el" href="classscripts_1_1ReFrESH__ROS__utils_1_1Launcher.html">Launcher</a> <a class="el" href="classscripts_1_1ReFrESH__ROS_1_1Manager.html#a40fd1a405cfc860f8cf6e248e24848ea">launcher</a>, dict managedModules=[], str <a class="el" href="classscripts_1_1ReFrESH__ROS_1_1Manager.html#afb815477eee27222c2ac5a06be58953f">name</a>=&quot;Manager&quot;, float freq=5.0, float minReconfigInterval=1.0)</td></tr>
 <tr class="separator:a429c06c34b8efc68f9c670a056d943ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37fd176c8e286f059946ab07ed702bfc"><td class="memItemLeft" align="right" valign="top"><a id="a37fd176c8e286f059946ab07ed702bfc"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>moduleIsOn</b> (self, <a class="el" href="classscripts_1_1ReFrESH__ROS_1_1ReFrESH__Module.html">ReFrESH_Module</a> module)</td></tr>
-<tr class="separator:a37fd176c8e286f059946ab07ed702bfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a426f768de3f7f896333dff606195782a"><td class="memItemLeft" align="right" valign="top"><a id="a426f768de3f7f896333dff606195782a"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>moduleIsOff</b> (self, <a class="el" href="classscripts_1_1ReFrESH__ROS_1_1ReFrESH__Module.html">ReFrESH_Module</a> module)</td></tr>
-<tr class="separator:a426f768de3f7f896333dff606195782a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a155ca901aa8fda927b5ced32fe83686a"><td class="memItemLeft" align="right" valign="top"><a id="a155ca901aa8fda927b5ced32fe83686a"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>getEXhandle</b> (self, <a class="el" href="classscripts_1_1ReFrESH__ROS_1_1ReFrESH__Module.html">ReFrESH_Module</a> module)</td></tr>
-<tr class="separator:a155ca901aa8fda927b5ced32fe83686a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a410cae76fd7871053f0959c0f48ea57a"><td class="memItemLeft" align="right" valign="top"><a id="a410cae76fd7871053f0959c0f48ea57a"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>getEVhandle</b> (self, <a class="el" href="classscripts_1_1ReFrESH__ROS_1_1ReFrESH__Module.html">ReFrESH_Module</a> module)</td></tr>
-<tr class="separator:a410cae76fd7871053f0959c0f48ea57a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6c5a8f64df393732c16d064ed27de1e"><td class="memItemLeft" align="right" valign="top"><a id="ad6c5a8f64df393732c16d064ed27de1e"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>getEShandle</b> (self, <a class="el" href="classscripts_1_1ReFrESH__ROS_1_1ReFrESH__Module.html">ReFrESH_Module</a> module)</td></tr>
-<tr class="separator:ad6c5a8f64df393732c16d064ed27de1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac350966f4ddc36927edb6115f1485f1e"><td class="memItemLeft" align="right" valign="top"><a id="ac350966f4ddc36927edb6115f1485f1e"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>moduleSet</b> (self, str moduleName, str attr, value)</td></tr>
-<tr class="separator:ac350966f4ddc36927edb6115f1485f1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab41bd7bd73a1b0f80379250802f802df"><td class="memItemLeft" align="right" valign="top"><a id="ab41bd7bd73a1b0f80379250802f802df"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>moduleGet</b> (self, str moduleName, str attr)</td></tr>
-<tr class="separator:ab41bd7bd73a1b0f80379250802f802df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ec1827c366e65be0e19104ce29cad28"><td class="memItemLeft" align="right" valign="top"><a id="a6ec1827c366e65be0e19104ce29cad28"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>moduleIsPreemptible</b> (self, <a class="el" href="classscripts_1_1ReFrESH__ROS_1_1ReFrESH__Module.html">ReFrESH_Module</a> module)</td></tr>
-<tr class="separator:a6ec1827c366e65be0e19104ce29cad28"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ef4cde24571ba07df1909ea976cbb9f"><td class="memItemLeft" align="right" valign="top"><a id="a1ef4cde24571ba07df1909ea976cbb9f"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>moduleCanPreempt</b> (self, <a class="el" href="classscripts_1_1ReFrESH__ROS_1_1ReFrESH__Module.html">ReFrESH_Module</a> module)</td></tr>
-<tr class="separator:a1ef4cde24571ba07df1909ea976cbb9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af95eac09e1533495bc4a4bf4d4969f50"><td class="memItemLeft" align="right" valign="top"><a id="af95eac09e1533495bc4a4bf4d4969f50"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>turnOn</b> (self, <a class="el" href="classscripts_1_1ReFrESH__ROS_1_1ReFrESH__Module.html">ReFrESH_Module</a> module)</td></tr>
-<tr class="separator:af95eac09e1533495bc4a4bf4d4969f50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab57678c33749cbfc462cfd100b67080f"><td class="memItemLeft" align="right" valign="top"><a id="ab57678c33749cbfc462cfd100b67080f"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>turnOff</b> (self, <a class="el" href="classscripts_1_1ReFrESH__ROS_1_1ReFrESH__Module.html">ReFrESH_Module</a> module)</td></tr>
-<tr class="separator:ab57678c33749cbfc462cfd100b67080f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e3330a76e2a274e838b01578dd50256"><td class="memItemLeft" align="right" valign="top"><a id="a2e3330a76e2a274e838b01578dd50256"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>requestOn</b> (self, list onList)</td></tr>
-<tr class="separator:a2e3330a76e2a274e838b01578dd50256"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9cd9dadf19e7864fc1ac33f81c52a307"><td class="memItemLeft" align="right" valign="top"><a id="a9cd9dadf19e7864fc1ac33f81c52a307"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>requestOff</b> (self, list offList)</td></tr>
-<tr class="separator:a9cd9dadf19e7864fc1ac33f81c52a307"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45708b5ffb87568e7809860f49011c2e"><td class="memItemLeft" align="right" valign="top"><a id="a45708b5ffb87568e7809860f49011c2e"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>turnOffAll</b> (self)</td></tr>
-<tr class="separator:a45708b5ffb87568e7809860f49011c2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a800333f48e772d61e23f94c35a5ed2c1"><td class="memItemLeft" align="right" valign="top"><a id="a800333f48e772d61e23f94c35a5ed2c1"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>findBestESPerf</b> (self, tuple exclude=())</td></tr>
-<tr class="separator:a800333f48e772d61e23f94c35a5ed2c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63e76aeae5784b2b93b7de3ead6cd14d"><td class="memItemLeft" align="right" valign="top"><a id="a63e76aeae5784b2b93b7de3ead6cd14d"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>turnOnBestESPerf</b> (self, tuple exclude=())</td></tr>
-<tr class="separator:a63e76aeae5784b2b93b7de3ead6cd14d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7af761b6b4fa4513c47c22c6af33de3d"><td class="memItemLeft" align="right" valign="top"><a id="a7af761b6b4fa4513c47c22c6af33de3d"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>basicDecider</b> (self, <a class="el" href="structevent.html">event</a>)</td></tr>
+<tr class="memitem:a7af761b6b4fa4513c47c22c6af33de3d"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1Manager.html#a7af761b6b4fa4513c47c22c6af33de3d">basicDecider</a> (self, <a class="el" href="structevent.html">event</a>)</td></tr>
 <tr class="separator:a7af761b6b4fa4513c47c22c6af33de3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4ff5f313db5bcfda0640d6b9f95b253"><td class="memItemLeft" align="right" valign="top"><a id="ad4ff5f313db5bcfda0640d6b9f95b253"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>run</b> (self, bool blocking=False)</td></tr>
+<tr class="memitem:a800333f48e772d61e23f94c35a5ed2c1"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1Manager.html#a800333f48e772d61e23f94c35a5ed2c1">findBestESPerf</a> (self, tuple exclude=())</td></tr>
+<tr class="separator:a800333f48e772d61e23f94c35a5ed2c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6c5a8f64df393732c16d064ed27de1e"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1Manager.html#ad6c5a8f64df393732c16d064ed27de1e">getEShandle</a> (self, <a class="el" href="classscripts_1_1ReFrESH__ROS_1_1ReFrESH__Module.html">ReFrESH_Module</a> module)</td></tr>
+<tr class="separator:ad6c5a8f64df393732c16d064ed27de1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a410cae76fd7871053f0959c0f48ea57a"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1Manager.html#a410cae76fd7871053f0959c0f48ea57a">getEVhandle</a> (self, <a class="el" href="classscripts_1_1ReFrESH__ROS_1_1ReFrESH__Module.html">ReFrESH_Module</a> module)</td></tr>
+<tr class="separator:a410cae76fd7871053f0959c0f48ea57a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a155ca901aa8fda927b5ced32fe83686a"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1Manager.html#a155ca901aa8fda927b5ced32fe83686a">getEXhandle</a> (self, <a class="el" href="classscripts_1_1ReFrESH__ROS_1_1ReFrESH__Module.html">ReFrESH_Module</a> module)</td></tr>
+<tr class="separator:a155ca901aa8fda927b5ced32fe83686a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ef4cde24571ba07df1909ea976cbb9f"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1Manager.html#a1ef4cde24571ba07df1909ea976cbb9f">moduleCanPreempt</a> (self, <a class="el" href="classscripts_1_1ReFrESH__ROS_1_1ReFrESH__Module.html">ReFrESH_Module</a> module)</td></tr>
+<tr class="separator:a1ef4cde24571ba07df1909ea976cbb9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab41bd7bd73a1b0f80379250802f802df"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1Manager.html#ab41bd7bd73a1b0f80379250802f802df">moduleGet</a> (self, str moduleName, str attr)</td></tr>
+<tr class="separator:ab41bd7bd73a1b0f80379250802f802df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a426f768de3f7f896333dff606195782a"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1Manager.html#a426f768de3f7f896333dff606195782a">moduleIsOff</a> (self, <a class="el" href="classscripts_1_1ReFrESH__ROS_1_1ReFrESH__Module.html">ReFrESH_Module</a> module)</td></tr>
+<tr class="separator:a426f768de3f7f896333dff606195782a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37fd176c8e286f059946ab07ed702bfc"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1Manager.html#a37fd176c8e286f059946ab07ed702bfc">moduleIsOn</a> (self, <a class="el" href="classscripts_1_1ReFrESH__ROS_1_1ReFrESH__Module.html">ReFrESH_Module</a> module)</td></tr>
+<tr class="separator:a37fd176c8e286f059946ab07ed702bfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ec1827c366e65be0e19104ce29cad28"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1Manager.html#a6ec1827c366e65be0e19104ce29cad28">moduleIsPreemptible</a> (self, <a class="el" href="classscripts_1_1ReFrESH__ROS_1_1ReFrESH__Module.html">ReFrESH_Module</a> module)</td></tr>
+<tr class="separator:a6ec1827c366e65be0e19104ce29cad28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac350966f4ddc36927edb6115f1485f1e"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1Manager.html#ac350966f4ddc36927edb6115f1485f1e">moduleSet</a> (self, str moduleName, str attr, value)</td></tr>
+<tr class="separator:ac350966f4ddc36927edb6115f1485f1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cd9dadf19e7864fc1ac33f81c52a307"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1Manager.html#a9cd9dadf19e7864fc1ac33f81c52a307">requestOff</a> (self, list offList)</td></tr>
+<tr class="separator:a9cd9dadf19e7864fc1ac33f81c52a307"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e3330a76e2a274e838b01578dd50256"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1Manager.html#a2e3330a76e2a274e838b01578dd50256">requestOn</a> (self, list onList)</td></tr>
+<tr class="separator:a2e3330a76e2a274e838b01578dd50256"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4ff5f313db5bcfda0640d6b9f95b253"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1Manager.html#ad4ff5f313db5bcfda0640d6b9f95b253">run</a> (self, bool blocking=False)</td></tr>
 <tr class="separator:ad4ff5f313db5bcfda0640d6b9f95b253"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae902c89723cf9f092c7310243e05dfce"><td class="memItemLeft" align="right" valign="top"><a id="ae902c89723cf9f092c7310243e05dfce"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>shutdown</b> (self)</td></tr>
+<tr class="memitem:ae902c89723cf9f092c7310243e05dfce"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1Manager.html#ae902c89723cf9f092c7310243e05dfce">shutdown</a> (self)</td></tr>
 <tr class="separator:ae902c89723cf9f092c7310243e05dfce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab57678c33749cbfc462cfd100b67080f"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1Manager.html#ab57678c33749cbfc462cfd100b67080f">turnOff</a> (self, <a class="el" href="classscripts_1_1ReFrESH__ROS_1_1ReFrESH__Module.html">ReFrESH_Module</a> module)</td></tr>
+<tr class="separator:ab57678c33749cbfc462cfd100b67080f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45708b5ffb87568e7809860f49011c2e"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1Manager.html#a45708b5ffb87568e7809860f49011c2e">turnOffAll</a> (self)</td></tr>
+<tr class="separator:a45708b5ffb87568e7809860f49011c2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af95eac09e1533495bc4a4bf4d4969f50"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1Manager.html#af95eac09e1533495bc4a4bf4d4969f50">turnOn</a> (self, <a class="el" href="classscripts_1_1ReFrESH__ROS_1_1ReFrESH__Module.html">ReFrESH_Module</a> module)</td></tr>
+<tr class="separator:af95eac09e1533495bc4a4bf4d4969f50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63e76aeae5784b2b93b7de3ead6cd14d"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1Manager.html#a63e76aeae5784b2b93b7de3ead6cd14d">turnOnBestESPerf</a> (self, tuple exclude=())</td></tr>
+<tr class="separator:a63e76aeae5784b2b93b7de3ead6cd14d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:afb815477eee27222c2ac5a06be58953f"><td class="memItemLeft" align="right" valign="top"><a id="afb815477eee27222c2ac5a06be58953f"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>name</b></td></tr>
-<tr class="separator:afb815477eee27222c2ac5a06be58953f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40fd1a405cfc860f8cf6e248e24848ea"><td class="memItemLeft" align="right" valign="top"><a id="a40fd1a405cfc860f8cf6e248e24848ea"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>launcher</b></td></tr>
-<tr class="separator:a40fd1a405cfc860f8cf6e248e24848ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac49ff80c8139c125966d3fb79509e3bd"><td class="memItemLeft" align="right" valign="top"><a id="ac49ff80c8139c125966d3fb79509e3bd"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>tfBuffer</b></td></tr>
-<tr class="separator:ac49ff80c8139c125966d3fb79509e3bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26fe3c0f19f16d036ed013537f0593e9"><td class="memItemLeft" align="right" valign="top"><a id="a26fe3c0f19f16d036ed013537f0593e9"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>moduleDict</b></td></tr>
-<tr class="separator:a26fe3c0f19f16d036ed013537f0593e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a621387108125deeb1e5dd1fa559e9887"><td class="memItemLeft" align="right" valign="top"><a id="a621387108125deeb1e5dd1fa559e9887"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>lock</b></td></tr>
-<tr class="separator:a621387108125deeb1e5dd1fa559e9887"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa81911cade858328bc1c82638aff955f"><td class="memItemLeft" align="right" valign="top"><a id="aa81911cade858328bc1c82638aff955f"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>onDict</b></td></tr>
-<tr class="separator:aa81911cade858328bc1c82638aff955f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade43110a5804d3c549ac81daa46fcfa5"><td class="memItemLeft" align="right" valign="top"><a id="ade43110a5804d3c549ac81daa46fcfa5"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>readyDict</b></td></tr>
-<tr class="separator:ade43110a5804d3c549ac81daa46fcfa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a508a12f2b31ec1bea6ed18977bd74f53"><td class="memItemLeft" align="right" valign="top"><a id="a508a12f2b31ec1bea6ed18977bd74f53"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>offDict</b></td></tr>
-<tr class="separator:a508a12f2b31ec1bea6ed18977bd74f53"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5f0881fcbc115b469291740de83095c"><td class="memItemLeft" align="right" valign="top"><a id="ad5f0881fcbc115b469291740de83095c"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Decider</b></td></tr>
-<tr class="separator:ad5f0881fcbc115b469291740de83095c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95e029273a0acf3e5417eca95c2ea51a"><td class="memItemLeft" align="right" valign="top"><a id="a95e029273a0acf3e5417eca95c2ea51a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Decider_proc</b></td></tr>
-<tr class="separator:a95e029273a0acf3e5417eca95c2ea51a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d6b84d1ba6696d6d86eec435a422c40"><td class="memItemLeft" align="right" valign="top"><a id="a1d6b84d1ba6696d6d86eec435a422c40"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>bottleNeck</b></td></tr>
+<tr class="memitem:a1d6b84d1ba6696d6d86eec435a422c40"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1Manager.html#a1d6b84d1ba6696d6d86eec435a422c40">bottleNeck</a></td></tr>
 <tr class="separator:a1d6b84d1ba6696d6d86eec435a422c40"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42ffb72298ace7f209401508bf217055"><td class="memItemLeft" align="right" valign="top"><a id="a42ffb72298ace7f209401508bf217055"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>DeciderCooldownDuration</b></td></tr>
+<tr class="memitem:ad5f0881fcbc115b469291740de83095c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1Manager.html#ad5f0881fcbc115b469291740de83095c">Decider</a></td></tr>
+<tr class="separator:ad5f0881fcbc115b469291740de83095c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95e029273a0acf3e5417eca95c2ea51a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1Manager.html#a95e029273a0acf3e5417eca95c2ea51a">Decider_proc</a></td></tr>
+<tr class="separator:a95e029273a0acf3e5417eca95c2ea51a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42ffb72298ace7f209401508bf217055"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1Manager.html#a42ffb72298ace7f209401508bf217055">DeciderCooldownDuration</a></td></tr>
 <tr class="separator:a42ffb72298ace7f209401508bf217055"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40fd1a405cfc860f8cf6e248e24848ea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1Manager.html#a40fd1a405cfc860f8cf6e248e24848ea">launcher</a></td></tr>
+<tr class="separator:a40fd1a405cfc860f8cf6e248e24848ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a621387108125deeb1e5dd1fa559e9887"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1Manager.html#a621387108125deeb1e5dd1fa559e9887">lock</a></td></tr>
+<tr class="separator:a621387108125deeb1e5dd1fa559e9887"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26fe3c0f19f16d036ed013537f0593e9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1Manager.html#a26fe3c0f19f16d036ed013537f0593e9">moduleDict</a></td></tr>
+<tr class="separator:a26fe3c0f19f16d036ed013537f0593e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb815477eee27222c2ac5a06be58953f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1Manager.html#afb815477eee27222c2ac5a06be58953f">name</a></td></tr>
+<tr class="separator:afb815477eee27222c2ac5a06be58953f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a508a12f2b31ec1bea6ed18977bd74f53"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1Manager.html#a508a12f2b31ec1bea6ed18977bd74f53">offDict</a></td></tr>
+<tr class="separator:a508a12f2b31ec1bea6ed18977bd74f53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa81911cade858328bc1c82638aff955f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1Manager.html#aa81911cade858328bc1c82638aff955f">onDict</a></td></tr>
+<tr class="separator:aa81911cade858328bc1c82638aff955f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade43110a5804d3c549ac81daa46fcfa5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1Manager.html#ade43110a5804d3c549ac81daa46fcfa5">readyDict</a></td></tr>
+<tr class="separator:ade43110a5804d3c549ac81daa46fcfa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac49ff80c8139c125966d3fb79509e3bd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1Manager.html#ac49ff80c8139c125966d3fb79509e3bd">tfBuffer</a></td></tr>
+<tr class="separator:ac49ff80c8139c125966d3fb79509e3bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a429c06c34b8efc68f9c670a056d943ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a429c06c34b8efc68f9c670a056d943ae">&#9670;&nbsp;</a></span>__init__()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def scripts.ReFrESH_ROS.Manager.__init__ </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classscripts_1_1ReFrESH__ROS__utils_1_1Launcher.html">Launcher</a>&#160;</td>
+          <td class="paramname"><em>launcher</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">dict&#160;</td>
+          <td class="paramname"><em>managedModules</em> = <code>[]</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str&#160;</td>
+          <td class="paramname"><em>name</em> = <code>&quot;Manager&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>freq</em> = <code>5.0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>minReconfigInterval</em> = <code>1.0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7af761b6b4fa4513c47c22c6af33de3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7af761b6b4fa4513c47c22c6af33de3d">&#9670;&nbsp;</a></span>basicDecider()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def scripts.ReFrESH_ROS.Manager.basicDecider </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>event</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a800333f48e772d61e23f94c35a5ed2c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a800333f48e772d61e23f94c35a5ed2c1">&#9670;&nbsp;</a></span>findBestESPerf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def scripts.ReFrESH_ROS.Manager.findBestESPerf </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">tuple&#160;</td>
+          <td class="paramname"><em>exclude</em> = <code>()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classscripts_1_1Motion_1_1Managers_1_1MoveBaseManager.html#aab9c6e173d67868cd725b3e431f1ee18">scripts.Motion.Managers.MoveBaseManager</a>.</p>
+
+</div>
+</div>
+<a id="ad6c5a8f64df393732c16d064ed27de1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6c5a8f64df393732c16d064ed27de1e">&#9670;&nbsp;</a></span>getEShandle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def scripts.ReFrESH_ROS.Manager.getEShandle </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1ReFrESH__Module.html">ReFrESH_Module</a>&#160;</td>
+          <td class="paramname"><em>module</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a410cae76fd7871053f0959c0f48ea57a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a410cae76fd7871053f0959c0f48ea57a">&#9670;&nbsp;</a></span>getEVhandle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def scripts.ReFrESH_ROS.Manager.getEVhandle </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1ReFrESH__Module.html">ReFrESH_Module</a>&#160;</td>
+          <td class="paramname"><em>module</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a155ca901aa8fda927b5ced32fe83686a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a155ca901aa8fda927b5ced32fe83686a">&#9670;&nbsp;</a></span>getEXhandle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def scripts.ReFrESH_ROS.Manager.getEXhandle </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1ReFrESH__Module.html">ReFrESH_Module</a>&#160;</td>
+          <td class="paramname"><em>module</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1ef4cde24571ba07df1909ea976cbb9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ef4cde24571ba07df1909ea976cbb9f">&#9670;&nbsp;</a></span>moduleCanPreempt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def scripts.ReFrESH_ROS.Manager.moduleCanPreempt </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1ReFrESH__Module.html">ReFrESH_Module</a>&#160;</td>
+          <td class="paramname"><em>module</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab41bd7bd73a1b0f80379250802f802df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab41bd7bd73a1b0f80379250802f802df">&#9670;&nbsp;</a></span>moduleGet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def scripts.ReFrESH_ROS.Manager.moduleGet </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str&#160;</td>
+          <td class="paramname"><em>moduleName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str&#160;</td>
+          <td class="paramname"><em>attr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a426f768de3f7f896333dff606195782a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a426f768de3f7f896333dff606195782a">&#9670;&nbsp;</a></span>moduleIsOff()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def scripts.ReFrESH_ROS.Manager.moduleIsOff </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1ReFrESH__Module.html">ReFrESH_Module</a>&#160;</td>
+          <td class="paramname"><em>module</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a37fd176c8e286f059946ab07ed702bfc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37fd176c8e286f059946ab07ed702bfc">&#9670;&nbsp;</a></span>moduleIsOn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def scripts.ReFrESH_ROS.Manager.moduleIsOn </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1ReFrESH__Module.html">ReFrESH_Module</a>&#160;</td>
+          <td class="paramname"><em>module</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6ec1827c366e65be0e19104ce29cad28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ec1827c366e65be0e19104ce29cad28">&#9670;&nbsp;</a></span>moduleIsPreemptible()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def scripts.ReFrESH_ROS.Manager.moduleIsPreemptible </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1ReFrESH__Module.html">ReFrESH_Module</a>&#160;</td>
+          <td class="paramname"><em>module</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac350966f4ddc36927edb6115f1485f1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac350966f4ddc36927edb6115f1485f1e">&#9670;&nbsp;</a></span>moduleSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def scripts.ReFrESH_ROS.Manager.moduleSet </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str&#160;</td>
+          <td class="paramname"><em>moduleName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str&#160;</td>
+          <td class="paramname"><em>attr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9cd9dadf19e7864fc1ac33f81c52a307"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cd9dadf19e7864fc1ac33f81c52a307">&#9670;&nbsp;</a></span>requestOff()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def scripts.ReFrESH_ROS.Manager.requestOff </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">list&#160;</td>
+          <td class="paramname"><em>offList</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2e3330a76e2a274e838b01578dd50256"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e3330a76e2a274e838b01578dd50256">&#9670;&nbsp;</a></span>requestOn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def scripts.ReFrESH_ROS.Manager.requestOn </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">list&#160;</td>
+          <td class="paramname"><em>onList</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad4ff5f313db5bcfda0640d6b9f95b253"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4ff5f313db5bcfda0640d6b9f95b253">&#9670;&nbsp;</a></span>run()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def scripts.ReFrESH_ROS.Manager.run </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &#160;</td>
+          <td class="paramname"><em>blocking</em> = <code>False</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae902c89723cf9f092c7310243e05dfce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae902c89723cf9f092c7310243e05dfce">&#9670;&nbsp;</a></span>shutdown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def scripts.ReFrESH_ROS.Manager.shutdown </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classscripts_1_1Motion_1_1Managers_1_1MotionManager.html#ad0b12dac8429d68850519683fc9ca3d2">scripts.Motion.Managers.MotionManager</a>.</p>
+
+</div>
+</div>
+<a id="ab57678c33749cbfc462cfd100b67080f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab57678c33749cbfc462cfd100b67080f">&#9670;&nbsp;</a></span>turnOff()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def scripts.ReFrESH_ROS.Manager.turnOff </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1ReFrESH__Module.html">ReFrESH_Module</a>&#160;</td>
+          <td class="paramname"><em>module</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a45708b5ffb87568e7809860f49011c2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45708b5ffb87568e7809860f49011c2e">&#9670;&nbsp;</a></span>turnOffAll()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def scripts.ReFrESH_ROS.Manager.turnOffAll </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af95eac09e1533495bc4a4bf4d4969f50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af95eac09e1533495bc4a4bf4d4969f50">&#9670;&nbsp;</a></span>turnOn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def scripts.ReFrESH_ROS.Manager.turnOn </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classscripts_1_1ReFrESH__ROS_1_1ReFrESH__Module.html">ReFrESH_Module</a>&#160;</td>
+          <td class="paramname"><em>module</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a63e76aeae5784b2b93b7de3ead6cd14d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63e76aeae5784b2b93b7de3ead6cd14d">&#9670;&nbsp;</a></span>turnOnBestESPerf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def scripts.ReFrESH_ROS.Manager.turnOnBestESPerf </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">tuple&#160;</td>
+          <td class="paramname"><em>exclude</em> = <code>()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a1d6b84d1ba6696d6d86eec435a422c40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d6b84d1ba6696d6d86eec435a422c40">&#9670;&nbsp;</a></span>bottleNeck</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">scripts.ReFrESH_ROS.Manager.bottleNeck</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad5f0881fcbc115b469291740de83095c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5f0881fcbc115b469291740de83095c">&#9670;&nbsp;</a></span>Decider</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">scripts.ReFrESH_ROS.Manager.Decider</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a95e029273a0acf3e5417eca95c2ea51a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95e029273a0acf3e5417eca95c2ea51a">&#9670;&nbsp;</a></span>Decider_proc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">scripts.ReFrESH_ROS.Manager.Decider_proc</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a42ffb72298ace7f209401508bf217055"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42ffb72298ace7f209401508bf217055">&#9670;&nbsp;</a></span>DeciderCooldownDuration</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">scripts.ReFrESH_ROS.Manager.DeciderCooldownDuration</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a40fd1a405cfc860f8cf6e248e24848ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40fd1a405cfc860f8cf6e248e24848ea">&#9670;&nbsp;</a></span>launcher</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">scripts.ReFrESH_ROS.Manager.launcher</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a621387108125deeb1e5dd1fa559e9887"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a621387108125deeb1e5dd1fa559e9887">&#9670;&nbsp;</a></span>lock</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">scripts.ReFrESH_ROS.Manager.lock</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a26fe3c0f19f16d036ed013537f0593e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26fe3c0f19f16d036ed013537f0593e9">&#9670;&nbsp;</a></span>moduleDict</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">scripts.ReFrESH_ROS.Manager.moduleDict</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afb815477eee27222c2ac5a06be58953f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb815477eee27222c2ac5a06be58953f">&#9670;&nbsp;</a></span>name</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">scripts.ReFrESH_ROS.Manager.name</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a508a12f2b31ec1bea6ed18977bd74f53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a508a12f2b31ec1bea6ed18977bd74f53">&#9670;&nbsp;</a></span>offDict</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">scripts.ReFrESH_ROS.Manager.offDict</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa81911cade858328bc1c82638aff955f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa81911cade858328bc1c82638aff955f">&#9670;&nbsp;</a></span>onDict</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">scripts.ReFrESH_ROS.Manager.onDict</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ade43110a5804d3c549ac81daa46fcfa5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade43110a5804d3c549ac81daa46fcfa5">&#9670;&nbsp;</a></span>readyDict</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">scripts.ReFrESH_ROS.Manager.readyDict</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac49ff80c8139c125966d3fb79509e3bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac49ff80c8139c125966d3fb79509e3bd">&#9670;&nbsp;</a></span>tfBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">scripts.ReFrESH_ROS.Manager.tfBuffer</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>omniveyor_mobility/scripts/ReFrESH_ROS.py</li>
+<li>omniveyor_mobility/scripts/<a class="el" href="ReFrESH__ROS_8py.html">ReFrESH_ROS.py</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

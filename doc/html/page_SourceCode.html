@@ -137,13 +137,13 @@ The Interface Layer</h1>
 <li>
 <a class="el" href="RMLVector_8h.html" title="Header file for the dynamic vector class used for the Reflexxes Motion Libraries.">RMLVector.h</a> </li>
 <li>
-<a class="el" href="ReflexxesAPI_8cpp.html" title="Implementation file for the user interface (API)">ReflexxesAPI.cpp</a> </li>
+ReflexxesAPI.cpp </li>
 </ul>
 <p><br  />
  </p><hr  />
 <h1><a class="anchor" id="sec_AlgorithmLayer"></a>
 The Algorithm Layer</h1>
-<p>The <em>algorithm layer</em> contains the actual Type II On-Line Trajectory Generation (<a class="el" href="classOTG.html">OTG</a>) algorithm. The position-based algorithm is realized by the class <a class="el" href="classTypeIIRMLPosition.html" title="This class constitutes the low-level user interface of the Reflexxes Type II Motion Library,...">TypeIIRMLPosition</a>, and the velocity-based algorithm is realized by the class <a class="el" href="classTypeIIRMLVelocity.html" title="This class constitutes the user interface of velocity-based the Type II On-Line Trajectory Generation...">TypeIIRMLVelocity</a>. Both classes make use of the namespace TypeIIRMLMath, which provides all mathematical foundation for the algorithms (cf. <a class="el" href="page_SourceCode.html#sec_MathLayer">The Math Layer</a>). The methods to call the actual algorithms are <a class="el" href="classTypeIIRMLPosition.html#af2a8f0d8c55c3f5a4861149a7bc35d66" title="The main method of the class TypeIIRMLPosition. It executes the position-based Type II On-Line Trajec...">TypeIIRMLPosition::GetNextStateOfMotion()</a> and <a class="el" href="classTypeIIRMLPosition.html#af2a8f0d8c55c3f5a4861149a7bc35d66" title="The main method of the class TypeIIRMLPosition. It executes the position-based Type II On-Line Trajec...">TypeIIRMLPosition::GetNextStateOfMotion()</a>, both of which are used by the API class <a class="el" href="classReflexxesAPI.html" title="This class constitutes the API of the Reflexxes Motion Libraries">ReflexxesAPI</a> (cf. <a class="el" href="page_SourceCode.html#sec_InterfaceLayer">The Interface Layer</a>).</p>
+<p>The <em>algorithm layer</em> contains the actual Type II On-Line Trajectory Generation (<a class="el" href="classOTG.html" title="OTG.h.">OTG</a>) algorithm. The position-based algorithm is realized by the class <a class="el" href="classTypeIIRMLPosition.html" title="This class constitutes the low-level user interface of the Reflexxes Type II Motion Library,...">TypeIIRMLPosition</a>, and the velocity-based algorithm is realized by the class <a class="el" href="classTypeIIRMLVelocity.html" title="This class constitutes the user interface of velocity-based the Type II On-Line Trajectory Generation...">TypeIIRMLVelocity</a>. Both classes make use of the namespace <a class="el" href="namespaceTypeIIRMLMath.html">TypeIIRMLMath</a>, which provides all mathematical foundation for the algorithms (cf. <a class="el" href="page_SourceCode.html#sec_MathLayer">The Math Layer</a>). The methods to call the actual algorithms are <a class="el" href="classTypeIIRMLPosition.html#af2a8f0d8c55c3f5a4861149a7bc35d66" title="The main method of the class TypeIIRMLPosition. It executes the position-based Type II On-Line Trajec...">TypeIIRMLPosition::GetNextStateOfMotion()</a> and <a class="el" href="classTypeIIRMLPosition.html#af2a8f0d8c55c3f5a4861149a7bc35d66" title="The main method of the class TypeIIRMLPosition. It executes the position-based Type II On-Line Trajec...">TypeIIRMLPosition::GetNextStateOfMotion()</a>, both of which are used by the API class <a class="el" href="classReflexxesAPI.html" title="This class constitutes the API of the Reflexxes Motion Libraries">ReflexxesAPI</a> (cf. <a class="el" href="page_SourceCode.html#sec_InterfaceLayer">The Interface Layer</a>).</p>
 <p><br  />
  <b>Class List</b></p>
 <ul>
@@ -158,23 +158,23 @@ The Algorithm Layer</h1>
 <li>
 <a class="el" href="TypeIIRMLPosition_8h.html" title="Header file for the class TypeIIRMLPosition, which constitutes the actual interface of the Type II Re...">TypeIIRMLPosition.h</a> </li>
 <li>
-<a class="el" href="TypeIIRMLPosition_8cpp.html" title="Main implementation file for the Type II On-Line Trajectory Generation algorithm.">TypeIIRMLPosition.cpp</a> </li>
+TypeIIRMLPosition.cpp </li>
 <li>
-<a class="el" href="TypeIIRMLCalculatePositionalExtrems_8cpp.html" title="Implementation file for the Type II On-Line Trajectory Generation algorithm.">TypeIIRMLCalculatePositionalExtrems.cpp</a> </li>
+TypeIIRMLCalculatePositionalExtrems.cpp </li>
 <li>
-<a class="el" href="TypeIIRMLFallBackStrategy_8cpp.html" title="Implementation file for the Type II On-Line Trajectory Generation algorithm.">TypeIIRMLFallBackStrategy.cpp</a> </li>
+TypeIIRMLFallBackStrategy.cpp </li>
 <li>
-<a class="el" href="TypeIIRMLIsPhaseSynchronizationPossible_8cpp.html" title="Implementation file for the Type II On-Line Trajectory Generation algorithm.">TypeIIRMLIsPhaseSynchronizationPossible.cpp</a> </li>
+TypeIIRMLIsPhaseSynchronizationPossible.cpp </li>
 <li>
-<a class="el" href="TypeIIRMLSetupModifiedSelectionVector_8cpp.html" title="Implementation file for the Type II On-Line Trajectory Generation algorithm.">TypeIIRMLSetupModifiedSelectionVector.cpp</a> </li>
+TypeIIRMLSetupModifiedSelectionVector.cpp </li>
 <li>
-<a class="el" href="TypeIIRMLStep1_8cpp.html" title="Implementation file for the Type II On-Line Trajectory Generation algorithm.">TypeIIRMLStep1.cpp</a> </li>
+TypeIIRMLStep1.cpp </li>
 <li>
-<a class="el" href="TypeIIRMLStep2PhaseSynchronization_8cpp.html" title="Implementation file for the method TypeIIRMLPosition::Step2PhaseSynchronization()">TypeIIRMLStep2PhaseSynchronization.cpp</a> </li>
+TypeIIRMLStep2PhaseSynchronization.cpp </li>
 <li>
-<a class="el" href="TypeIIRMLStep2_8cpp.html" title="Implementation file for the method TypeIIRMLPosition::Step2()">TypeIIRMLStep2.cpp</a> </li>
+TypeIIRMLStep2.cpp </li>
 <li>
-<a class="el" href="TypeIIRMLStep3_8cpp.html" title="Implementation file for the Type II On-Line Trajectory Generation algorithm.">TypeIIRMLStep3.cpp</a> </li>
+TypeIIRMLStep3.cpp </li>
 </ul>
 <p><br  />
  <b>File List for the Velocity-based Algorithm</b></p>
@@ -182,22 +182,22 @@ The Algorithm Layer</h1>
 <li>
 <a class="el" href="TypeIIRMLVelocity_8h.html" title="Header file for the class TypeIIRMLVelocity.">TypeIIRMLVelocity.h</a> </li>
 <li>
-<a class="el" href="TypeIIRMLVelocity_8cpp.html" title="Main implementation file for the velocity-based Type II On-Line Trajectory Generation algorithm.">TypeIIRMLVelocity.cpp</a> </li>
+TypeIIRMLVelocity.cpp </li>
 <li>
-<a class="el" href="TypeIIRMLVelocityCalculatePositionalExtrems_8cpp.html" title="Implementation file for the Type II On-Line Trajectory Generation algorithm.">TypeIIRMLVelocityCalculatePositionalExtrems.cpp</a> </li>
+TypeIIRMLVelocityCalculatePositionalExtrems.cpp </li>
 <li>
-<a class="el" href="TypeIIRMLVelocityFallBackStrategy_8cpp.html" title="Implementation file for the Type II On-Line Trajectory Generation algorithm.">TypeIIRMLVelocityFallBackStrategy.cpp</a> </li>
+TypeIIRMLVelocityFallBackStrategy.cpp </li>
 <li>
-<a class="el" href="TypeIIRMLVelocityIsPhaseSynchronizationPossible_8cpp.html" title="Implementation file for the Type II On-Line Trajectory Generation algorithm.">TypeIIRMLVelocityIsPhaseSynchronizationPossible.cpp</a> </li>
+TypeIIRMLVelocityIsPhaseSynchronizationPossible.cpp </li>
 <li>
-<a class="el" href="TypeIIRMLVelocityMethods_8cpp.html" title="Implementation file for specific tools used for the velocity-based Type II On-Line Trajectory Generat...">TypeIIRMLVelocityMethods.cpp</a> </li>
+TypeIIRMLVelocityMethods.cpp </li>
 <li>
-<a class="el" href="TypeIIRMLVelocitySetupPhaseSyncSelectionVector_8cpp.html" title="Implementation file for the Type II On-Line Trajectory Generation algorithm.">TypeIIRMLVelocitySetupPhaseSyncSelectionVector.cpp</a> </li>
+TypeIIRMLVelocitySetupPhaseSyncSelectionVector.cpp </li>
 </ul>
 <hr  />
 <h1><a class="anchor" id="sec_MathLayer"></a>
 The Math Layer</h1>
-<p>The <em>math layer</em> is the most fundamental layer. It provides a collection of mathematical functions that required by the classes <a class="el" href="classTypeIIRMLPosition.html" title="This class constitutes the low-level user interface of the Reflexxes Type II Motion Library,...">TypeIIRMLPosition</a> and <a class="el" href="classTypeIIRMLVelocity.html" title="This class constitutes the user interface of velocity-based the Type II On-Line Trajectory Generation...">TypeIIRMLVelocity</a>. All these functions are contained in the namespace TypeIIRMLMath.</p>
+<p>The <em>math layer</em> is the most fundamental layer. It provides a collection of mathematical functions that required by the classes <a class="el" href="classTypeIIRMLPosition.html" title="This class constitutes the low-level user interface of the Reflexxes Type II Motion Library,...">TypeIIRMLPosition</a> and <a class="el" href="classTypeIIRMLVelocity.html" title="This class constitutes the user interface of velocity-based the Type II On-Line Trajectory Generation...">TypeIIRMLVelocity</a>. All these functions are contained in the namespace <a class="el" href="namespaceTypeIIRMLMath.html">TypeIIRMLMath</a>.</p>
 <p><br  />
  <b>Class List</b></p>
 <ul>
@@ -236,29 +236,29 @@ The Math Layer</h1>
 <li>
 <a class="el" href="TypeIIRMLStep2WithoutSynchronization_8h.html" title="Header file file for the declaration of the function TypeIIRMLMath::Step2WithoutSynchronization().">TypeIIRMLStep2WithoutSynchronization.h</a> </li>
 <li>
-<a class="el" href="TypeIIRMLDecisionTree1A_8cpp.html" title="Implementation file for the Step 1 decision tree 1A of the Type II On-Line Trajectory Generation algo...">TypeIIRMLDecisionTree1A.cpp</a> </li>
+TypeIIRMLDecisionTree1A.cpp </li>
 <li>
-<a class="el" href="TypeIIRMLDecisionTree1B_8cpp.html" title="Implementation file for the Step 1 decision tree 1B of the Type II On-Line Trajectory Generation algo...">TypeIIRMLDecisionTree1B.cpp</a> </li>
+TypeIIRMLDecisionTree1B.cpp </li>
 <li>
-<a class="el" href="TypeIIRMLDecisionTree1C_8cpp.html" title="Implementation file for the Step 1 decision tree 1C of the Type II On-Line Trajectory Generation algo...">TypeIIRMLDecisionTree1C.cpp</a> </li>
+TypeIIRMLDecisionTree1C.cpp </li>
 <li>
-<a class="el" href="TypeIIRMLDecisionTree2_8cpp.html" title="Implementation file for the Step 2 decision tree of the Type II On-Line Trajectory Generation algorit...">TypeIIRMLDecisionTree2.cpp</a> </li>
+TypeIIRMLDecisionTree2.cpp </li>
 <li>
-<a class="el" href="TypeIIRMLPolynomial_8cpp.html" title="Implementation file for for the class TypeIIRMLMath::TypeIIRMLPolynomial.">TypeIIRMLPolynomial.cpp</a> </li>
+TypeIIRMLPolynomial.cpp </li>
 <li>
-<a class="el" href="TypeIIRMLQuicksort_8cpp.html" title="Implementation file for the Quicksort algorithm.">TypeIIRMLQuicksort.cpp</a> </li>
+TypeIIRMLQuicksort.cpp </li>
 <li>
-<a class="el" href="TypeIIRMLDecisions_8cpp.html" title="Implementation file for decisions of the two decision trees of the Type II On-Line Trajectory Generat...">TypeIIRMLDecisions.cpp</a> </li>
+TypeIIRMLDecisions.cpp </li>
 <li>
-<a class="el" href="TypeIIRMLStep1IntermediateProfiles_8cpp.html" title="Implementation file for the Step 1 intermediate velocity profiles of the Type II On-Line Trajectory G...">TypeIIRMLStep1IntermediateProfiles.cpp</a> </li>
+TypeIIRMLStep1IntermediateProfiles.cpp </li>
 <li>
-<a class="el" href="TypeIIRMLStep1Profiles_8cpp.html" title="Implementation file for the calculation of all Step 1 motion profiles for the Type II On-Line Traject...">TypeIIRMLStep1Profiles.cpp</a> </li>
+TypeIIRMLStep1Profiles.cpp </li>
 <li>
-<a class="el" href="TypeIIRMLStep2IntermediateProfiles_8cpp.html" title="Implementation file for the Step 2 intermediate velocity profiles of the Type II On-Line Trajectory G...">TypeIIRMLStep2IntermediateProfiles.cpp</a> </li>
+TypeIIRMLStep2IntermediateProfiles.cpp </li>
 <li>
-<a class="el" href="TypeIIRMLStep2Profiles_8cpp.html" title="Implementation file for the calculation of all Step 2 motion profiles for the Type II On-Line Traject...">TypeIIRMLStep2Profiles.cpp</a> </li>
+TypeIIRMLStep2Profiles.cpp </li>
 <li>
-<a class="el" href="TypeIIRMLStep2WithoutSynchronization_8cpp.html" title="Implementation file for the function TypeIIRMLMath::Step2WithoutSynchronization()">TypeIIRMLStep2WithoutSynchronization.cpp</a> </li>
+TypeIIRMLStep2WithoutSynchronization.cpp </li>
 </ul>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->

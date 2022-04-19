@@ -70,7 +70,7 @@ $(function() {
 <div class="title">dot_widget.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// Display a .dot graph</span></div>
+<a href="dot__widget_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// Display a .dot graph</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Author: Max Schwarz &lt;max.schwarz@uni-bonn.de&gt;</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#ifndef DOT_WIDGET_H</span></div>
@@ -78,29 +78,36 @@ $(function() {
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;QWidget&gt;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span>nimbro_topic_transport</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenimbro__topic__transport.html">nimbro_topic_transport</a></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
 <div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classnimbro__topic__transport_1_1DotWidget.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="classnimbro__topic__transport_1_1DotWidget.html">DotWidget</a> : <span class="keyword">public</span> QWidget</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;Q_OBJECT</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classnimbro__topic__transport_1_1DotWidget.html">DotWidget</a>();</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classnimbro__topic__transport_1_1DotWidget.html">DotWidget</a>();</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classnimbro__topic__transport_1_1DotWidget.html#a8fe8a5d8738e3367df08d5e6a549e1b7">DotWidget</a>();</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classnimbro__topic__transport_1_1DotWidget.html#a17b09524213f50069900b17ccddfb032">~DotWidget</a>();</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> updateGraph(<span class="keyword">const</span> std::string&amp; dot);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classnimbro__topic__transport_1_1DotWidget.html#a392bea2f139b600151b28d56b9f2c173">updateGraph</a>(<span class="keyword">const</span> std::string&amp; dot);</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> paintEvent(QPaintEvent *) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classnimbro__topic__transport_1_1DotWidget.html#aaf01060c9e945e253979e8a768a307fe">paintEvent</a>(QPaintEvent *) <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    QPixmap m_pixmap;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    std::vector&lt;uint8_t&gt; m_pngBuf;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classnimbro__topic__transport_1_1DotWidget.html#aed4879ebbbd599500ca4147d4b8ac974">   23</a></span>&#160;    QPixmap <a class="code" href="classnimbro__topic__transport_1_1DotWidget.html#aed4879ebbbd599500ca4147d4b8ac974">m_pixmap</a>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classnimbro__topic__transport_1_1DotWidget.html#aa3fc6db3e85d66dc90eacc86d967e4a6">   24</a></span>&#160;    std::vector&lt;uint8_t&gt; <a class="code" href="classnimbro__topic__transport_1_1DotWidget.html#aa3fc6db3e85d66dc90eacc86d967e4a6">m_pngBuf</a>;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="anamespacenimbro__topic__transport_html"><div class="ttname"><a href="namespacenimbro__topic__transport.html">nimbro_topic_transport</a></div><div class="ttdef"><b>Definition:</b> bandwidth_gui.cpp:40</div></div>
+<div class="ttc" id="aclassnimbro__topic__transport_1_1DotWidget_html_a17b09524213f50069900b17ccddfb032"><div class="ttname"><a href="classnimbro__topic__transport_1_1DotWidget.html#a17b09524213f50069900b17ccddfb032">nimbro_topic_transport::DotWidget::~DotWidget</a></div><div class="ttdeci">virtual ~DotWidget()</div><div class="ttdef"><b>Definition:</b> dot_widget.cpp:102</div></div>
 <div class="ttc" id="aclassnimbro__topic__transport_1_1DotWidget_html"><div class="ttname"><a href="classnimbro__topic__transport_1_1DotWidget.html">nimbro_topic_transport::DotWidget</a></div><div class="ttdef"><b>Definition:</b> dot_widget.h:12</div></div>
+<div class="ttc" id="aclassnimbro__topic__transport_1_1DotWidget_html_a8fe8a5d8738e3367df08d5e6a549e1b7"><div class="ttname"><a href="classnimbro__topic__transport_1_1DotWidget.html#a8fe8a5d8738e3367df08d5e6a549e1b7">nimbro_topic_transport::DotWidget::DotWidget</a></div><div class="ttdeci">DotWidget()</div><div class="ttdef"><b>Definition:</b> dot_widget.cpp:97</div></div>
+<div class="ttc" id="aclassnimbro__topic__transport_1_1DotWidget_html_a392bea2f139b600151b28d56b9f2c173"><div class="ttname"><a href="classnimbro__topic__transport_1_1DotWidget.html#a392bea2f139b600151b28d56b9f2c173">nimbro_topic_transport::DotWidget::updateGraph</a></div><div class="ttdeci">void updateGraph(const std::string &amp;dot)</div><div class="ttdef"><b>Definition:</b> dot_widget.cpp:130</div></div>
+<div class="ttc" id="aclassnimbro__topic__transport_1_1DotWidget_html_aaf01060c9e945e253979e8a768a307fe"><div class="ttname"><a href="classnimbro__topic__transport_1_1DotWidget.html#aaf01060c9e945e253979e8a768a307fe">nimbro_topic_transport::DotWidget::paintEvent</a></div><div class="ttdeci">virtual void paintEvent(QPaintEvent *) override</div><div class="ttdef"><b>Definition:</b> dot_widget.cpp:106</div></div>
+<div class="ttc" id="aclassnimbro__topic__transport_1_1DotWidget_html_aed4879ebbbd599500ca4147d4b8ac974"><div class="ttname"><a href="classnimbro__topic__transport_1_1DotWidget.html#aed4879ebbbd599500ca4147d4b8ac974">nimbro_topic_transport::DotWidget::m_pixmap</a></div><div class="ttdeci">QPixmap m_pixmap</div><div class="ttdef"><b>Definition:</b> dot_widget.h:23</div></div>
+<div class="ttc" id="aclassnimbro__topic__transport_1_1DotWidget_html_aa3fc6db3e85d66dc90eacc86d967e4a6"><div class="ttname"><a href="classnimbro__topic__transport_1_1DotWidget.html#aa3fc6db3e85d66dc90eacc86d967e4a6">nimbro_topic_transport::DotWidget::m_pngBuf</a></div><div class="ttdeci">std::vector&lt; uint8_t &gt; m_pngBuf</div><div class="ttdef"><b>Definition:</b> dot_widget.h:24</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

@@ -75,9 +75,17 @@ $(function() {
 
 <p>Defines a color gradient for use with e.g. <a class="el" href="classQCPColorMap.html">QCPColorMap</a>.  
  <a href="classQCPColorGradient.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="nimbro__net__monitor_2src_2gui_2contrib_2qcustomplot_2qcustomplot_8h_source.html">qcustomplot.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
+<tr class="memitem:ac5dca17cc24336e6ca176610e7f77fc1"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#ac5dca17cc24336e6ca176610e7f77fc1">ColorInterpolation</a> { <a class="el" href="classQCPColorGradient.html#ac5dca17cc24336e6ca176610e7f77fc1a18d3bb189bc5ac3c9ef345dad522fde4">ciRGB</a>, 
+<a class="el" href="classQCPColorGradient.html#ac5dca17cc24336e6ca176610e7f77fc1a3662ff840f7db088d58e5bdb1105e3a4">ciHSV</a>, 
+<a class="el" href="classQCPColorGradient.html#ac5dca17cc24336e6ca176610e7f77fc1a18d3bb189bc5ac3c9ef345dad522fde4">ciRGB</a>, 
+<a class="el" href="classQCPColorGradient.html#ac5dca17cc24336e6ca176610e7f77fc1a3662ff840f7db088d58e5bdb1105e3a4">ciHSV</a>
+ }</td></tr>
+<tr class="separator:ac5dca17cc24336e6ca176610e7f77fc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5dca17cc24336e6ca176610e7f77fc1"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#ac5dca17cc24336e6ca176610e7f77fc1">ColorInterpolation</a> { <a class="el" href="classQCPColorGradient.html#ac5dca17cc24336e6ca176610e7f77fc1a18d3bb189bc5ac3c9ef345dad522fde4">ciRGB</a>, 
 <a class="el" href="classQCPColorGradient.html#ac5dca17cc24336e6ca176610e7f77fc1a3662ff840f7db088d58e5bdb1105e3a4">ciHSV</a>, 
 <a class="el" href="classQCPColorGradient.html#ac5dca17cc24336e6ca176610e7f77fc1a18d3bb189bc5ac3c9ef345dad522fde4">ciRGB</a>, 
@@ -117,12 +125,6 @@ Public Types</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:aed6569828fee337023670272910c9072"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5dca17cc24336e6ca176610e7f77fc1"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#ac5dca17cc24336e6ca176610e7f77fc1">ColorInterpolation</a> { <a class="el" href="classQCPColorGradient.html#ac5dca17cc24336e6ca176610e7f77fc1a18d3bb189bc5ac3c9ef345dad522fde4">ciRGB</a>, 
-<a class="el" href="classQCPColorGradient.html#ac5dca17cc24336e6ca176610e7f77fc1a3662ff840f7db088d58e5bdb1105e3a4">ciHSV</a>, 
-<a class="el" href="classQCPColorGradient.html#ac5dca17cc24336e6ca176610e7f77fc1a18d3bb189bc5ac3c9ef345dad522fde4">ciRGB</a>, 
-<a class="el" href="classQCPColorGradient.html#ac5dca17cc24336e6ca176610e7f77fc1a3662ff840f7db088d58e5bdb1105e3a4">ciHSV</a>
- }</td></tr>
-<tr class="separator:ac5dca17cc24336e6ca176610e7f77fc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed6569828fee337023670272910c9072"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#aed6569828fee337023670272910c9072">GradientPreset</a> { <br />
 &#160;&#160;<a class="el" href="classQCPColorGradient.html#aed6569828fee337023670272910c9072a231b77e839ec2cf01e1573aae5bc4a35">gpGrayscale</a>, 
 <a class="el" href="classQCPColorGradient.html#aed6569828fee337023670272910c9072ad899fc6ce4f4f957a017e9e60a55196d">gpHot</a>, 
@@ -159,141 +161,108 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a939213e85f0d1279519d555c5fcfb6ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#a939213e85f0d1279519d555c5fcfb6ad">clearColorStops</a> ()</td></tr>
+<tr class="separator:a939213e85f0d1279519d555c5fcfb6ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a939213e85f0d1279519d555c5fcfb6ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#a939213e85f0d1279519d555c5fcfb6ad">clearColorStops</a> ()</td></tr>
+<tr class="separator:a939213e85f0d1279519d555c5fcfb6ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0599545c859268b025d2060dea741cea"><td class="memItemLeft" align="right" valign="top">QRgb&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#a0599545c859268b025d2060dea741cea">color</a> (double position, const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;range, bool logarithmic=false)</td></tr>
+<tr class="separator:a0599545c859268b025d2060dea741cea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0599545c859268b025d2060dea741cea"><td class="memItemLeft" align="right" valign="top">QRgb&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#a0599545c859268b025d2060dea741cea">color</a> (double position, const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;range, bool logarithmic=false)</td></tr>
+<tr class="separator:a0599545c859268b025d2060dea741cea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abad5002858db8cf75ecb045200881de6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classQCPColorGradient.html#ac5dca17cc24336e6ca176610e7f77fc1">ColorInterpolation</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#abad5002858db8cf75ecb045200881de6">colorInterpolation</a> () const</td></tr>
+<tr class="separator:abad5002858db8cf75ecb045200881de6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abad5002858db8cf75ecb045200881de6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classQCPColorGradient.html#ac5dca17cc24336e6ca176610e7f77fc1">ColorInterpolation</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#abad5002858db8cf75ecb045200881de6">colorInterpolation</a> () const</td></tr>
+<tr class="separator:abad5002858db8cf75ecb045200881de6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf423ceb943e177b0ed2c48c811d83dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#aaf423ceb943e177b0ed2c48c811d83dc">colorize</a> (const double *<a class="el" href="udp__packet_8h.html#a7f897df1949af68456ee830f2468e476">data</a>, const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;range, QRgb *scanLine, int n, int dataIndexFactor=1, bool logarithmic=false)</td></tr>
+<tr class="separator:aaf423ceb943e177b0ed2c48c811d83dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf423ceb943e177b0ed2c48c811d83dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#aaf423ceb943e177b0ed2c48c811d83dc">colorize</a> (const double *<a class="el" href="udp__packet_8h.html#a7f897df1949af68456ee830f2468e476">data</a>, const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;range, QRgb *scanLine, int n, int dataIndexFactor=1, bool logarithmic=false)</td></tr>
+<tr class="separator:aaf423ceb943e177b0ed2c48c811d83dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf0cc7fba83ef21f7b8d5d5258519db3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#acf0cc7fba83ef21f7b8d5d5258519db3">colorize</a> (const double *<a class="el" href="udp__packet_8h.html#a7f897df1949af68456ee830f2468e476">data</a>, const unsigned char *alpha, const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;range, QRgb *scanLine, int n, int dataIndexFactor=1, bool logarithmic=false)</td></tr>
+<tr class="separator:acf0cc7fba83ef21f7b8d5d5258519db3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf0cc7fba83ef21f7b8d5d5258519db3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#acf0cc7fba83ef21f7b8d5d5258519db3">colorize</a> (const double *<a class="el" href="udp__packet_8h.html#a7f897df1949af68456ee830f2468e476">data</a>, const unsigned char *alpha, const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;range, QRgb *scanLine, int n, int dataIndexFactor=1, bool logarithmic=false)</td></tr>
+<tr class="separator:acf0cc7fba83ef21f7b8d5d5258519db3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaab19729e921682401044ac8e518ff02"><td class="memItemLeft" align="right" valign="top">QMap&lt; double, QColor &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#aaab19729e921682401044ac8e518ff02">colorStops</a> () const</td></tr>
+<tr class="separator:aaab19729e921682401044ac8e518ff02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaab19729e921682401044ac8e518ff02"><td class="memItemLeft" align="right" valign="top">QMap&lt; double, QColor &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#aaab19729e921682401044ac8e518ff02">colorStops</a> () const</td></tr>
+<tr class="separator:aaab19729e921682401044ac8e518ff02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f72f501de429829ec446333316decda"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classQCPColorGradient.html">QCPColorGradient</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#a9f72f501de429829ec446333316decda">inverted</a> () const</td></tr>
+<tr class="separator:a9f72f501de429829ec446333316decda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f72f501de429829ec446333316decda"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classQCPColorGradient.html">QCPColorGradient</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#a9f72f501de429829ec446333316decda">inverted</a> () const</td></tr>
+<tr class="separator:a9f72f501de429829ec446333316decda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4b9d7034fc3b6c76318b05075367090"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#ac4b9d7034fc3b6c76318b05075367090">levelCount</a> () const</td></tr>
+<tr class="separator:ac4b9d7034fc3b6c76318b05075367090"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4b9d7034fc3b6c76318b05075367090"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#ac4b9d7034fc3b6c76318b05075367090">levelCount</a> () const</td></tr>
+<tr class="separator:ac4b9d7034fc3b6c76318b05075367090"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0aeec1528241728b9671bf8e60b1622"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#aa0aeec1528241728b9671bf8e60b1622">loadPreset</a> (<a class="el" href="classQCPColorGradient.html#aed6569828fee337023670272910c9072">GradientPreset</a> preset)</td></tr>
+<tr class="separator:aa0aeec1528241728b9671bf8e60b1622"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0aeec1528241728b9671bf8e60b1622"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#aa0aeec1528241728b9671bf8e60b1622">loadPreset</a> (<a class="el" href="classQCPColorGradient.html#aed6569828fee337023670272910c9072">GradientPreset</a> preset)</td></tr>
+<tr class="separator:aa0aeec1528241728b9671bf8e60b1622"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad26a10e3beaef4fc6f2553d1a9756087"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#ad26a10e3beaef4fc6f2553d1a9756087">operator!=</a> (const <a class="el" href="classQCPColorGradient.html">QCPColorGradient</a> &amp;other) const</td></tr>
+<tr class="separator:ad26a10e3beaef4fc6f2553d1a9756087"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad26a10e3beaef4fc6f2553d1a9756087"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#ad26a10e3beaef4fc6f2553d1a9756087">operator!=</a> (const <a class="el" href="classQCPColorGradient.html">QCPColorGradient</a> &amp;other) const</td></tr>
+<tr class="separator:ad26a10e3beaef4fc6f2553d1a9756087"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f3478c33c59aa3c03b9ea1f809877fa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#a7f3478c33c59aa3c03b9ea1f809877fa">operator==</a> (const <a class="el" href="classQCPColorGradient.html">QCPColorGradient</a> &amp;other) const</td></tr>
+<tr class="separator:a7f3478c33c59aa3c03b9ea1f809877fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f3478c33c59aa3c03b9ea1f809877fa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#a7f3478c33c59aa3c03b9ea1f809877fa">operator==</a> (const <a class="el" href="classQCPColorGradient.html">QCPColorGradient</a> &amp;other) const</td></tr>
+<tr class="separator:a7f3478c33c59aa3c03b9ea1f809877fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22a1d2b17f203caf0dcec833507fb9e0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#a22a1d2b17f203caf0dcec833507fb9e0">periodic</a> () const</td></tr>
+<tr class="separator:a22a1d2b17f203caf0dcec833507fb9e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22a1d2b17f203caf0dcec833507fb9e0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#a22a1d2b17f203caf0dcec833507fb9e0">periodic</a> () const</td></tr>
+<tr class="separator:a22a1d2b17f203caf0dcec833507fb9e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96bcc490ff9dc32b22941ce00800bce0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#a96bcc490ff9dc32b22941ce00800bce0">QCPColorGradient</a> ()</td></tr>
+<tr class="separator:a96bcc490ff9dc32b22941ce00800bce0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96bcc490ff9dc32b22941ce00800bce0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#a96bcc490ff9dc32b22941ce00800bce0">QCPColorGradient</a> ()</td></tr>
 <tr class="separator:a96bcc490ff9dc32b22941ce00800bce0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e570b4004fd60bd135e52d685ed2b66"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#a4e570b4004fd60bd135e52d685ed2b66">QCPColorGradient</a> (<a class="el" href="classQCPColorGradient.html#aed6569828fee337023670272910c9072">GradientPreset</a> preset)</td></tr>
 <tr class="separator:a4e570b4004fd60bd135e52d685ed2b66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f3478c33c59aa3c03b9ea1f809877fa"><td class="memItemLeft" align="right" valign="top"><a id="a7f3478c33c59aa3c03b9ea1f809877fa"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="classQCPColorGradient.html">QCPColorGradient</a> &amp;other) const</td></tr>
-<tr class="separator:a7f3478c33c59aa3c03b9ea1f809877fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad26a10e3beaef4fc6f2553d1a9756087"><td class="memItemLeft" align="right" valign="top"><a id="ad26a10e3beaef4fc6f2553d1a9756087"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="classQCPColorGradient.html">QCPColorGradient</a> &amp;other) const</td></tr>
-<tr class="separator:ad26a10e3beaef4fc6f2553d1a9756087"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4b9d7034fc3b6c76318b05075367090"><td class="memItemLeft" align="right" valign="top"><a id="ac4b9d7034fc3b6c76318b05075367090"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>levelCount</b> () const</td></tr>
-<tr class="separator:ac4b9d7034fc3b6c76318b05075367090"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaab19729e921682401044ac8e518ff02"><td class="memItemLeft" align="right" valign="top"><a id="aaab19729e921682401044ac8e518ff02"></a>
-QMap&lt; double, QColor &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>colorStops</b> () const</td></tr>
-<tr class="separator:aaab19729e921682401044ac8e518ff02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abad5002858db8cf75ecb045200881de6"><td class="memItemLeft" align="right" valign="top"><a id="abad5002858db8cf75ecb045200881de6"></a>
-<a class="el" href="classQCPColorGradient.html#ac5dca17cc24336e6ca176610e7f77fc1">ColorInterpolation</a>&#160;</td><td class="memItemRight" valign="bottom"><b>colorInterpolation</b> () const</td></tr>
-<tr class="separator:abad5002858db8cf75ecb045200881de6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22a1d2b17f203caf0dcec833507fb9e0"><td class="memItemLeft" align="right" valign="top"><a id="a22a1d2b17f203caf0dcec833507fb9e0"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>periodic</b> () const</td></tr>
-<tr class="separator:a22a1d2b17f203caf0dcec833507fb9e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18da587eb4f7fc788ea28ba15b6a12de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#a18da587eb4f7fc788ea28ba15b6a12de">setLevelCount</a> (int n)</td></tr>
-<tr class="separator:a18da587eb4f7fc788ea28ba15b6a12de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a724e828aa6f0ba5011a9392477c35d3a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#a724e828aa6f0ba5011a9392477c35d3a">setColorStops</a> (const QMap&lt; double, QColor &gt; &amp;colorStops)</td></tr>
-<tr class="separator:a724e828aa6f0ba5011a9392477c35d3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b48be5e78079db1bb2a1188a4c3390e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#a3b48be5e78079db1bb2a1188a4c3390e">setColorStopAt</a> (double position, const QColor &amp;color)</td></tr>
-<tr class="separator:a3b48be5e78079db1bb2a1188a4c3390e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e570b4004fd60bd135e52d685ed2b66"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#a4e570b4004fd60bd135e52d685ed2b66">QCPColorGradient</a> (<a class="el" href="classQCPColorGradient.html#aed6569828fee337023670272910c9072">GradientPreset</a> preset)</td></tr>
+<tr class="separator:a4e570b4004fd60bd135e52d685ed2b66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa13fda86406e1d896a465a409ae63b38"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#aa13fda86406e1d896a465a409ae63b38">setColorInterpolation</a> (<a class="el" href="classQCPColorGradient.html#ac5dca17cc24336e6ca176610e7f77fc1">ColorInterpolation</a> interpolation)</td></tr>
 <tr class="separator:aa13fda86406e1d896a465a409ae63b38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa13fda86406e1d896a465a409ae63b38"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#aa13fda86406e1d896a465a409ae63b38">setColorInterpolation</a> (<a class="el" href="classQCPColorGradient.html#ac5dca17cc24336e6ca176610e7f77fc1">ColorInterpolation</a> interpolation)</td></tr>
+<tr class="separator:aa13fda86406e1d896a465a409ae63b38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b48be5e78079db1bb2a1188a4c3390e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#a3b48be5e78079db1bb2a1188a4c3390e">setColorStopAt</a> (double position, const QColor &amp;<a class="el" href="classQCPColorGradient.html#a0599545c859268b025d2060dea741cea">color</a>)</td></tr>
+<tr class="separator:a3b48be5e78079db1bb2a1188a4c3390e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b48be5e78079db1bb2a1188a4c3390e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#a3b48be5e78079db1bb2a1188a4c3390e">setColorStopAt</a> (double position, const QColor &amp;<a class="el" href="classQCPColorGradient.html#a0599545c859268b025d2060dea741cea">color</a>)</td></tr>
+<tr class="separator:a3b48be5e78079db1bb2a1188a4c3390e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a724e828aa6f0ba5011a9392477c35d3a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#a724e828aa6f0ba5011a9392477c35d3a">setColorStops</a> (const QMap&lt; double, QColor &gt; &amp;<a class="el" href="classQCPColorGradient.html#aaab19729e921682401044ac8e518ff02">colorStops</a>)</td></tr>
+<tr class="separator:a724e828aa6f0ba5011a9392477c35d3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a724e828aa6f0ba5011a9392477c35d3a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#a724e828aa6f0ba5011a9392477c35d3a">setColorStops</a> (const QMap&lt; double, QColor &gt; &amp;<a class="el" href="classQCPColorGradient.html#aaab19729e921682401044ac8e518ff02">colorStops</a>)</td></tr>
+<tr class="separator:a724e828aa6f0ba5011a9392477c35d3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18da587eb4f7fc788ea28ba15b6a12de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#a18da587eb4f7fc788ea28ba15b6a12de">setLevelCount</a> (int n)</td></tr>
+<tr class="separator:a18da587eb4f7fc788ea28ba15b6a12de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18da587eb4f7fc788ea28ba15b6a12de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#a18da587eb4f7fc788ea28ba15b6a12de">setLevelCount</a> (int n)</td></tr>
+<tr class="separator:a18da587eb4f7fc788ea28ba15b6a12de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39d6448155fc00a219f239220d14bb39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#a39d6448155fc00a219f239220d14bb39">setPeriodic</a> (bool enabled)</td></tr>
 <tr class="separator:a39d6448155fc00a219f239220d14bb39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf423ceb943e177b0ed2c48c811d83dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#aaf423ceb943e177b0ed2c48c811d83dc">colorize</a> (const double *data, const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;range, QRgb *scanLine, int n, int dataIndexFactor=1, bool logarithmic=false)</td></tr>
-<tr class="separator:aaf423ceb943e177b0ed2c48c811d83dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf0cc7fba83ef21f7b8d5d5258519db3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#acf0cc7fba83ef21f7b8d5d5258519db3">colorize</a> (const double *data, const unsigned char *alpha, const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;range, QRgb *scanLine, int n, int dataIndexFactor=1, bool logarithmic=false)</td></tr>
-<tr class="separator:acf0cc7fba83ef21f7b8d5d5258519db3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0599545c859268b025d2060dea741cea"><td class="memItemLeft" align="right" valign="top"><a id="a0599545c859268b025d2060dea741cea"></a>
-QRgb&#160;</td><td class="memItemRight" valign="bottom"><b>color</b> (double position, const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;range, bool logarithmic=false)</td></tr>
-<tr class="separator:a0599545c859268b025d2060dea741cea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0aeec1528241728b9671bf8e60b1622"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#aa0aeec1528241728b9671bf8e60b1622">loadPreset</a> (<a class="el" href="classQCPColorGradient.html#aed6569828fee337023670272910c9072">GradientPreset</a> preset)</td></tr>
-<tr class="separator:aa0aeec1528241728b9671bf8e60b1622"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a939213e85f0d1279519d555c5fcfb6ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#a939213e85f0d1279519d555c5fcfb6ad">clearColorStops</a> ()</td></tr>
-<tr class="separator:a939213e85f0d1279519d555c5fcfb6ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f72f501de429829ec446333316decda"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classQCPColorGradient.html">QCPColorGradient</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#a9f72f501de429829ec446333316decda">inverted</a> () const</td></tr>
-<tr class="separator:a9f72f501de429829ec446333316decda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e570b4004fd60bd135e52d685ed2b66"><td class="memItemLeft" align="right" valign="top"><a id="a4e570b4004fd60bd135e52d685ed2b66"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>QCPColorGradient</b> (<a class="el" href="classQCPColorGradient.html#aed6569828fee337023670272910c9072">GradientPreset</a> preset)</td></tr>
-<tr class="separator:a4e570b4004fd60bd135e52d685ed2b66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f3478c33c59aa3c03b9ea1f809877fa"><td class="memItemLeft" align="right" valign="top"><a id="a7f3478c33c59aa3c03b9ea1f809877fa"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="classQCPColorGradient.html">QCPColorGradient</a> &amp;other) const</td></tr>
-<tr class="separator:a7f3478c33c59aa3c03b9ea1f809877fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad26a10e3beaef4fc6f2553d1a9756087"><td class="memItemLeft" align="right" valign="top"><a id="ad26a10e3beaef4fc6f2553d1a9756087"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="classQCPColorGradient.html">QCPColorGradient</a> &amp;other) const</td></tr>
-<tr class="separator:ad26a10e3beaef4fc6f2553d1a9756087"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4b9d7034fc3b6c76318b05075367090"><td class="memItemLeft" align="right" valign="top"><a id="ac4b9d7034fc3b6c76318b05075367090"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>levelCount</b> () const</td></tr>
-<tr class="separator:ac4b9d7034fc3b6c76318b05075367090"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaab19729e921682401044ac8e518ff02"><td class="memItemLeft" align="right" valign="top"><a id="aaab19729e921682401044ac8e518ff02"></a>
-QMap&lt; double, QColor &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>colorStops</b> () const</td></tr>
-<tr class="separator:aaab19729e921682401044ac8e518ff02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abad5002858db8cf75ecb045200881de6"><td class="memItemLeft" align="right" valign="top"><a id="abad5002858db8cf75ecb045200881de6"></a>
-<a class="el" href="classQCPColorGradient.html#ac5dca17cc24336e6ca176610e7f77fc1">ColorInterpolation</a>&#160;</td><td class="memItemRight" valign="bottom"><b>colorInterpolation</b> () const</td></tr>
-<tr class="separator:abad5002858db8cf75ecb045200881de6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22a1d2b17f203caf0dcec833507fb9e0"><td class="memItemLeft" align="right" valign="top"><a id="a22a1d2b17f203caf0dcec833507fb9e0"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>periodic</b> () const</td></tr>
-<tr class="separator:a22a1d2b17f203caf0dcec833507fb9e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18da587eb4f7fc788ea28ba15b6a12de"><td class="memItemLeft" align="right" valign="top"><a id="a18da587eb4f7fc788ea28ba15b6a12de"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setLevelCount</b> (int n)</td></tr>
-<tr class="separator:a18da587eb4f7fc788ea28ba15b6a12de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a724e828aa6f0ba5011a9392477c35d3a"><td class="memItemLeft" align="right" valign="top"><a id="a724e828aa6f0ba5011a9392477c35d3a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setColorStops</b> (const QMap&lt; double, QColor &gt; &amp;colorStops)</td></tr>
-<tr class="separator:a724e828aa6f0ba5011a9392477c35d3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b48be5e78079db1bb2a1188a4c3390e"><td class="memItemLeft" align="right" valign="top"><a id="a3b48be5e78079db1bb2a1188a4c3390e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setColorStopAt</b> (double position, const QColor &amp;color)</td></tr>
-<tr class="separator:a3b48be5e78079db1bb2a1188a4c3390e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa13fda86406e1d896a465a409ae63b38"><td class="memItemLeft" align="right" valign="top"><a id="aa13fda86406e1d896a465a409ae63b38"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setColorInterpolation</b> (<a class="el" href="classQCPColorGradient.html#ac5dca17cc24336e6ca176610e7f77fc1">ColorInterpolation</a> interpolation)</td></tr>
-<tr class="separator:aa13fda86406e1d896a465a409ae63b38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39d6448155fc00a219f239220d14bb39"><td class="memItemLeft" align="right" valign="top"><a id="a39d6448155fc00a219f239220d14bb39"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setPeriodic</b> (bool enabled)</td></tr>
+<tr class="memitem:a39d6448155fc00a219f239220d14bb39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#a39d6448155fc00a219f239220d14bb39">setPeriodic</a> (bool enabled)</td></tr>
 <tr class="separator:a39d6448155fc00a219f239220d14bb39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf423ceb943e177b0ed2c48c811d83dc"><td class="memItemLeft" align="right" valign="top"><a id="aaf423ceb943e177b0ed2c48c811d83dc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>colorize</b> (const double *data, const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;range, QRgb *scanLine, int n, int dataIndexFactor=1, bool logarithmic=false)</td></tr>
-<tr class="separator:aaf423ceb943e177b0ed2c48c811d83dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf0cc7fba83ef21f7b8d5d5258519db3"><td class="memItemLeft" align="right" valign="top"><a id="acf0cc7fba83ef21f7b8d5d5258519db3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>colorize</b> (const double *data, const unsigned char *alpha, const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;range, QRgb *scanLine, int n, int dataIndexFactor=1, bool logarithmic=false)</td></tr>
-<tr class="separator:acf0cc7fba83ef21f7b8d5d5258519db3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0599545c859268b025d2060dea741cea"><td class="memItemLeft" align="right" valign="top"><a id="a0599545c859268b025d2060dea741cea"></a>
-QRgb&#160;</td><td class="memItemRight" valign="bottom"><b>color</b> (double position, const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;range, bool logarithmic=false)</td></tr>
-<tr class="separator:a0599545c859268b025d2060dea741cea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0aeec1528241728b9671bf8e60b1622"><td class="memItemLeft" align="right" valign="top"><a id="aa0aeec1528241728b9671bf8e60b1622"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>loadPreset</b> (<a class="el" href="classQCPColorGradient.html#aed6569828fee337023670272910c9072">GradientPreset</a> preset)</td></tr>
-<tr class="separator:aa0aeec1528241728b9671bf8e60b1622"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a939213e85f0d1279519d555c5fcfb6ad"><td class="memItemLeft" align="right" valign="top"><a id="a939213e85f0d1279519d555c5fcfb6ad"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>clearColorStops</b> ()</td></tr>
-<tr class="separator:a939213e85f0d1279519d555c5fcfb6ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f72f501de429829ec446333316decda"><td class="memItemLeft" align="right" valign="top"><a id="a9f72f501de429829ec446333316decda"></a>
-<a class="el" href="classQCPColorGradient.html">QCPColorGradient</a>&#160;</td><td class="memItemRight" valign="bottom"><b>inverted</b> () const</td></tr>
-<tr class="separator:a9f72f501de429829ec446333316decda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a137b368ea8829a871974add6e4883c71"><td class="memItemLeft" align="right" valign="top"><a id="a137b368ea8829a871974add6e4883c71"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>stopsUseAlpha</b> () const</td></tr>
+<tr class="memitem:a137b368ea8829a871974add6e4883c71"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#a137b368ea8829a871974add6e4883c71">stopsUseAlpha</a> () const</td></tr>
 <tr class="separator:a137b368ea8829a871974add6e4883c71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a353f15ab3ab586eebf1f6b58c3e2707b"><td class="memItemLeft" align="right" valign="top"><a id="a353f15ab3ab586eebf1f6b58c3e2707b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>updateColorBuffer</b> ()</td></tr>
+<tr class="memitem:a137b368ea8829a871974add6e4883c71"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#a137b368ea8829a871974add6e4883c71">stopsUseAlpha</a> () const</td></tr>
+<tr class="separator:a137b368ea8829a871974add6e4883c71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a353f15ab3ab586eebf1f6b58c3e2707b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#a353f15ab3ab586eebf1f6b58c3e2707b">updateColorBuffer</a> ()</td></tr>
 <tr class="separator:a353f15ab3ab586eebf1f6b58c3e2707b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a137b368ea8829a871974add6e4883c71"><td class="memItemLeft" align="right" valign="top"><a id="a137b368ea8829a871974add6e4883c71"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>stopsUseAlpha</b> () const</td></tr>
-<tr class="separator:a137b368ea8829a871974add6e4883c71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a353f15ab3ab586eebf1f6b58c3e2707b"><td class="memItemLeft" align="right" valign="top"><a id="a353f15ab3ab586eebf1f6b58c3e2707b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>updateColorBuffer</b> ()</td></tr>
+<tr class="memitem:a353f15ab3ab586eebf1f6b58c3e2707b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#a353f15ab3ab586eebf1f6b58c3e2707b">updateColorBuffer</a> ()</td></tr>
 <tr class="separator:a353f15ab3ab586eebf1f6b58c3e2707b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a98fb68e359904b2c991fcae3e38a211a"><td class="memItemLeft" align="right" valign="top"><a id="a98fb68e359904b2c991fcae3e38a211a"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>mLevelCount</b></td></tr>
-<tr class="separator:a98fb68e359904b2c991fcae3e38a211a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9208f022592e3bc77241669b66422b6f"><td class="memItemLeft" align="right" valign="top"><a id="a9208f022592e3bc77241669b66422b6f"></a>
-QMap&lt; double, QColor &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mColorStops</b></td></tr>
-<tr class="separator:a9208f022592e3bc77241669b66422b6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a028cef73d863800a9ee93ffd641cce01"><td class="memItemLeft" align="right" valign="top"><a id="a028cef73d863800a9ee93ffd641cce01"></a>
-<a class="el" href="classQCPColorGradient.html#ac5dca17cc24336e6ca176610e7f77fc1">ColorInterpolation</a>&#160;</td><td class="memItemRight" valign="bottom"><b>mColorInterpolation</b></td></tr>
-<tr class="separator:a028cef73d863800a9ee93ffd641cce01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b07deeb20ca1ee2d5ea7e01bf0420af"><td class="memItemLeft" align="right" valign="top"><a id="a4b07deeb20ca1ee2d5ea7e01bf0420af"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>mPeriodic</b></td></tr>
-<tr class="separator:a4b07deeb20ca1ee2d5ea7e01bf0420af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad554625b4812f46679b180a5a2ea93fd"><td class="memItemLeft" align="right" valign="top"><a id="ad554625b4812f46679b180a5a2ea93fd"></a>
-QVector&lt; QRgb &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mColorBuffer</b></td></tr>
+<tr class="memitem:ad554625b4812f46679b180a5a2ea93fd"><td class="memItemLeft" align="right" valign="top">QVector&lt; QRgb &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#ad554625b4812f46679b180a5a2ea93fd">mColorBuffer</a></td></tr>
 <tr class="separator:ad554625b4812f46679b180a5a2ea93fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abacf55e11f67d6722a687af1bb2687bd"><td class="memItemLeft" align="right" valign="top"><a id="abacf55e11f67d6722a687af1bb2687bd"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>mColorBufferInvalidated</b></td></tr>
+<tr class="memitem:abacf55e11f67d6722a687af1bb2687bd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#abacf55e11f67d6722a687af1bb2687bd">mColorBufferInvalidated</a></td></tr>
 <tr class="separator:abacf55e11f67d6722a687af1bb2687bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a028cef73d863800a9ee93ffd641cce01"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classQCPColorGradient.html#ac5dca17cc24336e6ca176610e7f77fc1">ColorInterpolation</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#a028cef73d863800a9ee93ffd641cce01">mColorInterpolation</a></td></tr>
+<tr class="separator:a028cef73d863800a9ee93ffd641cce01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9208f022592e3bc77241669b66422b6f"><td class="memItemLeft" align="right" valign="top">QMap&lt; double, QColor &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#a9208f022592e3bc77241669b66422b6f">mColorStops</a></td></tr>
+<tr class="separator:a9208f022592e3bc77241669b66422b6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98fb68e359904b2c991fcae3e38a211a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#a98fb68e359904b2c991fcae3e38a211a">mLevelCount</a></td></tr>
+<tr class="separator:a98fb68e359904b2c991fcae3e38a211a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b07deeb20ca1ee2d5ea7e01bf0420af"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQCPColorGradient.html#a4b07deeb20ca1ee2d5ea7e01bf0420af">mPeriodic</a></td></tr>
+<tr class="separator:a4b07deeb20ca1ee2d5ea7e01bf0420af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Defines a color gradient for use with e.g. <a class="el" href="classQCPColorMap.html">QCPColorMap</a>. </p>
@@ -489,7 +458,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>mColorBufferInvalidat
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a96bcc490ff9dc32b22941ce00800bce0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a96bcc490ff9dc32b22941ce00800bce0">&#9670;&nbsp;</a></span>QCPColorGradient() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a96bcc490ff9dc32b22941ce00800bce0">&#9670;&nbsp;</a></span>QCPColorGradient() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -508,7 +477,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>mColorBufferInvalidat
 </div>
 </div>
 <a id="a4e570b4004fd60bd135e52d685ed2b66"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e570b4004fd60bd135e52d685ed2b66">&#9670;&nbsp;</a></span>QCPColorGradient() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e570b4004fd60bd135e52d685ed2b66">&#9670;&nbsp;</a></span>QCPColorGradient() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -527,9 +496,44 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>mColorBufferInvalidat
 
 </div>
 </div>
+<a id="a96bcc490ff9dc32b22941ce00800bce0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96bcc490ff9dc32b22941ce00800bce0">&#9670;&nbsp;</a></span>QCPColorGradient() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QCPColorGradient::QCPColorGradient </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4e570b4004fd60bd135e52d685ed2b66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e570b4004fd60bd135e52d685ed2b66">&#9670;&nbsp;</a></span>QCPColorGradient() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QCPColorGradient::QCPColorGradient </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classQCPColorGradient.html#aed6569828fee337023670272910c9072">GradientPreset</a>&#160;</td>
+          <td class="paramname"><em>preset</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a939213e85f0d1279519d555c5fcfb6ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a939213e85f0d1279519d555c5fcfb6ad">&#9670;&nbsp;</a></span>clearColorStops()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a939213e85f0d1279519d555c5fcfb6ad">&#9670;&nbsp;</a></span>clearColorStops() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -547,8 +551,143 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>mColorBufferInvalidat
 
 </div>
 </div>
+<a id="a939213e85f0d1279519d555c5fcfb6ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a939213e85f0d1279519d555c5fcfb6ad">&#9670;&nbsp;</a></span>clearColorStops() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QCPColorGradient::clearColorStops </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0599545c859268b025d2060dea741cea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0599545c859268b025d2060dea741cea">&#9670;&nbsp;</a></span>color() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QRgb QCPColorGradient::color </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;&#160;</td>
+          <td class="paramname"><em>range</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>logarithmic</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0599545c859268b025d2060dea741cea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0599545c859268b025d2060dea741cea">&#9670;&nbsp;</a></span>color() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QRgb QCPColorGradient::color </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;&#160;</td>
+          <td class="paramname"><em>range</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>logarithmic</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abad5002858db8cf75ecb045200881de6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abad5002858db8cf75ecb045200881de6">&#9670;&nbsp;</a></span>colorInterpolation() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classQCPColorGradient.html#ac5dca17cc24336e6ca176610e7f77fc1">ColorInterpolation</a> QCPColorGradient::colorInterpolation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abad5002858db8cf75ecb045200881de6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abad5002858db8cf75ecb045200881de6">&#9670;&nbsp;</a></span>colorInterpolation() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classQCPColorGradient.html#ac5dca17cc24336e6ca176610e7f77fc1">ColorInterpolation</a> QCPColorGradient::colorInterpolation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aaf423ceb943e177b0ed2c48c811d83dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf423ceb943e177b0ed2c48c811d83dc">&#9670;&nbsp;</a></span>colorize() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf423ceb943e177b0ed2c48c811d83dc">&#9670;&nbsp;</a></span>colorize() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -604,8 +743,118 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>mColorBufferInvalidat
 
 </div>
 </div>
+<a id="aaf423ceb943e177b0ed2c48c811d83dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf423ceb943e177b0ed2c48c811d83dc">&#9670;&nbsp;</a></span>colorize() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QCPColorGradient::colorize </td>
+          <td>(</td>
+          <td class="paramtype">const double *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;&#160;</td>
+          <td class="paramname"><em>range</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QRgb *&#160;</td>
+          <td class="paramname"><em>scanLine</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dataIndexFactor</em> = <code>1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>logarithmic</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="acf0cc7fba83ef21f7b8d5d5258519db3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acf0cc7fba83ef21f7b8d5d5258519db3">&#9670;&nbsp;</a></span>colorize() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#acf0cc7fba83ef21f7b8d5d5258519db3">&#9670;&nbsp;</a></span>colorize() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QCPColorGradient::colorize </td>
+          <td>(</td>
+          <td class="paramtype">const double *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned char *&#160;</td>
+          <td class="paramname"><em>alpha</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classQCPRange.html">QCPRange</a> &amp;&#160;</td>
+          <td class="paramname"><em>range</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QRgb *&#160;</td>
+          <td class="paramname"><em>scanLine</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dataIndexFactor</em> = <code>1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>logarithmic</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acf0cc7fba83ef21f7b8d5d5258519db3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf0cc7fba83ef21f7b8d5d5258519db3">&#9670;&nbsp;</a></span>colorize() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -665,8 +914,58 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>mColorBufferInvalidat
 
 </div>
 </div>
+<a id="aaab19729e921682401044ac8e518ff02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaab19729e921682401044ac8e518ff02">&#9670;&nbsp;</a></span>colorStops() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QMap&lt;double, QColor&gt; QCPColorGradient::colorStops </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaab19729e921682401044ac8e518ff02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaab19729e921682401044ac8e518ff02">&#9670;&nbsp;</a></span>colorStops() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QMap&lt;double, QColor&gt; QCPColorGradient::colorStops </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a9f72f501de429829ec446333316decda"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f72f501de429829ec446333316decda">&#9670;&nbsp;</a></span>inverted()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f72f501de429829ec446333316decda">&#9670;&nbsp;</a></span>inverted() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -684,8 +983,93 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>mColorBufferInvalidat
 
 </div>
 </div>
+<a id="a9f72f501de429829ec446333316decda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f72f501de429829ec446333316decda">&#9670;&nbsp;</a></span>inverted() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classQCPColorGradient.html">QCPColorGradient</a> QCPColorGradient::inverted </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac4b9d7034fc3b6c76318b05075367090"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4b9d7034fc3b6c76318b05075367090">&#9670;&nbsp;</a></span>levelCount() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int QCPColorGradient::levelCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac4b9d7034fc3b6c76318b05075367090"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4b9d7034fc3b6c76318b05075367090">&#9670;&nbsp;</a></span>levelCount() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int QCPColorGradient::levelCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aa0aeec1528241728b9671bf8e60b1622"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa0aeec1528241728b9671bf8e60b1622">&#9670;&nbsp;</a></span>loadPreset()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0aeec1528241728b9671bf8e60b1622">&#9670;&nbsp;</a></span>loadPreset() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QCPColorGradient::loadPreset </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classQCPColorGradient.html#aed6569828fee337023670272910c9072">GradientPreset</a>&#160;</td>
+          <td class="paramname"><em>preset</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa0aeec1528241728b9671bf8e60b1622"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0aeec1528241728b9671bf8e60b1622">&#9670;&nbsp;</a></span>loadPreset() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -706,8 +1090,146 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>mColorBufferInvalidat
  
 </div>
 </div>
+<a id="ad26a10e3beaef4fc6f2553d1a9756087"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad26a10e3beaef4fc6f2553d1a9756087">&#9670;&nbsp;</a></span>operator!=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool QCPColorGradient::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classQCPColorGradient.html">QCPColorGradient</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad26a10e3beaef4fc6f2553d1a9756087"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad26a10e3beaef4fc6f2553d1a9756087">&#9670;&nbsp;</a></span>operator!=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool QCPColorGradient::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classQCPColorGradient.html">QCPColorGradient</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7f3478c33c59aa3c03b9ea1f809877fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f3478c33c59aa3c03b9ea1f809877fa">&#9670;&nbsp;</a></span>operator==() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool QCPColorGradient::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classQCPColorGradient.html">QCPColorGradient</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7f3478c33c59aa3c03b9ea1f809877fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f3478c33c59aa3c03b9ea1f809877fa">&#9670;&nbsp;</a></span>operator==() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool QCPColorGradient::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classQCPColorGradient.html">QCPColorGradient</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a22a1d2b17f203caf0dcec833507fb9e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22a1d2b17f203caf0dcec833507fb9e0">&#9670;&nbsp;</a></span>periodic() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool QCPColorGradient::periodic </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a22a1d2b17f203caf0dcec833507fb9e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22a1d2b17f203caf0dcec833507fb9e0">&#9670;&nbsp;</a></span>periodic() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool QCPColorGradient::periodic </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aa13fda86406e1d896a465a409ae63b38"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa13fda86406e1d896a465a409ae63b38">&#9670;&nbsp;</a></span>setColorInterpolation()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa13fda86406e1d896a465a409ae63b38">&#9670;&nbsp;</a></span>setColorInterpolation() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -726,8 +1248,26 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>mColorBufferInvalidat
 
 </div>
 </div>
+<a id="aa13fda86406e1d896a465a409ae63b38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa13fda86406e1d896a465a409ae63b38">&#9670;&nbsp;</a></span>setColorInterpolation() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QCPColorGradient::setColorInterpolation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classQCPColorGradient.html#ac5dca17cc24336e6ca176610e7f77fc1">ColorInterpolation</a>&#160;</td>
+          <td class="paramname"><em>interpolation</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a3b48be5e78079db1bb2a1188a4c3390e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b48be5e78079db1bb2a1188a4c3390e">&#9670;&nbsp;</a></span>setColorStopAt()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b48be5e78079db1bb2a1188a4c3390e">&#9670;&nbsp;</a></span>setColorStopAt() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -756,8 +1296,36 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>mColorBufferInvalidat
 
 </div>
 </div>
+<a id="a3b48be5e78079db1bb2a1188a4c3390e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b48be5e78079db1bb2a1188a4c3390e">&#9670;&nbsp;</a></span>setColorStopAt() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QCPColorGradient::setColorStopAt </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QColor &amp;&#160;</td>
+          <td class="paramname"><em>color</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a724e828aa6f0ba5011a9392477c35d3a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a724e828aa6f0ba5011a9392477c35d3a">&#9670;&nbsp;</a></span>setColorStops()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a724e828aa6f0ba5011a9392477c35d3a">&#9670;&nbsp;</a></span>setColorStops() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -777,8 +1345,26 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>mColorBufferInvalidat
 
 </div>
 </div>
+<a id="a724e828aa6f0ba5011a9392477c35d3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a724e828aa6f0ba5011a9392477c35d3a">&#9670;&nbsp;</a></span>setColorStops() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QCPColorGradient::setColorStops </td>
+          <td>(</td>
+          <td class="paramtype">const QMap&lt; double, QColor &gt; &amp;&#160;</td>
+          <td class="paramname"><em>colorStops</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a18da587eb4f7fc788ea28ba15b6a12de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18da587eb4f7fc788ea28ba15b6a12de">&#9670;&nbsp;</a></span>setLevelCount()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a18da587eb4f7fc788ea28ba15b6a12de">&#9670;&nbsp;</a></span>setLevelCount() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -799,8 +1385,44 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>mColorBufferInvalidat
  
 </div>
 </div>
+<a id="a18da587eb4f7fc788ea28ba15b6a12de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18da587eb4f7fc788ea28ba15b6a12de">&#9670;&nbsp;</a></span>setLevelCount() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QCPColorGradient::setLevelCount </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a39d6448155fc00a219f239220d14bb39"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a39d6448155fc00a219f239220d14bb39">&#9670;&nbsp;</a></span>setPeriodic()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a39d6448155fc00a219f239220d14bb39">&#9670;&nbsp;</a></span>setPeriodic() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QCPColorGradient::setPeriodic </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enabled</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a39d6448155fc00a219f239220d14bb39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39d6448155fc00a219f239220d14bb39">&#9670;&nbsp;</a></span>setPeriodic() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -823,9 +1445,242 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>mColorBufferInvalidat
 
 </div>
 </div>
+<a id="a137b368ea8829a871974add6e4883c71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a137b368ea8829a871974add6e4883c71">&#9670;&nbsp;</a></span>stopsUseAlpha() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool QCPColorGradient::stopsUseAlpha </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a137b368ea8829a871974add6e4883c71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a137b368ea8829a871974add6e4883c71">&#9670;&nbsp;</a></span>stopsUseAlpha() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool QCPColorGradient::stopsUseAlpha </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a353f15ab3ab586eebf1f6b58c3e2707b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a353f15ab3ab586eebf1f6b58c3e2707b">&#9670;&nbsp;</a></span>updateColorBuffer() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QCPColorGradient::updateColorBuffer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a353f15ab3ab586eebf1f6b58c3e2707b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a353f15ab3ab586eebf1f6b58c3e2707b">&#9670;&nbsp;</a></span>updateColorBuffer() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QCPColorGradient::updateColorBuffer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ad554625b4812f46679b180a5a2ea93fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad554625b4812f46679b180a5a2ea93fd">&#9670;&nbsp;</a></span>mColorBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QVector&lt; QRgb &gt; QCPColorGradient::mColorBuffer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abacf55e11f67d6722a687af1bb2687bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abacf55e11f67d6722a687af1bb2687bd">&#9670;&nbsp;</a></span>mColorBufferInvalidated</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool QCPColorGradient::mColorBufferInvalidated</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a028cef73d863800a9ee93ffd641cce01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a028cef73d863800a9ee93ffd641cce01">&#9670;&nbsp;</a></span>mColorInterpolation</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classQCPColorGradient.html#ac5dca17cc24336e6ca176610e7f77fc1">ColorInterpolation</a> QCPColorGradient::mColorInterpolation</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9208f022592e3bc77241669b66422b6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9208f022592e3bc77241669b66422b6f">&#9670;&nbsp;</a></span>mColorStops</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QMap&lt; double, QColor &gt; QCPColorGradient::mColorStops</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a98fb68e359904b2c991fcae3e38a211a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98fb68e359904b2c991fcae3e38a211a">&#9670;&nbsp;</a></span>mLevelCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int QCPColorGradient::mLevelCount</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4b07deeb20ca1ee2d5ea7e01bf0420af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b07deeb20ca1ee2d5ea7e01bf0420af">&#9670;&nbsp;</a></span>mPeriodic</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool QCPColorGradient::mPeriodic</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>nimbro_network/nimbro_net_monitor/src/gui/contrib/qcustomplot/<a class="el" href="nimbro__net__monitor_2src_2gui_2contrib_2qcustomplot_2qcustomplot_8h_source.html">qcustomplot.h</a></li>
-<li>nimbro_network/nimbro_net_monitor/src/gui/contrib/qcustomplot/qcustomplot.cpp</li>
+<li>nimbro_network/nimbro_net_monitor/src/gui/contrib/qcustomplot/<a class="el" href="nimbro__net__monitor_2src_2gui_2contrib_2qcustomplot_2qcustomplot_8cpp.html">qcustomplot.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
