@@ -1,0 +1,5 @@
+<map id="RMLInputParameters" name="RMLInputParameters">
+<area shape="rect" id="node1" title="Class for the input parameters of the On&#45;Line Trajectory Generation algorithm." alt="" coords="149,5,307,32"/>
+<area shape="rect" id="node2" href="$classRMLPositionInputParameters.html" title="Class for the input parameters of the position&#45;based On&#45;Line Trajectory Generation algorithm." alt="" coords="5,80,216,107"/>
+<area shape="rect" id="node3" href="$classRMLVelocityInputParameters.html" title="Class for the input parameters of the velocity&#45;based On&#45;Line Trajectory Generation algorithm." alt="" coords="240,80,451,107"/>
+</map>

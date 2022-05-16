@@ -1,0 +1,5 @@
+<map id="gazebo::SimpleTrackedVehiclePlugin" name="gazebo::SimpleTrackedVehiclePlugin">
+<area shape="rect" id="node1" title="A very fast, but also very accurate model of non&#45;deformable tracks without grousers." alt="" coords="5,155,225,196"/>
+<area shape="rect" id="node2" href="$classgazebo_1_1TrackedVehiclePlugin.html" title="An abstract gazebo model plugin for tracked vehicles." alt="" coords="8,80,223,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="64,5,167,32"/>
+</map>

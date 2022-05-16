@@ -1,0 +1,5 @@
+<map id="QCPAxisTickerPi" name="QCPAxisTickerPi">
+<area shape="rect" id="node1" title="Specialized axis ticker to display ticks in units of an arbitrary constant, for example pi." alt="" coords="5,173,132,200"/>
+<area shape="rect" id="node2" href="$classQCPAxisTicker.html" title="The base class tick generator used by QCPAxis to create tick positions and tick labels." alt="" coords="129,96,243,123"/>
+<area shape="rect" id="node3" title=" " alt="" coords="7,5,74,32"/>
+</map>

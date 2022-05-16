@@ -1,0 +1,21 @@
+<map id="/home/jonathan/OmniDev/src/omniveyor_hardware/pcv_base/external/ReflexxesTypeII/include/TypeIIRMLStep1Profiles.h" name="/home/jonathan/OmniDev/src/omniveyor_hardware/pcv_base/external/ReflexxesTypeII/include/TypeIIRMLStep1Profiles.h">
+<area shape="rect" id="node1" title="Header file for the Step 1 motion profiles." alt="" coords="1979,5,2229,76"/>
+<area shape="rect" id="node2" href="$TypeIIRMLDecisionTree1A_8h.html" title="Header file for the Step 1 decision tree 1A of the Type II On&#45;Line Trajectory Generation algorithm." alt="" coords="347,124,610,195"/>
+<area shape="rect" id="node3" href="$TypeIIRMLDecisionTree1A_8cpp.html" title="Implementation file for the Step 1 decision tree 1A of the Type II On&#45;Line Trajectory Generation algo..." alt="" coords="5,250,325,321"/>
+<area shape="rect" id="node4" href="$TypeIIRMLStep1_8cpp.html" title="Implementation file for the Type II On&#45;Line Trajectory Generation algorithm." alt="" coords="350,250,607,321"/>
+<area shape="rect" id="node5" href="$TypeIIRMLPosition_8h.html" title="Header file for the class TypeIIRMLPosition, which constitutes the actual interface of the Type II Re..." alt="" coords="1822,124,2066,195"/>
+<area shape="rect" id="node9" href="$TypeIIRMLIsPhaseSynchronizationPossible_8cpp.html" title="Implementation file for the Type II On&#45;Line Trajectory Generation algorithm." alt="" coords="632,243,979,328"/>
+<area shape="rect" id="node10" href="$TypeIIRMLPosition_8cpp.html" title="Main implementation file for the Type II On&#45;Line Trajectory Generation algorithm." alt="" coords="2985,250,3257,321"/>
+<area shape="rect" id="node15" href="$TypeIIRMLStep2WithoutSynchronization_8h.html" title="Header file file for the declaration of the function TypeIIRMLMath::Step2WithoutSynchronization()." alt="" coords="2141,124,2496,195"/>
+<area shape="rect" id="node16" href="$TypeIIRMLStep2WithoutSynchronization_8cpp.html" title="Implementation file for the function TypeIIRMLMath::Step2WithoutSynchronization()" alt="" coords="3563,243,3845,328"/>
+<area shape="rect" id="node17" href="$TypeIIRMLDecisionTree1B_8cpp.html" title="Implementation file for the Step 1 decision tree 1B of the Type II On&#45;Line Trajectory Generation algo..." alt="" coords="2571,124,2891,195"/>
+<area shape="rect" id="node18" href="$TypeIIRMLDecisionTree1C_8cpp.html" title="Implementation file for the Step 1 decision tree 1C of the Type II On&#45;Line Trajectory Generation algo..." alt="" coords="2915,124,3235,195"/>
+<area shape="rect" id="node19" href="$TypeIIRMLStep1Profiles_8cpp.html" title="Implementation file for the calculation of all Step 1 motion profiles for the Type II On&#45;Line Traject..." alt="" coords="3259,124,3565,195"/>
+<area shape="rect" id="node6" href="$ReflexxesAPI_8cpp.html" title="Implementation file for the user interface (API)" alt="" coords="1003,250,1247,321"/>
+<area shape="rect" id="node7" href="$TypeIIRMLCalculatePositionalExtrems_8cpp.html" title="Implementation file for the Type II On&#45;Line Trajectory Generation algorithm." alt="" coords="1271,243,1590,328"/>
+<area shape="rect" id="node8" href="$TypeIIRMLFallBackStrategy_8cpp.html" title="Implementation file for the Type II On&#45;Line Trajectory Generation algorithm." alt="" coords="1615,250,1943,321"/>
+<area shape="rect" id="node11" href="$TypeIIRMLSetupModifiedSelectionVector_8cpp.html" title="Implementation file for the Type II On&#45;Line Trajectory Generation algorithm." alt="" coords="1967,243,2254,328"/>
+<area shape="rect" id="node12" href="$TypeIIRMLStep2_8cpp.html" title="Implementation file for the method TypeIIRMLPosition::Step2()" alt="" coords="3282,250,3539,321"/>
+<area shape="rect" id="node13" href="$TypeIIRMLStep2PhaseSynchronization_8cpp.html" title="Implementation file for the method TypeIIRMLPosition::Step2PhaseSynchronization()" alt="" coords="2279,250,2679,321"/>
+<area shape="rect" id="node14" href="$TypeIIRMLStep3_8cpp.html" title="Implementation file for the Type II On&#45;Line Trajectory Generation algorithm." alt="" coords="2703,250,2961,321"/>
+</map>

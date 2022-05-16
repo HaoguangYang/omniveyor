@@ -1,0 +1,5 @@
+<map id="RMLFlags" name="RMLFlags">
+<area shape="rect" id="node1" title="Data structure containing flags to parameterize the execution of the On&#45;Line Trajectory Generation al..." alt="" coords="111,5,197,32"/>
+<area shape="rect" id="node2" href="$classRMLPositionFlags.html" title="Data structure containing flags to parameterize the execution of the position&#45;based On&#45;Line Trajector..." alt="" coords="5,80,143,107"/>
+<area shape="rect" id="node3" href="$classRMLVelocityFlags.html" title="Data structure containing flags to parameterize the execution of the velocity&#45;based On&#45;Line Trajector..." alt="" coords="167,80,304,107"/>
+</map>

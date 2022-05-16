@@ -5,6 +5,7 @@ build*/
 devel*/
 msg_gen/
 srv_gen/
+doc/
 msg/*Action.msg
 msg/*ActionFeedback.msg
 msg/*ActionGoal.msg

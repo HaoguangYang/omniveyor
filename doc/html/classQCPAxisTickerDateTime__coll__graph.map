@@ -1,0 +1,5 @@
+<map id="QCPAxisTickerDateTime" name="QCPAxisTickerDateTime">
+<area shape="rect" id="node1" title="Specialized axis ticker for calendar dates and times as axis ticks." alt="" coords="5,171,184,197"/>
+<area shape="rect" id="node2" href="$classQCPAxisTicker.html" title="The base class tick generator used by QCPAxis to create tick positions and tick labels." alt="" coords="37,95,152,121"/>
+<area shape="rect" id="node3" title=" " alt="" coords="61,5,128,32"/>
+</map>

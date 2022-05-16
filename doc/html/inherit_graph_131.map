@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classRMLInputParameters.html" title="Class for the input parameters of the On&#45;Line Trajectory Generation algorithm." alt="" coords="5,31,164,57"/>
+<area shape="rect" id="node2" href="$classRMLPositionInputParameters.html" title="Class for the input parameters of the position&#45;based On&#45;Line Trajectory Generation algorithm." alt="" coords="212,5,423,32"/>
+<area shape="rect" id="node3" href="$classRMLVelocityInputParameters.html" title="Class for the input parameters of the velocity&#45;based On&#45;Line Trajectory Generation algorithm." alt="" coords="212,56,423,83"/>
+</map>

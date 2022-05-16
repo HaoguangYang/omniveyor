@@ -1,0 +1,5 @@
+<map id="scripts.ReFrESH_ROS.Manager" name="scripts.ReFrESH_ROS.Manager">
+<area shape="rect" id="node1" title=" " alt="" coords="95,5,313,32"/>
+<area shape="rect" id="node2" href="$classscripts_1_1Motion_1_1Managers_1_1MotionManager.html" title=" " alt="" coords="5,80,192,121"/>
+<area shape="rect" id="node3" href="$classscripts_1_1Motion_1_1Managers_1_1MoveBaseManager.html" title=" " alt="" coords="216,80,403,121"/>
+</map>

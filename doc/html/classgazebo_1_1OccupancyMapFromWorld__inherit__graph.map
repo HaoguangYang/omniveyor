@@ -1,0 +1,4 @@
+<map id="gazebo::OccupancyMapFromWorld" name="gazebo::OccupancyMapFromWorld">
+<area shape="rect" id="node1" title="Octomap plugin for Gazebo." alt="" coords="5,80,215,121"/>
+<area shape="rect" id="node2" title=" " alt="" coords="60,5,160,32"/>
+</map>

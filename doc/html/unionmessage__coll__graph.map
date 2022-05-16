@@ -1,0 +1,6 @@
+<map id="message" name="message">
+<area shape="rect" id="node1" title=" " alt="" coords="163,95,244,121"/>
+<area shape="rect" id="node2" href="$structSDO__message.html" title=" " alt="" coords="5,5,121,32"/>
+<area shape="rect" id="node3" href="$structPDO__message.html" title=" " alt="" coords="145,5,261,32"/>
+<area shape="rect" id="node4" href="$structNMT__message.html" title=" " alt="" coords="285,5,404,32"/>
+</map>
