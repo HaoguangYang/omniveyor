@@ -7,6 +7,7 @@ import rospkg
 from qt_gui.plugin import Plugin
 from python_qt_binding import loadUi
 from python_qt_binding.QtWidgets import QWidget
+from python_qt_binding.QtWidgets import QTreeWidgetItem
 
 class GUI(Plugin):
 
@@ -45,6 +46,58 @@ class GUI(Plugin):
             self._widget.setWindowTitle(self._widget.windowTitle() + (' (%d)' % context.serial_number()))
         # Add widget to the user interface
         context.add_widget(self._widget)
+
+        # Connecting signals
+        self._widget.connectButton.clicked.connect(self.connectToRobot)
+        self._widget.refreshButton.clicked.connect(self.refreshConnection)
+        self._widget.reconnectButton.clicked.connect(self.reconnectToRobot)
+        self._widget.removeButton.clicked.connect(self.removeRobot)
+        self._widget.eStopButton.clicked.connect(self.stopSelectedRobot)
+        self._widget.eStopAllButton.clicked.connect(self.stopAllRobots)
+
+    def connectToRobot(self):
+        ip1 = ip2 = ip3 = ip4 = 0
+        try:
+            if int(self._widget.robotIP1.text()) < 0 or int(self._widget.robotIP1.text()) > 255:
+                print("ERROR: IP address is ill-formed!")
+            ip1 = int(self._widget.robotIP1.text())
+            if int(self._widget.robotIP2.text()) < 0 or int(self._widget.robotIP2.text()) > 255:
+                print("ERROR: IP address is ill-formed!")
+            ip2 = int(self._widget.robotIP2.text())
+            if int(self._widget.robotIP3.text()) < 0 or int(self._widget.robotIP3.text()) > 255:
+                print("ERROR: IP address is ill-formed!")
+            ip3 = int(self._widget.robotIP3.text())
+            if int(self._widget.robotIP4.text()) < 0 or int(self._widget.robotIP4.text()) > 255:
+                print("ERROR: IP address is ill-formed!")
+            ip4 = int(self._widget.robotIP4.text())
+        except ValueError:
+            print("ERROR: IP address is ill-formed!")
+        robotIP = str(ip1)+'.'+str(ip2)+'.'+str(ip3)+'.'+str(ip4)
+        # TODO: connect to robotIP with Nimbro and register the robot on the host machine.
+        self._widget.knownRobots.addTopLevelItem(QTreeWidgetItem([str(ip4), robotIP, 'Disconnected']))
+
+    def refreshConnection(self):
+        pass
+
+    def reconnectToRobot(self):
+        pass
+
+    def removeRobot(self):
+        for item in self._widget.knownRobots.selectedItems():
+            # TODO: disconnect robot first...
+            self._widget.knownRobots.takeTopLevelItem(
+                self._widget.knownRobots.indexOfTopLevelItem(item)
+            )
+
+    def stopSelectedRobot(self):
+        for item in self._widget.knownRobots.selectedItems():
+            # TODO: stop robot at the IP
+            pass
+
+    def stopAllRobots(self):
+        for ind in range(0, self._widget.knownRobots.topLevelItemCount()):
+            robot = self._widget.knownRobots.topLevelItem(ind)
+            # TODO: stop robot at the IP
 
     def shutdown_plugin(self):
         # TODO unregister all publishers here

@@ -51,111 +51,6 @@
      <string>.</string>
     </property>
    </widget>
-   <widget class="QPlainTextEdit" name="robotIP3">
-    <property name="geometry">
-     <rect>
-      <x>130</x>
-      <y>30</y>
-      <width>51</width>
-      <height>38</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="cursor" stdset="0">
-     <cursorShape>IBeamCursor</cursorShape>
-    </property>
-    <property name="focusPolicy">
-     <enum>Qt::StrongFocus</enum>
-    </property>
-    <property name="locale">
-     <locale language="English" country="UnitedStates"/>
-    </property>
-    <property name="inputMethodHints">
-     <set>Qt::ImhDigitsOnly</set>
-    </property>
-    <property name="verticalScrollBarPolicy">
-     <enum>Qt::ScrollBarAlwaysOff</enum>
-    </property>
-    <property name="horizontalScrollBarPolicy">
-     <enum>Qt::ScrollBarAlwaysOff</enum>
-    </property>
-   </widget>
-   <widget class="QPlainTextEdit" name="robotIP1">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>30</y>
-      <width>51</width>
-      <height>38</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="cursor" stdset="0">
-     <cursorShape>IBeamCursor</cursorShape>
-    </property>
-    <property name="focusPolicy">
-     <enum>Qt::StrongFocus</enum>
-    </property>
-    <property name="locale">
-     <locale language="English" country="UnitedStates"/>
-    </property>
-    <property name="inputMethodHints">
-     <set>Qt::ImhDigitsOnly</set>
-    </property>
-    <property name="verticalScrollBarPolicy">
-     <enum>Qt::ScrollBarAlwaysOff</enum>
-    </property>
-    <property name="horizontalScrollBarPolicy">
-     <enum>Qt::ScrollBarAlwaysOff</enum>
-    </property>
-    <property name="plainText">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QPlainTextEdit" name="robotIP4">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>30</y>
-      <width>51</width>
-      <height>38</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="cursor" stdset="0">
-     <cursorShape>IBeamCursor</cursorShape>
-    </property>
-    <property name="focusPolicy">
-     <enum>Qt::StrongFocus</enum>
-    </property>
-    <property name="locale">
-     <locale language="English" country="UnitedStates"/>
-    </property>
-    <property name="inputMethodHints">
-     <set>Qt::ImhDigitsOnly</set>
-    </property>
-    <property name="verticalScrollBarPolicy">
-     <enum>Qt::ScrollBarAlwaysOff</enum>
-    </property>
-    <property name="horizontalScrollBarPolicy">
-     <enum>Qt::ScrollBarAlwaysOff</enum>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
@@ -167,40 +62,6 @@
     </property>
     <property name="text">
      <string>.</string>
-    </property>
-   </widget>
-   <widget class="QPlainTextEdit" name="robotIP2">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>30</y>
-      <width>51</width>
-      <height>38</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="cursor" stdset="0">
-     <cursorShape>IBeamCursor</cursorShape>
-    </property>
-    <property name="focusPolicy">
-     <enum>Qt::StrongFocus</enum>
-    </property>
-    <property name="locale">
-     <locale language="English" country="UnitedStates"/>
-    </property>
-    <property name="inputMethodHints">
-     <set>Qt::ImhDigitsOnly</set>
-    </property>
-    <property name="verticalScrollBarPolicy">
-     <enum>Qt::ScrollBarAlwaysOff</enum>
-    </property>
-    <property name="horizontalScrollBarPolicy">
-     <enum>Qt::ScrollBarAlwaysOff</enum>
     </property>
    </widget>
    <widget class="QPushButton" name="connectButton">
@@ -220,6 +81,58 @@
     </property>
     <property name="text">
      <string>Connect</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="robotIP1">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>51</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="inputMethodHints">
+     <set>Qt::ImhDigitsOnly</set>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="robotIP2">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>30</y>
+      <width>51</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="inputMethodHints">
+     <set>Qt::ImhDigitsOnly</set>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="robotIP3">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>30</y>
+      <width>51</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="inputMethodHints">
+     <set>Qt::ImhDigitsOnly</set>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="robotIP4">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>30</y>
+      <width>51</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="inputMethodHints">
+     <set>Qt::ImhDigitsOnly</set>
     </property>
    </widget>
   </widget>
@@ -587,10 +500,6 @@
   </widget>
  </widget>
  <tabstops>
-  <tabstop>robotIP1</tabstop>
-  <tabstop>robotIP2</tabstop>
-  <tabstop>robotIP3</tabstop>
-  <tabstop>robotIP4</tabstop>
   <tabstop>connectButton</tabstop>
   <tabstop>knownRobots</tabstop>
   <tabstop>refreshButton</tabstop>
