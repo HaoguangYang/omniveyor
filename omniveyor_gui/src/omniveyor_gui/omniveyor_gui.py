@@ -6,6 +6,7 @@ import rospkg
 
 from qt_gui.plugin import Plugin
 from python_qt_binding import loadUi
+from python_qt_binding.QtCore import Qt
 from python_qt_binding.QtWidgets import QWidget
 from python_qt_binding.QtWidgets import QTreeWidgetItem
 
@@ -55,6 +56,18 @@ class GUI(Plugin):
         self._widget.eStopButton.clicked.connect(self.stopSelectedRobot)
         self._widget.eStopAllButton.clicked.connect(self.stopAllRobots)
 
+    def stopRobot(self, ip):
+        # TODO: stop robot at the IP
+        pass
+
+    def establishConnection(self, ip):
+        # TODO: connect to robotIP with Nimbro
+        pass
+
+    def disconnectRobot(self, ip):
+        # TODO: disconnect robot at the IP
+        pass
+
     def connectToRobot(self):
         ip1 = ip2 = ip3 = ip4 = 0
         try:
@@ -73,31 +86,45 @@ class GUI(Plugin):
         except ValueError:
             print("ERROR: IP address is ill-formed!")
         robotIP = str(ip1)+'.'+str(ip2)+'.'+str(ip3)+'.'+str(ip4)
-        # TODO: connect to robotIP with Nimbro and register the robot on the host machine.
-        self._widget.knownRobots.addTopLevelItem(QTreeWidgetItem([str(ip4), robotIP, 'Disconnected']))
+        match = self._widget.knownRobots.findItems(robotIP, Qt.MatchExactly, column=1)
+        if not len(match):
+            self._widget.knownRobots.addTopLevelItem(
+                QTreeWidgetItem([str(ip4), robotIP, 'Disconnected'])
+            )
+            match.append(
+                self._widget.knownRobots.topLevelItem(
+                    self._widget.knownRobots.topLevelItemCount()
+                )
+            )
+        self.establishConnection(robotIP)
 
     def refreshConnection(self):
         pass
 
     def reconnectToRobot(self):
-        pass
+        for item in self._widget.knownRobots.selectedItems():
+            robotIP = item.text(1)
+            self.establishConnection(robotIP)
 
     def removeRobot(self):
         for item in self._widget.knownRobots.selectedItems():
-            # TODO: disconnect robot first...
+            robotIP = item.text(1)
+            self.stopRobot(robotIP)
+            self.disconnectRobot(robotIP)
             self._widget.knownRobots.takeTopLevelItem(
                 self._widget.knownRobots.indexOfTopLevelItem(item)
             )
 
     def stopSelectedRobot(self):
         for item in self._widget.knownRobots.selectedItems():
-            # TODO: stop robot at the IP
-            pass
+            robotIP = item.text(1)
+            self.stopRobot(robotIP)
 
     def stopAllRobots(self):
         for ind in range(0, self._widget.knownRobots.topLevelItemCount()):
-            robot = self._widget.knownRobots.topLevelItem(ind)
-            # TODO: stop robot at the IP
+            item = self._widget.knownRobots.topLevelItem(ind)
+            robotIP = item.text(1)
+            self.stopRobot(robotIP)
 
     def shutdown_plugin(self):
         # TODO unregister all publishers here

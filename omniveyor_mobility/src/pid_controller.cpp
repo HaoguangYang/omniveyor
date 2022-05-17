@@ -38,6 +38,7 @@ namespace pid_controller{
         base_frame_ = config.base_frame;
         overwrite_global_plan_orientation_ = config.overwrite_global_plan_orientation;
         publish_look_ahead_point_ = config.publish_look_ahead_point;
+        car_like_ = config.is_car_like;
         // target
         lin_lookahead_ = fabs(config.linear_lookahead);
         ang_lookahead_ = fabs(config.angular_lookahead);
@@ -232,6 +233,11 @@ namespace pid_controller{
                 cmd_vel.angular.z = vth;
             else
                 cmd_vel.angular.z = vthLast_ + (vth - vthLast_)*scaleAngAcc;
+            if (car_like_){
+                cmd_vel.angular.z += cmd_vel.linear.y;
+                cmd_vel.angular.z /= copysign(fabs(cmd_vel.linear.x)+1e-9, cmd_vel.linear.x);
+                cmd_vel.linear.y = 0.;
+            }
             double scaleLin = max_vel_lin_ / (hypot(cmd_vel.linear.x, cmd_vel.linear.y)+1e-9);
             double scaleAng = max_vel_ang_ / (fabs(cmd_vel.angular.z)+1e-9);
             if (scaleLin < 1.){
@@ -258,7 +264,7 @@ namespace pid_controller{
             ROS_ERROR("PID Local Planner has not been initialized!");
             return false;
         }
-        if (goal_reached_) {
+        if (!global_plan_.size() || goal_reached_) {
             ROS_ERROR("PID Local Planner goal already reached.");
             cmd_vel.linear.x = 0.0;
             cmd_vel.linear.y = 0.0;

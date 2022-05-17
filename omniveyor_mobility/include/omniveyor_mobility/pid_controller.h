@@ -134,6 +134,7 @@ namespace pid_controller{
       int plan_index_;
       bool overwrite_global_plan_orientation_;
       bool publish_look_ahead_point_;
+      bool car_like_;
       double lin_lookahead_, ang_lookahead_, lin_tol_, ang_tol_;
       double max_vel_lin_, max_acc_lin_, max_vel_ang_, max_acc_ang_, max_int_lin_, max_int_ang_;
       double kp_lin_, ki_lin_, kd_lin_, kp_ang_, ki_ang_, kd_ang_;
