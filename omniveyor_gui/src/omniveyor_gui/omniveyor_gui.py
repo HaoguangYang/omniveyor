@@ -55,16 +55,19 @@ class GUI(Plugin):
         self._widget.removeButton.clicked.connect(self.removeRobot)
         self._widget.eStopButton.clicked.connect(self.stopSelectedRobot)
         self._widget.eStopAllButton.clicked.connect(self.stopAllRobots)
+        self._widget.newPriorityButton.clicked.connect(self.setNewTaskPrio)
+        self._widget.startTaskButton.clicked.connect(self.startSelectedTask)
+        self._widget.visualizeButton.clicked.connect(self.visSelectedRobot)
 
-    def stopRobot(self, ip):
+    def stopRobotImpl(self, ip):
         # TODO: stop robot at the IP
         pass
 
-    def establishConnection(self, ip):
+    def connectToRobotImpl(self, ip):
         # TODO: connect to robotIP with Nimbro
         pass
 
-    def disconnectRobot(self, ip):
+    def disconnectRobotImpl(self, ip):
         # TODO: disconnect robot at the IP
         pass
 
@@ -96,21 +99,22 @@ class GUI(Plugin):
                     self._widget.knownRobots.topLevelItemCount()
                 )
             )
-        self.establishConnection(robotIP)
+        self.connectToRobotImpl(robotIP)
 
     def refreshConnection(self):
+        # TODO: query connection of all items in the table
         pass
 
     def reconnectToRobot(self):
         for item in self._widget.knownRobots.selectedItems():
             robotIP = item.text(1)
-            self.establishConnection(robotIP)
+            self.connectToRobotImpl(robotIP)
 
     def removeRobot(self):
         for item in self._widget.knownRobots.selectedItems():
             robotIP = item.text(1)
-            self.stopRobot(robotIP)
-            self.disconnectRobot(robotIP)
+            self.stopRobotImpl(robotIP)
+            self.disconnectRobotImpl(robotIP)
             self._widget.knownRobots.takeTopLevelItem(
                 self._widget.knownRobots.indexOfTopLevelItem(item)
             )
@@ -118,13 +122,37 @@ class GUI(Plugin):
     def stopSelectedRobot(self):
         for item in self._widget.knownRobots.selectedItems():
             robotIP = item.text(1)
-            self.stopRobot(robotIP)
+            self.stopRobotImpl(robotIP)
 
     def stopAllRobots(self):
         for ind in range(0, self._widget.knownRobots.topLevelItemCount()):
             item = self._widget.knownRobots.topLevelItem(ind)
             robotIP = item.text(1)
-            self.stopRobot(robotIP)
+            self.stopRobotImpl(robotIP)
+
+    def setNewTaskPrioImpl(self, ip, task, prio):
+        # TODO: populate implementation
+        pass
+
+    def setNewTaskPrio(self):
+        curRobotIP = self._widget.knownRobots.selectedItems()[0].text(1)
+        curTask = self._widget.taskTree.selectedItems()[0].text(0)
+        newPrio = self._widget.newPrio.value()
+        self.setNewTaskPrioImpl(curRobotIP, curTask, newPrio)
+
+    def startSelectedTaskImpl(self, ip, task):
+        # TODO: populate implementation
+        pass
+
+    def startSelectedTask(self):
+        curRobotIP = self._widget.knownRobots.selectedItems()[0].text(1)
+        curTask = self._widget.taskTree.selectedItems()[0].text(0)
+        self.startSelectedTaskImpl(curRobotIP, curTask)
+
+    def visSelectedRobot(self):
+        curRobotIP = self._widget.knownRobots.selectedItems()[0].text(1)
+        # TODO: start Rviz and connect to the selected robot's ROS master / ROS domain
+        pass
 
     def shutdown_plugin(self):
         # TODO unregister all publishers here

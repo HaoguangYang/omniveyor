@@ -414,7 +414,7 @@
      <string>Start Task</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="newPriorityButton">
     <property name="geometry">
      <rect>
       <x>510</x>
@@ -509,7 +509,7 @@
   <tabstop>eStopAllButton</tabstop>
   <tabstop>taskTree</tabstop>
   <tabstop>newPrio</tabstop>
-  <tabstop>pushButton</tabstop>
+  <tabstop>newPriorityButton</tabstop>
   <tabstop>newTaskButton</tabstop>
   <tabstop>startTaskButton</tabstop>
   <tabstop>moduleTree</tabstop>

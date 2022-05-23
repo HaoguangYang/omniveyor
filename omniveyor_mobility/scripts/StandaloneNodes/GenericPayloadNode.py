@@ -1,7 +1,8 @@
 #!/usr/bin/env python2
 
 import rospy
-from std_msgs.msg import UInt16MultiArray, MultiArrayDimension
+from omniveyor_common.srv import functionCallSrv
+from std_msgs.msg import UInt16MultiArray, MultiArrayDimension, String
 #from twilio.rest import Client
 import xml.etree.ElementTree as ET
 
@@ -25,14 +26,29 @@ class genericPayload():
         self.statusFlag = 0
         self.digitalPorts = 0
         self.analogPorts = [0, 0, 0, 0, 0, 0]
-        initialState = rospy.wait_for_message("gpio_get", UInt16MultiArray)
+        initialState = rospy.wait_for_message("gpio/get", UInt16MultiArray)
         self.decode(initialState)
-        self.gpioSet = rospy.Publisher("gpio_set", UInt16MultiArray, queue_size = 1)
-        self.gpioGet = rospy.Subscriber("gpio_get", UInt16MultiArray, self.decode)
+        self.gpioSet = rospy.Publisher("gpio/set", UInt16MultiArray, queue_size = 1)
+        self.gpioGet = rospy.Subscriber("gpio/get", UInt16MultiArray, self.decode)
+        self.managementSrv = rospy.Service("gpio/management", functionCallSrv, self.srvCb)
         #try:
         #    thread.start_new_thread( self.readSerial )
         #except:
         #    print "Error: unable to start Serial Listener thread"
+        self.funcOptions = {
+                'pause' : self.pause,
+                'resume' : self.resume,
+                'setDoneStatus' : self.setDoneStatus,
+                'startCharging' : self.startCharging,
+                'stopCharging' : self.stopCharging,
+                'isReady' : self.isReady,
+                'isRunning' : self.isRunning,
+                'isPaused' : self.isPaused,
+                'isCharging' : self.isCharging,
+                'isChargingFault' : self.isChargingFault,
+                'getMeas' : self.getMeas,
+                'sendSMS' : self.sendSMS
+            }
 
     def decode(self, msg):
         self.statusFlag = msg.data[0]
@@ -43,49 +59,65 @@ class genericPayload():
         self.msgToSend.data[0] = 0
         self.msgToSend.data[1] = self.digitalPorts
         self.gpioSet.publish(self.msgToSend)
+
+    def srvCb(self, req):
+        if req.func not in self.funcOptions:
+            return "ERROR: Command Not Found"
+        return self.funcOptions[req.func](req.param)
         
     def pause(self):
         self.msgToSend.data[0] = (self.statusFlag & 0x7FF8)+5
         self.msgToSend.data[1] = self.digitalPorts
         self.gpioSet.publish(self.msgToSend)
+        return 'INFO: OK'
     
     def resume(self):
         self.msgToSend.data[0] = (self.statusFlag & 0x7FF8)+3
         self.msgToSend.data[1] = self.digitalPorts
         self.gpioSet.publish(self.msgToSend)
+        return 'INFO: OK'
         
     def setDoneStatus(self):
         self.msgToSend.data[0] = self.statusFlag & 0x7FF8
         self.msgToSend.data[1] = self.digitalPorts
         self.gpioSet.publish(self.msgToSend)
+        return 'INFO: OK'
         
     def startCharging(self):
         self.msgToSend.data[0] = (self.statusFlag & 0xFFE7)+8
         self.msgToSend.data[1] = self.digitalPorts
         self.gpioSet.publish(self.msgToSend)
+        return 'INFO: OK'
     
     def stopCharging(self):
         self.msgToSend.data[0] = self.statusFlag & 0xFFE7
         self.msgToSend.data[1] = self.digitalPorts
         self.gpioSet.publish(self.msgToSend)
+        return 'INFO: OK'
     
     def isReady(self):
-        return (self.statusFlag & 0x8007 == 0)
+        return 'INFO: ' + str(self.statusFlag & 0x8007 == 0)
         
     def isRunning(self):
-        return (self.statusFlag & 0x8007 == 3)
+        return 'INFO ' + str(self.statusFlag & 0x8007 == 3)
         
     def isPaused(self):
-        return (self.statusFlag & 0x8007 == 5)
+        return 'INFO ' + str(self.statusFlag & 0x8007 == 5)
     
     def isCharging(self):
-        return (self.statusFlag & 0x08)
+        return 'INFO ' + str(self.statusFlag & 0x08)
         
     def isChargingFault(self):
-        return (self.statusFlag & 0x10)
+        return 'INFO ' + str(self.statusFlag & 0x10)
         
-    def getMeas(self, arg):
-        return self.analogPorts[arg]
+    def getMeas(self, *args, **kwargs):
+        ans = 'INFO: '
+        for arg in args:
+            if arg < len(self.analogPorts):
+                ans += str(self.analogPorts[arg]) + ','
+            else:
+                ans += '-1,'
+        return ans[0:-2]
 
     def sendSMS(self, text):
         """
@@ -96,9 +128,10 @@ class genericPayload():
                             to=self.sms_to # this is my number
                       )
         """
-        print('message sent!')
+        return 'INFO: Message Sent!'
 
 if __name__ == '__main__':
     rospy.init_node('genericPayload', anonymous=True)
     payload = genericPayload()
     payload.initialize()
+    rospy.spin()

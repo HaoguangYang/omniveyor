@@ -1,0 +1,18 @@
+<launch>
+
+    <arg name="markerSize"      default="1.0"/>    <!-- normalized size. TranslationFactor = 1.0m/actualSize -->
+    <arg name="camera_name"     default="cam_d1/color"/>    <!-- camera namespace -->
+    <arg name="camera_frame"    default="cam_d1_optical_frame"/>   <!-- leave empty and the pose will be published wrt param parent_name -->
+
+    <node pkg="aruco_ros" type="marker_publisher" name="aruco_marker_publisher">
+        <remap from="camera_info"   to="$(arg camera_name)/camera_info" />
+        <remap from="image"         to="$(arg camera_name)/image_raw" />
+        <remap from="markers"       to="meaningful_objects/aruco_makers/poses_raw" />
+        <remap from="markers_list"  to="meaningful_objects/aruco_makers/visible_list" />
+        <param name="image_is_rectified" value="False"/>
+        <param name="marker_size"        value="$(arg markerSize)"/>
+        <param name="reference_frame"    value=""/>   <!-- frame in which the marker pose will be refered -->
+        <param name="camera_frame"       value="$(arg camera_frame)"/>
+    </node>
+
+</launch> 
