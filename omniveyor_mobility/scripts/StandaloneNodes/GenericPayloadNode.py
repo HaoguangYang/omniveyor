@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 
 import rospy
-from omniveyor_common.srv import functionCallSrv
+from omniveyor_common.srv import functionCall, functionCallResponse
 from std_msgs.msg import UInt16MultiArray, MultiArrayDimension, String
 #from twilio.rest import Client
 import xml.etree.ElementTree as ET
@@ -30,7 +30,7 @@ class genericPayload():
         self.decode(initialState)
         self.gpioSet = rospy.Publisher("gpio/set", UInt16MultiArray, queue_size = 1)
         self.gpioGet = rospy.Subscriber("gpio/get", UInt16MultiArray, self.decode)
-        self.managementSrv = rospy.Service("gpio/management", functionCallSrv, self.srvCb)
+        self.managementSrv = rospy.Service("gpio/management", functionCall, self.srvCb)
         #try:
         #    thread.start_new_thread( self.readSerial )
         #except:
@@ -62,8 +62,8 @@ class genericPayload():
 
     def srvCb(self, req):
         if req.func not in self.funcOptions:
-            return "ERROR: Command Not Found"
-        return self.funcOptions[req.func](req.param)
+            return functionCallResponse("ERROR: Command Not Found")
+        return functionCallResponse(self.funcOptions[req.func](req.param))
         
     def pause(self):
         self.msgToSend.data[0] = (self.statusFlag & 0x7FF8)+5

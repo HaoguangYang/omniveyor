@@ -6,3 +6,11 @@
     path = spatio_temporal_voxel_layer
     url = https://github.com/HaoguangYang/spatio_temporal_voxel_layer.git
     branch = noetic-devel
+[submodule "behavior_tree_ros"]
+    path = behavior_tree_ros
+    url = https://github.com/HaoguangYang/BehaviorTree.ROS.git
+    branch = master
+[submodule "groot"]
+    path = groot
+    url = https://github.com/BehaviorTree/Groot.git
+    branch = master
