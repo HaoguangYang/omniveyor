@@ -97,7 +97,7 @@ ros_ws/src/
   gsettings set org.gnome.Vino require-encryption false
   ```
 
-- If WiFi dongle works below expectation, you may try to use third-party driver, e.g. [Aircrack-ng's RTL 8188EUS driver](https://github.com/aircrack-ng/rtl8188eus) for better WiFi connection.
+- If WiFi dongle works below expectation, first make sure it is plugged into a USB2 port instead of a USB3 port. USB3 is known for its [excessive interference within the 2.4GHz frequency range](https://www.usb.org/sites/default/files/327216.pdf). If the port switching still does not solve the issue, you may try to use third-party driver, e.g. [Aircrack-ng's RTL 8188EUS driver](https://github.com/aircrack-ng/rtl8188eus) for better WiFi connection.
 
 - `qterminal` may be swapped by `xterm` in some occasions during the installation of `ros-noetic-fkie-multimaster`. If you feel uncomfortable, do:
   ```sh
