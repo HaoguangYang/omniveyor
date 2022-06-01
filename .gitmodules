@@ -6,9 +6,9 @@
     path = spatio_temporal_voxel_layer
     url = https://github.com/HaoguangYang/spatio_temporal_voxel_layer.git
     branch = noetic-devel
-[submodule "ReFrESH_ros"]
-    path = behavior_tree_ros
-    url = https://github.com/HaoguangYang/ReFrESH_ros.git
+[submodule "ReFRESH_ros"]
+    path = ReFRESH_ros
+    url = https://github.com/HaoguangYang/ReFRESH_ros.git
     branch = master
 [submodule "groot"]
     path = groot
