@@ -64,7 +64,7 @@ class GUI(Plugin):
         pass
 
     def connectToRobotImpl(self, ip):
-        # TODO: connect to robotIP with Nimbro
+        # TODO: connect to robotIP with Nimbro and SSH
         pass
 
     def disconnectRobotImpl(self, ip):
