@@ -134,11 +134,11 @@ class demoTrajs():
         orientation_unwrapped = pose_array[:,2]
         # make monotonic increase
         if orientation_unwrapped[0] > orientation_unwrapped[1]:
-            orientation_unwrapped[0] -= (np.pi+np.pi)
-        if orientation_unwrapped[2] < orientation_unwrapped[1]:
-            orientation_unwrapped[2] += (np.pi+np.pi)
+            orientation_unwrapped[1] += (np.pi+np.pi)
+        if orientation_unwrapped[0] < orientation_unwrapped[2]:
+            orientation_unwrapped[2] -= (np.pi+np.pi)
         # saturate and subtract
-        self.orientation_center = np.mod(np.average(orientation_unwrapped)-np.pi*3./2. + 5.*np.pi, np.pi*2.) - np.pi
+        self.orientation_center = np.mod(np.average(orientation_unwrapped) + 5.*np.pi, np.pi*2.) - np.pi
         #print(orientation_unwrapped)
         self.jacobian[0,2] = np.sin(self.orientation_center)
         self.jacobian[1,2] = -np.cos(self.orientation_center)
@@ -152,6 +152,7 @@ class demoTrajs():
                                       pose_array[1,0], pose_array[1,1], 
                                       pose_array[2,0], pose_array[2,1]]))           # [x, y, d1, d2, d3]
         print(self.pos_center)
+        self.orientation_center = np.arctan2(-self.pos_center[0]+pose_array[0,0], self.pos_center[1]-pose_array[0,1])
         vel_array = np.array(self.robotIO.robotVelocities)
         self.omega = (vel_array[0,2] + vel_array[1,2] + vel_array[2,2])/3.
         self.vel_center = np.dot(jacobian_pinv,
@@ -211,8 +212,8 @@ class demoOne():
 if __name__ == '__main__':
     rospy.init_node('multi_robot_cmd_loc_host')
     demo = demoTrajs([rospy.get_param('~/node_1',   9),
-                        rospy.get_param('~/node_2', 8),
-                        rospy.get_param('~/node_3', 6)])     # Robot 1, 2, 3. counter-clockwise direction
+                        rospy.get_param('~/node_2', 6),
+                        rospy.get_param('~/node_3', 8)])     # Robot 1, 2, 3. counter-clockwise direction
     demo.run()
-    #demo1 = demoOne(9)
+    #demo1 = demoOne(6)
     #demo1.run()
