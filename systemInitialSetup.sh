@@ -16,7 +16,7 @@ sudo systemctl enable ssh
 # system utilities
 sudo apt install -y net-tools curl
 # system build & run dependencies
-sudo apt install -y build-essential libopenvdb-dev libjemalloc2 libgeographic-dev python3-pip python-is-python3
+sudo apt install -y build-essential libopenvdb-dev libjemalloc2 libgeographic-dev python3-pip python-is-python3 libmnl-dev libx264-dev
 sudo -H pip3 install numpy pymysql opencv-contrib-python pyrealsense2
 if [[ "${machineIs}" == *"1"* ]]; then
     # hardware drivers: Realsense cameras
@@ -52,8 +52,7 @@ sudo apt install -y ros-noetic-amcl ros-noetic-move-base ros-noetic-slam-toolbox
             ros-noetic-global-planner ros-noetic-rtabmap ros-noetic-realsense2-camera\
             ros-noetic-cv-bridge ros-noetic-geographic-msgs ros-noetic-ros-numpy \
             ros-noetic-rosserial-python ros-noetic-imu-filter-madgwick ros-noetic-smach\
-            ros-noetic-joy ros-noetic-catch-ros ros-noetic-aruco-ros \
-            ros-noetic-behaviortree-cpp-v3
+            ros-noetic-joy ros-noetic-catch-ros ros-noetic-aruco-ros
 
 # search and apply remaining upgrades
 sudo apt update
