@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<launch>
+    <!--
+      This launch file runs localization node, network relay node, base node, realsense-t265 node, lidar node, and fusion node on one robot.
+    -->
+    
+	<arg name="gui" default="0"/>
+    <arg name="remote_teleop"   default="1"/>
+	<arg name="map_file" default="imi"/>
+    
+    <!-- base node -->
+	<include file="$(find pcv_base)/launch/run_barebones.launch">
+        <arg name="remote_teleop"   value="$(arg remote_teleop)"/>
+        <arg name="arduino_payload" value="0"/>
+        <arg name="front_rgbd" value="0"/>
+        <arg name="rear_rgbd" value="0"/>
+    </include>
+
+    <!-- Localization -->
+    <include file="$(find omniveyor_mobility)/launch/includes/map_and_localization.launch">
+        <arg name="static_map" value="1"/>
+        <arg name="map_file" value="($arg map_file)"/>
+    </include>
+    
+    <!-- TX node -->
+    <include file="$(find pcv_base)/launch/includes/multi_robot_tx.launch">
+        <!--arg name="target" value="192.168.254.100"/-->
+    </include>
+    
+    <!-- Keyboard teleop on local, as a safety override -->
+    <include file="$(find pcv_base)/launch/includes/keyboard_teleop.launch">
+
+</launch>
