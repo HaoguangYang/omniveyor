@@ -3,7 +3,7 @@
   <arg name="map_file" default="map"/>
   <arg name="map_save_period" default="-1"/>
   <group if="$(arg static_map)">
-    <node name="map_server" pkg="map_server" type="map_server" args="$(find omniveyor_mobility)/resources/map/$(arg map_file).yaml" />
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find omniveyor_mobility)/resources/maps/$(arg map_file).yaml" />
     <node pkg="amcl" type="amcl" name="amcl" respawn="false" output="screen">
         <rosparam file="$(find omniveyor_mobility)/param/amcl_params.yaml" command="load" />
         <remap from="amcl_pose" to="map_pose"/>
@@ -15,7 +15,7 @@
     </include>
     <group if="$(eval arg('map_save_period')>0)">
         <node name="map_saving_utility" pkg="omniveyor_mobility" type="periodicSaveMap.py">
-            <param name="map_save_path" value="$(find omniveyor_mobility)/resources/map/$(arg map_file)"/>
+            <param name="map_save_path" value="$(find omniveyor_mobility)/resources/maps/$(arg map_file)"/>
             <param name="map_save_interval" value="map_save_period"/>
         </node>
     </group>

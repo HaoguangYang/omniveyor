@@ -31,9 +31,11 @@ if __name__ == "__main__":
     
         if (not pointCloudSaveSrvUp):
             try:
-                rospy.wait_for_service("spatiotemporal_voxel_grid/save_grid", timeout=1.0)
+                rospy.wait_for_service("/move_base/global_costmap/rgbd_obstacle_layer_d1/spatiotemporal_voxel_grid/save_grid", timeout=1.0)
+                rospy.wait_for_service("/move_base/global_costmap/rgbd_obstacle_layer_d2/spatiotemporal_voxel_grid/save_grid", timeout=1.0)
                 pointCloudSaveSrvUp = True
-                save3dMap = rospy.ServiceProxy('spatiotemporal_voxel_grid/save_grid', SaveGrid)
+                save3dMap = [rospy.ServiceProxy('/move_base/global_costmap/rgbd_obstacle_layer_d1/spatiotemporal_voxel_grid/save_grid', SaveGrid),
+                             rospy.ServiceProxy('/move_base/global_costmap/rgbd_obstacle_layer_d2/spatiotemporal_voxel_grid/save_grid', SaveGrid)]
             except rospy.ROSException as ex:
                 print ("WARNING: Service 'spatiotemporal_voxel_grid/save_grid' is down")
 
@@ -53,8 +55,10 @@ if __name__ == "__main__":
         
         if (pointCloudSaveSrvUp):
             try:
-                resp = save3dMap(String(mapPath))
-                print("vdb saved with response: " + resp)
+                resp = save3dMap[0](String(mapPath+"_1.vdb"))
+                print("vdb (front) saved with response: " + resp)
+                resp = save3dMap[1](String(mapPath+"_2.vdb"))
+                print("vdb (rear) saved with response: " + resp)
             except rospy.ServiceException as exc:
                 print("WARNING: Service 'spatiotemporal_voxel_grid/save_grid' did not process request: " + str(exc))
 
