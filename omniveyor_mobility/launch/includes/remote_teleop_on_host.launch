@@ -12,7 +12,7 @@
     -->
     
     <arg name="node_id"   default="9"/>
-    <arg name="target"    default="192.168.254.100" />
+    <arg name="target"    default="$(eval '192.168.254.'+str(100 + arg('node_id')))" />
     <arg name="teleop_tx_port_base" default="17100"/>
     <arg name="teleop_tx_port"   default="$(eval teleop_tx_port_base + node_id)" />
     <arg name="teleop_tx_topics_cfg" default="tx_topics_host.yaml"/>

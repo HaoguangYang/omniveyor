@@ -4,7 +4,6 @@
       This launch file runs localization node, network relay node, base node, realsense-t265 node, lidar node, and fusion node on one robot.
     -->
     
-	<arg name="gui" default="0"/>
     <arg name="remote_teleop"   default="1"/>
 	<arg name="map_file" default="imi"/>
     
@@ -28,6 +27,6 @@
     </include>
     
     <!-- Keyboard teleop on local, as a safety override -->
-    <include file="$(find pcv_base)/launch/includes/keyboard_teleop.launch">
+    <include file="$(find pcv_base)/launch/includes/keyboard_teleop.launch"/>
 
 </launch>
