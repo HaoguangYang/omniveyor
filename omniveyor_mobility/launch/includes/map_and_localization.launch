@@ -13,10 +13,12 @@
     <include file="$(find omniveyor_mobility)/launch/includes/dynamic_map.launch">
         <arg name="map_file"   value="$(arg map_file)"/>
     </include>
-    <!--group if="$(eval arg('map_save_period')>0)">
-        <node name="map_saver" pkg="map_server" type="map_saver" args="-f $(find omniveyor_mobility)/resources/map/$(arg map_file)" respawn="true" respawn_delay="$(arg map_save_period)"/>
-        <node pkg="rosservice" type="rosservice" name="posegraph_save" args="call /slam_toolbox/serialize_map 'filename: '$(find omniveyor_mobility)/resources/map/$(arg map_file)''" respawn="true" respawn_delay="$(arg map_save_period)"/>
-    </group-->
+    <group if="$(eval arg('map_save_period')>0)">
+        <node name="map_saving_utility" pkg="omniveyor_mobility" type="periodicSaveMap.py">
+            <param name="map_save_path" value="$(find omniveyor_mobility)/resources/map/$(arg map_file)"/>
+            <param name="map_save_interval" value="map_save_period"/>
+        </node>
+    </group>
   </group>
   <node pkg="robot_localization" type="ekf_localization_node" name="ekf_world" clear_params="true">
     <rosparam command="load" file="$(find omniveyor_mobility)/param/world_pose_ekf.yaml" />
