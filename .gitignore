@@ -1,4 +1,4 @@
-omniveyor_mobility/resources/map/*
+omniveyor_mobility/resources/maps/*
 omniveyor_mobility/resources/traj/*
 credentials
 build*/

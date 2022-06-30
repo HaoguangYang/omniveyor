@@ -4,7 +4,8 @@
     <arg name="explore" default="0"/>
     <arg name="remote_teleop" default="1"/>
     <arg name="use_sim_time" default="0"/>
-    <arg name="map_save_period" default="-1"/>
+    <arg name="create_map_file" default="1"/>
+    <arg name="map_save_period" default="30"/>
     
     <group unless="$(arg use_sim_time)">
         <!-- base node -->
@@ -18,6 +19,7 @@
     <include file="$(find omniveyor_mobility)/launch/includes/map_and_localization.launch">
         <arg name="static_map" value="0"/>
         <arg name="map_save_period" value="$(arg map_save_period)"/>
+        <arg name="create_map_file" value="$(arg create_map_file)"/>
     </include>
     
     <!-- automatic exploration -->

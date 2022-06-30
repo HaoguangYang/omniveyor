@@ -1,6 +1,7 @@
 <launch>
   <arg name="static_map" default="1"/>
   <arg name="map_file" default="map"/>
+  <arg name="create_map_file" default="0"/>
   <arg name="map_save_period" default="-1"/>
   <group if="$(arg static_map)">
     <node name="map_server" pkg="map_server" type="map_server" args="$(find omniveyor_mobility)/resources/maps/$(arg map_file).yaml" />
@@ -10,13 +11,18 @@
     </node>
   </group>
   <group unless="$(arg static_map)">
-    <include file="$(find omniveyor_mobility)/launch/includes/dynamic_map.launch">
-        <arg name="map_file"   value="$(arg map_file)"/>
-    </include>
+    <group if="$(arg create_map_file)">
+        <include file="$(find omniveyor_mobility)/launch/includes/dynamic_map.launch"/>
+    </group>
+    <group unless="$(arg create_map_file)">
+        <include file="$(find omniveyor_mobility)/launch/includes/dynamic_map.launch">
+            <arg name="map_file"   value="$(arg map_file)"/>
+        </include>
+    </group>
     <group if="$(eval arg('map_save_period')>0)">
         <node name="map_saving_utility" pkg="omniveyor_mobility" type="periodicSaveMap.py">
             <param name="map_save_path" value="$(find omniveyor_mobility)/resources/maps/$(arg map_file)"/>
-            <param name="map_save_interval" value="map_save_period"/>
+            <param name="map_save_interval" value="$(arg map_save_period)"/>
         </node>
     </group>
   </group>

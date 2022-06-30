@@ -62,9 +62,9 @@ if __name__ == "__main__":
         
         if (pointCloudSaveSrvUp):
             try:
-                resp = save3dMap[0](String(mapPath+"_1.vdb"))
+                resp = save3dMap[0](String(mapPath+"_1"))
                 print("vdb (front) saved with response: " + str(resp))
-                resp = save3dMap[1](String(mapPath+"_2.vdb"))
+                resp = save3dMap[1](String(mapPath+"_2"))
                 print("vdb (rear) saved with response: " + str(resp))
             except rospy.ServiceException as exc:
                 print("WARNING: Service 'spatiotemporal_voxel_grid/save_grid' did not process request: " + str(exc))
