@@ -41,6 +41,7 @@
         <arg name="tx_port" value="$(arg teleop_tx_port_1)"/>
         <arg name="tx_topics_cfg" value="$(arg teleop_tx_topics_cfg)"/>
         <remap from="cmd_vel" to="$(eval 'robot_'+str(arg('node_id_1'))+'/cmd_vel')"/>
+        <remap from="control_mode" to="$(eval 'robot_'+str(arg('node_id_1'))+'/control_mode')"/>
     </include>
     <include file="$(find omniveyor_mobility)/launch/includes/multi_robot_rx_host.launch">
         <arg name="node_id"            value="$(arg node_id_1)"/>
@@ -53,6 +54,7 @@
         <arg name="tx_port" value="$(arg teleop_tx_port_2)"/>
         <arg name="tx_topics_cfg" value="$(arg teleop_tx_topics_cfg)"/>
         <remap from="cmd_vel" to="$(eval 'robot_'+str(arg('node_id_2'))+'/cmd_vel')"/>
+        <remap from="control_mode" to="$(eval 'robot_'+str(arg('node_id_2'))+'/control_mode')"/>
     </include>
     <include file="$(find omniveyor_mobility)/launch/includes/multi_robot_rx_host.launch">
         <arg name="node_id"            value="$(arg node_id_2)"/>
@@ -65,6 +67,7 @@
         <arg name="tx_port" value="$(arg teleop_tx_port_3)"/>
         <arg name="tx_topics_cfg" value="$(arg teleop_tx_topics_cfg)"/>
         <remap from="cmd_vel" to="$(eval 'robot_'+str(arg('node_id_3'))+'/cmd_vel')"/>
+        <remap from="control_mode" to="$(eval 'robot_'+str(arg('node_id_3'))+'/control_mode')"/>
     </include>
     <include file="$(find omniveyor_mobility)/launch/includes/multi_robot_rx_host.launch">
         <arg name="node_id"            value="$(arg node_id_3)"/>

@@ -9,7 +9,7 @@ import rospy
 import os
 from geometry_msgs.msg import Twist, TwistStamped, PoseStamped
 from sensor_msgs.msg import Joy
-from std_msgs.msg import Empty
+from std_msgs.msg import Empty, Byte
 from nav_msgs.msg import Odometry
 import tf2_ros
 import tf2_geometry_msgs
@@ -25,6 +25,7 @@ class multiRobotCoordinator():
         self.robotLocationsInMap = []
         self.robotVelocities = []
         self.cmdPub = []
+        self.enaPub = []
         for i in range(0, self.numRobots):
             self.vel_cmd_msg.append(Twist())
             # self.localization_sub.append(rospy.Subscriber('robot_'+str(nodeList[i])+'/odom/filtered',
@@ -34,6 +35,7 @@ class multiRobotCoordinator():
             self.robotLocationsInMap.append([0.,0.,0.])     # Px, Py, Theta
             self.robotVelocities.append([0.,0.,0.])         # Vx, Vy, Omega
             self.cmdPub.append(rospy.Publisher('robot_'+str(nodeList[i])+'/cmd_vel', Twist, queue_size = 1))
+            self.enaPub.append(rospy.Publisher('robot_'+str(nodeList[i])+'/control_mode', Byte, queue_size = 1))
         #self.syncPub = rospy.Publisher('/multi_robot/sync', Empty, queue_size = 1)
         print("Hooked up to topics.")
 
@@ -57,7 +59,7 @@ class multiRobotCoordinator():
         self.robotVelocities[idx][1] = msg.twist.twist.linear.y
         self.robotVelocities[idx][2] = msg.twist.twist.angular.z
 
-class demoTrajs():
+class demoPlatoon():
     def __init__(self, nodeList):
         self.robotIO = multiRobotCoordinator(nodeList)
         self.v_lim = [0.3, 0.3, 0.1]      # linear, angular, along rod
@@ -84,6 +86,12 @@ class demoTrajs():
                                   [1., 0., 0., 0., -np.sqrt(3.)*0.5],
                                   [0., 1., 0., 0., 0.5]])
         rospy.Subscriber('joy',Joy, self.joy_cb)
+        rospy.on_shutdown(self.setZeroVels)
+
+        self.butn7Pressed = False
+        self.butn8Pressed = False
+        self.robotEnable = 0
+        self.mode = 0
 
     def transformVel(self):
         # transform the velocities from the center of the Y rails to the robots
@@ -166,32 +174,59 @@ class demoTrajs():
                                       vel_array[2,0]*np.sin(pose_array[2,2])+vel_array[2,1]*np.cos(pose_array[2,2])])) # [x, y, d1, d2, d3]
         
     def joy_cb(self,msg):
-        d1_vel = (-msg.axes[4]-msg.axes[3])*self.v_lim[2]
-        d2_vel = (msg.axes[4]*0.5 + msg.axes[5]*np.sqrt(3)*0.5-msg.axes[3])*self.v_lim[2]
-        d3_vel = (msg.axes[4]*0.5 - msg.axes[5]*np.sqrt(3)*0.5-msg.axes[3])*self.v_lim[2]
-        self.vel_center_des = np.array([msg.axes[1]*self.v_lim[0], msg.axes[0]*self.v_lim[0], d1_vel, d2_vel, d3_vel])
-        self.omega_des = msg.axes[2]*self.v_lim[1]
+        # modes 0..2: single robot teleop
+        if self.mode == 0:
+            self.v_robots = np.array([[msg.axes[1]*self.v_lim[0], msg.axes[0]*self.v_lim[0], msg.axes[2]*self.v_lim[1]], [0., 0., 0.], [0., 0., 0.]])
+        elif self.mode == 1:
+            self.v_robots = np.array([[0., 0., 0.], [msg.axes[1]*self.v_lim[0], msg.axes[0]*self.v_lim[0], msg.axes[2]*self.v_lim[1]], [0., 0., 0.]])
+        elif self.mode == 2:
+            self.v_robots = np.array([[0., 0., 0.], [0., 0., 0.], [msg.axes[1]*self.v_lim[0], msg.axes[0]*self.v_lim[0], msg.axes[2]*self.v_lim[1]]])
+        # modes 3...: multi-robot platooning
+        else: # self.mode == 3
+            d1_vel = (-msg.axes[4]-msg.axes[3])*self.v_lim[2]
+            d2_vel = (msg.axes[4]*0.5 + msg.axes[5]*np.sqrt(3)*0.5-msg.axes[3])*self.v_lim[2]
+            d3_vel = (msg.axes[4]*0.5 - msg.axes[5]*np.sqrt(3)*0.5-msg.axes[3])*self.v_lim[2]
+            self.vel_center_des = np.array([msg.axes[1]*self.v_lim[0], msg.axes[0]*self.v_lim[0], d1_vel, d2_vel, d3_vel])
+            self.omega_des = msg.axes[2]*self.v_lim[1]
+        
+        if (self.butn7Pressed and not msg.buttons[6]):
+            self.mode = (self.mode + 1)%4
+            print("Platoon Control Mode: "+self.mode)
+        self.butn7Pressed = msg.buttons[6]
+        if (self.butn8Pressed and not msg.buttons[7]):
+            self.robotEnable = 1 - self.robotEnable
+            print("Robots Enabling..." if self.robotEnable else "Robots Disabling...")
+            # enable robots
+            for pub in self.enaPub:
+                pub.publish(Byte(data=self.robotEnable))
+        self.butn8Pressed = msg.buttons[7]
 
     def run(self):
         # subscribes the joystick commands, and generates 6dof motion at the manipulator end.
         rate_hz = 60.
         rate = rospy.Rate(rate_hz)
+        init = False
         while not rospy.is_shutdown():
-            self.updateGeometry()
-            print(self.orientation_center)
-            self.pos_center_des = self.pos_center
-            self.orientation_center_des = self.orientation_center
-            if (self.pos_center_des[0] != 0. and self.pos_center_des[1] != 0. and 
-                abs(self.pos_center_des[2]) > 0.2 and abs(self.pos_center_des[3]) > 0.2 and abs(self.pos_center_des[4]) > 0.2):
-                break
-        while not rospy.is_shutdown():
-            self.updateGeometry()
-            self.pos_center_des = self.pos_center + self.vel_center_des/rate_hz
-            self.orientation_center_des = np.mod(self.orientation_center + self.omega_des/rate_hz +np.pi, np.pi*2) - np.pi
-            self.transformVel()
+            if self.mode >= 3:
+                self.updateGeometry()
+                if not init:
+                    self.v_robots = np.array([[0., 0., 0.], [0., 0., 0.], [0., 0., 0.]])
+                    print(self.orientation_center)
+                    self.pos_center_des = self.pos_center
+                    self.orientation_center_des = self.orientation_center
+                    if (self.pos_center_des[0] != 0. and self.pos_center_des[1] != 0. and
+                        abs(self.pos_center_des[2]) > 0.2 and abs(self.pos_center_des[3]) > 0.2 and abs(self.pos_center_des[4]) > 0.2):
+                        init = True
+                else:
+                    self.pos_center_des = self.pos_center + self.vel_center_des/rate_hz
+                    self.orientation_center_des = np.mod(self.orientation_center + self.omega_des/rate_hz +np.pi, np.pi*2) - np.pi
+                    self.transformVel()
             print(self.v_robots)
             self.robotIO.setTargetVels(self.v_robots.tolist())
             rate.sleep()
+        #self.setZeroVels()
+    
+    def setZeroVels(self):
         self.robotIO.setTargetVels([[0., 0., 0.], [0., 0., 0.], [0., 0., 0.]])
 
 class demoOne():
@@ -213,9 +248,12 @@ class demoOne():
 
 if __name__ == '__main__':
     rospy.init_node('multi_robot_cmd_loc_host')
-    demo = demoTrajs([rospy.get_param('~/node_1',   9),
+    demo = demoPlatoon([rospy.get_param('~/node_1',   9),
                         rospy.get_param('~/node_2', 6),
                         rospy.get_param('~/node_3', 8)])     # Robot 1, 2, 3. counter-clockwise direction
+    print("Verify that Robot #"+demo.robotIO.nodeList[0]+", #"+demo.robotIO.nodeList[1]+", #"+demo.robotIO.nodeList[2]+
+            " are arranged counter-clockwise and facing counter-clockwise direction.")
+    print("Use joystick button #7 to control test mode, #8 to enable/disable robots")
     demo.run()
     #demo1 = demoOne(6)
     #demo1.run()

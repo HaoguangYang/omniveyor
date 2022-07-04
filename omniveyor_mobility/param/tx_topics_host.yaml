@@ -1,4 +1,9 @@
 udp_topics:
  - name: "/cmd_vel"
    compress: false
-   rate: 40.0
+   rate: 0.0
+   
+ - name: "/control_mode"
+   compress: false
+   rate: 1.0
+   resend: true
