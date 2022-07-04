@@ -38,9 +38,14 @@ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main
 curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
 sudo apt update
 sudo apt install -y ros-noetic-desktop-full
-echo "# setup ROS environment
-export ROS_HOSTNAME=$(hostname).local
-source /opt/ros/noetic/setup.bash" >> ~/.bashrc
+# append .bashrc
+sed -i "/^#[[:blank:]]\+setup[[:blank:]]\+ROS[[:blank:]]\+environment/h;
+        \${x;/^\$/{s//# setup ROS environment/;H};x}" ~/.bashrc
+sed -i "/^export[[:blank:]]\+ROS_HOSTNAME/{h;s/ROS_HOSTNAME.*/ROS_HOSTNAME=$(hostname).local/};
+        \${x;/^\$/{s//export ROS_HOSTNAME=$(hostname).local/;H};x}" ~/.bashrc
+sed -i "/^source[[:blank:]]\+\/opt\/ros\/noetic\/setup.bash/h;
+        \${x;/^\$/{s//source \/opt\/ros\/noetic\/setup.bash/;H};x}" ~/.bashrc
+
 source ~/.bashrc
 sudo apt install -y python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool python3-rosdep
 sudo rosdep init
@@ -113,14 +118,36 @@ if [[ "${machineIs}" == *"1"* ]]; then
     nodeNumber=$(hostname | tr -dc '0-9' | sed 's/^0*//')
     echo "export NODE_NO=$nodeNumber" | sudo tee /etc/profile.d/robot_name.sh
 
+    # optimmize network throughput
+    sudo sed -i "/^#[[:blank:]]\+improve[[:blank:]]\+network[[:blank:]]\+throughput/h;
+                    \${x;/^\$/{s//# improve network throughput/;H};x}" /etc/sysctl.conf
+    sudo sed -i "/^net.core.default_qdisc/{h;s/default_qdisc.*/default_qdisc=fq_codel/};
+                    \${x;/^\$/{s//net.core.default_qdisc=fq_codel/;H};x}" /etc/sysctl.conf
+    sudo sed -i "/^net.ipv4.tcp_window_scaling/{h;s/tcp_window_scaling.*/tcp_window_scaling=1/};
+                    \${x;/^\$/{s//net.ipv4.tcp_window_scaling=1/;H};x}" /etc/sysctl.conf
+    sudo sed -i "/^net.ipv4.tcp_congestion_control/{h;s/tcp_congestion_control.*/tcp_congestion_control=bbr/};
+                    \${x;/^\$/{s//net.ipv4.tcp_congestion_control=bbr/;H};x}" /etc/sysctl.conf
+
     # setup limits
-    echo "# increase message queue size
-    fs.mqueue.msg_max = 100" | sudo tee -a /etc/sysctl.conf
-    sudo sed -i "55 i $(whoami)          hard    memlock         524288" /etc/security/limits.conf
-    sudo sed -i "56 i $(whoami)          soft    memlock         524288" /etc/security/limits.conf
-    sudo sed -i "57 i $(whoami)          hard    priority        85" /etc/security/limits.conf
-    sudo sed -i "58 i $(whoami)          hard    rtprio          85" /etc/security/limits.conf
-    sudo sed -i "59 i $(whoami)          soft    rtprio          85" /etc/security/limits.conf
+    sudo sed -i "/^#[[:blank:]]\+increase[[:blank:]]\+message[[:blank:]]\+queue[[:blank:]]\+size/h;
+                    \${x;/^\$/{s//# increase message queue size/;H};x}" /etc/sysctl.conf
+    sudo sed -i "/^fs.mqueue.msg_max/{h;s/msg_max.*/msg_max=100/};
+                    \${x;/^\$/{s//fs.mqueue.msg_max=100/;H};x}" /etc/sysctl.conf
+
+    sudo sed -i "/# End of file/d" /etc/security/limits.conf
+    sudo sed -i "/^$(whoami)[[:blank:]]\+hard[[:blank:]]\+memlock[[:blank:]]/{h;s/memlock[[:blank:]].*/memlock         524288/};
+                    \${x;/^\$/{s//$(whoami)          hard    memlock         524288/;H};x}" /etc/security/limits.conf
+    sudo sed -i "/^$(whoami)[[:blank:]]\+soft[[:blank:]]\+memlock[[:blank:]]/{h;s/memlock[[:blank:]].*/memlock         524288/};
+                    \${x;/^\$/{s//$(whoami)          soft    memlock         524288/;H};x}" /etc/security/limits.conf
+    sudo sed -i "/^$(whoami)[[:blank:]]\+hard[[:blank:]]\+priority[[:blank:]]/{h;s/priority[[:blank:]].*/priority        85/};
+                    \${x;/^\$/{s//$(whoami)          hard    priority        85/;H};x}" /etc/security/limits.conf
+    sudo sed -i "/^$(whoami)[[:blank:]]\+soft[[:blank:]]\+priority[[:blank:]]/{h;s/priority[[:blank:]].*/priority        85/};
+                    \${x;/^\$/{s//$(whoami)          soft    priority        85/;H};x}" /etc/security/limits.conf
+    sudo sed -i "/^$(whoami)[[:blank:]]\+hard[[:blank:]]\+rtprio[[:blank:]]/{h;s/rtprio[[:blank:]].*/rtprio          85/};
+                    \${x;/^\$/{s//$(whoami)          hard    rtprio          85/;H};x}" /etc/security/limits.conf
+    sudo sed -i "/^$(whoami)[[:blank:]]\+soft[[:blank:]]\+rtprio[[:blank:]]/{h;s/rtprio[[:blank:]].*/rtprio          85/};
+                    \${x;/^\$/{s//$(whoami)          soft    rtprio          85/;H};x}" /etc/security/limits.conf
+    sudo sed -i "$ a # End of file" /etc/security/limits.conf
 
     # setup network boradcasting for multi-master ROS1 system
     #echo "# enable ipv4 broadcast response for ROS1 multimaster
