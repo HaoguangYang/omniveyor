@@ -27,6 +27,6 @@
     </include>
     
     <!-- Keyboard teleop on local, as a safety override -->
-    <include file="$(find pcv_base)/launch/includes/keyboard_teleop.launch"/>
+    <!--include file="$(find pcv_base)/launch/includes/keyboard_teleop.launch"/-->
 
 </launch>
