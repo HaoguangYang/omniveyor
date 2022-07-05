@@ -9,6 +9,11 @@
         <rosparam file="$(find omniveyor_mobility)/param/amcl_params.yaml" command="load" />
         <remap from="amcl_pose" to="map_pose"/>
     </node>
+    <node pkg="robot_localization" type="ekf_localization_node" name="ekf_world" clear_params="true">
+        <rosparam command="load" file="$(find omniveyor_mobility)/param/world_pose_ekf.yaml" />
+        <param name="publish_tf" value="true"/>
+        <remap from="odometry/filtered" to="map_pose/filtered"/>
+    </node>
   </group>
   <group unless="$(arg static_map)">
     <group if="$(arg create_map_file)">
@@ -25,9 +30,11 @@
             <param name="map_save_interval" value="$(arg map_save_period)"/>
         </node>
     </group>
+    <node pkg="robot_localization" type="ekf_localization_node" name="ekf_world" clear_params="true">
+        <rosparam command="load" file="$(find omniveyor_mobility)/param/world_pose_ekf.yaml" />
+        <param name="publish_tf" value="false"/>
+        <remap from="odometry/filtered" to="map_pose/filtered"/>
+    </node>
   </group>
-  <node pkg="robot_localization" type="ekf_localization_node" name="ekf_world" clear_params="true">
-    <rosparam command="load" file="$(find omniveyor_mobility)/param/world_pose_ekf.yaml" />
-    <remap from="odometry/filtered" to="map_pose/filtered"/>
-  </node>
+  
 </launch>

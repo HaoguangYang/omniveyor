@@ -18,7 +18,7 @@
     <!-- Localization -->
     <include file="$(find omniveyor_mobility)/launch/includes/map_and_localization.launch">
         <arg name="static_map" value="1"/>
-        <arg name="map_file" value="($arg map_file)"/>
+        <arg name="map_file" value="$(arg map_file)"/>
     </include>
     
     <!-- TX node -->
