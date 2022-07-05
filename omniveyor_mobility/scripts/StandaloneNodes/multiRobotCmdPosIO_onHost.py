@@ -191,13 +191,13 @@ class demoPlatoon():
         
         if (self.butn7Pressed and not msg.buttons[6]):
             self.mode = (self.mode + 1)%4
-            print("Platoon Control Mode: "+self.mode)
+            print("Platoon Control Mode: "+str(self.mode))
         self.butn7Pressed = msg.buttons[6]
         if (self.butn8Pressed and not msg.buttons[7]):
             self.robotEnable = 1 - self.robotEnable
             print("Robots Enabling..." if self.robotEnable else "Robots Disabling...")
             # enable robots
-            for pub in self.enaPub:
+            for pub in self.robotIO.enaPub:
                 pub.publish(Byte(data=self.robotEnable))
         self.butn8Pressed = msg.buttons[7]
 
@@ -221,7 +221,7 @@ class demoPlatoon():
                     self.pos_center_des = self.pos_center + self.vel_center_des/rate_hz
                     self.orientation_center_des = np.mod(self.orientation_center + self.omega_des/rate_hz +np.pi, np.pi*2) - np.pi
                     self.transformVel()
-            print(self.v_robots)
+            #print(self.v_robots)
             self.robotIO.setTargetVels(self.v_robots.tolist())
             rate.sleep()
         #self.setZeroVels()
@@ -251,7 +251,7 @@ if __name__ == '__main__':
     demo = demoPlatoon([rospy.get_param('~/node_1',   9),
                         rospy.get_param('~/node_2', 6),
                         rospy.get_param('~/node_3', 8)])     # Robot 1, 2, 3. counter-clockwise direction
-    print("Verify that Robot #"+demo.robotIO.nodeList[0]+", #"+demo.robotIO.nodeList[1]+", #"+demo.robotIO.nodeList[2]+
+    print("Verify that Robot #"+str(demo.robotIO.nodeList[0])+", #"+str(demo.robotIO.nodeList[1])+", #"+str(demo.robotIO.nodeList[2])+
             " are arranged counter-clockwise and facing counter-clockwise direction.")
     print("Use joystick button #7 to control test mode, #8 to enable/disable robots")
     demo.run()
