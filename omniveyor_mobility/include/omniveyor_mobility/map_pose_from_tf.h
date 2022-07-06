@@ -83,6 +83,11 @@ class constantTFGaussianEstimator{
          */
         Eigen::MatrixXd transformCov(Eigen::MatrixXd &covIn);
 
+        /**
+         * @brief Override internal covariance estimate with input of transformed covariance from external sources.
+         */
+        //void externalUpdateTransformedCov(Eigen::MatrixXd &covIn);
+
     protected:
         std::string _targetFrame, _origin;
         tf2_ros::Buffer *_tfBuffer;
@@ -124,6 +129,13 @@ class mapPoseFromTFOdom_node{
         void odomSubsCb(const nav_msgs::Odometry::ConstPtr& msg);
 
         /**
+         * @brief Callback function of the slowly-updating pose topic. It stores the message to internal variable of the class.
+         * 
+         * @param msg subscribed incoming message.
+         */
+        void slowPoseSubsCb(const geometry_msgs::PoseWithCovarianceStamped::ConstPtr& msg);
+
+        /**
          * @brief Main (blocking) execution of the transform republisher loop.
          * 
          */
@@ -133,14 +145,16 @@ class mapPoseFromTFOdom_node{
         ros::NodeHandle _nh;
         ros::Publisher _mapPosePublisher, _tfCovPublisher;
         constantTFGaussianEstimator *_odomMapGaussianEst;
-        std::string _poseTopic, _mapFrame, _odomTopic, _odomFrame, _baseFrame;
+        std::string _poseTopic, _mapFrame, _odomTopic, _odomFrame, _baseFrame, _slowPoseTopic;
         double _pubRate;
         int _windowLen;
         bool _pubTfCov;
+        bool _fuseSlowPose;
         tf2_ros::Buffer _tfBuffer;
         tf2_ros::TransformListener *_tfListener;
         geometry_msgs::TransformStamped _tfOdomBase;
         nav_msgs::Odometry _lastOdom;
+        geometry_msgs::PoseWithCovarianceStamped _lastSlowPose;
         geometry_msgs::PoseWithCovarianceStamped _lastMapPose;
         std_msgs::Float64MultiArray _tfCov;
 };

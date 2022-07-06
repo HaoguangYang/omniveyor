@@ -4,23 +4,32 @@
   <arg name="create_map_file" default="0"/>
   <arg name="map_save_period" default="-1"/>
   <group if="$(arg static_map)">
+    <!-- Implementation with SLAM toolbox -->
+    <!--include file="$(find omniveyor_mobility)/launch/includes/slam_toolbox.launch">
+        <arg name="map_file"   value="$(arg map_file)"/>
+        <arg name="dynamic_map" value="0"/>
+    </include-->
+    <!-- Implementation with AMCL -->
     <node name="map_server" pkg="map_server" type="map_server" args="$(find omniveyor_mobility)/resources/maps/$(arg map_file).yaml" />
     <node pkg="amcl" type="amcl" name="amcl" respawn="false" output="screen">
         <rosparam file="$(find omniveyor_mobility)/param/amcl_params.yaml" command="load" />
-        <remap from="amcl_pose" to="map_pose"/>
+    </node>
+    <node pkg="omniveyor_mobility" type="mapPoseFromTFOdom_node" name="tf_map_pose_repub" output="screen">
+        <param name="odom_topic" value="odom/filtered"/>
+        <param name="fuse_slow_map_pose" value="true"/>
+        <param name="slow_map_pose_topic" value="amcl_pose"/>
     </node>
     <node pkg="robot_localization" type="ekf_localization_node" name="ekf_world" clear_params="true">
         <rosparam command="load" file="$(find omniveyor_mobility)/param/world_pose_ekf.yaml" />
-        <param name="publish_tf" value="true"/>
         <remap from="odometry/filtered" to="map_pose/filtered"/>
     </node>
   </group>
   <group unless="$(arg static_map)">
     <group if="$(arg create_map_file)">
-        <include file="$(find omniveyor_mobility)/launch/includes/dynamic_map.launch"/>
+        <include file="$(find omniveyor_mobility)/launch/includes/slam_toolbox.launch"/>
     </group>
     <group unless="$(arg create_map_file)">
-        <include file="$(find omniveyor_mobility)/launch/includes/dynamic_map.launch">
+        <include file="$(find omniveyor_mobility)/launch/includes/slam_toolbox.launch">
             <arg name="map_file"   value="$(arg map_file)"/>
         </include>
     </group>
@@ -32,7 +41,6 @@
     </group>
     <node pkg="robot_localization" type="ekf_localization_node" name="ekf_world" clear_params="true">
         <rosparam command="load" file="$(find omniveyor_mobility)/param/world_pose_ekf.yaml" />
-        <param name="publish_tf" value="false"/>
         <remap from="odometry/filtered" to="map_pose/filtered"/>
     </node>
   </group>

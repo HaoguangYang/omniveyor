@@ -11,7 +11,7 @@ odom_frame: odom
 map_frame: map
 base_frame: base_link
 scan_topic: scan
-mode: mapping
+#mode: mapping
 
 # lifelong params
 lifelong_search_use_tree: false

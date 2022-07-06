@@ -28,10 +28,12 @@ class multiRobotCoordinator():
         self.enaPub = []
         for i in range(0, self.numRobots):
             self.vel_cmd_msg.append(Twist())
-            self.localization_sub.append(rospy.Subscriber('robot_'+str(nodeList[i])+'/odom/filtered',
-                                        Odometry, self.globalLocCb, (nodeList[i],)))
-            #self.localization_sub.append(rospy.Subscriber('robot_'+str(nodeList[i])+'/map_pose/filtered',
+            # for simulation
+            #self.localization_sub.append(rospy.Subscriber('robot_'+str(nodeList[i])+'/odom/filtered',
             #                            Odometry, self.globalLocCb, (nodeList[i],)))
+            # for physical robot, using map to set its absolute position reference
+            self.localization_sub.append(rospy.Subscriber('robot_'+str(nodeList[i])+'/map_pose/filtered',
+                                        Odometry, self.globalLocCb, (nodeList[i],)))
             self.robotLocationsInMap.append([0.,0.,0.])     # Px, Py, Theta
             self.robotVelocities.append([0.,0.,0.])         # Vx, Vy, Omega
             self.cmdPub.append(rospy.Publisher('robot_'+str(nodeList[i])+'/cmd_vel', Twist, queue_size = 1))

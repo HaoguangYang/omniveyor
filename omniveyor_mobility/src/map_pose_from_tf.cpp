@@ -160,6 +160,14 @@ Eigen::MatrixXd constantTFGaussianEstimator::transformCov(Eigen::MatrixXd &covIn
     return J * covIn * J.transpose() + latestCov();
 }
 
+/*
+void constantTFGaussianEstimator::externalUpdateTransformedCov(Eigen::MatrixXd &covIn){
+    Eigen::MatrixXd J = covJacobian();
+    _tfCov = covIn - J * covIn * J.transpose();
+    _updateCov = false;
+}
+*/
+
 mapPoseFromTFOdom_node::mapPoseFromTFOdom_node(ros::NodeHandle *node): _nh(*node){
     _tfListener = new tf2_ros::TransformListener(_tfBuffer);
     _nh.param<std::string>("map_pose_topic", _poseTopic, "map_pose");
@@ -167,9 +175,11 @@ mapPoseFromTFOdom_node::mapPoseFromTFOdom_node(ros::NodeHandle *node): _nh(*node
     _nh.param<std::string>("odom_topic", _odomTopic, "odom");
     _nh.param<std::string>("odom_frame", _odomFrame, "");
     _nh.param<std::string>("base_frame", _baseFrame, "");
+    _nh.param<std::string>("slow_map_pose_topic", _slowPoseTopic, "amcl_pose");
     _nh.param<int>("tf_covariance_estimation_window", _windowLen, 50);
     _nh.param<double>("publish_rate", _pubRate, 40.0);
-    _nh.param<bool>("publish_tf_cov", _pubTfCov, true);
+    _nh.param<bool>("publish_tf_cov", _pubTfCov, false);
+    _nh.param<bool>("fuse_slow_map_pose", _fuseSlowPose, false);
     // in case these frames are not provided as params
     if (_odomFrame=="" or _baseFrame==""){
         while (_nh.ok()){
@@ -204,6 +214,10 @@ mapPoseFromTFOdom_node::mapPoseFromTFOdom_node(ros::NodeHandle *node): _nh(*node
             _tfOdomBase.transform.rotation.w = 1.0;
         }
     }
+    if (_fuseSlowPose)
+    {
+        _nh.subscribe(_slowPoseTopic, 10, &mapPoseFromTFOdom_node::slowPoseSubsCb, this);
+    }
     _mapPosePublisher = _nh.advertise<geometry_msgs::PoseWithCovarianceStamped>(_poseTopic, 2);
     if (_pubTfCov){
         _tfCovPublisher = _nh.advertise<std_msgs::Float64MultiArray>(_poseTopic+"/tf_cov", 2);
@@ -224,6 +238,10 @@ mapPoseFromTFOdom_node::~mapPoseFromTFOdom_node(){
 
 void mapPoseFromTFOdom_node::odomSubsCb(const nav_msgs::Odometry::ConstPtr& msg){
     _lastOdom = *msg;
+}
+
+void mapPoseFromTFOdom_node::slowPoseSubsCb(const geometry_msgs::PoseWithCovarianceStamped::ConstPtr& msg){
+    _lastSlowPose = *msg;
 }
 
 void mapPoseFromTFOdom_node::run(){
@@ -266,22 +284,29 @@ void mapPoseFromTFOdom_node::run(){
         geometry_msgs::PoseStamped ps;
         tf2::doTransform(odomPose, ps, _odomMapGaussianEst->latestTransform());
         Eigen::MatrixXd odomBaseCov = Eigen::Map<Eigen::MatrixXd>(_lastOdom.pose.covariance.data(), 6, 6);
-        Eigen::MatrixXd covTransformed = _odomMapGaussianEst->transformCov(odomBaseCov);
-        if (_pubTfCov){
-            Eigen::MatrixXd tfCov = _odomMapGaussianEst->latestCov();
-            double *covData = tfCov.data();
-		    for (int i = 0; i < 36; i++)
-			    _tfCov.data[i] = covData[i];
-            _tfCovPublisher.publish(_tfCov);
-        }
-        Eigen::Matrix<double,Eigen::Dynamic,Eigen::Dynamic,Eigen::RowMajor> covTransformedRowMaj(covTransformed);
-        double *covData = covTransformedRowMaj.data();
+
         // assembly
         _lastMapPose.header.frame_id = _mapFrame;
         _lastMapPose.header.stamp = hdr.stamp;
         _lastMapPose.pose.pose = ps.pose;
-        for (int i  =0; i < 36; i++)
-            _lastMapPose.pose.covariance[i] = covData[i];
+
+        if (!_fuseSlowPose){
+            Eigen::MatrixXd covTransformed = _odomMapGaussianEst->transformCov(odomBaseCov);
+            if (_pubTfCov){
+                Eigen::MatrixXd tfCov = _odomMapGaussianEst->latestCov();
+                double *covData = tfCov.data();
+                for (int i = 0; i < 36; i++)
+                    _tfCov.data[i] = covData[i];
+                _tfCovPublisher.publish(_tfCov);
+            }
+            Eigen::Matrix<double,Eigen::Dynamic,Eigen::Dynamic,Eigen::RowMajor> covTransformedRowMaj(covTransformed);
+            double *covData = covTransformedRowMaj.data();
+            for (int i  =0; i < 36; i++)
+                _lastMapPose.pose.covariance[i] = covData[i];
+        } else {
+            _lastMapPose.pose.covariance = _lastSlowPose.pose.covariance;
+        }
+
         _mapPosePublisher.publish(_lastMapPose);
         ros::spinOnce();
         rate.sleep();
