@@ -170,24 +170,28 @@ void constantTFGaussianEstimator::externalUpdateTransformedCov(Eigen::MatrixXd &
 
 mapPoseFromTFOdom_node::mapPoseFromTFOdom_node(ros::NodeHandle *node): _nh(*node){
     _tfListener = new tf2_ros::TransformListener(_tfBuffer);
-    _nh.param<std::string>("map_pose_topic", _poseTopic, "map_pose");
-    _nh.param<std::string>("map_frame", _mapFrame, "map");
-    _nh.param<std::string>("odom_topic", _odomTopic, "odom");
-    _nh.param<std::string>("odom_frame", _odomFrame, "");
-    _nh.param<std::string>("base_frame", _baseFrame, "");
-    _nh.param<std::string>("slow_map_pose_topic", _slowPoseTopic, "amcl_pose");
-    _nh.param<int>("tf_covariance_estimation_window", _windowLen, 50);
-    _nh.param<double>("publish_rate", _pubRate, 40.0);
-    _nh.param<bool>("publish_tf_cov", _pubTfCov, false);
-    _nh.param<bool>("fuse_slow_map_pose", _fuseSlowPose, false);
+    ros::param::param<std::string>("~/map_pose_topic", _poseTopic, "map_pose");
+    ros::param::param<std::string>("~/map_frame", _mapFrame, "map");
+    ros::param::param<std::string>("~/odom_topic", _odomTopic, "odom");
+    ros::param::param<std::string>("~/odom_frame", _odomFrame, "");
+    ros::param::param<std::string>("~/base_frame", _baseFrame, "");
+    ros::param::param<std::string>("~/slow_map_pose_topic", _slowPoseTopic, "amcl_pose");
+    ros::param::param<int>("~/tf_covariance_estimation_window", _windowLen, 50);
+    ros::param::param<double>("~/publish_rate", _pubRate, 40.0);
+    ros::param::param<bool>("~/publish_tf_cov", _pubTfCov, false);
+    ros::param::param<bool>("~/fuse_slow_map_pose", _fuseSlowPose, false);
     // in case these frames are not provided as params
     if (_odomFrame=="" or _baseFrame==""){
         while (_nh.ok()){
             // wait for the first odom message to come in, such that odom and base link frames are obtained.
+            // need some time to capture a proper message.
             nav_msgs::Odometry::ConstPtr odo = ros::topic::waitForMessage<nav_msgs::Odometry>
-                                                        (_odomTopic, _nh, ros::Duration(0.1));
+                                                        (_odomTopic, _nh, ros::Duration(1.0));
             if (odo == nullptr)
+            {
+                std::cout << "Still waiting on odom..." << std::endl;
                 continue;
+            }
             _lastOdom = *odo;
             _odomFrame = _lastOdom.header.frame_id;
             _baseFrame = _lastOdom.child_frame_id;
