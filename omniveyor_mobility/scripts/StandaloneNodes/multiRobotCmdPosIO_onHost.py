@@ -28,10 +28,10 @@ class multiRobotCoordinator():
         self.enaPub = []
         for i in range(0, self.numRobots):
             self.vel_cmd_msg.append(Twist())
-            # self.localization_sub.append(rospy.Subscriber('robot_'+str(nodeList[i])+'/odom/filtered',
-            #                             Odometry, self.globalLocCb, (nodeList[i],)))
-            self.localization_sub.append(rospy.Subscriber('robot_'+str(nodeList[i])+'/map_pose/filtered',
+            self.localization_sub.append(rospy.Subscriber('robot_'+str(nodeList[i])+'/odom/filtered',
                                         Odometry, self.globalLocCb, (nodeList[i],)))
+            #self.localization_sub.append(rospy.Subscriber('robot_'+str(nodeList[i])+'/map_pose/filtered',
+            #                            Odometry, self.globalLocCb, (nodeList[i],)))
             self.robotLocationsInMap.append([0.,0.,0.])     # Px, Py, Theta
             self.robotVelocities.append([0.,0.,0.])         # Vx, Vy, Omega
             self.cmdPub.append(rospy.Publisher('robot_'+str(nodeList[i])+'/cmd_vel', Twist, queue_size = 1))
@@ -62,7 +62,7 @@ class multiRobotCoordinator():
 class demoPlatoon():
     def __init__(self, nodeList):
         self.robotIO = multiRobotCoordinator(nodeList)
-        self.v_lim = [0.3, 0.3, 0.1]      # linear, angular, along rod
+        self.v_lim = [0.3, 0.3, 0.3]      # linear, angular, along rod
         self.vel_center =       np.array([0., 0., 0., 0., 0.])
         self.vel_center_des =   np.array([0., 0., 0., 0., 0.])
         self.pos_center =       np.array([0., 0., 0., 0., 0.])  # [x, y, d1, d2, d3]
@@ -90,6 +90,7 @@ class demoPlatoon():
 
         self.butn7Pressed = False
         self.butn8Pressed = False
+        self.butn9Pressed = False
         self.robotEnable = 0
         self.mode = 0
 
@@ -102,6 +103,7 @@ class demoPlatoon():
         ul = self.kpl*el + self.kdl*eld
         ua = self.kpa*ea + self.kda*ead
 
+        print("Control Errors:")
         print(el)
         print(ea)
         
@@ -118,7 +120,7 @@ class demoPlatoon():
         self.v_robots[1,1] = -ul_glob[2]*np.sin(self.robot_orientation[1]) + ul_glob[3]*np.cos(self.robot_orientation[1])
         self.v_robots[2,0] = ul_glob[4]*np.cos(self.robot_orientation[2]) + ul_glob[5]*np.sin(self.robot_orientation[2])
         self.v_robots[2,1] = -ul_glob[4]*np.sin(self.robot_orientation[2]) + ul_glob[5]*np.cos(self.robot_orientation[2])
-        print(self.robot_orientation)
+
         self.v_robots[0,2] = self.kpa*(np.mod(self.orientation_center_des - self.robot_orientation[0] + np.pi*3., np.pi*2.)-np.pi) + self.kda*ead
         self.v_robots[1,2] = self.kpa*(np.mod(self.orientation_center_des + 2.*np.pi/3. -self.robot_orientation[1] + np.pi*3., np.pi*2.)-np.pi) + self.kda*ead
         self.v_robots[2,2] = self.kpa*(np.mod(self.orientation_center_des - 2.*np.pi/3. -self.robot_orientation[2] + np.pi*3., np.pi*2.)-np.pi) + self.kda*ead
@@ -139,6 +141,8 @@ class demoPlatoon():
     def updateGeometry(self):
         # estimates and updates how far the robots are from the center of Y rails.
         # robotIO.robotLocationsInMap...
+        print("Robot Pose in Map:")
+        print(self.robotIO.robotLocationsInMap)
         pose_array = np.array(self.robotIO.robotLocationsInMap)
         self.robot_orientation = pose_array[:,2]
         orientation_unwrapped = pose_array[:,2]
@@ -149,7 +153,9 @@ class demoPlatoon():
             orientation_unwrapped[2] -= (np.pi+np.pi)
         # saturate and subtract
         self.orientation_center = np.mod(np.average(orientation_unwrapped) + 5.*np.pi, np.pi*2.) - np.pi
-        #print(orientation_unwrapped)
+        # TODO: check data return self.robot_orientation: why do we get 6.xx and -6.xx on agnles and so on?
+        print("Wrapped Robot Orientations:")
+        print(orientation_unwrapped)
         self.jacobian[0,2] = np.sin(self.orientation_center)
         self.jacobian[1,2] = -np.cos(self.orientation_center)
         self.jacobian[2,3] = np.sin(self.orientation_center+2.*np.pi/3.)
@@ -161,6 +167,7 @@ class demoPlatoon():
                             np.array([pose_array[0,0], pose_array[0,1], 
                                       pose_array[1,0], pose_array[1,1], 
                                       pose_array[2,0], pose_array[2,1]]))           # [x, y, d1, d2, d3]
+        print("Parallel Manipulator Position")
         print(self.pos_center)
         self.orientation_center = np.arctan2(-self.pos_center[0]+pose_array[0,0], self.pos_center[1]-pose_array[0,1])
         vel_array = np.array(self.robotIO.robotVelocities)
@@ -193,12 +200,17 @@ class demoPlatoon():
             self.mode = (self.mode + 1)%4
             print("Platoon Control Mode: "+str(self.mode))
         self.butn7Pressed = msg.buttons[6]
+        if (self.butn9Pressed and not msg.buttons[8]):
+            self.mode = (self.mode - 1)%4
+            print("Platoon Control Mode: "+str(self.mode))
+        self.butn9Pressed = msg.buttons[8]
         if (self.butn8Pressed and not msg.buttons[7]):
             self.robotEnable = 1 - self.robotEnable
             print("Robots Enabling..." if self.robotEnable else "Robots Disabling...")
             # enable robots
-            for pub in self.robotIO.enaPub:
-                pub.publish(Byte(data=self.robotEnable))
+            for i in range(0, len(self.robotIO.enaPub)):
+                #if self.mode == i or self.mode >= 3:
+                self.robotIO.enaPub[i].publish(Byte(data=self.robotEnable))
         self.butn8Pressed = msg.buttons[7]
 
     def run(self):
@@ -248,7 +260,7 @@ class demoOne():
 
 if __name__ == '__main__':
     rospy.init_node('multi_robot_cmd_loc_host')
-    demo = demoPlatoon([rospy.get_param('~/node_1',   9),
+    demo = demoPlatoon([rospy.get_param('~/node_1', 9),
                         rospy.get_param('~/node_2', 6),
                         rospy.get_param('~/node_3', 8)])     # Robot 1, 2, 3. counter-clockwise direction
     print("Verify that Robot #"+str(demo.robotIO.nodeList[0])+", #"+str(demo.robotIO.nodeList[1])+", #"+str(demo.robotIO.nodeList[2])+
