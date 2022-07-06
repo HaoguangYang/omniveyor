@@ -45,8 +45,6 @@ publish_acceleration: false
 # Whether we'll allow old measurements to cause a re-publication of the updated state
 permit_corrected_publication: true
 
-dynamic_process_noise_covariance: true
-
 # REP-105 (http://www.ros.org/reps/rep-0105.html) specifies four principal coordinate frames: base_link, odom, map, and
 # earth. base_link is the coordinate frame that is affixed to the robot. Both odom and map are world-fixed frames.
 # The robot's position in the odom frame will drift over time, but is accurate in the short term and should be
@@ -122,8 +120,8 @@ odom0_relative: true
 # required. Data is specified at the level of pose and twist variables, rather than for each variable in isolation.
 # For messages that have both pose and twist data, the parameter specifies to which part of the message we are applying
 # the thresholds.
-odom0_pose_rejection_threshold: 8
-odom0_twist_rejection_threshold: 5
+odom0_pose_rejection_threshold: 5
+odom0_twist_rejection_threshold: 1
 
 pose0: map_pose
 pose0_config: [true,  true,  false,
@@ -134,7 +132,7 @@ pose0_config: [true,  true,  false,
 pose0_differential: false
 pose0_relative: false
 pose0_queue_size: 5
-pose0_rejection_threshold: 5  # Note the difference in parameter name
+pose0_rejection_threshold: 2  # Note the difference in parameter name
 pose0_nodelay: false
 
 # [ADVANCED]  The EKF and UKF models follow a standard predict/correct cycle. During prediction, if there is no
