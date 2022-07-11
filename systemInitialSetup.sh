@@ -16,7 +16,7 @@ sudo systemctl enable ssh
 # system utilities
 sudo apt install -y net-tools curl
 # system build & run dependencies
-sudo apt install -y build-essential libopenvdb-dev libjemalloc2 libgeographic-dev python3-pip python-is-python3 libmnl-dev libx264-dev
+sudo apt install -y build-essential libopenvdb-dev libjemalloc2 libgeographic-dev python3-pip python-is-python3 libmnl-dev libx264-dev unzip
 sudo -H pip3 install numpy pymysql opencv-contrib-python pyrealsense2
 if [[ "${machineIs}" == *"1"* ]]; then
     # hardware drivers: Realsense cameras
@@ -63,6 +63,15 @@ sudo apt install -y ros-noetic-amcl ros-noetic-move-base ros-noetic-slam-toolbox
 sudo apt update
 sudo apt upgrade -y
 
+# Oracle database
+sudo -H pip3 install cx_Oracle
+dest=./OracleInstantClientLight
+zip=temp.zip
+mkdir ./OracleInstantClientLight
+wget -c "https://download.oracle.com/otn_software/linux/instantclient/instantclient-basiclite-linuxx64.zip" -O temp.zip
+unzip -o -d "$dest" "$zip" && f=("$dest"/*) && mv "$dest"/*/* "$dest" && rmdir "${f[@]}"
+rm $zip
+
 if [[ "${machineIs}" == *"1"* ]]; then
     # optional: setup Arduino IO
     mkdir ./Arduino
@@ -103,7 +112,7 @@ if [[ "${machineIs}" == *"1"* ]]; then
     sudo chmod +x /etc/modules-load.d/can.conf
     sudo cp ./src/omniveyor_hardware/pcv_base/resources/setup/canbus.service /etc/systemd/system/
     sudo chmod +x /etc/systemd/system/canbus.service
-    sudo systemctl enable canbus
+    sudo systemctl enable canbushttps://download.oracle.com/otn_software/linux/instantclient/instantclient-basiclite-linuxx64.zip
 
     # setup x11vnc
     sudo apt install -y x11vnc

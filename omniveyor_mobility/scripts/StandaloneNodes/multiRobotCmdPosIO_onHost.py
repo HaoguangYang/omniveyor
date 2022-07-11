@@ -76,10 +76,16 @@ class demoPlatoon():
         self.robot_orientation = np.array([0., 2.*np.pi/3., -2.*np.pi/3.])
         self.v_robots =         np.array([[0., 0., 0.], [0., 0., 0.], [0., 0., 0.]])
         
-        self.kpl = 1.5
-        self.kdl = 1.0
-        self.kpa = 1.5
-        self.kda = 1.0
+        # high-gain mode, for simulation or low-latency network
+        #self.kpl = 1.5
+        #self.kdl = 1.0
+        #self.kpa = 1.5
+        #self.kda = 1.0
+        # low-gain mode, for testing
+        self.kpl = 0.5
+        self.kdl = 0.3
+        self.kpa = 0.5
+        self.kda = 0.3
         
         self.jacobian = np.array([[1., 0., 0., 0., 0.],
                                   [0., 1., -1., 0., 0.],
