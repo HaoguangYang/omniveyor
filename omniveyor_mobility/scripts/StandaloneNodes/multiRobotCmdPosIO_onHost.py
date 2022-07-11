@@ -268,9 +268,9 @@ class demoOne():
 
 if __name__ == '__main__':
     rospy.init_node('multi_robot_cmd_loc_host')
-    demo = demoPlatoon([rospy.get_param('~/node_1', 9),
-                        rospy.get_param('~/node_2', 6),
-                        rospy.get_param('~/node_3', 8)])     # Robot 1, 2, 3. counter-clockwise direction
+    demo = demoPlatoon([rospy.get_param('~node_1', 9),
+                        rospy.get_param('~node_2', 6),
+                        rospy.get_param('~node_3', 8)])     # Robot 1, 2, 3. counter-clockwise direction
     print("Verify that Robot #"+str(demo.robotIO.nodeList[0])+", #"+str(demo.robotIO.nodeList[1])+", #"+str(demo.robotIO.nodeList[2])+
             " are arranged counter-clockwise and facing counter-clockwise direction.")
     print("Use joystick button #7 to control test mode, #8 to enable/disable robots")

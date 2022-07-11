@@ -12,8 +12,8 @@
     -->
     
     <arg name="node_id_1"   default="9"/>
-    <arg name="node_id_2"   default="8"/>
-    <arg name="node_id_3"   default="6"/>
+    <arg name="node_id_2"   default="6"/>
+    <arg name="node_id_3"   default="8"/>
     <arg name="target_domain"   default="192.168.254" />
     <arg name="target_ip_base"  default="100" />
     <arg name="teleop_tx_port_base" default="17100"/>

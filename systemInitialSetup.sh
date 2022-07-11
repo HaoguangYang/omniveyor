@@ -14,10 +14,10 @@ sudo systemctl enable ssh
 
 # install dependent system packages
 # system utilities
-sudo apt install -y net-tools curl
+sudo apt install -y net-tools curl unzip
 # system build & run dependencies
-sudo apt install -y build-essential libopenvdb-dev libjemalloc2 libgeographic-dev python3-pip python-is-python3 libmnl-dev libx264-dev unzip
-sudo -H pip3 install numpy pymysql opencv-contrib-python pyrealsense2
+sudo apt install -y build-essential libopenvdb-dev libjemalloc2 libgeographic-dev python3-pip python-is-python3 libmnl-dev libx264-dev
+sudo -H pip3 install numpy pymysql oracledb opencv-contrib-python pyrealsense2
 if [[ "${machineIs}" == *"1"* ]]; then
     # hardware drivers: Realsense cameras
     # refer to: https://github.com/IntelRealSense/librealsense/blob/master/doc/distribution_linux.md
@@ -62,15 +62,6 @@ sudo apt install -y ros-noetic-amcl ros-noetic-move-base ros-noetic-slam-toolbox
 # search and apply remaining upgrades
 sudo apt update
 sudo apt upgrade -y
-
-# Oracle database
-sudo -H pip3 install cx_Oracle
-dest=./OracleInstantClientLight
-zip=temp.zip
-mkdir ./OracleInstantClientLight
-wget -c "https://download.oracle.com/otn_software/linux/instantclient/instantclient-basiclite-linuxx64.zip" -O temp.zip
-unzip -o -d "$dest" "$zip" && f=("$dest"/*) && mv "$dest"/*/* "$dest" && rmdir "${f[@]}"
-rm $zip
 
 if [[ "${machineIs}" == *"1"* ]]; then
     # optional: setup Arduino IO
