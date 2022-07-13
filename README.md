@@ -145,58 +145,36 @@ roslaunch pcv_base multi_robot_p2p.launch
 ```
 
 ### Multi-Robot Working Example:
-#### Network setup
-Host, Robot 1, Robot 2, and Robot 3 are all connected to the same WiFi Access Point. Assume the IP addresses of the robots and hosts are under `192.168.254.96/26`, with the robot addresses start from `192.168.254.101`.
-
-#### Operation Procedures
-
-N.B. Replace `192.168.254.10X` with actual node IP
-
-1. Power up robots
-
-#### For new setup:
-
-2. ssh into one of the robot: `ssh cartman@192.168.254.10X`
-
-3. on robot: `cd Dev/omniveyor_newsetup && source devel/setup.bash`
-
-4. on robot: `roslaunch omniveyor_mobility build_map.launch map_save_period:=30`
-
-5. on host: Connect the joystick and then `cd omniveyor_ws && source devel/setup.bash`
-
-6. on host: `roslaunch omniveyor_mobility remote_teleop_on_host.launch node_id:=X`
-
-7. on host (optional for visualization): `source devel/setup.bash && export ROS_MASTER_URI=http://192.168.254.10X:11311 && export ROS_IP=$(ip route get 1 | awk '{print $(NF-2);exit}') && roslaunch omniveyor_mobility visualization.launch`
-
-8. on robot: to enable motors `rostopic pub -1 /control_mode std_msgs/Byte "data: 1"`
-    
-    on host: teleop the robot with joystick until test area is covered. Exit launch file started in step 4;
-    
-    on robot: to disable motors `rostopic pub -1 /control_mode std_msgs/Byte "data: 0"`
-
-9. copy folder on robot `omniveyor_newsetup/src/omniveyor/omniveyor_mobility/resources/maps/` to peer robots. Use `sftp cartman@192.168.254.10X` and then `put -R` / `get -R` the `maps` folder
-
-#### For each robot, place robot at mapping origin:
-
-10. ssh into robots: `ssh cartman@192.168.254.10X`
-
-11. on robot: `cd Dev/omniveyor_newsetup && source devel/setup.bash`
-
-12. on robot: `roslaunch omniveyor_mobility robot_remote_teleop_pos_feedback.launch`
-
-13. on host: Connect the joystick and then `cd omniveyor_ws && source devel/setup.bash`
-
-14. on host: `roslaunch omniveyor_mobility multi_robot_remote_teleop_on_host.launch`
-
-    Then, follow instructions on the terminal to enable robots and drive individual robots (Modes 0...2) until positioning covariance converges.
-
-15. on host (optional for visualization): `source devel/setup.bash && export ROS_MASTER_URI=http://192.168.254.10X:11311 && export ROS_IP=$(ip route get 1 | awk '{print $(NF-2);exit}') && roslaunch omniveyor_mobility visualization.launch`
-
-16. Enter Mode 3 and drive three robots simultaneously in formation.
-
-#### Cleanup:
-
-18. on robot: `Ctrl + C` on all three robots
+> #### Network setup
+> Host, Robot 1, Robot 2, and Robot 3 are all connected to the same WiFi Access Point. Assume the IP addresses of the robots and hosts are under `192.168.254.96/26`, with the robot addresses start from `192.168.254.101`.
+> #### Operation Procedures
+> N.B. Replace `192.168.254.10X` with actual node IP
+> 1. Power up robots
+> #### For new setup:
+> 2. ssh into one of the robot: `ssh cartman@192.168.254.10X`
+> 3. on **robot**: `cd Dev/omniveyor_newsetup && source devel/setup.bash`
+> 4. on **robot**: `roslaunch omniveyor_mobility build_map.launch map_save_period:=30`
+> 5. on **host**: Connect the joystick and then `cd omniveyor_ws && source devel/setup.bash`
+> 6. on **host**: `roslaunch omniveyor_mobility remote_teleop_on_host.launch node_id:=X`
+> 7. on host (optional for visualization): `source devel/setup.bash && export ROS_MASTER_URI=http://192.168.254.10X:11311 && export ROS_IP=$(ip route get 1 | awk '{print $(NF-2);exit}') && roslaunch omniveyor_mobility visualization.launch`
+> 8. on **robot**: to enable motors `rostopic pub -1 /control_mode std_msgs/Byte "data: 1"`
+>
+>    on **host**: teleop the robot with joystick until test area is covered. Exit launch file started in step 4;
+>
+>    on **robot**: to disable motors `rostopic pub -1 /control_mode std_msgs/Byte "data: 0"`
+> 9. copy folder on robot `omniveyor_newsetup/src/omniveyor/omniveyor_mobility/resources/maps/` to peer robots. Use `sftp cartman@192.168.254.10X` and then `put -R` / `get -R` the `maps` folder
+> #### For each robot, place robot at mapping origin:
+> 10. ssh into robots: `ssh cartman@192.168.254.10X`
+> 11. on **robot**: `cd Dev/omniveyor_newsetup && source devel/setup.bash`
+> 12. on **robot**: `roslaunch omniveyor_mobility robot_remote_teleop_pos_feedback.launch`
+> 13. on **host**: Connect the joystick and then `cd omniveyor_ws && source devel/setup.bash`
+> 14. on **host**: `roslaunch omniveyor_mobility multi_robot_remote_teleop_on_host.launch`
+>
+>     Then, follow instructions on the terminal to enable robots and drive individual robots (Modes 0...2) until positioning covariance converges.
+> 15. on host (optional for visualization): `source devel/setup.bash && export ROS_MASTER_URI=http://192.168.254.10X:11311 && export ROS_IP=$(ip route get 1 | awk '{print $(NF-2);exit}') && roslaunch omniveyor_mobility visualization.launch`
+> 16. Enter Mode 3 and drive three robots simultaneously in formation.
+> #### Cleanup:
+> 18. on robot: `Ctrl + C` on all three robots
 
 ## Simulator Configuration
 
