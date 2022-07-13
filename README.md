@@ -3,7 +3,7 @@ Root Repository for the OmniVeyor Robots.
 
 ## Robot configuration
 
-#### Hardware Setup
+### Hardware Setup
 
 - Remove top panel and rear panel.
 - Remove UPS and short the two pairs of wires with two connection blocks (+ with +, - with -)
@@ -21,7 +21,7 @@ Root Repository for the OmniVeyor Robots.
   Front Left: D435i. Front Right: T265. Rear Right: D435i (optional). 
   Connect the USB cables to the USB 3.0 card. From left to right the order is: T265, No Connection, Rear D435i, Front D435i.
 
-#### Install Linux System
+### Install Linux System
 
 Recommended: `Lubuntu 20.04` or `Kubuntu 20.04`. 
 
@@ -91,7 +91,6 @@ ros_ws/src/
   ``` 
 
 - If you are using Gnome desktop manager, comment out the `x11vnc` section of the `./systemInitialSetup.sh` script, and use the inbuilt Vino server instead. The VNC server is started through Settings > Sharing > Desktop Sharing.
-
   *Optional* enable access of VNC through Windows machines by turning off encryption (**NO sudo**):
   ```sh
   gsettings set org.gnome.Vino require-encryption false
@@ -110,12 +109,12 @@ ros_ws/src/
   ```
   **WARNING:** The program will run 30s after the machine is booted up. Plugging in a joystick will mobilize the robot. Refer to `autorun.py` (under `src/pcv_base/scripts`) for series of commands it executes.
 
-#### Compile and run the code: 
+### Compile and run the code: 
 ```sh
 catkin_make -DCMAKE_BUILD_TYPE=Release
 ```
 
-Then run the ros package `pcv_base`.
+Then run the launch files in `pcv_base` and `omniveyor_mobility` packages.
 
 **Deprecated** Automatic run procedure is defined in the autorun.py, which structures a move of the robot as a "task", as defined in the `pcv_base/scripts` folder:
 ```
@@ -125,15 +124,17 @@ autorun.py --(imports)--> task --(imports)--> payload
 ```
 
 ## Base Station configuration
-
-#### Connect to the robot with Remote ROS Master
+A base station is the computer that wirelessly connects to all active robots, issuing commands to the robots and monitoring their status. Two approaches of interconnecting multiple robots are provided -- through native ROS setup, and through the `nimbro_network` package.
+### Connect to the robot with Remote ROS Master
 ```sh
-export ROS_MASTER_URI=$Robot_IP_Addr_Here
-export ROS_IP=$Your_IP_Here
+export ROS_MASTER_URI=http://$ROBOT_IP:11311
+export ROS_IP=$(ip route get 1 | awk '{print $(NF-2);exit}')
 ```
-If `rostopic list` works but no message comes through, check `ROS_IP` or `ROS_HOSTNAME` setting on the robot side.
+If `rostopic list` works but no message comes through, check:
+- Router is resolving local hostnames (try `ping $ROBOT_HOSTNAME.local` to verify `$ROBOT_HOSTNAME.local` is reachable).
+- `ROS_IP` or `ROS_HOSTNAME` setting on the robot side. Refer to [ROS Network Setup](http://wiki.ros.org/ROS/NetworkSetup).
 
-#### Connect to the robot with `nimbro_network`
+### Connect to the robot with `nimbro_network`
 On the base station side:
 ```sh
 roslaunch omniveyor_mobility multi_robot_p2p_onHost.launch
@@ -143,8 +144,60 @@ On the robot side:
 roslaunch pcv_base multi_robot_p2p.launch
 ```
 
-WIP
+### Multi-Robot Working Example:
+#### Network setup
+Host, Robot 1, Robot 2, and Robot 3 are all connected to the same WiFi Access Point. Assume the IP addresses of the robots and hosts are under `192.168.254.96/26`, with the robot addresses start from `192.168.254.101`.
+
+#### Operation Procedures
+
+N.B. Replace `192.168.254.10X` with actual node IP
+
+1. Power up robots
+
+#### For new setup:
+
+2. ssh into one of the robot: `ssh cartman@192.168.254.10X`
+
+3. on robot: `cd Dev/omniveyor_newsetup && source devel/setup.bash`
+
+4. on robot: `roslaunch omniveyor_mobility build_map.launch map_save_period:=30`
+
+5. on host: Connect the joystick and then `cd omniveyor_ws && source devel/setup.bash`
+
+6. on host: `roslaunch omniveyor_mobility remote_teleop_on_host.launch node_id:=X`
+
+7. on host (optional for visualization): `source devel/setup.bash && export ROS_MASTER_URI=http://192.168.254.10X:11311 && export ROS_IP=$(ip route get 1 | awk '{print $(NF-2);exit}') && roslaunch omniveyor_mobility visualization.launch`
+
+8. on robot: to enable motors `rostopic pub -1 /control_mode std_msgs/Byte "data: 1"`
+    
+    on host: teleop the robot with joystick until test area is covered. Exit launch file started in step 4;
+    
+    on robot: to disable motors `rostopic pub -1 /control_mode std_msgs/Byte "data: 0"`
+
+9. copy folder on robot `omniveyor_newsetup/src/omniveyor/omniveyor_mobility/resources/maps/` to peer robots. Use `sftp cartman@192.168.254.10X` and then `put -R` / `get -R` the `maps` folder
+
+#### For each robot, place robot at mapping origin:
+
+10. ssh into robots: `ssh cartman@192.168.254.10X`
+
+11. on robot: `cd Dev/omniveyor_newsetup && source devel/setup.bash`
+
+12. on robot: `roslaunch omniveyor_mobility robot_remote_teleop_pos_feedback.launch`
+
+13. on host: Connect the joystick and then `cd omniveyor_ws && source devel/setup.bash`
+
+14. on host: `roslaunch omniveyor_mobility multi_robot_remote_teleop_on_host.launch`
+
+    Then, follow instructions on the terminal to enable robots and drive individual robots (Modes 0...2) until positioning covariance converges.
+
+15. on host (optional for visualization): `source devel/setup.bash && export ROS_MASTER_URI=http://192.168.254.10X:11311 && export ROS_IP=$(ip route get 1 | awk '{print $(NF-2);exit}') && roslaunch omniveyor_mobility visualization.launch`
+
+16. Enter Mode 3 and drive three robots simultaneously in formation.
+
+#### Cleanup:
+
+18. on robot: `Ctrl + C` on all three robots
 
 ## Simulator Configuration
 
-WIP
+A gazebo-based simulator is included in the meta-package. Please refer to the README of [OmniVeyor_Gazebo_World](https://github.com/HaoguangYang/omniveyor_gazebo_world) repository.
