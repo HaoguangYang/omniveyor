@@ -2,7 +2,7 @@
     <arg name="map_file" default=""/>
     <arg name="dynamic_map" default="1"/>
     <group if="$(eval len(arg('map_file'))>0)">
-      <group if="$(arg dynamic_map)/>
+      <group if="$(arg dynamic_map)">
         <node pkg="slam_toolbox" type="lifelong_slam_toolbox_node" name="slam_toolbox" output="screen">
             <rosparam command="load" file="$(find omniveyor_mobility)/param/slam_toolbox_params.yaml" />
             <remap from="slam_toolbox/scan" to="scan"/>
@@ -10,7 +10,7 @@
             <param name="mode" value="mapping"/>
         </node>
       </group>
-      <group unless="$(arg dynamic_map)/>
+      <group unless="$(arg dynamic_map)">
         <node pkg="slam_toolbox" type="lifelong_slam_toolbox_node" name="slam_toolbox" output="screen">
             <rosparam command="load" file="$(find omniveyor_mobility)/param/slam_toolbox_params.yaml" />
             <remap from="slam_toolbox/scan" to="scan"/>

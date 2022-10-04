@@ -10,8 +10,8 @@ import time
 currentdir = os.path.dirname(os.path.realpath(__file__))
 parentdir = os.path.dirname(currentdir)
 sys.path.append(parentdir)
-from ReFrESH_ROS import ReFrESH_Module
-from ReFrESH_ROS_utils import Thread, Ftype, ROSnodeMonitor, WirelessNetworkMonitor, RingBuffer
+from refresh_ros.ReFRESH_ros import ReFrESH_Module
+from refresh_ros.ReFRESH_ros_utils import Thread, Ftype, ROSnodeMonitor, WirelessNetworkMonitor, RingBuffer
 from geometry_msgs.msg import Twist
 
 """Take teleoperation input from joystick"""
@@ -25,9 +25,9 @@ class joystickTeleopModule(ReFrESH_Module):
         self.cpuQuota = 0.2
         self.memQuota = 0.1
         self.exMon = ROSnodeMonitor()
-        self.setComponentProperties('EX', Ftype.LAUNCH_FILE, 'pcv_base', 'joystick_teleop.launch')
-        self.setComponentProperties('EV', Ftype.TIMER, exec=self.evaluator, kwargs={'freq': 1.0})
-        self.setComponentProperties('ES', Ftype.TIMER, exec=self.estimator, kwargs={'freq': 1.0})
+        self.setComponent('EX', Ftype.LAUNCH_FILE, 'pcv_base', 'joystick_teleop.launch')
+        self.setComponent('EV', Ftype.TIMER, exec=self.evaluator, kwargs={'freq': 1.0})
+        self.setComponent('ES', Ftype.TIMER, exec=self.estimator, kwargs={'freq': 1.0})
 
     def hasJoystick(self):
         inputList = glob.glob('/dev/input/js*')
@@ -81,10 +81,10 @@ class remoteTeleopModule(ReFrESH_Module):
         self.netMon = WirelessNetworkMonitor()
         self.timeMsgReached = RingBuffer(2)
 
-        self.setComponentProperties('EX', Ftype.LAUNCH_FILE, 'pcv_base', 'remote_teleop.launch')
-        self.setComponentProperties('EV', Ftype.TIMER, exec=self.evaluator, kwargs={'freq': 1.0}, ind=0)
-        self.setComponentProperties('EV', Ftype.SUBSCRIBER, self.cmdTopic, self.msgTiming, mType=Twist, ind=1)
-        self.setComponentProperties('ES', Ftype.THREAD, exec=self.estimator)
+        self.setComponent('EX', Ftype.LAUNCH_FILE, 'pcv_base', 'remote_teleop.launch')
+        self.setComponent('EV', Ftype.TIMER, exec=self.evaluator, kwargs={'freq': 1.0}, ind=0)
+        self.setComponent('EV', Ftype.SUBSCRIBER, self.cmdTopic, self.msgTiming, mType=Twist, ind=1)
+        self.setComponent('ES', Ftype.THREAD, exec=self.estimator)
 
     def evaluator(self, event):
         # check if performance monitor is attached
@@ -159,9 +159,9 @@ class keyboardTeleopModule(ReFrESH_Module):
         self.cpuQuota = 0.2
         self.memQuota = 0.1
         self.exMon = ROSnodeMonitor()
-        self.setComponentProperties('EX', Ftype.LAUNCH_FILE, 'pcv_base', 'keyboard_teleop.launch')
-        self.setComponentProperties('EV', Ftype.TIMER, exec=self.evaluator, kwargs={'freq': 1.0})
-        self.setComponentProperties('ES', Ftype.TIMER, exec=self.estimator, kwargs={'freq': 1.0})
+        self.setComponent('EX', Ftype.LAUNCH_FILE, 'pcv_base', 'keyboard_teleop.launch')
+        self.setComponent('EV', Ftype.TIMER, exec=self.evaluator, kwargs={'freq': 1.0})
+        self.setComponent('ES', Ftype.TIMER, exec=self.estimator, kwargs={'freq': 1.0})
 
     def hasKeyboard(self):
         # get the last input device in the list, if the list is not empty.

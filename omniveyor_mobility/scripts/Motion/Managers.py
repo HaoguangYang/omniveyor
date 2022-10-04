@@ -8,8 +8,8 @@ import threading
 currentdir = os.path.dirname(os.path.realpath(__file__))
 parentdir = os.path.dirname(currentdir)
 sys.path.append(parentdir)
-from ReFrESH_ROS import Manager
-from ReFrESH_ROS_utils import Ftype, Launcher, ROSTopicMonitor, ROSnodeMonitor
+from refresh_ros.ReFRESH_ros import Manager
+from refresh_ros.ReFRESH_ros_utils import Ftype, Launcher, ROSTopicMonitor, ROSnodeMonitor
 import tf2_geometry_msgs
 from geometry_msgs.msg import TransformStamped, PoseStamped, PoseWithCovarianceStamped, Twist
 from nav_msgs.msg import Odometry, OccupancyGrid
@@ -44,11 +44,11 @@ class MoveBaseManager(PlannerModule, Manager):
         PlannerModule.__init__(self, name, priority, preemptive, EX_thread=4, EV_thread=1, ES_thread=1)
         Manager.__init__(self, launcher, managedModules, name, freq, minReconfigInterval)
         self.EX[0] = self.Decider
-        self.setComponentProperties('EX', Ftype.LAUNCH_FILE, 'omniveyor_mobility', 'navigation.launch', ind=1)
-        self.setComponentProperties('EX', Ftype.THREAD, exec=self.updateGoal, pre=self.moveRobotIntoCostmap, ind=2)
-        self.setComponentProperties('EX', Ftype.THREAD, exec=self.setTerminalState, ind=3)
-        self.setComponentProperties('EV', Ftype.TIMER, exec=self.evaluator, kwargs={'freq': 5.0})
-        self.setComponentProperties('ES', Ftype.CALLABLE, exec=self.estimator)
+        self.setComponent('EX', Ftype.LAUNCH_FILE, 'omniveyor_mobility', 'navigation.launch', ind=1)
+        self.setComponent('EX', Ftype.THREAD, exec=self.updateGoal, pre=self.moveRobotIntoCostmap, ind=2)
+        self.setComponent('EX', Ftype.THREAD, exec=self.setTerminalState, ind=3)
+        self.setComponent('EV', Ftype.TIMER, exec=self.evaluator, kwargs={'freq': 5.0})
+        self.setComponent('ES', Ftype.CALLABLE, exec=self.estimator)
         # Resource metric: CPU time, memory, topics
         self.resourceMetrics = [0.5, 0.0, 0.0]
         # Performance metric: metric bottleneck of submodules. This metric is cleared once the goal pose change.
@@ -428,7 +428,9 @@ class MotionManager(Manager):
     def getRemainingTime(self):
         return (self.currentActionGoal.expiration - rospy.Time.now()).to_sec()
 
-    """A low-level goal runner. Tries to reach a goal with specified uncertainty tolerance"""
+    """A low-level goal runner. Tries to reach a goal with specified uncertainty tolerance
+    N,B. Only recommended to use for testing purposes. Works with threading backend ONLY. (Does not apply to multiprocessing backend, does not apply to ROS2).
+    """
     def runGoal(self, pose:PoseStamped=PoseStamped(), tolerance:list=[0.1, 0.1],
                     timeout:float=30.0, actionGoal:LowLevelPoseGoal=None):
         if actionGoal is not None:
@@ -444,11 +446,13 @@ class MotionManager(Manager):
                                 tolerance[1], tolerance[1], tolerance[1]])
             currentActionGoal.target_pose.covariance = cov.tolist()
             currentActionGoal.expiration = rospy.Time.now()+rospy.Duration(timeout)
-        # execution path is not through action server. Notify action server.
+        """
         tmpActionGoal = LowLevelPoseActionGoal(header=currentActionGoal.header, goal=currentActionGoal)
         tmpActionGoal.goal_id.stamp = currentActionGoal.header.stamp
         tmpActionGoal.goal_id.id = "%s-%i-%.3f" % (self.name, self.goal_id_tracker, currentActionGoal.header.stamp.to_sec())
         self.goal_id_tracker += 1
+        # execution path is not through action server. Notify action server.
+        # N,B. Only recommended to use for testing purposes. Works with threading backend ONLY. (Does not apply to multiprocessing backend, does not apply to ROS2).
         self.runActionSrv.action_server.internal_goal_callback(tmpActionGoal)
         self.goalStatus = GoalStatus.ACTIVE
         rate = rospy.Rate(5)
@@ -459,6 +463,12 @@ class MotionManager(Manager):
                 [GoalStatus.SUCCEEDED, GoalStatus.PREEMPTED, GoalStatus.RECALLED, GoalStatus.ABORTED]:
                 break
         return self.goalStatus
+        """
+        client = actionlib.SimpleActionClient(self.name+"/run_goal_action", LowLevelPoseAction)
+        client.wait_for_server()
+        client.send_goal(currentActionGoal)
+        client.wait_for_result()
+        return client.get_state()
 
     """Wrapped version inside the goal server"""
     def _runGoal(self, actionGoal):

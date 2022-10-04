@@ -14,8 +14,8 @@ from move_base_msgs.msg import MoveBaseGoal, MoveBaseAction
 from nav_msgs.srv import GetPlan
 from geometry_msgs.msg import PoseStamped
 from actionlib_msgs.msg import GoalStatus
-from ReFrESH_ROS import ReFrESH_Module
-from ReFrESH_ROS_utils import Ftype, RingBuffer, DictObj
+from refresh_ros.ReFRESH_ros import ReFrESH_Module
+from refresh_ros.ReFRESH_ros_utils import Ftype, RingBuffer, DictObj
 from utils import *
 
 """
@@ -251,11 +251,11 @@ class MoveBaseModule(PlannerModule):
         self.speedLimit = [0.3, 0.3]
         # Resource metric: not-availability
         self.resourceMetrics = [0.5]
-        self.setComponentProperties('EX', Ftype.ACTION_CLI, 'move_base', self.feedbackCb, mType=MoveBaseAction,
+        self.setComponent('EX', Ftype.ACTION_CLI, 'move_base', self.feedbackCb, mType=MoveBaseAction,
                             kwargs={'active_cb': self.activeCb, 'done_cb': self.setTerminalState,
                                     'availTimeout': 1.0}, post=self.cancel)
-        self.setComponentProperties('EV', Ftype.TIMER, exec=self.evaluator, kwargs={'freq': 3.0})
-        self.setComponentProperties('ES', Ftype.CALLABLE, exec=self.estimator)
+        self.setComponent('EV', Ftype.TIMER, exec=self.evaluator, kwargs={'freq': 3.0})
+        self.setComponent('ES', Ftype.CALLABLE, exec=self.estimator)
         self.historyPoses = RingBuffer(50)
         # base global planner
         self.bgp = bgp

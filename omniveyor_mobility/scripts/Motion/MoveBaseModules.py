@@ -64,33 +64,13 @@ class pidControllerModule(MoveBaseModule):
         except Exception as e:
             print('ERROR: Dynamic Reconfigure Client of', self.name, 'FAILED:', e)
 
-def test(taskManager):
-    import time
-    import rospy
-    from geometry_msgs.msg import PoseStamped
-    try:
-        time.sleep(20)
-        # turn on by requesting the manager
-        tgt = PoseStamped()
-        tgt.header.stamp = rospy.Time.now()
-        tgt.pose.position.x = 1.0
-        tgt.pose.orientation.w = 1.0
-        taskManager.runGoal(tgt, timeout=60.0)
-        tgt.header.stamp = rospy.Time.now()
-        tgt.pose.position.x = 4.0
-        tgt.pose.position.y = -1.0
-        tgt.pose.orientation.w = 1.0
-        taskManager.runGoal(tgt)
-    except SystemExit:
-        return
-
 if __name__ == "__main__":
     import os
     import sys
     currentdir = os.path.dirname(os.path.realpath(__file__))
     parentdir = os.path.dirname(currentdir)
     sys.path.append(parentdir)
-    from ReFrESH_ROS_utils import Launcher, Thread, Ftype
+    from refresh_ros.ReFRESH_ros_utils import Launcher, Thread, Ftype
     from Managers import MotionManager, MoveBaseManager
     from TeleopModules import joystickTeleopModule, remoteTeleopModule, keyboardTeleopModule
     
@@ -100,8 +80,8 @@ if __name__ == "__main__":
     
     # a simple test case with three teleop modules.
     taskLauncher = Launcher("motionManager")
-    simThread = taskLauncher.launch(Ftype.LAUNCH_FILE, pkgName='omniveyor_gazebo_world', fileName='IMI.launch')
-    mappingThread = taskLauncher.launch(Ftype.LAUNCH_FILE, pkgName='omniveyor_mobility', fileName='map_and_localization.launch', args=('static_map:=0',))
+    simThread = taskLauncher.launch(Ftype.LAUNCH_FILE, pkgName='omniveyor_gazebo_world', fileName='omniveyorSim.launch')
+    mappingThread = taskLauncher.launch(Ftype.LAUNCH_FILE, pkgName='omniveyor_mobility', fileName='map_and_localization.launch', args=('static_map:=0', 'create_map_file:=1'))
     jsMod = joystickTeleopModule()
     rmMod = remoteTeleopModule()
     kbMod = keyboardTeleopModule()
@@ -110,6 +90,27 @@ if __name__ == "__main__":
     pid = pidControllerModule()
     mbMan = MoveBaseManager(taskLauncher, managedModules=[teb, dwa, pid])
     taskManager = MotionManager(taskLauncher, managedModules=[mbMan, kbMod]) #rmMod, jsMod
+
+    def test(taskManager:MotionManager):
+        import time
+        import rospy
+        from geometry_msgs.msg import PoseStamped
+        try:
+            time.sleep(20)
+            # turn on by requesting the manager
+            tgt = PoseStamped()
+            tgt.header.stamp = rospy.Time.now()
+            tgt.pose.position.x = 1.0
+            tgt.pose.orientation.w = 1.0
+            taskManager.runGoal(tgt, timeout=60.0)
+            tgt.header.stamp = rospy.Time.now()
+            tgt.pose.position.x = 4.0
+            tgt.pose.position.y = -1.0
+            tgt.pose.orientation.w = 1.0
+            taskManager.runGoal(tgt)
+        except SystemExit:
+            return
+
     t = Thread(target=test, args=(taskManager,))
     t.start()
     # blocking run
